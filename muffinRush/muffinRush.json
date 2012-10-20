@@ -1,0 +1,66 @@
+{
+    "cssFile" : "../theme/less/muffinRush.less",
+    "jsFiles" : ["../theme/js/muffinRushViews.js"],
+    "templatePath" : "../theme/templates",
+    "modelAssets" : {
+        "virtualGoods" : {
+            "fruit_cake" : "../theme/img/items/fruit_cake.png",
+            "pavlova" : "../theme/img/items/pavlova.png",
+            "chocolate_cake" : "../theme/img/items/chocolate_cake.png",
+            "cream_cup" : "../theme/img/items/cream_cup.png"
+        },
+        "currencyPacks" : {
+            "muffins_10" : "../theme/img/currencyPacks/muffins01.png",
+            "muffins_50" : "../theme/img/currencyPacks/muffins02.png",
+            "muffins_400" : "../theme/img/currencyPacks/muffins03.png",
+            "muffins_1000" : "../theme/img/currencyPacks/muffins04.png"
+        },
+        "virtualCurrencies" : {
+            "currency_muffin" : "../theme/img/muffin.png"
+        }
+    },
+    "theme" : {
+        "name" : "muffinRush",
+        "template" : "muffinRush",
+        "version" : 1,
+        "isOrientationLandscape" : false,
+        "pages" : {
+            "goods" :{
+                "title" : "../theme/img/Store_Store.png",
+                "background" : "../theme/img/Bg_Wall.png",
+                "headerBackground" : "../theme/img/Roof-Extended.png",
+                "backButton" : "../theme/img/back.png",
+                "moreCurrencyButton" : "../theme/img/GetMore.png",
+                "balance" : "../theme/img/YourMuf.png",
+                "list" : {
+                    "background" : "../theme/img/InnerBG.png"
+                },
+                "listItem" : {
+                    "background" : "../theme/img/Bar.png",
+                    "itemBackground" :"../theme/img/Mapit.png"
+                },
+                "noFundsModal" : {
+                    "background" : "img.png",
+                    "yesButton" : "../theme/img/modalDialog/Yes.png",
+                    "description" : "../theme/img/modalDialog/Description.png",
+                    "noButton" : "../theme/img/modalDialog/No.png"
+                }
+            },
+            "currencyPacks" : {
+                "title" : "../theme/img/Store_Store.png",
+                "background" : "../theme/img/Bg_Wall.png",
+                "headerBackground" : "../theme/img/Roof-Extended.png",
+                "backButton" : "../theme/img/back.png",
+                "balance" : "../theme/img/YourMuf.png",
+                "list" : {
+                    "background" : "../theme/img/InnerBG.png"
+                },
+                "listItem" : {
+                    "background" : "../theme/img/Bar.png",
+                    "itemBackground" :"../theme/img/Mapit.png"
+                }
+
+            }
+        }
+    }
+}
