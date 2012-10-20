@@ -6,9 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89146f22-62a9-4009-ba3d-6e0c9726b782" name="Default" comment="changed">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../submodules/storefront" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../.gitmodules" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../muffinRush/android-example/assets/theme/less/muffinRush.less" afterPath="$PROJECT_DIR$/../../muffinRush/android-example/assets/theme/less/muffinRush.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/src/com/soomla/example/surfstore/StoreExampleActivity.java" afterPath="$PROJECT_DIR$/../../basic/android-example/src/com/soomla/example/surfstore/StoreExampleActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +99,7 @@
       <file leaf-file-name="workspace.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="93" selection-start="1216" selection-end="1216" vertical-scroll-proportion="0.0">
+            <state line="18" column="93" selection-start="1204" selection-end="1204" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -625,7 +624,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="93" selection-start="1216" selection-end="1216" vertical-scroll-proportion="0.0">
+        <state line="18" column="93" selection-start="1204" selection-end="1204" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
