@@ -54,8 +54,7 @@
         {
             "name"          : "COINS",
             "description"   : "",
-            "itemId"        : "currency_coin",
-            "balance"       : 1000
+            "itemId"        : "currency_coin"
         }
     ],
     "virtualGoods" : [

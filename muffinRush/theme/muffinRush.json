@@ -45,8 +45,7 @@
         {
             "name"          : "Muffins",
             "description"   : "",
-            "itemId"        : "currency_muffin",
-            "balance"       : 1000
+            "itemId"        : "currency_muffin"
         }
     ],
     "categories" : [
