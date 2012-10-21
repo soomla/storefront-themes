@@ -2,111 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ab37cf2-2521-4190-b640-0138a346400d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/MuffinRushExample.apk" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/MuffinRushExample.apk.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/MuffinRushExample.apk.unaligned" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/classes.dex" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/android/vending/billing/IMarketBillingService$Stub$Proxy.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/android/vending/billing/IMarketBillingService$Stub.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/android/vending/billing/IMarketBillingService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/billing/BillingReceiver.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/billing/BillingService$BillingRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/billing/BillingService$CheckBillingSupported.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/billing/BillingService$ConfirmNotifications.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/billing/BillingService$GetPurchaseInformation.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/billing/BillingService$RequestPurchase.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/billing/BillingService$RestoreTransactions.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/billing/BillingService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/billing/Consts$PurchaseState.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/billing/Consts$ResponseCode.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/billing/Consts.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/billing/PurchaseObserver$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/billing/PurchaseObserver.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/billing/ResponseHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/billing/Security$VerifiedPurchase.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/billing/Security.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/billing/util/AESObfuscator$ValidationException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/billing/util/AESObfuscator.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/billing/util/Base64.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/billing/util/Base64DecoderException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/example/muffinRush/BuildConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/example/muffinRush/ExampleEventHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/example/muffinRush/MuffinRushAssets.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/example/muffinRush/R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/example/muffinRush/R$color.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/example/muffinRush/R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/example/muffinRush/R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/example/muffinRush/R$layout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/example/muffinRush/R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/example/muffinRush/R.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/example/muffinRush/StoreExampleActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/example/muffinRush/StoreExampleActivity$MyDragListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/example/muffinRush/StoreExampleActivity$MyTouchListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/example/muffinRush/StoreExampleActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/IStoreAssets.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/IStoreEventHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/StoreConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/StoreController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/StoreEventHandlers.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/data/GoogleManagedItemsStorage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/data/JSONConsts.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/data/StorageManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/data/StoreDatabase$DatabaseHelper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/data/StoreDatabase.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/data/StoreInfo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/data/StorefrontInfo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/data/VirtualCurrencyStorage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/data/VirtualGoodsStorage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/domain/data/AbstractPriceModel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/domain/data/AbstractVirtualItem.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/domain/data/BalanceDrivenPriceModel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/domain/data/GoogleMarketItem$Managed.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/domain/data/GoogleMarketItem.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/domain/data/StaticPriceModel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/domain/data/VirtualCategory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/domain/data/VirtualCurrency.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/domain/data/VirtualCurrencyPack.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/domain/data/VirtualGood.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/exceptions/InsufficientFundsException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/exceptions/NotEnoughGoodsException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/exceptions/VirtualItemNotFoundException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/storefront/StorefrontActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/storefront/StorefrontActivity$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/storefront/StorefrontActivity$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/storefront/StorefrontActivity$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/storefront/StorefrontActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/storefront/StorefrontController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/storefront/StorefrontJS$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MuffinRushExample/com/soomla/store/storefront/StorefrontJS.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/SurfStoreExample.apk.res" afterPath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/SurfStoreExample.apk.res" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/SurfStoreExample.apk.unaligned" afterPath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/SurfStoreExample.apk.unaligned" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/SurfStoreExample.apk" afterPath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/SurfStoreExample.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/classes.dex" afterPath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/classes.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/com/soomla/example/surfstore/StoreExampleActivity$1.class" afterPath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/com/soomla/example/surfstore/StoreExampleActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/com/soomla/example/surfstore/StoreExampleActivity$MyDragListener.class" afterPath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/com/soomla/example/surfstore/StoreExampleActivity$MyDragListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/com/soomla/example/surfstore/StoreExampleActivity$MyTouchListener.class" afterPath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/com/soomla/example/surfstore/StoreExampleActivity$MyTouchListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/com/soomla/example/surfstore/StoreExampleActivity.class" afterPath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/com/soomla/example/surfstore/StoreExampleActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/JetpackJoyrideExample.apk.res" afterPath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/JetpackJoyrideExample.apk.res" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/JetpackJoyrideExample.apk.unaligned" afterPath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/JetpackJoyrideExample.apk.unaligned" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/JetpackJoyrideExample.apk" afterPath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/JetpackJoyrideExample.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/classes.dex" afterPath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/classes.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/StoreExampleActivity$1.class" afterPath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/StoreExampleActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/StoreExampleActivity$MyDragListener.class" afterPath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/StoreExampleActivity$MyDragListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/StoreExampleActivity$MyTouchListener.class" afterPath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/StoreExampleActivity$MyTouchListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/StoreExampleActivity.class" afterPath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/StoreExampleActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../submodules/android-store" afterPath="$PROJECT_DIR$/../../submodules/android-store" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../submodules/ios-store" afterPath="$PROJECT_DIR$/../../submodules/ios-store" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../submodules/storefront" afterPath="$PROJECT_DIR$/../../submodules/storefront" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../templeRun/android-example/out/production/TempleRunExample/TempleRunExample.apk.res" afterPath="$PROJECT_DIR$/../../templeRun/android-example/out/production/TempleRunExample/TempleRunExample.apk.res" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../templeRun/android-example/out/production/TempleRunExample/TempleRunExample.apk.unaligned" afterPath="$PROJECT_DIR$/../../templeRun/android-example/out/production/TempleRunExample/TempleRunExample.apk.unaligned" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../templeRun/android-example/out/production/TempleRunExample/TempleRunExample.apk" afterPath="$PROJECT_DIR$/../../templeRun/android-example/out/production/TempleRunExample/TempleRunExample.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../basic/android-example/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/SurfStoreExample.iml" afterPath="$PROJECT_DIR$/../../basic/android-example/SurfStoreExample.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jetpackJoyride/android-example/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../jetpackJoyride/android-example/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jetpackJoyride/android-example/JetpackJoyrideExample.iml" afterPath="$PROJECT_DIR$/../../jetpackJoyride/android-example/JetpackJoyrideExample.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MuffinRushExample.iml" afterPath="$PROJECT_DIR$/MuffinRushExample.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../templeRun/android-example/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../templeRun/android-example/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../templeRun/android-example/TempleRunExample.iml" afterPath="$PROJECT_DIR$/../../templeRun/android-example/TempleRunExample.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../muffinRush.json" afterPath="$PROJECT_DIR$/../muffinRush.json" />
     </list>
     <ignored path="MuffinRushExample.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -163,7 +62,35 @@
     <favorites_list name="MuffinRushExample" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="JSONConsts.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../submodules/android-store/SoomlaAndroidStore/src/com/soomla/store/data/JSONConsts.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="47" selection-start="808" selection-end="824" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StorefrontInfo.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../submodules/android-store/SoomlaAndroidStore/src/com/soomla/store/data/StorefrontInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="17" selection-start="288" selection-end="292" vertical-scroll-proportion="-0.6923077">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StorefrontJS.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../submodules/storefront/native-store/android/StorefrontJS.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="118" column="21" selection-start="3957" selection-end="3957" vertical-scroll-proportion="0.44871795">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -223,7 +150,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -241,9 +167,76 @@
               <option name="myItemId" value="MuffinRushExample" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="soomla" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="store" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MuffinRushExample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MuffinRushExample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="soomla" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MuffinRushExample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MuffinRushExample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MuffinRushExample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MuffinRushExample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -259,8 +252,8 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager" selected="Android Application.StoreExampleActivity">
     <configuration default="false" name="StoreExampleActivity" type="AndroidRunConfigurationType" factoryName="Android Application" temporary="true">
@@ -303,24 +296,6 @@
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -346,6 +321,24 @@
       <envs />
       <properties />
       <listeners />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -454,27 +447,27 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1383" height="878" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32893" sideWeight="0.4973822" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893" sideWeight="0.4973822" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2883895" sideWeight="0.67107004" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2883895" sideWeight="0.67107004" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30779392" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893" sideWeight="0.4973822" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -550,23 +543,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/soomla/example/muffinRush/ExampleEventHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="0" selection-start="2528" selection-end="2528" vertical-scroll-proportion="3.068607">
-          <folding />
-        </state>
+        <state line="88" column="0" selection-start="2528" selection-end="2528" vertical-scroll-proportion="3.068607" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/soomla/example/muffinRush/MuffinRushAssets.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="0" selection-start="6910" selection-end="6910" vertical-scroll-proportion="0.96257794">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+        <state line="157" column="0" selection-start="6910" selection-end="6910" vertical-scroll-proportion="0.96257794" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/soomla/example/muffinRush/StoreExampleActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="34" selection-start="562" selection-end="562" vertical-scroll-proportion="0.33264032">
+        <state line="17" column="34" selection-start="562" selection-end="562" vertical-scroll-proportion="0.33264032" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../submodules/android-store/SoomlaAndroidStore/src/com/soomla/store/data/JSONConsts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="47" selection-start="808" selection-end="824" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../submodules/android-store/SoomlaAndroidStore/src/com/soomla/store/data/StorefrontInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="17" selection-start="288" selection-end="292" vertical-scroll-proportion="-0.6923077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../submodules/storefront/native-store/android/StorefrontJS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="118" column="21" selection-start="3957" selection-end="3957" vertical-scroll-proportion="0.44871795">
           <folding />
         </state>
       </provider>
