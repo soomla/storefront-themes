@@ -20,12 +20,13 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
             _.bindAll(this, "wantsToLeaveStore", "updateBalance",
-                            "render", "openDialog", "toggleItemBackground",
+                            "render", "toggleItemBackground",
                             "switchCategory", "showMenu",
                             "wantsToBuyVirtualGoods", "wantsToBuyCurrencyPacks");
 
-            this.nativeAPI  = this.options.nativeAPI || window.SoomlaNative;
-            this.theme      = this.model.get("theme");
+            this.nativeAPI   = this.options.nativeAPI || window.SoomlaNative;
+            this.theme       = this.model.get("theme");
+            this.dialogModel = this.theme.noFundsModal;
 
             this.model.get("virtualCurrencies").on("change:balance", this.updateBalance);
 
@@ -120,10 +121,6 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
         },
         showCurrencyStore : function() {},
         showGoodsStore : function() {},
-        openDialog : function(currency) {
-            this.createDialog({model : this.theme.noFundsModal}).render();
-            return this;
-        },
         onRender : function() {
             // Render child views (items in goods store and currency store)
             this.header.setElement(this.$(".header"));

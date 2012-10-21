@@ -137,6 +137,12 @@
             "name" : "Traditional Fish"
         }
     ],
+    "categories" : [
+        {
+            "id" : 1,
+            "name" : "General"
+        }
+    ],
     "modelAssets" : {
         "virtualGoods" : {
             "blue_surfboard" : "../theme/img/items/blue-surfboard.png",
