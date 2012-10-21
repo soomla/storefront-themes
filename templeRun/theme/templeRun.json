@@ -2,7 +2,6 @@
     "cssFiles" : ["../theme/less/templeRun.less"],
     "jsFiles" : ["../theme/js/templeRunViews.js"],
     "templatePath" : "../theme/templates",
-    "isCurrencyStoreDisabled" : false,
     "currencyPacks" : [
         {
             "name"              : "2,500 Coins",

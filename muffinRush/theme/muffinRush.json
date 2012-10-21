@@ -2,7 +2,6 @@
     "cssFiles" : ["../theme/less/muffinRush.less"],
     "jsFiles" : ["../theme/js/muffinRushViews.js"],
     "templatePath" : "../theme/templates",
-    "isCurrencyStoreDisabled" : false,
     "currencyPacks" : [
         {
             "name"              : "10 Muffins",
