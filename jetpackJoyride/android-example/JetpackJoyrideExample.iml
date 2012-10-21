@@ -40,6 +40,9 @@
     <content url="file://$MODULE_DIR$/../../submodules/android-store/SoomlaAndroidStore/src">
       <sourceFolder url="file://$MODULE_DIR$/../../submodules/android-store/SoomlaAndroidStore/src" isTestSource="false" />
     </content>
+    <content url="file://$MODULE_DIR$/../../submodules/storefront/native-store/android">
+      <sourceFolder url="file://$MODULE_DIR$/../../submodules/storefront/native-store/android" isTestSource="false" packagePrefix="com.soomla.store.storefront" />
+    </content>
     <orderEntry type="jdk" jdkName="Android 4.0.3 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

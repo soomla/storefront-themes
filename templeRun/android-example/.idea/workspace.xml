@@ -2,9 +2,106 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d297b53b-b240-48b4-836c-bb89162cb71b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../submodules/android-store" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../submodules/storefront" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../.gitmodules" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/TempleRunExample.apk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/TempleRunExample.apk.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/TempleRunExample.apk.unaligned" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/classes.dex" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/android/vending/billing/IMarketBillingService$Stub$Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/android/vending/billing/IMarketBillingService$Stub.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/android/vending/billing/IMarketBillingService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/billing/BillingReceiver.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/billing/BillingService$BillingRequest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/billing/BillingService$CheckBillingSupported.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/billing/BillingService$ConfirmNotifications.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/billing/BillingService$GetPurchaseInformation.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/billing/BillingService$RequestPurchase.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/billing/BillingService$RestoreTransactions.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/billing/BillingService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/billing/Consts$PurchaseState.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/billing/Consts$ResponseCode.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/billing/Consts.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/billing/PurchaseObserver$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/billing/PurchaseObserver.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/billing/ResponseHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/billing/Security$VerifiedPurchase.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/billing/Security.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/billing/util/AESObfuscator$ValidationException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/billing/util/AESObfuscator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/billing/util/Base64.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/billing/util/Base64DecoderException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/example/templeRun/BuildConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/example/templeRun/ExampleEventHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/example/templeRun/R$attr.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/example/templeRun/R$color.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/example/templeRun/R$drawable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/example/templeRun/R$id.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/example/templeRun/R$layout.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/example/templeRun/R$string.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/example/templeRun/R.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/example/templeRun/StoreExampleActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/example/templeRun/StoreExampleActivity$MyDragListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/example/templeRun/StoreExampleActivity$MyTouchListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/example/templeRun/StoreExampleActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/example/templeRun/TempleRunAssets.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/IStoreAssets.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/IStoreEventHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/StoreConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/StoreController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/StoreEventHandlers.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/data/GoogleManagedItemsStorage.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/data/JSONConsts.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/data/StorageManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/data/StoreDatabase$DatabaseHelper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/data/StoreDatabase.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/data/StoreInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/data/StorefrontInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/data/VirtualCurrencyStorage.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/data/VirtualGoodsStorage.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/domain/data/AbstractPriceModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/domain/data/AbstractVirtualItem.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/domain/data/BalanceDrivenPriceModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/domain/data/GoogleMarketItem$Managed.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/domain/data/GoogleMarketItem.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/domain/data/StaticPriceModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/domain/data/VirtualCategory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/domain/data/VirtualCurrency.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/domain/data/VirtualCurrencyPack.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/domain/data/VirtualGood.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/exceptions/InsufficientFundsException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/exceptions/NotEnoughGoodsException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/exceptions/VirtualItemNotFoundException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/storefront/StorefrontActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/storefront/StorefrontActivity$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/storefront/StorefrontActivity$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/storefront/StorefrontActivity$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/storefront/StorefrontActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/storefront/StorefrontController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/storefront/StorefrontJS$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TempleRunExample/com/soomla/store/storefront/StorefrontJS.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/SurfStoreExample.apk.res" afterPath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/SurfStoreExample.apk.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/SurfStoreExample.apk.unaligned" afterPath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/SurfStoreExample.apk.unaligned" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/SurfStoreExample.apk" afterPath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/SurfStoreExample.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/classes.dex" afterPath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/com/soomla/example/surfstore/StoreExampleActivity$1.class" afterPath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/com/soomla/example/surfstore/StoreExampleActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/com/soomla/example/surfstore/StoreExampleActivity$MyDragListener.class" afterPath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/com/soomla/example/surfstore/StoreExampleActivity$MyDragListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/com/soomla/example/surfstore/StoreExampleActivity$MyTouchListener.class" afterPath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/com/soomla/example/surfstore/StoreExampleActivity$MyTouchListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/com/soomla/example/surfstore/StoreExampleActivity.class" afterPath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/com/soomla/example/surfstore/StoreExampleActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/JetpackJoyrideExample.apk.res" afterPath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/JetpackJoyrideExample.apk.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/JetpackJoyrideExample.apk.unaligned" afterPath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/JetpackJoyrideExample.apk.unaligned" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/JetpackJoyrideExample.apk" afterPath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/JetpackJoyrideExample.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/classes.dex" afterPath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/StoreExampleActivity$1.class" afterPath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/StoreExampleActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/StoreExampleActivity$MyDragListener.class" afterPath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/StoreExampleActivity$MyDragListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/StoreExampleActivity$MyTouchListener.class" afterPath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/StoreExampleActivity$MyTouchListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/StoreExampleActivity.class" afterPath="$PROJECT_DIR$/../../jetpackJoyride/android-example/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/StoreExampleActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../submodules/android-store" afterPath="$PROJECT_DIR$/../../submodules/android-store" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../submodules/storefront" afterPath="$PROJECT_DIR$/../../submodules/storefront" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../basic/android-example/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/SurfStoreExample.iml" afterPath="$PROJECT_DIR$/../../basic/android-example/SurfStoreExample.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jetpackJoyride/android-example/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../jetpackJoyride/android-example/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jetpackJoyride/android-example/JetpackJoyrideExample.iml" afterPath="$PROJECT_DIR$/../../jetpackJoyride/android-example/JetpackJoyrideExample.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TempleRunExample.iml" afterPath="$PROJECT_DIR$/TempleRunExample.iml" />
     </list>
     <ignored path="TempleRunExample.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,16 +168,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StoreExampleActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="StoreExampleActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/soomla/example/templeRun/StoreExampleActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="35" selection-start="1532" selection-end="1532" vertical-scroll-proportion="0.0">
+            <state line="17" column="34" selection-start="561" selection-end="561" vertical-scroll-proportion="0.21757323">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="templeRun.json" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="templeRun.json" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/templeRun.json">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -157,6 +254,20 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TempleRunExample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TempleRunExample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -167,7 +278,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -186,75 +296,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TempleRunExample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TempleRunExample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android-example" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TempleRunExample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TempleRunExample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android-example" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templeRun" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TempleRunExample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TempleRunExample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android-example" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Modules" />
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="OverrideImplement.combined" value="true" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="recentsLimit" value="5" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="OverrideImplement.combined" value="true" />
     <property name="MemberChooser.sorted" value="false" />
+    <property name="recentsLimit" value="5" />
     <property name="MemberChooser.showClasses" value="true" />
-    <property name="project.structure.side.proportion" value="0.0" />
     <property name="GoToClass.includeLibraries" value="false" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="MemberChooser.copyJavadoc" value="false" />
   </component>
   <component name="RunManager" selected="Android Application.StoreExampleActivity">
@@ -298,6 +354,24 @@
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -323,24 +397,6 @@
       <envs />
       <properties />
       <listeners />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -423,6 +479,7 @@
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+      <changelist id="d297b53b-b240-48b4-836c-bb89162cb71b" name="Default" comment="" />
       <created>1350769546954</created>
       <updated>1350769546954</updated>
     </task>
@@ -432,27 +489,27 @@
     <frame x="0" y="22" width="1383" height="878" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24981302" sideWeight="0.67107004" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2494382" sideWeight="0.67107004" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -516,9 +573,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/soomla/example/templeRun/ExampleEventHandler.java">
@@ -535,16 +590,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/soomla/example/templeRun/StoreExampleActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="35" selection-start="1532" selection-end="1532" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/templeRun.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/soomla/example/templeRun/StoreExampleActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="34" selection-start="561" selection-end="561" vertical-scroll-proportion="0.21757323">
           <folding />
         </state>
       </provider>
