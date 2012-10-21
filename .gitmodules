@@ -4,3 +4,6 @@
 [submodule "submodules/storefront"]
 	path = submodules/storefront
 	url = git@github.com:soomla/storefront
+[submodule "submodules/ios-store"]
+	path = submodules/ios-store
+	url = git@github.com:soomla/ios-store.git
