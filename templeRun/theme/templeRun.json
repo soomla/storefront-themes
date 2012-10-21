@@ -283,7 +283,10 @@
                 },
                 "listItem" : {
                     "background" : "",
-                    "balanceBackground" : "../theme/img/Item_Balance.png"
+                    "balanceBackground" : "../theme/img/Item_Balance.png",
+                    "buy" : "../theme/img/buy.png",
+                    "equip" : "../theme/img/equip.png",
+                    "active" : "../theme/img/active.png"
                 },
                 "noFundsModal" : {
                     "background" : "../theme/img/Alert_BG.png",
