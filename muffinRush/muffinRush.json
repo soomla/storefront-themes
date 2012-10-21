@@ -1,5 +1,5 @@
 {
-    "cssFile" : "../theme/less/muffinRush.less",
+    "cssFiles" : ["../theme/less/muffinRush.less"],
     "jsFiles" : ["../theme/js/muffinRushViews.js"],
     "templatePath" : "../theme/templates",
     "modelAssets" : {

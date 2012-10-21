@@ -1,5 +1,5 @@
 {
-    "cssFile" : "../theme/less/basic.less",
+    "cssFiles" : ["../theme/less/basic.less"],
     "jsFiles" : ["../theme/js/basicViews.js"],
     "templatePath" : "../theme/templates",
     "isCurrencyStoreDisabled" : false,
