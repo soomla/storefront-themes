@@ -121,6 +121,16 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 $this.$("#goods-store .items-container").append(view.render().el);
             });
             this.$("#currency-store .items-container").html(this.currencyPacksView.render().el);
+
+            // Adjust zoom to fit nicely in viewport
+            // This helps cope with various viewports, i.e. mobile, tablet...
+            var adjustBodySize = function() {
+                $("body").css("zoom", Math.min(innerWidth / 560, 1));
+            };
+            $(window).resize(adjustBodySize);
+            adjustBodySize();
+
+            // TODO: Add -webkit-text-size-adjust for iOS devices
         }
     });
 
