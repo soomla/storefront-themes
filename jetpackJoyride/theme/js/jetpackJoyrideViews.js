@@ -86,8 +86,8 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                     "itemview:buy"          : function(view) { $this.wantsToBuyVirtualGoods(view.model); },
                     "itemview:equipped"     : function(view) { $this.wantsToEquipGoods(view.model); },
                     "itemview:unequipped"   : function(view) { $this.wantsToUnequipGoods(view.model); },
-                    expanded                : $this.toggleItemBackground,
-                    collapsed               : $this.toggleItemBackground
+                    "itemview:expanded"     : $this.toggleItemBackground,
+                    "itemview:collapsed"    : $this.toggleItemBackground
                 });
 
                 $this.pageViews[categoryName] = view;
