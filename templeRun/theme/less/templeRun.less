@@ -8,6 +8,9 @@
 
 @standardWidth: 460px;
 
+// GENERAL LAYOUT
+// --------------------------------------------------
+
 html {
     font-family: AGarmando;
 }
@@ -22,8 +25,46 @@ ul {
 	text-align: center;
 }
 
-// Make sure that level-0 backgrounds "contain" the viewport
+.header {
+    margin: 0 auto;
+
+    .title-image {
+        display: block;
+        width: @standardWidth;
+        height: 100px;
+        margin: 0 auto;
+    }
+
+    .balance-container {
+        position: relative;
+        text-align: right;
+
+        .balance-image {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .label-container {
+            position: absolute;
+            top: -10000px;
+            left: -10000px;
+            text-align: center;
+        }
+    }
+}
+
+.footer {
+    img {
+        display: block;
+        width: 500px;
+        height: 100px;
+        margin: 0 auto;
+    }
+}
+
 #goods-store, #currency-store {
+
+    // Make sure that level-0 backgrounds "contain" the viewport
     .background-size(cover);
 
     & > .content {
@@ -45,15 +86,15 @@ ul {
 
 .virtualGoods, .currencyPacks {
 	background-position: center;
-
-	&.items {
-		padding: 0;
-	}
 }
 
 .category {
     text-align: center;
 }
+
+
+// SINGLE LIST ITEMS
+// --------------------------------------------------
 
 .virtualGoods .item {
     @totalHeight: 100px;
@@ -158,47 +199,10 @@ ul {
     width: 100%;
 }
 
-.header {
-    margin: 0 auto;
 
-    .title-image {
-        display: block;
-        width: @standardWidth;
-        height: 100px;
-        margin: 0 auto;
-    }
 
-    .balance-container {
-        position: relative;
-        text-align: right;
-
-        .balance-image {
-            display: block;
-            margin: 0 auto;
-        }
-
-        .label-container {
-            position: absolute;
-            top: -10000px;
-            left: -10000px;
-            text-align: center;
-        }
-    }
-}
-
-.footer {
-	img {
-        display: block;
-        width: 500px;
-        height: 100px;
-        margin: 0 auto;
-	}
-}
-
-.leave-store, .back, .buy-more, .cancel {
-	cursor: pointer;
-}
-
+// MODAL DIALOG
+// --------------------------------------------------
 .dialog {
 	.box(vertical, center);
 }
