@@ -18,19 +18,22 @@ ul {
     list-style-type: none;
 }
 
-.content-background {
-    position: absolute;
-    z-index: -1;
-    width: 480px;
-    height: 100%;
-    display: block;
-    left: 50%;
-    margin-left: -240px;
-}
-
 .header, .footer {
 	text-align: center;
 }
+
+// Make sure that level-0 backgrounds "contain" the viewport
+#goods-store, #currency-store {
+    .background-size(cover);
+
+    & > .content {
+        width: 500px;
+        height: 100%;
+        .box(vertical);
+        margin: 0 auto;
+    }
+}
+
 
 .items-container {
     width: @standardWidth;
@@ -156,18 +159,23 @@ ul {
 }
 
 .header {
-    width: @standardWidth;
     margin: 0 auto;
 
     .title-image {
         display: block;
         width: @standardWidth;
         height: 100px;
+        margin: 0 auto;
     }
 
     .balance-container {
         position: relative;
         text-align: right;
+
+        .balance-image {
+            display: block;
+            margin: 0 auto;
+        }
 
         .label-container {
             position: absolute;
