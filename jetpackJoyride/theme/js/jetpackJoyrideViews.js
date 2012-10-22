@@ -52,27 +52,36 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 template        : Handlebars.getTemplate("categoryMenuItem")
             });
 
-            this.currencyPacksView = new Components.CollectionListView({
-                className           : "items currencyPacks category",
-                collection          : currencyPacks,
-                itemView            : CurrencyPackView
-            }).on("itemview:buy", function(view) { $this.wantsToBuyCurrencyPacks(view.model); });
 
 
+            // Create an object to store all child views
+            this.pageViews = {};
 
-            this.pageViews = [];
+            // Build category menu and add it to the page views
+            categories.add({name : "GET COINS", imgFilePath : this.model.get("modelAssets").currencyPacksCategory});
+            var categoryMenuView = new Components.CollectionListView({
+                className   : "menu items clearfix",
+                collection  : categories,
+                itemView    : CategoryView
+            }).on("itemview:selected", this.switchCategory);
+            this.pageViews["menu"]  = categoryMenuView;
+
+            // Mark this view as the active view,
+            // as it is the first one visible when the store opens
+            this.activeCategoryView = categoryMenuView;
+
+            // Render all categories with their internal lists
             categories.each(function(category) {
-                // Currency packs have a view of their own so don't add one for their category
-                if (category.get("name") == "currencyPacks") return;
 
-                var categoryGoods = virtualGoods.filter(function(item) {return item.get("categoryId") == category.id});
-                categoryGoods = new Backbone.Collection(categoryGoods);
-                var categoryName = category.get("name");
+                // Filter a collection goods associated with the current category
+                var categoryGoods   = virtualGoods.filter(function(item) {return item.get("categoryId") == category.id});
+                categoryGoods       = new Backbone.Collection(categoryGoods);
+                var categoryName    = category.get("name");
 
                 var view = new Components.CollectionListView({
-                    className           : "items virtualGoods category " + categoryName,
-                    collection          : categoryGoods,
-                    itemView            : VirtualGoodView
+                    className   : "items virtualGoods category " + categoryName,
+                    collection  : categoryGoods,
+                    itemView    : VirtualGoodView
                 }).on({
                     "itemview:buy"          : function(view) { $this.wantsToBuyVirtualGoods(view.model); },
                     "itemview:equipped"     : function(view) { $this.wantsToEquipGoods(view.model); },
@@ -81,27 +90,33 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                     collapsed               : $this.toggleItemBackground
                 });
 
-                $this.pageViews.push(view);
+                $this.pageViews[categoryName] = view;
             });
-            this.pageViews.push(this.currencyPacksView);
 
-            this.categoryMenuView = new Components.CollectionListView({
-                className           : "menu items clearfix",
-                collection          : categories,
-                itemView            : CategoryView
-            }).on("selected", this.switchCategory);
 
+            // Build currency packs category and add it to the page views
+            this.currencyPacksView = new Components.CollectionListView({
+                className   : "items currencyPacks category",
+                collection  : currencyPacks,
+                itemView    : CurrencyPackView
+            }).on("itemview:buy", function(view) { $this.wantsToBuyCurrencyPacks(view.model); });
+            this.pageViews["GET COINS"] = this.currencyPacksView;
+
+
+            // Build header view
             this.header = new HeaderView().on({
                 "back" : this.showMenu,
                 "quit" : this.wantsToLeaveStore
             }, this);
         },
-        switchCategory : function(model) {
+        switchCategory : function(view) {
             this.header.state = "category";
-            var categoryName = model.get("name");
-            this.$(".menu").hide();
-            this.$(".category").hide();
-            this.$(".category." + categoryName).show();
+            var categoryName = view.model.get("name");
+
+            this.activeCategoryView.$el.hide();
+            this.activeCategoryView = this.pageViews[view.model.get("name")];
+            this.activeCategoryView.$el.show();
+
             this.header.switchHeader(categoryName, this.theme.images.backImage);
         },
         toggleItemBackground : function(view) {
@@ -110,8 +125,9 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
         },
         showMenu : function() {
             this.header.state = "menu";
-            this.$(".menu").show();
-            this.$(".category").hide();
+            this.activeCategoryView.$el.hide();
+            this.activeCategoryView = this.pageViews["menu"];
+            this.activeCategoryView.$el.show();
             this.header.switchHeader(this.theme.pages.menu.title, this.theme.images.quitImage);
         },
         updateBalance : function(model) {
@@ -121,10 +137,10 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             // Append background to element
             this.$el.css("background-image", "url('" + this.theme.background + "')");
 
-            // Render child views (items in goods store and currency store)
+            // Set header element to bind event delegation
             this.header.setElement(this.$(".header"));
-            this.$(".pages").append(this.categoryMenuView.render().el);
 
+            // Render child views (items in goods store and currency store)
             var $this = this;
             _.each(this.pageViews, function(view) {
                 $this.$(".pages").append(view.render().el);

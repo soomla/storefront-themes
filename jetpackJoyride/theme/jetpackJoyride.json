@@ -9,8 +9,7 @@
             "currency_itemId"   : "currency_coin",
             "productId"         : "coin_booster_pack",
             "price"             : 0.99,
-            "amount"            : 20000,
-            "categoryId"       : 6
+            "amount"            : 20000
         },
         {
             "name"              : "COIN MEGA PACK",
@@ -18,8 +17,7 @@
             "currency_itemId"   : "currency_coin",
             "productId"         : "android.test.purchased",
             "price"             : 1.99,
-            "amount"            : 50000,
-            "categoryId"       : 6
+            "amount"            : 50000
         },
         {
             "name"              : "COIN ULTRA PACK",
@@ -27,8 +25,7 @@
             "currency_itemId"   : "currency_coin",
             "productId"         : "coin_ultra_pack",
             "price"             : 2.99,
-            "amount"            : 100000,
-            "categoryId"       : 6
+            "amount"            : 100000
         },
         {
             "name"              : "COIN JUMBO PACK",
@@ -36,8 +33,7 @@
             "currency_itemId"   : "currency_coin",
             "productId"         : "coin_jumbo_pack",
             "price"             : 4.99,
-            "amount"            : 250000,
-            "categoryId"       : 6
+            "amount"            : 250000
         },
         {
             "name"              : "COIN ULTIMATE PACK",
@@ -45,8 +41,7 @@
             "currency_itemId"   : "currency_coin",
             "productId"         : "coin_ultimate_pack",
             "price"             : 9.99,
-            "amount"            : 600000,
-            "categoryId"       : 6
+            "amount"            : 600000
         }
     ],
     "virtualCurrencies" : [
@@ -244,9 +239,9 @@
             "2" : "../theme/img/-_Object_5.png",
             "3" : "../theme/img/-_Object_3.png",
             "4" : "../theme/img/-_Object_2.png",
-            "5" : "../theme/img/-_Object_1.png",
-            "6" : "../theme/img/-_Object_8.png"
+            "5" : "../theme/img/-_Object_1.png"
         },
+        "currencyPacksCategory" : "../theme/img/-_Object_8.png",
         "virtualGoods" : {
             "experimental_fuel" : "../theme/img/UtilitiesObjects/objects-06.png",
             "band_aid" : "../theme/img/UtilitiesObjects/objects-08.png",
@@ -326,10 +321,6 @@
         {
             "id" : 5,
             "name" : "CLOTHING"
-        },
-        {
-            "id" : 6,
-            "name" : "GET COINS"
         }
     ]
 }
