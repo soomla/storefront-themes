@@ -56,7 +56,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 className           : "items currencyPacks category",
                 collection          : currencyPacks,
                 itemView            : CurrencyPackView
-            }).on("bought", this.wantsToBuyCurrencyPacks);
+            }).on("itemview:buy", function(view) { $this.wantsToBuyCurrencyPacks(view.model); });
 
 
 
@@ -71,15 +71,14 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
                 var view = new Components.CollectionListView({
                     className           : "items virtualGoods category " + categoryName,
-                    category            : category,
                     collection          : categoryGoods,
                     itemView            : VirtualGoodView
                 }).on({
-                    bought      : $this.wantsToBuyVirtualGoods,
-                    equipped    : $this.wantsToEquipGoods,
-                    unequipped  : $this.wantsToUnequipGoods,
-                    expanded    : $this.toggleItemBackground,
-                    collapsed   : $this.toggleItemBackground
+                    "itemview:buy"          : function(view) { $this.wantsToBuyVirtualGoods(view.model); },
+                    "itemview:equipped"     : function(view) { $this.wantsToEquipGoods(view.model); },
+                    "itemview:unequipped"   : function(view) { $this.wantsToUnequipGoods(view.model); },
+                    expanded                : $this.toggleItemBackground,
+                    collapsed               : $this.toggleItemBackground
                 });
 
                 $this.pageViews.push(view);
