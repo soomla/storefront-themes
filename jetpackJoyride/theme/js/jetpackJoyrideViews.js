@@ -119,8 +119,6 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
         updateBalance : function(model) {
             this.$(".balance-container label").html(model.get("balance"));
         },
-        showCurrencyStore : function() {},
-        showGoodsStore : function() {},
         onRender : function() {
             // Render child views (items in goods store and currency store)
             this.header.setElement(this.$(".header"));
@@ -130,6 +128,17 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             _.each(this.pageViews, function(view) {
                 $this.$(".pages").append(view.render().el);
             });
+
+
+            // Adjust zoom to fit nicely in viewport
+            // This helps cope with various viewports, i.e. mobile, tablet...
+            var adjustBodySize = function() {
+                $("body").css("zoom", Math.min(innerHeight / 640, 1));
+            };
+            $(window).resize(adjustBodySize);
+            adjustBodySize();
+
+            // TODO: Add -webkit-text-size-adjust for iOS devices
         }
     });
 
