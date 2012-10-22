@@ -14,6 +14,8 @@
 @grayLighter:           #eee;
 @grayLightest:          #F8F8F8;
 
+@externalWidth: 880px;
+
 ul {
     padding: 0;
     margin: 0;
@@ -26,17 +28,21 @@ ul {
     height: 100%;
 }
 .header {
-	text-align: center;
+    text-align: center;
 }
 .main-container {
+    width: @externalWidth;
+    margin: 0 auto;
     height: 100%;
     .box(vertical);
 }
 
 .menu {
+    // Menu item variables
     @itemMargin: 10px;
     @itemPadding: 0;
-    @itemFace: 200px;
+    @itemFace: 150px;
+
     list-style-type: none;
     padding: 0;
     margin: 20px auto 0;
@@ -49,6 +55,11 @@ ul {
         width: @itemFace;
         height: @itemFace;
         background: @grayLighter;
+
+        img {
+            max-width: @itemFace;
+            max-height: @itemFace;
+        }
     }
 }
 
