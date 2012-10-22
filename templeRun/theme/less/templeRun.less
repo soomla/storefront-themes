@@ -93,20 +93,29 @@ ul {
 }
 
 
-// SINGLE LIST ITEMS
+// SINGLE LIST ITEMS - VIRTUAL GOODS
 // --------------------------------------------------
 
 .virtualGoods .item {
+
+    // Local variables
     @totalHeight: 100px;
     @visualWidth: 100px;
-    background-position: center;
-    padding-left: 10px;
+    @secondRowHeight: 30px;
+    @balanceWidth: 50px;
+    @balanceHeight: 50px;
 
+
+    background-position: center;
+
+    // Item image
     .visual {
         float: left;
         width: @visualWidth;
         height: @totalHeight;
     }
+
+    // Item content (container of description, price, balance, buy button)
     .content {
         @padding: 10px;
         height: @totalHeight - (2 * @padding);
@@ -114,13 +123,15 @@ ul {
         padding: @padding;
     }
 
+    // The content is layed out in two rows
     .row:first-child {
-        height: 50px;
+        height: @balanceHeight;
     }
     .row:last-child {
-        height: 30px;
+        height: @secondRowHeight;
     }
-    @balanceWidth: 50px;
+
+    // 1st row contents
     .balance {
         float:right;
         font-size: 18px;
@@ -128,38 +139,38 @@ ul {
         width: @balanceWidth;
         background-size: 100%;
     }
-
     .description {
         margin-right: @balanceWidth;
         font-size: 16px;
-        line-height: 16px;
     }
-
     .balance, .description {
         .box(vertical, center, center);
         height: 100%;
     }
 
+    // 2nd row contents
     .price {
         font-size: 20px;
         font-weight: bold;
         font-style: italic;
-        color: #ab744d;
-        text-shadow: 2px 2px 2px #FFFFFF;
+        color: #FFF;
+        text-shadow: 2px 2px 2px #000;
     }
     .currency {
-        width: 30px;
-        height: 30px;
+        width: @secondRowHeight;
+        height: @secondRowHeight;
     }
-
     .buy, .equip, .active {
         float:right;
     }
-
     .equip, .active {
         display: none;
     }
 }
+
+
+// SINGLE LIST ITEMS - CURRENCY PACKS
+// --------------------------------------------------
 
 .currencyPacks .item {
     @totalHeight: 100px;
@@ -169,11 +180,14 @@ ul {
     width: 400px;
     margin: 0 auto;
 
+    // Currency pack image
     .visual {
         float: left;
         width: @visualWidth;
         height: @totalHeight;
     }
+
+    // Amount & Price
     .price {
         height: 100%;
         margin-left: @visualWidth;
@@ -197,6 +211,7 @@ ul {
 
 .separator {
     width: 100%;
+    max-height: 20px;
 }
 
 
