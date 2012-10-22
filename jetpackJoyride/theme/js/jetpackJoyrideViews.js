@@ -120,6 +120,9 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             this.$(".balance-container label").html(model.get("balance"));
         },
         onRender : function() {
+            // Append background to element
+            this.$el.css("background-image", "url('" + this.theme.background + "')");
+
             // Render child views (items in goods store and currency store)
             this.header.setElement(this.$(".header"));
             this.$(".pages").append(this.categoryMenuView.render().el);
