@@ -95,12 +95,12 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
 
             // Build currency packs category and add it to the page views
-            this.currencyPacksView = new Components.CollectionListView({
+            var currencyPacksView = new Components.CollectionListView({
                 className   : "items currencyPacks category",
                 collection  : currencyPacks,
                 itemView    : CurrencyPackView
             }).on("itemview:buy", function(view) { $this.wantsToBuyCurrencyPacks(view.model); });
-            this.pageViews["GET COINS"] = this.currencyPacksView;
+            this.pageViews["GET COINS"] = currencyPacksView;
 
 
             // Build header view
