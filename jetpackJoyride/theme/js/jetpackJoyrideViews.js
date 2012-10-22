@@ -99,12 +99,11 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
         },
         switchCategory : function(model) {
             this.header.state = "category";
-            var categoryName = model.get("name"),
-                categoryTitle = model.get("title");
+            var categoryName = model.get("name");
             this.$(".menu").hide();
             this.$(".category").hide();
             this.$(".category." + categoryName).show();
-            this.header.switchHeader(categoryTitle, this.theme.images.backImage);
+            this.header.switchHeader(categoryName, this.theme.images.backImage);
         },
         toggleItemBackground : function(view) {
             var image = this.theme.images[view.expanded ? "itemBackgroundImageExpanded" : "itemBackgroundImage"];

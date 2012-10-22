@@ -309,33 +309,27 @@
      "categories" : [
         {
             "id" : 1,
-            "name" : "utilities",
-            "title" : "UTILITIES"
+            "name" : "UTILITIES"
         },
         {
             "id" : 2,
-            "name" : "gadgets",
-            "title" : "GADGETS"
+            "name" : "GADGETS"
         },
         {
             "id" : 3,
-            "name" : "upgrades",
-            "title" : "UPGRADES"
+            "name" : "UPGRADES"
         },
         {
             "id" : 4,
-            "name" : "airplanes",
-            "title" : "AIRPLANES"
+            "name" : "AIRPLANES"
         },
         {
             "id" : 5,
-            "name" : "clothing",
-            "title" : "CLOTHING"
+            "name" : "CLOTHING"
         },
         {
             "id" : 6,
-            "name" : "currencyPacks",
-            "title" : "GET COINS"
+            "name" : "GET COINS"
         }
     ]
 }
