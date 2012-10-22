@@ -20,8 +20,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
             _.bindAll(this, "wantsToLeaveStore", "updateBalance",
-                            "render", "toggleItemBackground",
-                            "switchCategory", "showMenu",
+                            "render", "toggleItemBackground", "switch",
                             "wantsToBuyVirtualGoods", "wantsToBuyCurrencyPacks");
 
             this.nativeAPI   = this.options.nativeAPI || window.SoomlaNative;
@@ -38,6 +37,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 $this           = this;
 
 
+            // Define view types
             var VirtualGoodView = Components.ExpandableListItemView.extend({
                 template        : Handlebars.getTemplate("item"),
                 templateHelpers : templateHelpers,
@@ -63,12 +63,12 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 className   : "menu items clearfix",
                 collection  : categories,
                 itemView    : CategoryView
-            }).on("itemview:selected", this.switchCategory);
+            }).on("itemview:selected", function(view) { this.switch(view.model.get("name")); }, this);
             this.pageViews["menu"]  = categoryMenuView;
 
             // Mark this view as the active view,
             // as it is the first one visible when the store opens
-            this.activeCategoryView = categoryMenuView;
+            this.activeView = categoryMenuView;
 
             // Render all categories with their internal lists
             categories.each(function(category) {
@@ -105,30 +105,22 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
             // Build header view
             this.header = new HeaderView().on({
-                "back" : this.showMenu,
-                "quit" : this.wantsToLeaveStore
+                back : function() { this.switch("menu"); },
+                quit : this.wantsToLeaveStore
             }, this);
         },
-        switchCategory : function(view) {
-            this.header.state = "category";
-            var categoryName = view.model.get("name");
-
-            this.activeCategoryView.$el.hide();
-            this.activeCategoryView = this.pageViews[view.model.get("name")];
-            this.activeCategoryView.$el.show();
-
-            this.header.switchHeader(categoryName, this.theme.images.backImage);
+        switch : function(name) {
+            this.header.state = name;
+            this.activeView.$el.hide();
+            this.activeView = this.pageViews[name];
+            this.activeView.$el.show();
+            var title = name == "menu" ? this.theme.pages.menu.title : name,
+                image = name == "menu" ? this.theme.images.quitImage : this.theme.images.backImage;
+            this.header.switchHeader(title, image);
         },
         toggleItemBackground : function(view) {
             var image = this.theme.images[view.expanded ? "itemBackgroundImageExpanded" : "itemBackgroundImage"];
             view.$el.css("background-image", "url('" + image + "')");
-        },
-        showMenu : function() {
-            this.header.state = "menu";
-            this.activeCategoryView.$el.hide();
-            this.activeCategoryView = this.pageViews["menu"];
-            this.activeCategoryView.$el.show();
-            this.header.switchHeader(this.theme.pages.menu.title, this.theme.images.quitImage);
         },
         updateBalance : function(model) {
             this.$(".balance-container label").html(model.get("balance"));
