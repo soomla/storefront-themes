@@ -76,7 +76,7 @@ define(["jquery", "backbone", "components", "cssUtils", "handlebars", "templates
                 categoryGoods = new Backbone.Collection(categoryGoods);
                 var categoryName = category.get("name");
 
-                var view = new Components.CollectionListView({
+                var view = new Components.CarouselView({
                     tagName             : "div",
                     className           : "items virtualGoods category " + categoryName,
                     category            : category,
@@ -86,7 +86,7 @@ define(["jquery", "backbone", "components", "cssUtils", "handlebars", "templates
 
                 $this.pageViews.push(view);
             });
-            this.pageViews.push(this.currencyPacksView);
+//            this.pageViews.push(this.currencyPacksView);
 
             categories.add({name : "currencyPacks"});
 
@@ -143,7 +143,7 @@ define(["jquery", "backbone", "components", "cssUtils", "handlebars", "templates
                 $this.$("#categories").append(view.render().el);
                 view.$el.attr("id", view.options.category.get("name"));
             });
-            this.$("#categories ul:first").addClass("active");
+            this.$("#categories > div:first").addClass("active");
         }
     });
 
