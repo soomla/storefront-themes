@@ -38,20 +38,22 @@
             "currency_coin" : "../theme/img/coin.png"
         }
     },
-"theme" : {
+    "theme" : {
         "name" : "jetpackJoyride",
         "template" : "jetpackJoyride",
         "version" : 1,
         "isOrientationLandscape" : true,
         "balance" : {
-            "style" : "top: 30px; left: 15px; width: 100px; text-align: right"
+            "style" : "top: 30px; left: 15px; width: 100px; text-align: right; color: #FFF;"
         },
         "background" : "../theme/img/BG_BG.jpg",
-        "headerBackground" : "../theme/img/Header.jpg",
+        "headerBackground" : "../theme/img/Header.png",
         "noFundsModal" : {
             "background" : "../theme/img/Alert-22.png"
         },
         "images" : {
+            "contentBackground" : "../theme/img/ContentBackground.png",
+            "itemAreaBackground" : "../theme/img/ItemAreaBackground.png",
             "buyImage" : "../theme/img/BUY.png",
             "equippedIndicatorImage" : "../theme/img/Green_Owned.png",
             "notEquippedIndicatorImage" : "../theme/img/Gray_Owned.png",
@@ -62,7 +64,7 @@
             "itemBackgroundImage" : "../theme/img/BG_Product.png",
             "itemBackgroundImageExpanded" : "../theme/img/BG_Product_Ext.png"
         },
-        "titleStyle" : "",
+        "titleStyle" : "color: #FFF",
         "pages" : {
             "menu" : {
                 "title" : "The Store",

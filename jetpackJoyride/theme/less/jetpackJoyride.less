@@ -15,6 +15,7 @@
 @grayLightest:          #F8F8F8;
 
 @externalWidth: 880px;
+@internalWidth: 700px;
 
 
 // GENERAL LAYOUT
@@ -29,20 +30,32 @@ ul {
     .background-size(cover);
 }
 
-.main-container {
+// Sets the outer most width in which all the content is fit into
+#main-container {
     width: @externalWidth;
-    margin: 0 auto;
     height: 100%;
-    .box(vertical);
+    margin: 0 auto;
+    .box(vertical,center, center);
 }
 
-.pages {
-    .box-flex(1);
+// Holds all the content i.e. header, pages etc.
+#content-container {
+    width: 880px;
+    height: 550px;
+    .background-size(cover);
+    .box(vertical,center, center);
+}
+
+#pages {
+    width: 700px;
+    height: 370px;
     overflow-y: scroll;
 }
 
 .header {
+    width: @internalWidth;
     height: 60px;
+    margin-bottom: 10px;
     padding: 10px;
     text-align: center;
     .box;
@@ -92,7 +105,7 @@ ul {
 
     list-style-type: none;
     padding: 0;
-    margin: 20px auto 0;
+    margin: 0 auto;
     width: (2 * (@itemPadding + @itemMargin) + @itemFace) * 4;
 
     li {
@@ -118,7 +131,7 @@ ul {
 
 .items {
     list-style-type: none;
-    padding: 0;
+    padding: 10px;
 }
 
 .category {

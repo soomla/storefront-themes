@@ -135,14 +135,15 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             // Render child views (items in goods store and currency store)
             var $this = this;
             _.each(this.pageViews, function(view) {
-                $this.$(".pages").append(view.render().el);
+                $this.$("#pages").append(view.render().el);
             });
 
 
             // Adjust zoom to fit nicely in viewport
             // This helps cope with various viewports, i.e. mobile, tablet...
             var adjustBodySize = function() {
-                $("body").css("zoom", Math.min(innerHeight / 640, 1));
+                var ratio = (innerWidth / innerHeight) > 1.5 ? (innerHeight / 640) : (innerWidth / 960);
+                $("body").css("zoom", ratio);
             };
             $(window).resize(adjustBodySize);
             adjustBodySize();
