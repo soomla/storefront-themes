@@ -1,0 +1,242 @@
+@import "css/mixins/elements.less";
+
+@baseUrl: "../theme";
+
+@font-face {
+    font-family: Calibri;
+    src: url("@{baseUrl}/fonts/calibrib.ttf");
+}
+
+// THEME VARIABLES
+// --------------------------------------------------
+
+@grayDarker:        #222;
+@grayDark:          #333;
+@gray:              #555;
+@grayLight:         #ccc;
+@grayLighter:       #eee;
+@grayLightest:      #F8F8F8;
+
+@externalWidth:     550px;
+@externalHeight:    850px;
+@internalWidth:     490px;
+@internalHeight:    550px;
+@headerHeight:      200px;
+
+
+// GENERAL LAYOUT
+// --------------------------------------------------
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+#main {
+    .box(horizontal, center, center);
+    .background-size(cover);
+    background-position: center;
+}
+
+// Holds all the content i.e. header, pages etc.
+#content-container {
+    height: @externalHeight;
+    width: @externalWidth;
+    .box(vertical,center, center);
+    .background-size(cover);
+    background-position: center;
+}
+
+#pages {
+    height: @internalHeight;
+    width: @internalWidth;
+    overflow-y: scroll;
+}
+
+.header {
+    @padding: 10px;
+    @topBarHeight: 60px;
+    width: @internalWidth;
+    height: @headerHeight - (2 * @padding);
+    margin-bottom: 10px;
+    padding: @padding;
+    text-align: center;
+
+    #top-bar {
+        height: @topBarHeight;
+        .box();
+    }
+    .title-container {
+        height: @headerHeight - (2 * @padding) - @topBarHeight;
+        .box(vertical, center);
+        h1 {
+            text-align: center;
+            font-family: Calibri;
+            font-size: 60px;
+        }
+    }
+
+    .back, .balance-container {
+        .box-flex(1);
+    }
+
+    .back {
+        text-align: left;
+    }
+
+    #back-button {
+        display: none;
+    }
+
+    .balance-container {
+        position: relative;
+        text-align: right;
+
+        .label-container {
+            position: absolute;
+            top: -10000px;
+            left: -10000px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    }
+
+}
+
+// CATEGORY MENU
+// --------------------------------------------------
+
+.menu {
+    // Menu item variables
+    @itemMargin: 10px;
+    @itemPadding: 0;
+    @itemFace: 200px;
+
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    width: (2 * (@itemPadding + @itemMargin) + @itemFace) * 2;
+
+    li {
+        float: left;
+        padding: @itemPadding;
+        margin: @itemMargin;
+        width: @itemFace;
+        height: @itemFace;
+        background: @grayLighter;
+
+        img {
+            max-width: @itemFace;
+            max-height: @itemFace;
+        }
+    }
+}
+
+// In case a background image is applied...
+.item, .header {
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.items {
+    list-style-type: none;
+    padding: 10px;
+}
+
+.category {
+    display: none;
+}
+
+
+// SINGLE LIST ITEMS - VIRTUAL GOODS
+// --------------------------------------------------
+
+.item {
+    padding: 10px;
+    @innerMargin: 15px;
+    @collapsedHeight: 100px;
+    height: @collapsedHeight;
+    overflow: hidden;
+    .background-size(cover);
+    .transition(height, 0.2s);
+
+    &.expanded {
+        height: 2 * @collapsedHeight;
+    }
+
+    .row {
+        .box();
+        height: @collapsedHeight;
+    }
+
+    .equipped, .not-equipped {
+        width: 20px;
+        height: @collapsedHeight;
+        margin: 0 10px;
+    }
+
+    .item-image {
+        width: @collapsedHeight;
+        height: @collapsedHeight;
+    }
+    .content {
+        padding: 0 @innerMargin;
+        .box-flex(1);
+        .box(vertical, center);
+    }
+
+    h1 {
+        font-size: 18px;
+        line-height: 30px;
+    }
+
+    .price, .buy-container {
+        .box(horizontal, end, center);
+        width: 100px;
+        margin-right: @innerMargin;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .price img {
+        width: 40px;
+        height: 40px;
+    }
+    .buy-container img {
+        width: 140px;
+        height: 60px;
+    }
+
+    .description {
+        padding: @innerMargin;
+        .box-flex(1);
+        .box(vertical, center);
+    }
+}
+
+
+// MODAL DIALOG
+// --------------------------------------------------
+.modal {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    .box(horizontal, center, center);
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.dialog {
+	width: 520px;
+    height: 200px;
+    .box(vertical, center);
+
+    h1 {
+        text-transform: uppercase;
+        font-size: 48px;
+        font-weight: bold;
+        text-align: center;
+    }
+}

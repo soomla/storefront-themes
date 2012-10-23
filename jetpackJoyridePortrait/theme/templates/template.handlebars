@@ -1,0 +1,23 @@
+<div id="content-container" style="background-image: url('{{images.contentBackground}}');">
+    <div class="header" style="background-image: url('{{headerBackground}}');">
+        <div id="top-bar">
+            <div class="back">
+                <a id="quit-button"><img src="{{images.quitImage}}"></a>
+                <a id="back-button"><img src="{{images.backImage}}"></a>
+            </div>
+            <div class="balance-container">
+                <img class="balance-image" src="{{pages.menu.balance}}" alt="Balance Image">
+                <div class="label-container" style="{{balance.style}}">
+                    {{#each currencies}}
+                    <label>{{this.balance}}</label>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        <div class="title-container">
+            <h1 style="{{titleStyle}}">{{pages.menu.title}}</h1>
+        </div>
+    </div>
+    <div id="pages" style="background-image: url('{{images.itemAreaBackground}}');">
+    </div>
+</div>
