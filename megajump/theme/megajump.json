@@ -1,7 +1,7 @@
 {
-    "cssFile" : "themes/megajump/less/megajump.less",
-    "jsFiles" : ["themes/megajump/js/megajumpViews.js"],
-    "templatePath" : "themes/megajump/templates",
+    "cssFiles" : ["../theme/less/megajump.less"],
+    "jsFiles" : ["../theme/js/megajumpViews.js", "../theme/js/bootstrap-tab.js"],
+    "templatePath" : "../theme/templates",
     "isCurrencyStoreDisabled" : false,
     "currencyPacks" : [
         {
@@ -10,8 +10,7 @@
             "currency_itemId"   : "currency_coin",
             "productId"         : "muffins_10",
             "price"             : 0.99,
-            "amount"            : 10,
-            "categoryId"       : 1
+            "amount"            : 10
         },
         {
             "name"              : "50 Muffins",
@@ -19,8 +18,7 @@
             "currency_itemId"   : "currency_coin",
             "productId"         : "android.test.purchased",
             "price"             : 1.99,
-            "amount"            : 50,
-            "categoryId"       : 1
+            "amount"            : 50
         },
         {
             "name"              : "400 Muffins",
@@ -28,8 +26,7 @@
             "currency_itemId"   : "currency_coin",
             "productId"         : "muffins_400",
             "price"             : 4.99,
-            "amount"            : 400,
-            "categoryId"       : 1
+            "amount"            : 400
         },
         {
             "name"              : "1000 Muffins",
@@ -37,16 +34,14 @@
             "currency_itemId"   : "currency_coin",
             "productId"         : "muffins_1000",
             "price"             : 8.99,
-            "amount"            : 1000,
-            "categoryId"       : 1
+            "amount"            : 1000
         }
     ],
     "virtualCurrencies" : [
         {
             "name"          : "Coins",
             "description"   : "",
-            "itemId"        : "currency_coin",
-            "balance"       : 1000
+            "itemId"        : "currency_coin"
         }
     ],
     "virtualGoods" : [
@@ -100,6 +95,10 @@
         }
     ],
     "modelAssets" : {
+        "categories" : {
+            "1" : "http://placehold.it/100x100",
+            "2" : "http://placehold.it/100x100"
+        },
         "virtualGoods" : {
             "fruit_cake" : "http://placehold.it/100x100",
             "pavlova" : "http://placehold.it/100x100",
@@ -158,13 +157,11 @@
     "categories" : [
         {
             "id" : 1,
-            "name" : "players",
-            "categoryImage" : "http://placehold.it/100x100"
+            "name" : "players"
         },
         {
             "id" : 2,
-            "name" : "powerups",
-            "categoryImage" : "http://placehold.it/100x100"
+            "name" : "powerups"
         }
     ]
 }

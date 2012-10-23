@@ -1,4 +1,4 @@
-define(["jquery", "backbone", "components", "cssUtils", "handlebars", "templates", "libs/jquery/bootstrap-tab"], function($, Backbone, Components, CssUtils, Handlebars) {
+define(["jquery", "backbone", "components", "handlebars", "templates"], function($, Backbone, Components, Handlebars) {
 
     var HeaderView = Backbone.View.extend({
         initialize : function() {
@@ -32,25 +32,25 @@ define(["jquery", "backbone", "components", "cssUtils", "handlebars", "templates
 
             var virtualGoods    = this.model.get("virtualGoods"),
                 currencyPacks   = this.model.get("currencyPacks"),
-                categories      = new Backbone.Collection(this.model.get("categories")),
+                categories      = this.model.get("categories"),
                 templateHelpers = { images : this.theme.images },
                 $this           = this;
 
 
             var VirtualGoodView = Components.ListItemView.extend({
                 tagName         : "div",
-                template        : Handlebars.getTemplate("themes/" + this.theme.name + "/templates", "item"),
+                template        : Handlebars.getTemplate("item"),
                 templateHelpers : templateHelpers,
                 css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
             });
             var CurrencyPackView = Components.ListItemView.extend({
-                template        : Handlebars.getTemplate("themes/" + this.theme.name + "/templates", "currencyPack"),
+                template        : Handlebars.getTemplate("currencyPack"),
                 templateHelpers : templateHelpers,
                 css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
             });
             var CategoryView = Components.ListItemView.extend({
                 collection      : categories,
-                template        : Handlebars.getTemplate("themes/" + this.theme.name + "/templates", "categoryMenuItem")
+                template        : Handlebars.getTemplate("categoryMenuItem")
             });
 
             this.currencyPacksView = new Components.CollectionListView({
