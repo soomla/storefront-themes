@@ -1,6 +1,6 @@
-define(["jquery", "backbone", "components", "handlebars", "templates"], function($, Backbone, Components, Handlebars) {
+define(["jquery", "backbone", "components", "marionette", "handlebars", "templates"], function($, Backbone, Components, Marionette, Handlebars) {
 
-    var HeaderView = Backbone.View.extend({
+    var HeaderView = Marionette.View.extend({
         initialize : function() {
             _.bindAll(this, "switchHeader");
             this.state = "menu";
@@ -10,9 +10,20 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 this.trigger(this.state == "menu" ? "quit" : "back");
             }
         },
-        switchHeader : function(title, backImage) {
+        ui : {
+            backButton : "#back-button",
+            quitButton : "#quit-button"
+        },
+        switchHeader : function(title) {
             this.$(".title-container h1").html(title);
-            this.$(".back img").attr("src", backImage);
+
+            if (this.state == "menu") {
+                this.ui.backButton.hide();
+                this.ui.quitButton.show();
+            } else {
+                this.ui.quitButton.hide();
+                this.ui.backButton.show();
+            }
         }
     });
 
@@ -20,8 +31,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
             _.bindAll(this, "wantsToLeaveStore", "updateBalance",
-                            "render", "toggleItemBackground",
-                            "switchCategory", "showMenu",
+                            "render", "switch",
                             "wantsToBuyVirtualGoods", "wantsToBuyCurrencyPacks");
 
             this.nativeAPI   = this.options.nativeAPI || window.SoomlaNative;
@@ -38,12 +48,25 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 $this           = this;
 
 
-            var VirtualGoodView = Components.ExpandableListItemView.extend({
+            // Define view types
+            var ExpandableListItemView = Components.ExpandableListItemView.extend({
+                onExpand        : function() {
+                    this.$el.addClass("expanded");
+                    this.$(".expand-collapse").attr("src", this.templateHelpers.images.collapseImage);
+                    this.$el.css("background-image", "url('" + this.templateHelpers.images.itemBackgroundImageExpanded + "')");
+                },
+                onCollapse      : function() {
+                    this.$el.removeClass("expanded");
+                    this.$(".expand-collapse").attr("src", this.templateHelpers.images.expandImage);
+                    this.$el.css("background-image", "url('" + this.templateHelpers.images.itemBackgroundImage + "')");
+                }
+            });
+            var VirtualGoodView = ExpandableListItemView.extend({
                 template        : Handlebars.getTemplate("item"),
                 templateHelpers : templateHelpers,
                 css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
             });
-            var CurrencyPackView = Components.ExpandableListItemView.extend({
+            var CurrencyPackView = ExpandableListItemView.extend({
                 template        : Handlebars.getTemplate("currencyPack"),
                 templateHelpers : templateHelpers,
                 css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
@@ -52,88 +75,99 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 template        : Handlebars.getTemplate("categoryMenuItem")
             });
 
-            this.currencyPacksView = new Components.CollectionListView({
-                className           : "items currencyPacks category",
-                collection          : currencyPacks,
-                itemView            : CurrencyPackView
-            }).on("bought", this.wantsToBuyCurrencyPacks);
 
 
+            // Create an object to store all child views
+            this.pageViews = {};
 
-            this.pageViews = [];
+            // Build category menu and add it to the page views
+            categories.add({name : "GET COINS", imgFilePath : this.model.get("modelAssets").currencyPacksCategory});
+            var categoryMenuView = new Components.CollectionListView({
+                className   : "menu items clearfix",
+                collection  : categories,
+                itemView    : CategoryView
+            }).on("itemview:selected", function(view) { this.switch(view.model.get("name")); }, this);
+            this.pageViews["menu"]  = categoryMenuView;
+
+            // Mark this view as the active view,
+            // as it is the first one visible when the store opens
+            this.activeView = categoryMenuView;
+
+            // Render all categories with their internal lists
             categories.each(function(category) {
-                // Currency packs have a view of their own so don't add one for their category
-                if (category.get("name") == "currencyPacks") return;
 
-                var categoryGoods = virtualGoods.filter(function(item) {return item.get("categoryId") == category.id});
-                categoryGoods = new Backbone.Collection(categoryGoods);
-                var categoryName = category.get("name");
+                // Filter a collection goods associated with the current category
+                var categoryGoods   = virtualGoods.filter(function(item) {return item.get("categoryId") == category.id});
+                categoryGoods       = new Backbone.Collection(categoryGoods);
+                var categoryName    = category.get("name");
 
                 var view = new Components.CollectionListView({
-                    className           : "items virtualGoods category " + categoryName,
-                    category            : category,
-                    collection          : categoryGoods,
-                    itemView            : VirtualGoodView
+                    className   : "items virtualGoods category " + categoryName,
+                    collection  : categoryGoods,
+                    itemView    : VirtualGoodView
                 }).on({
-                    bought      : $this.wantsToBuyVirtualGoods,
-                    equipped    : $this.wantsToEquipGoods,
-                    unequipped  : $this.wantsToUnequipGoods,
-                    expanded    : $this.toggleItemBackground,
-                    collapsed   : $this.toggleItemBackground
+                    "itemview:buy"          : function(view) { $this.wantsToBuyVirtualGoods(view.model);},
+                    "itemview:equipped"     : function(view) { $this.wantsToEquipGoods(view.model);     },
+                    "itemview:unequipped"   : function(view) { $this.wantsToUnequipGoods(view.model);   }
                 });
 
-                $this.pageViews.push(view);
+                $this.pageViews[categoryName] = view;
             });
-            this.pageViews.push(this.currencyPacksView);
 
-            this.categoryMenuView = new Components.CollectionListView({
-                className           : "menu items clearfix",
-                collection          : categories,
-                itemView            : CategoryView
-            }).on("selected", this.switchCategory);
 
+            // Build currency packs category and add it to the page views
+            var currencyPacksView = new Components.CollectionListView({
+                className   : "items currencyPacks category",
+                collection  : currencyPacks,
+                itemView    : CurrencyPackView
+            }).on("itemview:buy", function(view) { $this.wantsToBuyCurrencyPacks(view.model); });
+            this.pageViews["GET COINS"] = currencyPacksView;
+
+
+            // Build header view
             this.header = new HeaderView().on({
-                "back" : this.showMenu,
-                "quit" : this.wantsToLeaveStore
+                back : function() {
+                    // First, collapse all list items that are open
+                    _.each(this.activeView.children, function(view) {
+                        if (view.expanded) view.collapse();
+                    });
+
+                    // Second, switch back to the menu
+                    this.switch("menu");
+                },
+                quit : this.wantsToLeaveStore
             }, this);
         },
-        switchCategory : function(model) {
-            this.header.state = "category";
-            var categoryName = model.get("name"),
-                categoryTitle = model.get("title");
-            this.$(".menu").hide();
-            this.$(".category").hide();
-            this.$(".category." + categoryName).show();
-            this.header.switchHeader(categoryTitle, this.theme.images.backImage);
-        },
-        toggleItemBackground : function(view) {
-            var image = this.theme.images[view.expanded ? "itemBackgroundImageExpanded" : "itemBackgroundImage"];
-            view.$el.css("background-image", "url('" + image + "')");
-        },
-        showMenu : function() {
-            this.header.state = "menu";
-            this.$(".menu").show();
-            this.$(".category").hide();
-            this.header.switchHeader(this.theme.pages.menu.title, this.theme.images.quitImage);
+        switch : function(name) {
+            this.header.state = name;
+            this.activeView.$el.hide();
+            this.activeView = this.pageViews[name];
+            this.activeView.$el.show();
+            var title = name == "menu" ? this.theme.pages.menu.title : name;
+            this.header.switchHeader(title);
         },
         updateBalance : function(model) {
             this.$(".balance-container label").html(model.get("balance"));
         },
         onRender : function() {
-            // Render child views (items in goods store and currency store)
-            this.header.setElement(this.$(".header"));
-            this.$(".pages").append(this.categoryMenuView.render().el);
+            // Append background to element
+            this.$el.css("background-image", "url('" + this.theme.background + "')");
 
+            // Set header element to bind event delegation
+            this.header.setElement(this.$(".header")).bindUIElements();
+
+            // Render child views (items in goods store and currency store)
             var $this = this;
             _.each(this.pageViews, function(view) {
-                $this.$(".pages").append(view.render().el);
+                $this.$("#pages").append(view.render().el);
             });
 
 
             // Adjust zoom to fit nicely in viewport
             // This helps cope with various viewports, i.e. mobile, tablet...
             var adjustBodySize = function() {
-                $("body").css("zoom", Math.min(innerHeight / 640, 1));
+                var ratio = (innerWidth / innerHeight) > 1.5 ? (innerHeight / 640) : (innerWidth / 960);
+                $("body").css("zoom", ratio);
             };
             $(window).resize(adjustBodySize);
             adjustBodySize();
