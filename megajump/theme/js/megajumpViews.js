@@ -61,11 +61,18 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
 
 
-
-            var categoryMenu = new Components.CollectionListView({
+           // Build a category menu that will cause the main area
+           // to switch categories every time a menu item is selected, using tabs
+           this.categoryMenu = new Components.CollectionListView({
                 collection          : categories,
-                itemView            : CategoryView
-            });//.on("selected", this.switchCategory);
+                itemView            : CategoryView,
+                onRender            : function() {
+                    // Activate tabs
+                    this.$("li:first").addClass("active");
+                }
+            }).on("itemview:selected", function(view) {
+                view.$("a").tab("show");
+            });
 
 
 
@@ -99,9 +106,6 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
             this.header = new HeaderView().on("back", this.showMenu).on("quit", this.wantsToLeaveStore);
 
-            this.children = {
-                "#category-menu"    : categoryMenu
-            };
         },
         switchCategory : function(model) {
             this.header.state = "category";
@@ -127,12 +131,8 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             return this;
         },
         onRender : function() {
-            // Activate tabs
-            $("#category-menu li:first").addClass("active");
-            $("#category-menu a").click(function (e) {
-                e.preventDefault();
-                $(this).tab('show');
-            });
+
+            this.categoryMenu.setElement("#category-menu").render();
 
             // Render child views (items in goods store and currency store)
             this.header.setElement(this.$(".header"));
