@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4ab37cf2-2521-4190-b640-0138a346400d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../submodules/ios-store" afterPath="$PROJECT_DIR$/../../submodules/ios-store" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../submodules/storefront" afterPath="$PROJECT_DIR$/../../submodules/storefront" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../muffinRush.json" afterPath="$PROJECT_DIR$/../muffinRush.json" />
-    </list>
+    <list default="true" id="4ab37cf2-2521-4190-b640-0138a346400d" name="Default" comment="" />
     <ignored path="MuffinRushExample.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -250,6 +245,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />

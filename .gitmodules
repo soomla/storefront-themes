@@ -3,7 +3,7 @@
 	url = git@github.com:soomla/android-store.git
 [submodule "submodules/storefront"]
 	path = submodules/storefront
-	url = git@github.com:soomla/storefront
+	url = git@github.com:soomla/storefront.git
 [submodule "submodules/ios-store"]
 	path = submodules/ios-store
 	url = git@github.com:soomla/ios-store.git
