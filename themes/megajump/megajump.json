@@ -147,12 +147,12 @@
     "categories" : [
         {
             "id" : 1,
-            "name" : "clothing",
+            "name" : "players",
             "categoryImage" : "http://placehold.it/100x100"
         },
         {
             "id" : 2,
-            "name" : "jetpacks",
+            "name" : "powerups",
             "categoryImage" : "http://placehold.it/100x100"
         }
     ]

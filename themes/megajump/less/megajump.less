@@ -26,11 +26,19 @@ ul {
     }
 
     li {
-        float: left
+        float: left;
     }
 }
 #categories {
     .box-flex(1);
+
+    li {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
 }
 
 

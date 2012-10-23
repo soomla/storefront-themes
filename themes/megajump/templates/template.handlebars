@@ -1,25 +1,34 @@
 <img src="{{background}}" class="background">
 <div class="main-container">
-    <div class="header" style="background-image: url('{{headerBackground}}');">
-        <div class="back">
-            <img src="{{images.quitImage}}">
-        </div>
-        <div class="title-container">
-            <img class="title-image" src="{{pages.menu.title}}" alt="Title Image">
-        </div>
-        <div class="balance-container">
-            <img class="balance-image" src="{{pages.menu.balance}}" alt="Balance Image">
-            <div class="label-container" style="{{balance.style}}">
-                {{#each currencies}}
-                <label>{{this.balance}}</label>
-                {{/each}}
-            </div>
-        </div>
-    </div>
-    <div class="pages">
-    </div>
+    <!--<div class="header" style="background-image: url('{{headerBackground}}');">-->
+        <!--<div class="back">-->
+            <!--<img src="{{images.quitImage}}">-->
+        <!--</div>-->
+        <!--<div class="title-container">-->
+            <!--<img class="title-image" src="{{pages.menu.title}}" alt="Title Image">-->
+        <!--</div>-->
+        <!--<div class="balance-container">-->
+            <!--<img class="balance-image" src="{{pages.menu.balance}}" alt="Balance Image">-->
+            <!--<div class="label-container" style="{{balance.style}}">-->
+                <!--{{#each currencies}}-->
+                <!--<label>{{this.balance}}</label>-->
+                <!--{{/each}}-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="pages">-->
+    <!--</div>-->
 
-    <div id="categories"></div>
+    <div id="categories">
+        <ul>
+            <li class="active" id="players">
+                Players
+            </li>
+            <li id="powerups">
+                Powerups
+            </li>
+        </ul>
+    </div>
     <div id="category-menu">
 
     </div>

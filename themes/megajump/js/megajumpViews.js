@@ -1,4 +1,4 @@
-define(["jquery", "backbone", "components", "cssUtils", "handlebars", "templates"], function($, Backbone, Components, CssUtils, Handlebars) {
+define(["jquery", "backbone", "components", "cssUtils", "handlebars", "templates", "libs/jquery/bootstrap-tab"], function($, Backbone, Components, CssUtils, Handlebars) {
 
     var HeaderView = Backbone.View.extend({
         initialize : function() {
@@ -64,7 +64,7 @@ define(["jquery", "backbone", "components", "cssUtils", "handlebars", "templates
             var categoryMenu = new Components.CollectionListView({
                 collection          : categories,
                 itemView            : CategoryView
-            });
+            });//.on("selected", this.switchCategory);
 
 
 
@@ -96,7 +96,7 @@ define(["jquery", "backbone", "components", "cssUtils", "handlebars", "templates
             this.header = new HeaderView().on("back", this.showMenu).on("quit", this.wantsToLeaveStore);
 
             this.children = {
-                "#category-menu" : categoryMenu
+                "#category-menu"    : categoryMenu
             };
         },
         switchCategory : function(model) {
@@ -123,6 +123,13 @@ define(["jquery", "backbone", "components", "cssUtils", "handlebars", "templates
             return this;
         },
         onRender : function() {
+            // Activate tabs
+            $("#category-menu li:first").addClass("active");
+            $("#category-menu a").click(function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            });
+
             // Render child views (items in goods store and currency store)
             this.header.setElement(this.$(".header"));
             this.$(".pages").append(this.categoryMenuView.render().el);
