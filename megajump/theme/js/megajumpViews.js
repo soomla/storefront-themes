@@ -48,8 +48,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 templateHelpers : templateHelpers,
                 css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
             });
-            var CategoryView = Components.ListItemView.extend({
-                collection      : categories,
+            var CategoryMenuItemView = Components.ListItemView.extend({
                 template        : Handlebars.getTemplate("categoryMenuItem")
             });
 
@@ -65,7 +64,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
            // to switch categories every time a menu item is selected, using tabs
            this.categoryMenu = new Components.CollectionListView({
                 collection          : categories,
-                itemView            : CategoryView,
+                itemView            : CategoryMenuItemView,
                 onRender            : function() {
                     // Activate tabs
                     this.$("li:first").addClass("active");
@@ -97,13 +96,6 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
             categories.add({name : "currencyPacks"});
 
-            // TODO: delete
-            this.categoryMenuView = new Components.CollectionListView({
-                className           : "menu items clearfix",
-                collection          : categories,
-                itemView            : CategoryView
-            }).on("selected", this.switchCategory);
-
             this.header = new HeaderView().on("back", this.showMenu).on("quit", this.wantsToLeaveStore);
 
         },
@@ -124,19 +116,17 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
         updateBalance : function(model) {
             this.$(".balance-container label").html(model.get("balance"));
         },
-        showCurrencyStore : function() {},
-        showGoodsStore : function() {},
         openDialog : function(currency) {
             this.createDialog({model : this.theme.noFundsModal}).render();
             return this;
         },
         onRender : function() {
 
-            this.categoryMenu.setElement("#category-menu").render();
-
-            // Render child views (items in goods store and currency store)
+            // Render header
             this.header.setElement(this.$(".header"));
-            this.$(".pages").append(this.categoryMenuView.render().el); // TODO: delete
+
+            // Render category menu
+            this.categoryMenu.setElement("#category-menu").render();
 
             var $this = this;
             _.each(this.pageViews, function(view) {
