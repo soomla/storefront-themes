@@ -20,7 +20,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
             _.bindAll(this, "wantsToLeaveStore", "updateBalance",
-                            "render", "toggleItemBackground", "switch",
+                            "render", "switch",
                             "wantsToBuyVirtualGoods", "wantsToBuyCurrencyPacks");
 
             this.nativeAPI   = this.options.nativeAPI || window.SoomlaNative;
@@ -38,12 +38,24 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
 
             // Define view types
-            var VirtualGoodView = Components.ExpandableListItemView.extend({
+            var ExpandableListItemView = Components.ExpandableListItemView.extend({
+                onExpand        : function() {
+                    this.$el.addClass("expanded");
+                    this.$(".expand-collapse").attr("src", this.templateHelpers.images.collapseImage);
+                    this.$el.css("background-image", "url('" + this.templateHelpers.images.itemBackgroundImageExpanded + "')");
+                },
+                onCollapse      : function() {
+                    this.$el.removeClass("expanded");
+                    this.$(".expand-collapse").attr("src", this.templateHelpers.images.expandImage);
+                    this.$el.css("background-image", "url('" + this.templateHelpers.images.itemBackgroundImage + "')");
+                }
+            });
+            var VirtualGoodView = ExpandableListItemView.extend({
                 template        : Handlebars.getTemplate("item"),
                 templateHelpers : templateHelpers,
                 css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
             });
-            var CurrencyPackView = Components.ExpandableListItemView.extend({
+            var CurrencyPackView = ExpandableListItemView.extend({
                 template        : Handlebars.getTemplate("currencyPack"),
                 templateHelpers : templateHelpers,
                 css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
@@ -85,9 +97,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 }).on({
                     "itemview:buy"          : function(view) { $this.wantsToBuyVirtualGoods(view.model); },
                     "itemview:equipped"     : function(view) { $this.wantsToEquipGoods(view.model); },
-                    "itemview:unequipped"   : function(view) { $this.wantsToUnequipGoods(view.model); },
-                    "itemview:expanded"     : $this.toggleItemBackground,
-                    "itemview:collapsed"    : $this.toggleItemBackground
+                    "itemview:unequipped"   : function(view) { $this.wantsToUnequipGoods(view.model); }
                 });
 
                 $this.pageViews[categoryName] = view;
@@ -117,10 +127,6 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             var title = name == "menu" ? this.theme.pages.menu.title : name,
                 image = name == "menu" ? this.theme.images.quitImage : this.theme.images.backImage;
             this.header.switchHeader(title, image);
-        },
-        toggleItemBackground : function(view) {
-            var image = this.theme.images[view.expanded ? "itemBackgroundImageExpanded" : "itemBackgroundImage"];
-            view.$el.css("background-image", "url('" + image + "')");
         },
         updateBalance : function(model) {
             this.$(".balance-container label").html(model.get("balance"));
