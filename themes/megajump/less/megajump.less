@@ -31,12 +31,15 @@ ul {
 }
 #categories {
     .box-flex(1);
+    position: relative;
 
-    li {
+    & > div {
         display: none;
+        position: absolute;
+        height: 100%;
 
         &.active {
-            display: block;
+            .box(vertical, center, center);
         }
     }
 }
@@ -48,9 +51,7 @@ ul {
     width: 100%;
     height: 100%;
 }
-.header {
-	text-align: center;
-}
+
 .main-container {
     height: 100%;
     .box(vertical);
@@ -147,7 +148,7 @@ ul {
 }
 
 .header {
-	height: 60px;
+	height: 200px;
     padding: 10px;
 	.box;
 

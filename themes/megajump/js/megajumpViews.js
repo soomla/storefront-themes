@@ -37,12 +37,13 @@ define(["jquery", "backbone", "components", "cssUtils", "handlebars", "templates
                 $this           = this;
 
 
-            var VirtualGoodView = Components.ExpandableListItemView.extend({
+            var VirtualGoodView = Components.ListItemView.extend({
+                tagName         : "div",
                 template        : Handlebars.getTemplate("themes/" + this.theme.name + "/templates", "item"),
                 templateHelpers : templateHelpers,
                 css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
             });
-            var CurrencyPackView = Components.ExpandableListItemView.extend({
+            var CurrencyPackView = Components.ListItemView.extend({
                 template        : Handlebars.getTemplate("themes/" + this.theme.name + "/templates", "currencyPack"),
                 templateHelpers : templateHelpers,
                 css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
@@ -76,6 +77,7 @@ define(["jquery", "backbone", "components", "cssUtils", "handlebars", "templates
                 var categoryName = category.get("name");
 
                 var view = new Components.CollectionListView({
+                    tagName             : "div",
                     className           : "items virtualGoods category " + categoryName,
                     category            : category,
                     collection          : categoryGoods,
@@ -87,6 +89,8 @@ define(["jquery", "backbone", "components", "cssUtils", "handlebars", "templates
             this.pageViews.push(this.currencyPacksView);
 
             categories.add({name : "currencyPacks"});
+
+            // TODO: delete
             this.categoryMenuView = new Components.CollectionListView({
                 className           : "menu items clearfix",
                 collection          : categories,
@@ -132,12 +136,14 @@ define(["jquery", "backbone", "components", "cssUtils", "handlebars", "templates
 
             // Render child views (items in goods store and currency store)
             this.header.setElement(this.$(".header"));
-            this.$(".pages").append(this.categoryMenuView.render().el);
+            this.$(".pages").append(this.categoryMenuView.render().el); // TODO: delete
 
             var $this = this;
             _.each(this.pageViews, function(view) {
-                $this.$(".pages").append(view.render().el);
+                $this.$("#categories").append(view.render().el);
+                view.$el.attr("id", view.options.category.get("name"));
             });
+            this.$("#categories ul:first").addClass("active");
         }
     });
 
