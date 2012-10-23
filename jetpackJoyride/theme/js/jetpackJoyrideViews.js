@@ -1,6 +1,6 @@
-define(["jquery", "backbone", "components", "handlebars", "templates"], function($, Backbone, Components, Handlebars) {
+define(["jquery", "backbone", "components", "marionette", "handlebars", "templates"], function($, Backbone, Components, Marionette, Handlebars) {
 
-    var HeaderView = Backbone.View.extend({
+    var HeaderView = Marionette.View.extend({
         initialize : function() {
             _.bindAll(this, "switchHeader");
             this.state = "menu";
@@ -10,9 +10,20 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 this.trigger(this.state == "menu" ? "quit" : "back");
             }
         },
-        switchHeader : function(title, backImage) {
+        ui : {
+            backButton : "#back-button",
+            quitButton : "#quit-button"
+        },
+        switchHeader : function(title) {
             this.$(".title-container h1").html(title);
-            this.$(".back img").attr("src", backImage);
+
+            if (this.state == "menu") {
+                this.ui.backButton.hide();
+                this.ui.quitButton.show();
+            } else {
+                this.ui.quitButton.hide();
+                this.ui.backButton.show();
+            }
         }
     });
 
@@ -132,9 +143,8 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             this.activeView.$el.hide();
             this.activeView = this.pageViews[name];
             this.activeView.$el.show();
-            var title = name == "menu" ? this.theme.pages.menu.title : name,
-                image = name == "menu" ? this.theme.images.quitImage : this.theme.images.backImage;
-            this.header.switchHeader(title, image);
+            var title = name == "menu" ? this.theme.pages.menu.title : name;
+            this.header.switchHeader(title);
         },
         updateBalance : function(model) {
             this.$(".balance-container label").html(model.get("balance"));
@@ -144,7 +154,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             this.$el.css("background-image", "url('" + this.theme.background + "')");
 
             // Set header element to bind event delegation
-            this.header.setElement(this.$(".header"));
+            this.header.setElement(this.$(".header")).bindUIElements();
 
             // Render child views (items in goods store and currency store)
             var $this = this;
