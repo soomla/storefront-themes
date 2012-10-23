@@ -7,15 +7,20 @@
     src: url("@{baseUrl}/fonts/calibrib.ttf");
 }
 
-@grayDarker:            #222;
-@grayDark:              #333;
-@gray:                  #555;
-@grayLight:             #ccc;
-@grayLighter:           #eee;
-@grayLightest:          #F8F8F8;
+// THEME VARIABLES
+// --------------------------------------------------
 
-@externalWidth: 880px;
-@internalWidth: 700px;
+@grayDarker:        #222;
+@grayDark:          #333;
+@gray:              #555;
+@grayLight:         #ccc;
+@grayLighter:       #eee;
+@grayLightest:      #F8F8F8;
+
+@externalWidth:     880px;
+@externalHeight:    550px;
+@internalWidth:     700px;
+@internalHeight:    370px;
 
 
 // GENERAL LAYOUT
@@ -29,27 +34,21 @@ ul {
 #main {
     .background-size(cover);
     background-position: center;
-}
-
-// Sets the outer most width in which all the content is fit into
-#main-container {
-    width: @externalWidth;
-    height: 100%;
-    margin: 0 auto;
     .box(vertical,center, center);
 }
 
-// Holds all the content i.e. header, pages etc.
+// Sets the outer most dimensions in which
+// all the content is held i.e. header, pages etc.
 #content-container {
-    width: 880px;
-    height: 550px;
+    width: @externalWidth;
+    height: @externalHeight;
     .background-size(cover);
     .box(vertical,center, center);
 }
 
 #pages {
-    width: 700px;
-    height: 370px;
+    width: @internalWidth;
+    height: @internalHeight;
     overflow-y: scroll;
 }
 
