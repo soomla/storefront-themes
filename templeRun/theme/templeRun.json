@@ -2,7 +2,6 @@
     "cssFiles" : ["../theme/less/templeRun.less"],
     "jsFiles" : ["../theme/js/templeRunViews.js"],
     "templatePath" : "../theme/templates",
-    "isCurrencyStoreDisabled" : false,
     "currencyPacks" : [
         {
             "name"              : "2,500 Coins",
@@ -275,7 +274,7 @@
         },
         "itemSeparator" : "../theme/img/Item_Seperator.png",
         "balance" : {
-            "style" : "top: 20px; left: 200px; font-size: 36px; color: #FFF;"
+            "style" : "top: 20px; left: 220px; font-size: 36px; color: #FFF;"
         },
         "pages" : {
             "goods" :{
@@ -284,7 +283,10 @@
                 },
                 "listItem" : {
                     "background" : "",
-                    "balanceBackground" : "../theme/img/Item_Balance.png"
+                    "balanceBackground" : "../theme/img/Item_Balance.png",
+                    "buy" : "../theme/img/buy.png",
+                    "equip" : "../theme/img/equip.png",
+                    "active" : "../theme/img/active.png"
                 },
                 "noFundsModal" : {
                     "background" : "../theme/img/Alert_BG.png",

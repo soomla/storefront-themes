@@ -1,5 +1,5 @@
 @import "css/mixins/elements.less";
-@baseUrl: "themes/templeRun";
+@baseUrl: "../theme";
 
 @font-face {
     font-family: AGarmando;
@@ -7,6 +7,9 @@
 }
 
 @standardWidth: 460px;
+
+// GENERAL LAYOUT
+// --------------------------------------------------
 
 html {
     font-family: AGarmando;
@@ -17,37 +20,61 @@ ul {
     padding: 0;
     list-style-type: none;
 }
-@media all and (max-width: 320px) {
-    body {
-        zoom: 0.5;
-    }
-}
-
-@media all and (min-width: 321px) and (max-width: 479px) {
-    body {
-        zoom: 0.8;
-    }
-}
-
-@media all and (min-width : 720px) {
-    body {
-        zoom: 1.2;
-    }
-}
-
-.content-background {
-    position: absolute;
-    z-index: -1;
-    width: 480px;
-    height: 100%;
-    display: block;
-    left: 50%;
-    margin-left: -240px;
-}
 
 .header, .footer {
 	text-align: center;
 }
+
+.header {
+    margin: 0 auto;
+
+    .title-image {
+        display: block;
+        width: @standardWidth;
+        height: 100px;
+        margin: 0 auto;
+    }
+
+    .balance-container {
+        position: relative;
+        text-align: right;
+
+        .balance-image {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .label-container {
+            position: absolute;
+            top: -10000px;
+            left: -10000px;
+            text-align: center;
+        }
+    }
+}
+
+.footer {
+    img {
+        display: block;
+        width: 500px;
+        height: 100px;
+        margin: 0 auto;
+    }
+}
+
+#goods-store, #currency-store {
+
+    // Make sure that level-0 backgrounds "contain" the viewport
+    .background-size(cover);
+
+    & > .content {
+        width: 500px;
+        height: 100%;
+        .box(vertical);
+        margin: 0 auto;
+    }
+}
+
 
 .items-container {
     width: @standardWidth;
@@ -59,27 +86,36 @@ ul {
 
 .virtualGoods, .currencyPacks {
 	background-position: center;
-
-	&.items {
-		padding: 0;
-	}
 }
 
 .category {
     text-align: center;
 }
 
+
+// SINGLE LIST ITEMS - VIRTUAL GOODS
+// --------------------------------------------------
+
 .virtualGoods .item {
+
+    // Local variables
     @totalHeight: 100px;
     @visualWidth: 100px;
-    background-position: center;
-    padding-left: 10px;
+    @secondRowHeight: 30px;
+    @balanceWidth: 50px;
+    @balanceHeight: 50px;
 
+
+    background-position: center;
+
+    // Item image
     .visual {
         float: left;
         width: @visualWidth;
         height: @totalHeight;
     }
+
+    // Item content (container of description, price, balance, buy button)
     .content {
         @padding: 10px;
         height: @totalHeight - (2 * @padding);
@@ -87,13 +123,15 @@ ul {
         padding: @padding;
     }
 
+    // The content is layed out in two rows
     .row:first-child {
-        height: 50px;
+        height: @balanceHeight;
     }
     .row:last-child {
-        height: 30px;
+        height: @secondRowHeight;
     }
-    @balanceWidth: 50px;
+
+    // 1st row contents
     .balance {
         float:right;
         font-size: 18px;
@@ -101,30 +139,38 @@ ul {
         width: @balanceWidth;
         background-size: 100%;
     }
-
     .description {
         margin-right: @balanceWidth;
         font-size: 16px;
-        line-height: 16px;
     }
-
     .balance, .description {
         .box(vertical, center, center);
         height: 100%;
     }
 
+    // 2nd row contents
     .price {
         font-size: 20px;
         font-weight: bold;
         font-style: italic;
-        color: #ab744d;
-        text-shadow: 2px 2px 2px #FFFFFF;
+        color: #FFF;
+        text-shadow: 2px 2px 2px #000;
     }
     .currency {
-        width: 30px;
-        height: 30px;
+        width: @secondRowHeight;
+        height: @secondRowHeight;
+    }
+    .buy, .equip, .active {
+        float:right;
+    }
+    .equip, .active {
+        display: none;
     }
 }
+
+
+// SINGLE LIST ITEMS - CURRENCY PACKS
+// --------------------------------------------------
 
 .currencyPacks .item {
     @totalHeight: 100px;
@@ -134,11 +180,14 @@ ul {
     width: 400px;
     margin: 0 auto;
 
+    // Currency pack image
     .visual {
         float: left;
         width: @visualWidth;
         height: @totalHeight;
     }
+
+    // Amount & Price
     .price {
         height: 100%;
         margin-left: @visualWidth;
@@ -162,44 +211,13 @@ ul {
 
 .separator {
     width: 100%;
+    max-height: 20px;
 }
 
-.header {
-    width: @standardWidth;
-    margin: 0 auto;
 
-    .title-image {
-        display: block;
-        width: @standardWidth;
-        height: 100px;
-    }
 
-    .balance-container {
-        position: relative;
-        text-align: right;
-
-        .label-container {
-            position: absolute;
-            top: -10000px;
-            left: -10000px;
-            text-align: center;
-        }
-    }
-}
-
-.footer {
-	img {
-        display: block;
-        width: 500px;
-        height: 100px;
-        margin: 0 auto;
-	}
-}
-
-.leave-store, .back, .buy-more, .cancel {
-	cursor: pointer;
-}
-
+// MODAL DIALOG
+// --------------------------------------------------
 .dialog {
 	.box(vertical, center);
 }

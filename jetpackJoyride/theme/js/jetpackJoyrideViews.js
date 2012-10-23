@@ -20,19 +20,20 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
             _.bindAll(this, "wantsToLeaveStore", "updateBalance",
-                            "render", "openDialog", "toggleItemBackground",
+                            "render", "toggleItemBackground",
                             "switchCategory", "showMenu",
                             "wantsToBuyVirtualGoods", "wantsToBuyCurrencyPacks");
 
-            this.nativeAPI  = this.options.nativeAPI || window.SoomlaNative;
-            this.theme      = this.model.get("theme");
+            this.nativeAPI   = this.options.nativeAPI || window.SoomlaNative;
+            this.theme       = this.model.get("theme");
+            this.dialogModel = this.theme.noFundsModal;
 
             this.model.get("virtualCurrencies").on("change:balance", this.updateBalance);
 
 
             var virtualGoods    = this.model.get("virtualGoods"),
                 currencyPacks   = this.model.get("currencyPacks"),
-                categories      = new Backbone.Collection(this.model.get("categories")),
+                categories      = this.model.get("categories"),
                 templateHelpers = { images : this.theme.images },
                 $this           = this;
 
@@ -118,12 +119,6 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
         updateBalance : function(model) {
             this.$(".balance-container label").html(model.get("balance"));
         },
-        showCurrencyStore : function() {},
-        showGoodsStore : function() {},
-        openDialog : function(currency) {
-            this.createDialog({model : this.theme.noFundsModal}).render();
-            return this;
-        },
         onRender : function() {
             // Render child views (items in goods store and currency store)
             this.header.setElement(this.$(".header"));
@@ -133,6 +128,17 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             _.each(this.pageViews, function(view) {
                 $this.$(".pages").append(view.render().el);
             });
+
+
+            // Adjust zoom to fit nicely in viewport
+            // This helps cope with various viewports, i.e. mobile, tablet...
+            var adjustBodySize = function() {
+                $("body").css("zoom", Math.min(innerHeight / 640, 1));
+            };
+            $(window).resize(adjustBodySize);
+            adjustBodySize();
+
+            // TODO: Add -webkit-text-size-adjust for iOS devices
         }
     });
 

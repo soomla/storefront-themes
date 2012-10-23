@@ -1,30 +1,38 @@
-define(["jquery", "backbone", "components", "handlebars", "templates"], function($, Backbone, Components, Handlebars) {
+define(["jquery", "backbone", "components", "marionette", "handlebars", "templates"], function($, Backbone, Components, Marionette, Handlebars) {
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
             _.bindAll(this, "wantsToLeaveStore", "updateBalance",
-                            "render", "showCurrencyStore", "showGoodsStore", "openDialog",
+                            "render", "showCurrencyStore", "showGoodsStore",
                             "wantsToBuyVirtualGoods", "wantsToBuyCurrencyPacks");
 
             this.nativeAPI      = this.options.nativeAPI || window.SoomlaNative;
             this.theme          = this.model.get("theme");
+            this.dialogModel    = this.theme.pages.goods.noFundsModal;
             this.categoryViews  = [];
 
             this.model.get("virtualCurrencies").on("change:balance", this.updateBalance); // TODO: Fix
             var $this        = this,
-                categories   = new Backbone.Collection(this.model.get("categories")),
+                categories   = this.model.get("categories"),
                 virtualGoods = this.model.get("virtualGoods");
 
 
-            var VirtualGoodView = Components.ListItemView.extend({
+            var sharedGoodsOptions = {
                 template        : Handlebars.getTemplate("item"),
-                templateHelpers : {
-                    balanceBackground : this.theme.pages.goods.listItem.balanceBackground,
-                    balanceLabelStyle : this.theme.common.balanceLabelStyle,
-                    itemSeparator     :$this.theme.itemSeparator
-                },
+                templateHelpers : _.extend({
+                    balanceLabelStyle   : this.theme.common.balanceLabelStyle,
+                    itemSeparator       : this.theme.itemSeparator
+                }, this.theme.pages.goods.listItem),
                 css             : { "background-image" : "url('" + $this.theme.pages.goods.listItem.background + "')" }
-            });
+            };
+            var VirtualGoodView = Components.ListItemView.extend(_.extend({
+                triggers : {
+                    "click .buy" : "buy"
+                }
+            }, sharedGoodsOptions));
+
+            var EquippableVirtualGoodView = Components.EquippableListItemView.extend(sharedGoodsOptions);
+
             var CurrencyPackView = Components.ListItemView.extend({
                 template        : Handlebars.getTemplate("currencyPack"),
                 templateHelpers : {
@@ -35,17 +43,44 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 css             : { "background-image" : "url('" + this.theme.pages.currencyPacks.listItem.balanceBackground + "')" }
             });
 
+            var SectionedListView = Marionette.CompositeView.extend({
+                tagName             : "div",
+                className           : "items virtualGoods",
+                template            : Handlebars.getTemplate("listContainer"),
+                itemViewContainer   : ".container"
+            });
+
             categories.each(function(category) {
                 var categoryGoods = virtualGoods.filter(function(item) {return item.get("categoryId") == category.id});
                 categoryGoods = new Backbone.Collection(categoryGoods);
+                var view;
 
-                var view = new Components.SectionedListView({
-                    className           : "items virtualGoods",
-                    collection          : categoryGoods,
-                    itemView            : VirtualGoodView,
-                    template            : Handlebars.getTemplate("listContainer"),
-                    templateHelpers     :_.extend({category : category.get("name")}, $this.theme.categories)
-                }).on("selected", $this.wantsToBuyVirtualGoods);
+                if (category.get("name") != "FRIENDS") {
+                    view = new SectionedListView({
+                        collection          : categoryGoods,
+                        itemView            : VirtualGoodView,
+                        templateHelpers     :_.extend({category : category.get("name")}, $this.theme.categories)
+                    }).on("buy", $this.wantsToBuyVirtualGoods);
+                } else {
+                    view = new SectionedListView({
+                        collection          : categoryGoods,
+                        itemView            : EquippableVirtualGoodView,
+                        templateHelpers     :_.extend({category : category.get("name")}, $this.theme.categories)
+                    }).on({
+                        "buy" : $this.wantsToBuyVirtualGoods,
+                        "itemview:equip" : function(view) {
+                            $this.wantsToEquipGoods(view.model);
+                        },
+                        "itemview:equipped" : function(view) {
+
+                            // Make sure to UI-unequip the previous one
+                            if (this.equippedView) {
+                                this.equippedView.model.set("equipped", false);
+                            }
+                            this.equippedView = view;
+                        }
+                    });
+                }
                 $this.categoryViews.push(view);
             });
             this.currencyPacksView = new Components.CollectionListView({
@@ -77,12 +112,6 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             this.$("#currency-store").hide();
             this.$("#goods-store").show();
         },
-        openDialog : function(currency) {
-            this.createDialog({model : this.theme.pages.goods.noFundsModal}).render().on("closed", function(command) {
-                if (command == "buyMore") this.showCurrencyStore();
-            }, this);
-            return this;
-        },
         onRender : function() {
             var $this = this;
             this.$("#currency-store").hide();
@@ -92,6 +121,16 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 $this.$("#goods-store .items-container").append(view.render().el);
             });
             this.$("#currency-store .items-container").html(this.currencyPacksView.render().el);
+
+            // Adjust zoom to fit nicely in viewport
+            // This helps cope with various viewports, i.e. mobile, tablet...
+            var adjustBodySize = function() {
+                $("body").css("zoom", Math.min(innerWidth / 560, 1));
+            };
+            $(window).resize(adjustBodySize);
+            adjustBodySize();
+
+            // TODO: Add -webkit-text-size-adjust for iOS devices
         }
     });
 

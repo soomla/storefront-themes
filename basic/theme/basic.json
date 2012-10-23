@@ -2,7 +2,6 @@
     "cssFiles" : ["../theme/less/basic.less"],
     "jsFiles" : ["../theme/js/basicViews.js"],
     "templatePath" : "../theme/templates",
-    "isCurrencyStoreDisabled" : false,
     "currencyPacks" : [
         {
             "amount" : 200,
@@ -58,7 +57,8 @@
                 }
             },
             "description" : "Shred small waves with this super-fast board",
-            "name" : "Rip Curl Shortboard"
+            "name" : "Rip Curl Shortboard",
+            "categoryId"   : 1
         },
         {
             "itemId" : "girl_surfboard_th",
@@ -74,7 +74,8 @@
                 ]
             },
             "description" : "Slowly hang five through low power surf",
-            "name" : "Billanbog Vintage Longboard"
+            "name" : "Billanbog Vintage Longboard",
+            "categoryId"   : 1
         },
         {
             "itemId" : "keelfish",
@@ -86,7 +87,8 @@
                 }
             },
             "description" : "Carve slow waves with this ever-riding board",
-            "name" : "Keel Fish"
+            "name" : "Keel Fish",
+            "categoryId"   : 1
         },
         {
             "itemId" : "picasso_peeler",
@@ -98,7 +100,8 @@
                 }
             },
             "description" : "The master of surreal off-the-lip maneuvers",
-            "name" : "Picasso Peeler"
+            "name" : "Picasso Peeler",
+            "categoryId"   : 1
         },
         {
             "itemId" : "reef_shredder",
@@ -110,7 +113,8 @@
                 }
             },
             "description" : "A mean paddling machine for the deep reefs",
-            "name" : "Reef Shredder"
+            "name" : "Reef Shredder",
+            "categoryId"   : 1
         },
         {
             "itemId" : "sixties_gun",
@@ -122,7 +126,8 @@
                 }
             },
             "description" : "Ride Venice-style with this time machine",
-            "name" : "Sixties Gun"
+            "name" : "Sixties Gun",
+            "categoryId"   : 1
         },
         {
             "itemId" : "traditional_fish",
@@ -134,7 +139,14 @@
                 }
             },
             "description" : "The all around conditions board of choice",
-            "name" : "Traditional Fish"
+            "name" : "Traditional Fish",
+            "categoryId"   : 1
+        }
+    ],
+    "categories" : [
+        {
+            "id" : 1,
+            "name" : "General"
         }
     ],
     "modelAssets" : {

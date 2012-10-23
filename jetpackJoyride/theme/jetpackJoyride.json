@@ -2,7 +2,6 @@
     "cssFiles" : ["../theme/less/jetpackJoyride.less"],
     "jsFiles" : ["../theme/js/jetpackJoyrideViews.js"],
     "templatePath" : "../theme/templates",
-    "isCurrencyStoreDisabled" : false,
         "currencyPacks" : [
         {
             "name"              : "COIN BOOSTER PACK",

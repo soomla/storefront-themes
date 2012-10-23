@@ -2,7 +2,7 @@
 "cssFile" : "../theme/less/jetpackJoyride.less",
     "jsFiles" : ["../theme/js/jetpackJoyrideViews.js"],
     "templatePath" : "../theme/templates",
-"modelAssets" : {
+    "modelAssets" : {
         "categories" : {
             "1" : "../theme/img/-_Object_4.png",
             "2" : "../theme/img/-_Object_5.png",

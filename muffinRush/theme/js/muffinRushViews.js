@@ -3,14 +3,14 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
             _.bindAll(this, "wantsToLeaveStore", "updateBalance",
-                            "render", "showCurrencyStore", "showGoodsStore", "openDialog",
+                            "render", "showCurrencyStore", "showGoodsStore",
                             "wantsToBuyVirtualGoods", "wantsToBuyCurrencyPacks");
 
-            this.nativeAPI  = this.options.nativeAPI || window.SoomlaNative;
-            this.theme      = this.model.get("theme");
+            this.nativeAPI   = this.options.nativeAPI || window.SoomlaNative;
+            this.theme       = this.model.get("theme");
+            this.dialogModel = this.theme.pages.goods.noFundsModal;
 
             this.model.get("virtualCurrencies").on("change:balance", this.updateBalance); // TODO: Fix
-            var $this = this;
 
 
             var VirtualGoodView = Components.ListItemView.extend({
@@ -61,12 +61,6 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
         showGoodsStore : function() {
             this.$("#currency-store").hide();
             this.$("#goods-store").show();
-        },
-        openDialog : function(currency) {
-            this.createDialog({model : this.theme.pages.goods.noFundsModal}).render().on("closed", function(command) {
-                if (command == "buyMore") this.showCurrencyStore();
-            }, this);
-            return this;
         },
         onRender : function() {
             this.$("#currency-store").hide();
