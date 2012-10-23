@@ -1,9 +1,11 @@
 {
+    "cssFile" : "themes/megajump/less/megajump.less",
+    "jsFiles" : ["themes/megajump/js/megajumpViews.js"],
+    "templatePath" : "themes/megajump/templates",
     "isCurrencyStoreDisabled" : false,
     "currencyPacks" : [
         {
             "name"              : "10 Muffins",
-            "imgFilePath"       : "http://placehold.it/100x100",
             "itemId"            : "muffins_10",
             "currency_itemId"   : "currency_coin",
             "productId"         : "muffins_10",
@@ -13,7 +15,6 @@
         },
         {
             "name"              : "50 Muffins",
-            "imgFilePath"       : "http://placehold.it/100x100",
             "itemId"            : "muffins_50",
             "currency_itemId"   : "currency_coin",
             "productId"         : "android.test.purchased",
@@ -23,7 +24,6 @@
         },
         {
             "name"              : "400 Muffins",
-            "imgFilePath"       : "http://placehold.it/100x100",
             "itemId"            : "muffins_400",
             "currency_itemId"   : "currency_coin",
             "productId"         : "muffins_400",
@@ -33,7 +33,6 @@
         },
         {
             "name"              : "1000 Muffins",
-            "imgFilePath"       : "http://placehold.it/100x100",
             "itemId"            : "muffins_1000",
             "currency_itemId"   : "currency_coin",
             "productId"         : "muffins_1000",
@@ -47,15 +46,13 @@
             "name"          : "Coins",
             "description"   : "",
             "itemId"        : "currency_coin",
-            "balance"       : 1000,
-            "imgFilePath"   : "http://placehold.it/40x40"
+            "balance"       : 1000
         }
     ],
     "virtualGoods" : [
         {
             "name"          : "Fruit Cake",
             "description"   : "Customers buy a double portion on each purchase of this cake",
-            "imgFilePath"   : "http://placehold.it/100x100",
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
@@ -68,7 +65,6 @@
         {
             "name"          : "Pavlova",
             "description"   : "Gives customers a sugar rush and they call their friends",
-            "imgFilePath"   : "http://placehold.it/100x100",
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
@@ -81,7 +77,6 @@
         {
             "name"          : "Choco-Cake",
             "description"   : "A classic cake to maximize customer satisfaction",
-            "imgFilePath"   : "http://placehold.it/100x100",
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
@@ -94,7 +89,6 @@
         {
             "name"          : "Cream Cup",
             "description"   : "Increase bakery reputation with this original pastry",
-            "imgFilePath"   : "http://placehold.it/100x100",
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
@@ -105,6 +99,23 @@
             "categoryId"   : 2
         }
     ],
+    "modelAssets" : {
+        "virtualGoods" : {
+            "fruit_cake" : "http://placehold.it/100x100",
+            "pavlova" : "http://placehold.it/100x100",
+            "chocolate_cake" : "http://placehold.it/100x100",
+            "cream_cup" : "http://placehold.it/100x100"
+        },
+        "currencyPacks" : {
+            "muffins_10" : "http://placehold.it/100x100",
+            "muffins_50" : "http://placehold.it/100x100",
+            "muffins_400" : "http://placehold.it/100x100",
+            "muffins_1000" : "http://placehold.it/100x100"
+        },
+        "virtualCurrencies" : {
+            "currency_coin" : "http://placehold.it/40x40"
+        }
+    },
     "theme" : {
         "name" : "megajump",
         "template" : "megajump",
@@ -134,13 +145,13 @@
                 "balance" : "http://placehold.it/140x60&text=Balance (140x60)"
             },
             "clothing" : {
-                "title": "http://placehold.it/480x60&text=Clothing Image (480x60)"
+                "title" :  "http://placehold.it/480x60&text=Clothing Image (480x60)"
             },
             "jetpacks" : {
-                "title": "http://placehold.it/480x60&text=Jetpacks Image (480x60)"
+                "title" :  "http://placehold.it/480x60&text=Jetpacks Image (480x60)"
             },
             "currencyPacks" : {
-                "title": "http://placehold.it/480x60&text=Currency Packs (480x60)"
+                "title" :  "http://placehold.it/480x60&text=Currency Packs (480x60)"
             }
         }
     },
