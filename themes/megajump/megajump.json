@@ -147,11 +147,13 @@
     "categories" : [
         {
             "id" : 1,
-            "name" : "clothing"
+            "name" : "clothing",
+            "categoryImage" : "http://placehold.it/100x100"
         },
         {
             "id" : 2,
-            "name" : "jetpacks"
+            "name" : "jetpacks",
+            "categoryImage" : "http://placehold.it/100x100"
         }
     ]
 }

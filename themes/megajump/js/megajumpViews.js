@@ -47,13 +47,24 @@ define(["jquery", "backbone", "components", "cssUtils", "handlebars", "templates
                 templateHelpers : templateHelpers,
                 css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
             });
-            var CategoryView = Components.ListItemView.extend({ template : function(){} }); // empty template
+            var CategoryView = Components.ListItemView.extend({
+                collection      : categories,
+                template        : Handlebars.getTemplate("themes/" + this.theme.name + "/templates", "categoryMenuItem")
+            });
 
             this.currencyPacksView = new Components.CollectionListView({
                 className           : "items currencyPacks category",
                 collection          : currencyPacks,
                 itemView            : CurrencyPackView
             }).on("bought", this.wantsToBuyCurrencyPacks);
+
+
+
+
+            var categoryMenu = new Components.CollectionListView({
+                collection          : categories,
+                itemView            : CategoryView
+            });
 
 
 
@@ -83,6 +94,10 @@ define(["jquery", "backbone", "components", "cssUtils", "handlebars", "templates
             }).on("selected", this.switchCategory);
 
             this.header = new HeaderView().on("back", this.showMenu).on("quit", this.wantsToLeaveStore);
+
+            this.children = {
+                "#category-menu" : categoryMenu
+            };
         },
         switchCategory : function(model) {
             this.header.state = "category";
