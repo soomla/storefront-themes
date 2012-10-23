@@ -13,7 +13,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
             this.model.get("virtualCurrencies").on("change:balance", this.updateBalance); // TODO: Fix
             var $this        = this,
-                categories   = new Backbone.Collection(this.model.get("categories")),
+                categories   = this.model.get("categories"),
                 virtualGoods = this.model.get("virtualGoods");
 
 

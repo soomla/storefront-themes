@@ -33,7 +33,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
             var virtualGoods    = this.model.get("virtualGoods"),
                 currencyPacks   = this.model.get("currencyPacks"),
-                categories      = new Backbone.Collection(this.model.get("categories")),
+                categories      = this.model.get("categories"),
                 templateHelpers = { images : this.theme.images },
                 $this           = this;
 
