@@ -1,0 +1,157 @@
+{
+    "isCurrencyStoreDisabled" : false,
+    "currencyPacks" : [
+        {
+            "name"              : "10 Muffins",
+            "imgFilePath"       : "http://placehold.it/100x100",
+            "itemId"            : "muffins_10",
+            "currency_itemId"   : "currency_coin",
+            "productId"         : "muffins_10",
+            "price"             : 0.99,
+            "amount"            : 10,
+            "categoryId"       : 1
+        },
+        {
+            "name"              : "50 Muffins",
+            "imgFilePath"       : "http://placehold.it/100x100",
+            "itemId"            : "muffins_50",
+            "currency_itemId"   : "currency_coin",
+            "productId"         : "android.test.purchased",
+            "price"             : 1.99,
+            "amount"            : 50,
+            "categoryId"       : 1
+        },
+        {
+            "name"              : "400 Muffins",
+            "imgFilePath"       : "http://placehold.it/100x100",
+            "itemId"            : "muffins_400",
+            "currency_itemId"   : "currency_coin",
+            "productId"         : "muffins_400",
+            "price"             : 4.99,
+            "amount"            : 400,
+            "categoryId"       : 1
+        },
+        {
+            "name"              : "1000 Muffins",
+            "imgFilePath"       : "http://placehold.it/100x100",
+            "itemId"            : "muffins_1000",
+            "currency_itemId"   : "currency_coin",
+            "productId"         : "muffins_1000",
+            "price"             : 8.99,
+            "amount"            : 1000,
+            "categoryId"       : 1
+        }
+    ],
+    "virtualCurrencies" : [
+        {
+            "name"          : "Coins",
+            "description"   : "",
+            "itemId"        : "currency_coin",
+            "balance"       : 1000,
+            "imgFilePath"   : "http://placehold.it/40x40"
+        }
+    ],
+    "virtualGoods" : [
+        {
+            "name"          : "Fruit Cake",
+            "description"   : "Customers buy a double portion on each purchase of this cake",
+            "imgFilePath"   : "http://placehold.it/100x100",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 225
+                }
+            },
+            "itemId"        : "fruit_cake",
+            "categoryId"   : 1
+        },
+        {
+            "name"          : "Pavlova",
+            "description"   : "Gives customers a sugar rush and they call their friends",
+            "imgFilePath"   : "http://placehold.it/100x100",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 175
+                }
+            },
+            "itemId"        : "pavlova",
+            "categoryId"   : 1
+        },
+        {
+            "name"          : "Choco-Cake",
+            "description"   : "A classic cake to maximize customer satisfaction",
+            "imgFilePath"   : "http://placehold.it/100x100",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 250
+                }
+            },
+            "itemId"        : "chocolate_cake",
+            "categoryId"   : 2
+        },
+        {
+            "name"          : "Cream Cup",
+            "description"   : "Increase bakery reputation with this original pastry",
+            "imgFilePath"   : "http://placehold.it/100x100",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 50
+                }
+            },
+            "itemId"        : "cream_cup",
+            "categoryId"   : 2
+        }
+    ],
+    "theme" : {
+        "name" : "megajump",
+        "template" : "megajump",
+        "version" : 1,
+        "isOrientationLandscape" : false,
+        "balance" : {
+            "style" : "top: -10000px; left: -10000px;"
+        },
+        "background" : "http://placehold.it/960x640/F8F8F8/ddd&text=Background (960x640)",
+        "headerBackground" : "http://placehold.it/960x80/eee/ddd&text=Background (960x80)",
+        "noFundsModal" : {
+            "background" : "http://placehold.it/520x200&text=Background (520x200)"
+        },
+        "images" : {
+            "buyImage" : "http://placehold.it/140x60",
+            "equippedIndicatorImage" : "http://placehold.it/20x100",
+            "notEquippedIndicatorImage" : "http://placehold.it/20x100",
+            "expandImage" : "http://placehold.it/20x100",
+            "collapseImage" : "http://placehold.it/20x100/fff/eee",
+            "backImage" : "http://placehold.it/100x60&text=Back (100x60)",
+            "quitImage" : "http://placehold.it/100x60&text=Quit (100x60)",
+            "itemBackgroundImage" : "http://placehold.it/900x120/fff/eee&text=Background (900x120)"
+        },
+        "pages" : {
+            "menu" : {
+                "title" : "http://placehold.it/480x60&text=Title Image (480x60)",
+                "balance" : "http://placehold.it/140x60&text=Balance (140x60)"
+            },
+            "clothing" : {
+                "title": "http://placehold.it/480x60&text=Clothing Image (480x60)"
+            },
+            "jetpacks" : {
+                "title": "http://placehold.it/480x60&text=Jetpacks Image (480x60)"
+            },
+            "currencyPacks" : {
+                "title": "http://placehold.it/480x60&text=Currency Packs (480x60)"
+            }
+        }
+    },
+    "categories" : [
+        {
+            "id" : 1,
+            "name" : "clothing"
+        },
+        {
+            "id" : 2,
+            "name" : "jetpacks"
+        }
+    ]
+}
