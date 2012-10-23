@@ -95,9 +95,9 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                     collection  : categoryGoods,
                     itemView    : VirtualGoodView
                 }).on({
-                    "itemview:buy"          : function(view) { $this.wantsToBuyVirtualGoods(view.model); },
-                    "itemview:equipped"     : function(view) { $this.wantsToEquipGoods(view.model); },
-                    "itemview:unequipped"   : function(view) { $this.wantsToUnequipGoods(view.model); }
+                    "itemview:buy"          : function(view) { $this.wantsToBuyVirtualGoods(view.model);},
+                    "itemview:equipped"     : function(view) { $this.wantsToEquipGoods(view.model);     },
+                    "itemview:unequipped"   : function(view) { $this.wantsToUnequipGoods(view.model);   }
                 });
 
                 $this.pageViews[categoryName] = view;
@@ -115,7 +115,15 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
             // Build header view
             this.header = new HeaderView().on({
-                back : function() { this.switch("menu"); },
+                back : function() {
+                    // First, collapse all list items that are open
+                    _.each(this.activeView.children, function(view) {
+                        if (view.expanded) view.collapse();
+                    });
+
+                    // Second, switch back to the menu
+                    this.switch("menu");
+                },
                 quit : this.wantsToLeaveStore
             }, this);
         },
