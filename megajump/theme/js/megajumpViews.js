@@ -1,21 +1,5 @@
 define(["jquery", "backbone", "components", "handlebars", "templates"], function($, Backbone, Components, Handlebars) {
 
-    var HeaderView = Backbone.View.extend({
-        initialize : function() {
-            _.bindAll(this, "switchHeader");
-            this.state = "menu";
-        },
-        events : {
-            "click .back" : function() {
-                this.trigger(this.state == "menu" ? "quit" : "back");
-            }
-        },
-        switchHeader : function(titleImage, backImage) {
-            this.$(".title-image").attr("src", titleImage);
-            this.$(".back img").attr("src", backImage);
-        }
-    });
-
     var CarouselView = Components.CarouselView.extend({
         itemViewContainer : ".list-items"
     });
@@ -24,8 +8,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
             _.bindAll(this, "wantsToLeaveStore", "updateBalance",
-                            "render", "openDialog",
-                            "switchCategory", "showMenu",
+                            "render", "openDialog", "changeTitle",
                             "wantsToBuyVirtualGoods", "wantsToBuyCurrencyPacks");
 
             this.nativeAPI  = this.options.nativeAPI || window.SoomlaNative;
@@ -61,9 +44,9 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             });
 
 
-           // Build a category menu that will cause the main area
-           // to switch categories every time a menu item is selected, using tabs
-           this.categoryMenu = new Components.CollectionListView({
+            // Build a category menu that will cause the main area
+            // to switch categories every time a menu item is selected, using tabs
+            this.categoryMenu = new Components.CollectionListView({
                 collection          : categories,
                 itemView            : CategoryMenuItemView,
                 onRender            : function() {
@@ -72,7 +55,9 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 }
             }).on("itemview:selected", function(view) {
                 view.$("a").tab("show");
-               $this.activeView = $this.categoryViews[view.model.get("name")];
+                var name = view.model.get("name");
+                $this.activeView = $this.categoryViews[name];
+                $this.changeTitle(name);
             });
 
 
@@ -111,22 +96,9 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
             categories.add({name : "currencyPacks"});
 
-            this.header = new HeaderView().on("back", this.showMenu).on("quit", this.wantsToLeaveStore);
-
         },
-        switchCategory : function(model) {
-            this.header.state = "category";
-            var category = model.get("name");
-            this.$(".menu").hide();
-            this.$(".category").hide();
-            this.$(".category." + category).show();
-            this.header.switchHeader(this.theme.pages[category].title, this.theme.images.backImage);
-        },
-        showMenu : function() {
-            this.header.state = "menu";
-            this.$(".menu").show();
-            this.$(".category").hide();
-            this.header.switchHeader(this.theme.pages.menu.title, this.theme.images.quitImage);
+        changeTitle : function(text) {
+            this.$(".header .title").html(text);
         },
         updateBalance : function(model) {
             this.$(".balance-container label").html(model.get("balance"));
@@ -137,8 +109,9 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
         },
         onRender : function() {
 
-            // Render header
-            this.header.setElement(this.$(".header"));
+            // Show first category name in header
+            this.changeTitle(this.model.get("categories").at(0).get("name"));
+
 
             // Render category menu
             this.categoryMenu.setElement("#category-menu").render();
