@@ -1,7 +1,7 @@
 {
-    "cssFiles" : ["../theme/less/megajump.less"],
-    "jsFiles" : ["../theme/js/megajumpViews.js", "../theme/js/bootstrap-tab.js"],
-    "templatePath" : "../theme/templates",
+    "cssFiles" : ["themes/megajump/theme/less/megajump.less"],
+    "jsFiles" : ["themes/megajump/theme/js/megajumpViews.js", "themes/megajump/theme/js/bootstrap-tab.js"],
+    "templatePath" : "themes/megajump/theme/templates",
     "isCurrencyStoreDisabled" : false,
     "currencyPacks" : [
         {
