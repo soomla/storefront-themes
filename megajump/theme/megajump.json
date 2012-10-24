@@ -100,16 +100,16 @@
             "2" : "http://placehold.it/100x100"
         },
         "virtualGoods" : {
-            "fruit_cake" : "http://placehold.it/100x100",
-            "pavlova" : "http://placehold.it/100x100",
-            "chocolate_cake" : "http://placehold.it/100x100",
-            "cream_cup" : "http://placehold.it/100x100"
+            "fruit_cake" : "http://placehold.it/400x420",
+            "pavlova" : "http://placehold.it/400x420/eee/ddd",
+            "chocolate_cake" : "http://placehold.it/400x420",
+            "cream_cup" : "http://placehold.it/400x420"
         },
         "currencyPacks" : {
-            "muffins_10" : "http://placehold.it/100x100",
-            "muffins_50" : "http://placehold.it/100x100",
-            "muffins_400" : "http://placehold.it/100x100",
-            "muffins_1000" : "http://placehold.it/100x100"
+            "muffins_10" : "http://placehold.it/400x420",
+            "muffins_50" : "http://placehold.it/400x420",
+            "muffins_400" : "http://placehold.it/400x420",
+            "muffins_1000" : "http://placehold.it/400x420"
         },
         "virtualCurrencies" : {
             "currency_coin" : "http://placehold.it/40x40"
@@ -123,7 +123,6 @@
         "balance" : {
             "style" : "top: -10000px; left: -10000px;"
         },
-        "background" : "http://placehold.it/960x640/F8F8F8/ddd&text=Background (960x640)",
         "headerBackground" : "http://placehold.it/960x80/eee/ddd&text=Background (960x80)",
         "noFundsModal" : {
             "background" : "http://placehold.it/520x200&text=Background (520x200)"
@@ -136,12 +135,15 @@
             "collapseImage" : "http://placehold.it/20x100/fff/eee",
             "backImage" : "http://placehold.it/100x60&text=Back (100x60)",
             "quitImage" : "http://placehold.it/100x60&text=Quit (100x60)",
-            "itemBackgroundImage" : "http://placehold.it/900x120/fff/eee&text=Background (900x120)"
+            "itemBackgroundImage" : "http://placehold.it/900x120/fff/eee&text=Background (900x120)",
+            "contentBackground" : "http://placehold.it/720x1280/F8F8F8/ddd&text=Background (720x1280)",
+            "previousImage" : "http://placehold.it/100x420",
+            "nextImage" : "http://placehold.it/100x420"
         },
         "pages" : {
             "menu" : {
                 "title" : "http://placehold.it/480x60&text=Title Image (480x60)",
-                "balance" : "http://placehold.it/140x60&text=Balance (140x60)"
+                "balance" : "http://placehold.it/300x200&text=Balance (300x200)"
             },
             "clothing" : {
                 "title" :  "http://placehold.it/480x60&text=Clothing Image (480x60)"

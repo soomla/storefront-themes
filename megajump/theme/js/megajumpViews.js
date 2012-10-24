@@ -85,7 +85,8 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                     category            : category,
                     collection          : categoryGoods,
                     itemView            : VirtualGoodView,
-                    template            : Handlebars.getTemplate("category")
+                    template            : Handlebars.getTemplate("category"),
+                    templateHelpers     : templateHelpers
                 }).on("bought", $this.wantsToBuyVirtualGoods).on("equipped", $this.wantsToEquipGoods).on("unequipped", $this.wantsToUnequipGoods);
 
                 $this.categoryViews[categoryName] = view;
@@ -144,6 +145,17 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 view.$el.attr("id", view.options.category.get("name"));
             });
             this.$("#categories > div:first").addClass("active");
+
+            // Adjust zoom to fit nicely in viewport
+            // This helps cope with various viewports, i.e. mobile, tablet...
+            var adjustBodySize = function() {
+                var ratio = (innerHeight / innerWidth) > 1.5 ? (innerWidth / 720) : (innerHeight / 1280);
+                $("body").css("zoom", ratio);
+            };
+            $(window).resize(adjustBodySize);
+            adjustBodySize();
+
+            // TODO: Add -webkit-text-size-adjust for iOS devices
         }
     });
 

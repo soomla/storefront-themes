@@ -7,35 +7,93 @@
 @grayLighter:           #eee;
 @grayLightest:          #F8F8F8;
 
+
+@externalWidth: 720px;
+@externalHeight: 1280px;
+@headerHeight: 220px;
+@categoriesHeight: 860px;
+@visualHeight: 420px;
+
+
+// GENERAL LAYOUT
+// --------------------------------------------------
+
 ul {
     padding: 0;
     margin: 0;
 }
 
+#main {
+    .box(horizontal, center, center);
+    .background-size(cover);
+    background-position: center;
+}
 
+// Holds all the content i.e. header, pages etc.
+#content-container {
+    height: @externalHeight;
+    width: @externalWidth;
+    .background-size(cover);
+    background-position: center;
+}
 
+.header {
+    @padding: 10px;
+    height: @headerHeight - (2 * @padding);
+    padding: @padding;
+    .box;
+
+    .title-container {
+        width: 400px;
+        .box(vertical, center);
+        text-align: center;
+        h1 {
+            font-size: 60px;
+            line-height: 70px;
+        }
+    }
+
+    .balance-container {
+        .box-flex(1);
+        position: relative;
+        text-align: right;
+
+        .label-container {
+            position: absolute;
+            top: -10000px;
+            left: -10000px;
+            text-align: center;
+        }
+    }
+
+}
+
+.footer {
+    padding: 20px;
+}
 
 #category-menu {
     height: 200px;
-    ul {
-        list-style-type: none;
-    }
+    list-style-type: none;
 
     li {
         float: left;
+        &:not(:last-child) {
+            margin-right: 20px;
+        }
     }
 }
 #categories {
-    .box-flex(1);
+    height: @categoriesHeight;
     position: relative;
 
     & > div {
         display: none;
-        position: absolute;
         height: 100%;
 
+        // TODO: Maybe remove
         &.active {
-            .box(vertical, center, center);
+            .box(vertical, center);
         }
     }
 }
@@ -46,11 +104,6 @@ ul {
     z-index: -1;
     width: 100%;
     height: 100%;
-}
-
-.main-container {
-    height: 100%;
-    .box(vertical);
 }
 
 .menu {
@@ -72,6 +125,11 @@ ul {
     }
 }
 
+
+.list-items {
+    height: 100%;
+}
+
 // In case a background image is applied...
 .item, .header {
     background-position: center;
@@ -83,96 +141,53 @@ ul {
     padding: 0;
 }
 
-.item {
-    padding: 10px;
-    @innerMargin: 15px;
-    @collapsedHeight: 100px;
-    height: @collapsedHeight;
+.list-items .item {
+
+    @priceContainerHeight: 160px;
+    @descriptionHeight: 280px;
+
+    height: 100%;
+    box-sizing: border-box; // TODO: Make LESS function for all vendor prefixes
     overflow: hidden;
     .background-size(cover);
-    .transition(height, 0.2s);
 
-    &.expanded {
-        height: 2 * @collapsedHeight;
+
+    .visual {
+        height: @visualHeight;
+        text-align: center;
     }
 
-    .row {
-        .box();
-        height: @collapsedHeight;
-    }
+    .price-container {
+        height: @priceContainerHeight;
+        .box;
 
-    .equipped, .not-equipped {
-        width: 20px;
-        height: @collapsedHeight;
-        margin: 0 10px;
-    }
-
-    .item-image {
-        width: @collapsedHeight;
-        height: @collapsedHeight;
-    }
-    .content {
-        padding: 0 @innerMargin;
-        .box-flex(1);
-        .box(vertical, center);
-    }
-
-    h1 {
-        font-size: 27px;
-        line-height: 30px;
-    }
-
-    .price, .buy-container {
-        .box(horizontal, end, center);
-        width: 160px;
-        margin-right: @innerMargin;
-    }
-    .price img {
-        width: 40px;
-        height: 40px;
-    }
-    .buy-container img {
-        width: 140px;
-        height: 60px;
-    }
-
-    .description {
-        padding: @innerMargin;
-        .box-flex(1);
-        .box(vertical, center);
-    }
-}
-
-.header {
-	height: 200px;
-    padding: 10px;
-	.box;
-
-	.title-container {
-		.box-flex(1);
-	}
-
-    .back, .balance-container {
-        width: 150px;
-    }
-
-    .back {
-        text-align: left;
-    }
-
-    .balance-container {
-        position: relative;
-        text-align: right;
-
-        .label-container {
-            position: absolute;
-            top: -10000px;
-            left: -10000px;
-            text-align: center;
+        & > div {
+            .box-flex(1);
+            .box(vertical, center, stretch);
+        }
+        .buy-container {
+            text-align: right;
+        }
+        .price-container {
+            text-align: left;
         }
     }
 
+    .description-container {
+        @padding: 20px;
+        height: @descriptionHeight - (2 * @padding);
+        padding: @padding;
+        .box(vertical, center);
+        font-size: 24px;
+        line-height: 30px;
+
+        h1 {
+            font-size: 44px;
+            line-height: 50px;
+        }
+    }
 }
+
 .pages {
     .box-flex(1);
     overflow-y: scroll;
@@ -185,9 +200,8 @@ ul {
     .next, .previous {
         position: absolute;
         top: 100;
-        width: 30px;
-        height: 30px;
-        background-color: red;
+        width: 100px;
+        height: @visualHeight;
     }
     .next {
         right: 0;

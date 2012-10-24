@@ -1,5 +1,4 @@
-<img src="{{background}}" class="background">
-<div class="main-container">
+<div id="content-container" style="background-image: url('{{images.contentBackground}}');">
     <div class="header">
         <div class="title-container">
             <h1 class="title">{{name}}</h1>
@@ -7,9 +6,9 @@
         <div class="balance-container">
             <img class="balance-image" src="{{pages.menu.balance}}" alt="Balance Image">
             <div class="label-container" style="{{balance.style}}">
-            {{#each currencies}}
-            <label>{{this.balance}}</label>
-            {{/each}}
+                {{#each currencies}}
+                <label>{{this.balance}}</label>
+                {{/each}}
             </div>
         </div>
     </div>
