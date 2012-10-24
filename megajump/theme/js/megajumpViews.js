@@ -40,9 +40,13 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 templateHelpers = { images : this.theme.images },
                 $this           = this;
 
+            // Prepare triggers for virtual good views
+            var triggers = { "click .buy" : "buy" };
+            if (top.enablePointingDeviceEvents) triggers["touchend .buy"] = "buy";
 
             var VirtualGoodView = Components.ListItemView.extend({
                 tagName         : "div",
+                triggers        : triggers,
                 template        : Handlebars.getTemplate("item"),
                 templateHelpers : templateHelpers,
                 css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
@@ -87,7 +91,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                     itemView            : VirtualGoodView,
                     template            : Handlebars.getTemplate("category"),
                     templateHelpers     : templateHelpers
-                }).on("bought", $this.wantsToBuyVirtualGoods).on("equipped", $this.wantsToEquipGoods).on("unequipped", $this.wantsToUnequipGoods);
+                }).on("buy", $this.wantsToBuyVirtualGoods);
 
                 $this.categoryViews[categoryName] = view;
             });
