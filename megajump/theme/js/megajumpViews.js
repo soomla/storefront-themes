@@ -16,6 +16,10 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
         }
     });
 
+    var CarouselView = Components.CarouselView.extend({
+        itemViewContainer : ".list-items"
+    });
+
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
@@ -76,12 +80,12 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 categoryGoods = new Backbone.Collection(categoryGoods);
                 var categoryName = category.get("name");
 
-                var view = new Components.CarouselView({
-                    tagName             : "div",
+                var view = new CarouselView({
                     className           : "items virtualGoods category " + categoryName,
                     category            : category,
                     collection          : categoryGoods,
-                    itemView            : VirtualGoodView
+                    itemView            : VirtualGoodView,
+                    template            : Handlebars.getTemplate("category")
                 }).on("bought", $this.wantsToBuyVirtualGoods).on("equipped", $this.wantsToEquipGoods).on("unequipped", $this.wantsToUnequipGoods);
 
                 $this.categoryViews[categoryName] = view;

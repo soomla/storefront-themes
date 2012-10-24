@@ -180,6 +180,21 @@ ul {
 
 .category {
     display: none;
+    position: relative;
+
+    .next, .previous {
+        position: absolute;
+        top: 100;
+        width: 30px;
+        height: 30px;
+        background-color: red;
+    }
+    .next {
+        right: 0;
+    }
+    .previous {
+        left: 0;
+    }
 }
 
 .back, .buy-more, .cancel {
