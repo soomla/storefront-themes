@@ -46,27 +46,51 @@
     ],
     "virtualGoods" : [
         {
-            "name"          : "Fruit Cake",
-            "description"   : "Customers buy a double portion on each purchase of this cake",
+            "name"          : "Vampire",
+            "description"   : "Lorem ipsum dolor sit amet, ad aeterno rationibus mel. Fastidii urbanitas ad cum, vel in eripuit feugiat. Prima graece nam cu, his no sensibus facilisis",
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
                     "currency_coin" : 225
                 }
             },
-            "itemId"        : "fruit_cake",
+            "itemId"        : "vampire",
             "categoryId"   : 1
         },
         {
-            "name"          : "Pavlova",
-            "description"   : "Gives customers a sugar rush and they call their friends",
+            "name"          : "Witch",
+            "description"   : "Lorem ipsum dolor sit amet, ad aeterno rationibus mel. Fastidii urbanitas ad cum, vel in eripuit feugiat. Prima graece nam cu, his no sensibus facilisis",
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
                     "currency_coin" : 175
                 }
             },
-            "itemId"        : "pavlova",
+            "itemId"        : "witch",
+            "categoryId"   : 1
+        },
+        {
+            "name"          : "Skull",
+            "description"   : "Lorem ipsum dolor sit amet, ad aeterno rationibus mel. Fastidii urbanitas ad cum, vel in eripuit feugiat. Prima graece nam cu, his no sensibus facilisis",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 225
+                }
+            },
+            "itemId"        : "skull",
+            "categoryId"   : 1
+        },
+        {
+            "name"          : "Zombie",
+            "description"   : "Lorem ipsum dolor sit amet, ad aeterno rationibus mel. Fastidii urbanitas ad cum, vel in eripuit feugiat. Prima graece nam cu, his no sensibus facilisis",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 175
+                }
+            },
+            "itemId"        : "zombie",
             "categoryId"   : 1
         },
         {
@@ -96,12 +120,14 @@
     ],
     "modelAssets" : {
         "categories" : {
-            "1" : "http://placehold.it/100x100",
-            "2" : "http://placehold.it/100x100"
+            "1" : "themes/megajump/theme/img/Categories/Pumpkin.png",
+            "2" : "themes/megajump/theme/img/Categories/Axe.png"
         },
         "virtualGoods" : {
-            "fruit_cake" : "http://placehold.it/400x420",
-            "pavlova" : "http://placehold.it/400x420/eee/ddd",
+            "vampire" : "themes/megajump/theme/img/Characters/Vampire.png",
+            "witch" : "themes/megajump/theme/img/Characters/Witch.png",
+            "skull" : "themes/megajump/theme/img/Characters/Skull.png",
+            "zombie" : "themes/megajump/theme/img/Characters/Zombie.png",
             "chocolate_cake" : "http://placehold.it/400x420",
             "cream_cup" : "http://placehold.it/400x420"
         },
@@ -159,11 +185,11 @@
     "categories" : [
         {
             "id" : 1,
-            "name" : "players"
+            "name" : "CHARACTERS"
         },
         {
             "id" : 2,
-            "name" : "powerups"
+            "name" : "WEAPONS"
         }
     ]
 }
