@@ -154,17 +154,15 @@
             "background" : "http://placehold.it/520x200&text=Background (520x200)"
         },
         "images" : {
-            "buyImage" : "http://placehold.it/140x60",
-            "equippedIndicatorImage" : "http://placehold.it/20x100",
-            "notEquippedIndicatorImage" : "http://placehold.it/20x100",
-            "expandImage" : "http://placehold.it/20x100",
-            "collapseImage" : "http://placehold.it/20x100/fff/eee",
-            "backImage" : "http://placehold.it/100x60&text=Back (100x60)",
-            "quitImage" : "http://placehold.it/100x60&text=Quit (100x60)",
-            "itemBackgroundImage" : "http://placehold.it/900x120/fff/eee&text=Background (900x120)",
-            "contentBackground" : "http://placehold.it/720x1280/F8F8F8/ddd&text=Background (720x1280)",
+            "globalBackground" : "themes/megajump/theme/img/GlobalBackground.png",
+            "contentBackground" : "themes/megajump/theme/img/ContentBackground.png",
+            "headerBackground" : "themes/megajump/theme/img/HeaderBackground.png",
+            "itemAreaBackground" : "themes/megajump/theme/img/ItemAreaBackground.png",
+            "footerBackground" : "themes/megajump/theme/img/FooterBackground.png",
             "previousImage" : "http://placehold.it/100x420",
-            "nextImage" : "http://placehold.it/100x420"
+            "nextImage" : "http://placehold.it/100x420",
+            "buyImage" : "http://placehold.it/140x60",
+            "quitImage" : "http://placehold.it/100x60&text=Quit (100x60)"
         },
         "pages" : {
             "menu" : {

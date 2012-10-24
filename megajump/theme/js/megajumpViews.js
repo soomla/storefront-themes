@@ -31,13 +31,11 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 tagName         : "div",
                 triggers        : triggers,
                 template        : Handlebars.getTemplate("item"),
-                templateHelpers : templateHelpers,
-                css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
+                templateHelpers : templateHelpers
             });
             var CurrencyPackView = Components.ListItemView.extend({
                 template        : Handlebars.getTemplate("currencyPack"),
-                templateHelpers : templateHelpers,
-                css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
+                templateHelpers : templateHelpers
             });
             var CategoryMenuItemView = Components.ListItemView.extend({
                 template        : Handlebars.getTemplate("categoryMenuItem")
@@ -108,6 +106,9 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             return this;
         },
         onRender : function() {
+
+            // Append background to element
+            this.$el.css("background-image", "url('" + this.theme.images.globalBackground + "')");
 
             // Show first category name in header
             this.changeTitle(this.model.get("categories").at(0).get("name"));

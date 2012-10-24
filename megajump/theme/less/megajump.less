@@ -11,6 +11,12 @@
 @visualHeight: 420px;
 
 
+.centeredBackground {
+    .background-size(cover);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 // GENERAL LAYOUT
 // --------------------------------------------------
 
@@ -22,16 +28,12 @@ ul {
 
 #main {
     .box(horizontal, center, center);
-    .background-size(cover);
-    background-position: center;
 }
 
 // Holds all the content i.e. header, categories, footer
 #content-container {
     height: @externalHeight;
     width: @externalWidth;
-    .background-size(cover);
-    background-position: center;
 }
 
 #header {
@@ -69,11 +71,9 @@ ul {
     padding: 20px;
 }
 
-
-// In case a background image is applied...
-.item, #header {
-    background-position: center;
-    background-repeat: no-repeat;
+// In case a background image is applied, center it and don't repeat it
+#main, #content-container, #header, #footer, #categories {
+    .centeredBackground;
 }
 
 
@@ -91,7 +91,7 @@ ul {
     height: 100%;
     box-sizing: border-box; // TODO: Make LESS function for all vendor prefixes
     overflow: hidden;
-    .background-size(cover);
+    .centeredBackground;
 
 
     .visual {
