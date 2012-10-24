@@ -1,7 +1,7 @@
 define(["jquery", "backbone", "components", "handlebars", "templates"], function($, Backbone, Components, Handlebars) {
 
     var CarouselView = Components.CarouselView.extend({
-        itemViewContainer : ".list-items"
+        itemViewContainer : ".goods"
     });
 
 
@@ -70,7 +70,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 var categoryName = category.get("name");
 
                 var view = new CarouselView({
-                    className           : "items virtualGoods category " + categoryName,
+                    className           : "category " + categoryName,
                     category            : category,
                     collection          : categoryGoods,
                     itemView            : VirtualGoodView,
@@ -85,7 +85,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             // Build the currency packs carousel and place it last
             // in the category views
             this.currencyPacksView = new Components.CollectionListView({
-                className           : "items currencyPacks category",
+                className           : "category",
                 collection          : currencyPacks,
                 itemView            : CurrencyPackView,
                 category            : new Backbone.Model({name : "currencyPacks"})  // Hack the category name in
@@ -98,10 +98,10 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
         },
         changeTitle : function(text) {
-            this.$(".header .title").html(text);
+            this.$("#title").html(text);
         },
         updateBalance : function(model) {
-            this.$(".balance-container label").html(model.get("balance"));
+            this.$("#balance-container label").html(model.get("balance"));
         },
         openDialog : function(currency) {
             this.createDialog({model : this.theme.noFundsModal}).render();
