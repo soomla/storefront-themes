@@ -50,8 +50,9 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             // to switch categories every time a menu item is selected, using tabs.
             // In order to extend the categories with a "currency packs" category,
             // we need to clone the original collection
-            var menuCategories = new Backbone.Collection(categories.toJSON());
-            menuCategories.add({name : "COIN PACKS", imgFilePath : this.model.get("modelAssets").currencyPacksCategory});
+            var currencyPacksId = "currency-packs",
+                menuCategories = new Backbone.Collection(categories.toJSON());
+            menuCategories.add({name : currencyPacksId, imgFilePath : this.model.get("modelAssets").currencyPacksCategory});
             this.categoryMenu = new Components.CollectionListView({
                 collection          : menuCategories,
                 itemView            : CategoryMenuItemView,
@@ -62,6 +63,11 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             }).on("itemview:selected", function(view) {
                 view.$("a").tab("show");
                 var name = view.model.get("name");
+
+                // If the selected category is currency packs, take title from specific
+                // field in JSON, since currency packs don't have a category and a name
+                if (name == currencyPacksId) name = $this.theme.currencyPacksCategoryName;
+
                 $this.activeView = $this.categoryViews[name];
                 $this.changeTitle(name);
             });
@@ -90,12 +96,12 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             // Build the currency packs carousel and place it last
             // in the category views
             this.currencyPacksView = new CarouselView({
-                id                  : "COIN PACKS",  // Hack the category name in
+                id                  : currencyPacksId,  // Hack the category name in
                 collection          : currencyPacks,
                 itemView            : CurrencyPackView,
                 templateHelpers     : templateHelpers
             }).on("itemview:buy", function(view) { $this.wantsToBuyCurrencyPacks(view.model); });
-            this.categoryViews["COIN PACKS"] = this.currencyPacksView;
+            this.categoryViews[currencyPacksId] = this.currencyPacksView;
 
             // Set the active view to be the first category's view
             this.activeView = this.categoryViews[categories.at(0).get("name")];

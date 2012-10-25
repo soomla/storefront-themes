@@ -152,6 +152,7 @@
         },
         "titleStyle" : "",
         "headerBackground" : "http://placehold.it/960x80/eee/ddd&text=Background (960x80)",
+        "currencyPacksCategoryName" : "COIN PACKS",
         "noFundsModal" : {
             "background" : "http://placehold.it/520x200&text=Background (520x200)"
         },
