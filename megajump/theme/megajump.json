@@ -1,0 +1,191 @@
+{
+    "cssFiles" : ["themes/megajump/theme/less/megajump.less"],
+    "jsFiles" : ["themes/megajump/theme/js/megajumpViews.js", "themes/megajump/theme/js/bootstrap-tab.js"],
+    "templatePath" : "themes/megajump/theme/templates",
+    "isCurrencyStoreDisabled" : false,
+    "currencyPacks" : [
+        {
+            "name"              : "10 Muffins",
+            "itemId"            : "muffins_10",
+            "currency_itemId"   : "currency_coin",
+            "productId"         : "muffins_10",
+            "price"             : 0.99,
+            "amount"            : 10
+        },
+        {
+            "name"              : "50 Muffins",
+            "itemId"            : "muffins_50",
+            "currency_itemId"   : "currency_coin",
+            "productId"         : "android.test.purchased",
+            "price"             : 1.99,
+            "amount"            : 50
+        },
+        {
+            "name"              : "400 Muffins",
+            "itemId"            : "muffins_400",
+            "currency_itemId"   : "currency_coin",
+            "productId"         : "muffins_400",
+            "price"             : 4.99,
+            "amount"            : 400
+        },
+        {
+            "name"              : "1000 Muffins",
+            "itemId"            : "muffins_1000",
+            "currency_itemId"   : "currency_coin",
+            "productId"         : "muffins_1000",
+            "price"             : 8.99,
+            "amount"            : 1000
+        }
+    ],
+    "virtualCurrencies" : [
+        {
+            "name"          : "Coins",
+            "description"   : "",
+            "itemId"        : "currency_coin"
+        }
+    ],
+    "virtualGoods" : [
+        {
+            "name"          : "Vampire",
+            "description"   : "Lorem ipsum dolor sit amet, ad aeterno rationibus mel. Fastidii urbanitas ad cum, vel in eripuit feugiat. Prima graece nam cu, his no sensibus facilisis",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 225
+                }
+            },
+            "itemId"        : "vampire",
+            "categoryId"   : 1
+        },
+        {
+            "name"          : "Witch",
+            "description"   : "Lorem ipsum dolor sit amet, ad aeterno rationibus mel. Fastidii urbanitas ad cum, vel in eripuit feugiat. Prima graece nam cu, his no sensibus facilisis",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 175
+                }
+            },
+            "itemId"        : "witch",
+            "categoryId"   : 1
+        },
+        {
+            "name"          : "Skull",
+            "description"   : "Lorem ipsum dolor sit amet, ad aeterno rationibus mel. Fastidii urbanitas ad cum, vel in eripuit feugiat. Prima graece nam cu, his no sensibus facilisis",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 225
+                }
+            },
+            "itemId"        : "skull",
+            "categoryId"   : 1
+        },
+        {
+            "name"          : "Zombie",
+            "description"   : "Lorem ipsum dolor sit amet, ad aeterno rationibus mel. Fastidii urbanitas ad cum, vel in eripuit feugiat. Prima graece nam cu, his no sensibus facilisis",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 175
+                }
+            },
+            "itemId"        : "zombie",
+            "categoryId"   : 1
+        },
+        {
+            "name"          : "Choco-Cake",
+            "description"   : "A classic cake to maximize customer satisfaction",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 250
+                }
+            },
+            "itemId"        : "chocolate_cake",
+            "categoryId"   : 2
+        },
+        {
+            "name"          : "Cream Cup",
+            "description"   : "Increase bakery reputation with this original pastry",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 50
+                }
+            },
+            "itemId"        : "cream_cup",
+            "categoryId"   : 2
+        }
+    ],
+    "modelAssets" : {
+        "categories" : {
+            "1" : "themes/megajump/theme/img/Categories/Pumpkin.png",
+            "2" : "themes/megajump/theme/img/Categories/Axe.png"
+        },
+        "currencyPacksCategory" : "themes/megajump/theme/img/Categories/Coins.png",
+        "virtualGoods" : {
+            "vampire" : "themes/megajump/theme/img/Characters/Vampire.png",
+            "witch" : "themes/megajump/theme/img/Characters/Witch.png",
+            "skull" : "themes/megajump/theme/img/Characters/Skull.png",
+            "zombie" : "themes/megajump/theme/img/Characters/Zombie.png",
+            "chocolate_cake" : "http://placehold.it/400x420",
+            "cream_cup" : "http://placehold.it/400x420"
+        },
+        "currencyPacks" : {
+            "muffins_10" : "http://placehold.it/400x420",
+            "muffins_50" : "http://placehold.it/400x420",
+            "muffins_400" : "http://placehold.it/400x420",
+            "muffins_1000" : "http://placehold.it/400x420"
+        },
+        "virtualCurrencies" : {
+            "currency_coin" : "http://placehold.it/80x80"
+        }
+    },
+    "theme" : {
+        "name" : "megajump",
+        "template" : "megajump",
+        "version" : 1,
+        "isOrientationLandscape" : false,
+        "balance" : {
+            "backgroundImage" : "http://placehold.it/300x200&text=Balance (300x200)",
+            "style" : "top: -10000px; left: -10000px;"
+        },
+        "titleStyle" : "",
+        "headerBackground" : "http://placehold.it/960x80/eee/ddd&text=Background (960x80)",
+        "currencyPacksCategoryName" : "COIN PACKS",
+        "noFundsModal" : {
+            "background" : "http://placehold.it/520x200&text=Background (520x200)",
+            "title" : "Need More Coins!",
+            "description" : "Would you like to get more coins?",
+            "yesButton" : "themes/templeRun/theme/img/Yes_BTN.png",
+            "noButton" : "themes/templeRun/theme/img/No_BTN.png"
+        },
+        "images" : {
+            "globalBackground" : "themes/megajump/theme/img/GlobalBackground.png",
+            "contentBackground" : "themes/megajump/theme/img/ContentBackground.png",
+            "headerBackground" : "themes/megajump/theme/img/HeaderBackground.png",
+            "itemAreaBackground" : "themes/megajump/theme/img/ItemAreaBackground.png",
+            "footerBackground" : "themes/megajump/theme/img/FooterBackground.png",
+            "previousImage" : "http://placehold.it/100x420",
+            "nextImage" : "http://placehold.it/100x420",
+            "buyImage" : "http://placehold.it/240x120",
+            "quitImage" : "http://placehold.it/100x100&text=Quit (100x100)"
+        },
+        "item" : {
+            "nameStyle" : "",
+            "descriptionStyle" : "",
+            "priceStyle" : ""
+        }
+    },
+    "categories" : [
+        {
+            "id" : 1,
+            "name" : "CHARACTERS"
+        },
+        {
+            "id" : 2,
+            "name" : "WEAPONS"
+        }
+    ]
+}
