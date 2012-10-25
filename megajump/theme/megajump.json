@@ -123,6 +123,7 @@
             "1" : "themes/megajump/theme/img/Categories/Pumpkin.png",
             "2" : "themes/megajump/theme/img/Categories/Axe.png"
         },
+        "currencyPacksCategory" : "themes/megajump/theme/img/Categories/Coins.png",
         "virtualGoods" : {
             "vampire" : "themes/megajump/theme/img/Characters/Vampire.png",
             "witch" : "themes/megajump/theme/img/Characters/Witch.png",

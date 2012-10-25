@@ -1,7 +1,9 @@
 define(["jquery", "backbone", "components", "handlebars", "templates"], function($, Backbone, Components, Handlebars) {
 
     var CarouselView = Components.CarouselView.extend({
-        itemViewContainer : ".goods"
+        className           : "category",
+        itemViewContainer   : ".goods",
+        template            : Handlebars.getTemplate("category")
     });
 
 
@@ -24,8 +26,8 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 $this           = this;
 
             // Prepare triggers for virtual good views
-            var triggers = { "click .buy" : "buy" };
-            if (top.enablePointingDeviceEvents) triggers["touchend .buy"] = "buy";
+            var triggers = { "touchend .buy" : "buy" };
+            if (top.enablePointingDeviceEvents) triggers["click .buy"] = "buy";
 
             var VirtualGoodView = Components.ListItemView.extend({
                 tagName         : "div",
@@ -34,6 +36,8 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 templateHelpers : templateHelpers
             });
             var CurrencyPackView = Components.ListItemView.extend({
+                tagName         : "div",
+                triggers        : triggers,
                 template        : Handlebars.getTemplate("currencyPack"),
                 templateHelpers : templateHelpers
             });
@@ -43,9 +47,13 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
 
             // Build a category menu that will cause the main area
-            // to switch categories every time a menu item is selected, using tabs
+            // to switch categories every time a menu item is selected, using tabs.
+            // In order to extend the categories with a "currency packs" category,
+            // we need to clone the original collection
+            var menuCategories = new Backbone.Collection(categories.toJSON());
+            menuCategories.add({name : "COIN PACKS", imgFilePath : this.model.get("modelAssets").currencyPacksCategory});
             this.categoryMenu = new Components.CollectionListView({
-                collection          : categories,
+                collection          : menuCategories,
                 itemView            : CategoryMenuItemView,
                 onRender            : function() {
                     // Activate tabs
@@ -59,22 +67,21 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             });
 
 
-
+            // Build views for each category
             this.categoryViews = {};
             categories.each(function(category) {
 
+                // Filter a collection of goods associated with the current category
                 var categoryGoods = virtualGoods.filter(function(item) {return item.get("categoryId") == category.id});
                 categoryGoods = new Backbone.Collection(categoryGoods);
                 var categoryName = category.get("name");
 
                 var view = new CarouselView({
-                    className           : "category " + categoryName,
-                    category            : category,
+                    id                  : categoryName,
                     collection          : categoryGoods,
                     itemView            : VirtualGoodView,
-                    template            : Handlebars.getTemplate("category"),
                     templateHelpers     : templateHelpers
-                }).on("buy", $this.wantsToBuyVirtualGoods);
+                }).on("itemview:buy", function(view) { $this.wantsToBuyVirtualGoods(view.model); });
 
                 $this.categoryViews[categoryName] = view;
             });
@@ -82,18 +89,16 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
             // Build the currency packs carousel and place it last
             // in the category views
-            this.currencyPacksView = new Components.CollectionListView({
-                className           : "category",
+            this.currencyPacksView = new CarouselView({
+                id                  : "COIN PACKS",  // Hack the category name in
                 collection          : currencyPacks,
                 itemView            : CurrencyPackView,
-                category            : new Backbone.Model({name : "currencyPacks"})  // Hack the category name in
-            }).on("bought", this.wantsToBuyCurrencyPacks);
-            this.categoryViews["currencyPacks"] = this.currencyPacksView;
+                templateHelpers     : templateHelpers
+            }).on("itemview:buy", function(view) { $this.wantsToBuyCurrencyPacks(view.model); });
+            this.categoryViews["COIN PACKS"] = this.currencyPacksView;
 
+            // Set the active view to be the first category's view
             this.activeView = this.categoryViews[categories.at(0).get("name")];
-
-            categories.add({name : "currencyPacks"});
-
         },
         changeTitle : function(text) {
             this.$("#title").html(text);
@@ -120,7 +125,6 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             var $this = this;
             _.each(this.categoryViews, function(view) {
                 $this.$("#categories").append(view.render().el);
-                view.$el.attr("id", view.options.category.get("name"));
             });
             this.$("#categories > div:first").addClass("active");
 
