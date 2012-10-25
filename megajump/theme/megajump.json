@@ -170,7 +170,7 @@
             "previousImage" : "http://placehold.it/100x420",
             "nextImage" : "http://placehold.it/100x420",
             "buyImage" : "http://placehold.it/240x120",
-            "quitImage" : "http://placehold.it/100x60&text=Quit (100x60)"
+            "quitImage" : "http://placehold.it/100x100&text=Quit (100x100)"
         },
         "item" : {
             "nameStyle" : "",

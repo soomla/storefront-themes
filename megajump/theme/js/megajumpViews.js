@@ -133,6 +133,8 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             // Show first category name in header
             this.changeTitle(this.model.get("categories").at(0).get("name"));
 
+            // Attach event handler to quit button
+            this.$("#quit").click(this.wantsToLeaveStore);
 
             // Render category menu
             this.categoryMenu.setElement("#category-menu").render();

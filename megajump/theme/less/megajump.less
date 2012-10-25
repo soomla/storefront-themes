@@ -139,6 +139,7 @@ ul {
 
 #category-menu {
     height: 200px;
+    width: @externalWidth - (2 * 20) - 120; // 2 * footer padding, quit button width + margin
 
     li {
         float: left;
@@ -150,6 +151,9 @@ ul {
 #categories {
     height: @categoriesHeight;
     position: relative;
+}
+#quit {
+    float: right;
 }
 
 // The cateogries behave like a tab.  It's displayed only when it's active
