@@ -10,11 +10,12 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
             _.bindAll(this, "wantsToLeaveStore", "updateBalance",
-                            "render", "openDialog", "changeTitle",
+                            "render", "changeTitle", "showCurrencyStore",
                             "wantsToBuyVirtualGoods", "wantsToBuyCurrencyPacks");
 
-            this.nativeAPI  = this.options.nativeAPI || window.SoomlaNative;
-            this.theme      = this.model.get("theme");
+            this.nativeAPI   = this.options.nativeAPI || window.SoomlaNative;
+            this.theme       = this.model.get("theme");
+            this.dialogModel = this.theme.noFundsModal;
 
             this.model.get("virtualCurrencies").on("change:balance", this.updateBalance);
 
@@ -50,9 +51,9 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             // to switch categories every time a menu item is selected, using tabs.
             // In order to extend the categories with a "currency packs" category,
             // we need to clone the original collection
-            var currencyPacksId = "currency-packs",
-                menuCategories = new Backbone.Collection(categories.toJSON());
-            menuCategories.add({name : currencyPacksId, imgFilePath : this.model.get("modelAssets").currencyPacksCategory});
+            var menuCategories = new Backbone.Collection(categories.toJSON());
+            this.currencyPacksId = "currency-packs"
+            menuCategories.add({name : this.currencyPacksId, imgFilePath : this.model.get("modelAssets").currencyPacksCategory});
             this.categoryMenu = new Components.CollectionListView({
                 collection          : menuCategories,
                 itemView            : CategoryMenuItemView,
@@ -66,7 +67,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
                 // If the selected category is currency packs, take title from specific
                 // field in JSON, since currency packs don't have a category and a name
-                if (name == currencyPacksId) name = $this.theme.currencyPacksCategoryName;
+                if (name == $this.currencyPacksId) name = $this.theme.currencyPacksCategoryName;
 
                 $this.activeView = $this.categoryViews[name];
                 $this.changeTitle(name);
@@ -96,12 +97,12 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             // Build the currency packs carousel and place it last
             // in the category views
             this.currencyPacksView = new CarouselView({
-                id                  : currencyPacksId,  // Hack the category name in
+                id                  : this.currencyPacksId,  // Hack the category name in
                 collection          : currencyPacks,
                 itemView            : CurrencyPackView,
                 templateHelpers     : templateHelpers
             }).on("itemview:buy", function(view) { $this.wantsToBuyCurrencyPacks(view.model); });
-            this.categoryViews[currencyPacksId] = this.currencyPacksView;
+            this.categoryViews[this.currencyPacksId] = this.currencyPacksView;
 
             // Set the active view to be the first category's view
             this.activeView = this.categoryViews[categories.at(0).get("name")];
@@ -112,9 +113,17 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
         updateBalance : function(model) {
             this.$("#balance-container label").html(model.get("balance"));
         },
-        openDialog : function(currency) {
-            this.createDialog({model : this.theme.noFundsModal}).render();
-            return this;
+        showCurrencyStore : function() {
+            // When this flag is raised, there is no connectivity,
+            // thus don't show the currency store
+            if (this.model.get("isCurrencyStoreDisabled")) {
+                alert("Buying more is unavailable. Check your internet connectivity and try again.");
+            } else {
+                this.$("[href=#" + this.currencyPacksId + "]").tab("show");
+                var name = this.theme.currencyPacksCategoryName;
+                this.activeView = this.categoryViews[name];
+                this.changeTitle(name);
+            }
         },
         onRender : function() {
 

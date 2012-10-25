@@ -192,6 +192,29 @@ ul {
 }
 
 .dialog {
-	width: 520px;
+    text-align: center;
+    width: 540px;
     height: 300px;
+    .box(vertical, center);
+
+    .title {
+        @height: 60px;
+        font-size: 44px;
+        line-height: 50px;
+    }
+
+    .description {
+        .box-flex(1);
+        .box(vertical, center);
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .actions {
+        margin-top: 10px;
+        img {
+            width: 260px;
+            height: 80px;
+        }
+    }
 }

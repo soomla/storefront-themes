@@ -154,7 +154,11 @@
         "headerBackground" : "http://placehold.it/960x80/eee/ddd&text=Background (960x80)",
         "currencyPacksCategoryName" : "COIN PACKS",
         "noFundsModal" : {
-            "background" : "http://placehold.it/520x200&text=Background (520x200)"
+            "background" : "http://placehold.it/520x200&text=Background (520x200)",
+            "title" : "Need More Coins!",
+            "description" : "Would you like to get more coins?",
+            "yesButton" : "themes/templeRun/theme/img/Yes_BTN.png",
+            "noButton" : "themes/templeRun/theme/img/No_BTN.png"
         },
         "images" : {
             "globalBackground" : "themes/megajump/theme/img/GlobalBackground.png",
