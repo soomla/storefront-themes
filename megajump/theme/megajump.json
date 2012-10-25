@@ -150,6 +150,7 @@
         "balance" : {
             "style" : "top: -10000px; left: -10000px;"
         },
+        "titleStyle" : "",
         "headerBackground" : "http://placehold.it/960x80/eee/ddd&text=Background (960x80)",
         "noFundsModal" : {
             "background" : "http://placehold.it/520x200&text=Background (520x200)"
@@ -164,6 +165,11 @@
             "nextImage" : "http://placehold.it/100x420",
             "buyImage" : "http://placehold.it/140x60",
             "quitImage" : "http://placehold.it/100x60&text=Quit (100x60)"
+        },
+        "item" : {
+            "nameStyle" : "",
+            "descriptionStyle" : "",
+            "priceStyle" : "color:blue"
         },
         "pages" : {
             "menu" : {

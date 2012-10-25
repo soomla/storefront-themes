@@ -33,13 +33,13 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 tagName         : "div",
                 triggers        : triggers,
                 template        : Handlebars.getTemplate("item"),
-                templateHelpers : templateHelpers
+                templateHelpers :_.extend({item : this.theme.item}, templateHelpers)
             });
             var CurrencyPackView = Components.ListItemView.extend({
                 tagName         : "div",
                 triggers        : triggers,
                 template        : Handlebars.getTemplate("currencyPack"),
-                templateHelpers : templateHelpers
+                templateHelpers :_.extend({item : this.theme.item}, templateHelpers)
             });
             var CategoryMenuItemView = Components.ListItemView.extend({
                 template        : Handlebars.getTemplate("categoryMenuItem")
