@@ -148,6 +148,7 @@
         "version" : 1,
         "isOrientationLandscape" : false,
         "balance" : {
+            "backgroundImage" : "http://placehold.it/300x200&text=Balance (300x200)",
             "style" : "top: -10000px; left: -10000px;"
         },
         "titleStyle" : "",
@@ -175,21 +176,6 @@
             "nameStyle" : "",
             "descriptionStyle" : "",
             "priceStyle" : ""
-        },
-        "pages" : {
-            "menu" : {
-                "title" : "http://placehold.it/480x60&text=Title Image (480x60)",
-                "balance" : "http://placehold.it/300x200&text=Balance (300x200)"
-            },
-            "clothing" : {
-                "title" :  "http://placehold.it/480x60&text=Clothing Image (480x60)"
-            },
-            "jetpacks" : {
-                "title" :  "http://placehold.it/480x60&text=Jetpacks Image (480x60)"
-            },
-            "currencyPacks" : {
-                "title" :  "http://placehold.it/480x60&text=Currency Packs (480x60)"
-            }
         }
     },
     "categories" : [

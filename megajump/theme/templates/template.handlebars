@@ -4,7 +4,7 @@
             <h1 id="title" style="{{titleStyle}}"></h1>
         </div>
         <div id="balance-container">
-            <img class="balance-image" src="{{pages.menu.balance}}" alt="Balance Image">
+            <img class="balance-image" src="{{balance.backgroundImage}}" alt="Balance Image">
             <div class="label-container" style="{{balance.style}}">
                 {{#each currencies}}
                 <label>{{this.balance}}</label>
@@ -12,26 +12,6 @@
             </div>
         </div>
     </div>
-
-
-    <!--<div class="header" style="background-image: url('{{headerBackground}}');">-->
-        <!--<div class="back">-->
-            <!--<img src="{{images.quitImage}}">-->
-        <!--</div>-->
-        <!--<div class="title-container">-->
-            <!--<img class="title-image" src="{{pages.menu.title}}" alt="Title Image">-->
-        <!--</div>-->
-        <!--<div class="balance-container">-->
-            <!--<img class="balance-image" src="{{pages.menu.balance}}" alt="Balance Image">-->
-            <!--<div class="label-container" style="{{balance.style}}">-->
-                <!--{{#each currencies}}-->
-                <!--<label>{{this.balance}}</label>-->
-                <!--{{/each}}-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="pages">-->
-    <!--</div>-->
 
     <div id="categories" style="background-image: url('{{images.itemAreaBackground}}');"></div>
     <div id="footer" style="background-image: url('{{images.footerBackground}}');">
