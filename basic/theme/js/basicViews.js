@@ -1,4 +1,4 @@
-define(["jquery", "backbone", "components", "cssUtils", "handlebars", "templates"], function($, Backbone, Components, CssUtils, Handlebars) {
+define(["jquery", "backbone", "components", "handlebars", "templates"], function($, Backbone, Components, Handlebars) {
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
@@ -49,14 +49,13 @@ define(["jquery", "backbone", "components", "cssUtils", "handlebars", "templates
             if (this.model.get("isCurrencyStoreDisabled")) {
                 alert("Buying more " + this.model.get("currency").get("name") + " is unavailable. Check your internet connectivity and try again.");
             } else {
-                this.$("#currency-store").css("visibility", "").addClass("visible");
+                this.$("#goods-store").hide();
+                this.$("#currency-store").show();
             }
         },
         showGoodsStore : function() {
-            this.$("#currency-store").one(CssUtils.getTransitionendEvent(), function(){ $(this).css("visibility", "hidden"); }).removeClass("visible");
-        },
-        onRender : function() {
-            this.$("#currency-store").css("visibility", "hidden");
+            this.$("#currency-store").hide();
+            this.$("#goods-store").show();
         }
     });
 
