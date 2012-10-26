@@ -2,15 +2,9 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
-            _.bindAll(this, "wantsToLeaveStore",
-                            "render", "showCurrencyStore", "showGoodsStore",
-                            "wantsToBuyVirtualGoods", "wantsToBuyCurrencyPacks");
-
-            this.nativeAPI   = this.options.nativeAPI || window.SoomlaNative;
-            this.theme       = this.model.get("theme");
+            _.bindAll(this, "showCurrencyStore", "showGoodsStore");
             this.dialogModel = this.theme.pages.goods.noFundsModal;
 
-            this.model.get("virtualCurrencies").on("change:balance", this.updateBalance, this);
 
             var VirtualGoodView = Components.ListItemView.extend({
                 template        : Handlebars.getTemplate("item")
