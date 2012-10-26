@@ -30,7 +30,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
-            _.bindAll(this, "wantsToLeaveStore", "updateBalance",
+            _.bindAll(this, "wantsToLeaveStore",
                             "render", "switch",
                             "wantsToBuyVirtualGoods", "wantsToBuyCurrencyPacks");
 
@@ -38,7 +38,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             this.theme       = this.model.get("theme");
             this.dialogModel = this.theme.noFundsModal;
 
-            this.model.get("virtualCurrencies").on("change:balance", this.updateBalance);
+            this.model.get("virtualCurrencies").on("change:balance", this.updateBalance, this);
 
 
             var virtualGoods    = this.model.get("virtualGoods"),
@@ -145,9 +145,6 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             this.activeView.$el.show();
             var title = name == "menu" ? this.theme.pages.menu.title : name;
             this.header.switchHeader(title);
-        },
-        updateBalance : function(model) {
-            this.$(".balance-container label").html(model.get("balance"));
         },
         onRender : function() {
             // Append background to element

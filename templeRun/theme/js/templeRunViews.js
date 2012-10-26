@@ -2,7 +2,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
-            _.bindAll(this, "wantsToLeaveStore", "updateBalance",
+            _.bindAll(this, "wantsToLeaveStore",
                             "render", "showCurrencyStore", "showGoodsStore",
                             "wantsToBuyVirtualGoods", "wantsToBuyCurrencyPacks");
 
@@ -11,7 +11,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             this.dialogModel    = this.theme.pages.goods.noFundsModal;
             this.categoryViews  = [];
 
-            this.model.get("virtualCurrencies").on("change:balance", this.updateBalance); // TODO: Fix
+            this.model.get("virtualCurrencies").on("change:balance", this.updateBalance, this);
             var $this        = this,
                 categories   = this.model.get("categories"),
                 virtualGoods = this.model.get("virtualGoods");

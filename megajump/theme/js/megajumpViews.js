@@ -9,7 +9,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
-            _.bindAll(this, "wantsToLeaveStore", "updateBalance",
+            _.bindAll(this, "wantsToLeaveStore",
                             "render", "changeTitle", "showCurrencyStore",
                             "wantsToBuyVirtualGoods", "wantsToBuyCurrencyPacks");
 
@@ -17,7 +17,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             this.theme       = this.model.get("theme");
             this.dialogModel = this.theme.noFundsModal;
 
-            this.model.get("virtualCurrencies").on("change:balance", this.updateBalance);
+            this.model.get("virtualCurrencies").on("change:balance", this.updateBalance, this);
 
 
             var virtualGoods    = this.model.get("virtualGoods"),
@@ -109,9 +109,6 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
         },
         changeTitle : function(text) {
             this.$("#title").html(text);
-        },
-        updateBalance : function(model) {
-            this.$("#balance-container label").html(model.get("balance"));
         },
         showCurrencyStore : function() {
             // When this flag is raised, there is no connectivity,
