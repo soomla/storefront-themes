@@ -1,0 +1,12 @@
+{
+    "attributes" : {
+        "background" : {
+            "type" : "image",
+            "title" : "Background Image"
+        },
+        "contentBackground" : {
+            "type" : "image",
+            "title" : "Content Background Image"
+        }
+    }
+}
