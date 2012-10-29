@@ -1,7 +1,7 @@
 {
-"cssFile" : "../theme/less/jetpackJoyride.less",
-    "jsFiles" : ["../theme/js/jetpackJoyrideViews.js"],
-    "templatePath" : "../theme/templates",
+    "cssFiles" : ["themes/jetpackJoyridePortrait/theme/less/jetpackJoyridePortrait.less"],
+    "jsFiles" : ["themes/jetpackJoyridePortrait/theme/js/jetpackJoyridePortraitViews.js"],
+    "templatePath" : "themes/jetpackJoyridePortrait/theme/templates",
     "modelAssets" : {
         "categories" : {
             "1" : "../theme/img/-_Object_4.png",
@@ -39,8 +39,8 @@
         }
     },
     "theme" : {
-        "name" : "jetpackJoyride",
-        "template" : "jetpackJoyride",
+        "name" : "jetpackJoyridePortrait",
+        "template" : "jetpackJoyridePortrait",
         "version" : 1,
         "isOrientationLandscape" : true,
         "balance" : {
