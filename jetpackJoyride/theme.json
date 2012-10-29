@@ -1,7 +1,7 @@
 {
-    "cssFiles" : ["themes/jetpackJoyride/theme/less/jetpackJoyride.less"],
-    "jsFiles" : ["themes/jetpackJoyride/theme/js/jetpackJoyrideViews.js"],
-    "templatePath" : "themes/jetpackJoyride/theme/templates",
+    "cssFiles" : ["../theme/less/jetpackJoyride.less"],
+    "jsFiles" : ["../theme/js/jetpackJoyrideViews.js"],
+    "templatePath" : "../theme/templates",
     "modelAssets" : {
         "categories" : {
             "1" : "../theme/img/-_Object_4.png",

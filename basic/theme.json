@@ -3,6 +3,7 @@
     "jsFiles" : ["../theme/js/basicViews.js"],
     "templatePath" : "../theme/templates",
     "modelAssets" : {
+        "categories" : {},
         "virtualGoods" : {
             "blue_surfboard" : "../theme/img/items/blue-surfboard.png",
             "girl_surfboard_th" : "../theme/img/items/girl-surfboard-th.png",

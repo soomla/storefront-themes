@@ -3,6 +3,7 @@
     "jsFiles" : ["../theme/js/templeRunViews.js"],
     "templatePath" : "../theme/templates",
     "modelAssets" : {
+        "categories" : {},
         "virtualGoods" : {
             "boost_ahead" : "../theme/img/Powerups/Object_11.png",
             "extra_health" : "../theme/img/Powerups/Object_12.png",
