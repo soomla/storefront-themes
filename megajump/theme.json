@@ -1,29 +1,29 @@
 {
-    "cssFiles" : ["themes/megajump/theme/less/megajump.less"],
-    "jsFiles" : ["themes/megajump/theme/js/megajumpViews.js", "themes/megajump/theme/js/bootstrap-tab.js"],
-    "templatePath" : "themes/megajump/theme/templates",
+    "cssFiles" : ["../theme/less/megajump.less"],
+    "jsFiles" : ["../theme/js/megajumpViews.js", "../theme/js/bootstrap-tab.js"],
+    "templatePath" : "../theme/templates",
     "modelAssets" : {
         "categories" : {
-            "1" : "themes/megajump/theme/img/Categories/Pumpkin.png",
-            "2" : "themes/megajump/theme/img/Categories/Axe.png"
+            "1" : "../theme/img/Categories/Pumpkin.png",
+            "2" : "../theme/img/Categories/Axe.png"
         },
-        "currencyPacksCategory" : "themes/megajump/theme/img/Categories/Coins.png",
+        "currencyPacksCategory" : "../theme/img/Categories/Coins.png",
         "virtualGoods" : {
-            "vampire" : "themes/megajump/theme/img/Characters/Vampire.png",
-            "witch" : "themes/megajump/theme/img/Characters/Witch.png",
-            "skull" : "themes/megajump/theme/img/Characters/Skull.png",
-            "zombie" : "themes/megajump/theme/img/Characters/Zombie.png",
-            "chocolate_cake" : "http://placehold.it/400x420",
-            "cream_cup" : "http://placehold.it/400x420"
+            "vampire" : "../theme/img/Characters/Vampire.png",
+            "witch" : "../theme/img/Characters/Witch.png",
+            "skull" : "../theme/img/Characters/Skull.png",
+            "zombie" : "../theme/img/Characters/Zombie.png",
+            "chocolate_cake" : "../theme/img/Weapons/Weapon1.png",
+            "cream_cup" : "../theme/img/Weapons/Weapon2.png"
         },
         "currencyPacks" : {
-            "muffins_10" : "http://placehold.it/400x420",
-            "muffins_50" : "http://placehold.it/400x420",
-            "muffins_400" : "http://placehold.it/400x420",
-            "muffins_1000" : "http://placehold.it/400x420"
+            "muffins_10" : "../theme/img/CurrencyPacks/CurrencyPack1.png",
+            "muffins_50" : "../theme/img/CurrencyPacks/CurrencyPack2.png",
+            "muffins_400" : "../theme/img/CurrencyPacks/CurrencyPack3.png",
+            "muffins_1000" : "../theme/img/CurrencyPacks/CurrencyPack4.png"
         },
         "virtualCurrencies" : {
-            "currency_coin" : "http://placehold.it/80x80"
+            "currency_coin" : "../theme/img/Coin.png"
         }
     },
     "theme" : {
@@ -32,29 +32,28 @@
         "version" : 1,
         "isOrientationLandscape" : false,
         "balance" : {
-            "backgroundImage" : "http://placehold.it/300x200&text=Balance (300x200)",
+            "backgroundImage" : "../theme/img/BalanceBackground.png",
             "style" : "top: -10000px; left: -10000px;"
         },
         "titleStyle" : "",
-        "headerBackground" : "http://placehold.it/960x80/eee/ddd&text=Background (960x80)",
         "currencyPacksCategoryName" : "COIN PACKS",
         "noFundsModal" : {
-            "background" : "http://placehold.it/520x200&text=Background (520x200)",
+            "background" : "../theme/img/ModalBackground.png",
             "title" : "Need More Coins!",
             "description" : "Would you like to get more coins?",
-            "yesButton" : "themes/templeRun/theme/img/Yes_BTN.png",
-            "noButton" : "themes/templeRun/theme/img/No_BTN.png"
+            "yesButton" : "../theme/img/Yes_BTN.png",
+            "noButton" : "../theme/img/No_BTN.png"
         },
         "images" : {
-            "globalBackground" : "themes/megajump/theme/img/GlobalBackground.png",
-            "contentBackground" : "themes/megajump/theme/img/ContentBackground.png",
-            "headerBackground" : "themes/megajump/theme/img/HeaderBackground.png",
-            "itemAreaBackground" : "themes/megajump/theme/img/ItemAreaBackground.png",
-            "footerBackground" : "themes/megajump/theme/img/FooterBackground.png",
-            "previousImage" : "http://placehold.it/100x420",
-            "nextImage" : "http://placehold.it/100x420",
-            "buyImage" : "http://placehold.it/240x120",
-            "quitImage" : "http://placehold.it/100x100&text=Quit (100x100)"
+            "globalBackground" : "../theme/img/GlobalBackground.png",
+            "contentBackground" : "../theme/img/ContentBackground.png",
+            "headerBackground" : "../theme/img/HeaderBackground.png",
+            "itemAreaBackground" : "../theme/img/ItemAreaBackground.png",
+            "footerBackground" : "../theme/img/FooterBackground.png",
+            "previousImage" : "../theme/img/Previous.png",
+            "nextImage" : "../theme/img/Next.png",
+            "buyImage" : "../theme/img/Buy.png",
+            "quitImage" : "../theme/img/Quit.png"
         },
         "item" : {
             "nameStyle" : "",
