@@ -3,6 +3,7 @@
     "jsFiles" : ["../theme/js/muffinRushViews.js"],
     "templatePath" : "../theme/templates",
     "modelAssets" : {
+        "categories" : {},
         "virtualGoods" : {
             "fruit_cake" : "../theme/img/items/fruit_cake.png",
             "pavlova" : "../theme/img/items/pavlova.png",
