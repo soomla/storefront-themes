@@ -1,12 +1,52 @@
 {
     "attributes" : {
         "background" : {
-            "type" : "image",
-            "title" : "Background Image"
+            "type" : "backgroundImage",
+            "title" : "Background Image",
+            "selector" : "#goods-store, #currency-store"
         },
         "contentBackground" : {
-            "type" : "image",
-            "title" : "Content Background Image"
+            "type" : "backgroundImage",
+            "title" : "Content Background Image",
+            "selector" : ".content"
+        },
+        "common" : {
+            "titleImage" : {
+                "type" : "image",
+                "title" : "Title Image",
+                "selector" : ".title-image"
+            },
+            "balanceImage" : {
+                "type" : "image",
+                "title" : "Balance Image",
+                "selector" : ".balance-image"
+            },
+            "backButton" : {
+                "type" : "image",
+                "title" : "Back Button",
+                "selector" : ".footer .leave-store, .footer .back"
+            },
+            "moreCurrencyButton" : {
+                "type" : "image",
+                "title" : "More Currency Button",
+                "selector" : ".footer .buy-more"
+            }
+        },
+        "balance" : {
+            "style" : {
+                "type" : "text",
+                "title" : "Balance Style",
+                "text" : "lll"
+            }
+        },
+        "pages" : {
+            "goods" :{
+                "list" : {
+                    "type" : "backgroundImage",
+                    "title" : "Item Area Background",
+                    "selector" : ".items-container"
+                }
+            }
         }
     }
 }
