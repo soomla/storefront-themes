@@ -34,17 +34,46 @@
         },
         "balance" : {
             "style" : {
-                "type" : "text",
+                "type" : "css",
                 "title" : "Balance Style",
-                "text" : "lll"
+                "selector" : ".label-container"
             }
         },
         "pages" : {
             "goods" :{
                 "list" : {
-                    "type" : "backgroundImage",
-                    "title" : "Item Area Background",
-                    "selector" : ".items-container"
+                    "background" : {
+                        "type" : "backgroundImage",
+                        "title" : "Item Area Background",
+                        "selector" : ".items-container"
+                    }
+                },
+                "noFundsModal" : {
+                    "background" : {
+                        "type" : "backgroundImage",
+                        "title" : "Dialog Background Image",
+                        "selector" : ".dialog"
+                    },
+                    "title" : {
+                        "type" : "text",
+                        "title" : "Dialog Title",
+                        "selector" : ".dialog .title"
+                    },
+                    "description" : {
+                        "type" : "text",
+                        "title" : "Dialog Message",
+                        "selector" : ".dialog .description"
+                    },
+                    "yesButton" : {
+                        "type" : "image",
+                        "title" : "'Yes' Button",
+                        "selector" : ".dialog .buy-more"
+                    },
+                    "noButton" : {
+                        "type" : "image",
+                        "title" : "'No' Button",
+                        "selector" : ".dialog .cancel"
+                    }
                 }
             }
         }
