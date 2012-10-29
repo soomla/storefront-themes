@@ -6,7 +6,6 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,10 +15,6 @@ import android.widget.TextView;
 import com.soomla.store.StoreController;
 import com.soomla.store.StoreEventHandlers;
 import com.soomla.store.storefront.StorefrontController;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 
 public class StoreExampleActivity extends Activity {
     /**
@@ -144,24 +139,10 @@ public class StoreExampleActivity extends Activity {
 
     private void openStore() {
 
-        try {
-            InputStream in = getAssets().open(mThemeJsonFile);
-
-            byte[] buffer = new byte[in.available()];
-            in.read(buffer);
-            ByteArrayOutputStream out = new ByteArrayOutputStream();
-            out.write(buffer);
-            out.close();
-            in.close();
-
-            StorefrontController.getInstance().openStore(this, out.toString());
-        } catch (IOException e) {
-            Log.e("StoreExampleActivity", "Can't read JSON storefront file.");
-        }
+        StorefrontController.getInstance().openStore(this);
     }
 
     private Handler mHandler = new Handler();
     private ImageView mRobotView;
-    private String mThemeJsonFile = "templeRun.json";
 }
 
