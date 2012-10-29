@@ -3,7 +3,8 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="" />
     <mapping directory="$PROJECT_DIR$/../.." vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/assets/soomla_ui" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../submodules/android-store" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../submodules/storefront" vcs="Git" />
   </component>
 </project>
 

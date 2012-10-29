@@ -1,5 +1,4 @@
 .DS_Store
 
-basic/android-example/out
-basic/android-example/.idea/workspace.xml
-
+*workspace.xml
+*out/
