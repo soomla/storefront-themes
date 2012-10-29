@@ -103,8 +103,6 @@
 		C0B8B19C16343ADC0020C3F1 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B15E16343ADC0020C3F1 /* NSData+Base64.m */; };
 		C0B8B19D16343ADC0020C3F1 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B16216343ADC0020C3F1 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C0B8B19E16343ADC0020C3F1 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B16216343ADC0020C3F1 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		C0B8B19F16343ADC0020C3F1 /* store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B16416343ADC0020C3F1 /* store.xcdatamodeld */; };
-		C0B8B1A016343ADC0020C3F1 /* store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B16416343ADC0020C3F1 /* store.xcdatamodeld */; };
 		C0B8B1A116343ADC0020C3F1 /* StoreConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B16716343ADC0020C3F1 /* StoreConfig.m */; };
 		C0B8B1A216343ADC0020C3F1 /* StoreConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B16716343ADC0020C3F1 /* StoreConfig.m */; };
 		C0B8B1A316343ADC0020C3F1 /* StoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B16916343ADC0020C3F1 /* StoreController.m */; };
@@ -209,7 +207,6 @@
 		C0B8B16116343ADC0020C3F1 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		C0B8B16216343ADC0020C3F1 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		C0B8B16316343ADC0020C3F1 /* SoomlaiOSStore-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SoomlaiOSStore-Prefix.pch"; sourceTree = "<group>"; };
-		C0B8B16516343ADC0020C3F1 /* store.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = store.xcdatamodel; sourceTree = "<group>"; };
 		C0B8B16616343ADC0020C3F1 /* StoreConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreConfig.h; sourceTree = "<group>"; };
 		C0B8B16716343ADC0020C3F1 /* StoreConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreConfig.m; sourceTree = "<group>"; };
 		C0B8B16816343ADC0020C3F1 /* StoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreController.h; sourceTree = "<group>"; };
@@ -363,7 +360,6 @@
 				C0B8B15F16343ADC0020C3F1 /* IStoreAsssets.h */,
 				C0B8B16016343ADC0020C3F1 /* JSON */,
 				C0B8B16316343ADC0020C3F1 /* SoomlaiOSStore-Prefix.pch */,
-				C0B8B16416343ADC0020C3F1 /* store.xcdatamodeld */,
 				C0B8B16616343ADC0020C3F1 /* StoreConfig.h */,
 				C0B8B16716343ADC0020C3F1 /* StoreConfig.m */,
 				C0B8B16816343ADC0020C3F1 /* StoreController.h */,
@@ -636,7 +632,6 @@
 				C0B8B19916343ADC0020C3F1 /* FBEncryptorAES.m in Sources */,
 				C0B8B19B16343ADC0020C3F1 /* NSData+Base64.m in Sources */,
 				C0B8B19D16343ADC0020C3F1 /* JSONKit.m in Sources */,
-				C0B8B19F16343ADC0020C3F1 /* store.xcdatamodeld in Sources */,
 				C0B8B1A116343ADC0020C3F1 /* StoreConfig.m in Sources */,
 				C0B8B1A316343ADC0020C3F1 /* StoreController.m in Sources */,
 				C0B8B1A516343ADC0020C3F1 /* NSString+MD5Addition.m in Sources */,
@@ -679,7 +674,6 @@
 				C0B8B19A16343ADC0020C3F1 /* FBEncryptorAES.m in Sources */,
 				C0B8B19C16343ADC0020C3F1 /* NSData+Base64.m in Sources */,
 				C0B8B19E16343ADC0020C3F1 /* JSONKit.m in Sources */,
-				C0B8B1A016343ADC0020C3F1 /* store.xcdatamodeld in Sources */,
 				C0B8B1A216343ADC0020C3F1 /* StoreConfig.m in Sources */,
 				C0B8B1A416343ADC0020C3F1 /* StoreController.m in Sources */,
 				C0B8B1A616343ADC0020C3F1 /* NSString+MD5Addition.m in Sources */,
@@ -847,19 +841,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		C0B8B16416343ADC0020C3F1 /* store.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				C0B8B16516343ADC0020C3F1 /* store.xcdatamodel */,
-			);
-			currentVersion = C0B8B16516343ADC0020C3F1 /* store.xcdatamodel */;
-			path = store.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = C06222E81624A8B800101FE8 /* Project object */;
 }
