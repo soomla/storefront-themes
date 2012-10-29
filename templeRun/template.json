@@ -32,6 +32,11 @@
                 "selector" : ".footer .buy-more"
             }
         },
+        "itemSeparator" : {
+            "type" : "image",
+            "title" : "Item Separator Image",
+            "selector" : ".separator"
+        },
         "balance" : {
             "style" : {
                 "type" : "css",
