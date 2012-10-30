@@ -1,10 +1,10 @@
-package com.soomla.example.templeRun;
+package com.soomla.example.pirateRace;
 
 import com.soomla.store.IStoreAssets;
 import com.soomla.store.domain.data.*;
 import java.util.HashMap;
 
-public class TempleRunAssets implements IStoreAssets {
+public class PirateRaceAssets implements IStoreAssets {
 
     @Override
     public VirtualCurrency[] getVirtualCurrencies(){

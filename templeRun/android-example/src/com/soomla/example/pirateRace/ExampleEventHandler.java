@@ -1,4 +1,4 @@
-package com.soomla.example.templeRun;
+package com.soomla.example.pirateRace;
 
 import android.content.Context;
 import android.widget.Toast;

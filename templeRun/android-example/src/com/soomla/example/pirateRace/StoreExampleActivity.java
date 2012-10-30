@@ -1,4 +1,4 @@
-package com.soomla.example.templeRun;
+package com.soomla.example.pirateRace;
 
 import android.app.Activity;
 import android.content.ClipData;
@@ -52,7 +52,7 @@ public class StoreExampleActivity extends Activity {
          * long enough to perform the operation they need to perform.
          */
         StoreController.getInstance().initialize(getApplicationContext(),
-                new TempleRunAssets(),
+                new PirateRaceAssets(),
                 "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAndHbBVrbynZ9LOQhRCA/+dzYyQeT7qcbo6BD16O+7ltau6JLy78emOo4615" +
                         "+N3dl5RJ3FBlRw14aS+KhNAf0gMlrk3RBQA5d+sY/8oD22kC8Gn7blwsmk3LWYqOiGGXFtRxUyBxdibjFo0+qBz+BXJzfKY" +
                         "V+Y3wSDz0RBUoY9+akbF3EHuB6d02fXLeeIAswB28OlAM4PUuHSbj9lDNFefJwawQ7kgUALETJ98ImKlPUzG0jVh1t9vUOa" +
