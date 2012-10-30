@@ -110,7 +110,6 @@
         
         /** Opening storefront **/
         
-        NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"temple" ofType:@"json"];
         NSString *json = [NSString stringWithContentsOfFile:jsonPath encoding:NSUTF8StringEncoding error:nil];
         
         [[StorefrontController getInstance] openStoreWithParentViewController:self andStorefrontInfoJSON:json];
