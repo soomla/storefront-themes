@@ -110,10 +110,7 @@
         
         /** Opening storefront **/
         
-        NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"muffinRush" ofType:@"json"];
-        NSString *json = [NSString stringWithContentsOfFile:jsonPath encoding:NSUTF8StringEncoding error:nil];
-        
-        [[StorefrontController getInstance] openStoreWithParentViewController:self andStorefrontInfoJSON:json];
+        [[StorefrontController getInstance] openStoreWithParentViewController:self];
     }
     else{
         logoImageView.frame = CGRectMake(0,0,

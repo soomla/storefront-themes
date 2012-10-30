@@ -103,8 +103,6 @@
 		C0B8B19C16343ADC0020C3F1 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B15E16343ADC0020C3F1 /* NSData+Base64.m */; };
 		C0B8B19D16343ADC0020C3F1 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B16216343ADC0020C3F1 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C0B8B19E16343ADC0020C3F1 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B16216343ADC0020C3F1 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		C0B8B19F16343ADC0020C3F1 /* store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B16416343ADC0020C3F1 /* store.xcdatamodeld */; };
-		C0B8B1A016343ADC0020C3F1 /* store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B16416343ADC0020C3F1 /* store.xcdatamodeld */; };
 		C0B8B1A116343ADC0020C3F1 /* StoreConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B16716343ADC0020C3F1 /* StoreConfig.m */; };
 		C0B8B1A216343ADC0020C3F1 /* StoreConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B16716343ADC0020C3F1 /* StoreConfig.m */; };
 		C0B8B1A316343ADC0020C3F1 /* StoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B16916343ADC0020C3F1 /* StoreController.m */; };
@@ -115,14 +113,14 @@
 		C0B8B1A816343ADC0020C3F1 /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B16E16343ADC0020C3F1 /* UIDevice+IdentifierAddition.m */; };
 		C0B8B1AA16343B390020C3F1 /* theme in Resources */ = {isa = PBXBuildFile; fileRef = C0B8B1A916343B390020C3F1 /* theme */; };
 		C0B8B1AB16343B390020C3F1 /* theme in Resources */ = {isa = PBXBuildFile; fileRef = C0B8B1A916343B390020C3F1 /* theme */; };
-		C0B8B1AD16343B470020C3F1 /* muffinRush.json in Resources */ = {isa = PBXBuildFile; fileRef = C0B8B1AC16343B470020C3F1 /* muffinRush.json */; };
-		C0B8B1AE16343B470020C3F1 /* muffinRush.json in Resources */ = {isa = PBXBuildFile; fileRef = C0B8B1AC16343B470020C3F1 /* muffinRush.json */; };
-		C0B8B1B616343BB20020C3F1 /* StorefrontController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B1B116343BB20020C3F1 /* StorefrontController.m */; };
-		C0B8B1B716343BB20020C3F1 /* StorefrontController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B1B116343BB20020C3F1 /* StorefrontController.m */; };
-		C0B8B1B816343BB20020C3F1 /* StorefrontJS.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B1B316343BB20020C3F1 /* StorefrontJS.m */; };
-		C0B8B1B916343BB20020C3F1 /* StorefrontJS.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B1B316343BB20020C3F1 /* StorefrontJS.m */; };
-		C0B8B1BA16343BB20020C3F1 /* StorefrontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B1B516343BB20020C3F1 /* StorefrontViewController.m */; };
-		C0B8B1BB16343BB20020C3F1 /* StorefrontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B1B516343BB20020C3F1 /* StorefrontViewController.m */; };
+		C0C3E1EC163F07CB00E5C103 /* theme.json in Resources */ = {isa = PBXBuildFile; fileRef = C0C3E1EB163F07CB00E5C103 /* theme.json */; };
+		C0C3E1ED163F07CB00E5C103 /* theme.json in Resources */ = {isa = PBXBuildFile; fileRef = C0C3E1EB163F07CB00E5C103 /* theme.json */; };
+		C0C3E1F5163F08E700E5C103 /* StorefrontController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E1F0163F08E700E5C103 /* StorefrontController.m */; };
+		C0C3E1F6163F08E700E5C103 /* StorefrontController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E1F0163F08E700E5C103 /* StorefrontController.m */; };
+		C0C3E1F7163F08E700E5C103 /* StorefrontJS.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E1F2163F08E700E5C103 /* StorefrontJS.m */; };
+		C0C3E1F8163F08E700E5C103 /* StorefrontJS.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E1F2163F08E700E5C103 /* StorefrontJS.m */; };
+		C0C3E1F9163F08E700E5C103 /* StorefrontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E1F4163F08E700E5C103 /* StorefrontViewController.m */; };
+		C0C3E1FA163F08E700E5C103 /* StorefrontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C3E1F4163F08E700E5C103 /* StorefrontViewController.m */; };
 		C0F01D9916261C2A0087F99D /* MuffinRushAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F01D9816261C2A0087F99D /* MuffinRushAssets.m */; };
 		C0F01D9A16261C2A0087F99D /* MuffinRushAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F01D9816261C2A0087F99D /* MuffinRushAssets.m */; };
 /* End PBXBuildFile section */
@@ -209,7 +207,6 @@
 		C0B8B16116343ADC0020C3F1 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		C0B8B16216343ADC0020C3F1 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		C0B8B16316343ADC0020C3F1 /* SoomlaiOSStore-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SoomlaiOSStore-Prefix.pch"; sourceTree = "<group>"; };
-		C0B8B16516343ADC0020C3F1 /* store.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = store.xcdatamodel; sourceTree = "<group>"; };
 		C0B8B16616343ADC0020C3F1 /* StoreConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreConfig.h; sourceTree = "<group>"; };
 		C0B8B16716343ADC0020C3F1 /* StoreConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreConfig.m; sourceTree = "<group>"; };
 		C0B8B16816343ADC0020C3F1 /* StoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreController.h; sourceTree = "<group>"; };
@@ -219,13 +216,13 @@
 		C0B8B16D16343ADC0020C3F1 /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
 		C0B8B16E16343ADC0020C3F1 /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
 		C0B8B1A916343B390020C3F1 /* theme */ = {isa = PBXFileReference; lastKnownFileType = folder; name = theme; path = ../../../theme; sourceTree = "<group>"; };
-		C0B8B1AC16343B470020C3F1 /* muffinRush.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = muffinRush.json; path = ../../../muffinRush.json; sourceTree = "<group>"; };
-		C0B8B1B016343BB20020C3F1 /* StorefrontController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorefrontController.h; sourceTree = "<group>"; };
-		C0B8B1B116343BB20020C3F1 /* StorefrontController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorefrontController.m; sourceTree = "<group>"; };
-		C0B8B1B216343BB20020C3F1 /* StorefrontJS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorefrontJS.h; sourceTree = "<group>"; };
-		C0B8B1B316343BB20020C3F1 /* StorefrontJS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorefrontJS.m; sourceTree = "<group>"; };
-		C0B8B1B416343BB20020C3F1 /* StorefrontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorefrontViewController.h; sourceTree = "<group>"; };
-		C0B8B1B516343BB20020C3F1 /* StorefrontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorefrontViewController.m; sourceTree = "<group>"; };
+		C0C3E1EB163F07CB00E5C103 /* theme.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = theme.json; path = ../../../theme.json; sourceTree = "<group>"; };
+		C0C3E1EF163F08E700E5C103 /* StorefrontController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorefrontController.h; sourceTree = "<group>"; };
+		C0C3E1F0163F08E700E5C103 /* StorefrontController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorefrontController.m; sourceTree = "<group>"; };
+		C0C3E1F1163F08E700E5C103 /* StorefrontJS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorefrontJS.h; sourceTree = "<group>"; };
+		C0C3E1F2163F08E700E5C103 /* StorefrontJS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorefrontJS.m; sourceTree = "<group>"; };
+		C0C3E1F3163F08E700E5C103 /* StorefrontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorefrontViewController.h; sourceTree = "<group>"; };
+		C0C3E1F4163F08E700E5C103 /* StorefrontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorefrontViewController.m; sourceTree = "<group>"; };
 		C0F01D9716261C2A0087F99D /* MuffinRushAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MuffinRushAssets.h; sourceTree = "<group>"; };
 		C0F01D9816261C2A0087F99D /* MuffinRushAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MuffinRushAssets.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -263,7 +260,7 @@
 		C06222E61624A8B800101FE8 = {
 			isa = PBXGroup;
 			children = (
-				C0B8B1AF16343BB20020C3F1 /* SoomlaiOSStorefront */,
+				C0C3E1EE163F08E700E5C103 /* SoomlaiOSStorefront */,
 				C0B8B12B16343ADC0020C3F1 /* SoomlaiOSStore */,
 				C06222FB1624A8B800101FE8 /* MuffinRush */,
 				C06222F41624A8B800101FE8 /* Frameworks */,
@@ -325,7 +322,7 @@
 		C06223211624B1A900101FE8 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				C0B8B1AC16343B470020C3F1 /* muffinRush.json */,
+				C0C3E1EB163F07CB00E5C103 /* theme.json */,
 				C0B8B1A916343B390020C3F1 /* theme */,
 				C0B8B128163439320020C3F1 /* storefront */,
 				C0B8B122163438CD0020C3F1 /* GoodDog.otf */,
@@ -363,7 +360,6 @@
 				C0B8B15F16343ADC0020C3F1 /* IStoreAsssets.h */,
 				C0B8B16016343ADC0020C3F1 /* JSON */,
 				C0B8B16316343ADC0020C3F1 /* SoomlaiOSStore-Prefix.pch */,
-				C0B8B16416343ADC0020C3F1 /* store.xcdatamodeld */,
 				C0B8B16616343ADC0020C3F1 /* StoreConfig.h */,
 				C0B8B16716343ADC0020C3F1 /* StoreConfig.m */,
 				C0B8B16816343ADC0020C3F1 /* StoreController.h */,
@@ -474,18 +470,18 @@
 			path = "UIDevice-UUID";
 			sourceTree = "<group>";
 		};
-		C0B8B1AF16343BB20020C3F1 /* SoomlaiOSStorefront */ = {
+		C0C3E1EE163F08E700E5C103 /* SoomlaiOSStorefront */ = {
 			isa = PBXGroup;
 			children = (
-				C0B8B1B016343BB20020C3F1 /* StorefrontController.h */,
-				C0B8B1B116343BB20020C3F1 /* StorefrontController.m */,
-				C0B8B1B216343BB20020C3F1 /* StorefrontJS.h */,
-				C0B8B1B316343BB20020C3F1 /* StorefrontJS.m */,
-				C0B8B1B416343BB20020C3F1 /* StorefrontViewController.h */,
-				C0B8B1B516343BB20020C3F1 /* StorefrontViewController.m */,
+				C0C3E1EF163F08E700E5C103 /* StorefrontController.h */,
+				C0C3E1F0163F08E700E5C103 /* StorefrontController.m */,
+				C0C3E1F1163F08E700E5C103 /* StorefrontJS.h */,
+				C0C3E1F2163F08E700E5C103 /* StorefrontJS.m */,
+				C0C3E1F3163F08E700E5C103 /* StorefrontViewController.h */,
+				C0C3E1F4163F08E700E5C103 /* StorefrontViewController.m */,
 			);
 			name = SoomlaiOSStorefront;
-			path = "../../submodules/storefront/native-store/ios";
+			path = "../../submodules/storefront/native-store/ios/SoomlaiOSStorefront";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -573,7 +569,7 @@
 				C0B8B123163438CD0020C3F1 /* GoodDog.otf in Resources */,
 				C0B8B129163439320020C3F1 /* storefront in Resources */,
 				C0B8B1AA16343B390020C3F1 /* theme in Resources */,
-				C0B8B1AD16343B470020C3F1 /* muffinRush.json in Resources */,
+				C0C3E1EC163F07CB00E5C103 /* theme.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,7 +593,7 @@
 				C0B8B124163438CD0020C3F1 /* GoodDog.otf in Resources */,
 				C0B8B12A163439320020C3F1 /* storefront in Resources */,
 				C0B8B1AB16343B390020C3F1 /* theme in Resources */,
-				C0B8B1AE16343B470020C3F1 /* muffinRush.json in Resources */,
+				C0C3E1ED163F07CB00E5C103 /* theme.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,14 +632,13 @@
 				C0B8B19916343ADC0020C3F1 /* FBEncryptorAES.m in Sources */,
 				C0B8B19B16343ADC0020C3F1 /* NSData+Base64.m in Sources */,
 				C0B8B19D16343ADC0020C3F1 /* JSONKit.m in Sources */,
-				C0B8B19F16343ADC0020C3F1 /* store.xcdatamodeld in Sources */,
 				C0B8B1A116343ADC0020C3F1 /* StoreConfig.m in Sources */,
 				C0B8B1A316343ADC0020C3F1 /* StoreController.m in Sources */,
 				C0B8B1A516343ADC0020C3F1 /* NSString+MD5Addition.m in Sources */,
 				C0B8B1A716343ADC0020C3F1 /* UIDevice+IdentifierAddition.m in Sources */,
-				C0B8B1B616343BB20020C3F1 /* StorefrontController.m in Sources */,
-				C0B8B1B816343BB20020C3F1 /* StorefrontJS.m in Sources */,
-				C0B8B1BA16343BB20020C3F1 /* StorefrontViewController.m in Sources */,
+				C0C3E1F5163F08E700E5C103 /* StorefrontController.m in Sources */,
+				C0C3E1F7163F08E700E5C103 /* StorefrontJS.m in Sources */,
+				C0C3E1F9163F08E700E5C103 /* StorefrontViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,14 +674,13 @@
 				C0B8B19A16343ADC0020C3F1 /* FBEncryptorAES.m in Sources */,
 				C0B8B19C16343ADC0020C3F1 /* NSData+Base64.m in Sources */,
 				C0B8B19E16343ADC0020C3F1 /* JSONKit.m in Sources */,
-				C0B8B1A016343ADC0020C3F1 /* store.xcdatamodeld in Sources */,
 				C0B8B1A216343ADC0020C3F1 /* StoreConfig.m in Sources */,
 				C0B8B1A416343ADC0020C3F1 /* StoreController.m in Sources */,
 				C0B8B1A616343ADC0020C3F1 /* NSString+MD5Addition.m in Sources */,
 				C0B8B1A816343ADC0020C3F1 /* UIDevice+IdentifierAddition.m in Sources */,
-				C0B8B1B716343BB20020C3F1 /* StorefrontController.m in Sources */,
-				C0B8B1B916343BB20020C3F1 /* StorefrontJS.m in Sources */,
-				C0B8B1BB16343BB20020C3F1 /* StorefrontViewController.m in Sources */,
+				C0C3E1F6163F08E700E5C103 /* StorefrontController.m in Sources */,
+				C0C3E1F8163F08E700E5C103 /* StorefrontJS.m in Sources */,
+				C0C3E1FA163F08E700E5C103 /* StorefrontViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -847,19 +841,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		C0B8B16416343ADC0020C3F1 /* store.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				C0B8B16516343ADC0020C3F1 /* store.xcdatamodel */,
-			);
-			currentVersion = C0B8B16516343ADC0020C3F1 /* store.xcdatamodel */;
-			path = store.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = C06222E81624A8B800101FE8 /* Project object */;
 }
