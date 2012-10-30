@@ -1,6 +1,6 @@
 {
-    "cssFiles" : ["../theme/less/templeRun.less"],
-    "jsFiles" : ["../theme/js/templeRunViews.js"],
+    "cssFiles" : ["../theme/less/pirateRace.less"],
+    "jsFiles" : ["../theme/js/pirateRaceViews.js"],
     "templatePath" : "../theme/templates",
     "modelAssets" : {
         "categories" : {},
@@ -31,8 +31,8 @@
         }
     },
     "theme" : {
-        "name" : "templeRun",
-        "template" : "templeRun",
+        "name" : "pirateRace",
+        "template" : "pirateRace",
         "version" : 1,
         "background" : "../theme/img/BG-Level0.png",
         "contentBackground" : "../theme/img/BG-Level1.png",

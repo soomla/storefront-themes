@@ -1,6 +1,6 @@
 {
-    "cssFiles" : ["../theme/less/jetpackJoyridePortrait.less"],
-    "jsFiles" : ["../theme/js/jetpackJoyridePortraitViews.js"],
+    "cssFiles" : ["../theme/less/airstrikeBravoPortrait.less"],
+    "jsFiles" : ["../theme/js/airstrikeBravoPortraitViews.js"],
     "templatePath" : "../theme/templates",
     "modelAssets" : {
         "categories" : {
@@ -39,8 +39,8 @@
         }
     },
     "theme" : {
-        "name" : "jetpackJoyridePortrait",
-        "template" : "jetpackJoyridePortrait",
+        "name" : "airstrikeBravoPortrait",
+        "template" : "airstrikeBravoPortrait",
         "version" : 1,
         "isOrientationLandscape" : true,
         "balance" : {
