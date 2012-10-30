@@ -1,7 +1,4 @@
 {
-    "cssFiles" : ["themes/megajump/theme/less/megajump.less"],
-    "jsFiles" : ["themes/megajump/theme/js/megajumpViews.js", "themes/megajump/theme/js/bootstrap-tab.js"],
-    "templatePath" : "themes/megajump/theme/templates",
     "isCurrencyStoreDisabled" : false,
     "currencyPacks" : [
         {
@@ -118,65 +115,6 @@
             "categoryId"   : 2
         }
     ],
-    "modelAssets" : {
-        "categories" : {
-            "1" : "themes/megajump/theme/img/Categories/Pumpkin.png",
-            "2" : "themes/megajump/theme/img/Categories/Axe.png"
-        },
-        "currencyPacksCategory" : "themes/megajump/theme/img/Categories/Coins.png",
-        "virtualGoods" : {
-            "vampire" : "themes/megajump/theme/img/Characters/Vampire.png",
-            "witch" : "themes/megajump/theme/img/Characters/Witch.png",
-            "skull" : "themes/megajump/theme/img/Characters/Skull.png",
-            "zombie" : "themes/megajump/theme/img/Characters/Zombie.png",
-            "chocolate_cake" : "themes/megajump/theme/img/Weapons/Weapon1.png",
-            "cream_cup" : "themes/megajump/theme/img/Weapons/Weapon2.png"
-        },
-        "currencyPacks" : {
-            "muffins_10" : "themes/megajump/theme/img/CurrencyPacks/CurrencyPack1.png",
-            "muffins_50" : "themes/megajump/theme/img/CurrencyPacks/CurrencyPack2.png",
-            "muffins_400" : "themes/megajump/theme/img/CurrencyPacks/CurrencyPack3.png",
-            "muffins_1000" : "themes/megajump/theme/img/CurrencyPacks/CurrencyPack4.png"
-        },
-        "virtualCurrencies" : {
-            "currency_coin" : "themes/megajump/theme/img/Coin.png"
-        }
-    },
-    "theme" : {
-        "name" : "megajump",
-        "template" : "megajump",
-        "version" : 1,
-        "isOrientationLandscape" : false,
-        "balance" : {
-            "backgroundImage" : "themes/megajump/theme/img/BalanceBackground.png",
-            "style" : "top: -10000px; left: -10000px;"
-        },
-        "titleStyle" : "",
-        "currencyPacksCategoryName" : "COIN PACKS",
-        "noFundsModal" : {
-            "background" : "themes/megajump/theme/img/ModalBackground.png",
-            "title" : "Need More Coins!",
-            "description" : "Would you like to get more coins?",
-            "yesButton" : "themes/megajump/theme/img/Yes_BTN.png",
-            "noButton" : "themes/megajump/theme/img/No_BTN.png"
-        },
-        "images" : {
-            "globalBackground" : "themes/megajump/theme/img/GlobalBackground.png",
-            "contentBackground" : "themes/megajump/theme/img/ContentBackground.png",
-            "headerBackground" : "themes/megajump/theme/img/HeaderBackground.png",
-            "itemAreaBackground" : "themes/megajump/theme/img/ItemAreaBackground.png",
-            "footerBackground" : "themes/megajump/theme/img/FooterBackground.png",
-            "previousImage" : "themes/megajump/theme/img/Previous.png",
-            "nextImage" : "themes/megajump/theme/img/Next.png",
-            "buyImage" : "themes/megajump/theme/img/Buy.png",
-            "quitImage" : "themes/megajump/theme/img/Quit.png"
-        },
-        "item" : {
-            "nameStyle" : "",
-            "descriptionStyle" : "",
-            "priceStyle" : ""
-        }
-    },
     "categories" : [
         {
             "id" : 1,

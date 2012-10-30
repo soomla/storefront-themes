@@ -1,7 +1,4 @@
 {
-    "cssFiles" : ["themes/templeRun/theme/less/templeRun.less"],
-    "jsFiles" : ["themes/templeRun/theme/js/templeRunViews.js"],
-    "templatePath" : "themes/templeRun/theme/templates",
     "currencyPacks" : [
         {
             "name"              : "2,500 Coins",
@@ -230,87 +227,5 @@
             "itemId"        : "fish",
             "categoryId"   : 4
         }
-    ],
-    "modelAssets" : {
-        "categories" : {},
-        "virtualGoods" : {
-            "boost_ahead" : "themes/templeRun/theme/img/Powerups/Object_11.png",
-            "extra_health" : "themes/templeRun/theme/img/Powerups/Object_12.png",
-            "invisibility_hat" : "themes/templeRun/theme/img/Powerups/Object_14.png",
-            "horn_of_war" : "themes/templeRun/theme/img/Utilities/Object_1.png",
-            "flagship" : "themes/templeRun/theme/img/Utilities/Object_2.png",
-            "mystery_box" : "themes/templeRun/theme/img/Utilities/Object_10.png",
-            "science_god" : "themes/templeRun/theme/img/Gods/Object_4.png",
-            "wind_god" : "themes/templeRun/theme/img/Gods/Object_5.png",
-            "winter_god" : "themes/templeRun/theme/img/Gods/Object_7.png",
-            "stars_god" : "themes/templeRun/theme/img/Gods/Object_8.png",
-            "chocolate_cake" : "themes/templeRun/theme/img/Gods/Object_15.png",
-            "eagle" : "themes/templeRun/theme/img/Friends/Object_3.png",
-            "butterfly" : "themes/templeRun/theme/img/Friends/Object_9.png",
-            "fish" : "themes/templeRun/theme/img/Friends/Object_13.png"
-        },
-        "currencyPacks" : {
-            "muffins_10" : "themes/templeRun/theme/img/CurrencyPacks/GetCoins_1.png",
-            "muffins_50" : "themes/templeRun/theme/img/CurrencyPacks/GetCoins_2.png",
-            "muffins_400" : "themes/templeRun/theme/img/CurrencyPacks/GetCoins_3.png",
-            "muffins_1000" : "themes/templeRun/theme/img/CurrencyPacks/GetCoins_4.png"
-        },
-        "virtualCurrencies" : {
-            "currency_muffin" : "themes/templeRun/theme/img/Item_Price.png"
-        }
-    },
-    "theme" : {
-        "name" : "templeRun",
-        "template" : "templeRun",
-        "version" : 1,
-        "background" : "themes/templeRun/theme/img/BG-Level0.png",
-        "contentBackground" : "themes/templeRun/theme/img/BG-Level1.png",
-        "isOrientationLandscape" : false,
-        "common" : {
-            "titleImage" : "themes/templeRun/theme/img/Header_Title.png",
-            "balanceImage" : "themes/templeRun/theme/img/Header_Balance.png",
-            "backButton" : "themes/templeRun/theme/img/Back_BTN.png",
-            "moreCurrencyButton" : "themes/templeRun/theme/img/GetMore_BTN.png",
-            "balanceLabelStyle" : ""
-        },
-        "itemSeparator" : "themes/templeRun/theme/img/Item_Seperator.png",
-        "balance" : {
-            "style" : "top: 20px; left: 220px; font-size: 36px; color: #FFF;"
-        },
-        "pages" : {
-            "goods" :{
-                "list" : {
-                    "background" : "themes/templeRun/theme/img/Item_Area.png"
-                },
-                "listItem" : {
-                    "background" : "",
-                    "balanceBackground" : "themes/templeRun/theme/img/Item_Balance.png",
-                    "buy" : "themes/templeRun/theme/img/buy.png",
-                    "equip" : "themes/templeRun/theme/img/equip.png",
-                    "active" : "themes/templeRun/theme/img/active.png"
-                },
-                "noFundsModal" : {
-                    "background" : "themes/templeRun/theme/img/Alert_BG.png",
-                    "title" : "Need More Coins!",
-                    "description" : "Would you like to get more coins?",
-                    "yesButton" : "themes/templeRun/theme/img/Yes_BTN.png",
-                    "noButton" : "themes/templeRun/theme/img/No_BTN.png"
-                }
-            },
-            "currencyPacks" : {
-                "list" : {
-                    "background" : "themes/templeRun/theme/img/Item_Area.png"
-                },
-                "listItem" : {
-                    "balanceBackground" : "",
-                    "nameStyle" : "",
-                    "priceStyle" : ""
-                }
-
-            }
-        },
-        "categories" : {
-            "style" : "background-image: url('themes/templeRun/theme/img/Catagory_Seperator.png'); color: #FFF;"
-        }
-    }
+    ]
 }

@@ -1,7 +1,4 @@
 {
-    "cssFiles" : ["themes/basic/theme/less/basic.less"],
-    "jsFiles" : ["themes/basic/theme/js/basicViews.js"],
-    "templatePath" : "themes/basic/theme/templates",
     "currencyPacks" : [
         {
             "amount" : 200,
@@ -148,52 +145,5 @@
             "id" : 1,
             "name" : "General"
         }
-    ],
-    "modelAssets" : {
-        "categories" : {},
-        "virtualGoods" : {
-            "blue_surfboard" : "themes/basic/theme/img/items/blue-surfboard.png",
-            "girl_surfboard_th" : "themes/basic/theme/img/items/girl-surfboard-th.png",
-            "keelfish" : "themes/basic/theme/img/items/keelfish.png",
-            "picasso_peeler" : "themes/basic/theme/img/items/picasso-peeler.png",
-            "reef_shredder" : "themes/basic/theme/img/items/reef-shredder.png",
-            "sixties_gun" : "themes/basic/theme/img/items/sixties-gun.png",
-            "traditional_fish" : "themes/basic/theme/img/items/traditional-fish.png"
-        },
-        "currencyPacks" : {
-            "super_saver_pack" : "themes/basic/theme/img/clam.png",
-            "malibu_medium_pack" : "themes/basic/theme/img/clam.png",
-            "pipeline_pumpin_pack" : "themes/basic/theme/img/clam.png"
-        },
-        "virtualCurrencies" : {
-            "currency_clam" : "themes/basic/theme/img/clam.png"
-        }
-    },
-    "theme" : {
-        "name" : "basic",
-        "template" : "basic",
-        "version" : 1,
-        "pages" : {
-            "goods" :{
-                "moreCurrencyText" : "Get more clams",
-                "moreCurrencyImage" : "themes/basic/theme/img/clam.png",
-                "background" : "themes/basic/theme/img/theme-lime-bubbles.jpg",
-                "title" : "Surf Store",
-                "leaveIcon" : "img/default/icons/close.png",
-
-                "noFundsModal" : {
-                    "text" : "Not enough clams",
-                    "question" : "Buy more clams?",
-                    "noButtonText" : "No",
-                    "yesButtonText" : "Yes",
-                    "closeIcon" : "img/default/icons/close-dialog.png"
-                }
-            },
-            "currencyPacks" : {
-                "background" : "themes/basic/theme/img/theme-lime-bubbles.jpg",
-                "title" : "Surf Store",
-                "backIcon" : "img/default/icons/close.png"
-            }
-        }
-    }
+    ]
 }
