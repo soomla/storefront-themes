@@ -1,10 +1,10 @@
-package com.soomla.example.jetpackJoyride;
+package com.soomla.example.airstrikeBravo;
 
 import com.soomla.store.IStoreAssets;
 import com.soomla.store.domain.data.*;
 import java.util.HashMap;
 
-public class JetpackJoyrideAssets implements IStoreAssets {
+public class AirstrikeBravoAssets implements IStoreAssets {
 
     @Override
     public VirtualCurrency[] getVirtualCurrencies(){
