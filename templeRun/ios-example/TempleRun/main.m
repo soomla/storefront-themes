@@ -1,6 +1,6 @@
 //
 //  main.m
-//  TempleRun
+//  PirateRace
 //
 //  Created by Refael Dakar on 10/10/12.
 //  Copyright (c) 2012 SOOMLA. All rights reserved.

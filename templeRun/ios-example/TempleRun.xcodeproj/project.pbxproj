@@ -75,8 +75,8 @@
 		C0B8B25016343DFA0020C3F1 /* StorefrontJS.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B24A16343DFA0020C3F1 /* StorefrontJS.m */; };
 		C0B8B25116343DFA0020C3F1 /* StorefrontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B24C16343DFA0020C3F1 /* StorefrontViewController.m */; };
 		C0B8B25216343DFA0020C3F1 /* StorefrontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B24C16343DFA0020C3F1 /* StorefrontViewController.m */; };
-		C0B8B25416343E280020C3F1 /* templeRun.json in Resources */ = {isa = PBXBuildFile; fileRef = C0B8B25316343E280020C3F1 /* templeRun.json */; };
-		C0B8B25516343E280020C3F1 /* templeRun.json in Resources */ = {isa = PBXBuildFile; fileRef = C0B8B25316343E280020C3F1 /* templeRun.json */; };
+		C0B8B25416343E280020C3F1 /* pirateRace.json in Resources */ = {isa = PBXBuildFile; fileRef = C0B8B25316343E280020C3F1 /* pirateRace.json */; };
+		C0B8B25516343E280020C3F1 /* pirateRace.json in Resources */ = {isa = PBXBuildFile; fileRef = C0B8B25316343E280020C3F1 /* pirateRace.json */; };
 		C0F0198D1625E7C40087F99D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F0198C1625E7C40087F99D /* UIKit.framework */; };
 		C0F0198F1625E7C40087F99D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F0198E1625E7C40087F99D /* Foundation.framework */; };
 		C0F019911625E7C40087F99D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F019901625E7C40087F99D /* CoreGraphics.framework */; };
@@ -121,8 +121,8 @@
 		C0F01D871625EA750087F99D /* right_bg_hover.png in Resources */ = {isa = PBXBuildFile; fileRef = C0F01D741625EA750087F99D /* right_bg_hover.png */; };
 		C0F01D881625EA750087F99D /* soomla_logo_new.png in Resources */ = {isa = PBXBuildFile; fileRef = C0F01D751625EA750087F99D /* soomla_logo_new.png */; };
 		C0F01D891625EA750087F99D /* soomla_logo_new.png in Resources */ = {isa = PBXBuildFile; fileRef = C0F01D751625EA750087F99D /* soomla_logo_new.png */; };
-		C0F01D9E16261D7D0087F99D /* TempleRunAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F01D9D16261D7D0087F99D /* TempleRunAssets.m */; };
-		C0F01D9F16261D7D0087F99D /* TempleRunAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F01D9D16261D7D0087F99D /* TempleRunAssets.m */; };
+		C0F01D9E16261D7D0087F99D /* PirateRaceAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F01D9D16261D7D0087F99D /* PirateRaceAssets.m */; };
+		C0F01D9F16261D7D0087F99D /* PirateRaceAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F01D9D16261D7D0087F99D /* PirateRaceAssets.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -193,22 +193,22 @@
 		C0B8B24A16343DFA0020C3F1 /* StorefrontJS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorefrontJS.m; sourceTree = "<group>"; };
 		C0B8B24B16343DFA0020C3F1 /* StorefrontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorefrontViewController.h; sourceTree = "<group>"; };
 		C0B8B24C16343DFA0020C3F1 /* StorefrontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorefrontViewController.m; sourceTree = "<group>"; };
-		C0B8B25316343E280020C3F1 /* templeRun.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = templeRun.json; path = ../../../templeRun.json; sourceTree = "<group>"; };
-		C0F019881625E7C40087F99D /* TempleRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TempleRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0B8B25316343E280020C3F1 /* pirateRace.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pirateRace.json; path = ../../../pirateRace.json; sourceTree = "<group>"; };
+		C0F019881625E7C40087F99D /* PirateRace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PirateRace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F0198C1625E7C40087F99D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C0F0198E1625E7C40087F99D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C0F019901625E7C40087F99D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		C0F019941625E7C40087F99D /* TempleRun-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TempleRun-Info.plist"; sourceTree = "<group>"; };
+		C0F019941625E7C40087F99D /* PirateRace-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PirateRace-Info.plist"; sourceTree = "<group>"; };
 		C0F019961625E7C40087F99D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C0F019981625E7C40087F99D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C0F0199A1625E7C40087F99D /* TempleRun-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TempleRun-Prefix.pch"; sourceTree = "<group>"; };
+		C0F0199A1625E7C40087F99D /* PirateRace-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PirateRace-Prefix.pch"; sourceTree = "<group>"; };
 		C0F0199B1625E7C40087F99D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C0F0199C1625E7C40087F99D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C0F019B01625E8A20087F99D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C0F019B31625E8AD0087F99D /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		C0F019B51625E8B20087F99D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		C0F019C91625E9B10087F99D /* TempleRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TempleRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C0F019CB1625E9B20087F99D /* TempleRunDevice-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "TempleRunDevice-Info.plist"; path = "/Users/refaelos/work/ios-store/SoomlaiOSStoreExamples/TempleRun/TempleRunDevice-Info.plist"; sourceTree = "<absolute>"; };
+		C0F019C91625E9B10087F99D /* PirateRace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PirateRace.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0F019CB1625E9B20087F99D /* PirateRaceDevice-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "PirateRaceDevice-Info.plist"; path = "/Users/refaelos/work/ios-store/SoomlaiOSStoreExamples/PirateRace/PirateRaceDevice-Info.plist"; sourceTree = "<absolute>"; };
 		C0F01B2F1625E9EA0087F99D /* StoreExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreExampleViewController.h; sourceTree = "<group>"; };
 		C0F01B301625E9EA0087F99D /* StoreExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreExampleViewController.m; sourceTree = "<group>"; };
 		C0F01D641625EA150087F99D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
@@ -223,8 +223,8 @@
 		C0F01D731625EA750087F99D /* right_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_bg.png; sourceTree = "<group>"; };
 		C0F01D741625EA750087F99D /* right_bg_hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_bg_hover.png; sourceTree = "<group>"; };
 		C0F01D751625EA750087F99D /* soomla_logo_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soomla_logo_new.png; sourceTree = "<group>"; };
-		C0F01D9C16261D7D0087F99D /* TempleRunAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempleRunAssets.h; sourceTree = "<group>"; };
-		C0F01D9D16261D7D0087F99D /* TempleRunAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempleRunAssets.m; sourceTree = "<group>"; };
+		C0F01D9C16261D7D0087F99D /* PirateRaceAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PirateRaceAssets.h; sourceTree = "<group>"; };
+		C0F01D9D16261D7D0087F99D /* PirateRaceAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PirateRaceAssets.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -399,7 +399,7 @@
 			children = (
 				C0B8B24616343DFA0020C3F1 /* SoomlaiOSStorefront */,
 				C0B8B1C816343DEB0020C3F1 /* SoomlaiOSStore */,
-				C0F019921625E7C40087F99D /* TempleRun */,
+				C0F019921625E7C40087F99D /* PirateRace */,
 				C0F0198B1625E7C40087F99D /* Frameworks */,
 				C0F019891625E7C40087F99D /* Products */,
 			);
@@ -408,8 +408,8 @@
 		C0F019891625E7C40087F99D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C0F019881625E7C40087F99D /* TempleRun.app */,
-				C0F019C91625E9B10087F99D /* TempleRun.app */,
+				C0F019881625E7C40087F99D /* PirateRace.app */,
+				C0F019C91625E9B10087F99D /* PirateRace.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -427,11 +427,11 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C0F019921625E7C40087F99D /* TempleRun */ = {
+		C0F019921625E7C40087F99D /* PirateRace */ = {
 			isa = PBXGroup;
 			children = (
-				C0F01D9C16261D7D0087F99D /* TempleRunAssets.h */,
-				C0F01D9D16261D7D0087F99D /* TempleRunAssets.m */,
+				C0F01D9C16261D7D0087F99D /* PirateRaceAssets.h */,
+				C0F01D9D16261D7D0087F99D /* PirateRaceAssets.m */,
 				C0F01B2F1625E9EA0087F99D /* StoreExampleViewController.h */,
 				C0F01B301625E9EA0087F99D /* StoreExampleViewController.m */,
 				C0F0199B1625E7C40087F99D /* AppDelegate.h */,
@@ -441,17 +441,17 @@
 				C0F019D01625E9EA0087F99D /* resources */,
 				C0F019931625E7C40087F99D /* Supporting Files */,
 			);
-			path = TempleRun;
+			path = PirateRace;
 			sourceTree = "<group>";
 		};
 		C0F019931625E7C40087F99D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C0F019CB1625E9B20087F99D /* TempleRunDevice-Info.plist */,
-				C0F019941625E7C40087F99D /* TempleRun-Info.plist */,
+				C0F019CB1625E9B20087F99D /* PirateRaceDevice-Info.plist */,
+				C0F019941625E7C40087F99D /* PirateRace-Info.plist */,
 				C0F019951625E7C40087F99D /* InfoPlist.strings */,
 				C0F019981625E7C40087F99D /* main.m */,
-				C0F0199A1625E7C40087F99D /* TempleRun-Prefix.pch */,
+				C0F0199A1625E7C40087F99D /* PirateRace-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -459,7 +459,7 @@
 		C0F019D01625E9EA0087F99D /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				C0B8B25316343E280020C3F1 /* templeRun.json */,
+				C0B8B25316343E280020C3F1 /* pirateRace.json */,
 				C0B8B1C516343DDF0020C3F1 /* storefront */,
 				C0B8B1C216343DD30020C3F1 /* GoodDog.otf */,
 				C0F01D6B1625EA750087F99D /* images */,
@@ -487,9 +487,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C0F019871625E7C40087F99D /* TempleRun */ = {
+		C0F019871625E7C40087F99D /* PirateRace */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C0F019AC1625E7C40087F99D /* Build configuration list for PBXNativeTarget "TempleRun" */;
+			buildConfigurationList = C0F019AC1625E7C40087F99D /* Build configuration list for PBXNativeTarget "PirateRace" */;
 			buildPhases = (
 				C0F019841625E7C40087F99D /* Sources */,
 				C0F019851625E7C40087F99D /* Frameworks */,
@@ -499,14 +499,14 @@
 			);
 			dependencies = (
 			);
-			name = TempleRun;
-			productName = TempleRun;
-			productReference = C0F019881625E7C40087F99D /* TempleRun.app */;
+			name = PirateRace;
+			productName = PirateRace;
+			productReference = C0F019881625E7C40087F99D /* PirateRace.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C0F019B71625E9B10087F99D /* TempleRunDevice */ = {
+		C0F019B71625E9B10087F99D /* PirateRaceDevice */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C0F019C61625E9B10087F99D /* Build configuration list for PBXNativeTarget "TempleRunDevice" */;
+			buildConfigurationList = C0F019C61625E9B10087F99D /* Build configuration list for PBXNativeTarget "PirateRaceDevice" */;
 			buildPhases = (
 				C0F019B81625E9B10087F99D /* Sources */,
 				C0F019BB1625E9B10087F99D /* Frameworks */,
@@ -516,9 +516,9 @@
 			);
 			dependencies = (
 			);
-			name = TempleRunDevice;
-			productName = TempleRun;
-			productReference = C0F019C91625E9B10087F99D /* TempleRun.app */;
+			name = PirateRaceDevice;
+			productName = PirateRace;
+			productReference = C0F019C91625E9B10087F99D /* PirateRace.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -530,7 +530,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = SOOMLA;
 			};
-			buildConfigurationList = C0F019821625E7C40087F99D /* Build configuration list for PBXProject "TempleRun" */;
+			buildConfigurationList = C0F019821625E7C40087F99D /* Build configuration list for PBXProject "PirateRace" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -542,8 +542,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C0F019871625E7C40087F99D /* TempleRun */,
-				C0F019B71625E9B10087F99D /* TempleRunDevice */,
+				C0F019871625E7C40087F99D /* PirateRace */,
+				C0F019B71625E9B10087F99D /* PirateRaceDevice */,
 			);
 		};
 /* End PBXProject section */
@@ -568,7 +568,7 @@
 				C0F01D881625EA750087F99D /* soomla_logo_new.png in Resources */,
 				C0B8B1C316343DD30020C3F1 /* GoodDog.otf in Resources */,
 				C0B8B1C616343DDF0020C3F1 /* storefront in Resources */,
-				C0B8B25416343E280020C3F1 /* templeRun.json in Resources */,
+				C0B8B25416343E280020C3F1 /* pirateRace.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,7 +591,7 @@
 				C0F01D891625EA750087F99D /* soomla_logo_new.png in Resources */,
 				C0B8B1C416343DD30020C3F1 /* GoodDog.otf in Resources */,
 				C0B8B1C716343DDF0020C3F1 /* storefront in Resources */,
-				C0B8B25516343E280020C3F1 /* templeRun.json in Resources */,
+				C0B8B25516343E280020C3F1 /* pirateRace.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,7 +605,7 @@
 				C0F019991625E7C40087F99D /* main.m in Sources */,
 				C0F0199D1625E7C40087F99D /* AppDelegate.m in Sources */,
 				C0F01D611625E9EA0087F99D /* StoreExampleViewController.m in Sources */,
-				C0F01D9E16261D7D0087F99D /* TempleRunAssets.m in Sources */,
+				C0F01D9E16261D7D0087F99D /* PirateRaceAssets.m in Sources */,
 				C0B8B20C16343DEB0020C3F1 /* JSONConsts.m in Sources */,
 				C0B8B20E16343DEB0020C3F1 /* StorageManager.m in Sources */,
 				C0B8B21016343DEB0020C3F1 /* StoreDatabase.m in Sources */,
@@ -648,7 +648,7 @@
 				C0F019B91625E9B10087F99D /* main.m in Sources */,
 				C0F019BA1625E9B10087F99D /* AppDelegate.m in Sources */,
 				C0F01D621625E9EA0087F99D /* StoreExampleViewController.m in Sources */,
-				C0F01D9F16261D7D0087F99D /* TempleRunAssets.m in Sources */,
+				C0F01D9F16261D7D0087F99D /* PirateRaceAssets.m in Sources */,
 				C0B8B20D16343DEB0020C3F1 /* JSONConsts.m in Sources */,
 				C0B8B20F16343DEB0020C3F1 /* StorageManager.m in Sources */,
 				C0B8B21116343DEB0020C3F1 /* StoreDatabase.m in Sources */,
@@ -770,8 +770,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TempleRun/TempleRun-Prefix.pch";
-				INFOPLIST_FILE = "TempleRun/TempleRun-Info.plist";
+				GCC_PREFIX_HEADER = "PirateRace/PirateRace-Prefix.pch";
+				INFOPLIST_FILE = "PirateRace/PirateRace-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -783,8 +783,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TempleRun/TempleRun-Prefix.pch";
-				INFOPLIST_FILE = "TempleRun/TempleRun-Info.plist";
+				GCC_PREFIX_HEADER = "PirateRace/PirateRace-Prefix.pch";
+				INFOPLIST_FILE = "PirateRace/PirateRace-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -796,15 +796,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TempleRun/TempleRun-Prefix.pch";
+				GCC_PREFIX_HEADER = "PirateRace/PirateRace-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../DerivedData/ios-store/Build/Products/Debug-iphoneos/headers/public\"";
-				INFOPLIST_FILE = "TempleRunDevice-Info.plist";
+				INFOPLIST_FILE = "PirateRaceDevice-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../DerivedData/ios-store/Build/Products/Debug-iphoneos\"",
 				);
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_NAME = TempleRun;
+				PRODUCT_NAME = PirateRace;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -813,15 +813,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TempleRun/TempleRun-Prefix.pch";
+				GCC_PREFIX_HEADER = "PirateRace/PirateRace-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../DerivedData/ios-store/Build/Products/Debug-iphoneos/headers/public\"";
-				INFOPLIST_FILE = "TempleRunDevice-Info.plist";
+				INFOPLIST_FILE = "PirateRaceDevice-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../DerivedData/ios-store/Build/Products/Debug-iphoneos\"",
 				);
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_NAME = TempleRun;
+				PRODUCT_NAME = PirateRace;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -829,7 +829,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C0F019821625E7C40087F99D /* Build configuration list for PBXProject "TempleRun" */ = {
+		C0F019821625E7C40087F99D /* Build configuration list for PBXProject "PirateRace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C0F019AA1625E7C40087F99D /* Debug */,
@@ -838,7 +838,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C0F019AC1625E7C40087F99D /* Build configuration list for PBXNativeTarget "TempleRun" */ = {
+		C0F019AC1625E7C40087F99D /* Build configuration list for PBXNativeTarget "PirateRace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C0F019AD1625E7C40087F99D /* Debug */,
@@ -847,7 +847,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C0F019C61625E9B10087F99D /* Build configuration list for PBXNativeTarget "TempleRunDevice" */ = {
+		C0F019C61625E9B10087F99D /* Build configuration list for PBXNativeTarget "PirateRaceDevice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C0F019C71625E9B10087F99D /* Debug */,

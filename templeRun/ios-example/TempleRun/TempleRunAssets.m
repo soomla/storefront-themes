@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#import "TempleRunAssets.h"
+#import "PirateRaceAssets.h"
 #import "VirtualCategory.h"
 #import "VirtualCurrency.h"
 #import "VirtualGood.h"
@@ -48,7 +48,7 @@ NSString* const _25_000_COINS_PACK_PRODUCT_ID = @"android.test.purchased";
 NSString* const _75_000_COINS_PACK_PRODUCT_ID = @"75000_coins";
 NSString* const _200_000_COINS_PACK_PRODUCT_ID = @"200000_coins";
 
-@implementation TempleRunAssets
+@implementation PirateRaceAssets
 
 
 VirtualCategory* POWERUPS_CATEGORY;

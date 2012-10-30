@@ -44,7 +44,7 @@ extern NSString* const _25_000_COINS_PACK_PRODUCT_ID;
 extern NSString* const _75_000_COINS_PACK_PRODUCT_ID;
 extern NSString* const _200_000_COINS_PACK_PRODUCT_ID;
 
-@interface TempleRunAssets : NSObject <IStoreAsssets>{
+@interface PirateRaceAssets : NSObject <IStoreAsssets>{
 
 }
 

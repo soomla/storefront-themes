@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C0F019B71625E9B10087F99D"
-               BuildableName = "TempleRun.app"
-               BlueprintName = "TempleRunDevice"
-               ReferencedContainer = "container:TempleRun.xcodeproj">
+               BuildableName = "PirateRace.app"
+               BlueprintName = "PirateRaceDevice"
+               ReferencedContainer = "container:PirateRace.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -47,9 +47,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C0F019B71625E9B10087F99D"
-            BuildableName = "TempleRun.app"
-            BlueprintName = "TempleRunDevice"
-            ReferencedContainer = "container:TempleRun.xcodeproj">
+            BuildableName = "PirateRace.app"
+            BlueprintName = "PirateRaceDevice"
+            ReferencedContainer = "container:PirateRace.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C0F019B71625E9B10087F99D"
-            BuildableName = "TempleRun.app"
-            BlueprintName = "TempleRunDevice"
-            ReferencedContainer = "container:TempleRun.xcodeproj">
+            BuildableName = "PirateRace.app"
+            BlueprintName = "PirateRaceDevice"
+            ReferencedContainer = "container:PirateRace.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -84,9 +84,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C0F019B71625E9B10087F99D"
-            BuildableName = "TempleRun.app"
-            BlueprintName = "TempleRunDevice"
-            ReferencedContainer = "container:TempleRun.xcodeproj">
+            BuildableName = "PirateRace.app"
+            BlueprintName = "PirateRaceDevice"
+            ReferencedContainer = "container:PirateRace.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

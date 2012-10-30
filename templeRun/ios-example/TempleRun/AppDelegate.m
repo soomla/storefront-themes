@@ -16,7 +16,7 @@
 
 #import "AppDelegate.h"
 #import "StoreController.h"
-#import "TempleRunAssets.h"
+#import "PirateRaceAssets.h"
 
 @implementation AppDelegate
 
@@ -27,7 +27,7 @@
     /**
      * We initialize StoreController when the application laods !
      */
-    [[StoreController getInstance] initializeWithStoreAssets:[[TempleRunAssets alloc] init]];
+    [[StoreController getInstance] initializeWithStoreAssets:[[PirateRaceAssets alloc] init]];
     
     return YES;
 }
