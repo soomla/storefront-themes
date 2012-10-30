@@ -1,4 +1,4 @@
-package com.soomla.example.jetpackJoyride;
+package com.soomla.example.airstrikeBravo;
 
 import android.app.Activity;
 import android.content.ClipData;
@@ -75,7 +75,7 @@ public class StoreExampleActivity extends Activity {
          * long enough to perform the operation they need to perform.
          */
         StoreController.getInstance().initialize(getApplicationContext(),
-                new JetpackJoyrideAssets(),
+                new AirstrikeBravoAssets(),
                 "[YOUR GOOGLE PLAY PUBLIC KEY HERE]",
                 true);
         StoreEventHandlers.getInstance().addEventHandler(
@@ -176,6 +176,5 @@ public class StoreExampleActivity extends Activity {
 
     private Handler mHandler = new Handler();
     private ImageView mRobotView;
-    private String mThemeJsonFile = "jetpack.json";
 }
 

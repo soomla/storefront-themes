@@ -6,82 +6,82 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89146f22-62a9-4009-ba3d-6e0c9726b782" name="Default" comment="changed">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/JetpackJoyrideExample.apk" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/JetpackJoyrideExample.apk.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/JetpackJoyrideExample.apk.unaligned" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/classes.dex" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/android/vending/billing/IMarketBillingService$Stub$Proxy.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/android/vending/billing/IMarketBillingService$Stub.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/android/vending/billing/IMarketBillingService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/billing/BillingReceiver.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/billing/BillingService$BillingRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/billing/BillingService$CheckBillingSupported.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/billing/BillingService$ConfirmNotifications.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/billing/BillingService$GetPurchaseInformation.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/billing/BillingService$RequestPurchase.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/billing/BillingService$RestoreTransactions.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/billing/BillingService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/billing/Consts$PurchaseState.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/billing/Consts$ResponseCode.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/billing/Consts.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/billing/PurchaseObserver$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/billing/PurchaseObserver.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/billing/ResponseHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/billing/Security$VerifiedPurchase.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/billing/Security.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/billing/util/AESObfuscator$ValidationException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/billing/util/AESObfuscator.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/billing/util/Base64.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/billing/util/Base64DecoderException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/BuildConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/ExampleEventHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/JetpackJoyrideAssets.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/R$color.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/R$layout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/R.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/StoreExampleActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/StoreExampleActivity$MyDragListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/StoreExampleActivity$MyTouchListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/example/jetpackJoyride/StoreExampleActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/IStoreAssets.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/IStoreEventHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/StoreConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/StoreController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/StoreEventHandlers.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/data/GoogleManagedItemsStorage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/data/JSONConsts.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/data/StorageManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/data/StoreDatabase$DatabaseHelper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/data/StoreDatabase.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/data/StoreInfo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/data/StorefrontInfo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/data/VirtualCurrencyStorage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/data/VirtualGoodsStorage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/domain/data/AbstractPriceModel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/domain/data/AbstractVirtualItem.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/domain/data/BalanceDrivenPriceModel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/domain/data/GoogleMarketItem$Managed.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/domain/data/GoogleMarketItem.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/domain/data/StaticPriceModel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/domain/data/VirtualCategory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/domain/data/VirtualCurrency.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/domain/data/VirtualCurrencyPack.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/domain/data/VirtualGood.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/exceptions/InsufficientFundsException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/exceptions/NotEnoughGoodsException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/exceptions/VirtualItemNotFoundException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/storefront/StorefrontActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/storefront/StorefrontActivity$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/storefront/StorefrontActivity$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/storefront/StorefrontActivity$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/storefront/StorefrontActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/storefront/StorefrontController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/storefront/StorefrontJS$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JetpackJoyrideExample/com/soomla/store/storefront/StorefrontJS.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/AirstrikeBravoExample.apk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/AirstrikeBravoExample.apk.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/AirstrikeBravoExample.apk.unaligned" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/classes.dex" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/android/vending/billing/IMarketBillingService$Stub$Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/android/vending/billing/IMarketBillingService$Stub.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/android/vending/billing/IMarketBillingService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/billing/BillingReceiver.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/billing/BillingService$BillingRequest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/billing/BillingService$CheckBillingSupported.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/billing/BillingService$ConfirmNotifications.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/billing/BillingService$GetPurchaseInformation.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/billing/BillingService$RequestPurchase.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/billing/BillingService$RestoreTransactions.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/billing/BillingService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/billing/Consts$PurchaseState.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/billing/Consts$ResponseCode.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/billing/Consts.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/billing/PurchaseObserver$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/billing/PurchaseObserver.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/billing/ResponseHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/billing/Security$VerifiedPurchase.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/billing/Security.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/billing/util/AESObfuscator$ValidationException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/billing/util/AESObfuscator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/billing/util/Base64.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/billing/util/Base64DecoderException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/example/airstrikeBravo/BuildConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/example/airstrikeBravo/ExampleEventHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/example/airstrikeBravo/AirstrikeBravoAssets.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/example/airstrikeBravo/R$attr.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/example/airstrikeBravo/R$color.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/example/airstrikeBravo/R$drawable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/example/airstrikeBravo/R$id.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/example/airstrikeBravo/R$layout.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/example/airstrikeBravo/R$string.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/example/airstrikeBravo/R.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/example/airstrikeBravo/StoreExampleActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/example/airstrikeBravo/StoreExampleActivity$MyDragListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/example/airstrikeBravo/StoreExampleActivity$MyTouchListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/example/airstrikeBravo/StoreExampleActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/IStoreAssets.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/IStoreEventHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/StoreConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/StoreController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/StoreEventHandlers.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/data/GoogleManagedItemsStorage.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/data/JSONConsts.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/data/StorageManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/data/StoreDatabase$DatabaseHelper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/data/StoreDatabase.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/data/StoreInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/data/StorefrontInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/data/VirtualCurrencyStorage.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/data/VirtualGoodsStorage.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/domain/data/AbstractPriceModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/domain/data/AbstractVirtualItem.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/domain/data/BalanceDrivenPriceModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/domain/data/GoogleMarketItem$Managed.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/domain/data/GoogleMarketItem.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/domain/data/StaticPriceModel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/domain/data/VirtualCategory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/domain/data/VirtualCurrency.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/domain/data/VirtualCurrencyPack.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/domain/data/VirtualGood.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/exceptions/InsufficientFundsException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/exceptions/NotEnoughGoodsException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/exceptions/VirtualItemNotFoundException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/storefront/StorefrontActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/storefront/StorefrontActivity$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/storefront/StorefrontActivity$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/storefront/StorefrontActivity$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/storefront/StorefrontActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/storefront/StorefrontController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/storefront/StorefrontJS$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AirstrikeBravoExample/com/soomla/store/storefront/StorefrontJS.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/SurfStoreExample.apk.res" afterPath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/SurfStoreExample.apk.res" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/SurfStoreExample.apk.unaligned" afterPath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/SurfStoreExample.apk.unaligned" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/SurfStoreExample.apk" afterPath="$PROJECT_DIR$/../../basic/android-example/out/production/SurfStoreExample/SurfStoreExample.apk" />
@@ -95,7 +95,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../basic/android-example/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../basic/android-example/SurfStoreExample.iml" afterPath="$PROJECT_DIR$/../../basic/android-example/SurfStoreExample.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JetpackJoyrideExample.iml" afterPath="$PROJECT_DIR$/JetpackJoyrideExample.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AirstrikeBravoExample.iml" afterPath="$PROJECT_DIR$/AirstrikeBravoExample.iml" />
     </list>
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -112,7 +112,7 @@
   </component>
   <component name="DebuggerManager">
     <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/src/com/soomla/example/jetpackJoyride/ExampleEventHandler.java" line="68" class="com.soomla.example.jetpackJoyride.ExampleEventHandler" package="com.soomla.example.jetpackJoyride">
+      <breakpoint url="file://$PROJECT_DIR$/src/com/soomla/example/airstrikeBravo/ExampleEventHandler.java" line="68" class="com.soomla.example.airstrikeBravo.ExampleEventHandler" package="com.soomla.example.airstrikeBravo">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -162,12 +162,12 @@
     <ui_properties />
   </component>
   <component name="FavoritesManager">
-    <favorites_list name="JetpackJoyrideExample" />
+    <favorites_list name="AirstrikeBravoExample" />
   </component>
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="ExampleEventHandler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/soomla/example/jetpackJoyride/ExampleEventHandler.java">
+        <entry file="file://$PROJECT_DIR$/src/com/soomla/example/airstrikeBravo/ExampleEventHandler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="67" column="36" selection-start="0" selection-end="2532" vertical-scroll-proportion="0.0">
               <folding />
@@ -184,26 +184,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="workspace.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="106" column="93" selection-start="16201" selection-end="16201" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jetpack.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/jetpack.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="StoreExampleActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/soomla/example/jetpackJoyride/StoreExampleActivity.java">
+        <entry file="file://$PROJECT_DIR$/src/com/soomla/example/airstrikeBravo/StoreExampleActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="19" column="34" selection-start="647" selection-end="647" vertical-scroll-proportion="0.21610169">
               <folding />
@@ -243,12 +225,12 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/src/com/soomla/example/jetpackJoyride/JetpackJoyrideAssets.java" />
+        <option value="$PROJECT_DIR$/src/com/soomla/example/airstrikeBravo/AirstrikeBravoAssets.java" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/assets/theme/less/jetpackJoyride.less" />
-        <option value="$PROJECT_DIR$/src/com/soomla/example/jetpackJoyride/StoreExampleActivity.java" />
+        <option value="$PROJECT_DIR$/assets/theme/less/airstrikeBravo.less" />
+        <option value="$PROJECT_DIR$/src/com/soomla/example/airstrikeBravo/StoreExampleActivity.java" />
         <option value="$PROJECT_DIR$/../../submodules/android-store/SoomlaAndroidStore/src/com/soomla/store/storefront/StorefrontActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/soomla/example/jetpackJoyride/ExampleEventHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/soomla/example/airstrikeBravo/ExampleEventHandler.java" />
       </list>
     </option>
   </component>
@@ -297,17 +279,17 @@
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="JetpackJoyrideExample" />
+              <option name="myItemId" value="AirstrikeBravoExample" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="JetpackJoyrideExample" />
+              <option name="myItemId" value="AirstrikeBravoExample" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="JetpackJoyrideExample" />
+              <option name="myItemId" value="AirstrikeBravoExample" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -317,11 +299,11 @@
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="JetpackJoyrideExample" />
+              <option name="myItemId" value="AirstrikeBravoExample" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="JetpackJoyrideExample" />
+              <option name="myItemId" value="AirstrikeBravoExample" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -354,8 +336,8 @@
   </component>
   <component name="RunManager" selected="Android Application.StoreExampleActivity">
     <configuration default="false" name="StoreExampleActivity" type="AndroidRunConfigurationType" factoryName="Android Application" temporary="true">
-      <module name="JetpackJoyrideExample" />
-      <option name="ACTIVITY_CLASS" value="com.soomla.example.jetpackJoyride.StoreExampleActivity" />
+      <module name="AirstrikeBravoExample" />
+      <option name="ACTIVITY_CLASS" value="com.soomla.example.airstrikeBravo.StoreExampleActivity" />
       <option name="MODE" value="specific_activity" />
       <option name="DEPLOY" value="true" />
       <option name="TARGET_SELECTION_MODE" value="USB_DEVICE" />
@@ -636,7 +618,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/soomla/example/jetpackJoyride/JetpackJoyrideAssets.java">
+    <entry file="file://$PROJECT_DIR$/src/com/soomla/example/airstrikeBravo/AirstrikeBravoAssets.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="328" column="26" selection-start="14665" selection-end="14665" vertical-scroll-proportion="12.615385" />
       </provider>
@@ -663,16 +645,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/theme/less/jetpackJoyride.less">
+    <entry file="file://$PROJECT_DIR$/assets/theme/less/airstrikeBravo.less">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="19" selection-start="56" selection-end="56" vertical-scroll-proportion="0.07484408">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/jetpack.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -698,14 +673,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/soomla/example/jetpackJoyride/ExampleEventHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/com/soomla/example/airstrikeBravo/ExampleEventHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="67" column="36" selection-start="0" selection-end="2532" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/soomla/example/jetpackJoyride/StoreExampleActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/soomla/example/airstrikeBravo/StoreExampleActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="34" selection-start="647" selection-end="647" vertical-scroll-proportion="0.21610169">
           <folding />
@@ -764,7 +739,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>JetpackJoyrideExample</last-edited>
+          <last-edited>AirstrikeBravoExample</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
