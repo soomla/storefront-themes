@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Jetpack Joyride Store Example</string>
+    <string name="app_name">AirstrikeBravo Store Example</string>
     <string name="btn_contentDescription">Click to open store</string>
     <string name="info_text">Click the soomla logo to open store</string>
     <string name="title">SOOMLA Store Example</string>
