@@ -3,7 +3,7 @@
         {
             "name"              : "2,500 Coins",
             "itemId"            : "muffins_10",
-            "currency_itemId"   : "currency_muffin",
+            "currency_itemId"   : "currency_coins",
             "productId"         : "2500_coins",
             "price"             : 0.99,
             "amount"            : 2500
@@ -11,7 +11,7 @@
         {
             "name"              : "25,000 Coins",
             "itemId"            : "muffins_50",
-            "currency_itemId"   : "currency_muffin",
+            "currency_itemId"   : "currency_coins",
             "productId"         : "android.test.purchased",
             "price"             : 4.99,
             "amount"            : 25000
@@ -19,7 +19,7 @@
         {
             "name"              : "75,000 Coins",
             "itemId"            : "muffins_400",
-            "currency_itemId"   : "currency_muffin",
+            "currency_itemId"   : "currency_coins",
             "productId"         : "75000_coins",
             "price"             : 9.99,
             "amount"            : 75000
@@ -27,7 +27,7 @@
         {
             "name"              : "200,000 Coins",
             "itemId"            : "muffins_1000",
-            "currency_itemId"   : "currency_muffin",
+            "currency_itemId"   : "currency_coins",
             "productId"         : "200000_coins",
             "price"             : 19.99,
             "amount"            : 200000
@@ -37,7 +37,7 @@
         {
             "name"          : "Coins",
             "description"   : "",
-            "itemId"        : "currency_muffin"
+            "itemId"        : "currency_coins"
         }
     ],
     "categories" : [
@@ -65,7 +65,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_muffin" : 250
+                    "currency_coins" : 250
                 }
             },
             "itemId"        : "boost_ahead",
@@ -77,7 +77,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_muffin" : 500
+                    "currency_coins" : 500
                 }
             },
             "itemId"        : "extra_health",
@@ -89,7 +89,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_muffin" : 750
+                    "currency_coins" : 750
                 }
             },
             "itemId"        : "invisibility_hat",
@@ -101,7 +101,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_muffin" : 500
+                    "currency_coins" : 500
                 }
             },
             "itemId"        : "horn_of_war",
@@ -113,7 +113,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_muffin" : 1000
+                    "currency_coins" : 1000
                 }
             },
             "itemId"        : "flagship",
@@ -125,7 +125,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_muffin" : 2000
+                    "currency_coins" : 2000
                 }
             },
             "itemId"        : "mystery_box",
@@ -137,7 +137,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_muffin" : 10000
+                    "currency_coins" : 10000
                 }
             },
             "itemId"        : "science_god",
@@ -149,7 +149,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_muffin" : 10000
+                    "currency_coins" : 10000
                 }
             },
             "itemId"        : "wind_god",
@@ -161,7 +161,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_muffin" : 10000
+                    "currency_coins" : 10000
                 }
             },
             "itemId"        : "winter_god",
@@ -173,7 +173,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_muffin" : 10000
+                    "currency_coins" : 10000
                 }
             },
             "itemId"        : "stars_god",
@@ -185,7 +185,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_muffin" : 10000
+                    "currency_coins" : 10000
                 }
             },
             "itemId"        : "chocolate_cake",
@@ -197,7 +197,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_muffin" : 5000
+                    "currency_coins" : 5000
                 }
             },
             "itemId"        : "eagle",
@@ -209,7 +209,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_muffin" : 5000
+                    "currency_coins" : 5000
                 }
             },
             "itemId"        : "butterfly",
@@ -221,7 +221,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_muffin" : 5000
+                    "currency_coins" : 5000
                 }
             },
             "itemId"        : "fish",
