@@ -8,5 +8,7 @@ muffinRush/ios-example/MuffinRush.xcodeproj/project.xcworkspace/xcuserdata/refae
 muffinRush/ios-example/MuffinRush.xcodeproj/project.xcworkspace/xcuserdata/refaelos.xcuserdatad/UserInterfaceState.xcuserstate
 
 muffinRush/android-example/.idea/workspace.xml
-
 muffinRush/ios-example/.DS_Store
+
+*gen/
+
