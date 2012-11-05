@@ -1,7 +1,10 @@
 {
-    "cssFiles" : ["../theme/less/basic.less"],
-    "jsFiles" : ["../theme/js/basicViews.js"],
-    "templatePath" : "../theme/templates",
+    "template" : {
+        "name" : "basic",
+        "cssFiles" : ["../theme/template/less/basic.less"],
+        "jsFiles" : ["../theme/template/js/basicViews.js"],
+        "htmlTemplatesPath" : "../theme/template/templates"
+    },
     "modelAssets" : {
         "categories" : {},
         "virtualGoods" : {

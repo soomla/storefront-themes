@@ -1,7 +1,10 @@
 {
-    "cssFiles" : ["../theme/less/pirateRace.less"],
-    "jsFiles" : ["../theme/js/pirateRaceViews.js"],
-    "templatePath" : "../theme/templates",
+    "template" : {
+        "name" : "pirateRace",
+        "cssFiles" : ["../theme/template/less/pirateRace.less"],
+        "jsFiles" : ["../theme/template/js/pirateRaceViews.js"],
+        "htmlTemplatesPath" : "../theme/template/templates"
+    },
     "modelAssets" : {
         "categories" : {},
         "virtualGoods" : {

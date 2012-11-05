@@ -1,7 +1,10 @@
 {
-    "cssFiles" : ["../theme/less/leapOfFangs.less"],
-    "jsFiles" : ["../theme/js/leapOfFangsViews.js", "../theme/js/bootstrap-tab.js"],
-    "templatePath" : "../theme/templates",
+    "template" : {
+        "name" : "leapOfFangs",
+        "cssFiles" : ["../theme/template/less/leapOfFangs.less", "../theme/template/js/bootstrap-tab.js"],
+        "jsFiles" : ["../theme/template/js/leapOfFangsViews.js"],
+        "htmlTemplatesPath" : "../theme/template/templates"
+    },
     "modelAssets" : {
         "categories" : {
             "1" : "../theme/img/Categories/Pumpkin.png",

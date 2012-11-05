@@ -1,7 +1,10 @@
 {
-    "cssFiles" : ["../theme/less/muffinRush.less"],
-    "jsFiles" : ["../theme/js/muffinRushViews.js"],
-    "templatePath" : "../theme/templates",
+    "template" : {
+        "name" : "muffinRush",
+        "cssFiles" : ["../theme/template/less/muffinRush.less"],
+        "jsFiles" : ["../theme/template/js/muffinRushViews.js"],
+        "htmlTemplatesPath" : "../theme/template/templates"
+    },
     "modelAssets" : {
         "categories" : {},
         "virtualGoods" : {

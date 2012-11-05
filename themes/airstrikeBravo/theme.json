@@ -1,7 +1,10 @@
 {
-    "cssFiles" : ["../theme/less/airstrikeBravo.less"],
-    "jsFiles" : ["../theme/js/airstrikeBravoViews.js"],
-    "templatePath" : "../theme/templates",
+    "template" : {
+        "name" : "airstrikeBravo",
+        "cssFiles" : ["../theme/template/less/airstrikeBravo.less"],
+        "jsFiles" : ["../theme/template/js/airstrikeBravoViews.js"],
+        "htmlTemplatesPath" : "../theme/template/templates"
+    },
     "modelAssets" : {
         "categories" : {
             "1" : "../theme/img/-_Object_4.png",
