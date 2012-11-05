@@ -30,6 +30,11 @@
                 "type" : "image",
                 "title" : "More Currency Button",
                 "selector" : ".footer .buy-more"
+            },
+            "balanceLabelStyle" : {
+                "type" : "css",
+                "title" : "Balance Label Style",
+                "selector" : ".item .balance label"
             }
         },
         "itemSeparator" : {
@@ -50,8 +55,36 @@
                     "background" : {
                         "type" : "backgroundImage",
                         "title" : "Item Area Background",
-                        "selector" : ".items-container"
+                        "selector" : "#goods-store .items-container"
                     }
+                },
+                "listItem" : {
+                    "background" : {
+                        "type" : "backgroundImage",
+                        "title" : "Item Background",
+                        "selector" : ".item"
+                    },
+                    "balanceBackground" : {
+                        "type" : "backgroundImage",
+                        "title" : "Item Balance Background",
+                        "selector" : ".item .content .balance"
+                    },
+                    "buy" : {
+                        "type" : "image",
+                        "title" : "Unlock Image",
+                        "selector" : ".item .buy"
+                    },
+                    "equip" : {
+                        "type" : "image",
+                        "title" : "Activate Image",
+                        "selector" : ".item .equip"
+                    },
+                    "active" : {
+                        "type" : "image",
+                        "title" : "Active Image",
+                        "selector" : ".item .active"
+                    }
+
                 },
                 "noFundsModal" : {
                     "background" : {
@@ -78,6 +111,15 @@
                         "type" : "image",
                         "title" : "'No' Button",
                         "selector" : ".dialog .cancel"
+                    }
+                }
+            },
+            "currencyPacks" : {
+                "list" : {
+                    "background" : {
+                        "type" : "backgroundImage",
+                        "title" : "Currency Pack Area Background",
+                        "selector" : "#currency-store .items-container"
                     }
                 }
             }
