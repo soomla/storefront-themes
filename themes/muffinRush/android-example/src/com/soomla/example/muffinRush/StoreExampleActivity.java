@@ -139,25 +139,10 @@ public class StoreExampleActivity extends Activity {
     }
 
     private void openStore() {
-
-        try {
-            InputStream in = getAssets().open(mThemeJsonFile);
-
-            byte[] buffer = new byte[in.available()];
-            in.read(buffer);
-            ByteArrayOutputStream out = new ByteArrayOutputStream();
-            out.write(buffer);
-            out.close();
-            in.close();
-
-            StorefrontController.getInstance().openStore(this, out.toString());
-        } catch (IOException e) {
-            Log.e("StoreExampleActivity", "Can't read JSON storefront file.");
-        }
+        StorefrontController.getInstance().openStore(this);
     }
 
     private Handler mHandler = new Handler();
     private ImageView mRobotView;
-    private String mThemeJsonFile = "muffinRush.json";
 }
 
