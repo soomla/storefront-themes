@@ -1,0 +1,227 @@
+{
+    "currencyPacks" : [
+        {
+            "name"              : "2,500",
+            "itemId"            : "defaultCoins_10",
+            "currency_itemId"   : "currency_defaultCoin",
+            "productId"         : "2500_coins",
+            "price"             : 0.99,
+            "amount"            : 2500
+        },
+        {
+            "name"              : "25,000",
+            "itemId"            : "defaultCoins_50",
+            "currency_itemId"   : "currency_defaultCoin",
+            "productId"         : "android.test.purchased",
+            "price"             : 4.99,
+            "amount"            : 25000
+        },
+        {
+            "name"              : "75,000",
+            "itemId"            : "defaultCoins_400",
+            "currency_itemId"   : "currency_defaultCoin",
+            "productId"         : "75000_coins",
+            "price"             : 9.99,
+            "amount"            : 75000
+        },
+        {
+            "name"              : "200,000",
+            "itemId"            : "defaultCoins_1000",
+            "currency_itemId"   : "currency_defaultCoin",
+            "productId"         : "200000_coins",
+            "price"             : 19.99,
+            "amount"            : 200000
+        }
+    ],
+    "virtualCurrencies" : [
+        {
+            "name"          : "Coins",
+            "description"   : "",
+            "itemId"        : "currency_defaultCoin"
+        }
+    ],
+    "categories" : [
+        {
+            "id" : 1,
+            "name" : "POWERUPS"
+        },
+        {
+            "id" : 2,
+            "name" : "UTILITIES"
+        },
+        {
+            "id" : 3,
+            "name" : "CHARACTERS"
+        }
+    ],
+    "virtualGoods" : [
+        {
+            "name"          : "Boost Ahead",
+            "description"   : "start 100 miles ahead",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 500
+                }
+            },
+            "itemId"        : "boost",
+            "categoryId"   : 1
+        },
+        {
+            "name"          : "Coin Magnet",
+            "description"   : "Collect coins more easily",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 500
+                }
+            },
+            "itemId"        : "coin_magnet",
+            "categoryId"   : 1
+        },
+        {
+            "name"          : "Portal",
+            "description"   : "Transporting portal will move you to another point in the maze",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 750
+                }
+            },
+            "itemId"        : "portal",
+            "categoryId"   : 1
+        },
+		{
+            "name"          : "Mega Coin",
+            "description"   : "Receive 100 coins when collecting a mega coin",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 750
+                }
+            },
+            "itemId"        : "mega_coin",
+            "categoryId"   : 1
+        },
+		{
+            "name"          : "Triple Value",
+            "description"   : "Find triple value coins after 1000 miles",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 750
+                }
+            },
+            "itemId"        : "triple_value",
+            "categoryId"   : 1
+        },
+		{
+            "name"          : "Wings",
+            "description"   : "Fly past your enemies",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 750
+                }
+            },
+            "itemId"        : "wings",
+            "categoryId"   : 2
+        },
+		{
+            "name"          : "Permanent Wings",
+            "description"   : "Wings that last forever",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 750
+                }
+            },
+            "itemId"        : "perm_wings",
+            "categoryId"   : 2
+        },
+		{
+            "name"          : "Fire Boost",
+            "description"   : "Get extra fire power",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 750
+                }
+            },
+            "itemId"        : "fire_boost",
+            "categoryId"   : 2
+        },
+		{
+            "name"          : "Flamer",
+            "description"   : "Throw deadly flames at your enemies",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 750
+                }
+            },
+            "itemId"        : "flamer",
+            "categoryId"   : 2
+        },
+		{
+            "name"          : "Cool Bob",
+            "description"   : "Cool Bob, your draw by numbers guy",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 10000
+                }
+            },
+            "itemId"        : "cool_bob",
+            "categoryId"   : 3
+        },
+		{
+            "name"          : "Dian Fox",
+            "description"   : "Dian Fox, the pencil artist",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 10000
+                }
+            },
+            "itemId"        : "dian_fox",
+            "categoryId"   : 3
+        },
+		{
+            "name"          : "Barry Jones",
+            "description"   : "Barry Jones, a teacher with a chalk",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 10000
+                }
+            },
+            "itemId"        : "barry_jones",
+            "categoryId"   : 3
+        },
+        {
+            "name"          : "Panda Kim",
+            "description"   : "Panda Kim, tiger painter from the far east",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 25000
+                }
+            },
+            "itemId"        : "panda_kim",
+            "categoryId"   : 3
+        },
+        {
+            "name"          : "Tim Smith",
+            "description"   : "Tim Smith, the quick scatch artist",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 25000
+                }
+            },
+            "itemId"        : "tim_smith",
+            "categoryId"   : 3
+        }
+    ]
+}
