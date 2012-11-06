@@ -22,7 +22,7 @@
             "amount" : 1500,
             "currency_itemId" : "currency_clam",
             "price" : 5.99,
-            "description" : "Testing for purchase cacellation ...",
+            "description" : "Testing for purchase cancellation ...",
             "name" : "Pipeline Pumpin' Pack",
             "itemId" : "pipeline_pumpin_pack",
             "productId" : "android.test.canceled"

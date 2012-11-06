@@ -2,34 +2,34 @@
     "isCurrencyStoreDisabled" : false,
     "currencyPacks" : [
         {
-            "name"              : "10 Muffins",
-            "itemId"            : "muffins_10",
+            "name"              : "10 Coins",
+            "itemId"            : "coins_10",
             "currency_itemId"   : "currency_coin",
-            "productId"         : "muffins_10",
+            "productId"         : "coins_10",
             "price"             : 0.99,
             "amount"            : 10
         },
         {
-            "name"              : "50 Muffins",
-            "itemId"            : "muffins_50",
+            "name"              : "50 Coins",
+            "itemId"            : "coins_50",
             "currency_itemId"   : "currency_coin",
             "productId"         : "android.test.purchased",
             "price"             : 1.99,
             "amount"            : 50
         },
         {
-            "name"              : "400 Muffins",
-            "itemId"            : "muffins_400",
+            "name"              : "400 Coins",
+            "itemId"            : "coins_400",
             "currency_itemId"   : "currency_coin",
-            "productId"         : "muffins_400",
+            "productId"         : "coins_400",
             "price"             : 4.99,
             "amount"            : 400
         },
         {
-            "name"              : "1000 Muffins",
-            "itemId"            : "muffins_1000",
+            "name"              : "1000 Coins",
+            "itemId"            : "coins_1000",
             "currency_itemId"   : "currency_coin",
-            "productId"         : "muffins_1000",
+            "productId"         : "coins_1000",
             "price"             : 8.99,
             "amount"            : 1000
         }

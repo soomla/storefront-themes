@@ -1,0 +1,75 @@
+{
+    "template" : {
+        "name" : "airstrikeBravo",
+        "cssFiles" : ["../theme/template/less/airstrikeBravo.less"],
+        "jsFiles" : ["../theme/template/js/airstrikeBravoViews.js"],
+        "htmlTemplatesPath" : "../theme/template/templates"
+    },
+    "modelAssets" : {
+        "categories" : {
+            "1" : "../theme/img/-_Object_2.png",
+            "2" : "../theme/img/-_Object_1.png",
+            "3" : "../theme/img/-_Object_4.png",
+            "4" : "../theme/img/-_Object_3.png"
+        },
+        "currencyPacksCategory" : "../theme/img/-_Object_5.png",
+        "virtualGoods" : {
+           "experimental_fuel" : "../theme/img/utilities/Upgrade2.png",
+            "tires" : "../theme/img/utilities/Upgrade3.png",
+            "turbo" : "../theme/img/utilities/Upgrade1.png",
+            "boost" : "../theme/img/powerups/boost.png",
+            "invisibility" : "../theme/img/powerups/invisibility.png",
+            "luck_charm" : "../theme/img/powerups/luck_charm.png",
+            "wings" : "../theme/img/powerups/wings.png",
+            "track_1" : "../theme/img/racingtracks/tracks1.png",
+            "track_2" : "../theme/img/racingtracks/tracks2.png",
+            "track_3" : "../theme/img/racingtracks/tracks3.png",
+            "car_1" : "../theme/img/cars/cars1.png",
+            "car_2" : "../theme/img/cars/cars2.png",
+            "car_3" : "../theme/img/cars/cars3.png"
+        },
+        "currencyPacks" : {
+           "defaultCoins_10" : "../theme/img/coins/objects-01.png",
+            "defaultCoins_50" : "../theme/img/coins/objects-02.png",
+            "defaultCoins_400" : "../theme/img/coins/objects-03.png",
+            "defaultCoins_1000" : "../theme/img/coins/objects-04.png"
+        },
+        "virtualCurrencies" : {
+             "currency_coin" : "../theme/img/coin.png"
+        }
+    },
+    "theme" : {
+        "name" : "speedingHornet",
+        "version" : 1,
+        "isOrientationLandscape" : true,
+        "balance" : {
+            "style" : "top: 30px; left: 15px; width: 100px; text-align: right; color: #FFF;"
+        },
+        "background" : "../theme/img/BG_BG.jpg",
+        "headerBackground" : "../theme/img/Header.png",
+        "noFundsModal" : {
+            "background" : "../theme/img/Alert-22.png"
+        },
+        "images" : {
+            "contentBackground" : "../theme/img/ContentBackground.png",
+            "itemAreaBackground" : "../theme/img/ItemAreaBackground.png",
+            "buyImage" : "../theme/img/BUY.png",
+            "equippedIndicatorImage" : "../theme/img/Green_Owned.png",
+            "notEquippedIndicatorImage" : "../theme/img/Gray_Owned.png",
+            "expandImage" : "../theme/img/Arrow_Close.png",
+            "collapseImage" : "../theme/img/Arrow_Open.png",
+            "backImage" : "../theme/img/BACK.png",
+            "quitImage" : "../theme/img/QUIT.png",
+            "itemBackgroundImage" : "../theme/img/BG_Product.png",
+            "itemBackgroundImageExpanded" : "../theme/img/BG_Product_Ext.png"
+        },
+        "titleStyle" : "color: #FFF",
+        "pages" : {
+            "menu" : {
+                "title" : "The Store",
+                "balance" : "../theme/img/JPJR_ProductBar_Header_Right.png"
+            }
+        }
+    }
+
+}

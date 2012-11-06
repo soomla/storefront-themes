@@ -24,10 +24,10 @@
             "fish" : "../theme/img/Friends/Object_13.png"
         },
         "currencyPacks" : {
-            "muffins_10" : "../theme/img/CurrencyPacks/GetCoins_1.png",
-            "muffins_50" : "../theme/img/CurrencyPacks/GetCoins_2.png",
-            "muffins_400" : "../theme/img/CurrencyPacks/GetCoins_3.png",
-            "muffins_1000" : "../theme/img/CurrencyPacks/GetCoins_4.png"
+            "coins_10" : "../theme/img/CurrencyPacks/GetCoins_1.png",
+            "coins_50" : "../theme/img/CurrencyPacks/GetCoins_2.png",
+            "coins_400" : "../theme/img/CurrencyPacks/GetCoins_3.png",
+            "coins_1000" : "../theme/img/CurrencyPacks/GetCoins_4.png"
         },
         "virtualCurrencies" : {
             "currency_muffin" : "../theme/img/Item_Price.png"
@@ -35,7 +35,6 @@
     },
     "theme" : {
         "name" : "pirateRace",
-        "template" : "pirateRace",
         "version" : 1,
         "background" : "../theme/img/BG-Level0.png",
         "contentBackground" : "../theme/img/BG-Level1.png",

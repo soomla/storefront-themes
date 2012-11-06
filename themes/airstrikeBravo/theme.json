@@ -32,10 +32,11 @@
             "clothing_2" : "../theme/img/Clothing/Clothing_2.png"
         },
         "currencyPacks" : {
-            "muffins_10" : "../theme/img/coins/objects-05.png",
-            "muffins_50" : "../theme/img/coins/objects-04.png",
-            "muffins_400" : "../theme/img/coins/objects-01.png",
-            "muffins_1000" : "../theme/img/coins/objects-02.png"
+            "coin_booster_pack" : "../theme/img/coins/objects-05.png",
+            "coin_mega_pack" : "../theme/img/coins/objects-04.png",
+            "coin_ultra_pack" : "../theme/img/coins/objects-01.png",
+            "coin_jumbo_pack" : "../theme/img/coins/objects-03.png",
+            "coin_ultimate_pack" : "../theme/img/coins/objects-02.png"
         },
         "virtualCurrencies" : {
             "currency_coin" : "../theme/img/coin.png"
@@ -43,7 +44,6 @@
     },
     "theme" : {
         "name" : "airstrikeBravo",
-        "template" : "airstrikeBravo",
         "version" : 1,
         "isOrientationLandscape" : true,
         "balance" : {

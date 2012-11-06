@@ -1,0 +1,251 @@
+{
+    "currencyPacks" : [
+        {
+            "name"              : "COIN BOOSTER PACK",
+            "itemId"            : "defaultCoins_10",
+            "currency_itemId"   : "currency_coin",
+            "productId"         : "coin_booster_pack",
+            "price"             : 0.99,
+            "amount"            : 20000
+        },
+        {
+            "name"              : "COIN MEGA PACK",
+            "itemId"            : "defaultCoins_50",
+            "currency_itemId"   : "currency_coin",
+            "productId"         : "android.test.purchased",
+            "price"             : 1.99,
+            "amount"            : 50000
+        },
+        {
+            "name"              : "COIN ULTRA PACK",
+            "itemId"            : "defaultCoins_400",
+            "currency_itemId"   : "currency_coin",
+            "productId"         : "coin_ultra_pack",
+            "price"             : 2.99,
+            "amount"            : 100000
+        },
+        {
+            "name"              : "COIN JUMBO PACK",
+            "itemId"            : "defaultCoins_1000",
+            "currency_itemId"   : "currency_coin",
+            "productId"         : "coin_jumbo_pack",
+            "price"             : 4.99,
+            "amount"            : 250000
+        },
+        {
+            "name"              : "COIN ULTIMATE PACK",
+            "itemId"            : "defaultCoins_2000",
+            "currency_itemId"   : "currency_coin",
+            "productId"         : "coin_ultimate_pack",
+            "price"             : 9.99,
+            "amount"            : 600000
+        }
+    ],
+    "virtualCurrencies" : [
+        {
+            "name"          : "COIN PACKS",
+            "description"   : "",
+            "itemId"        : "currency_coin"
+        }
+    ],
+    "virtualGoods" : [
+        {
+            "name"          : "Sick Mo",
+            "description"   : "Nothing will scare away this little fellow",
+            "itemId"        : "sick_mo",
+            "categoryId"   : 1,
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 250
+                    }
+            }
+        },
+        {
+            "name"          : "Screaming Betty",
+            "description"   : "Even the biggest enemies will stay away from this small screamer",
+            "itemId"        : "betty",
+            "categoryId"   : 1, 
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 500
+                }
+            }
+        },       
+        {
+            "name"          : "Big Eye Joe",
+            "description"   : "Joe can spot coins from very far away",
+            "itemId"        : "joe",
+            "categoryId"   : 1, 
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 1000
+                }
+            }
+        },  
+        {
+            "name"          : "Jumping Tom",
+            "description"   : "Tom will jump twice as high and can also tie a knot when he is in the air",
+            "itemId"        : "tom",
+            "categoryId"   : 1, 
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 5000
+                }
+            }
+        },       
+        {
+            "name"          : "Super Knot",
+            "description"   : "Allows you to tie a know and connect an extra rope",
+            "itemId"        : "super_knot",
+            "categoryId"   : 2,
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 225
+                }
+            }
+        },
+        {
+            "name"          : "Safety Net",
+            "description"   : "Use this as a way to limit how deep you will fall",
+            "itemId"        : "net",
+            "categoryId"   : 2,
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 175
+                }
+            }
+        },
+        {
+            "name"          : "Umbrella",
+            "description"   : "Once you fall, double tap to use the umbrella but note it only lasts for 5 seconds",
+            "itemId"        : "umbrella",
+            "categoryId"   : 2,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 375
+                }
+             }
+        },
+        {
+            "name"          : "Boost",
+            "description"   : "Get a head start",
+            "itemId"        : "boost",
+            "categoryId"   : 3,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 525
+                }
+            }
+        },
+        {
+            "name"          : "Wind",
+            "description"   : "Use the power of the wind to move your character sideways",
+            "itemId"        : "wind",
+            "categoryId"   : 3,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 525
+                }
+            }
+        },
+        {
+            "name"          : "Extra Life",
+            "description"   : "This will help you survive one fall",
+            "itemId"        : "extra_life",
+            "categoryId"   : 3,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 500
+                }
+            }
+        },
+        {
+            "name"          : "Wings",
+            "description"   : "Wings will allow you to jump twice as high",
+            "itemId"        : "wings",
+            "categoryId"   : 3,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 1000
+                }
+            }
+        },
+        {
+            "name"          : "Bud Bud",
+            "description"   : "Don't go the mission alone",
+            "itemId"        : "bud",
+            "categoryId"   : 4,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 2500
+                }
+            }
+        },
+        {
+            "name"          : "Cyclop",
+            "description"   : "Add an extra eye to your team",
+            "itemId"        : "cyclop",
+            "categoryId"   : 4,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 5000
+                }
+            }
+        },
+        {
+            "name"          : "Smiling Pete",
+            "description"   : "Smiles can be deceiving",
+            "itemId"        : "pete",
+            "categoryId"   : 4,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 5000
+                }
+            }
+        },
+        {
+            "name"          : "Rockstar Axel",
+            "description"   : "Music makes the world go round",
+            "itemId"        : "axel",
+            "categoryId"   : 4,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 15000
+                }
+            }
+        }
+    ],
+     "categories" : [
+        {
+            "id" : 1,
+            "name" : "CHARACTERS"
+        },
+        {
+            "id" : 2,
+            "name" : "UTILITIES"
+        },
+        {
+            "id" : 3,
+            "name" : "POWERUPS"
+        },
+        {
+            "id" : 4,
+            "name" : "HELPERS"
+        }
+    ]
+}
