@@ -33,8 +33,7 @@
         }
     },
     "theme" : {
-        "name" : "templeRunTests",
-        "template" : "templeRunTests",
+        "name" : "pencilRiders",
         "version" : 1,
         "background" : "../theme/img/BG-Level0.png",
         "contentBackground" : "../theme/img/BG-Level1.png",

@@ -25,7 +25,6 @@
     },
     "theme" : {
         "name" : "muffinRush",
-        "template" : "muffinRush",
         "version" : 1,
         "isOrientationLandscape" : false,
         "pages" : {

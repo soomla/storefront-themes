@@ -40,7 +40,6 @@
     },
     "theme" : {
         "name" : "speedingHornet",
-        "template" : "airstrikeBravo",
         "version" : 1,
         "isOrientationLandscape" : true,
         "balance" : {

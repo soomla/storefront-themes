@@ -20,10 +20,10 @@
             "cream_cup" : "../theme/img/Weapons/Weapon2.png"
         },
         "currencyPacks" : {
-            "muffins_10" : "../theme/img/CurrencyPacks/CurrencyPack1.png",
-            "muffins_50" : "../theme/img/CurrencyPacks/CurrencyPack2.png",
-            "muffins_400" : "../theme/img/CurrencyPacks/CurrencyPack3.png",
-            "muffins_1000" : "../theme/img/CurrencyPacks/CurrencyPack4.png"
+            "coins_10" : "../theme/img/CurrencyPacks/CurrencyPack1.png",
+            "coins_50" : "../theme/img/CurrencyPacks/CurrencyPack2.png",
+            "coins_400" : "../theme/img/CurrencyPacks/CurrencyPack3.png",
+            "coins_1000" : "../theme/img/CurrencyPacks/CurrencyPack4.png"
         },
         "virtualCurrencies" : {
             "currency_coin" : "../theme/img/Coin.png"
@@ -31,7 +31,6 @@
     },
     "theme" : {
         "name" : "leapOfFangs",
-        "template" : "leapOfFangs",
         "version" : 1,
         "isOrientationLandscape" : false,
         "balance" : {

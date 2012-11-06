@@ -27,7 +27,6 @@
     },
     "theme" : {
         "name" : "basic",
-        "template" : "basic",
         "version" : 1,
         "pages" : {
             "goods" :{

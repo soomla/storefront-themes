@@ -2,7 +2,7 @@
     "currencyPacks" : [
         {
             "name"              : "2,500 Coins",
-            "itemId"            : "muffins_10",
+            "itemId"            : "coins_10",
             "currency_itemId"   : "currency_coins",
             "productId"         : "2500_coins",
             "price"             : 0.99,
@@ -10,7 +10,7 @@
         },
         {
             "name"              : "25,000 Coins",
-            "itemId"            : "muffins_50",
+            "itemId"            : "coins_50",
             "currency_itemId"   : "currency_coins",
             "productId"         : "android.test.purchased",
             "price"             : 4.99,
@@ -18,7 +18,7 @@
         },
         {
             "name"              : "75,000 Coins",
-            "itemId"            : "muffins_400",
+            "itemId"            : "coins_400",
             "currency_itemId"   : "currency_coins",
             "productId"         : "75000_coins",
             "price"             : 9.99,
@@ -26,7 +26,7 @@
         },
         {
             "name"              : "200,000 Coins",
-            "itemId"            : "muffins_1000",
+            "itemId"            : "coins_1000",
             "currency_itemId"   : "currency_coins",
             "productId"         : "200000_coins",
             "price"             : 19.99,
