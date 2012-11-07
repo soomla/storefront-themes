@@ -83,7 +83,7 @@
             }
         },
         "categories" : {
-            "style" : "background-image: url('../theme/img/Catagory_Seperator.png'); color: #FFF;"
+            "style" : "background-image: url('../theme/img/Category_Separator.png'); color: #FFF;"
         }
     }
 }
