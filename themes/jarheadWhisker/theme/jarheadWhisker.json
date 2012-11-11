@@ -1,0 +1,283 @@
+{
+    "currencyPacks" : [
+        {
+            "name"              : "COIN BOOSTER PACK",
+            "itemId"            : "defaultCoins_10",
+            "currency_itemId"   : "currency_coin",
+            "productId"         : "coin_booster_pack",
+            "price"             : 0.99,
+            "amount"            : 20000
+        },
+        {
+            "name"              : "COIN MEGA PACK",
+            "itemId"            : "defaultCoins_50",
+            "currency_itemId"   : "currency_coin",
+            "productId"         : "android.test.purchased",
+            "price"             : 1.99,
+            "amount"            : 50000
+        },
+        {
+            "name"              : "COIN ULTRA PACK",
+            "itemId"            : "defaultCoins_400",
+            "currency_itemId"   : "currency_coin",
+            "productId"         : "coin_ultra_pack",
+            "price"             : 2.99,
+            "amount"            : 100000
+        },
+        {
+            "name"              : "COIN JUMBO PACK",
+            "itemId"            : "defaultCoins_1000",
+            "currency_itemId"   : "currency_coin",
+            "productId"         : "coin_jumbo_pack",
+            "price"             : 4.99,
+            "amount"            : 250000
+        }
+    ],
+    "virtualCurrencies" : [
+        {
+            "name"          : "COIN PACKS",
+            "description"   : "",
+            "itemId"        : "currency_coin"
+        }
+    ],
+    "virtualGoods" : [
+        {
+            "name"          : "Character 1",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "guy_1",
+            "categoryId"   : 1,
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 250
+                    }
+            }
+        },
+        {
+            "name"          : "character 2",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "guy_2",
+            "categoryId"   : 1, 
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 500
+                }
+            }
+        },       
+        {
+            "name"          : "Character 3",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "guy_3",
+            "categoryId"   : 1, 
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 1000
+                }
+            }
+        },  
+        {
+            "name"          : "Character 4",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "guy_4",
+            "categoryId"   : 1, 
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 5000
+                }
+            }
+        },       
+        {
+            "name"          : "Binoculars",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "binoculars",
+            "categoryId"   : 2,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 375
+                }
+             }
+        },
+        {
+            "name"          : "Compass",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "compass",
+            "categoryId"   : 2,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 525
+                }
+            }
+        },
+		{
+            "name"          : "Lazer Pointer",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "lazer",
+            "categoryId"   : 2,
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 2250
+                }
+            }
+        },
+        {
+            "name"          : "Baloon",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "baloon",
+            "categoryId"   : 3,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 525
+                }
+            }
+        },
+        {
+            "name"          : "birds",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "birds",
+            "categoryId"   : 3,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 500
+                }
+            }
+        },
+        {
+            "name"          : "Rain",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "rain",
+            "categoryId"   : 3,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 1000
+                }
+            }
+        },
+        {
+            "name"          : "Riffle 1",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "riffle_1",
+            "categoryId"   : 4,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 2500
+                }
+            }
+        },
+        {
+            "name"          : "Riffle 2",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "riffle_2",
+            "categoryId"   : 4,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 5000
+                }
+            }
+        },
+        {
+            "name"          : "Riffle 3",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "riffle_3",
+            "categoryId"   : 4,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 5000
+                }
+            }
+        },
+        {
+            "name"          : "Riffle 4",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "riffle",
+            "categoryId"   : 4,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 15000
+                }
+            }
+        },
+		{
+            "name"          : "Ammo 1",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "ammo_1",
+            "categoryId"   : 5,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 5000
+                }
+            }
+        },
+				{
+            "name"          : "Ammo 2",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "ammo_2",
+            "categoryId"   : 5,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 5000
+                }
+            }
+        },
+				{
+            "name"          : "Ammo 3",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "ammo_3",
+            "categoryId"   : 5,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 5000
+                }
+            }
+        },
+				{
+            "name"          : "Ammo 4",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "ammo_4",
+            "categoryId"   : 5,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 5000
+                }
+            }
+        }
+    ],
+     "categories" : [
+        {
+            "id" : 1,
+            "name" : "CHARACTERS"
+        },
+        {
+            "id" : 2,
+            "name" : "UTILITIES"
+        },
+        {
+            "id" : 3,
+            "name" : "POWERUPS"
+        },
+        {
+            "id" : 4,
+            "name" : "RIFLES"
+        },
+		{
+            "id" : 5,
+            "name" : "AMMO"
+        }
+    ]
+}
