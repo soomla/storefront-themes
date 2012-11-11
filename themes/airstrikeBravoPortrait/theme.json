@@ -45,7 +45,7 @@
     "theme" : {
         "name" : "airstrikeBravoPortrait",
         "version" : 1,
-        "isOrientationLandscape" : true,
+        "isOrientationLandscape" : false,
         "balance" : {
             "style" : "top: 30px; left: 125px; width: 100px; text-align: right; color: #FFF;"
         },
