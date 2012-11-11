@@ -1,0 +1,79 @@
+{
+     "template" : {
+        "name" : "airstrikeBravo",
+        "cssFiles" : ["../theme/template/less/airstrikeBravoPortrait.less"],
+        "jsFiles" : ["../theme/template/js/airstrikeBravoPortraitViews.js"],
+        "htmlTemplatesPath" : "../theme/template/templates"
+    },
+    "modelAssets" : {
+        "categories" : {
+            "1" : "../theme/img/-_Object_1.png",
+            "2" : "../theme/img/-_Object_2.png",
+            "3" : "../theme/img/-_Object_3.png",
+            "4" : "../theme/img/-_Object_4.png"
+        },
+        "currencyPacksCategory" : "../theme/img/-_Object_5.png",
+        "virtualGoods" : {
+            "flower1" : "../theme/img/Flowers/flower01.png",
+            "flower2" : "../theme/img/Flowers/flower02.png",
+            "flower3" : "../theme/img/Flowers/flower03.png",
+            "flower4" : "../theme/img/Flowers/flower04.png",
+            "music1" : "../theme/img/Music/music01.png",
+            "music2" : "../theme/img/Music/music02.png",
+            "music3" : "../theme/img/Music/music03.png",
+            "music4" : "../theme/img/Music/music04.png",
+            "soil1" : "../theme/img/Soil/soil01.png",
+            "soil2" : "../theme/img/Soil/soil02.png",
+            "soil3" : "../theme/img/Soil/soil03.png",
+            "soil4" : "../theme/img/Soil/soil04.png",
+			"water1" : "../theme/img/Water/water01.png",
+            "water2" : "../theme/img/Water/water02.png",
+            "water3" : "../theme/img/Water/water03.png",
+            "water4" : "../theme/img/Water/water04.png"
+        },
+        "currencyPacks" : {
+            "defaultCoins_10" : "../theme/img/coins/objects-01.png",
+			"defaultCoins_50" : "../theme/img/coins/objects-02.png",
+			"defaultCoins_400" : "../theme/img/coins/objects-03.png",
+			"defaultCoins_1000" : "../theme/img/coins/objects-04.png",
+			"defaultCoins_2000" : "../theme/img/coins/objects-05.png"
+        },
+        "virtualCurrencies" : {
+            "currency_coin" : "../theme/img/coin.png"
+        }
+    },
+    "theme" : {
+        "name" : "tulipGotchi",
+        "version" : 1,
+        "isOrientationLandscape" : false,
+        "balance" : {
+            "style" : "top: 30px; left: 125px; width: 100px; text-align: right; color: #FFF;"
+        },
+        "background" : "../theme/img/BG_BG.jpg",
+        "headerBackground" : "",
+        "noFundsModal" : {
+            "background" : "../theme/img/Alert-22.png"
+        },
+        "images" : {
+            "contentBackground" : "../theme/img/ContentBackground.png",
+            "itemAreaBackground" : "",
+            "buyImage" : "../theme/img/BUY.png",
+            "equippedIndicatorImage" : "../theme/img/Green_Owned.png",
+            "notEquippedIndicatorImage" : "../theme/img/Gray_Owned.png",
+            "expandImage" : "../theme/img/Arrow_Close.png",
+            "collapseImage" : "../theme/img/Arrow_Open.png",
+            "backImage" : "../theme/img/BACK.png",
+            "quitImage" : "../theme/img/QUIT.png",
+            "itemBackgroundImage" : "../theme/img/BG_Product.png",
+            "itemBackgroundImageExpanded" : "../theme/img/BG_Product_Ext.png"
+        },
+        "titleStyle" : "color: #FFF",
+        "pages" : {
+            "menu" : {
+                "title" : "The Store",
+                "balance" : "../theme/img/JPJR_ProductBar_Header_Right.png"
+            }
+        }
+    }
+
+}
