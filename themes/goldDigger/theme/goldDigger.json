@@ -46,7 +46,7 @@
             "name" : "POWERUPS"
         },
         {
-            "id" : 3,
+            "id" : 2,
             "name" : "CHARACTERS"
         }
     ],
@@ -109,7 +109,7 @@
                 }
             },
             "itemId"        : "kasey",
-            "categoryId"   : 3
+            "categoryId"   : 2
         },
 		{
             "name"          : "Robert Din",
@@ -121,7 +121,7 @@
                 }
             },
             "itemId"        : "robert",
-            "categoryId"   : 3
+            "categoryId"   : 2
         },
         {
             "name"          : "Sir James",
@@ -133,7 +133,7 @@
                 }
             },
             "itemId"        : "james",
-            "categoryId"   : 3
+            "categoryId"   : 2
         },
         {
             "name"          : "Tod",
@@ -145,7 +145,7 @@
                 }
             },
             "itemId"        : "tod",
-            "categoryId"   : 3
+            "categoryId"   : 2
         }
     ]
 }
