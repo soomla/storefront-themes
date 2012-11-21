@@ -1,0 +1,105 @@
+{
+    "attributes" : {
+
+		"balance" : {
+			"style" : {
+				"type" : "css",
+				"title" : "Balance Label Style",
+				"selector" : "#balance-container .label-container"
+			}
+		},
+		"background" : {
+			"type" : "backgroundImage",
+			"title" : "Background Image",
+			"selector" : "#main"
+		},
+		"headerBackground" : {
+			"type" : "backgroundImage",
+			"title" : "Header Background Image",
+			"selector" : ".header"
+		},
+		"noFundsModal" : {
+			"background" : {
+				"type" : "backgroundImage",
+				"title" : "Dialog Background Image",
+				"selector" : ".dialog"
+			}
+		},
+		"images" : {
+			"contentBackground" : {
+				"type" : "backgroundImage",
+				"title" : "Content Background Image",
+				"selector" : "#content-container"
+			},
+			"itemAreaBackground" : {
+				"type" : "backgroundImage",
+				"title" : "Item Area Background Image",
+				"selector" : "#pages"
+			},
+			"buyImage" : {
+				"type" : "image",
+				"title" : "Buy Image",
+				"selector" : ".buy img"
+			},
+			"equippedIndicatorImage" : {
+				"type" : "image",
+				"title" : "Equipped Indicator Image",
+				"selector" : ".not-equipped"
+			},
+			"notEquippedIndicatorImage" : {
+				"type" : "image",
+				"title" : "Unequipped Indicator Image",
+				"selector" : ".equipped"
+			},
+			"expandImage" : {
+				"type" : "image",
+				"title" : "Expand Image",
+				"selector" : ".expand-collapse"
+			},
+			"collapseImage" : {
+				"type" : "image",
+				"title" : "Collapse Image",
+				"selector" : ".expand-collapse"
+			},
+			"backImage" : {
+				"type" : "image",
+				"title" : "Back Image",
+				"selector" : "#back-button img"
+			},
+			"quitImage" : {
+				"type" : "image",
+				"title" : "Quit Image",
+				"selector" : "#quit-button img"
+			},
+			"itemBackgroundImage" : {
+				"type" : "backgroundImage",
+				"title" : "Item Background Image",
+				"selector" : ".item"
+			},
+			"itemBackgroundImageExpanded" : {
+				"type" : "backgroundImage",
+				"title" : "Expanded Item Background Image",
+				"selector" : ".item.expanded"
+			}
+		},
+		"titleStyle" : {
+			"type" : "css",
+			"title" : "Title Style",
+			"selector" : ".title-container h1"
+		},
+		"pages" : {
+			"menu" : {
+				"title" : {
+					"type" : "text",
+					"title" : "Store Title",
+					"selector" : ".title-container h1"
+				},
+				"balance" : {
+					"type" : "image",
+					"title" : "Balance Background Image",
+					"selector" : ".balance-image"
+				}
+			}
+		}
+    }
+}
