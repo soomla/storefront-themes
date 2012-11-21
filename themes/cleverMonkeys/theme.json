@@ -1,0 +1,65 @@
+{
+    "template" : {
+        "name" : "airstrikeBravo",
+        "cssFiles" : ["../theme/template/less/airstrikeBravo.less"],
+        "jsFiles" : ["../theme/template/js/airstrikeBravoViews.js"],
+        "htmlTemplatesPath" : "../theme/template/templates"
+    },
+    "modelAssets" : {
+        "categories" : {
+            "1" : "../theme/img/-_Object_1.png",
+            "2" : "../theme/img/-_Object_4.png"
+        },
+        "currencyPacksCategory" : "../theme/img/-_Object_5.png",
+        "virtualGoods" : {
+            "rod" : "../theme/img/UtilitiesObjects/objects-06.png",
+            "rope" : "../theme/img/UtilitiesObjects/objects-07.png",
+            "trampoline" : "../theme/img/UtilitiesObjects/objects-08.png",
+            "monkey1" : "../theme/img/characters/objects-01.png",
+            "monkey2" : "../theme/img/characters/objects-02.png",
+            "monkey3" : "../theme/img/characters/objects-03.png"
+        },
+        "currencyPacks" : {
+           "defaultCoins_10" : "../theme/img/coins/objects-01.png",
+            "defaultCoins_50" : "../theme/img/coins/objects-02.png",
+            "defaultCoins_400" : "../theme/img/coins/objects-03.png"
+        },
+        "virtualCurrencies" : {
+             "currency_coin" : "../theme/img/coin.png"
+        }
+    },
+    "theme" : {
+        "name" : "cleverMonkeys",
+        "version" : 1,
+        "isOrientationLandscape" : true,
+        "balance" : {
+            "style" : "top: 30px; left: 15px; width: 100px; text-align: right; color: #FFF;"
+        },
+        "background" : "../theme/img/BG_BG.png",
+        "headerBackground" : "../theme/img/Header.png",
+        "noFundsModal" : {
+            "background" : "../theme/img/Alert-22.png"
+        },
+        "images" : {
+            "contentBackground" : "../theme/img/ContentBackground.png",
+            "itemAreaBackground" : "../theme/img/ItemAreaBackground.png",
+            "buyImage" : "../theme/img/BUY.png",
+            "equippedIndicatorImage" : "../theme/img/Green_Owned.png",
+            "notEquippedIndicatorImage" : "../theme/img/Gray_Owned.png",
+            "expandImage" : "../theme/img/Arrow_Close.png",
+            "collapseImage" : "../theme/img/Arrow_Open.png",
+            "backImage" : "../theme/img/BACK.png",
+            "quitImage" : "../theme/img/QUIT.png",
+            "itemBackgroundImage" : "../theme/img/BG_Product.png",
+            "itemBackgroundImageExpanded" : "../theme/img/BG_Product_Ext.png"
+        },
+        "titleStyle" : "color: #FFF",
+        "pages" : {
+            "menu" : {
+                "title" : "The Store",
+                "balance" : "../theme/img/JPJR_ProductBar_Header_Right.png"
+            }
+        }
+    }
+
+}

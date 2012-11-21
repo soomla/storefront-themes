@@ -1,0 +1,196 @@
+{
+    "currencyPacks" : [
+        {
+            "name"              : "2,500",
+            "itemId"            : "defaultCoins_10",
+            "currency_itemId"   : "currency_defaultCoin",
+            "productId"         : "2500_coins",
+            "price"             : 0.99,
+            "amount"            : 2500
+        },
+        {
+            "name"              : "25,000",
+            "itemId"            : "defaultCoins_50",
+            "currency_itemId"   : "currency_defaultCoin",
+            "productId"         : "android.test.purchased",
+            "price"             : 4.99,
+            "amount"            : 25000
+        },
+        {
+            "name"              : "75,000",
+            "itemId"            : "defaultCoins_400",
+            "currency_itemId"   : "currency_defaultCoin",
+            "productId"         : "75000_coins",
+            "price"             : 9.99,
+            "amount"            : 75000
+        },
+		        {
+            "name"              : "100",
+            "itemId"            : "carrotCoins_10",
+            "currency_itemId"   : "currency_defaultCoin",
+            "productId"         : "2500_coins",
+            "price"             : 0.99,
+            "amount"            : 2500
+        },
+        {
+            "name"              : "1,000",
+            "itemId"            : "carrotCoins_50",
+            "currency_itemId"   : "currency_defaultCoin",
+            "productId"         : "android.test.purchased",
+            "price"             : 4.99,
+            "amount"            : 25000
+        },
+        {
+            "name"              : "2,500",
+            "itemId"            : "carrotCoins_400",
+            "currency_itemId"   : "currency_defaultCoin",
+            "productId"         : "75000_coins",
+            "price"             : 9.99,
+            "amount"            : 75000
+        }
+    ],
+    "virtualCurrencies" : [
+        {
+            "name"          : "Coins",
+            "description"   : "",
+            "itemId"        : "currency_defaultCoin"
+        }
+    ],
+    "categories" : [
+        {
+            "id" : 1,
+            "name" : "POWERUPS"
+        },
+        {
+            "id" : 2,
+            "name" : "UTILITIES"
+        },
+        {
+            "id" : 3,
+            "name" : "CHARACTERS"
+        }
+    ],
+    "virtualGoods" : [
+        {
+            "name"          : "Bomb",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 500
+                }
+            },
+            "itemId"        : "bomb",
+            "categoryId"   : 1
+        },
+        {
+            "name"          : "Extra_Life",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 500
+                }
+            },
+            "itemId"        : "extra_life",
+            "categoryId"   : 1
+        },
+        {
+            "name"          : "Sack",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 750
+                }
+            },
+            "itemId"        : "sack",
+            "categoryId"   : 1
+        },
+		{
+            "name"          : "Trampoline",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 750
+                }
+            },
+            "itemId"        : "trampoline",
+            "categoryId"   : 1
+        },
+		{
+            "name"          : "Anchor",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 750
+                }
+            },
+            "itemId"        : "anchor",
+            "categoryId"   : 2
+        },
+		{
+            "name"          : "Safety Net",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 750
+                }
+            },
+            "itemId"        : "net",
+            "categoryId"   : 2
+        },
+		{
+            "name"          : "Unbrella",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 750
+                }
+            },
+            "itemId"        : "umbrella",
+            "categoryId"   : 2
+        },
+	{
+            "name"          : "Baxter",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 10000
+                }
+            },
+            "itemId"        : "baxter",
+            "categoryId"   : 3
+        },
+		{
+            "name"          : "Butch",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 10000
+                }
+            },
+            "itemId"        : "butch",
+            "categoryId"   : 3
+        },
+		{
+            "name"          : "Lulu",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_defaultCoin" : 10000
+                }
+            },
+            "itemId"        : "lulu",
+            "categoryId"   : 3
+        }
+
+    ]
+}

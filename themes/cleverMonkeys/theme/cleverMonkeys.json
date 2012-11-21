@@ -1,0 +1,119 @@
+{
+    "currencyPacks" : [
+        {
+            "name"              : "Banana Pack",
+            "itemId"            : "defaultCoins_10",
+            "currency_itemId"   : "currency_coin",
+            "productId"         : "coin_booster_pack",
+            "price"             : 0.99,
+            "amount"            : 20000
+        },
+        {
+            "name"              : "Banana Basket",
+            "itemId"            : "defaultCoins_50",
+            "currency_itemId"   : "currency_coin",
+            "productId"         : "android.test.purchased",
+            "price"             : 1.99,
+            "amount"            : 50000
+        },
+        {
+            "name"              : "Banana Tree",
+            "itemId"            : "defaultCoins_400",
+            "currency_itemId"   : "currency_coin",
+            "productId"         : "coin_ultra_pack",
+            "price"             : 2.99,
+            "amount"            : 100000
+        }
+    ],
+    "virtualCurrencies" : [
+        {
+            "name"          : "COINS",
+            "description"   : "",
+            "itemId"        : "currency_coin"
+        }
+    ],
+    "virtualGoods" : [
+        {
+            "name"          : "Monkey 1",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "monkey1",
+            "categoryId"   : 1,
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 250
+                    }
+            }
+        },
+		{
+            "name"          : "Monkey 2",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "monkey2",
+            "categoryId"   : 1,
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 250
+                    }
+            }
+        },
+		{
+            "name"          : "Monkey 3",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "monkey3",
+            "categoryId"   : 1,
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 250
+                    }
+            }
+        },
+        {
+            "name"          : "Fishing Rod",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "rod",
+            "categoryId"   : 2,
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 500
+                }
+            }
+        },       
+        {
+            "name"          : "Extra Rope",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "rope",
+            "categoryId"   : 2,
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 500
+                }
+            }
+        },    
+        {
+            "name"          : "Trampoline",
+            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "itemId"        : "trampoline",
+            "categoryId"   : 2,
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coin" : 500
+                }
+            }
+        }
+    ],
+     "categories" : [
+        {
+            "id" : 1,
+            "name" : "Characters"
+        },
+        {
+            "id" : 2,
+            "name" : "Utilities"
+        }
+    ]
+}
