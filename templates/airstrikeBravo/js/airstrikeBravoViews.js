@@ -150,18 +150,9 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             _.each(this.pageViews, function(view) {
                 $this.$("#pages").append(view.render().el);
             });
-
-
-            // Adjust zoom to fit nicely in viewport
-            // This helps cope with various viewports, i.e. mobile, tablet...
-            var adjustBodySize = function() {
-                var ratio = (innerWidth / innerHeight) > 1.5 ? (innerHeight / 640) : (innerWidth / 960);
-                $("body").css("zoom", ratio);
-            };
-            $(window).resize(adjustBodySize);
-            adjustBodySize();
-
-            // TODO: Add -webkit-text-size-adjust for iOS devices
+        },
+        zoomFunction : function() {
+            return (innerWidth / innerHeight) > 1.5 ? (innerHeight / 640) : (innerWidth / 960);
         }
     });
 
