@@ -153,7 +153,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             });
         },
         zoomFunction : function() {
-            return (innerHeight / innerWidth) > 1.5 ? (innerWidth / 640) : (innerHeight / 960),;
+            return (innerHeight / innerWidth) > 1.5 ? (innerWidth / 640) : (innerHeight / 960);
         }
     });
 
