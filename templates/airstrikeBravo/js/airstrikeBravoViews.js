@@ -73,13 +73,25 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             this.pageViews = {};
 
             // Build category menu and add it to the page views
-            categories.add({name : "GET COINS", imgFilePath : this.model.get("modelAssets").currencyPacksCategory});
             var categoryMenuView = new Components.CollectionListView({
                 className   : "menu items clearfix",
                 collection  : categories,
                 itemView    : CategoryView
             }).on("itemview:selected", function(view) { this.switch(view.model.get("name")); }, this);
             this.pageViews["menu"]  = categoryMenuView;
+
+
+            // Create a view for the button linking from the category menu to the currency packs view
+            // We're using a CategoryView, because visually the button should look the same, even though
+            // it doesn't represent an actual category.  This view will be force-appended to the
+            // categories view when rendering
+            this.currencyPacksLink = new CategoryView({
+                model : new categories.model({
+                    name        : "GET COINS",
+                    imgFilePath : this.model.get("modelAssets").currencyPacksCategory})
+            }).on("selected", function() {
+                this.switch(this.currencyPacksLink.model.get("name"));
+            }, this);
 
             // Mark this view as the active view,
             // as it is the first one visible when the store opens
@@ -150,6 +162,9 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             _.each(this.pageViews, function(view) {
                 $this.$("#pages").append(view.render().el);
             });
+
+            // Append the link to the currency packs as a "category view"
+            this.pageViews.menu.$el.append(this.currencyPacksLink.render().el);
         },
         zoomFunction : function() {
             return (innerWidth / innerHeight) > 1.5 ? (innerHeight / 640) : (innerWidth / 960);
