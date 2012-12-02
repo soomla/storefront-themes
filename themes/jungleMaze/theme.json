@@ -45,7 +45,7 @@
         }
     },
     "theme" : {
-        "name" : "speedingHornet",
+        "name" : "jungleMaze",
         "version" : 1,
         "isOrientationLandscape" : true,
         "balance" : {

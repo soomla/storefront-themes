@@ -39,7 +39,7 @@
         }
     },
     "theme" : {
-        "name" : "speedingHornet",
+        "name" : "scorchedHill",
         "version" : 1,
         "isOrientationLandscape" : true,
         "balance" : {
