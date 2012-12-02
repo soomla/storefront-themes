@@ -25,6 +25,11 @@
 				"selector" : ".dialog"
 			}
 		},
+		"currencyPacksCategoryImage" : {
+			"type" : "image",
+			"title" : "Currency Packs Category Image",
+			"selector" : ".item.currency-packs img"
+		},
 		"images" : {
 			"contentBackground" : {
 				"type" : "backgroundImage",

@@ -12,7 +12,6 @@
             "3" : "../theme/img/-_Object_4.png",
             "4" : "../theme/img/-_Object_3.png"
         },
-        "currencyPacksCategory" : "../theme/img/-_Object_5.png",
         "virtualGoods" : {
            "tank1" : "../theme/img/tanks/tank1.png",
            "tank2" : "../theme/img/tanks/tank2.png",
@@ -39,7 +38,7 @@
         }
     },
     "theme" : {
-        "name" : "speedingHornet",
+        "name" : "scorchedHill",
         "version" : 1,
         "isOrientationLandscape" : true,
         "balance" : {
@@ -64,6 +63,7 @@
             "itemBackgroundImageExpanded" : "../theme/img/BG_Product_Ext.png"
         },
         "titleStyle" : "color: #FFF",
+	    "currencyPacksCategoryImage" : "../theme/img/-_Object_5.png",
         "pages" : {
             "menu" : {
                 "title" : "The Store",

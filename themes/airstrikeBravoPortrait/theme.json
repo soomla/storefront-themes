@@ -13,7 +13,6 @@
             "4" : "../theme/img/-_Object_2.png",
             "5" : "../theme/img/-_Object_1.png"
         },
-        "currencyPacksCategory" : "../theme/img/-_Object_8.png",
         "virtualGoods" : {
             "experimental_fuel" : "../theme/img/UtilitiesObjects/objects-06.png",
             "band_aid" : "../theme/img/UtilitiesObjects/objects-08.png",
@@ -68,6 +67,7 @@
             "itemBackgroundImageExpanded" : "../theme/img/BG_Product_Ext.png"
         },
         "titleStyle" : "color: #FFF",
+	    "currencyPacksCategoryImage" : "../theme/img/-_Object_8.png",
         "pages" : {
             "menu" : {
                 "title" : "The Store",

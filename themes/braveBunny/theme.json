@@ -32,7 +32,7 @@
         }
     },
     "theme" : {
-        "name" : "codeRedPursuit",
+        "name" : "braveBunny",
         "version" : 1,
         "background" : "../theme/img/BG-Level0.png",
         "contentBackground" : "../theme/img/BG-Level1.png",

@@ -12,7 +12,6 @@
             "3" : "../theme/img/-_Object_3.png",
             "4" : "../theme/img/-_Object_4.png"
         },
-        "currencyPacksCategory" : "../theme/img/-_Object_5.png",
         "virtualGoods" : {
             "flower1" : "../theme/img/Flowers/flower01.png",
             "flower2" : "../theme/img/Flowers/flower02.png",
@@ -68,7 +67,8 @@
             "itemBackgroundImageExpanded" : "../theme/img/BG_Product_Ext.png"
         },
         "titleStyle" : "color: #FFF",
-        "pages" : {
+	    "currencyPacksCategoryImage" : "../theme/img/-_Object_5.png",
+	    "pages" : {
             "menu" : {
                 "title" : "The Store",
                 "balance" : "../theme/img/JPJR_ProductBar_Header_Right.png"

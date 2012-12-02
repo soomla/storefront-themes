@@ -12,7 +12,6 @@
             "3" : "../theme/img/-_Object_3.png",
             "4" : "../theme/img/-_Object_4.png"
         },
-        "currencyPacksCategory" : "../theme/img/-_Object_5.png",
         "virtualGoods" : {
             "sick_mo" : "../theme/img/characters/monsters_1.png",
             "betty" : "../theme/img/characters/monsters_2.png",
@@ -67,6 +66,7 @@
             "itemBackgroundImageExpanded" : "../theme/img/BG_Product_Ext.png"
         },
         "titleStyle" : "color: #FFF",
+	    "currencyPacksCategoryImage" : "../theme/img/-_Object_5.png",
         "pages" : {
             "menu" : {
                 "title" : "The Store",

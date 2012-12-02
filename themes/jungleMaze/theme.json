@@ -12,7 +12,6 @@
             "3" : "../theme/img/-_Object_2.png",
             "4" : "../theme/img/-_Object_3.png"
         },
-        "currencyPacksCategory" : "../theme/img/-_Object_5.png",
         "virtualGoods" : {
            "elephant" : "../theme/img/Animals/Animal01.png",
            "lion" : "../theme/img/Animals/Animal02.png",
@@ -45,7 +44,7 @@
         }
     },
     "theme" : {
-        "name" : "speedingHornet",
+        "name" : "jungleMaze",
         "version" : 1,
         "isOrientationLandscape" : true,
         "balance" : {
@@ -70,6 +69,7 @@
             "itemBackgroundImageExpanded" : "../theme/img/BG_Product_Ext.png"
         },
         "titleStyle" : "color: #FFF",
+	    "currencyPacksCategoryImage" : "../theme/img/-_Object_5.png",
         "pages" : {
             "menu" : {
                 "title" : "The Store",

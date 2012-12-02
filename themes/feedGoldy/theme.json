@@ -11,7 +11,6 @@
             "2" : "../theme/img/-_Object_1.png",
             "3" : "../theme/img/-_Object_3.png"
         },
-        "currencyPacksCategory" : "../theme/img/-_Object_4.png",
         "virtualGoods" : {
             "ducks" : "../theme/img/UtilitiesObjects/objects-07.png",
             "games" : "../theme/img/UtilitiesObjects/objects-08.png",
@@ -58,6 +57,7 @@
             "itemBackgroundImageExpanded" : "../theme/img/BG_Product_Ext.png"
         },
         "titleStyle" : "color: #FFF",
+	    "currencyPacksCategoryImage" : "../theme/img/-_Object_4.png",
         "pages" : {
             "menu" : {
                 "title" : "The Store",

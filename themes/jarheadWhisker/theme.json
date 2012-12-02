@@ -13,7 +13,6 @@
 			"4" : "../theme/img/-_Object_1.png",
 			"5" : "../theme/img/-_Object_5.png"
         },
-        "currencyPacksCategory" : "../theme/img/-_Object_6.png",
         "virtualGoods" : {
             "guy_1" : "../theme/img/characters/characters_1.png",
             "guy_2" : "../theme/img/characters/characters_2.png",
@@ -45,7 +44,7 @@
         }
     },
     "theme" : {
-        "name" : "tightRope",
+        "name" : "jarheadWhisker",
         "version" : 1,
         "isOrientationLandscape" : false,
         "balance" : {
@@ -70,6 +69,7 @@
             "itemBackgroundImageExpanded" : "../theme/img/BG_Product_Ext.png"
         },
         "titleStyle" : "color: #FFF",
+	    "currencyPacksCategoryImage" : "../theme/img/-_Object_6.png",
         "pages" : {
             "menu" : {
                 "title" : "The Store",
