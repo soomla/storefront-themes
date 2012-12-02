@@ -166,6 +166,11 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
             // Append the link to the currency packs as a "category view"
             this.pageViews.menu.$el.append(this.currencyPacksLink.render().el);
+
+            // iPhone hack for problematic description line height
+            if (isMobile.iOS()) {
+                this.$(".item .description").css("line-height", "70px");
+            }
         },
         zoomFunction : function() {
             return (innerHeight / innerWidth) > 1.5 ? (innerWidth / 640) : (innerHeight / 960);
