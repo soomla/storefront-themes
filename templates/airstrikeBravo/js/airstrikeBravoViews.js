@@ -86,9 +86,11 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             // it doesn't represent an actual category.  This view will be force-appended to the
             // categories view when rendering
             this.currencyPacksLink = new CategoryView({
+                className : "item currency-packs",
                 model : new categories.model({
                     name        : "GET COINS",
-                    imgFilePath : this.model.get("modelAssets").currencyPacksCategory})
+                    imgFilePath : this.theme.currencyPacksCategoryImage
+                })
             }).on("selected", function() {
                 this.switch(this.currencyPacksLink.model.get("name"));
             }, this);

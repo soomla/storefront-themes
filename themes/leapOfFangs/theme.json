@@ -10,7 +10,6 @@
             "1" : "../theme/img/Categories/Pumpkin.png",
             "2" : "../theme/img/Categories/Axe.png"
         },
-        "currencyPacksCategory" : "../theme/img/Categories/Coins.png",
         "virtualGoods" : {
             "vampire" : "../theme/img/Characters/Vampire.png",
             "witch" : "../theme/img/Characters/Witch.png",
@@ -57,6 +56,7 @@
             "buyImage" : "../theme/img/Buy.png",
             "quitImage" : "../theme/img/Quit.png"
         },
+	    "currencyPacksCategoryImage" : "../theme/img/Categories/Coins.png",
         "item" : {
             "nameStyle" : "",
             "descriptionStyle" : "",
