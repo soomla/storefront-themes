@@ -143,6 +143,11 @@ ul {
     .description {
         margin-right: @balanceWidth;
         font-size: 16px;
+        overflow:hidden;
+
+        label {
+            .hyphens();
+        }
     }
     .balance, .description {
         .box(vertical, center, center);

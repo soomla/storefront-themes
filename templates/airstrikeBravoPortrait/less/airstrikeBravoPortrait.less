@@ -63,6 +63,8 @@ ul {
     .title-container {
         height: @headerHeight - (2 * @padding) - @topBarHeight;
         .box(vertical, center);
+        overflow: hidden;
+
         h1 {
             text-align: center;
             font-family: Calibri;
@@ -161,6 +163,7 @@ ul {
     .row {
         .box();
         height: @collapsedHeight;
+        overflow: hidden;
     }
 
     .equipped, .not-equipped {
@@ -182,6 +185,7 @@ ul {
     h1 {
         font-size: 18px;
         line-height: 30px;
+        .hyphens();
     }
 
     .price, .buy-container {
@@ -204,6 +208,7 @@ ul {
         padding: @innerMargin;
         .box-flex(1);
         .box(vertical, center);
+        .hyphens();
     }
 }
 

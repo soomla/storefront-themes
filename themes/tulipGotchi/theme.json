@@ -1,6 +1,6 @@
 {
      "template" : {
-        "name" : "airstrikeBravo",
+        "name" : "airstrikeBravoPortrait",
         "cssFiles" : ["../theme/template/less/airstrikeBravoPortrait.less"],
         "jsFiles" : ["../theme/template/js/airstrikeBravoPortraitViews.js"],
         "htmlTemplatesPath" : "../theme/template/templates"

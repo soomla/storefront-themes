@@ -124,5 +124,118 @@
                 }
             }
         }
-    }
+    },
+	"validations" : {
+		"currency" : {
+			"rules" : {
+				"name" : {
+					"required" : true,
+					"maxlength" : 30
+				}
+			},
+			"messages" : {
+				"name" : {
+					"required" : "Required",
+					"maxlength" : "Max. {0} characters"
+				}
+			}
+		},
+		"currencyPack" : {
+			"rules" : {
+				"name" : {
+					"required" : true,
+					"maxlength" : 10
+				},
+				"itemId" : {
+					"required" : true,
+					"matches" : "^[a-zA-Z][a-zA-Z0-9_]*$"
+				},
+				"productId" : {
+					"required" : true,
+					"matches" : "^[a-z0-9][a-z0-9_\\.]*$"
+				},
+				"amount" : {
+					"required" : true,
+					"number" : true,
+					"range" : [1, 999999999]
+				},
+				"price" : {
+					"required" : true,
+					"currency" : true
+				}
+			},
+			"messages" : {
+				"name" : {
+					"required" : "Required",
+					"maxlength" : "Max. {0} characters"
+				},
+				"itemId" : {
+					"required" : "Required",
+					"matches" : "Letters, numbers & underscores only"
+				},
+				"productId" : {
+					"required" : "Required",
+					"matches" : "Letters, numbers, dots & underscores only"
+				},
+				"amount" : {
+					"required" : "Required",
+					"number" : "Numbers only",
+					"range" : "Positive numbers only"
+				},
+				"price" : {
+					"required" : "Required",
+					"range" : "Positive numbers only"
+				}
+			}
+		},
+		"category" : {
+			"rules" : {
+				"name" : {
+					"required" : true,
+					"maxlength" : 15
+				}
+			},
+			"messages" : {
+				"name" : {
+					"required" : "Required",
+					"maxlength" : "Max. {0} characters"
+				}
+			}
+		},
+		"virtualGood" : {
+			"rules" : {
+				"name" : {
+					"required" : true
+				},
+				"description" : {
+					"maxlength" : 50
+				},
+				"itemId" : {
+					"required" : true,
+					"matches" : "^[a-zA-Z][a-zA-Z0-9_]*$"
+				},
+				"price" : {
+					"required" : true,
+					"number" : true,
+					"range" : [1, 999999999]
+				}
+			},
+			"messages" : {
+				"name" : {
+					"required" : "Required"
+				},
+				"description" : {
+					"maxlength" : "Max. {0} characters"
+				},
+				"itemId" : {
+					"required" : "Required",
+					"matches" : "Letters, numbers & underscores only"
+				},
+				"price" : {
+					"required" : "Required",
+					"range" : "Positive numbers only"
+				}
+			}
+		}
+	}
 }
