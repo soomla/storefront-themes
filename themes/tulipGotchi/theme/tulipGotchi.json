@@ -51,7 +51,7 @@
     "virtualGoods" : [
         {
             "name"          : "Flower 1",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "flower1",
             "categoryId"   : 1,
             "priceModel"    : {
@@ -63,7 +63,7 @@
         },
         {
             "name"          : "Flower 2",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "flower2",
             "categoryId"   : 1, 
             "priceModel"    : {
@@ -75,7 +75,7 @@
         },       
         {
             "name"          : "Flower 3",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "flower3",
             "categoryId"   : 1, 
             "priceModel"    : {
@@ -87,7 +87,7 @@
         },  
         {
             "name"          : "Flower 4",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "flower4",
             "categoryId"   : 1, 
             "priceModel"    : {
@@ -99,7 +99,7 @@
         },
         {
             "name"          : "SOIL 1",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "soil1",
             "categoryId"   : 2,
             "priceModel"    : {
@@ -111,7 +111,7 @@
         },
         {
             "name"          : "SOIL 2",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "soil2",
             "categoryId"   : 2,
             "priceModel"    : {
@@ -123,7 +123,7 @@
         },
         {
             "name"          : "SOIL 3",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "soil3",
             "categoryId"   : 2,
             "priceModel"    : {
@@ -135,7 +135,7 @@
         },
         {
             "name"          : "SOIL 4",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "soil4",
             "categoryId"   : 2,
             "priceModel"    : {
@@ -147,7 +147,7 @@
         },
         {
             "name"          : "MUSIC 1",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "music1",
             "categoryId"   : 3,
             "priceModel"    : {
@@ -159,7 +159,7 @@
         },
         {
             "name"          : "MUSIC 2",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "music2",
             "categoryId"   : 3,
             "priceModel"    : {
@@ -171,7 +171,7 @@
         },
         {
             "name"          : "MUSIC 3",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "music3",
             "categoryId"   : 3,
              "priceModel"    : {
@@ -183,7 +183,7 @@
         },
         {
             "name"          : "MUSIC 4",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "music4",
             "categoryId"   : 3,
              "priceModel"    : {
@@ -195,7 +195,7 @@
         },
         {
             "name"          : "WATER 1",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "water1",
             "categoryId"   : 4,
              "priceModel"    : {
@@ -207,7 +207,7 @@
         },
         {
             "name"          : "WATER 2",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "water2",
             "categoryId"   : 4,
              "priceModel"    : {
@@ -219,7 +219,7 @@
         },
         {
             "name"          : "WATER 3",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "water3",
             "categoryId"   : 4,
              "priceModel"    : {
@@ -231,7 +231,7 @@
         },
         {
             "name"          : "WATER 4",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "water4",
             "categoryId"   : 4,
              "priceModel"    : {

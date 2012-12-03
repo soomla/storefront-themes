@@ -43,7 +43,7 @@
     "virtualGoods" : [
         {
             "name"          : "Character 1",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "guy_1",
             "categoryId"   : 1,
             "priceModel"    : {
@@ -55,7 +55,7 @@
         },
         {
             "name"          : "character 2",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "guy_2",
             "categoryId"   : 1, 
             "priceModel"    : {
@@ -67,7 +67,7 @@
         },       
         {
             "name"          : "Character 3",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "guy_3",
             "categoryId"   : 1, 
             "priceModel"    : {
@@ -79,7 +79,7 @@
         },  
         {
             "name"          : "Character 4",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "guy_4",
             "categoryId"   : 1, 
             "priceModel"    : {
@@ -91,7 +91,7 @@
         },       
         {
             "name"          : "Binoculars",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "binoculars",
             "categoryId"   : 2,
              "priceModel"    : {
@@ -103,7 +103,7 @@
         },
         {
             "name"          : "Compass",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "compass",
             "categoryId"   : 2,
              "priceModel"    : {
@@ -115,7 +115,7 @@
         },
 		{
             "name"          : "Lazer Pointer",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "lazer",
             "categoryId"   : 2,
             "priceModel"    : {
@@ -127,7 +127,7 @@
         },
         {
             "name"          : "Baloon",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "baloon",
             "categoryId"   : 3,
              "priceModel"    : {
@@ -139,7 +139,7 @@
         },
         {
             "name"          : "birds",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "birds",
             "categoryId"   : 3,
              "priceModel"    : {
@@ -151,7 +151,7 @@
         },
         {
             "name"          : "Rain",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "rain",
             "categoryId"   : 3,
              "priceModel"    : {
@@ -163,7 +163,7 @@
         },
         {
             "name"          : "Riffle 1",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "riffle_1",
             "categoryId"   : 4,
              "priceModel"    : {
@@ -175,7 +175,7 @@
         },
         {
             "name"          : "Riffle 2",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "riffle_2",
             "categoryId"   : 4,
              "priceModel"    : {
@@ -187,7 +187,7 @@
         },
         {
             "name"          : "Riffle 3",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "riffle_3",
             "categoryId"   : 4,
              "priceModel"    : {
@@ -199,7 +199,7 @@
         },
         {
             "name"          : "Riffle 4",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "riffle",
             "categoryId"   : 4,
              "priceModel"    : {
@@ -211,7 +211,7 @@
         },
 		{
             "name"          : "Ammo 1",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "ammo_1",
             "categoryId"   : 5,
              "priceModel"    : {
@@ -223,7 +223,7 @@
         },
 				{
             "name"          : "Ammo 2",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "ammo_2",
             "categoryId"   : 5,
              "priceModel"    : {
@@ -235,7 +235,7 @@
         },
 				{
             "name"          : "Ammo 3",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "ammo_3",
             "categoryId"   : 5,
              "priceModel"    : {
@@ -247,7 +247,7 @@
         },
 				{
             "name"          : "Ammo 4",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "ammo_4",
             "categoryId"   : 5,
              "priceModel"    : {

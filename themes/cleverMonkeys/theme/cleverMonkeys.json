@@ -35,7 +35,7 @@
     "virtualGoods" : [
         {
             "name"          : "Monkey 1",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "monkey1",
             "categoryId"   : 1,
             "priceModel"    : {
@@ -47,7 +47,7 @@
         },
 		{
             "name"          : "Monkey 2",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "monkey2",
             "categoryId"   : 1,
             "priceModel"    : {
@@ -59,7 +59,7 @@
         },
 		{
             "name"          : "Monkey 3",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "monkey3",
             "categoryId"   : 1,
             "priceModel"    : {
@@ -71,7 +71,7 @@
         },
         {
             "name"          : "Fishing Rod",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "rod",
             "categoryId"   : 2,
             "priceModel"    : {
@@ -83,7 +83,7 @@
         },       
         {
             "name"          : "Extra Rope",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "rope",
             "categoryId"   : 2,
             "priceModel"    : {
@@ -95,7 +95,7 @@
         },    
         {
             "name"          : "Trampoline",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "trampoline",
             "categoryId"   : 2,
             "priceModel"    : {

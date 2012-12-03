@@ -73,7 +73,7 @@
     "virtualGoods" : [
         {
             "name"          : "Bomb",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
@@ -85,7 +85,7 @@
         },
         {
             "name"          : "Extra_Life",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
@@ -97,7 +97,7 @@
         },
         {
             "name"          : "Sack",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
@@ -109,7 +109,7 @@
         },
 		{
             "name"          : "Trampoline",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
@@ -121,7 +121,7 @@
         },
 		{
             "name"          : "Anchor",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
@@ -133,7 +133,7 @@
         },
 		{
             "name"          : "Safety Net",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
@@ -145,7 +145,7 @@
         },
 		{
             "name"          : "Unbrella",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
@@ -157,7 +157,7 @@
         },
 	{
             "name"          : "Baxter",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
@@ -169,7 +169,7 @@
         },
 		{
             "name"          : "Butch",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
@@ -181,7 +181,7 @@
         },
 		{
             "name"          : "Lulu",
-            "description"   : "Contrary to popular belief, Lorem Ipsum is not simply random text",
+            "description"   : "Lorem Ipsum is not simply random text",
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
