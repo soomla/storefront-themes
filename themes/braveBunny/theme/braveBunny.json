@@ -2,7 +2,7 @@
     "currencyPacks" : [
         {
             "name"              : "2,500",
-            "itemId"            : "defaultCoins_10",
+            "itemId"            : "defaultCoins_2500",
             "currency_itemId"   : "currency_defaultCoin",
             "productId"         : "2500_coins",
             "price"             : 0.99,
@@ -10,7 +10,7 @@
         },
         {
             "name"              : "25,000",
-            "itemId"            : "defaultCoins_50",
+            "itemId"            : "defaultCoins_25000",
             "currency_itemId"   : "currency_defaultCoin",
             "productId"         : "android.test.purchased",
             "price"             : 4.99,
@@ -18,31 +18,7 @@
         },
         {
             "name"              : "75,000",
-            "itemId"            : "defaultCoins_400",
-            "currency_itemId"   : "currency_defaultCoin",
-            "productId"         : "75000_coins",
-            "price"             : 9.99,
-            "amount"            : 75000
-        },
-		        {
-            "name"              : "100",
-            "itemId"            : "carrotCoins_10",
-            "currency_itemId"   : "currency_defaultCoin",
-            "productId"         : "2500_coins",
-            "price"             : 0.99,
-            "amount"            : 2500
-        },
-        {
-            "name"              : "1,000",
-            "itemId"            : "carrotCoins_50",
-            "currency_itemId"   : "currency_defaultCoin",
-            "productId"         : "android.test.purchased",
-            "price"             : 4.99,
-            "amount"            : 25000
-        },
-        {
-            "name"              : "2,500",
-            "itemId"            : "carrotCoins_400",
+            "itemId"            : "defaultCoins_75000",
             "currency_itemId"   : "currency_defaultCoin",
             "productId"         : "75000_coins",
             "price"             : 9.99,

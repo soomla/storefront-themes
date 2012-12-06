@@ -33,7 +33,7 @@
             "price" : 15.99,
             "description" : "Testing for item unavailable ...",
             "name" : "Silver Pack",
-            "itemId" : "pipeline_pumpin_pack",
+            "itemId" : "silver_pack",
             "productId" : "android.test.item_unavailable"
         }
     ],
