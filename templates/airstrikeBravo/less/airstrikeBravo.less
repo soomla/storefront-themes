@@ -140,6 +140,9 @@ ul {
 // SINGLE LIST ITEMS - VIRTUAL GOODS
 // --------------------------------------------------
 
+@eqipImageWidth: 20px;
+@eqipImageHorizontalMargin: 10px;
+
 .item {
     padding: 10px;
     @innerMargin: 15px;
@@ -160,9 +163,9 @@ ul {
     }
 
     .equipped, .not-equipped {
-        width: 20px;
+        width: @eqipImageWidth;
         height: @collapsedHeight;
-        margin: 0 10px;
+        margin: 0 @eqipImageHorizontalMargin;
     }
 
     .item-image {
@@ -230,4 +233,11 @@ ul {
         font-weight: bold;
         text-align: center;
     }
+}
+
+.currencyPacks .item .item-image {
+    // Add horizontal margin to images in the currency packs screen
+    // to make up for the pixel slack of no equipping image.
+    @horizontalMargin: (@eqipImageWidth + (2 * @eqipImageHorizontalMargin)) / 2;
+    margin: 0 @horizontalMargin;
 }
