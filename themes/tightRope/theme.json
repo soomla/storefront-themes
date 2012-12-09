@@ -3,7 +3,8 @@
         "name" : "airstrikeBravoPortrait",
         "cssFiles" : ["../theme/template/less/airstrikeBravoPortrait.less"],
         "jsFiles" : ["../theme/template/js/airstrikeBravoPortraitViews.js"],
-        "htmlTemplatesPath" : "../theme/template/templates"
+        "htmlTemplatesPath" : "../theme/template/templates",
+		"orientation" : "portrait"
     },
     "modelAssets" : {
         "categories" : {
@@ -43,7 +44,6 @@
     "theme" : {
         "name" : "tightRope",
         "version" : 1,
-        "isOrientationLandscape" : false,
         "balance" : {
             "style" : "top: 30px; left: 125px; width: 100px; text-align: right; color: #FFF;"
         },

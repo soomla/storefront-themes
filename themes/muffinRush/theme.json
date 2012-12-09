@@ -3,7 +3,8 @@
         "name" : "muffinRush",
         "cssFiles" : ["../theme/template/less/muffinRush.less"],
         "jsFiles" : ["../theme/template/js/muffinRushViews.js"],
-        "htmlTemplatesPath" : "../theme/template/templates"
+        "htmlTemplatesPath" : "../theme/template/templates",
+		"orientation" : "portrait"
     },
     "modelAssets" : {
         "categories" : {},
@@ -26,7 +27,6 @@
     "theme" : {
         "name" : "muffinRush",
         "version" : 1,
-        "isOrientationLandscape" : false,
         "pages" : {
             "goods" :{
                 "title" : "../theme/img/Store_Store.png",

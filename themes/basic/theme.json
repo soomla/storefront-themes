@@ -3,7 +3,8 @@
         "name" : "basic",
         "cssFiles" : ["../theme/template/less/basic.less"],
         "jsFiles" : ["../theme/template/js/basicViews.js"],
-        "htmlTemplatesPath" : "../theme/template/templates"
+        "htmlTemplatesPath" : "../theme/template/templates",
+		"orientation" : "portrait"
     },
     "modelAssets" : {
         "categories" : {},
