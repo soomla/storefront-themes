@@ -133,7 +133,7 @@
 				},
 				"itemId" : {
 					"required" : true,
-					"matches" : "^[a-zA-Z][a-zA-Z0-9_]*$"
+					"matches" : "^[a-zA-Z0-9_\\-\\.]+$"
 				},
 				"productId" : {
 					"required" : true,
@@ -159,7 +159,7 @@
 				},
 				"itemId" : {
 					"required" : "Required",
-					"matches" : "Letters, numbers & underscores only"
+					"matches" : "No special characters"
 				},
 				"productId" : {
 					"required" : "Required",
@@ -201,7 +201,7 @@
 				},
 				"itemId" : {
 					"required" : true,
-					"matches" : "^[a-zA-Z][a-zA-Z0-9_]*$"
+					"matches" : "^[a-zA-Z0-9_\\-\\.]+$"
 				},
 				"price" : {
 					"required" : true,
@@ -219,7 +219,7 @@
 				},
 				"itemId" : {
 					"required" : "Required",
-					"matches" : "Letters, numbers & underscores only"
+					"matches" : "No special characters"
 				},
 				"price" : {
 					"required" : "Required",
