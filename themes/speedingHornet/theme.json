@@ -3,7 +3,8 @@
         "name" : "airstrikeBravo",
         "cssFiles" : ["../theme/template/less/airstrikeBravo.less"],
         "jsFiles" : ["../theme/template/js/airstrikeBravoViews.js"],
-        "htmlTemplatesPath" : "../theme/template/templates"
+        "htmlTemplatesPath" : "../theme/template/templates",
+		"orientation" : "landscape"
     },
     "modelAssets" : {
         "categories" : {
@@ -40,7 +41,6 @@
     "theme" : {
         "name" : "speedingHornet",
         "version" : 1,
-        "isOrientationLandscape" : true,
         "balance" : {
             "style" : "top: 30px; left: 15px; width: 100px; text-align: right; color: #FFF;"
         },

@@ -3,7 +3,8 @@
         "name" : "pirateRace",
         "cssFiles" : ["../theme/template/less/pirateRace.less"],
         "jsFiles" : ["../theme/template/js/pirateRaceViews.js"],
-        "htmlTemplatesPath" : "../theme/template/templates"
+        "htmlTemplatesPath" : "../theme/template/templates",
+		"orientation" : "portrait"
     },
     "modelAssets" : {
         "categories" : {},
@@ -32,7 +33,6 @@
         "version" : 1,
         "background" : "../theme/img/BG-Level0.png",
         "contentBackground" : "../theme/img/BG-Level1.png",
-        "isOrientationLandscape" : false,
         "common" : {
             "titleImage" : "../theme/img/Header_Title.png",
             "balanceImage" : "../theme/img/Header_Balance.png",

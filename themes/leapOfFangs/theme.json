@@ -3,7 +3,8 @@
         "name" : "leapOfFangs",
         "cssFiles" : ["../theme/template/less/leapOfFangs.less", "../theme/template/js/bootstrap-tab.js"],
         "jsFiles" : ["../theme/template/js/leapOfFangsViews.js"],
-        "htmlTemplatesPath" : "../theme/template/templates"
+        "htmlTemplatesPath" : "../theme/template/templates",
+		"orientation" : "portrait"
     },
     "modelAssets" : {
         "categories" : {
@@ -31,7 +32,6 @@
     "theme" : {
         "name" : "leapOfFangs",
         "version" : 1,
-        "isOrientationLandscape" : false,
         "balance" : {
             "backgroundImage" : "../theme/img/BalanceBackground.png",
             "style" : "top: -10000px; left: -10000px;"
