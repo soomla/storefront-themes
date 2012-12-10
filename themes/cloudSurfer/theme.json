@@ -9,14 +9,14 @@
     "modelAssets" : {
         "categories" : {},
         "virtualGoods" : {
-            "magnet" : "../theme/img/Powerups/Coin_Magnet.png",
-            "mega" : "../theme/img/Powerups/Mega_Coin.png",
-            "portal" : "../theme/img/Powerups/Portal.png",
-            "glider1" : "../theme/img/Utilities/glider.png",
-            "glider2" : "../theme/img/Utilities/jet.png",
+            "coin_magnet" : "../theme/img/Powerups/Coin_Magnet.png",
+            "mega_coin" : "../theme/img/Powerups/Mega_Coin.png",
+            "magic_portal" : "../theme/img/Powerups/Portal.png",
+            "glider_1" : "../theme/img/Utilities/glider.png",
+            "glider_2" : "../theme/img/Utilities/jet.png",
             "kasey" : "../theme/img/Characters/Kasey.png",
-		    "robert" : "../theme/img/Characters/Robert.png",
-            "james" : "../theme/img/Characters/James.png",
+		    "robert_din" : "../theme/img/Characters/Robert.png",
+            "sir_james" : "../theme/img/Characters/James.png",
             "lian" : "../theme/img/Characters/Lian.png",
             "tod" : "../theme/img/Characters/Tod.png"
         },

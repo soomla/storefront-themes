@@ -91,7 +91,7 @@
             "categoryId"   : 1
         },
         {
-            "name"          : "Choco-Cake",
+            "name"          : "Chocolate Cake",
             "description"   : "A classic cake to maximize customer satisfaction",
             "priceModel"    : {
                 "type" : "static",

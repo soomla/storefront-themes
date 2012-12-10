@@ -52,7 +52,7 @@
         {
             "name"          : "Flower 1",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "flower1",
+            "itemId"        : "flower_1",
             "categoryId"   : 1,
             "priceModel"    : {
                 "type" : "static",
@@ -64,7 +64,7 @@
         {
             "name"          : "Flower 2",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "flower2",
+            "itemId"        : "flower_2",
             "categoryId"   : 1, 
             "priceModel"    : {
                 "type" : "static",
@@ -76,7 +76,7 @@
         {
             "name"          : "Flower 3",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "flower3",
+            "itemId"        : "flower_3",
             "categoryId"   : 1, 
             "priceModel"    : {
                 "type" : "static",
@@ -88,7 +88,7 @@
         {
             "name"          : "Flower 4",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "flower4",
+            "itemId"        : "flower_4",
             "categoryId"   : 1, 
             "priceModel"    : {
                 "type" : "static",
@@ -100,7 +100,7 @@
         {
             "name"          : "SOIL 1",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "soil1",
+            "itemId"        : "soil_1",
             "categoryId"   : 2,
             "priceModel"    : {
                 "type" : "static",
@@ -112,7 +112,7 @@
         {
             "name"          : "SOIL 2",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "soil2",
+            "itemId"        : "soil_2",
             "categoryId"   : 2,
             "priceModel"    : {
                 "type" : "static",
@@ -124,7 +124,7 @@
         {
             "name"          : "SOIL 3",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "soil3",
+            "itemId"        : "soil_3",
             "categoryId"   : 2,
             "priceModel"    : {
                 "type" : "static",
@@ -136,7 +136,7 @@
         {
             "name"          : "SOIL 4",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "soil4",
+            "itemId"        : "soil_4",
             "categoryId"   : 2,
             "priceModel"    : {
                 "type" : "static",
@@ -148,7 +148,7 @@
         {
             "name"          : "MUSIC 1",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "music1",
+            "itemId"        : "music_1",
             "categoryId"   : 3,
             "priceModel"    : {
                 "type" : "static",
@@ -160,7 +160,7 @@
         {
             "name"          : "MUSIC 2",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "music2",
+            "itemId"        : "music_2",
             "categoryId"   : 3,
             "priceModel"    : {
                 "type" : "static",
@@ -172,7 +172,7 @@
         {
             "name"          : "MUSIC 3",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "music3",
+            "itemId"        : "music_3",
             "categoryId"   : 3,
              "priceModel"    : {
                 "type" : "static",
@@ -184,7 +184,7 @@
         {
             "name"          : "MUSIC 4",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "music4",
+            "itemId"        : "music_4",
             "categoryId"   : 3,
              "priceModel"    : {
                 "type" : "static",
@@ -196,7 +196,7 @@
         {
             "name"          : "WATER 1",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "water1",
+            "itemId"        : "water_1",
             "categoryId"   : 4,
              "priceModel"    : {
                 "type" : "static",
@@ -208,7 +208,7 @@
         {
             "name"          : "WATER 2",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "water2",
+            "itemId"        : "water_2",
             "categoryId"   : 4,
              "priceModel"    : {
                 "type" : "static",
@@ -220,7 +220,7 @@
         {
             "name"          : "WATER 3",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "water3",
+            "itemId"        : "water_3",
             "categoryId"   : 4,
              "priceModel"    : {
                 "type" : "static",
@@ -232,7 +232,7 @@
         {
             "name"          : "WATER 4",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "water4",
+            "itemId"        : "water_4",
             "categoryId"   : 4,
              "priceModel"    : {
                 "type" : "static",

@@ -14,16 +14,16 @@
             "4" : "../theme/img/-_Object_3.png"
         },
         "virtualGoods" : {
-           "tank1" : "../theme/img/tanks/tank1.png",
-           "tank2" : "../theme/img/tanks/tank2.png",
-		   "tank3" : "../theme/img/tanks/tank3.png",
-		   "tank4" : "../theme/img/tanks/tank4.png",
+           "tank_1" : "../theme/img/tanks/tank1.png",
+           "tank_2" : "../theme/img/tanks/tank2.png",
+		   "tank_3" : "../theme/img/tanks/tank3.png",
+		   "tank_4" : "../theme/img/tanks/tank4.png",
 		   "explosion" : "../theme/img/ammo/explosion.png",
            "fire" : "../theme/img/ammo/fire.png",
            "nuke" : "../theme/img/ammo/nuke.png",
-			"jet" : "../theme/img/powerups/airplane.png",
-            "box" : "../theme/img/powerups/misterybox.png",
-            "para" : "../theme/img/powerups/parachute.png",
+			"fighter_jet" : "../theme/img/powerups/airplane.png",
+            "mystery_box" : "../theme/img/powerups/misterybox.png",
+            "parachute" : "../theme/img/powerups/parachute.png",
             "armor" : "../theme/img/utilities/armor.png",
             "cloaking" : "../theme/img/utilities/cloaking.png",
             "fuel" : "../theme/img/utilities/fuel.png"

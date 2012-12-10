@@ -60,7 +60,7 @@
             "categoryId"   : 1
         },
         {
-            "name"          : "Extra_Life",
+            "name"          : "Extra Life",
             "description"   : "Lorem Ipsum is not simply random text",
             "priceModel"    : {
                 "type" : "static",
@@ -116,7 +116,7 @@
                     "currency_defaultCoin" : 750
                 }
             },
-            "itemId"        : "net",
+            "itemId"        : "safety_net",
             "categoryId"   : 2
         },
 		{

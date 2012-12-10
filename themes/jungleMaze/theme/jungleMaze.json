@@ -92,7 +92,7 @@
         {
             "name"          : "Hint 1 - Butterfly",
             "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "butterfly",
+            "itemId"        : "hint_1_butterfly",
             "categoryId"   : 2,
              "priceModel"    : {
                 "type" : "static",
@@ -104,7 +104,7 @@
 		{
             "name"          : "Hint 2 - Beatle",
             "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "beatle",
+            "itemId"        : "hint_2_beatle",
             "categoryId"   : 2,
              "priceModel"    : {
                 "type" : "static",
@@ -116,7 +116,7 @@
 		{
             "name"          : "Hint 3 - Fire Bug",
             "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "firebug",
+            "itemId"        : "hint_3_firebug",
             "categoryId"   : 2,
              "priceModel"    : {
                 "type" : "static",
@@ -128,7 +128,7 @@
 		{
             "name"          : "Hint 4 - Ant",
             "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "ant",
+            "itemId"        : "hint_4_ant",
             "categoryId"   : 2,
              "priceModel"    : {
                 "type" : "static",
@@ -140,7 +140,7 @@
 		{
             "name"          : "Shaker",
             "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "power1",
+            "itemId"        : "shaker",
             "categoryId"   : 3,
             "priceModel"    : {
                 "type" : "static",
@@ -152,7 +152,7 @@
 		{
             "name"          : "Invisibility",
             "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "power2",
+            "itemId"        : "invisibility",
             "categoryId"   : 3,
             "priceModel"    : {
                 "type" : "static",
@@ -164,7 +164,7 @@
 		{
             "name"          : "More Time",
             "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "power3",
+            "itemId"        : "more_time",
             "categoryId"   : 3,
             "priceModel"    : {
                 "type" : "static",
@@ -176,7 +176,7 @@
 		{
             "name"          : "Switch",
             "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "power4",
+            "itemId"        : "switch",
             "categoryId"   : 3,
             "priceModel"    : {
                 "type" : "static",

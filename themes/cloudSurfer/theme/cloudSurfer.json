@@ -64,7 +64,7 @@
                     "currency_defaultCoin" : 500
                 }
             },
-            "itemId"        : "magnet",
+            "itemId"        : "coin_magnet",
             "categoryId"   : 1
         },
         {
@@ -76,7 +76,7 @@
                     "currency_defaultCoin" : 500
                 }
             },
-            "itemId"        : "mega",
+            "itemId"        : "mega_coin",
             "categoryId"   : 1
         },
         {
@@ -88,7 +88,7 @@
                     "currency_defaultCoin" : 750
                 }
             },
-            "itemId"        : "portal",
+            "itemId"        : "magic_portal",
             "categoryId"   : 1
         },
 		{
@@ -100,7 +100,7 @@
                     "currency_defaultCoin" : 750
                 }
             },
-            "itemId"        : "glider1",
+            "itemId"        : "glider_1",
             "categoryId"   : 2
         },
 		{
@@ -112,7 +112,7 @@
                     "currency_defaultCoin" : 750
                 }
             },
-            "itemId"        : "glider2",
+            "itemId"        : "glider_2",
             "categoryId"   : 2
         },
 		{
@@ -136,7 +136,7 @@
                     "currency_defaultCoin" : 10000
                 }
             },
-            "itemId"        : "robert",
+            "itemId"        : "robert_din",
             "categoryId"   : 3
         },
         {
@@ -159,7 +159,7 @@
                     "currency_defaultCoin" : 25000
                 }
             },
-            "itemId"        : "james",
+            "itemId"        : "sir_james",
             "categoryId"   : 3
         },
         {

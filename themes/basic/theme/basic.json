@@ -46,7 +46,7 @@
     ],
     "virtualGoods" : [
         {
-            "itemId" : "blue_surfboard",
+            "itemId" : "rip_curl_shortboard",
             "priceModel" :{
                 "type" : "static",
                 "values" :{
@@ -58,7 +58,7 @@
             "categoryId"   : 1
         },
         {
-            "itemId" : "girl_surfboard_th",
+            "itemId" : "billanbog_vintage_longboard",
             "priceModel" :{
                 "type" : "balance",
                 "values" : [
@@ -75,7 +75,7 @@
             "categoryId"   : 1
         },
         {
-            "itemId" : "keelfish",
+            "itemId" : "keel_fish",
             "priceModel" :{
                 "type" : "static",
                 "values" :

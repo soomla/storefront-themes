@@ -140,7 +140,7 @@
                     "currency_coins" : 10000
                 }
             },
-            "itemId"        : "science_god",
+            "itemId"        : "wisdom_god",
             "categoryId"   : 3
         },
         {
@@ -188,7 +188,7 @@
                     "currency_coins" : 10000
                 }
             },
-            "itemId"        : "chocolate_cake",
+            "itemId"        : "argriculture_god",
             "categoryId"   : 3
         },
         {

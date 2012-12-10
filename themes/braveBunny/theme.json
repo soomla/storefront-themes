@@ -14,10 +14,10 @@
             "sack" : "../theme/img/Powerups/Sack.png",
             "trampoline" : "../theme/img/Powerups/Trampoline.png",
             "anchor" : "../theme/img/Utilities/Anchor.png",
-            "net" : "../theme/img/Utilities/Safety_Net.png",
+            "safety_net" : "../theme/img/Utilities/Safety_Net.png",
             "umbrella" : "../theme/img/Utilities/Umbrella.png",
             "baxter" : "../theme/img/Characters/baxter_bunny.png",
-	     "butch" : "../theme/img/Characters/butch_bunny.png",
+	        "butch" : "../theme/img/Characters/butch_bunny.png",
             "lulu" : "../theme/img/Characters/lulu_bunny.png"
 		},
         "currencyPacks" : {

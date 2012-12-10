@@ -96,7 +96,7 @@
 		{
             "name"          : "Decorations",
             "description"   : "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "itemId"        : "decoration",
+            "itemId"        : "decorations",
             "categoryId"   : 2,
              "priceModel"    : {
                 "type" : "static",
@@ -108,7 +108,7 @@
 		{
             "name"          : "Yellow Food",
             "description"   : "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "itemId"        : "yellow",
+            "itemId"        : "yellow_food",
             "categoryId"   : 3,
             "priceModel"    : {
                 "type" : "static",
@@ -120,7 +120,7 @@
 		{
             "name"          : "Purple Food",
             "description"   : "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "itemId"        : "purple",
+            "itemId"        : "purple_food",
             "categoryId"   : 3,
             "priceModel"    : {
                 "type" : "static",
@@ -132,7 +132,7 @@
 		{
             "name"          : "Blue Food",
             "description"   : "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "itemId"        : "blue",
+            "itemId"        : "blue_food",
             "categoryId"   : 3,
             "priceModel"    : {
                 "type" : "static",

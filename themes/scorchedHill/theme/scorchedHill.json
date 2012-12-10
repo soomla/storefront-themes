@@ -44,7 +44,7 @@
         {
             "name"          : "Tank 1",
             "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "tank1",
+            "itemId"        : "tank_1",
             "categoryId"   : 1,
             "priceModel"    : {
                 "type" : "static",
@@ -56,7 +56,7 @@
         {
             "name"          : "Tank 2",
             "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "tank2",
+            "itemId"        : "tank_2",
             "categoryId"   : 1,
             "priceModel"    : {
                 "type" : "static",
@@ -68,7 +68,7 @@
         {
             "name"          : "Tank 3",
             "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "tank3",
+            "itemId"        : "tank_3",
             "categoryId"   : 1,
             "priceModel"    : {
                 "type" : "static",
@@ -80,7 +80,7 @@
         {
             "name"          : "Tank 4",
             "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "tank4",
+            "itemId"        : "tank_4",
             "categoryId"   : 1,
             "priceModel"    : {
                 "type" : "static",
@@ -128,7 +128,7 @@
 		{
             "name"          : "Fighter Jet",
             "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "jet",
+            "itemId"        : "fighter_jet",
             "categoryId"   : 3,
             "priceModel"    : {
                 "type" : "static",
@@ -140,7 +140,7 @@
 		{
             "name"          : "Mystery Box",
             "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "box",
+            "itemId"        : "mystery_box",
             "categoryId"   : 3,
             "priceModel"    : {
                 "type" : "static",
@@ -152,7 +152,7 @@
 		{
             "name"          : "Parachute",
             "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "para",
+            "itemId"        : "parachute",
             "categoryId"   : 3,
             "priceModel"    : {
                 "type" : "static",

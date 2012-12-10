@@ -72,7 +72,7 @@
                     "currency_defaultCoin" : 500
                 }
             },
-            "itemId"        : "pot",
+            "itemId"        : "gold_pot",
             "categoryId"   : 1
         },
         {
@@ -84,7 +84,7 @@
                     "currency_defaultCoin" : 750
                 }
             },
-            "itemId"        : "luck",
+            "itemId"        : "lucky_clover",
             "categoryId"   : 1
         },
 		{
@@ -96,7 +96,7 @@
                     "currency_defaultCoin" : 750
                 }
             },
-            "itemId"        : "book",
+            "itemId"        : "rock_book",
             "categoryId"   : 1
         },
 		{
@@ -120,7 +120,7 @@
                     "currency_defaultCoin" : 10000
                 }
             },
-            "itemId"        : "robert",
+            "itemId"        : "robert_din",
             "categoryId"   : 2
         },
         {
@@ -132,7 +132,7 @@
                     "currency_defaultCoin" : 25000
                 }
             },
-            "itemId"        : "james",
+            "itemId"        : "sir_james",
             "categoryId"   : 2
         },
         {

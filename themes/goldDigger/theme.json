@@ -10,12 +10,12 @@
         "categories" : {},
         "virtualGoods" : {
             "bomb" : "../theme/img/Powerups/Bomb.png",
-            "pot" : "../theme/img/Powerups/Gold_Pot.png",
-            "luck" : "../theme/img/Powerups/Lucky_Clover.png",
-            "book" : "../theme/img/Powerups/Rock_Book.png",
+            "gold_pot" : "../theme/img/Powerups/Gold_Pot.png",
+            "lucky_clover" : "../theme/img/Powerups/Lucky_Clover.png",
+            "rock_book" : "../theme/img/Powerups/Rock_Book.png",
             "kasey" : "../theme/img/Characters/Kasey.png",
-		    "robert" : "../theme/img/Characters/Robert_Din.png",
-            "james" : "../theme/img/Characters/Sir_James.png",
+		    "robert_din" : "../theme/img/Characters/Robert_Din.png",
+            "sir_james" : "../theme/img/Characters/Sir_James.png",
             "tod" : "../theme/img/Characters/Tod.png"
         },
         "currencyPacks" : {

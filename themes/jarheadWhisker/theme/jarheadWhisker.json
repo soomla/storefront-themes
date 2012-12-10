@@ -44,7 +44,7 @@
         {
             "name"          : "Character 1",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "guy_1",
+            "itemId"        : "character_1",
             "categoryId"   : 1,
             "priceModel"    : {
                 "type" : "static",
@@ -54,9 +54,9 @@
             }
         },
         {
-            "name"          : "character 2",
+            "name"          : "Character 2",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "guy_2",
+            "itemId"        : "character_2",
             "categoryId"   : 1, 
             "priceModel"    : {
                 "type" : "static",
@@ -68,7 +68,7 @@
         {
             "name"          : "Character 3",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "guy_3",
+            "itemId"        : "character_3",
             "categoryId"   : 1, 
             "priceModel"    : {
                 "type" : "static",
@@ -80,7 +80,7 @@
         {
             "name"          : "Character 4",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "guy_4",
+            "itemId"        : "character_4",
             "categoryId"   : 1, 
             "priceModel"    : {
                 "type" : "static",
@@ -114,9 +114,9 @@
             }
         },
 		{
-            "name"          : "Lazer Pointer",
+            "name"          : "Laser Pointer",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "lazer",
+            "itemId"        : "laser_pointer",
             "categoryId"   : 2,
             "priceModel"    : {
                 "type" : "static",
@@ -138,7 +138,7 @@
             }
         },
         {
-            "name"          : "birds",
+            "name"          : "Birds",
             "description"   : "Lorem Ipsum is not simply random text",
             "itemId"        : "birds",
             "categoryId"   : 3,
@@ -162,9 +162,9 @@
             }
         },
         {
-            "name"          : "Riffle 1",
+            "name"          : "Rifle 1",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "riffle_1",
+            "itemId"        : "rifle_1",
             "categoryId"   : 4,
              "priceModel"    : {
                 "type" : "static",
@@ -174,9 +174,9 @@
             }
         },
         {
-            "name"          : "Riffle 2",
+            "name"          : "Rifle 2",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "riffle_2",
+            "itemId"        : "rifle_2",
             "categoryId"   : 4,
              "priceModel"    : {
                 "type" : "static",
@@ -186,9 +186,9 @@
             }
         },
         {
-            "name"          : "Riffle 3",
+            "name"          : "Rifle 3",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "riffle_3",
+            "itemId"        : "rifle_3",
             "categoryId"   : 4,
              "priceModel"    : {
                 "type" : "static",
@@ -198,9 +198,9 @@
             }
         },
         {
-            "name"          : "Riffle 4",
+            "name"          : "Rifle 4",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "riffle",
+            "itemId"        : "rifle",
             "categoryId"   : 4,
              "priceModel"    : {
                 "type" : "static",

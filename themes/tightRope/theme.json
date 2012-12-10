@@ -15,20 +15,20 @@
         },
         "virtualGoods" : {
             "sick_mo" : "../theme/img/characters/monsters_1.png",
-            "betty" : "../theme/img/characters/monsters_2.png",
-            "joe" : "../theme/img/characters/monsters_3.png",
-            "tom" : "../theme/img/characters/monsters_4.png",
+            "screaming_betty" : "../theme/img/characters/monsters_2.png",
+            "big_eye_joe" : "../theme/img/characters/monsters_3.png",
+            "jumping_tom" : "../theme/img/characters/monsters_4.png",
             "super_knot" : "../theme/img/utilities/utilities_1.png",
-            "net" : "../theme/img/utilities/utilities_2.png",
+            "safety_net" : "../theme/img/utilities/utilities_2.png",
             "umbrella" : "../theme/img/utilities/utilities_3.png",
             "boost" : "../theme/img/powerups/boost.png",
             "wind" : "../theme/img/powerups/wind.png",
             "extra_life" : "../theme/img/powerups/life.png",
             "wings" : "../theme/img/powerups/wings.png",
-            "bud" : "../theme/img/helpers/helpers_1.png",
+            "bud_bud" : "../theme/img/helpers/helpers_1.png",
             "cyclop" : "../theme/img/helpers/helpers_2.png",
-            "pete" : "../theme/img/helpers/helpers_3.png",
-            "axel" : "../theme/img/helpers/helpers_4.png"
+            "smiling_pete" : "../theme/img/helpers/helpers_3.png",
+            "rockstar_axel" : "../theme/img/helpers/helpers_4.png"
         },
         "currencyPacks" : {
             "defaultCoins_10" : "../theme/img/coins/objects-01.png",

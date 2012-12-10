@@ -9,9 +9,9 @@
     "modelAssets" : {
         "categories" : {},
         "virtualGoods" : {
-            "blue_surfboard" : "../theme/img/items/blue-surfboard.png",
-            "girl_surfboard_th" : "../theme/img/items/girl-surfboard-th.png",
-            "keelfish" : "../theme/img/items/keelfish.png",
+            "rip_curl_shortboard" : "../theme/img/items/blue-surfboard.png",
+            "billanbog_vintage_longboard" : "../theme/img/items/girl-surfboard-th.png",
+            "keel_fish" : "../theme/img/items/keelfish.png",
             "picasso_peeler" : "../theme/img/items/picasso-peeler.png",
             "reef_shredder" : "../theme/img/items/reef-shredder.png",
             "sixties_gun" : "../theme/img/items/sixties-gun.png",

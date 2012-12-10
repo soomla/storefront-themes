@@ -36,7 +36,7 @@
         {
             "name"          : "Monkey 1",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "monkey1",
+            "itemId"        : "monkey_1",
             "categoryId"   : 1,
             "priceModel"    : {
                 "type" : "static",
@@ -48,7 +48,7 @@
 		{
             "name"          : "Monkey 2",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "monkey2",
+            "itemId"        : "monkey_2",
             "categoryId"   : 1,
             "priceModel"    : {
                 "type" : "static",
@@ -60,7 +60,7 @@
 		{
             "name"          : "Monkey 3",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "monkey3",
+            "itemId"        : "monkey_3",
             "categoryId"   : 1,
             "priceModel"    : {
                 "type" : "static",
@@ -72,7 +72,7 @@
         {
             "name"          : "Fishing Rod",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "rod",
+            "itemId"        : "fishing_rod",
             "categoryId"   : 2,
             "priceModel"    : {
                 "type" : "static",
@@ -84,7 +84,7 @@
         {
             "name"          : "Extra Rope",
             "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "rope",
+            "itemId"        : "extra_rope",
             "categoryId"   : 2,
             "priceModel"    : {
                 "type" : "static",

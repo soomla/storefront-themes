@@ -9,13 +9,13 @@
     "modelAssets" : {
         "categories" : {},
         "virtualGoods" : {
-            "boost" : "../theme/img/Powerups/Boost.png",
+            "boost_ahead" : "../theme/img/Powerups/Boost.png",
             "coin_magnet" : "../theme/img/Powerups/Coin_Magnet.png",
             "portal" : "../theme/img/Powerups/Portal.png",
             "mega_coin" : "../theme/img/Powerups/Mega_Coin.png",
             "triple_value" : "../theme/img/Powerups/Triple_Value.png",
             "wings" : "../theme/img/Utilities/Wings.png",
-            "perm_wings" : "../theme/img/Utilities/Perm_Wings.png",
+            "permanent_wings" : "../theme/img/Utilities/Perm_Wings.png",
             "fire_boost" : "../theme/img/Utilities/Fire_Boost.png",
 	        "flamer" : "../theme/img/Utilities/Flamer.png",
             "cool_bob" : "../theme/img/Characters/Cool_Bob.png",

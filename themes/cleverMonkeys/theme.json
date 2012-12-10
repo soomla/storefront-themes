@@ -12,12 +12,12 @@
             "2" : "../theme/img/-_Object_4.png"
         },
         "virtualGoods" : {
-            "rod" : "../theme/img/UtilitiesObjects/objects-06.png",
-            "rope" : "../theme/img/UtilitiesObjects/objects-07.png",
+            "fishing_rod" : "../theme/img/UtilitiesObjects/objects-06.png",
+            "extra_rope" : "../theme/img/UtilitiesObjects/objects-07.png",
             "trampoline" : "../theme/img/UtilitiesObjects/objects-08.png",
-            "monkey1" : "../theme/img/characters/objects-01.png",
-            "monkey2" : "../theme/img/characters/objects-02.png",
-            "monkey3" : "../theme/img/characters/objects-03.png"
+            "monkey_1" : "../theme/img/characters/objects-01.png",
+            "monkey_2" : "../theme/img/characters/objects-02.png",
+            "monkey_3" : "../theme/img/characters/objects-03.png"
         },
         "currencyPacks" : {
            "defaultCoins_10" : "../theme/img/coins/objects-01.png",

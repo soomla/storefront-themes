@@ -64,7 +64,7 @@
         {
             "name"          : "Screaming Betty",
             "description"   : "Even the biggest enemies will stay away from this small screamer",
-            "itemId"        : "betty",
+            "itemId"        : "screaming_betty",
             "categoryId"   : 1, 
             "priceModel"    : {
                 "type" : "static",
@@ -76,7 +76,7 @@
         {
             "name"          : "Big Eye Joe",
             "description"   : "Joe can spot coins from very far away",
-            "itemId"        : "joe",
+            "itemId"        : "big_eye_joe",
             "categoryId"   : 1, 
             "priceModel"    : {
                 "type" : "static",
@@ -88,7 +88,7 @@
         {
             "name"          : "Jumping Tom",
             "description"   : "Tom will jump twice as high and can also tie a knot when he is in the air",
-            "itemId"        : "tom",
+            "itemId"        : "jumping_tom",
             "categoryId"   : 1, 
             "priceModel"    : {
                 "type" : "static",
@@ -112,7 +112,7 @@
         {
             "name"          : "Safety Net",
             "description"   : "Use this as a way to limit how deep you will fall",
-            "itemId"        : "net",
+            "itemId"        : "safety_net",
             "categoryId"   : 2,
             "priceModel"    : {
                 "type" : "static",
@@ -184,7 +184,7 @@
         {
             "name"          : "Bud Bud",
             "description"   : "Don't go the mission alone",
-            "itemId"        : "bud",
+            "itemId"        : "bud_bud",
             "categoryId"   : 4,
              "priceModel"    : {
                 "type" : "static",
@@ -208,7 +208,7 @@
         {
             "name"          : "Smiling Pete",
             "description"   : "Smiles can be deceiving",
-            "itemId"        : "pete",
+            "itemId"        : "smiling_pete",
             "categoryId"   : 4,
              "priceModel"    : {
                 "type" : "static",
@@ -220,7 +220,7 @@
         {
             "name"          : "Rockstar Axel",
             "description"   : "Music makes the world go round",
-            "itemId"        : "axel",
+            "itemId"        : "rockstar_axel",
             "categoryId"   : 4,
              "priceModel"    : {
                 "type" : "static",

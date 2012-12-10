@@ -15,18 +15,18 @@
         },
         "virtualGoods" : {
            "experimental_fuel" : "../theme/img/utilities/Upgrade2.png",
-            "tires" : "../theme/img/utilities/Upgrade3.png",
-            "turbo" : "../theme/img/utilities/Upgrade1.png",
+            "sticky_tires" : "../theme/img/utilities/Upgrade3.png",
+            "turbo_charger" : "../theme/img/utilities/Upgrade1.png",
             "boost" : "../theme/img/powerups/boost.png",
             "invisibility" : "../theme/img/powerups/invisibility.png",
             "luck_charm" : "../theme/img/powerups/luck_charm.png",
             "wings" : "../theme/img/powerups/wings.png",
-            "track_1" : "../theme/img/racingtracks/tracks1.png",
-            "track_2" : "../theme/img/racingtracks/tracks2.png",
-            "track_3" : "../theme/img/racingtracks/tracks3.png",
-            "car_1" : "../theme/img/cars/cars1.png",
-            "car_2" : "../theme/img/cars/cars2.png",
-            "car_3" : "../theme/img/cars/cars3.png"
+            "jersey_curves" : "../theme/img/racingtracks/tracks1.png",
+            "texas_heat" : "../theme/img/racingtracks/tracks2.png",
+            "flat_omaha" : "../theme/img/racingtracks/tracks3.png",
+            "delorean" : "../theme/img/cars/cars1.png",
+            "ford_gran_torino" : "../theme/img/cars/cars2.png",
+            "chevrolet_camaro_replica" : "../theme/img/cars/cars3.png"
         },
         "currencyPacks" : {
            "defaultCoins_10" : "../theme/img/coins/objects-01.png",

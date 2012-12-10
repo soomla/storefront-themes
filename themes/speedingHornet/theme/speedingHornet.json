@@ -44,7 +44,7 @@
         {
             "name"          : "Jersey Curves",
             "description"   : "Watch out for the nasty turns on this one",
-            "itemId"        : "track_1",
+            "itemId"        : "jersey_curves",
             "categoryId"   : 1,
             "priceModel"    : {
                 "type" : "static",
@@ -56,7 +56,7 @@
 		{
             "name"          : "Texas Heat",
             "description"   : "Drive fast but watch your engine temperature",
-            "itemId"        : "track_2",
+            "itemId"        : "texas_heat",
             "categoryId"   : 1,
             "priceModel"    : {
                 "type" : "static",
@@ -68,7 +68,7 @@
 		{
             "name"          : "Flat Omaha",
             "description"   : "Those long stratches will get your car flying",
-            "itemId"        : "track_3",
+            "itemId"        : "flat_omaha",
             "categoryId"   : 1,
             "priceModel"    : {
                 "type" : "static",
@@ -80,7 +80,7 @@
 		{
             "name"          : "DeLorean",
             "description"   : "This one will take you back to the future",
-            "itemId"        : "car_1",
+            "itemId"        : "delorean",
             "categoryId"   : 2,
              "priceModel"    : {
                 "type" : "static",
@@ -92,7 +92,7 @@
         {
             "name"          : "Ford Gran Torino",
             "description"   : "This one will get you non stop action",
-            "itemId"        : "car_2",
+            "itemId"        : "ford_gran_torino",
             "categoryId"   : 2,
              "priceModel"    : {
                 "type" : "static",
@@ -104,7 +104,7 @@
 		{
             "name"          : "Chevrolet Camaro Replica",
             "description"   : "Transforms into a robot",
-            "itemId"        : "car_3",
+            "itemId"        : "chevrolet_camaro_replica",
             "categoryId"   : 2,
              "priceModel"    : {
                 "type" : "static",
@@ -176,7 +176,7 @@
         {
             "name"          : "Sticky Tires",
             "description"   : "Cut corners like you are driving on rails",
-            "itemId"        : "tires",
+            "itemId"        : "sticky_tires",
             "categoryId"   : 4, 
             "priceModel"    : {
                 "type" : "static",
@@ -188,7 +188,7 @@
         {
             "name"          : "Turbo Charger",
             "description"   : "Leave others in the dust with a super charged leap forward",
-            "itemId"        : "turbo",
+            "itemId"        : "turbo_charger",
             "categoryId"   : 4, 
             "priceModel"    : {
                 "type" : "static",
