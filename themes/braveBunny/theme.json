@@ -21,12 +21,9 @@
             "lulu" : "../theme/img/Characters/lulu_bunny.png"
 		},
         "currencyPacks" : {
-            "defaultCoins_10" : "../theme/img/CurrencyPacks/GetCoins_1.png",
-            "defaultCoins_50" : "../theme/img/CurrencyPacks/GetCoins_2.png",
-            "defaultCoins_400" : "../theme/img/CurrencyPacks/GetCoins_3.png",
-            "carrotCoins_10" : "../theme/img/CurrencyPacks/GetCoins_1B.png",
-            "carrotCoins_50" : "../theme/img/CurrencyPacks/GetCoins_2B.png",
-            "carrotCoins_400" : "../theme/img/CurrencyPacks/GetCoins_3B.png"
+            "2500" : "../theme/img/CurrencyPacks/GetCoins_1.png",
+            "25000" : "../theme/img/CurrencyPacks/GetCoins_2.png",
+            "75000" : "../theme/img/CurrencyPacks/GetCoins_3.png"
         },
         "virtualCurrencies" : {
             "currency_defaultCoin" : "../theme/img/Item_Price.png"

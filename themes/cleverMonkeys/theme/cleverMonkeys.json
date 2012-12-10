@@ -2,7 +2,7 @@
     "currencyPacks" : [
         {
             "name"              : "Banana Pack",
-            "itemId"            : "defaultCoins_10",
+            "itemId"            : "banana_pack",
             "currency_itemId"   : "currency_coin",
             "productId"         : "coin_booster_pack",
             "price"             : 0.99,
@@ -10,7 +10,7 @@
         },
         {
             "name"              : "Banana Basket",
-            "itemId"            : "defaultCoins_50",
+            "itemId"            : "banana_basket",
             "currency_itemId"   : "currency_coin",
             "productId"         : "android.test.purchased",
             "price"             : 1.99,
@@ -18,7 +18,7 @@
         },
         {
             "name"              : "Banana Tree",
-            "itemId"            : "defaultCoins_400",
+            "itemId"            : "banana_tree",
             "currency_itemId"   : "currency_coin",
             "productId"         : "coin_ultra_pack",
             "price"             : 2.99,

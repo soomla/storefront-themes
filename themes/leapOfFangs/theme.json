@@ -20,10 +20,10 @@
             "cream_cup" : "../theme/img/Weapons/Weapon2.png"
         },
         "currencyPacks" : {
-            "coins_10" : "../theme/img/CurrencyPacks/CurrencyPack1.png",
-            "coins_50" : "../theme/img/CurrencyPacks/CurrencyPack2.png",
-            "coins_400" : "../theme/img/CurrencyPacks/CurrencyPack3.png",
-            "coins_1000" : "../theme/img/CurrencyPacks/CurrencyPack4.png"
+            "10_coins" : "../theme/img/CurrencyPacks/CurrencyPack1.png",
+            "50_coins" : "../theme/img/CurrencyPacks/CurrencyPack2.png",
+            "400_coins" : "../theme/img/CurrencyPacks/CurrencyPack3.png",
+            "1000_coins" : "../theme/img/CurrencyPacks/CurrencyPack4.png"
         },
         "virtualCurrencies" : {
             "currency_coin" : "../theme/img/Coin.png"

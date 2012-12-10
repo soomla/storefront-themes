@@ -19,10 +19,10 @@
             "tod" : "../theme/img/Characters/Tod.png"
         },
         "currencyPacks" : {
-            "defaultCoins_10" : "../theme/img/CurrencyPacks/GetCoins_1.png",
-            "defaultCoins_50" : "../theme/img/CurrencyPacks/GetCoins_2.png",
-            "defaultCoins_400" : "../theme/img/CurrencyPacks/GetCoins_3.png",
-            "defaultCoins_1000" : "../theme/img/CurrencyPacks/GetCoins_4.png"
+            "2500" : "../theme/img/CurrencyPacks/GetCoins_1.png",
+            "25000" : "../theme/img/CurrencyPacks/GetCoins_2.png",
+            "75000" : "../theme/img/CurrencyPacks/GetCoins_3.png",
+            "200000" : "../theme/img/CurrencyPacks/GetCoins_4.png"
         },
         "virtualCurrencies" : {
             "currency_defaultCoin" : "../theme/img/Item_Price.png"

@@ -31,10 +31,10 @@
            "flower" : "../theme/img/Utilities/objects-09.png"		   
         },
         "currencyPacks" : {
-           "defaultCoins_10" : "../theme/img/Coins/objects-08.png",
-            "defaultCoins_50" : "../theme/img/Coins/objects-08.png",
-            "defaultCoins_400" : "../theme/img/Coins/objects-08.png",
-            "defaultCoins_1000" : "../theme/img/Coins/objects-08.png"
+           "coin_booster_pack" : "../theme/img/Coins/objects-08.png",
+            "coin_mega_pack" : "../theme/img/Coins/objects-08.png",
+            "coin_ultra_pack" : "../theme/img/Coins/objects-08.png",
+            "coin_ultimate_pack" : "../theme/img/Coins/objects-08.png"
         },
         "virtualCurrencies" : {
              "currency_coin" : "../theme/img/coin.png"

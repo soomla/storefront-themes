@@ -10,7 +10,7 @@
         },
         {
             "name"              : "COIN MEGA PACK",
-            "itemId"            : "defaultCoins_50",
+            "itemId"            : "coin_mega_pack",
             "currency_itemId"   : "currency_coin",
             "productId"         : "android.test.purchased",
             "price"             : 1.99,
@@ -18,7 +18,7 @@
         },
         {
             "name"              : "COIN ULTRA PACK",
-            "itemId"            : "defaultCoins_400",
+            "itemId"            : "coin_ultra_pack",
             "currency_itemId"   : "currency_coin",
             "productId"         : "coin_ultra_pack",
             "price"             : 2.99,
@@ -26,7 +26,7 @@
         },
         {
             "name"              : "COIN JUMBO PACK",
-            "itemId"            : "defaultCoins_1000",
+            "itemId"            : "coin_jumbo_pack",
             "currency_itemId"   : "currency_coin",
             "productId"         : "coin_jumbo_pack",
             "price"             : 4.99,

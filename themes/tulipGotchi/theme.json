@@ -32,11 +32,11 @@
             "water_4" : "../theme/img/Water/water04.png"
         },
         "currencyPacks" : {
-            "defaultCoins_10" : "../theme/img/coins/objects-01.png",
-			"defaultCoins_50" : "../theme/img/coins/objects-02.png",
-			"defaultCoins_400" : "../theme/img/coins/objects-03.png",
-			"defaultCoins_1000" : "../theme/img/coins/objects-04.png",
-			"defaultCoins_2000" : "../theme/img/coins/objects-05.png"
+            "coin_booster_pack" : "../theme/img/coins/objects-01.png",
+			"coin_mega_pack" : "../theme/img/coins/objects-02.png",
+			"coin_ultra_pack" : "../theme/img/coins/objects-03.png",
+			"coin_jumbo_pack" : "../theme/img/coins/objects-04.png",
+			"coin_mambo_pack" : "../theme/img/coins/objects-05.png"
         },
         "virtualCurrencies" : {
             "currency_coin" : "../theme/img/coin.png"

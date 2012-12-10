@@ -5,13 +5,13 @@
             "name"              : "10 Coins",
             "itemId"            : "coins_10",
             "currency_itemId"   : "currency_coin",
-            "productId"         : "coins_10",
+            "productId"         : "10_coins",
             "price"             : 0.99,
             "amount"            : 10
         },
         {
             "name"              : "50 Coins",
-            "itemId"            : "coins_50",
+            "itemId"            : "50_coins",
             "currency_itemId"   : "currency_coin",
             "productId"         : "android.test.purchased",
             "price"             : 1.99,
@@ -19,7 +19,7 @@
         },
         {
             "name"              : "400 Coins",
-            "itemId"            : "coins_400",
+            "itemId"            : "400_coins",
             "currency_itemId"   : "currency_coin",
             "productId"         : "coins_400",
             "price"             : 4.99,
@@ -27,7 +27,7 @@
         },
         {
             "name"              : "1000 Coins",
-            "itemId"            : "coins_1000",
+            "itemId"            : "1000_coins",
             "currency_itemId"   : "currency_coin",
             "productId"         : "coins_1000",
             "price"             : 8.99,

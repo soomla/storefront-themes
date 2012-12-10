@@ -20,9 +20,9 @@
             "monkey_3" : "../theme/img/characters/objects-03.png"
         },
         "currencyPacks" : {
-           "defaultCoins_10" : "../theme/img/coins/objects-01.png",
-            "defaultCoins_50" : "../theme/img/coins/objects-02.png",
-            "defaultCoins_400" : "../theme/img/coins/objects-03.png"
+           "banana_pack" : "../theme/img/coins/objects-01.png",
+            "banana_basket" : "../theme/img/coins/objects-02.png",
+            "banana_tree" : "../theme/img/coins/objects-03.png"
         },
         "virtualCurrencies" : {
              "currency_coin" : "../theme/img/coin.png"

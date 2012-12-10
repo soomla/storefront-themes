@@ -20,7 +20,8 @@
         "currencyPacks" : {
             "super_saver_pack" : "../theme/img/clam.png",
             "malibu_medium_pack" : "../theme/img/clam.png",
-            "pipeline_pumpin_pack" : "../theme/img/clam.png"
+            "pipeline_pumpin_pack" : "../theme/img/clam.png",
+            "silver_pack" : "../theme/img/clam.png"
         },
         "virtualCurrencies" : {
             "currency_clam" : "../theme/img/clam.png"
