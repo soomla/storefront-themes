@@ -95,6 +95,25 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 this.switch(this.currencyPacksLink.model.get("name"));
             }, this);
 
+            // Create views for the earned currency links from the category menu.
+            // We're using a CategoryView, because visually the button should look the same, even though
+            // it doesn't represent an actual category.  This view will be force-appended to the
+            // categories view when rendering
+            this.earnedCurrencyLinks = [];
+
+            _.each(this.theme.earnedCurrencies, function(earnedCurrency) {
+
+                var earnedCurrency = new CategoryView({
+                    className : "item earned-currency",
+                    model : new categories.model(earnedCurrency)
+                }).on("selected", function() {
+                    $this.nativeAPI.requestEarnedCurrency(this.model.get("provider"));
+                });
+
+                $this.earnedCurrencyLinks.push(earnedCurrency);
+            });
+
+
             // Mark this view as the active view,
             // as it is the first one visible when the store opens
             this.activeView = categoryMenuView;
@@ -167,6 +186,11 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
             // Append the link to the currency packs as a "category view"
             this.pageViews.menu.$el.append(this.currencyPacksLink.render().el);
+
+            // Append links to earned currencies as "category views"
+            _.each(this.earnedCurrencyLinks, function(view) {
+                $this.pageViews.menu.$el.append(view.render().el);
+            });
         },
         zoomFunction : function() {
             return (innerWidth / innerHeight) > 1.5 ? (innerHeight / 640) : (innerWidth / 960);
