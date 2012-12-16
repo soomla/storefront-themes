@@ -37,7 +37,7 @@
     "theme" : {
         "name" : "codeRedPursuit",
         "version" : 1,
-        "background" : "../theme/img/BG-Level0.png",
+        "background" : "../theme/img/BG-Level0.jpg",
         "contentBackground" : "../theme/img/BG-Level1.png",
         "common" : {
             "titleImage" : "../theme/img/Header_Title.png",
@@ -53,7 +53,7 @@
         "pages" : {
             "goods" :{
                 "list" : {
-                    "background" : "../theme/img/Item_Area.png"
+                    "background" : "../theme/img/Item_Area.jpg"
                 },
                 "listItem" : {
                     "background" : "",
@@ -72,7 +72,7 @@
             },
             "currencyPacks" : {
                 "list" : {
-                    "background" : "../theme/img/Item_Area.png"
+                    "background" : "../theme/img/Item_Area.jpg"
                 },
                 "listItem" : {
                     "balanceBackground" : "",

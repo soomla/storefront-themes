@@ -33,7 +33,7 @@
     "theme" : {
         "name" : "cloudSurfer",
         "version" : 1,
-        "background" : "../theme/img/BG-Level0.png",
+        "background" : "../theme/img/BG-Level0.jpg",
         "contentBackground" : "../theme/img/BG-Level1.png",
         "common" : {
             "titleImage" : "../theme/img/Header_Title.png",

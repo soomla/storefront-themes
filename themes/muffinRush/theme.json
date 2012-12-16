@@ -30,7 +30,7 @@
         "pages" : {
             "goods" :{
                 "title" : "../theme/img/Store_Store.png",
-                "background" : "../theme/img/Bg_Wall.png",
+                "background" : "../theme/img/Bg_Wall.jpg",
                 "headerBackground" : "../theme/img/Roof-Extended.png",
                 "backButton" : "../theme/img/back.png",
                 "moreCurrencyButton" : "../theme/img/GetMore.png",
@@ -51,7 +51,7 @@
             },
             "currencyPacks" : {
                 "title" : "../theme/img/Store_Store.png",
-                "background" : "../theme/img/Bg_Wall.png",
+                "background" : "../theme/img/Bg_Wall.jpg",
                 "headerBackground" : "../theme/img/Roof-Extended.png",
                 "backButton" : "../theme/img/back.png",
                 "balance" : "../theme/img/YourMuf.png",

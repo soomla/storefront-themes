@@ -32,8 +32,8 @@
     "theme" : {
         "name" : "braveBunny",
         "version" : 1,
-        "background" : "../theme/img/BG-Level0.png",
-        "contentBackground" : "../theme/img/BG-Level1.png",
+        "background" : "../theme/img/BG-Level0.jpg",
+        "contentBackground" : "../theme/img/BG-Level1.jpg",
         "common" : {
             "titleImage" : "../theme/img/Header_Title.png",
             "balanceImage" : "../theme/img/Header_Balance.png",
@@ -48,7 +48,7 @@
         "pages" : {
             "goods" :{
                 "list" : {
-                    "background" : "../theme/img/Item_Area.png"
+                    "background" : "../theme/img/Item_Area.jpg"
                 },
                 "listItem" : {
                     "background" : "",
@@ -67,7 +67,7 @@
             },
             "currencyPacks" : {
                 "list" : {
-                    "background" : "../theme/img/Item_Area.png"
+                    "background" : "../theme/img/Item_Area.jpg"
                 },
                 "listItem" : {
                     "balanceBackground" : "",
