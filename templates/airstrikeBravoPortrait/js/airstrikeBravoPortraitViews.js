@@ -33,10 +33,10 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             _.bindAll(this, "switch");
             this.dialogModel = this.theme.noFundsModal;
 
-
             var virtualGoods    = this.model.get("virtualGoods"),
                 currencyPacks   = this.model.get("currencyPacks"),
                 categories      = this.model.get("categories"),
+                modelAssets     = this.model.get("modelAssets"),
                 templateHelpers = { images : this.theme.images },
                 $this           = this;
 
@@ -45,27 +45,44 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             var ExpandableListItemView = Components.ExpandableListItemView.extend({
                 onExpand        : function() {
                     this.$el.addClass("expanded");
-                    this.$(".expand-collapse").attr("src", this.templateHelpers.images.collapseImage);
-                    this.$el.css("background-image", "url('" + this.templateHelpers.images.itemBackgroundImageExpanded + "')");
+                    this.$(".expand-collapse").attr("src", this.templateHelpers().images.collapseImage);
+                    this.$el.css("background-image", "url('" + this.templateHelpers().images.itemBackgroundImageExpanded + "')");
                 },
                 onCollapse      : function() {
                     this.$el.removeClass("expanded");
-                    this.$(".expand-collapse").attr("src", this.templateHelpers.images.expandImage);
-                    this.$el.css("background-image", "url('" + this.templateHelpers.images.itemBackgroundImage + "')");
+                    this.$(".expand-collapse").attr("src", this.templateHelpers().images.expandImage);
+                    this.$el.css("background-image", "url('" + this.templateHelpers().images.itemBackgroundImage + "')");
                 }
             });
             var VirtualGoodView = ExpandableListItemView.extend({
                 template        : Handlebars.getTemplate("item"),
-                templateHelpers : templateHelpers,
+                templateHelpers : function() {
+                    return _.extend({
+                        imgFilePath : modelAssets["virtualGoods"][this.model.id],
+                        currency : {
+                            imgFilePath : modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
+                        },
+                        price : this.model.get("priceModel").values[this.model.getCurrencyId()]
+                    }, templateHelpers);
+                },
                 css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
             });
             var CurrencyPackView = ExpandableListItemView.extend({
                 template        : Handlebars.getTemplate("currencyPack"),
-                templateHelpers : templateHelpers,
+                templateHelpers : function() {
+                    return _.extend({
+                        imgFilePath : modelAssets["currencyPacks"][this.model.id]
+                    }, templateHelpers);
+                },
                 css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
             });
             var CategoryView = Components.ListItemView.extend({
-                template        : Handlebars.getTemplate("categoryMenuItem")
+                template        : Handlebars.getTemplate("categoryMenuItem"),
+                templateHelpers : function() {
+                    return {
+                        imgFilePath : modelAssets["categories"][this.model.id]
+                    };
+                }
             });
 
 
@@ -88,10 +105,8 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             // categories view when rendering
             this.currencyPacksLink = new CategoryView({
                 className : "item currency-packs",
-                model : new categories.model({
-                    name        : "GET COINS",
-                    imgFilePath : this.theme.currencyPacksCategoryImage
-                })
+                model : new categories.model({ name : "GET COINS" }),
+                templateHelpers : { imgFilePath : this.theme.currencyPacksCategoryImage }
             }).on("selected", function() {
                 this.switch(this.currencyPacksLink.model.get("name"));
             }, this);

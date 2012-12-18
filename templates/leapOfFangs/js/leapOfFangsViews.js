@@ -16,6 +16,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             var virtualGoods    = this.model.get("virtualGoods"),
                 currencyPacks   = this.model.get("currencyPacks"),
                 categories      = this.model.get("categories"),
+                modelAssets     = this.model.get("modelAssets"),
                 templateHelpers = { images : this.theme.images },
                 $this           = this;
 
@@ -27,18 +28,42 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 tagName         : "div",
                 triggers        : triggers,
                 template        : Handlebars.getTemplate("item"),
-                templateHelpers :_.extend({item : this.theme.item}, templateHelpers)
+                templateHelpers : function() {
+                    return _.extend({
+                        imgFilePath : modelAssets["virtualGoods"][this.model.id],
+                        currency : {
+                            imgFilePath : modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
+                        },
+                        price : this.model.get("priceModel").values[this.model.getCurrencyId()],
+                        item : $this.theme.item
+                    }, templateHelpers);
+                }
             });
             var CurrencyPackView = Components.ListItemView.extend({
                 tagName         : "div",
                 triggers        : triggers,
                 template        : Handlebars.getTemplate("currencyPack"),
-                templateHelpers :_.extend({item : this.theme.item}, templateHelpers)
+                templateHelpers : function() {
+                    return _.extend({
+                        imgFilePath : modelAssets["currencyPacks"][this.model.id],
+                        currency : {
+                            imgFilePath : modelAssets["virtualCurrencies"][this.model.get("currency_itemId")]
+                        },
+                        item : $this.theme.item
+                    }, templateHelpers);
+                }
             });
             var CategoryMenuItemView = Components.ListItemView.extend({
-                template        : Handlebars.getTemplate("categoryMenuItem")
+                template        : Handlebars.getTemplate("categoryMenuItem"),
+                templateHelpers : function() {
+                    return {
+                        imgFilePath : modelAssets["categories"][this.model.id]
+                    };
+                }
             });
 
+
+            // TODO: Fix the image for currency packs link.  It's not being passed in the template helpers for some reason...
 
             // Build a category menu that will cause the main area
             // to switch categories every time a menu item is selected, using tabs.

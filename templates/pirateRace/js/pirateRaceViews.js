@@ -8,16 +8,24 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
             var $this        = this,
                 categories   = this.model.get("categories"),
-                virtualGoods = this.model.get("virtualGoods");
+                virtualGoods = this.model.get("virtualGoods"),
+                modelAssets  = this.model.get("modelAssets");
 
 
             var sharedGoodsOptions = {
                 template        : Handlebars.getTemplate("item"),
-                templateHelpers : _.extend({
-                    balanceLabelStyle   : this.theme.common.balanceLabelStyle,
-                    itemSeparator       : this.theme.itemSeparator
-                }, this.theme.pages.goods.listItem),
-                css             : { "background-image" : "url('" + $this.theme.pages.goods.listItem.background + "')" }
+                templateHelpers : function() {
+                    return _.extend({
+                        imgFilePath : modelAssets["virtualGoods"][this.model.id],
+                        currency : {
+                            imgFilePath : modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
+                        },
+                        price : this.model.get("priceModel").values[this.model.getCurrencyId()],
+                        balanceLabelStyle   : $this.theme.common.balanceLabelStyle,
+                        itemSeparator       : $this.theme.itemSeparator
+                    }, $this.theme.pages.goods.listItem);
+                },
+                css : { "background-image" : "url('" + $this.theme.pages.goods.listItem.background + "')" }
             };
             var VirtualGoodView = Components.ListItemView.extend(_.extend({
                 triggers : {
@@ -29,10 +37,13 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
             var CurrencyPackView = Components.ListItemView.extend({
                 template        : Handlebars.getTemplate("currencyPack"),
-                templateHelpers : {
-                    nameStyle       : this.theme.pages.currencyPacks.listItem.nameStyle,
-                    priceStyle      : this.theme.pages.currencyPacks.listItem.priceStyle,
-                    itemSeparator   :$this.theme.itemSeparator
+                templateHelpers : function() {
+                    return {
+                        nameStyle       : $this.theme.pages.currencyPacks.listItem.nameStyle,
+                        priceStyle      : $this.theme.pages.currencyPacks.listItem.priceStyle,
+                        itemSeparator   : $this.theme.itemSeparator,
+                        imgFilePath : modelAssets["currencyPacks"][this.model.id]
+                    };
                 },
                 css             : { "background-image" : "url('" + this.theme.pages.currencyPacks.listItem.balanceBackground + "')" }
             });
