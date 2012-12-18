@@ -46,7 +46,7 @@
         "balance" : {
             "style" : "top: 30px; left: 15px; width: 100px; text-align: right; color: #FFF;"
         },
-        "background" : "../theme/img/BG_BG.png",
+        "background" : "../theme/img/BG_BG.jpg",
         "headerBackground" : "",
         "noFundsModal" : {
             "background" : "../theme/img/Alert-22.png"
