@@ -2,7 +2,7 @@
     "currencyPacks" : [
         {
             "name"              : "COIN BOOSTER PACK",
-            "itemId"            : "defaultCoins_10",
+            "itemId"            : "coin_booster_pack",
             "currency_itemId"   : "currency_coin",
             "productId"         : "coin_booster_pack",
             "price"             : 0.99,
