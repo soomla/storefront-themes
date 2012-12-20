@@ -7,8 +7,8 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             this.categoryViews  = [];
 
             var $this        = this,
+                currencies   = this.model.get("virtualCurrencies"),
                 categories   = this.model.get("categories"),
-                virtualGoods = this.model.get("virtualGoods"),
                 modelAssets  = this.model.get("modelAssets");
 
 
@@ -56,8 +56,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             });
 
             categories.each(function(category) {
-                var categoryGoods = virtualGoods.filter(function(item) {return item.get("categoryId") == category.id});
-                categoryGoods = new Backbone.Collection(categoryGoods);
+                categoryGoods = category.get("goods");
                 var view;
 
                 if (category.get("name") != "FRIENDS") {
@@ -90,7 +89,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             });
             this.currencyPacksView = new Components.CollectionListView({
                 className           : "items currencyPacks",
-                collection          : this.model.get("currencyPacks"),
+                collection          : currencies.at(0).get("packs"),
                 itemView            : CurrencyPackView
             }).on("selected", this.wantsToBuyCurrencyPacks);
 

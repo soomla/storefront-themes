@@ -33,8 +33,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             _.bindAll(this, "switch");
             this.dialogModel = this.theme.noFundsModal;
 
-            var virtualGoods    = this.model.get("virtualGoods"),
-                currencyPacks   = this.model.get("currencyPacks"),
+            var currencies 		= this.model.get("virtualCurrencies"),
                 categories      = this.model.get("categories"),
                 modelAssets     = this.model.get("modelAssets"),
                 templateHelpers = { images : this.theme.images },
@@ -115,17 +114,14 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             // as it is the first one visible when the store opens
             this.activeView = categoryMenuView;
 
-            // Render all categories with their internal lists
+            // Render all categories with goods
             categories.each(function(category) {
 
-                // Filter a collection goods associated with the current category
-                var categoryGoods   = virtualGoods.filter(function(item) {return item.get("categoryId") == category.id});
-                categoryGoods       = new Backbone.Collection(categoryGoods);
-                var categoryName    = category.get("name");
+                var categoryName = category.get("name");
 
                 var view = new Components.CollectionListView({
                     className   : "items virtualGoods category " + categoryName,
-                    collection  : categoryGoods,
+                    collection  : category.get("goods"),
                     itemView    : VirtualGoodView
                 }).on({
                     "itemview:buy"          : function(view) { $this.wantsToBuyVirtualGoods(view.model);},
@@ -140,7 +136,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             // Build currency packs category and add it to the page views
             var currencyPacksView = new Components.CollectionListView({
                 className   : "items currencyPacks category",
-                collection  : currencyPacks,
+                collection  : currencies.at(0).get("packs"),
                 itemView    : CurrencyPackView
             }).on("itemview:buy", function(view) { $this.wantsToBuyCurrencyPacks(view.model); });
             this.pageViews["GET COINS"] = currencyPacksView;

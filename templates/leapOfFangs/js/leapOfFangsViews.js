@@ -13,8 +13,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             this.dialogModel = this.theme.noFundsModal;
 
 
-            var virtualGoods    = this.model.get("virtualGoods"),
-                currencyPacks   = this.model.get("currencyPacks"),
+            var currencyPacks   = this.model.get("virtualCurrencies").at(0).get("packs"),
                 categories      = this.model.get("categories"),
                 modelAssets     = this.model.get("modelAssets"),
                 templateHelpers = { images : this.theme.images },
@@ -96,14 +95,11 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             this.categoryViews = {};
             categories.each(function(category) {
 
-                // Filter a collection of goods associated with the current category
-                var categoryGoods = virtualGoods.filter(function(item) {return item.get("categoryId") == category.id});
-                categoryGoods = new Backbone.Collection(categoryGoods);
                 var categoryName = category.get("name");
 
                 var view = new CarouselView({
                     id                  : categoryName,
-                    collection          : categoryGoods,
+                    collection          : category.get("goods"),
                     itemView            : VirtualGoodView,
                     templateHelpers     : templateHelpers
                 }).on("itemview:buy", function(view) { $this.wantsToBuyVirtualGoods(view.model); });
