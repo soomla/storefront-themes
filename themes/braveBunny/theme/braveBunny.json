@@ -3,7 +3,7 @@
         {
             "name"              : "2,500",
             "itemId"            : "2500",
-            "currency_itemId"   : "currency_defaultCoin",
+            "currency_itemId"   : "currency_coins",
             "productId"         : "2500_coins",
             "price"             : 0.99,
             "amount"            : 2500
@@ -11,7 +11,7 @@
         {
             "name"              : "25,000",
             "itemId"            : "25000",
-            "currency_itemId"   : "currency_defaultCoin",
+            "currency_itemId"   : "currency_coins",
             "productId"         : "android.test.purchased",
             "price"             : 4.99,
             "amount"            : 25000
@@ -19,7 +19,7 @@
         {
             "name"              : "75,000",
             "itemId"            : "75000",
-            "currency_itemId"   : "currency_defaultCoin",
+            "currency_itemId"   : "currency_coins",
             "productId"         : "75000_coins",
             "price"             : 9.99,
             "amount"            : 75000
@@ -29,7 +29,7 @@
         {
             "name"          : "Coins",
             "description"   : "",
-            "itemId"        : "currency_defaultCoin"
+            "itemId"        : "currency_coins"
         }
     ],
     "categories" : [
@@ -53,7 +53,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_defaultCoin" : 500
+                    "currency_coins" : 500
                 }
             },
             "itemId"        : "bomb",
@@ -65,7 +65,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_defaultCoin" : 500
+                    "currency_coins" : 500
                 }
             },
             "itemId"        : "extra_life",
@@ -77,7 +77,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_defaultCoin" : 750
+                    "currency_coins" : 750
                 }
             },
             "itemId"        : "sack",
@@ -89,7 +89,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_defaultCoin" : 750
+                    "currency_coins" : 750
                 }
             },
             "itemId"        : "trampoline",
@@ -101,7 +101,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_defaultCoin" : 750
+                    "currency_coins" : 750
                 }
             },
             "itemId"        : "anchor",
@@ -113,7 +113,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_defaultCoin" : 750
+                    "currency_coins" : 750
                 }
             },
             "itemId"        : "safety_net",
@@ -125,7 +125,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_defaultCoin" : 750
+                    "currency_coins" : 750
                 }
             },
             "itemId"        : "umbrella",
@@ -137,7 +137,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_defaultCoin" : 10000
+                    "currency_coins" : 10000
                 }
             },
             "itemId"        : "baxter",
@@ -149,7 +149,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_defaultCoin" : 10000
+                    "currency_coins" : 10000
                 }
             },
             "itemId"        : "butch",
@@ -161,7 +161,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_defaultCoin" : 10000
+                    "currency_coins" : 10000
                 }
             },
             "itemId"        : "lulu",

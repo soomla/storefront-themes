@@ -3,7 +3,7 @@
         {
             "name"              : "2,500",
             "itemId"            : "2500",
-            "currency_itemId"   : "currency_defaultCoin",
+            "currency_itemId"   : "currency_coins",
             "productId"         : "2500_coins",
             "price"             : 0.99,
             "amount"            : 2500
@@ -11,7 +11,7 @@
         {
             "name"              : "25,000",
             "itemId"            : "25000",
-            "currency_itemId"   : "currency_defaultCoin",
+            "currency_itemId"   : "currency_coins",
             "productId"         : "android.test.purchased",
             "price"             : 4.99,
             "amount"            : 25000
@@ -19,7 +19,7 @@
         {
             "name"              : "75,000",
             "itemId"            : "75000",
-            "currency_itemId"   : "currency_defaultCoin",
+            "currency_itemId"   : "currency_coins",
             "productId"         : "75000_coins",
             "price"             : 9.99,
             "amount"            : 75000
@@ -27,7 +27,7 @@
         {
             "name"              : "200,000",
             "itemId"            : "200000",
-            "currency_itemId"   : "currency_defaultCoin",
+            "currency_itemId"   : "currency_coins",
             "productId"         : "200000_coins",
             "price"             : 19.99,
             "amount"            : 200000
@@ -37,7 +37,7 @@
         {
             "name"          : "Coins",
             "description"   : "",
-            "itemId"        : "currency_defaultCoin"
+            "itemId"        : "currency_coins"
         }
     ],
     "categories" : [
@@ -61,7 +61,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_defaultCoin" : 500
+                    "currency_coins" : 500
                 }
             },
             "itemId"        : "coin_magnet",
@@ -73,7 +73,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_defaultCoin" : 500
+                    "currency_coins" : 500
                 }
             },
             "itemId"        : "mega_coin",
@@ -85,7 +85,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_defaultCoin" : 750
+                    "currency_coins" : 750
                 }
             },
             "itemId"        : "magic_portal",
@@ -97,7 +97,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_defaultCoin" : 750
+                    "currency_coins" : 750
                 }
             },
             "itemId"        : "glider_1",
@@ -109,7 +109,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_defaultCoin" : 750
+                    "currency_coins" : 750
                 }
             },
             "itemId"        : "glider_2",
@@ -121,7 +121,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_defaultCoin" : 10000
+                    "currency_coins" : 10000
                 }
             },
             "itemId"        : "kasey",
@@ -133,7 +133,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_defaultCoin" : 10000
+                    "currency_coins" : 10000
                 }
             },
             "itemId"        : "robert_din",
@@ -145,7 +145,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_defaultCoin" : 10000
+                    "currency_coins" : 10000
                 }
             },
             "itemId"        : "lian",
@@ -156,7 +156,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_defaultCoin" : 25000
+                    "currency_coins" : 25000
                 }
             },
             "itemId"        : "sir_james",
@@ -168,7 +168,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_defaultCoin" : 25000
+                    "currency_coins" : 25000
                 }
             },
             "itemId"        : "tod",

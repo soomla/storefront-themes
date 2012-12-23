@@ -31,7 +31,7 @@
             "200000" : "../theme/img/CurrencyPacks/GetCoins_4.png"
         },
         "virtualCurrencies" : {
-            "currency_defaultCoin" : "../theme/img/Item_Price.png"
+            "currency_coins" : "../theme/img/Item_Price.png"
         }
     },
     "theme" : {
