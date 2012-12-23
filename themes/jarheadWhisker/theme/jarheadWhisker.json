@@ -3,7 +3,7 @@
         {
             "name"              : "COIN BOOSTER PACK",
             "itemId"            : "coin_booster_pack",
-            "currency_itemId"   : "currency_coin",
+            "currency_itemId"   : "currency_coins",
             "productId"         : "coin_booster_pack",
             "price"             : 0.99,
             "amount"            : 20000
@@ -11,7 +11,7 @@
         {
             "name"              : "COIN MEGA PACK",
             "itemId"            : "coin_mega_pack",
-            "currency_itemId"   : "currency_coin",
+            "currency_itemId"   : "currency_coins",
             "productId"         : "android.test.purchased",
             "price"             : 1.99,
             "amount"            : 50000
@@ -19,7 +19,7 @@
         {
             "name"              : "COIN ULTRA PACK",
             "itemId"            : "coin_ultra_pack",
-            "currency_itemId"   : "currency_coin",
+            "currency_itemId"   : "currency_coins",
             "productId"         : "coin_ultra_pack",
             "price"             : 2.99,
             "amount"            : 100000
@@ -27,7 +27,7 @@
         {
             "name"              : "COIN JUMBO PACK",
             "itemId"            : "coin_jumbo_pack",
-            "currency_itemId"   : "currency_coin",
+            "currency_itemId"   : "currency_coins",
             "productId"         : "coin_jumbo_pack",
             "price"             : 4.99,
             "amount"            : 250000
@@ -37,7 +37,7 @@
         {
             "name"          : "COIN PACKS",
             "description"   : "",
-            "itemId"        : "currency_coin"
+            "itemId"        : "currency_coins"
         }
     ],
     "virtualGoods" : [
@@ -49,7 +49,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 250
+                    "currency_coins" : 250
                     }
             }
         },
@@ -61,7 +61,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 500
+                    "currency_coins" : 500
                 }
             }
         },       
@@ -73,7 +73,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 1000
+                    "currency_coins" : 1000
                 }
             }
         },  
@@ -85,7 +85,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 5000
+                    "currency_coins" : 5000
                 }
             }
         },       
@@ -97,7 +97,7 @@
              "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 375
+                    "currency_coins" : 375
                 }
              }
         },
@@ -109,7 +109,7 @@
              "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 525
+                    "currency_coins" : 525
                 }
             }
         },
@@ -121,7 +121,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 2250
+                    "currency_coins" : 2250
                 }
             }
         },
@@ -133,7 +133,7 @@
              "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 525
+                    "currency_coins" : 525
                 }
             }
         },
@@ -145,7 +145,7 @@
              "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 500
+                    "currency_coins" : 500
                 }
             }
         },
@@ -157,7 +157,7 @@
              "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 1000
+                    "currency_coins" : 1000
                 }
             }
         },
@@ -169,7 +169,7 @@
              "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 2500
+                    "currency_coins" : 2500
                 }
             }
         },
@@ -181,7 +181,7 @@
              "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 5000
+                    "currency_coins" : 5000
                 }
             }
         },
@@ -193,7 +193,7 @@
              "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 5000
+                    "currency_coins" : 5000
                 }
             }
         },
@@ -205,7 +205,7 @@
              "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 15000
+                    "currency_coins" : 15000
                 }
             }
         },
@@ -217,7 +217,7 @@
              "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 5000
+                    "currency_coins" : 5000
                 }
             }
         },
@@ -229,7 +229,7 @@
              "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 5000
+                    "currency_coins" : 5000
                 }
             }
         },
@@ -241,7 +241,7 @@
              "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 5000
+                    "currency_coins" : 5000
                 }
             }
         },
@@ -253,7 +253,7 @@
              "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 5000
+                    "currency_coins" : 5000
                 }
             }
         }

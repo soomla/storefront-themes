@@ -26,7 +26,7 @@
             "1000_coins" : "../theme/img/CurrencyPacks/CurrencyPack4.png"
         },
         "virtualCurrencies" : {
-            "currency_coin" : "../theme/img/Coin.png"
+            "currency_coins" : "../theme/img/Coin.png"
         }
     },
     "theme" : {

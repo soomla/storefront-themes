@@ -41,7 +41,7 @@
 			"coin_jumbo_pack" : "../theme/img/coins/objects-04.png"
         },
         "virtualCurrencies" : {
-            "currency_coin" : "../theme/img/coin.png"
+            "currency_coins" : "../theme/img/coin.png"
         }
     },
     "theme" : {

@@ -39,7 +39,7 @@
 			"coin_mambo_pack" : "../theme/img/coins/objects-05.png"
         },
         "virtualCurrencies" : {
-            "currency_coin" : "../theme/img/coin.png"
+            "currency_coins" : "../theme/img/coin.png"
         }
     },
     "theme" : {

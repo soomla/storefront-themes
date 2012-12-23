@@ -3,7 +3,7 @@
         {
             "name"              : "Banana Pack",
             "itemId"            : "banana_pack",
-            "currency_itemId"   : "currency_coin",
+            "currency_itemId"   : "currency_coins",
             "productId"         : "coin_booster_pack",
             "price"             : 0.99,
             "amount"            : 20000
@@ -11,7 +11,7 @@
         {
             "name"              : "Banana Basket",
             "itemId"            : "banana_basket",
-            "currency_itemId"   : "currency_coin",
+            "currency_itemId"   : "currency_coins",
             "productId"         : "android.test.purchased",
             "price"             : 1.99,
             "amount"            : 50000
@@ -19,7 +19,7 @@
         {
             "name"              : "Banana Tree",
             "itemId"            : "banana_tree",
-            "currency_itemId"   : "currency_coin",
+            "currency_itemId"   : "currency_coins",
             "productId"         : "coin_ultra_pack",
             "price"             : 2.99,
             "amount"            : 100000
@@ -29,7 +29,7 @@
         {
             "name"          : "COINS",
             "description"   : "",
-            "itemId"        : "currency_coin"
+            "itemId"        : "currency_coins"
         }
     ],
     "virtualGoods" : [
@@ -41,7 +41,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 250
+                    "currency_coins" : 250
                     }
             }
         },
@@ -53,7 +53,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 250
+                    "currency_coins" : 250
                     }
             }
         },
@@ -65,7 +65,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 250
+                    "currency_coins" : 250
                     }
             }
         },
@@ -77,7 +77,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 500
+                    "currency_coins" : 500
                 }
             }
         },       
@@ -89,7 +89,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 500
+                    "currency_coins" : 500
                 }
             }
         },    
@@ -101,7 +101,7 @@
             "priceModel"    : {
                 "type" : "static",
                 "values" :{
-                    "currency_coin" : 500
+                    "currency_coins" : 500
                 }
             }
         }

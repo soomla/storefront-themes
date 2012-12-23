@@ -39,7 +39,7 @@
             "coin_ultimate_pack" : "../theme/img/coins/objects-02.png"
         },
         "virtualCurrencies" : {
-            "currency_coin" : "../theme/img/coin.png"
+            "currency_coins" : "../theme/img/coin.png"
         }
     },
     "theme" : {

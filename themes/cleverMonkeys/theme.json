@@ -25,7 +25,7 @@
             "banana_tree" : "../theme/img/coins/objects-03.png"
         },
         "virtualCurrencies" : {
-             "currency_coin" : "../theme/img/coin.png"
+             "currency_coins" : "../theme/img/coin.png"
         }
     },
     "theme" : {
