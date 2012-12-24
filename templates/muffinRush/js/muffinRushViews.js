@@ -65,3 +65,6 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
         StoreView : StoreView
     };
 });
+
+// grunt-rigger directive:
+//= handlebars-templates
