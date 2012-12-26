@@ -144,9 +144,9 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                     collection  : category.get("goods"),
                     itemView    : VirtualGoodView
                 }).on({
-                    "itemview:buy"          : function(view) { $this.wantsToBuyVirtualGoods(view.model);},
-                    "itemview:equipped"     : function(view) { $this.wantsToEquipGoods(view.model);     },
-                    "itemview:unequipped"   : function(view) { $this.wantsToUnequipGoods(view.model);   }
+                    "itemview:buy"          : function(view) {  $this.playSound().wantsToBuyVirtualGoods(view.model);   },
+                    "itemview:equipped"     : function(view) {  $this.playSound().wantsToEquipGoods(view.model);        },
+                    "itemview:unequipped"   : function(view) {  $this.playSound().wantsToUnequipGoods(view.model);      }
                 });
 
                 $this.pageViews[categoryName] = view;
