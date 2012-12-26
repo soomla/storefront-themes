@@ -147,8 +147,8 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                     collection  : category.get("goods"),
                     itemView    : VirtualGoodView
                 }).on({
-                    "itemview:expanded"     : this.playSound,
-                    "itemview:collapsed"    : this.playSound,
+                    "itemview:expanded"     : $this.playSound,
+                    "itemview:collapsed"    : $this.playSound,
                     "itemview:buy"          : function(view) {  $this.playSound().wantsToBuyVirtualGoods(view.model);   },
                     "itemview:equipped"     : function(view) {  $this.playSound().wantsToEquipGoods(view.model);        },
                     "itemview:unequipped"   : function(view) {  $this.playSound().wantsToUnequipGoods(view.model);      }
