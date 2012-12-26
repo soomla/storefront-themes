@@ -94,7 +94,9 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 className   : "menu items clearfix",
                 collection  : categories,
                 itemView    : CategoryView
-            }).on("itemview:selected", function(view) { this.switch(view.model.get("name")); }, this);
+            }).on("itemview:selected", function(view) {
+                this.playSound().switch(view.model.get("name"));
+            }, this);
             this.pageViews["menu"]  = categoryMenuView;
 
 
@@ -107,7 +109,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 model : new categories.model({ name : "GET COINS" }),
                 templateHelpers : { imgFilePath : this.theme.currencyPacksCategoryImage }
             }).on("selected", function() {
-                this.switch(this.currencyPacksLink.model.get("name"));
+                this.playSound().switch(this.currencyPacksLink.model.get("name"));
             }, this);
 
             // Create views for the earned currency links from the category menu.
@@ -123,6 +125,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                     model : new categories.model(earnedCurrency),
                     templateHelpers : { imgFilePath : earnedCurrency.imgFilePath }
                 }).on("selected", function() {
+                    $this.playSound();
                     $this.nativeAPI.requestEarnedCurrency(this.model.get("provider"));
                 });
 
@@ -144,6 +147,8 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                     collection  : category.get("goods"),
                     itemView    : VirtualGoodView
                 }).on({
+                    "itemview:expanded"     : this.playSound,
+                    "itemview:collapsed"    : this.playSound,
                     "itemview:buy"          : function(view) {  $this.playSound().wantsToBuyVirtualGoods(view.model);   },
                     "itemview:equipped"     : function(view) {  $this.playSound().wantsToEquipGoods(view.model);        },
                     "itemview:unequipped"   : function(view) {  $this.playSound().wantsToUnequipGoods(view.model);      }
@@ -158,7 +163,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 className   : "items currencyPacks category",
                 collection  : currencies.at(0).get("packs"),
                 itemView    : CurrencyPackView
-            }).on("itemview:buy", function(view) { $this.wantsToBuyCurrencyPacks(view.model); });
+            }).on("itemview:buy", function(view) { $this.playSound().wantsToBuyCurrencyPacks(view.model); });
             this.pageViews["GET COINS"] = currencyPacksView;
 
 
