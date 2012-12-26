@@ -9,7 +9,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
-            _.bindAll(this, "changeTitle", "showCurrencyStore");
+            _.bindAll(this, "changeTitle", "showCurrencyStore", "leaveStore");
             this.dialogModel = this.theme.noFundsModal;
 
 
@@ -79,6 +79,8 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                     this.$("li:first").addClass("active");
                 }
             }).on("itemview:selected", function(view) {
+                $this.playSound();
+
                 view.$("a").tab("show");
                 var name = view.model.get("name");
 
@@ -102,7 +104,11 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                     collection          : category.get("goods"),
                     itemView            : VirtualGoodView,
                     templateHelpers     : templateHelpers
-                }).on("itemview:buy", function(view) { $this.wantsToBuyVirtualGoods(view.model); });
+                }).on({
+                    "next"              : $this.playSound,
+                    "previous"          : $this.playSound,
+                    "itemview:buy"      : function(view) { $this.playSound().wantsToBuyVirtualGoods(view.model); }
+                });
 
                 $this.categoryViews[categoryName] = view;
             });
@@ -115,7 +121,11 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 collection          : currencyPacks,
                 itemView            : CurrencyPackView,
                 templateHelpers     : templateHelpers
-            }).on("itemview:buy", function(view) { $this.wantsToBuyCurrencyPacks(view.model); });
+            }).on({
+                "next"              : this.playSound,
+                "previous"          : this.playSound,
+                "itemview:buy"      : function(view) { $this.playSound().wantsToBuyCurrencyPacks(view.model); }
+            });
             this.categoryViews[this.currencyPacksId] = this.currencyPacksView;
 
             // Set the active view to be the first category's view
@@ -145,7 +155,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             this.changeTitle(this.model.get("categories").at(0).get("name"));
 
             // Attach event handler to quit button
-            this.$("#quit").click(this.wantsToLeaveStore);
+            this.$("#quit").click(this.leaveStore);
 
             // Render category menu
             this.categoryMenu.setElement("#category-menu").render();
@@ -155,6 +165,9 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 $this.$("#categories").append(view.render().el);
             });
             this.$("#categories > div:first").addClass("active");
+        },
+        leaveStore : function() {
+            this.playSound().wantsToLeaveStore();
         },
         zoomFunction : function() {
             return (innerHeight / innerWidth) > 1.5 ? (innerWidth / 720) : (innerHeight / 1280);

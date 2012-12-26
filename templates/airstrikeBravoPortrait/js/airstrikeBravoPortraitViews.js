@@ -30,7 +30,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
-            _.bindAll(this, "switch");
+            _.bindAll(this, "switch", "leaveStore");
             this.dialogModel = this.theme.noFundsModal;
 
             var currencies 		= this.model.get("virtualCurrencies"),
@@ -142,13 +142,19 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 className   : "items currencyPacks category",
                 collection  : currencies.at(0).get("packs"),
                 itemView    : CurrencyPackView
-            }).on("itemview:buy", function(view) { $this.playSound().wantsToBuyCurrencyPacks(view.model); });
+            }).on({
+                "itemview:expanded"     : $this.playSound,
+                "itemview:collapsed"    : $this.playSound,
+                "itemview:buy" : function(view) { $this.playSound().wantsToBuyCurrencyPacks(view.model); }
+            });
             this.pageViews["GET COINS"] = currencyPacksView;
 
 
             // Build header view
             this.header = new HeaderView().on({
                 back : function() {
+                    this.playSound();
+
                     // First, collapse all list items that are open
                     _.each(this.activeView.children, function(view) {
                         if (view.expanded) view.collapse();
@@ -157,7 +163,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                     // Second, switch back to the menu
                     this.switch("menu");
                 },
-                quit : this.wantsToLeaveStore
+                quit : this.leaveStore
             }, this);
         },
         switch : function(name) {
@@ -188,6 +194,9 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             if (isMobile.iOS()) {
                 this.$(".item .description").css("line-height", "70px");
             }
+        },
+        leaveStore : function() {
+            this.playSound().wantsToLeaveStore();
         },
         zoomFunction : function() {
             return (innerHeight / innerWidth) > 1.5 ? (innerWidth / 640) : (innerHeight / 960);

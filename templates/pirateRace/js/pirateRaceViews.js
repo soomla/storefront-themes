@@ -2,7 +2,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
-            _.bindAll(this, "showCurrencyStore", "showGoodsStore");
+            _.bindAll(this, "showCurrencyStore", "showGoodsStore", "leaveStore");
             this.dialogModel    = this.theme.pages.goods.noFundsModal;
             this.categoryViews  = [];
 
@@ -64,16 +64,16 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                         collection          : categoryGoods,
                         itemView            : VirtualGoodView,
                         templateHelpers     :_.extend({category : category.get("name")}, $this.theme.categories)
-                    }).on("buy", $this.wantsToBuyVirtualGoods);
+                    }).on("buy", function(model) { $this.playSound().wantsToBuyVirtualGoods(model); });
                 } else {
                     view = new SectionedListView({
                         collection          : categoryGoods,
                         itemView            : EquippableVirtualGoodView,
                         templateHelpers     :_.extend({category : category.get("name")}, $this.theme.categories)
                     }).on({
-                        "buy" : $this.wantsToBuyVirtualGoods,
+                        "buy" : function(model) { $this.playSound().wantsToBuyVirtualGoods(model); },
                         "itemview:equip" : function(view) {
-                            $this.wantsToEquipGoods(view.model);
+                            $this.playSound().wantsToEquipGoods(view.model);
                         },
                         "itemview:equipped" : function(view) {
 
@@ -91,11 +91,13 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 className           : "items currencyPacks",
                 collection          : currencies.at(0).get("packs"),
                 itemView            : CurrencyPackView
-            }).on("selected", this.wantsToBuyCurrencyPacks);
+            }).on("selected", function() {
+                this.playSound().wantsToBuyCurrencyPacks(model);
+            }, this);
 
         },
         events : {
-            "touchend .leave-store" : "wantsToLeaveStore",
+            "touchend .leave-store" : "leaveStore",
             "touchend .buy-more"    : "showCurrencyStore",
             "touchend .back"        : "showGoodsStore"
         },
@@ -103,6 +105,8 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             this.$(".balance-container label").html(model.get("balance"));
         },
         showCurrencyStore : function() {
+            this.playSound();
+
             // When this flag is raised, there is no connectivity,
             // thus don't show the currency store
             if (this.model.get("isCurrencyStoreDisabled")) {
@@ -113,8 +117,12 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             }
         },
         showGoodsStore : function() {
+            this.playSound();
             this.$("#currency-store").hide();
             this.$("#goods-store").show();
+        },
+        leaveStore : function() {
+            this.playSound().wantsToLeaveStore();
         },
         onRender : function() {
             var $this = this;
