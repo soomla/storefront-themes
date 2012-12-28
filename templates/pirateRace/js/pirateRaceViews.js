@@ -8,13 +8,14 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
             var $this        = this,
                 currencies   = this.model.get("virtualCurrencies"),
-                categories   = this.model.get("categories"),
-                modelAssets  = this.model.get("modelAssets");
+                categories   = this.model.get("categories");
 
 
             var sharedGoodsOptions = {
                 template        : Handlebars.getTemplate("item"),
                 templateHelpers : function() {
+
+                    var modelAssets = $this.model.get("modelAssets");
                     return _.extend({
                         imgFilePath : modelAssets["virtualGoods"][this.model.id],
                         currency : {
@@ -38,11 +39,13 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             var CurrencyPackView = Components.ListItemView.extend({
                 template        : Handlebars.getTemplate("currencyPack"),
                 templateHelpers : function() {
+
+                    var modelAssets = $this.model.get("modelAssets");
                     return {
                         nameStyle       : $this.theme.pages.currencyPacks.listItem.nameStyle,
                         priceStyle      : $this.theme.pages.currencyPacks.listItem.priceStyle,
                         itemSeparator   : $this.theme.itemSeparator,
-                        imgFilePath : modelAssets["currencyPacks"][this.model.id]
+                        imgFilePath     : modelAssets["currencyPacks"][this.model.id]
                     };
                 },
                 css             : { "background-image" : "url('" + this.theme.pages.currencyPacks.listItem.balanceBackground + "')" }

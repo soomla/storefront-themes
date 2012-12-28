@@ -15,7 +15,6 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
             var currencyPacks   = this.model.get("virtualCurrencies").at(0).get("packs"),
                 categories      = this.model.get("categories"),
-                modelAssets     = this.model.get("modelAssets"),
                 templateHelpers = { images : this.theme.images },
                 $this           = this;
 
@@ -28,6 +27,8 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 triggers        : triggers,
                 template        : Handlebars.getTemplate("item"),
                 templateHelpers : function() {
+
+                    var modelAssets = $this.model.get("modelAssets");
                     return _.extend({
                         imgFilePath : modelAssets["virtualGoods"][this.model.id],
                         currency : {
@@ -43,6 +44,8 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 triggers        : triggers,
                 template        : Handlebars.getTemplate("currencyPack"),
                 templateHelpers : function() {
+
+                    var modelAssets = $this.model.get("modelAssets");
                     return _.extend({
                         imgFilePath : modelAssets["currencyPacks"][this.model.id],
                         currency : {
@@ -55,6 +58,8 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             var CategoryMenuItemView = Components.ListItemView.extend({
                 template        : Handlebars.getTemplate("categoryMenuItem"),
                 templateHelpers : function() {
+
+                    var modelAssets = $this.model.get("modelAssets");
                     return {
                         imgFilePath : modelAssets["categories"][this.model.id]
                     };
