@@ -30,7 +30,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
-            _.bindAll(this, "switch", "leaveStore");
+            _.bindAll(this, "switchToPage", "leaveStore");
             this.dialogModel = this.theme.noFundsModal;
 
             var currencies 		= this.model.get("virtualCurrencies"),
@@ -100,7 +100,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 collection  : categories,
                 itemView    : CategoryView
             }).on("itemview:selected", function(view) {
-                this.playSound().switch(view.model.get("name"));
+                this.playSound().switchToPage(view.model.get("name"));
             }, this);
             this.pageViews["menu"]  = categoryMenuView;
 
@@ -114,7 +114,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 model : new categories.model({ name : "GET COINS" }),
                 templateHelpers : { imgFilePath : this.theme.currencyPacksCategoryImage }
             }).on("selected", function() {
-                this.playSound().switch(this.currencyPacksLink.model.get("name"));
+                this.playSound().switchToPage(this.currencyPacksLink.model.get("name"));
             }, this);
 
             // Mark this view as the active view,
@@ -166,12 +166,12 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                     });
 
                     // Second, switch back to the menu
-                    this.switch("menu");
+                    this.switchToPage("menu");
                 },
                 quit : this.leaveStore
             }, this);
         },
-        switch : function(name) {
+        switchToPage : function(name) {
             this.header.state = name;
             this.activeView.$el.hide();
             this.activeView = this.pageViews[name];
