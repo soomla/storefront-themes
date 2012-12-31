@@ -95,7 +95,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 collection          : currencies.at(0).get("packs"),
                 itemView            : CurrencyPackView
             }).on("selected", function(model) {
-                this.playSound().wantsToBuyCurrencyPacks(model);
+                this.playSound().wantsToBuyMarketItem(model);
             }, this);
 
         },

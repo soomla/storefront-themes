@@ -129,7 +129,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             }).on({
                 "next"              : this.playSound,
                 "previous"          : this.playSound,
-                "itemview:buy"      : function(view) { $this.playSound().wantsToBuyCurrencyPacks(view.model); }
+                "itemview:buy"      : function(view) { $this.playSound().wantsToBuyMarketItem(view.model); }
             });
             this.categoryViews[this.currencyPacksId] = this.currencyPacksView;
 

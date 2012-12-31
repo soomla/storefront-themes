@@ -22,7 +22,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 className           : "items currencyPacks",
                 collection          : this.model.get("currencyPacks"),
                 itemView            : CurrencyPackView
-            }).on("selected", this.wantsToBuyCurrencyPacks);
+            }).on("selected", this.wantsToBuyMarketItem);
 
             this.children = {
                 "#goods-store .items-container" : virtualGoodsView,

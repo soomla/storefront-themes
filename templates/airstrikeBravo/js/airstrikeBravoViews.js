@@ -171,7 +171,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             }).on({
                 "itemview:expanded"     : $this.playSound,
                 "itemview:collapsed"    : $this.playSound,
-                "itemview:buy" : function(view) { $this.playSound().wantsToBuyCurrencyPacks(view.model); }
+                "itemview:buy" : function(view) { $this.playSound().wantsToBuyMarketItem(view.model); }
             });
             this.pageViews["GET COINS"] = currencyPacksView;
 
