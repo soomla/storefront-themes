@@ -35,6 +35,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
             var currencies 		= this.model.get("virtualCurrencies"),
                 categories      = this.model.get("categories"),
+                nonConsumables  = this.model.get("nonConsumables"),
                 templateHelpers = { images : this.theme.images },
                 $this           = this;
 
@@ -88,7 +89,16 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                     };
                 }
             });
+            var NonConsumableView = Components.BuyOnlyItemView.extend({
+                template        : Handlebars.getTemplate("categoryMenuItem"),
+                templateHelpers : function() {
 
+                    var modelAssets = $this.model.get("modelAssets");
+                    return {
+                        imgFilePath : modelAssets["nonConsumables"][this.model.id]
+                    };
+                }
+            });
 
 
             // Create an object to store all child views
@@ -116,6 +126,46 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             }).on("selected", function() {
                 this.playSound().switchToPage(this.currencyPacksLink.model.get("name"));
             }, this);
+
+            // Create views for the earned currency links from the category menu.
+            // We're using a CategoryView, because visually the button should look the same, even though
+            // it doesn't represent an actual category.  This view will be force-appended to the
+            // categories view when rendering
+            this.nonConsumbaleLinks = [];
+
+            nonConsumables.each(function(nonConsumable) {
+
+                var view = new NonConsumableView({
+                    className : "item non-consumable",
+                    model : nonConsumable
+                }).on("buy", function() {
+                    $this.playSound();
+                    $this.wantsToBuyMarketItem(this.model);
+                });
+
+                $this.nonConsumbaleLinks.push(view);
+            });
+
+            // Create views for the earned currency links from the category menu.
+            // We're using a CategoryView, because visually the button should look the same, even though
+            // it doesn't represent an actual category.  This view will be force-appended to the
+            // categories view when rendering
+            this.earnedCurrencyLinks = [];
+
+            _.each(this.theme.earnedCurrencies, function(earnedCurrency) {
+
+                var earnedCurrency = new CategoryView({
+                    className : "item earned-currency",
+                    model : new categories.model(earnedCurrency),
+                    templateHelpers : { imgFilePath : earnedCurrency.imgFilePath }
+                }).on("selected", function() {
+                    $this.playSound();
+                    $this.nativeAPI.requestEarnedCurrency(this.model.get("provider"));
+                });
+
+                $this.earnedCurrencyLinks.push(earnedCurrency);
+            });
+
 
             // Mark this view as the active view,
             // as it is the first one visible when the store opens
@@ -195,6 +245,15 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             // Append the link to the currency packs as a "category view"
             this.pageViews.menu.$el.append(this.currencyPacksLink.render().el);
 
+            // Append links to earned currencies as "category views"
+            _.each(this.earnedCurrencyLinks, function(view) {
+                $this.pageViews.menu.$el.append(view.render().el);
+            });
+
+            // Append non consumable items as "category views"
+            _.each(this.nonConsumbaleLinks, function(view) {
+                $this.pageViews.menu.$el.append(view.render().el);
+            });
             // iPhone hack for problematic description line height
             if (isMobile.iOS()) {
                 this.$(".item .description").css("line-height", "70px");

@@ -6,9 +6,10 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             this.dialogModel    = this.theme.pages.goods.noFundsModal;
             this.categoryViews  = [];
 
-            var $this        = this,
-                currencies   = this.model.get("virtualCurrencies"),
-                categories   = this.model.get("categories");
+            var $this           = this,
+                currencies      = this.model.get("virtualCurrencies"),
+                categories      = this.model.get("categories"),
+                nonConsumables  = this.model.get("nonConsumables");
 
 
             var sharedGoodsOptions = {
@@ -50,6 +51,21 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 },
                 css             : { "background-image" : "url('" + this.theme.pages.currencyPacks.listItem.balanceBackground + "')" }
             });
+
+            var NonConsumableView = Components.BuyOnlyItemView.extend({
+                template        : Handlebars.getTemplate("currencyPack"),
+                templateHelpers : function() {
+
+                    var modelAssets = $this.model.get("modelAssets");
+                    return {
+                        nameStyle       : $this.theme.pages.currencyPacks.listItem.nameStyle,
+                        priceStyle      : $this.theme.pages.currencyPacks.listItem.priceStyle,
+                        itemSeparator   : $this.theme.itemSeparator,
+                        imgFilePath     : modelAssets["nonConsumables"][this.model.id]
+                    };
+                }
+            });
+
 
             var SectionedListView = Marionette.CompositeView.extend({
                 tagName             : "div",
@@ -98,6 +114,14 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 this.playSound().wantsToBuyMarketItem(model);
             }, this);
 
+            this.nonConsumablesView = new Components.CollectionListView({
+                className           : "items nonConsumables",
+                collection          : nonConsumables,
+                itemView            : NonConsumableView
+            }).on("itemview:buy", function(view) {
+                this.playSound().wantsToBuyMarketItem(view.model);
+            }, this);
+
         },
         events : {
             "touchend .leave-store" : "leaveStore",
@@ -135,7 +159,8 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             _.each(this.categoryViews, function(view) {
                 $this.$("#goods-store .items-container").append(view.render().el);
             });
-            this.$("#currency-store .items-container").html(this.currencyPacksView.render().el);
+            this.$("#currency-store .currency-packs").html(this.currencyPacksView.render().el);
+            this.$("#currency-store .non-consumables").html(this.nonConsumablesView.render().el);
         },
         zoomFunction : function() {
             return Math.min(innerWidth / 560, 1);

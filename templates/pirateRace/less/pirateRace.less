@@ -178,7 +178,7 @@ ul {
 // SINGLE LIST ITEMS - CURRENCY PACKS
 // --------------------------------------------------
 
-.currencyPacks .item {
+.currencyPacks .item, .nonConsumables .item {
     @totalHeight: 100px;
     @visualWidth: 180px;
     background-position: center;
@@ -189,8 +189,8 @@ ul {
     // Currency pack image
     .visual {
         float: left;
-        width: @visualWidth;
-        height: @totalHeight;
+        max-width: @visualWidth;
+        max-height: @totalHeight;
     }
 
     // Amount & Price
