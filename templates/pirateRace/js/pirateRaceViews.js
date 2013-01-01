@@ -83,14 +83,14 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                         collection          : categoryGoods,
                         itemView            : VirtualGoodView,
                         templateHelpers     :_.extend({category : category.get("name")}, $this.theme.categories)
-                    }).on("buy", function(model) { $this.playSound().wantsToBuyVirtualGoods(model); });
+                    }).on("itemview:buy", function(view) { $this.playSound().wantsToBuyVirtualGoods(view.model); });
                 } else {
                     view = new SectionedListView({
                         collection          : categoryGoods,
                         itemView            : EquippableVirtualGoodView,
                         templateHelpers     :_.extend({category : category.get("name")}, $this.theme.categories)
                     }).on({
-                        "buy" : function(model) { $this.playSound().wantsToBuyVirtualGoods(model); },
+                        "itemview:buy" : function(view) { $this.playSound().wantsToBuyVirtualGoods(view.model); },
                         "itemview:equip" : function(view) {
                             $this.playSound().wantsToEquipGoods(view.model);
                         },
@@ -110,8 +110,8 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 className           : "items currencyPacks",
                 collection          : currencies.at(0).get("packs"),
                 itemView            : CurrencyPackView
-            }).on("selected", function(model) {
-                this.playSound().wantsToBuyMarketItem(model);
+            }).on("itemview:selected", function(view) {
+                this.playSound().wantsToBuyMarketItem(view.model);
             }, this);
 
             this.nonConsumablesView = new Components.CollectionListView({
