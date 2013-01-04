@@ -1,0 +1,12 @@
+{{#if owned}}
+<a class="owned">
+	<img src="{{imgFilePath}}">
+</a>
+{{else}}
+<a>
+	<img src="{{imgFilePath}}">
+</a>
+{{/if}}
+{{#if owned}}
+<img src="{{images.ownedIndicatorImage}}" class="owned-indicator">
+{{/if}}

@@ -89,14 +89,14 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                     };
                 }
             });
-            var NonConsumableView = Components.BuyOnlyItemView.extend({
-                template        : Handlebars.getTemplate("categoryMenuItem"),
+            var NonConsumableView = Components.BuyOnceItemView.extend({
+                template        : Handlebars.getTemplate("nonConsumableItem"),
                 templateHelpers : function() {
 
                     var modelAssets = $this.model.get("modelAssets");
-                    return {
+                    return _.extend({
                         imgFilePath : modelAssets["nonConsumables"][this.model.id]
-                    };
+                    }, templateHelpers);
                 }
             });
 

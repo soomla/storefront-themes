@@ -220,6 +220,29 @@ ul {
     max-height: 20px;
 }
 
+// SINGLE LIST ITEMS - NON CONSUMABLES
+// --------------------------------------------------
+
+.nonConsumables .item {
+
+    .visual-container {
+        float: left;
+        position: relative;
+
+        .visual {
+            &.owned {
+                opacity: 0.4;
+            }
+        }
+
+        .owned-indicator {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+    }
+}
+
 
 
 // MODAL DIALOG

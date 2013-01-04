@@ -1,0 +1,20 @@
+{{#if owned}}
+  <div class="visual-container">
+    <img src="{{imgFilePath}}" class="visual owned">
+    <img src="{{ownedIndicatorImage}}" class="owned-indicator">
+  </div>
+{{else}}
+  <div class="visual-container">
+    <img src="{{imgFilePath}}" class="visual">
+  </div>
+{{/if}}
+
+
+
+<div class="price">
+    <h1 style="{{nameStyle}}">{{name}}</h1>
+	{{#unless owned}}
+      <h2 style="{{priceStyle}}">{{price}}$</h2>
+	{{/unless}}
+</div>
+<img src="{{itemSeparator}}" class="separator">

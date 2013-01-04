@@ -52,16 +52,17 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 css             : { "background-image" : "url('" + this.theme.pages.currencyPacks.listItem.balanceBackground + "')" }
             });
 
-            var NonConsumableView = Components.BuyOnlyItemView.extend({
-                template        : Handlebars.getTemplate("currencyPack"),
+            var NonConsumableView = Components.BuyOnceItemView.extend({
+                template        : Handlebars.getTemplate("nonConsumableItem"),
                 templateHelpers : function() {
 
                     var modelAssets = $this.model.get("modelAssets");
                     return {
-                        nameStyle       : $this.theme.pages.currencyPacks.listItem.nameStyle,
-                        priceStyle      : $this.theme.pages.currencyPacks.listItem.priceStyle,
-                        itemSeparator   : $this.theme.itemSeparator,
-                        imgFilePath     : modelAssets["nonConsumables"][this.model.id]
+                        nameStyle           : $this.theme.pages.currencyPacks.listItem.nameStyle,
+                        priceStyle          : $this.theme.pages.currencyPacks.listItem.priceStyle,
+                        itemSeparator       : $this.theme.itemSeparator,
+                        ownedIndicatorImage : $this.theme.common.ownedIndicatorImage,
+                        imgFilePath         : modelAssets["nonConsumables"][this.model.id]
                     };
                 }
             });
