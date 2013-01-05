@@ -28,6 +28,9 @@
         },
         "virtualCurrencies" : {
             "currency_coins" : "../theme/img/Item_Price.png"
+        },
+	    "nonConsumables" : {
+		    "remove_ads" : "../theme/img/no-ads.png"
         }
     },
     "theme" : {
@@ -40,6 +43,7 @@
             "balanceImage" : "../theme/img/Header_Balance.png",
             "backButton" : "../theme/img/Back_BTN.png",
             "moreCurrencyButton" : "../theme/img/GetMore_BTN.png",
+	        "ownedIndicatorImage" : "../theme/img/owned.png",
             "balanceLabelStyle" : ""
         },
         "itemSeparator" : "../theme/img/Item_Seperator.png",

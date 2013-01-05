@@ -20,6 +20,7 @@
 			"collapseImage":"../theme/img/Arrow_Open.png",
 			"backImage":"../theme/img/back-button.png",
 			"quitImage":"../theme/img/quit-button.png",
+			"ownedIndicatorImage" : "../theme/img/owned.png",
 			"itemBackgroundImage":"../theme/img/BG_Product.png",
 			"itemBackgroundImageExpanded":"../theme/img/BG_Product_Ext.png"
 		},
@@ -71,6 +72,9 @@
 		},
 		"virtualCurrencies":{
 			"currency_coins":"../theme/img/nos.png"
+		},
+		"nonConsumables" : {
+			"remove_ads" : "../theme/img/no-ads.png"
 		}
 	}
 }

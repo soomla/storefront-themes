@@ -40,6 +40,9 @@
         },
         "virtualCurrencies" : {
             "currency_coins" : "../theme/img/coin.png"
+        },
+	    "nonConsumables" : {
+		    "remove_ads" : "../theme/img/no-ads.png"
         }
     },
     "theme" : {
@@ -63,6 +66,7 @@
             "collapseImage" : "../theme/img/Arrow_Open.png",
             "backImage" : "../theme/img/BACK.png",
             "quitImage" : "../theme/img/QUIT.png",
+	        "ownedIndicatorImage" : "../theme/img/owned.png",
             "itemBackgroundImage" : "../theme/img/BG_Product.png",
             "itemBackgroundImageExpanded" : "../theme/img/BG_Product_Ext.png"
         },

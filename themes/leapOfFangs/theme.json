@@ -27,6 +27,9 @@
         },
         "virtualCurrencies" : {
             "currency_coins" : "../theme/img/Coin.png"
+        },
+	    "nonConsumables" : {
+		    "remove_ads" : "../theme/img/no-ads.png"
         }
     },
     "theme" : {
@@ -54,7 +57,8 @@
             "previousImage" : "../theme/img/Previous.png",
             "nextImage" : "../theme/img/Next.png",
             "buyImage" : "../theme/img/Buy.png",
-            "quitImage" : "../theme/img/Quit.png"
+            "quitImage" : "../theme/img/Quit.png",
+	        "ownedIndicatorImage" : "../theme/img/owned.png"
         },
 	    "currencyPacksCategoryImage" : "../theme/img/Categories/Coins.png",
         "item" : {
