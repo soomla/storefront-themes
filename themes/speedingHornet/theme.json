@@ -66,6 +66,14 @@
             "itemBackgroundImage" : "../theme/img/BG_Product.png",
             "itemBackgroundImageExpanded" : "../theme/img/BG_Product_Ext.png"
         },
+	    "fonts" : [
+		    {
+			    "url" : "../theme/fonts/SpaceAge.ttf"
+		    },
+		    {
+			    "url" : "../theme/fonts/Orbitron-Medium.ttf"
+		    }
+	    ],
         "titleStyle" : "color: #FFF",
 	    "currencyPacksCategoryImage" : "../theme/img/-_Object_5.png",
         "pages" : {

@@ -60,6 +60,14 @@
             "itemBackgroundImage" : "../theme/img/BG_Product.png",
             "itemBackgroundImageExpanded" : "../theme/img/BG_Product_Ext.png"
         },
+	    "fonts" : [
+		    {
+			    "url" : "../theme/fonts/WendyOne-Regular.ttf"
+		    },
+		    {
+			    "url" : "../theme/fonts/FredokaOne-Regular.ttf"
+		    }
+	    ],
         "titleStyle" : "color: #FFF",
 	    "currencyPacksCategoryImage" : "../theme/img/-_Object_4.png",
         "pages" : {

@@ -70,6 +70,14 @@
             "itemBackgroundImage" : "../theme/img/BG_Product.png",
             "itemBackgroundImageExpanded" : "../theme/img/BG_Product_Ext.png"
         },
+	    "fonts" : [
+		    {
+			    "url" : "../theme/fonts/DeliusUnicase-Bold.ttf"
+		    },
+		    {
+			    "url" : "../theme/fonts/Abrila.ttf"
+		    }
+	    ],
         "titleStyle" : "color: #FFF",
 	    "currencyPacksCategoryImage" : "../theme/img/-_Object_5.png",
 	    "pages" : {

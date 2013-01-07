@@ -24,6 +24,14 @@
 			"itemBackgroundImage":"../theme/img/BG_Product.png",
 			"itemBackgroundImageExpanded":"../theme/img/BG_Product_Ext.png"
 		},
+		"fonts" : [
+			{
+				"url" : "../theme/fonts/HoltwoodOneSC.ttf"
+			},
+			{
+				"url" : "../theme/fonts/Orbitron-Medium.ttf"
+			}
+		],
 		"titleStyle":"color: #FFF",
 		"currencyPacksCategoryImage":"../theme/img/currency-packs.png",
 		"pages":{
