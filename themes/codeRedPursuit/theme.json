@@ -50,6 +50,14 @@
 	        "ownedIndicatorImage" : "../theme/img/owned.png",
             "balanceLabelStyle" : ""
         },
+	    "fonts" : [
+		    {
+			    "url" : "../theme/fonts/Coda-Heavy.ttf"
+		    },
+		    {
+			    "url" : "../theme/fonts/Coda-Regular.ttf"
+		    }
+	    ],
         "itemSeparator" : "../theme/img/Item_Seperator.png",
         "balance" : {
             "style" : "top: 20px; left: 220px; font-size: 36px; color: #FFF;"

@@ -60,6 +60,14 @@
             "quitImage" : "../theme/img/Quit.png",
 	        "ownedIndicatorImage" : "../theme/img/owned.png"
         },
+	    "fonts" : [
+		    {
+			    "url" : "../theme/fonts/Creepster-Regular.ttf"
+		    },
+		    {
+			    "url" : "../theme/fonts/Risque-Regular.ttf"
+		    }
+	    ],
 	    "currencyPacksCategoryImage" : "../theme/img/Categories/Coins.png",
         "item" : {
             "nameStyle" : "",

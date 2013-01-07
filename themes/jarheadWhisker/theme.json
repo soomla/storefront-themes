@@ -72,6 +72,14 @@
             "itemBackgroundImage" : "../theme/img/BG_Product.png",
             "itemBackgroundImageExpanded" : "../theme/img/BG_Product_Ext.png"
         },
+	    "fonts" : [
+		    {
+			    "url" : "../theme/fonts/Commando.ttf"
+		    },
+		    {
+			    "url" : "../theme/fonts/CPMono_v07_Plain.otf"
+		    }
+	    ],
         "titleStyle" : "color: #FFF",
 	    "currencyPacksCategoryImage" : "../theme/img/-_Object_6.png",
         "pages" : {
