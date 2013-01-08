@@ -183,7 +183,7 @@
 			"rules" : {
 				"name" : {
 					"required" : true,
-					"maxlength" : 10
+					"maxlength" : 15
 				}
 			},
 			"messages" : {
