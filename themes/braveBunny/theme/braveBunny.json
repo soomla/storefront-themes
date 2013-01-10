@@ -2,7 +2,7 @@
     "currencyPacks" : [
         {
             "name"              : "2,500",
-            "itemId"            : "2500",
+            "itemId"            : "coins_2500",
             "currency_itemId"   : "currency_coins",
             "productId"         : "2500_coins",
             "price"             : 0.99,
@@ -10,7 +10,7 @@
         },
         {
             "name"              : "25,000",
-            "itemId"            : "25000",
+            "itemId"            : "coins_25000",
             "currency_itemId"   : "currency_coins",
             "productId"         : "android.test.purchased",
             "price"             : 4.99,
@@ -18,7 +18,7 @@
         },
         {
             "name"              : "75,000",
-            "itemId"            : "75000",
+            "itemId"            : "coins_75000",
             "currency_itemId"   : "currency_coins",
             "productId"         : "75000_coins",
             "price"             : 9.99,

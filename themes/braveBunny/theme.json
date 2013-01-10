@@ -21,9 +21,9 @@
             "lulu" : "../theme/img/Characters/lulu_bunny.png"
 		},
         "currencyPacks" : {
-            "2500" : "../theme/img/CurrencyPacks/GetCoins_1.png",
-            "25000" : "../theme/img/CurrencyPacks/GetCoins_2.png",
-            "75000" : "../theme/img/CurrencyPacks/GetCoins_3.png"
+            "coins_2500" : "../theme/img/CurrencyPacks/GetCoins_1.png",
+            "coins_25000" : "../theme/img/CurrencyPacks/GetCoins_2.png",
+            "coins_75000" : "../theme/img/CurrencyPacks/GetCoins_3.png"
         },
         "virtualCurrencies" : {
             "currency_coins" : "../theme/img/Item_Price.png"
