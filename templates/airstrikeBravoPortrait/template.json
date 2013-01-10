@@ -115,12 +115,14 @@
 			"rules" : {
 				"name" : {
 					"required" : true,
+					"matches" : "^[a-zA-Z]",
 					"maxlength" : 30
 				}
 			},
 			"messages" : {
 				"name" : {
 					"required" : "Required",
+					"matches" : "Must begin with a letter",
 					"maxlength" : "Max. {0} characters"
 				}
 			}
@@ -136,7 +138,7 @@
 				},
 				"itemId" : {
 					"required" : true,
-					"matches" : "^[a-zA-Z0-9_\\-\\.]+$"
+					"matches" : "^[a-zA-Z][a-zA-Z0-9_\\-\\.]*$"
 				},
 				"productId" : {
 					"required" : true,
@@ -162,7 +164,7 @@
 				},
 				"itemId" : {
 					"required" : "Required",
-					"matches" : "No special characters"
+					"matches" : "Letters, numbers, dots & underscores only"
 				},
 				"productId" : {
 					"required" : "Required",
@@ -183,12 +185,14 @@
 			"rules" : {
 				"name" : {
 					"required" : true,
+					"matches" : "^[a-zA-Z]",
 					"maxlength" : 15
 				}
 			},
 			"messages" : {
 				"name" : {
 					"required" : "Required",
+					"matches" : "Must begin with a letter",
 					"maxlength" : "Max. {0} characters"
 				}
 			}
@@ -204,7 +208,7 @@
 				},
 				"itemId" : {
 					"required" : true,
-					"matches" : "^[a-zA-Z0-9_\\-\\.]+$"
+					"matches" : "^[a-zA-Z][a-zA-Z0-9_\\-\\.]*$"
 				},
 				"price" : {
 					"required" : true,
@@ -222,7 +226,7 @@
 				},
 				"itemId" : {
 					"required" : "Required",
-					"matches" : "No special characters"
+					"matches" : "Letters, numbers, dots & underscores only"
 				},
 				"price" : {
 					"required" : "Required",
