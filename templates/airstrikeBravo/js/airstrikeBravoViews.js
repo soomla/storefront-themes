@@ -36,6 +36,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             var currencies 		= this.model.get("virtualCurrencies"),
                 categories      = this.model.get("categories"),
                 nonConsumables  = this.model.get("nonConsumables"),
+                tapjoy          = this.model.get("tapjoy"),
                 templateHelpers = { images : this.theme.images },
                 $this           = this;
 
@@ -146,25 +147,20 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 $this.nonConsumbaleLinks.push(view);
             });
 
-            // Create views for the earned currency links from the category menu.
+            // Create a view for a Tapjoy link from the category menu.
             // We're using a CategoryView, because visually the button should look the same, even though
             // it doesn't represent an actual category.  This view will be force-appended to the
             // categories view when rendering
-            this.earnedCurrencyLinks = [];
-
-            _.each(this.theme.earnedCurrencies, function(earnedCurrency) {
-
-                var earnedCurrency = new CategoryView({
+            if (tapjoy) {
+                this.tapjoyView = new CategoryView({
                     className : "item earned-currency",
-                    model : new categories.model(earnedCurrency),
-                    templateHelpers : { imgFilePath : earnedCurrency.imgFilePath }
+                    model : new Backbone.Model(), // Hack to allow event binding
+                    templateHelpers : { imgFilePath : this.model.get("modelAssets").tapjoy }
                 }).on("selected", function() {
                     $this.playSound();
-                    $this.nativeAPI.requestEarnedCurrency(this.model.get("provider"));
+                    $this.nativeAPI.requestEarnedCurrency("tapjoy");
                 });
-
-                $this.earnedCurrencyLinks.push(earnedCurrency);
-            });
+            }
 
 
             // Mark this view as the active view,
@@ -246,9 +242,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             this.pageViews.menu.$el.append(this.currencyPacksLink.render().el);
 
             // Append links to earned currencies as "category views"
-            _.each(this.earnedCurrencyLinks, function(view) {
-                $this.pageViews.menu.$el.append(view.render().el);
-            });
+            if (this.tapjoyView) this.pageViews.menu.$el.append(this.tapjoyView.render().el);
 
             // Append non consumable items as "category views"
             _.each(this.nonConsumbaleLinks, function(view) {
