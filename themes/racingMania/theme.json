@@ -83,6 +83,7 @@
 		},
 		"nonConsumables" : {
 			"remove_ads" : "../theme/img/no-ads.png"
-		}
+		},
+		"tapjoy" : "../theme/img/tapjoy.png"
 	}
 }
