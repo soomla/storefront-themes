@@ -1,6 +1,7 @@
 {
 	"supportedFeatures" : {
-		"removeAds" : {}
+		"removeAds" : {},
+		"tapjoy" : {}
 	},
     "attributes" : {
 
