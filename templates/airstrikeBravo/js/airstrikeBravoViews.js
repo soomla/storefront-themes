@@ -36,7 +36,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             var currencies 		= this.model.get("virtualCurrencies"),
                 categories      = this.model.get("categories"),
                 nonConsumables  = this.model.get("nonConsumables"),
-                tapjoy          = this.theme.useTapjoy,
+                tapjoy          = this.theme.tapjoy,
                 templateHelpers = { images : this.theme.images },
                 $this           = this;
 
