@@ -9,7 +9,8 @@
     "modelAssets" : {
         "categories" : {
             "1" : "../theme/img/-_Object_1.png",
-            "2" : "../theme/img/-_Object_4.png"
+            "2" : "../theme/img/-_Object_4.png",
+            "3" : "../theme/img/-_Object_2.png"
         },
         "virtualGoods" : {
             "fishing_rod" : "../theme/img/UtilitiesObjects/objects-06.png",
@@ -36,7 +37,7 @@
         "name" : "cleverMonkeys",
         "version" : 1,
         "balance" : {
-            "style" : "top: 30px; left: 15px; width: 100px; text-align: right; color: #FFF;"
+            "style" : "top: 10px; left: 0; width: 100px; text-align: right; color: #FFF;"
         },
         "background" : "../theme/img/BG_BG.jpg",
         "headerBackground" : "../theme/img/Header.png",
@@ -59,19 +60,19 @@
         },
 	    "fonts" : [
 		    {
-			    "url" : "../theme/fonts/LeckerliOne-Regular.ttf"
+			    "url" : "../theme/fonts/MachineScript.ttf"
 		    },
 		    {
-			    "url" : "../theme/fonts/LeckerliOne-Regular.ttf"
+			    "url" : "../theme/fonts/CalibriBold.ttf"
 		    }
 	    ],
-        "titleStyle" : "color: #FFF",
+        "titleStyle" : "color: #E4C51C; font-weight: normal; font-size: 40px;",
 	    "currencyPacksCategoryImage" : "../theme/img/-_Object_5.png",
         "pages" : {
             "menu" : {
                 "title" : "The Store",
                 "balance" : "../theme/img/JPJR_ProductBar_Header_Right.png"
-            }
+	        }
         }
     }
 

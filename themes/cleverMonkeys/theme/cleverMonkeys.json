@@ -114,6 +114,10 @@
         {
             "id" : 2,
             "name" : "Utilities"
+        },
+        {
+            "id" : 3,
+            "name" : "Jetpacks"
         }
     ]
 }
