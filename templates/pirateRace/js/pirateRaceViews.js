@@ -25,6 +25,9 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                         price : this.model.get("priceModel").values[this.model.getCurrencyId()],
                         balanceLabelStyle   : $this.theme.common.balanceLabelStyle,
                         itemSeparator       : $this.theme.itemSeparator
+
+                        // TODO: Move all properties under pages.goods.item and pages.currencyPacks.item and migrate DB
+
                     }, $this.theme.pages.goods.listItem);
                 },
                 css : { "background-image" : "url('" + $this.theme.pages.goods.listItem.background + "')" }

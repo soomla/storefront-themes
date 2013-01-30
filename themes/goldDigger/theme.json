@@ -42,7 +42,7 @@
             "backButton" : "../theme/img/Back_BTN.png",
             "moreCurrencyButton" : "../theme/img/GetMore_BTN.png",
 	        "ownedIndicatorImage" : "../theme/img/owned.png",
-            "balanceLabelStyle" : ""
+            "balanceLabelStyle" : "color: #E9C861;"
         },
 	    "fonts" : [
 		    {
@@ -54,7 +54,7 @@
 	    ],
         "itemSeparator" : "../theme/img/Item_Seperator.png",
         "balance" : {
-            "style" : "top: 20px; left: 220px; font-size: 36px; color: #FF0;"
+            "style" : "top: 10px; left: 220px; font-size: 50px; color: #E9C861;"
         },
         "pages" : {
             "goods" :{
@@ -66,7 +66,9 @@
                     "balanceBackground" : "../theme/img/Item_Balance.png",
                     "buy" : "../theme/img/Unlock.png",
                     "equip" : "../theme/img/Activate.png",
-                    "active" : "../theme/img/Selected.png"
+                    "active" : "../theme/img/Selected.png",
+	                "descriptionStyle" : "color: #DEBE8D; font-size: 20px",
+	                "priceStyle" : "color: #E9C861; font-style: normal"
                 },
                 "noFundsModal" : {
                     "background" : "../theme/img/Alert_BG.png",
@@ -82,14 +84,14 @@
                 },
                 "listItem" : {
                     "balanceBackground" : "",
-                    "nameStyle" : "",
-                    "priceStyle" : ""
+                    "nameStyle" : "color: #E9C861; font-weight: normal;",
+                    "priceStyle" : "font-style: normal; color: #F7EABE; font-weight: normal;"
                 }
 
             }
         },
         "categories" : {
-            "style" : "background-image: url('../theme/img/Category_Separator.png'); color: #FFF;"
+            "style" : "background-image: url('../theme/img/Category_Separator.png'); color: #B89C6D; font-weight: normal"
         }
     }
 }
