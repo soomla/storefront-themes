@@ -64,7 +64,8 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                         currency : {
                             imgFilePath : modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
                         },
-                        price : this.model.get("priceModel").values[this.model.getCurrencyId()]
+                        price : this.model.get("priceModel").values[this.model.getCurrencyId()],
+                        item : $this.theme.pages.goods.item
                     }, templateHelpers);
                 },
                 css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
@@ -75,7 +76,8 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
                     var modelAssets = $this.model.get("modelAssets");
                     return _.extend({
-                        imgFilePath : modelAssets["currencyPacks"][this.model.id]
+                        imgFilePath : modelAssets["currencyPacks"][this.model.id],
+                        item : $this.theme.pages.currencyPacks.item
                     }, templateHelpers);
                 },
                 css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }

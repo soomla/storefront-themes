@@ -83,6 +83,20 @@
             "menu" : {
                 "title" : "THE STORE",
                 "balance" : "../theme/img/JPJR_ProductBar_Header_Right.png"
+            },
+	        "goods" : {
+		        "item" : {
+			        "nameStyle" : "font-size: 24px; color: #101914;",
+			        "priceStyle" : "font-size: 24px; color: #101914;",
+			        "descriptionStyle" : "font-size: 20px; color: #101914;"
+		        }
+	        },
+	        "currencyPacks" : {
+		        "item" : {
+			        "nameStyle" : "font-size: 24px;",
+			        "priceStyle" : "font-size: 24px;",
+			        "descriptionStyle" : "font-size:20px;"
+		        }
             }
         }
     }

@@ -6,10 +6,10 @@
     {{/if}}
     <img src="{{imgFilePath}}" class="item-image">
     <div class="content">
-        <h1>{{name}}</h1>
+        <h1 style="{{item.nameStyle}}">{{name}}</h1>
     </div>
     {{#unless balance}}
-    <div class="price">
+    <div class="price" style="{{item.priceStyle}}">
         <label>{{price}}</label>
         <img src="{{currency.imgFilePath}}">
     </div>
@@ -19,7 +19,7 @@
     <img src="{{images.expandImage}}" class="expand-collapse">
 </div>
 <div class="row">
-    <div class="description">{{description}}</div>
+    <div class="description" style="{{item.descriptionStyle}}">{{description}}</div>
     {{#unless balance}}
     <div class="buy-container">
         <a class="buy">
