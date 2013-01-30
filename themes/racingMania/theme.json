@@ -77,12 +77,26 @@
 				"url" : "../theme/fonts/Orbitron-Medium.ttf"
 			}
 		],
-		"titleStyle":"color: #FFF",
+		"titleStyle":"color: #fff; text-shadow: 4px 4px #000;",
 		"currencyPacksCategoryImage":"../theme/img/currency-packs.png",
 		"pages":{
 			"menu":{
 				"title":"The Store",
 				"balance":"../theme/img/JPJR_ProductBar_Header_Right.png"
+			},
+			"goods" : {
+				"item" : {
+					"nameStyle" : "font-size: 24px; color: #fff;",
+					"priceStyle" : "font-size: 24px; color: #ffff00;",
+					"descriptionStyle" : "font-size: 20px; color: #f2efd0;"
+				}
+			},
+			"currencyPacks" : {
+				"item" : {
+					"nameStyle" : "font-size: 24px; color: #fff;",
+					"priceStyle" : "font-size: 24px; color: #ffff00;",
+					"descriptionStyle" : "font-size:20px; color: #f2efd0;"
+				}
 			}
 		}
 	}
