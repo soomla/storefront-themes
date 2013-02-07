@@ -43,12 +43,10 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             // Define view types
             var ExpandableListItemView = Components.ExpandableListItemView.extend({
                 onExpand        : function() {
-                    this.$el.addClass("expanded");
                     this.$(".expand-collapse").attr("src", this.templateHelpers().images.collapseImage);
                     this.$el.css("background-image", "url('" + this.templateHelpers().images.itemBackgroundImageExpanded + "')");
                 },
                 onCollapse      : function() {
-                    this.$el.removeClass("expanded");
                     this.$(".expand-collapse").attr("src", this.templateHelpers().images.expandImage);
                     this.$el.css("background-image", "url('" + this.templateHelpers().images.itemBackgroundImage + "')");
                 }
@@ -176,9 +174,10 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
                 var categoryName = category.get("name");
 
-                var view = new Components.CollectionListView({
+                var view = new Components.ExpandableIScrollCollectionListView({
                     className   : "items virtualGoods category " + categoryName,
                     collection  : category.get("goods"),
+                    template    : Handlebars.getTemplate("collection"),
                     itemView    : VirtualGoodView
                 }).on({
                     "itemview:expanded"     : $this.playSound,
@@ -193,9 +192,10 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
 
             // Build currency packs category and add it to the page views
-            var currencyPacksView = new Components.CollectionListView({
+            var currencyPacksView = new Components.ExpandableIScrollCollectionListView({
                 className   : "items currencyPacks category",
                 collection  : currencies.at(0).get("packs"),
+                template    : Handlebars.getTemplate("collection"),
                 itemView    : CurrencyPackView
             }).on({
                 "itemview:expanded"     : $this.playSound,
@@ -226,6 +226,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             this.activeView.$el.hide();
             this.activeView = this.pageViews[name];
             this.activeView.$el.show();
+            if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
             var title = name == "menu" ? this.theme.pages.menu.title : name;
             this.header.switchHeader(title);
         },
