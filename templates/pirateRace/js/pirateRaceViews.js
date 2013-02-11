@@ -1,4 +1,4 @@
-define(["jquery", "backbone", "components", "marionette", "handlebars", "templates"], function($, Backbone, Components, Marionette, Handlebars) {
+define(["jquery", "backbone", "components", "marionette", "handlebars", "templates", "iscroll"], function($, Backbone, Components, Marionette, Handlebars) {
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
@@ -128,6 +128,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
         },
         events : {
+            // TODO: Change to timedEvents with `click` once the storeview extends Marionette.View
             "touchend .leave-store" : "leaveStore",
             "touchend .buy-more"    : "showCurrencyStore",
             "touchend .back"        : "showGoodsStore"
@@ -161,10 +162,28 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
             // Render subviews (items in goods store and currency store)
             _.each(this.categoryViews, function(view) {
-                $this.$("#goods-store .items-container").append(view.render().el);
+                $this.$("#goods-store .items-container [data-iscroll='true']").append(view.render().el);
             });
+
+
             this.$("#currency-store .currency-packs").html(this.currencyPacksView.render().el);
             this.$("#currency-store .non-consumables").html(this.nonConsumablesView.render().el);
+
+            // Create IScrolls
+            // TODO: remove setTimeouts when heights of lists will be pre-defined
+            var goodsIScroll = new iScroll(this.$("#goods-store .items-container")[0], {hScroll: false, vScrollbar: false});
+            var packsIScroll = new iScroll(this.$("#currency-store .items-container")[0], {hScroll: false, vScrollbar: false});
+            setTimeout(function() {
+                goodsIScroll.refresh();
+                packsIScroll.refresh();
+            }, 1000);
+
+/*
+ // Create FastClick buttons
+            new FastClick(this.$(".leave-store")[0]);
+            new FastClick(this.$(".buy-more")[0]);
+            new FastClick(this.$(".back")[0]);
+*/
         },
         zoomFunction : function() {
             return Math.min(innerWidth / 560, 1);
