@@ -209,7 +209,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
             this.$el.css("background-image", "url('" + this.theme.background + "')");
 
             // Set header element to bind event delegation
-            this.header.setElement(this.$(".header")).bindUIElements();
+            this.header.setElement(this.$(".header")).render().bindUIElements();
 
             // Render child views (items in goods store and currency store)
             var $this = this;
