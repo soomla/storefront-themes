@@ -33,8 +33,11 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 css : { "background-image" : "url('" + $this.theme.pages.goods.listItem.background + "')" }
             };
             var VirtualGoodView = Components.ListItemView.extend(_.extend({
-                triggers : {
+                timedTriggers : {
                     "click .buy" : "buy"
+                },
+                onRender : function() {
+                    new FastClick(this.$(".buy")[0]);
                 }
             }, sharedGoodsOptions));
 
@@ -127,11 +130,11 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             }, this);
 
         },
-        events : {
+        timedEvents : {
             // TODO: Change to timedEvents with `click` once the storeview extends Marionette.View
-            "touchend .leave-store" : "leaveStore",
-            "touchend .buy-more"    : "showCurrencyStore",
-            "touchend .back"        : "showGoodsStore"
+            "click .leave-store" : "leaveStore",
+            "click .buy-more"    : "showCurrencyStore",
+            "click .back"        : "showGoodsStore"
         },
         updateBalance : function(model) {
             this.$(".balance-container label").html(model.get("balance"));
@@ -178,12 +181,10 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 packsIScroll.refresh();
             }, 1000);
 
-/*
- // Create FastClick buttons
+            // Create FastClick buttons
             new FastClick(this.$(".leave-store")[0]);
             new FastClick(this.$(".buy-more")[0]);
             new FastClick(this.$(".back")[0]);
-*/
         },
         zoomFunction : function() {
             return Math.min(innerWidth / 560, 1);
