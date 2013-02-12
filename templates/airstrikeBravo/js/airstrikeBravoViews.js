@@ -1,32 +1,6 @@
-define(["jquery", "backbone", "components", "marionette", "handlebars", "templates"], function($, Backbone, Components, Marionette, Handlebars) {
+define(["jquery", "backbone", "components", "helperViews", "handlebars", "templates"], function($, Backbone, Components, HelperViews, Handlebars) {
 
-    var HeaderView = Marionette.View.extend({
-        initialize : function() {
-            _.bindAll(this, "switchHeader");
-            this.state = "menu";
-        },
-        events : {
-            "click .back" : function() {
-                this.trigger(this.state == "menu" ? "quit" : "back");
-            }
-        },
-        ui : {
-            backButton : "#back-button",
-            quitButton : "#quit-button"
-        },
-        switchHeader : function(title) {
-            this.$(".title-container h1").html(title);
-
-            if (this.state == "menu") {
-                this.ui.backButton.hide();
-                this.ui.quitButton.show();
-            } else {
-                this.ui.quitButton.hide();
-                this.ui.backButton.show();
-            }
-        }
-    });
-
+    var HeaderView = HelperViews.HeaderView;
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
