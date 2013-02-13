@@ -1,4 +1,6 @@
-@import "css/mixins/elements.less";
+@import "css/mixins/bootstrap/variables.less";
+@import "css/mixins/bootstrap/mixins.less";
+@import "css/mixins/layout.less";
 .webkitScrollbar();
 
 @baseUrl: "../theme";
@@ -167,7 +169,7 @@ ul {
     height: @collapsedHeight;
     overflow: hidden;
     .background-size(cover);
-    .transition(height, 0.2s);
+    .transition(height 0.2s ease-out);
 
     &.expanded {
         height: 2 * @collapsedHeight;
