@@ -64,11 +64,6 @@
 				"title" : "Expand Image",
 				"selector" : ".expand-collapse"
 			},
-			"collapseImage" : {
-				"type" : "image",
-				"title" : "Collapse Image",
-				"selector" : ".expand-collapse"
-			},
 			"backImage" : {
 				"type" : "image",
 				"title" : "Back Image",

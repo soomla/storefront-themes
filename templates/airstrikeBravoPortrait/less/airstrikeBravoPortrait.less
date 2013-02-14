@@ -173,6 +173,10 @@ ul {
 
     &.expanded {
         height: 2 * @collapsedHeight;
+
+        .expand-collapse {
+            display: none;
+        }
     }
 
     .row {
@@ -203,20 +207,33 @@ ul {
         .hyphens();
     }
 
+    .info {
+        height: @collapsedHeight;
+        text-align: right;
+    }
+
+
+// Info container variables
+    @infoWidth: 100px;
+    @priceHeight: 40px;
+
     .price, .buy-container {
         .box(horizontal, end, center);
-        width: 100px;
-        margin-right: @innerMargin;
+        width: @infoWidth;
         font-size: 20px;
         font-weight: bold;
     }
     .price img {
-        width: 40px;
-        height: 40px;
+        .square(@priceHeight);
     }
     .buy-container img {
-        width: 140px;
-        height: 60px;
+        .size(60px, 140px);
+    }
+
+    .expand-collapse {
+        max-width: @infoWidth;
+        max-height: @collapsedHeight - @priceHeight;
+        cursor: pointer;
     }
 
     .description {

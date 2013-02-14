@@ -9,14 +9,16 @@
         <h1 style="{{item.nameStyle}}">{{name}}</h1>
     </div>
     {{#unless balance}}
-    <div class="price" style="{{item.priceStyle}}">
-        <label>{{price}}</label>
-        <img src="{{currency.imgFilePath}}">
+    <div class="info">
+        <div class="price" style="{{item.priceStyle}}">
+            <label>{{price}}</label>
+            <img src="{{currency.imgFilePath}}">
+        </div>
+        <img src="{{images.expandImage}}" class="expand-collapse">
     </div>
     {{/unless}}
     {{#if equipped}}
     {{/if}}
-    <img src="{{images.expandImage}}" class="expand-collapse">
 </div>
 <div class="row">
     <div class="description" style="{{item.descriptionStyle}}">{{description}}</div>

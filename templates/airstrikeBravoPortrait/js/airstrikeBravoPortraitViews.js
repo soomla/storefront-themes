@@ -21,11 +21,9 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
             // Define view types
             var ExpandableListItemView = Components.ExpandableListItemView.extend({
                 onExpand        : function() {
-                    this.$(".expand-collapse").attr("src", this.templateHelpers().images.collapseImage);
                     this.$el.css("background-image", "url('" + this.templateHelpers().images.itemBackgroundImageExpanded + "')");
                 },
                 onCollapse      : function() {
-                    this.$(".expand-collapse").attr("src", this.templateHelpers().images.expandImage);
                     this.$el.css("background-image", "url('" + this.templateHelpers().images.itemBackgroundImage + "')");
                 }
             });

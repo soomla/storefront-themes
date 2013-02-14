@@ -62,7 +62,6 @@
 			"equippedIndicatorImage":"../theme/img/Gray_Owned.png",
 			"notEquippedIndicatorImage":"../theme/img/Green_Owned.png",
 			"expandImage":"../theme/img/Arrow_Close.png",
-			"collapseImage":"../theme/img/Arrow_Open.png",
 			"backImage":"../theme/img/back-button.png",
 			"quitImage":"../theme/img/quit-button.png",
 			"ownedIndicatorImage" : "../theme/img/owned.png",
