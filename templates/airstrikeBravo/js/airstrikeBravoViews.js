@@ -11,8 +11,12 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 categories      = this.model.get("categories"),
                 nonConsumables  = this.model.get("nonConsumables"),
                 tapjoy          = this.theme.tapjoy,
-                templateHelpers = { images : this.theme.images },
+                commonHelpers   = { images : this.theme.images },
                 $this           = this;
+
+            var createTemplateHelpers = function(helpers) {
+                return _.extend(helpers, commonHelpers);
+            };
 
 
             // Define view types
@@ -31,14 +35,14 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 templateHelpers : function() {
 
                     var modelAssets = $this.model.get("modelAssets");
-                    return _.extend({
+                    return createTemplateHelpers({
                         imgFilePath : modelAssets["virtualGoods"][this.model.id],
                         currency : {
                             imgFilePath : modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
                         },
                         price : this.model.get("priceModel").values[this.model.getCurrencyId()],
                         item : $this.theme.pages.goods.item
-                    }, templateHelpers);
+                    });
                 },
                 css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
             });
@@ -47,10 +51,10 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 templateHelpers : function() {
 
                     var modelAssets = $this.model.get("modelAssets");
-                    return _.extend({
+                    return createTemplateHelpers({
                         imgFilePath : modelAssets["currencyPacks"][this.model.id],
                         item : $this.theme.pages.currencyPacks.item
-                    }, templateHelpers);
+                    });
                 },
                 css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
             });
@@ -69,9 +73,9 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 templateHelpers : function() {
 
                     var modelAssets = $this.model.get("modelAssets");
-                    return _.extend({
+                    return createTemplateHelpers({
                         imgFilePath : modelAssets["nonConsumables"][this.model.id]
-                    }, templateHelpers);
+                    });
                 }
             });
 
