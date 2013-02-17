@@ -1,4 +1,4 @@
-define(["jquery", "backbone", "components", "marionette", "handlebars", "templates", "iscroll"], function($, Backbone, Components, Marionette, Handlebars) {
+define(["jquery", "backbone", "components", "marionette", "handlebars", "templates", "iscroll", "jquery.fastbutton"], function($, Backbone, Components, Marionette, Handlebars) {
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
@@ -33,11 +33,8 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 css : { "background-image" : "url('" + $this.theme.pages.goods.listItem.background + "')" }
             };
             var VirtualGoodView = Components.ListItemView.extend(_.extend({
-                timedTriggers : {
-                    "click .buy" : "buy"
-                },
-                onRender : function() {
-                    new FastClick(this.$(".buy")[0]);
+                triggers : {
+                    "fastclick .buy" : "buy"
                 }
             }, sharedGoodsOptions));
 
@@ -130,11 +127,11 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             }, this);
 
         },
-        timedEvents : {
+        events : {
             // TODO: Change to timedEvents with `click` once the storeview extends Marionette.View
-            "click .leave-store" : "leaveStore",
-            "click .buy-more"    : "showCurrencyStore",
-            "click .back"        : "showGoodsStore"
+            "fastclick .leave-store" : "leaveStore",
+            "fastclick .buy-more"    : "showCurrencyStore",
+            "fastclick .back"        : "showGoodsStore"
         },
         updateBalance : function(model) {
             this.$(".balance-container label").html(model.get("balance"));
@@ -180,11 +177,6 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 goodsIScroll.refresh();
                 packsIScroll.refresh();
             }, 1000);
-
-            // Create FastClick buttons
-            new FastClick(this.$(".leave-store")[0]);
-            new FastClick(this.$(".buy-more")[0]);
-            new FastClick(this.$(".back")[0]);
         },
         zoomFunction : function() {
             return Math.min(innerWidth / 560, 1);
