@@ -161,8 +161,8 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                     "itemview:expand"       : $this.playSound,
                     "itemview:collapse"     : $this.playSound,
                     "itemview:buy"          : function(view) {  $this.playSound().wantsToBuyVirtualGoods(view.model);   },
-                    "itemview:equipped"     : function(view) {  $this.playSound().wantsToEquipGoods(view.model);        },
-                    "itemview:unequipped"   : function(view) {  $this.playSound().wantsToUnequipGoods(view.model);      }
+                    "itemview:equip"     	: function(view) {  $this.playSound().wantsToEquipGoods(view.model);        },
+                    "itemview:unequip"   	: function(view) {  $this.playSound().wantsToUnequipGoods(view.model);      }
                 });
 
                 $this.pageViews[categoryName] = view;
@@ -176,8 +176,8 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 template    : Handlebars.getTemplate("collection"),
                 itemView    : CurrencyPackView
             }).on({
-                "itemview:expanded"     : $this.playSound,
-                "itemview:collapsed"    : $this.playSound,
+                "itemview:expand"   : $this.playSound,
+                "itemview:collapse" : $this.playSound,
                 "itemview:buy" : function(view) { $this.playSound().wantsToBuyMarketItem(view.model); }
             });
             this.pageViews["GET COINS"] = currencyPacksView;
