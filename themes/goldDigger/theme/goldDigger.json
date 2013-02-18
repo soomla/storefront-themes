@@ -47,7 +47,8 @@
         },
         {
             "id" : 2,
-            "name" : "CHARACTERS"
+            "name" : "CHARACTERS",
+            "equipping" : "single"
         }
     ],
     "virtualGoods" : [

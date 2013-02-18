@@ -165,11 +165,16 @@ ul {
         width: @secondRowHeight;
         height: @secondRowHeight;
     }
-    .buy, .equip, .active {
+    .buy {
         float:right;
     }
-    .equip, .active {
-        display: none;
+
+    // Add specific styling for equippable items
+    &.equippable {
+        .equip, .active {
+            display: none;
+            float:right;
+        }
     }
 }
 

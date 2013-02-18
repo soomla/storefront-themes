@@ -38,7 +38,9 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 }
             }, sharedGoodsOptions));
 
-            var EquippableVirtualGoodView = Components.EquippableListItemView.extend(sharedGoodsOptions);
+            var EquippableVirtualGoodView = Components.EquippableListItemView.extend(_.extend({}, sharedGoodsOptions, {
+                template : Handlebars.getTemplate("equippableItem")
+            }));
 
             var CurrencyPackView = Components.ListItemView.extend({
                 template        : Handlebars.getTemplate("currencyPack"),
@@ -78,26 +80,36 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 itemViewContainer   : ".container"
             });
 
+            // View event listeners
+            var wantsToBuyVirtualGoods = function (view) {
+                $this.playSound().wantsToBuyVirtualGoods(view.model);
+            };
+            var wantToEquipGoods = function (view) {
+                $this.playSound().wantsToEquipGoods(view.model);
+            };
+            var wantsToBuyMarketItem = function (view) {
+                this.playSound().wantsToBuyMarketItem(view.model);
+            };
+
+            // Create category views
             categories.each(function(category) {
                 categoryGoods = category.get("goods");
                 var view;
 
-                if (category.get("name") != "FRIENDS") {
+                if (!category.has("equipping")) {
                     view = new SectionedListView({
                         collection          : categoryGoods,
                         itemView            : VirtualGoodView,
-                        templateHelpers     :_.extend({category : category.get("name")}, $this.theme.categories)
-                    }).on("itemview:buy", function(view) { $this.playSound().wantsToBuyVirtualGoods(view.model); });
+                        templateHelpers     : _.extend({category : category.get("name")}, $this.theme.categories)
+                    }).on("itemview:buy", wantsToBuyVirtualGoods);
                 } else {
                     view = new SectionedListView({
                         collection          : categoryGoods,
                         itemView            : EquippableVirtualGoodView,
-                        templateHelpers     :_.extend({category : category.get("name")}, $this.theme.categories)
+                        templateHelpers     : _.extend({category : category.get("name")}, $this.theme.categories)
                     }).on({
-                        "itemview:buy" : function(view) { $this.playSound().wantsToBuyVirtualGoods(view.model); },
-                        "itemview:equip" : function(view) {
-                            $this.playSound().wantsToEquipGoods(view.model);
-                        }
+                        "itemview:buy" : wantsToBuyVirtualGoods,
+                        "itemview:equip" : wantToEquipGoods
                     });
                 }
                 $this.categoryViews.push(view);
@@ -106,17 +118,13 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 className           : "items currencyPacks",
                 collection          : currencies.at(0).get("packs"),
                 itemView            : CurrencyPackView
-            }).on("itemview:selected", function(view) {
-                this.playSound().wantsToBuyMarketItem(view.model);
-            }, this);
+            }).on("itemview:selected", wantsToBuyMarketItem, this);
 
             this.nonConsumablesView = new Components.CollectionListView({
                 className           : "items nonConsumables",
                 collection          : nonConsumables,
                 itemView            : NonConsumableView
-            }).on("itemview:buy", function(view) {
-                this.playSound().wantsToBuyMarketItem(view.model);
-            }, this);
+            }).on("itemview:buy", wantsToBuyMarketItem, this);
 
         },
         events : {
