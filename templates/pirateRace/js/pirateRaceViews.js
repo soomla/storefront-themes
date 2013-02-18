@@ -97,14 +97,6 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                         "itemview:buy" : function(view) { $this.playSound().wantsToBuyVirtualGoods(view.model); },
                         "itemview:equip" : function(view) {
                             $this.playSound().wantsToEquipGoods(view.model);
-                        },
-                        "itemview:equipped" : function(view) {
-
-                            // Make sure to UI-unequip the previous one
-                            if (this.equippedView) {
-                                this.equippedView.model.set("equipped", false);
-                            }
-                            this.equippedView = view;
                         }
                     });
                 }
