@@ -55,7 +55,9 @@
             "quitImage" : "../theme/img/QUIT.png",
 	        "ownedIndicatorImage" : "../theme/img/owned.png",
             "itemBackgroundImage" : "../theme/img/BG_Product.png",
-            "itemBackgroundImageExpanded" : "../theme/img/BG_Product_Ext.png"
+            "itemBackgroundImageExpanded" : "../theme/img/BG_Product_Ext.png",
+            "equipEquip" : "../theme/img/Activate.png",
+            "equipEquipped" : "../theme/img/Selected.png"
         },
 	    "fonts" : [
 		    {

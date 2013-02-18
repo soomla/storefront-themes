@@ -1,5 +1,5 @@
 <div class="row">
-    {{#if equipped}}
+    {{#if balance}}
     <img src="{{images.equippedIndicatorImage}}" class="equipped">
     {{else}}
     <img src="{{images.notEquippedIndicatorImage}}" class="not-equipped">
@@ -8,17 +8,23 @@
     <div class="content">
         <h1>{{name}}</h1>
     </div>
-    {{#unless balance}}
-    <div class="info">
-	    <div class="price">
+    <div class="actions">
+	    {{#if balance}}
+		    {{#if equipped}}
+			    <img src="{{images.equipEquipped}}" class="toggle-equip">
+                <img src="{{images.expandImage}}" class="expand-collapse">
+		    {{else}}
+                <img src="{{images.equipEquip}}" class="toggle-equip">
+                <img src="{{images.expandImage}}" class="expand-collapse">
+		    {{/if}}
+	    {{else}}
+            <div class="price">
 	        <label>{{price}}</label>
 	        <img src="{{currency.imgFilePath}}">
 	    </div>
         <img src="{{images.expandImage}}" class="expand-collapse">
-    </div>
-    {{/unless}}
-    {{#if equipped}}
     {{/if}}
+	</div>
 </div>
 <div class="row">
     <div class="description">{{description}}</div>

@@ -207,19 +207,21 @@ ul {
         .hyphens();
     }
 
-    .info {
+
+    // Action container variables
+    @actionsWidth: 100px;
+    @priceHeight: 40px;
+
+    .actions {
+        width: @actionsWidth;
+        .box(vertical, center);
         height: @collapsedHeight;
         text-align: right;
     }
 
-
-// Info container variables
-    @infoWidth: 100px;
-    @priceHeight: 40px;
-
     .price, .buy-container {
         .box(horizontal, end, center);
-        width: @infoWidth;
+        width: @actionsWidth;
         font-size: 20px;
         font-weight: bold;
     }
@@ -230,10 +232,14 @@ ul {
         .size(60px, 140px);
     }
 
-    .expand-collapse {
-        max-width: @infoWidth;
-        max-height: @collapsedHeight - @priceHeight;
+    .expand-collapse, .toggle-equip {
+        display: block;
         cursor: pointer;
+    }
+
+    .expand-collapse {
+        max-width: @actionsWidth;
+        max-height: @collapsedHeight - @priceHeight;
     }
 
     .description {
