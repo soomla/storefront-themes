@@ -82,7 +82,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                     // Activate tabs
                     this.$("li:first").addClass("active");
                 }
-            }).on("itemview:selected", function(view) {
+            }).on("itemview:select", function(view) {
                 $this.playSound();
 
                 view.$("a").tab("show");

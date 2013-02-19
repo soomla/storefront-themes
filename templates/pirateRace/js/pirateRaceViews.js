@@ -106,7 +106,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 className           : "items currencyPacks",
                 collection          : currencies.at(0).get("packs"),
                 itemView            : CurrencyPackView
-            }).on("itemview:selected", function(view) {
+            }).on("itemview:select", function(view) {
                 this.playSound().wantsToBuyMarketItem(view.model);
             }, this);
 

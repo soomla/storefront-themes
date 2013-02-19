@@ -88,7 +88,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 className   : "menu items clearfix",
                 collection  : categories,
                 itemView    : CategoryView
-            }).on("itemview:selected", function(view) {
+            }).on("itemview:select", function(view) {
                 this.playSound().switchToPage(view.model.get("name"));
             }, this);
             this.pageViews["menu"]  = categoryMenuView;
@@ -102,7 +102,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 className : "item currency-packs",
                 model : new categories.model({ name : "GET COINS" }),
                 templateHelpers : { imgFilePath : this.theme.currencyPacksCategoryImage }
-            }).on("selected", function() {
+            }).on("select", function() {
                 this.playSound().switchToPage(this.currencyPacksLink.model.get("name"));
             }, this);
 
@@ -134,7 +134,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                     className : "item earned-currency",
                     model : new Backbone.Model(), // Hack to allow event binding
                     templateHelpers : { imgFilePath : this.model.get("modelAssets").tapjoy }
-                }).on("selected", function() {
+                }).on("select", function() {
                     $this.playSound();
                     $this.nativeAPI.requestEarnedCurrency("tapjoy");
                 });
