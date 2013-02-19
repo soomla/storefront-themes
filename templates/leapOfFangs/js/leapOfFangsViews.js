@@ -19,8 +19,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 $this           = this;
 
             // Prepare triggers for virtual good views
-            var triggers = { "touchend .buy" : "buy" };
-            if (top.enablePointingDeviceEvents) triggers["click .buy"] = "buy";
+            var triggers = { "click .buy" : "buy" };
 
             var VirtualGoodView = Components.ListItemView.extend({
                 tagName         : "div",
