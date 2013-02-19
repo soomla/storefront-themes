@@ -118,7 +118,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 className           : "items currencyPacks",
                 collection          : currencies.at(0).get("packs"),
                 itemView            : CurrencyPackView
-            }).on("itemview:selected", wantsToBuyMarketItem, this);
+            }).on("itemview:select", wantsToBuyMarketItem, this);
 
             this.nonConsumablesView = new Components.CollectionListView({
                 className           : "items nonConsumables",
