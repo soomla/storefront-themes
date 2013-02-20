@@ -41,7 +41,7 @@
             "balanceImage" : "../theme/img/Header_Balance.png",
             "backButton" : "../theme/img/Back_BTN.png",
             "moreCurrencyButton" : "../theme/img/GetMore_BTN.png",
-	        "ownedIndicatorImage" : "../theme/img/owned.png",
+	        "purchasedIndicatorImage" : "../theme/img/owned.png",
             "balanceLabelStyle" : "color: #E9C861;"
         },
 	    "fonts" : [

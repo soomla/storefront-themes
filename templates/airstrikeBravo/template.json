@@ -50,12 +50,12 @@
 				"title" : "Buy Image",
 				"selector" : ".buy img"
 			},
-			"equippedIndicatorImage" : {
+			"ownedIndicatorImage" : {
 				"type" : "image",
 				"title" : "Equipped Indicator Image",
 				"selector" : ".not-equipped"
 			},
-			"notEquippedIndicatorImage" : {
+			"notOwnedIndicatorImage" : {
 				"type" : "image",
 				"title" : "Unequipped Indicator Image",
 				"selector" : ".equipped"
