@@ -66,6 +66,7 @@
                     "background" : "",
                     "balanceBackground" : "../theme/img/Item_Balance.png",
                     "buy" : "../theme/img/Unlock.png",
+                    "buyOnce" : "../theme/img/Unlock.png",
                     "equip" : "../theme/img/equip.png",
                     "active" : "../theme/img/active.png"
                 },

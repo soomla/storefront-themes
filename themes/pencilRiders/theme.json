@@ -70,6 +70,7 @@
                     "background" : "",
                     "balanceBackground" : "../theme/img/Item_Balance.png",
                     "buy" : "../theme/img/buy.png",
+                    "buyOnce" : "../theme/img/Unlock.png",
                     "equip" : "../theme/img/equip.png",
                     "active" : "../theme/img/active.png"
                 },

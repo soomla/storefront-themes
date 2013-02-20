@@ -77,6 +77,11 @@
                         "title" : "Unlock Image",
                         "selector" : ".item .buy"
                     },
+                    "buyOnce" : {
+                        "type" : "image",
+                        "title" : "Unlock Image",
+                        "selector" : ".item .buy"
+                    },
                     "equip" : {
                         "type" : "image",
                         "title" : "Activate Image",
