@@ -20,31 +20,45 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
 
 
             // Define view types
-            var ExpandableListItemView = Components.ExpandableListItemView.extend({
-                onExpand        : function() {
+
+            var expandCollapseCallbacks = {
+                onExpand: function () {
                     this.$el.css("background-image", "url('" + this.templateHelpers().images.itemBackgroundImageExpanded + "')");
                 },
-                onCollapse      : function() {
+                onCollapse: function () {
                     this.$el.css("background-image", "url('" + this.templateHelpers().images.itemBackgroundImage + "')");
                 }
-            });
-            var VirtualGoodView = ExpandableListItemView.extend({
-                template        : Handlebars.getTemplate("item"),
-                templateHelpers : function() {
+            };
+            var ExpandableListItemView = Components.ExpandableListItemView.extend(expandCollapseCallbacks);
+            var ExpandableSingleUseListItemView = Components.ExpandableSingleUseListItemView.extend(expandCollapseCallbacks);
 
-                    var modelAssets = $this.model.get("modelAssets");
-                    return createTemplateHelpers({
-                        imgFilePath : modelAssets["virtualGoods"][this.model.id],
-                        currency : {
-                            imgFilePath : modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
-                        },
-                        price : this.model.get("priceModel").values[this.model.getCurrencyId()],
-                        item : $this.theme.pages.goods.item
-                    });
-                },
+
+            var templateHelpers = function () {
+
+                var modelAssets = $this.model.get("modelAssets");
+                return createTemplateHelpers({
+                    imgFilePath: modelAssets["virtualGoods"][this.model.id],
+                    currency: {
+                        imgFilePath: modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
+                    },
+                    price: this.model.get("priceModel").values[this.model.getCurrencyId()],
+                    item: $this.theme.pages.goods.item
+                });
+            };
+
+            var EquippableVirtualGoodView = ExpandableListItemView.extend({
+                template        : Handlebars.getTemplate("equippableItem"),
+                templateHelpers : templateHelpers,
                 css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
             });
-            var CurrencyPackView = ExpandableListItemView.extend({
+            var SingleUseVirtualGoodView = ExpandableSingleUseListItemView.extend({
+                template        : Handlebars.getTemplate("item"),
+                templateHelpers : templateHelpers,
+                css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
+            });
+
+
+			var CurrencyPackView = ExpandableListItemView.extend({
                 template        : Handlebars.getTemplate("currencyPack"),
                 templateHelpers : function() {
 
@@ -143,23 +157,41 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
             // as it is the first one visible when the store opens
             this.activeView = categoryMenuView;
 
+            var collectionTemplate = Handlebars.getTemplate("collection");
+
             // Render all categories with goods
             categories.each(function(category) {
 
-                var categoryName = category.get("name");
+                var categoryName 	= category.get("name"),
+                    equipping 		= category.get("equipping"),
+                	goods 			= category.get("goods"),
+                    view;
 
-                var view = new Components.ExpandableIScrollCollectionListView({
-                    className   : "items virtualGoods category " + categoryName,
-                    collection  : category.get("goods"),
-                    template    : Handlebars.getTemplate("collection"),
-                    itemView    : VirtualGoodView
-                }).on({
-                    "itemview:expand"       : $this.playSound,
-                    "itemview:collapse"     : $this.playSound,
-                    "itemview:buy"          : function(view) {  $this.playSound().wantsToBuyVirtualGoods(view.model);   },
-                    "itemview:equip"     	: function(view) {  $this.playSound().wantsToEquipGoods(view.model);        },
-                    "itemview:unequip"   	: function(view) {  $this.playSound().wantsToUnequipGoods(view.model);      }
-                });
+                if (equipping) {
+                    view = new Components.ExpandableIScrollCollectionListView({
+                        className   : "items virtualGoods category " + categoryName,
+                        collection  : goods,
+                        template    : collectionTemplate,
+                        itemView    : EquippableVirtualGoodView
+                    }).on({
+                        "itemview:expand"       : $this.playSound,
+                        "itemview:collapse"     : $this.playSound,
+                        "itemview:buy"          : function(view) {  $this.playSound().wantsToBuyVirtualGoods(view.model);   },
+                        "itemview:equip"     	: function(view) {  $this.playSound().wantsToEquipGoods(view.model);        },
+                        "itemview:unequip"   	: function(view) {  $this.playSound().wantsToUnequipGoods(view.model);      }
+                    });
+                } else {
+                    view = new Components.ExpandableIScrollCollectionListView({
+                        className   : "items virtualGoods category " + categoryName,
+                        collection  : goods,
+                        template    : collectionTemplate,
+                        itemView    : SingleUseVirtualGoodView
+                    }).on({
+                        "itemview:expand"       : $this.playSound,
+                        "itemview:collapse"     : $this.playSound,
+                        "itemview:buy"          : function(view) {  $this.playSound().wantsToBuyVirtualGoods(view.model);   }
+                    });
+                }
 
                 $this.pageViews[categoryName] = view;
             });
