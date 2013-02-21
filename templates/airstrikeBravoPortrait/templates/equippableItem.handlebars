@@ -1,38 +1,28 @@
 <div class="row">
-    {{#if balance}}
+
     <img src="{{images.ownedIndicatorImage}}" class="owned">
-    {{else}}
     <img src="{{images.notOwnedIndicatorImage}}" class="not-owned">
-    {{/if}}
+
     <img src="{{imgFilePath}}" class="item-image">
     <div class="content">
         <h1>{{name}}</h1>
     </div>
     <div class="actions">
-	    {{#if balance}}
-		    {{#if equipped}}
-			    <img src="{{images.equipped}}" class="toggle-equip">
-                <img src="{{images.expandImage}}" class="expand-collapse">
-		    {{else}}
-                <img src="{{images.equip}}" class="toggle-equip">
-                <img src="{{images.expandImage}}" class="expand-collapse">
-		    {{/if}}
-	    {{else}}
-            <div class="price">
+	    <img src="{{images.equipped}}" class="toggle-equip equipped">
+        <img src="{{images.equip}}" class="toggle-equip equip">
+
+        <div class="price">
 	        <label>{{price}}</label>
 	        <img src="{{currency.imgFilePath}}">
 	    </div>
         <img src="{{images.expandImage}}" class="expand-collapse">
-    {{/if}}
 	</div>
 </div>
 <div class="row">
     <div class="description">{{description}}</div>
-    {{#unless balance}}
     <div class="buy-container">
         <a class="buy">
             <img src="{{images.buyImage}}">
         </a>
     </div>
-    {{/unless}}
 </div>
