@@ -52,7 +52,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
             });
             var SingleUseVirtualGoodView = ExpandableSingleUseListItemView.extend({
-                template        : Handlebars.getTemplate("item"),
+                template        : Handlebars.getTemplate("singleUseItem"),
                 templateHelpers : templateHelpers,
                 css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
             });
