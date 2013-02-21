@@ -29,7 +29,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                     this.$el.css("background-image", "url('" + this.templateHelpers().images.itemBackgroundImage + "')");
                 }
             };
-            var ExpandableListItemView = Components.ExpandableListItemView.extend(expandCollapseCallbacks);
+            var ExpandableEquipppableListItemView = Components.ExpandableEquipppableListItemView.extend(expandCollapseCallbacks);
             var ExpandableSingleUseListItemView = Components.ExpandableSingleUseListItemView.extend(expandCollapseCallbacks);
 
 
@@ -46,7 +46,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 });
             };
 
-            var EquippableVirtualGoodView = ExpandableListItemView.extend({
+            var EquippableVirtualGoodView = ExpandableEquipppableListItemView.extend({
                 template        : Handlebars.getTemplate("equippableItem"),
                 templateHelpers : templateHelpers,
                 css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
@@ -58,7 +58,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
             });
 
 
-			var CurrencyPackView = ExpandableListItemView.extend({
+			var CurrencyPackView = ExpandableEquipppableListItemView.extend({
                 template        : Handlebars.getTemplate("currencyPack"),
                 templateHelpers : function() {
 
@@ -177,8 +177,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                         "itemview:expand"       : $this.playSound,
                         "itemview:collapse"     : $this.playSound,
                         "itemview:buy"          : function(view) {  $this.playSound().wantsToBuyVirtualGoods(view.model);   },
-                        "itemview:equip"     	: function(view) {  $this.playSound().wantsToEquipGoods(view.model);        },
-                        "itemview:unequip"   	: function(view) {  $this.playSound().wantsToUnequipGoods(view.model);      }
+                        "itemview:equip"     	: function(view) {  $this.playSound().wantsToEquipGoods(view.model);        }
                     });
                 } else {
                     view = new Components.ExpandableIScrollCollectionListView({
