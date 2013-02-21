@@ -1,9 +1,6 @@
 {
 	"template":{
 		"name":"airstrikeBravo",
-		"cssFiles":["../theme/template/less/airstrikeBravo.less"],
-		"jsFiles":["../theme/template/js/airstrikeBravoViews.js"],
-		"htmlTemplatesPath":"../theme/template/templates",
 		"orientation":"landscape"
 	},
 	"modelAssets":{

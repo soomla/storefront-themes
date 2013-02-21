@@ -1,9 +1,6 @@
 {
     "template" : {
         "name" : "pirateRace",
-        "cssFiles" : ["../theme/template/less/pirateRace.less"],
-        "jsFiles" : ["../theme/template/js/pirateRaceViews.js"],
-        "htmlTemplatesPath" : "../theme/template/templates",
 		"orientation" : "portrait"
     },
     "modelAssets" : {

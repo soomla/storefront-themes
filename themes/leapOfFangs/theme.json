@@ -1,9 +1,6 @@
 {
     "template" : {
         "name" : "leapOfFangs",
-        "cssFiles" : ["../theme/template/less/leapOfFangs.less", "../theme/template/js/bootstrap-tab.js"],
-        "jsFiles" : ["../theme/template/js/leapOfFangsViews.js"],
-        "htmlTemplatesPath" : "../theme/template/templates",
 		"orientation" : "portrait"
     },
     "modelAssets" : {
