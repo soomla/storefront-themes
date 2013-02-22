@@ -87,6 +87,9 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                     });
                 }
             });
+            var ExpandableIScrollCollectionView = Components.ExpandableIScrollCollectionView.extend({
+                template : Handlebars.getTemplate("collection")
+            });
 
 
             // Create an object to store all child views
@@ -159,7 +162,6 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
             // as it is the first one visible when the store opens
             this.activeView = categoryMenuView;
 
-            var collectionTemplate = Handlebars.getTemplate("collection");
 
             // Render all categories with goods
             categories.each(function(category) {
@@ -170,10 +172,9 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                     view;
 
                 if (equipping) {
-                    view = new Components.ExpandableIScrollCollectionView({
+                    view = new ExpandableIScrollCollectionView({
                         className   : "items virtualGoods category " + categoryName,
                         collection  : goods,
-                        template    : collectionTemplate,
                         itemView    : EquippableVirtualGoodView
                     }).on({
                         "itemview:expand"       : $this.playSound,
@@ -182,10 +183,9 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                         "itemview:equip"     	: function(view) {  $this.playSound().wantsToEquipGoods(view.model);        }
                     });
                 } else {
-                    view = new Components.ExpandableIScrollCollectionView({
+                    view = new ExpandableIScrollCollectionView({
                         className   : "items virtualGoods category " + categoryName,
                         collection  : goods,
-                        template    : collectionTemplate,
                         itemView    : SingleUseVirtualGoodView
                     }).on({
                         "itemview:expand"       : $this.playSound,
@@ -199,10 +199,9 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
 
 
             // Build currency packs category and add it to the page views
-            var currencyPacksView = new Components.ExpandableIScrollCollectionView({
+            var currencyPacksView = new ExpandableIScrollCollectionView({
                 className   : "items currencyPacks category",
                 collection  : currencies.at(0).get("packs"),
-                template    : Handlebars.getTemplate("collection"),
                 itemView    : CurrencyPackView
             }).on({
                 "itemview:expand"   : $this.playSound,
