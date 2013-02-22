@@ -21,7 +21,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             // Prepare triggers for virtual good views
             var triggers = { "click .buy" : "buy" };
 
-            var VirtualGoodView = Components.ListItemView.extend({
+            var VirtualGoodView = Components.ItemView.extend({
                 tagName         : "div",
                 triggers        : triggers,
                 template        : Handlebars.getTemplate("item"),
@@ -38,7 +38,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                     }, templateHelpers);
                 }
             });
-            var CurrencyPackView = Components.ListItemView.extend({
+            var CurrencyPackView = Components.ItemView.extend({
                 tagName         : "div",
                 triggers        : triggers,
                 template        : Handlebars.getTemplate("currencyPack"),
@@ -54,7 +54,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                     }, templateHelpers);
                 }
             });
-            var CategoryMenuItemView = Components.ListItemView.extend({
+            var CategoryMenuItemView = Components.ItemView.extend({
                 template        : Handlebars.getTemplate("categoryMenuItem"),
                 templateHelpers : function() {
 
@@ -75,7 +75,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             var menuCategories = new Backbone.Collection(categories.toJSON());
             this.currencyPacksId = "currency-packs"
             menuCategories.add({name : this.currencyPacksId, imgFilePath : this.model.get("modelAssets").currencyPacksCategory});
-            this.categoryMenu = new Components.CollectionListView({
+            this.categoryMenu = new Components.CollectionView({
                 collection          : menuCategories,
                 itemView            : CategoryMenuItemView,
                 onRender            : function() {

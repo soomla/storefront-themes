@@ -32,17 +32,17 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 },
                 css : { "background-image" : "url('" + $this.theme.pages.goods.listItem.background + "')" }
             };
-            var VirtualGoodView = Components.ListItemView.extend(_.extend({
+            var VirtualGoodView = Components.ItemView.extend(_.extend({
                 triggers : {
                     "fastclick .buy" : "buy"
                 }
             }, sharedGoodsOptions));
 
-            var EquippableVirtualGoodView = Components.EquippableListItemView.extend(_.extend({}, sharedGoodsOptions, {
+            var EquippableVirtualGoodView = Components.EquippableItemView.extend(_.extend({}, sharedGoodsOptions, {
                 template : Handlebars.getTemplate("equippableItem")
             }));
 
-            var CurrencyPackView = Components.ListItemView.extend({
+            var CurrencyPackView = Components.ItemView.extend({
                 template        : Handlebars.getTemplate("currencyPack"),
                 templateHelpers : function() {
 
@@ -114,13 +114,13 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 }
                 $this.categoryViews.push(view);
             });
-            this.currencyPacksView = new Components.CollectionListView({
+            this.currencyPacksView = new Components.CollectionView({
                 className           : "items currencyPacks",
                 collection          : currencies.at(0).get("packs"),
                 itemView            : CurrencyPackView
             }).on("itemview:select", wantsToBuyMarketItem, this);
 
-            this.nonConsumablesView = new Components.CollectionListView({
+            this.nonConsumablesView = new Components.CollectionView({
                 className           : "items nonConsumables",
                 collection          : nonConsumables,
                 itemView            : NonConsumableView
