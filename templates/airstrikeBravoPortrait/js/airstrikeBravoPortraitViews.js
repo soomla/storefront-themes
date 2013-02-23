@@ -4,13 +4,15 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
-            _.bindAll(this, "switchToPage", "leaveStore");
+            _.bindAll(this, "leaveStore");
             this.dialogModel = this.theme.noFundsModal;
 
             var currencies 		= this.model.get("virtualCurrencies"),
                 categories      = this.model.get("categories"),
                 nonConsumables  = this.model.get("nonConsumables"),
                 commonHelpers   = { images : this.theme.images },
+                headerStates    = {},
+                packsTitle      = "GET COINS",
                 $this           = this;
 
             var createTemplateHelpers = function(helpers) {
@@ -101,9 +103,10 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 collection  : categories,
                 itemView    : CategoryView
             }).on("itemview:select", function(view) {
-                this.playSound().switchToPage(view.model.get("name"));
+                this.playSound().changeViewTo(this.pageViews[view.model.cid]);
             }, this);
-            this.pageViews["menu"]  = categoryMenuView;
+            this.pageViews.menu  = categoryMenuView;
+            headerStates[categoryMenuView.cid] = this.theme.pages.menu.title;
 
 
             // Create a view for the button linking from the category menu to the currency packs view
@@ -112,10 +115,10 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
             // categories view when rendering
             this.currencyPacksLink = new CategoryView({
                 className : "item currency-packs",
-                model : new categories.model({ name : "GET COINS" }),
+                model : new categories.model({ name : packsTitle }),
                 templateHelpers : { imgFilePath : this.theme.currencyPacksCategoryImage }
             }).on("select", function() {
-                this.playSound().switchToPage(this.currencyPacksLink.model.get("name"));
+                this.playSound().changeViewTo(currencyPacksView);
             }, this);
 
             // Create views for the earned currency links from the category menu.
@@ -194,7 +197,8 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                     });
                 }
 
-                $this.pageViews[categoryName] = view;
+                $this.pageViews[category.cid] = view;
+                headerStates[view.cid] = categoryName;
             });
 
 
@@ -208,33 +212,30 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 "itemview:collapse" : $this.playSound,
                 "itemview:buy" : function(view) { $this.playSound().wantsToBuyMarketItem(view.model); }
             });
-            this.pageViews["GET COINS"] = currencyPacksView;
+            this.pageViews[currencyPacksView.cid] = currencyPacksView;
+            headerStates[currencyPacksView.cid] = packsTitle;
 
 
             // Build header view
-            this.header = new HeaderView().on({
+            this.header = new HeaderView({states : headerStates, initialState : categoryMenuView.cid}).on({
                 back : function() {
                     this.playSound();
 
-                    // First, collapse all list items that are open
-                    _.each(this.activeView.children, function(view) {
-                        if (view.expanded) view.collapse();
-                    });
+                    // First, collapse open item in currenct category
+                    this.activeView.collapseExpandedChild();
 
                     // Second, switch back to the menu
-                    this.switchToPage("menu");
+                    this.changeViewTo(categoryMenuView);
                 },
                 quit : this.leaveStore
             }, this);
         },
-        switchToPage : function(name) {
-            this.header.state = name;
+        changeViewTo : function(view) {
             this.activeView.$el.hide();
-            this.activeView = this.pageViews[name];
+            this.activeView = view;
             this.activeView.$el.show();
             if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
-            var title = name == "menu" ? this.theme.pages.menu.title : name;
-            this.header.switchHeader(title);
+            this.header.changeStateTo(view.cid);
         },
         onRender : function() {
             // Append background to element
