@@ -4,7 +4,6 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
-            _.bindAll(this, "leaveStore");
             this.dialogModel = this.theme.noFundsModal;
 
             var currencies 		= this.model.get("virtualCurrencies"),
@@ -258,9 +257,6 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
             _.each(this.nonConsumbaleLinks, function(view) {
                 $this.pageViews.menu.$el.append(view.render().el);
             });
-        },
-        leaveStore : function() {
-            this.playSound().wantsToLeaveStore();
         },
         zoomFunction : function() {
             return (innerWidth / innerHeight) > 1.5 ? (innerHeight / 640) : (innerWidth / 960);

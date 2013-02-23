@@ -9,7 +9,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
-            _.bindAll(this, "changeTitle", "showCurrencyStore", "leaveStore");
+            _.bindAll(this, "changeTitle", "showCurrencyStore");
             this.dialogModel = this.theme.noFundsModal;
 
 
@@ -169,9 +169,6 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 $this.$("#categories").append(view.render().el);
             });
             this.$("#categories > div:first").addClass("active");
-        },
-        leaveStore : function() {
-            this.playSound().wantsToLeaveStore();
         },
         zoomFunction : function() {
             return (innerHeight / innerWidth) > 1.5 ? (innerWidth / 720) : (innerHeight / 1280);

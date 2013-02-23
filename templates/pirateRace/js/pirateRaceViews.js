@@ -2,7 +2,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
-            _.bindAll(this, "showCurrencyStore", "showGoodsStore", "leaveStore");
+            _.bindAll(this, "showCurrencyStore", "showGoodsStore");
             this.dialogModel    = this.theme.pages.goods.noFundsModal;
             this.categoryViews  = [];
 
@@ -152,9 +152,6 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             this.playSound();
             this.$("#currency-store").hide();
             this.$("#goods-store").show();
-        },
-        leaveStore : function() {
-            this.playSound().wantsToLeaveStore();
         },
         onRender : function() {
             var $this = this;
