@@ -93,18 +93,15 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
             });
 
 
-            // Create an object to store all child views
-            this.pageViews = {};
-
             // Build category menu and add it to the page views
             var categoryMenuView = new Components.CollectionView({
                 className   : "menu items clearfix",
                 collection  : categories,
                 itemView    : CategoryView
             }).on("itemview:select", function(view) {
-                this.playSound().changeViewTo(this.pageViews[view.model.cid]);
+                this.playSound().changeViewTo(this.children.findByCustom(view.model.cid));
             }, this);
-            this.pageViews.menu  = categoryMenuView;
+            this.children.add(categoryMenuView, "menu");
             headerStates[categoryMenuView.cid] = this.theme.pages.menu.title;
 
 
@@ -196,7 +193,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                     });
                 }
 
-                $this.pageViews[category.cid] = view;
+                $this.children.add(view, category.cid);
                 headerStates[view.cid] = categoryName;
             });
 
@@ -211,7 +208,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 "itemview:collapse" : $this.playSound,
                 "itemview:buy" : function(view) { $this.playSound().wantsToBuyMarketItem(view.model); }
             });
-            this.pageViews[currencyPacksView.cid] = currencyPacksView;
+            this.children.add(currencyPacksView);
             headerStates[currencyPacksView.cid] = packsTitle;
 
 
@@ -237,6 +234,9 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
             this.header.changeStateTo(view.cid);
         },
         onRender : function() {
+            var $this   = this,
+                menu    = this.children.findByCustom("menu");
+
             // Append background to element
             this.$el.css("background-image", "url('" + this.theme.background + "')");
 
@@ -244,22 +244,21 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
             this.header.setElement(this.$(".header")).render().bindUIElements();
 
             // Render child views (items in goods store and currency store)
-            var $this = this;
-            _.each(this.pageViews, function(view) {
+            this.children.each(function(view) {
                 $this.$("#pages").append(view.render().el);
             });
 
             // Append the link to the currency packs as a "category view"
-            this.pageViews.menu.$el.append(this.currencyPacksLink.render().el);
+            menu.$el.append(this.currencyPacksLink.render().el);
 
             // Append links to earned currencies as "category views"
             _.each(this.earnedCurrencyLinks, function(view) {
-                $this.pageViews.menu.$el.append(view.render().el);
+                menu.$el.append(view.render().el);
             });
 
             // Append non consumable items as "category views"
             _.each(this.nonConsumbaleLinks, function(view) {
-                $this.pageViews.menu.$el.append(view.render().el);
+                menu.$el.append(view.render().el);
             });
             // iPhone hack for problematic description line height
             if (isMobile.iOS()) {
