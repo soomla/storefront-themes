@@ -185,7 +185,7 @@ ul {
         overflow: hidden;
     }
 
-    .equipped, .not-equipped {
+    .owned, .not-owned {
         width: 20px;
         height: @collapsedHeight;
         margin: 0 10px;
@@ -247,6 +247,53 @@ ul {
         .box-flex(1);
         .box(vertical, center);
         .hyphens();
+    }
+
+    &.single-use {
+        .balance-label {
+            font-size: 16px;
+        }
+        .balance {
+            font-weight: bold;
+        }
+    }
+
+
+    // Equippable items have several states that are toggled by adding classes to the element
+    &.equippable {
+
+        // State: not owned
+        .equip, .equipped, .owned {
+            display: none;
+        }
+
+        .not-owned {
+            display: inline-block;
+        }
+
+        // State: owned, not equipped
+        &.owned {
+            .equip {
+                display: block;
+            }
+            .owned {
+                display: inline-block;
+            }
+            .buy-container, .price, .expand-collapse, .not-owned {
+                display: none;
+            }
+
+
+            // State: owned and equipped
+            &.equipped {
+                .equip {
+                    display: none;
+                }
+                .equipped {
+                    display: block;
+                }
+            }
+        }
     }
 }
 

@@ -52,13 +52,13 @@
 			},
 			"ownedIndicatorImage" : {
 				"type" : "image",
-				"title" : "Equipped Indicator Image",
-				"selector" : ".not-equipped"
+				"title" : "Owned Indicator Image",
+				"selector" : ".owned"
 			},
 			"notOwnedIndicatorImage" : {
 				"type" : "image",
-				"title" : "Unequipped Indicator Image",
-				"selector" : ".equipped"
+				"title" : "Not Owned Indicator Image",
+				"selector" : ".not-owned"
 			},
 			"expandImage" : {
 				"type" : "image",

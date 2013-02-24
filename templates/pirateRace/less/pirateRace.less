@@ -171,9 +171,31 @@ ul {
 
     // Add specific styling for equippable items
     &.equippable {
+
+        // State: not owned
         .equip, .active {
             display: none;
             float:right;
+        }
+
+        // State: owned, not equipped
+        &.owned {
+            .equip {
+                display: block;
+            }
+            .buy-once {
+                display: none;
+            }
+
+            // State: owned and equipped
+            &.equipped {
+                .equip {
+                    display: none;
+                }
+                .active {
+                    display: block;
+                }
+            }
         }
     }
 }

@@ -1,0 +1,25 @@
+<div class="row">
+    <img src="{{imgFilePath}}" class="item-image">
+    <div class="content">
+        <h1 style="{{item.nameStyle}}">{{name}}</h1>
+	    <span class="balance-label">
+		    You have:
+	    </span>
+        <span class="balance">{{balance}}</span>
+    </div>
+    <div class="actions">
+        <div class="price" style="{{item.priceStyle}}">
+            <label>{{price}}</label>
+            <img src="{{currency.imgFilePath}}">
+        </div>
+        <img src="{{images.expandImage}}" class="expand-collapse">
+    </div>
+</div>
+<div class="row">
+    <div class="description" style="{{item.descriptionStyle}}">{{description}}</div>
+    <div class="buy-container">
+        <a class="buy">
+            <img src="{{images.buyImage}}">
+        </a>
+    </div>
+</div>
