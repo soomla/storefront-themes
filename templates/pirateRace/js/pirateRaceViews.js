@@ -23,14 +23,12 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                             imgFilePath : modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
                         },
                         price : this.model.get("priceModel").values[this.model.getCurrencyId()],
-                        balanceLabelStyle   : $this.theme.common.balanceLabelStyle,
                         itemSeparator       : $this.theme.itemSeparator
 
                         // TODO: Move all properties under pages.goods.item and pages.currencyPacks.item and migrate DB
 
                     }, $this.theme.pages.goods.listItem);
-                },
-                css : { "background-image" : "url('" + $this.theme.pages.goods.listItem.background + "')" }
+                }
             };
             var VirtualGoodView = Components.ItemView.extend(_.extend({
                 triggers : {
@@ -53,8 +51,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                         itemSeparator   : $this.theme.itemSeparator,
                         imgFilePath     : modelAssets["currencyPacks"][this.model.id]
                     };
-                },
-                css             : { "background-image" : "url('" + this.theme.pages.currencyPacks.listItem.balanceBackground + "')" }
+                }
             });
 
             var NonConsumableView = Components.BuyOnceItemView.extend({

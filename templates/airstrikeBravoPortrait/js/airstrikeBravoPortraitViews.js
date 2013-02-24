@@ -21,16 +21,8 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
 
             // Define view types
 
-            var expandCollapseCallbacks = {
-                onExpand: function () {
-                    this.$el.css("background-image", "url('" + this.templateHelpers().images.itemBackgroundImageExpanded + "')");
-                },
-                onCollapse: function () {
-                    this.$el.css("background-image", "url('" + this.templateHelpers().images.itemBackgroundImage + "')");
-                }
-            };
-            var ExpandableEquippableItemView    = Components.ExpandableEquipppableItemView.extend(expandCollapseCallbacks);
-            var ExpandableSingleUseItemView     = Components.ExpandableSingleUseItemView.extend(expandCollapseCallbacks);
+            var ExpandableEquippableItemView    = Components.ExpandableEquipppableItemView;
+            var ExpandableSingleUseItemView     = Components.ExpandableSingleUseItemView;
 
 
             var templateHelpers = function () {
@@ -47,13 +39,11 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
 
             var EquippableVirtualGoodView = ExpandableEquippableItemView.extend({
                 template        : Handlebars.getTemplate("equippableItem"),
-                templateHelpers : templateHelpers,
-                css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
+                templateHelpers : templateHelpers
             });
             var SingleUseVirtualGoodView = ExpandableSingleUseItemView.extend({
                 template        : Handlebars.getTemplate("singleUseItem"),
-                templateHelpers : templateHelpers,
-                css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
+                templateHelpers : templateHelpers
             });
 
 
@@ -65,8 +55,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                     return createTemplateHelpers({
                         imgFilePath : modelAssets["currencyPacks"][this.model.id]
                     });
-                },
-                css             : { "background-image" : "url('" + this.theme.images.itemBackgroundImage + "')" }
+                }
             });
             var CategoryView = Components.ItemView.extend({
                 template        : Handlebars.getTemplate("categoryMenuItem"),
@@ -236,9 +225,6 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
         onRender : function() {
             var $this   = this,
                 menu    = this.children.findByCustom("menu");
-
-            // Append background to element
-            this.$el.css("background-image", "url('" + this.theme.background + "')");
 
             // Set header element to bind event delegation
             this.header.setElement(this.$(".header")).render().bindUIElements();
