@@ -1,6 +1,18 @@
 define(["jquery", "backbone", "components", "helperViews", "handlebars", "templates"], function($, Backbone, Components, HelperViews, Handlebars) {
 
-    var HeaderView = HelperViews.HeaderView;
+    // Define view types
+
+    var HeaderView                      = HelperViews.HeaderView,
+        getTemplate                     = Handlebars.getTemplate,
+        ExpandableEquippableItemView    = Components.ExpandableEquipppableItemView,
+        ExpandableSingleUseItemView     = Components.ExpandableSingleUseItemView,
+        EquippableVirtualGoodView       = ExpandableEquippableItemView.extend({ template : getTemplate("equippableItem") }),
+        SingleUseVirtualGoodView        = ExpandableSingleUseItemView.extend({ template : getTemplate("singleUseItem")}),
+        CurrencyPackView                = ExpandableEquippableItemView.extend({ template : getTemplate("currencyPack") }),
+        CategoryView                    = Components.ItemView.extend({ template : getTemplate("categoryMenuItem") }),
+        NonConsumableView               = Components.BuyOnceItemView.extend({ template : getTemplate("nonConsumableItem")}),
+        ExpandableIScrollCollectionView = Components.ExpandableIScrollCollectionView.extend({ template : getTemplate("collection") });
+
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
@@ -14,17 +26,14 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 packsTitle      = "GET COINS",
                 $this           = this;
 
+
+
+
+            // Add template helpers to view prototypes
+
             var createTemplateHelpers = function(helpers) {
                 return _.extend(helpers, commonHelpers);
             };
-
-
-            // Define view types
-
-            var ExpandableEquippableItemView    = Components.ExpandableEquipppableItemView;
-            var ExpandableSingleUseItemView     = Components.ExpandableSingleUseItemView;
-
-
             var templateHelpers = function () {
 
                 var modelAssets = $this.model.get("modelAssets");
@@ -37,49 +46,27 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 });
             };
 
-            var EquippableVirtualGoodView = ExpandableEquippableItemView.extend({
-                template        : Handlebars.getTemplate("equippableItem"),
-                templateHelpers : templateHelpers
-            });
-            var SingleUseVirtualGoodView = ExpandableSingleUseItemView.extend({
-                template        : Handlebars.getTemplate("singleUseItem"),
-                templateHelpers : templateHelpers
-            });
+            EquippableVirtualGoodView.prototype.templateHelpers = templateHelpers;
+            SingleUseVirtualGoodView.prototype.templateHelpers = templateHelpers;
 
-
-            var CurrencyPackView = ExpandableEquippableItemView.extend({
-                template        : Handlebars.getTemplate("currencyPack"),
-                templateHelpers : function() {
-
-                    var modelAssets = $this.model.get("modelAssets");
-                    return createTemplateHelpers({
-                        imgFilePath : modelAssets["currencyPacks"][this.model.id]
-                    });
-                }
-            });
-            var CategoryView = Components.ItemView.extend({
-                template        : Handlebars.getTemplate("categoryMenuItem"),
-                templateHelpers : function() {
-
+			CurrencyPackView.prototype.templateHelpers = function() {
+				var modelAssets = $this.model.get("modelAssets");
+				return createTemplateHelpers({
+					imgFilePath : modelAssets["currencyPacks"][this.model.id]
+				});
+            };
+            CategoryView.prototype.templateHelpers = function() {
                     var modelAssets = $this.model.get("modelAssets");
                     return {
                         imgFilePath : modelAssets["categories"][this.model.id]
                     };
-                }
-            });
-            var NonConsumableView = Components.BuyOnceItemView.extend({
-                template        : Handlebars.getTemplate("nonConsumableItem"),
-                templateHelpers : function() {
-
-                    var modelAssets = $this.model.get("modelAssets");
-                    return createTemplateHelpers({
-                        imgFilePath : modelAssets["nonConsumables"][this.model.id]
-                    });
-                }
-            });
-            var ExpandableIScrollCollectionView = Components.ExpandableIScrollCollectionView.extend({
-                template : Handlebars.getTemplate("collection")
-            });
+            };
+            NonConsumableView.prototype.templateHelpers = function() {
+				var modelAssets = $this.model.get("modelAssets");
+				return createTemplateHelpers({
+					imgFilePath : modelAssets["nonConsumables"][this.model.id]
+				});
+            };
 
 
             // Build category menu and add it to the page views
