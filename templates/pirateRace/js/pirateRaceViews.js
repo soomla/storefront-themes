@@ -1,5 +1,22 @@
 define(["jquery", "backbone", "components", "marionette", "handlebars", "templates", "iscroll", "jquery.fastbutton"], function($, Backbone, Components, Marionette, Handlebars) {
 
+    // Define view types
+
+    var getTemplate = Handlebars.getTemplate,
+        VirtualGoodView = Components.ItemView.extend(_.extend({
+            template : getTemplate("item"),
+            triggers : { "fastclick .buy" : "buy" }
+        })),
+        SectionedListView = Marionette.CompositeView.extend({
+            className           : "items virtualGoods",
+            template            : getTemplate("listContainer"),
+            itemViewContainer   : ".container"
+        }),
+        EquippableVirtualGoodView   = Components.EquippableItemView.extend({ template : getTemplate("equippableItem")}),
+        CurrencyPackView            = Components.ItemView.extend({ template : getTemplate("currencyPack") }),
+        NonConsumableView           = Components.BuyOnceItemView.extend({template : getTemplate("nonConsumableItem") });
+
+
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
             _.bindAll(this, "showCurrencyStore", "showGoodsStore");
@@ -12,73 +29,47 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 nonConsumables  = this.model.get("nonConsumables");
 
 
-            var sharedGoodsOptions = {
-                template        : Handlebars.getTemplate("item"),
-                templateHelpers : function() {
+            // Add template helpers to view prototypes
 
-                    var modelAssets = $this.model.get("modelAssets");
-                    return _.extend({
-                        imgFilePath : modelAssets["virtualGoods"][this.model.id],
-                        currency : {
-                            imgFilePath : modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
-                        },
-                        price : this.model.get("priceModel").values[this.model.getCurrencyId()],
-                        balanceLabelStyle   : $this.theme.common.balanceLabelStyle,
-                        itemSeparator       : $this.theme.itemSeparator
+            var templateHelpers = function() {
 
-                        // TODO: Move all properties under pages.goods.item and pages.currencyPacks.item and migrate DB
+                var modelAssets = $this.model.get("modelAssets");
+                return _.extend({
+                    imgFilePath : modelAssets["virtualGoods"][this.model.id],
+                    currency : {
+                        imgFilePath : modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
+                    },
+                    price : this.model.get("priceModel").values[this.model.getCurrencyId()],
+                    itemSeparator       : $this.theme.itemSeparator
 
-                    }, $this.theme.pages.goods.listItem);
-                },
-                css : { "background-image" : "url('" + $this.theme.pages.goods.listItem.background + "')" }
+                    // TODO: Move all properties under pages.goods.item and pages.currencyPacks.item and migrate DB
+
+                }, $this.theme.pages.goods.listItem);
             };
-            var VirtualGoodView = Components.ItemView.extend(_.extend({
-                triggers : {
-                    "fastclick .buy" : "buy"
-                }
-            }, sharedGoodsOptions));
-
-            var EquippableVirtualGoodView = Components.EquippableItemView.extend(_.extend({}, sharedGoodsOptions, {
-                template : Handlebars.getTemplate("equippableItem")
-            }));
-
-            var CurrencyPackView = Components.ItemView.extend({
-                template        : Handlebars.getTemplate("currencyPack"),
-                templateHelpers : function() {
-
-                    var modelAssets = $this.model.get("modelAssets");
-                    return {
-                        nameStyle       : $this.theme.pages.currencyPacks.listItem.nameStyle,
-                        priceStyle      : $this.theme.pages.currencyPacks.listItem.priceStyle,
-                        itemSeparator   : $this.theme.itemSeparator,
-                        imgFilePath     : modelAssets["currencyPacks"][this.model.id]
-                    };
-                },
-                css             : { "background-image" : "url('" + this.theme.pages.currencyPacks.listItem.balanceBackground + "')" }
-            });
-
-            var NonConsumableView = Components.BuyOnceItemView.extend({
-                template        : Handlebars.getTemplate("nonConsumableItem"),
-                templateHelpers : function() {
-
-                    var modelAssets = $this.model.get("modelAssets");
-                    return {
-                        nameStyle           : $this.theme.pages.currencyPacks.listItem.nameStyle,
-                        priceStyle          : $this.theme.pages.currencyPacks.listItem.priceStyle,
-                        itemSeparator       : $this.theme.itemSeparator,
-                        ownedIndicatorImage : $this.theme.common.ownedIndicatorImage,
-                        imgFilePath         : modelAssets["nonConsumables"][this.model.id]
-                    };
-                }
-            });
 
 
-            var SectionedListView = Marionette.CompositeView.extend({
-                tagName             : "div",
-                className           : "items virtualGoods",
-                template            : Handlebars.getTemplate("listContainer"),
-                itemViewContainer   : ".container"
-            });
+            VirtualGoodView.prototype.templateHelpers = templateHelpers;
+            EquippableVirtualGoodView.prototype.templateHelpers = templateHelpers;
+            CurrencyPackView.prototype.templateHelpers = function() {
+                var modelAssets = $this.model.get("modelAssets");
+                return {
+                    nameStyle       : $this.theme.pages.currencyPacks.listItem.nameStyle,
+                    priceStyle      : $this.theme.pages.currencyPacks.listItem.priceStyle,
+                    itemSeparator   : $this.theme.itemSeparator,
+                    imgFilePath     : modelAssets["currencyPacks"][this.model.id]
+                };
+            };
+            NonConsumableView.prototype.templateHelpers = function() {
+                var modelAssets = $this.model.get("modelAssets");
+                return {
+                    nameStyle           : $this.theme.pages.currencyPacks.listItem.nameStyle,
+                    priceStyle          : $this.theme.pages.currencyPacks.listItem.priceStyle,
+                    itemSeparator       : $this.theme.itemSeparator,
+                    ownedIndicatorImage : $this.theme.common.ownedIndicatorImage,
+                    imgFilePath         : modelAssets["nonConsumables"][this.model.id]
+                };
+            };
+
 
             // View event listeners
             var wantsToBuyVirtualGoods = function (view) {

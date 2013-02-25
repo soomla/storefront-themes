@@ -11,7 +11,7 @@
         "contentBackground" : {
             "type" : "backgroundImage",
             "title" : "Content Background Image",
-            "selector" : ".content"
+            "selector" : "#main > div > .content"
         },
         "common" : {
             "titleImage" : {
@@ -49,7 +49,7 @@
             "style" : {
                 "type" : "css",
                 "title" : "Balance Style",
-                "selector" : ".label-container"
+                "selector" : ".header .balance-container .label-container"
             }
         },
         "pages" : {

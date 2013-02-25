@@ -8,7 +8,7 @@
 			"style" : {
 				"type" : "css",
 				"title" : "Balance Label Style",
-				"selector" : "#balance-container .label-container"
+				"selector" : ".header #balance-container .label-container"
 			}
 		},
 		"background" : {
@@ -77,18 +77,18 @@
 			"itemBackgroundImage" : {
 				"type" : "backgroundImage",
 				"title" : "Item Background Image",
-				"selector" : ".item"
+				"selector" : ".category .item"
 			},
 			"itemBackgroundImageExpanded" : {
 				"type" : "backgroundImage",
 				"title" : "Expanded Item Background Image",
-				"selector" : ".item.expanded"
+				"selector" : ".category .item.expanded"
 			}
 		},
 		"titleStyle" : {
 			"type" : "css",
 			"title" : "Title Style",
-			"selector" : ".title-container h1"
+			"selector" : ".header .title-container h1"
 		},
 		"pages" : {
 			"menu" : {

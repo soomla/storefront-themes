@@ -1,10 +1,25 @@
 define(["jquery", "backbone", "components", "handlebars", "templates"], function($, Backbone, Components, Handlebars) {
 
-    var CarouselView = Components.CarouselView.extend({
-        className           : "category",
-        itemViewContainer   : ".goods",
-        template            : Handlebars.getTemplate("category")
-    });
+    // Define view types
+
+    var getTemplate = Handlebars.getTemplate,
+        triggers = { "click .buy" : "buy" },
+        VirtualGoodView = Components.ItemView.extend({
+            triggers : triggers,
+            template : getTemplate("item")
+        }),
+        CurrencyPackView = Components.ItemView.extend({
+            triggers : triggers,
+            template : getTemplate("currencyPack")
+        }),
+        CategoryMenuItemView = Components.ItemView.extend({
+            template : getTemplate("categoryMenuItem")
+        }),
+        CarouselView = Components.CarouselView.extend({
+            className           : "category",
+            itemViewContainer   : ".goods",
+            template            : getTemplate("category")
+        });
 
 
     var StoreView = Components.BaseStoreView.extend({
@@ -18,52 +33,36 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 templateHelpers = { images : this.theme.images },
                 $this           = this;
 
-            // Prepare triggers for virtual good views
-            var triggers = { "click .buy" : "buy" };
 
-            var VirtualGoodView = Components.ItemView.extend({
-                tagName         : "div",
-                triggers        : triggers,
-                template        : Handlebars.getTemplate("item"),
-                templateHelpers : function() {
+            // Add template helpers to view prototypes
 
-                    var modelAssets = $this.model.get("modelAssets");
-                    return _.extend({
-                        imgFilePath : modelAssets["virtualGoods"][this.model.id],
-                        currency : {
-                            imgFilePath : modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
-                        },
-                        price : this.model.get("priceModel").values[this.model.getCurrencyId()],
-                        item : $this.theme.item
-                    }, templateHelpers);
-                }
-            });
-            var CurrencyPackView = Components.ItemView.extend({
-                tagName         : "div",
-                triggers        : triggers,
-                template        : Handlebars.getTemplate("currencyPack"),
-                templateHelpers : function() {
-
-                    var modelAssets = $this.model.get("modelAssets");
-                    return _.extend({
-                        imgFilePath : modelAssets["currencyPacks"][this.model.id],
-                        currency : {
-                            imgFilePath : modelAssets["virtualCurrencies"][this.model.get("currency_itemId")]
-                        },
-                        item : $this.theme.item
-                    }, templateHelpers);
-                }
-            });
-            var CategoryMenuItemView = Components.ItemView.extend({
-                template        : Handlebars.getTemplate("categoryMenuItem"),
-                templateHelpers : function() {
-
-                    var modelAssets = $this.model.get("modelAssets");
-                    return {
-                        imgFilePath : modelAssets["categories"][this.model.id]
-                    };
-                }
-            });
+            VirtualGoodView.prototype.templateHelpers = function() {
+                var modelAssets = $this.model.get("modelAssets");
+                return _.extend({
+                    imgFilePath : modelAssets["virtualGoods"][this.model.id],
+                    currency : {
+                        imgFilePath : modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
+                    },
+                    price : this.model.get("priceModel").values[this.model.getCurrencyId()],
+                    item : $this.theme.item
+                }, templateHelpers);
+            };
+            CurrencyPackView.prototype.templateHelpers = function() {
+                var modelAssets = $this.model.get("modelAssets");
+                return _.extend({
+                    imgFilePath : modelAssets["currencyPacks"][this.model.id],
+                    currency : {
+                        imgFilePath : modelAssets["virtualCurrencies"][this.model.get("currency_itemId")]
+                    },
+                    item : $this.theme.item
+                }, templateHelpers);
+            };
+            CategoryMenuItemView.prototype.templateHelpers = function() {
+                var modelAssets = $this.model.get("modelAssets");
+                return {
+                    imgFilePath : modelAssets["categories"][this.model.id]
+                };
+            };
 
 
             // TODO: Fix the image for currency packs link.  It's not being passed in the template helpers for some reason...
@@ -153,6 +152,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
         onRender : function() {
 
             // Append background to element
+            // TODO: Remove once this CSS property is injected dynamically from template.json definition
             this.$el.css("background-image", "url('" + this.theme.images.globalBackground + "')");
 
             // Show first category name in header
