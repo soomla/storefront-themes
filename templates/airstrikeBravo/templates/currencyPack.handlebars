@@ -2,14 +2,14 @@
     <img src="{{imgFilePath}}" class="item-image">
     <div class="content">
         <h1 style="{{item.nameStyle}}">{{name}}</h1>
+        <span class="amount-label">
+		    {{amount}}
+	    </span>
+        <img src="{{currency.imgFilePath}}">
     </div>
     <div class="price" style="{{item.priceStyle}}">
-        <label>{{price}}</label>
+        <label>{{price}}$</label>
     </div>
-    <img src="{{images.expandImage}}" class="expand-collapse">
-</div>
-<div class="row">
-    <div class="description" style="{{item.descriptionStyle}}">{{description}}</div>
     <div class="buy-container">
         <a class="buy">
             <img src="{{images.buyImage}}">

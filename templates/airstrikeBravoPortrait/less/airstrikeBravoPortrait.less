@@ -211,6 +211,7 @@ ul {
     // Action container variables
     @actionsWidth: 100px;
     @priceHeight: 40px;
+    @secondaryFontSize: 16px;
 
     .actions {
         width: @actionsWidth;
@@ -251,7 +252,7 @@ ul {
 
     &.single-use {
         .balance-label {
-            font-size: 16px;
+            font-size: @secondaryFontSize;
         }
         .balance {
             font-weight: bold;
@@ -295,6 +296,14 @@ ul {
             }
         }
     }
+
+    // Currency pack items
+    .amount-label {
+        font-size: @secondaryFontSize;
+
+        // Align vertically to match the currency image next to it
+        vertical-align: middle;
+    }
 }
 
 
@@ -322,4 +331,13 @@ ul {
         text-align: center;
         width: 480px;
     }
+}
+
+.currencyPacks .item {
+    // In currency packs allow more flex-space for the item title by removing
+    // the price's fixed width
+    .price {
+        width: auto;
+    }
+
 }

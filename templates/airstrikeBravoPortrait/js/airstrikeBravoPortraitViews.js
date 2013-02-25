@@ -8,7 +8,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
         ExpandableSingleUseItemView     = Components.ExpandableSingleUseItemView,
         EquippableVirtualGoodView       = ExpandableEquippableItemView.extend({ template : getTemplate("equippableItem") }),
         SingleUseVirtualGoodView        = ExpandableSingleUseItemView.extend({ template : getTemplate("singleUseItem")}),
-        CurrencyPackView                = ExpandableEquippableItemView.extend({ template : getTemplate("currencyPack") }),
+        CurrencyPackView                = Components.ItemView.extend({ template : getTemplate("currencyPack"), triggers : {"fastclick .buy" : "buy"} }),
         CategoryView                    = Components.ItemView.extend({ template : getTemplate("categoryMenuItem") }),
         NonConsumableView               = Components.BuyOnceItemView.extend({ template : getTemplate("nonConsumableItem")}),
         ExpandableIScrollCollectionView = Components.ExpandableIScrollCollectionView.extend({ template : getTemplate("collection") });
@@ -52,7 +52,10 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
 			CurrencyPackView.prototype.templateHelpers = function() {
 				var modelAssets = $this.model.get("modelAssets");
 				return createTemplateHelpers({
-					imgFilePath : modelAssets["currencyPacks"][this.model.id]
+					imgFilePath : modelAssets["currencyPacks"][this.model.id],
+                    currency: {
+                        imgFilePath: modelAssets["virtualCurrencies"][this.model.get("currency_itemId")]
+                    }
 				});
             };
             CategoryView.prototype.templateHelpers = function() {
@@ -179,10 +182,8 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 className   : "items currencyPacks category",
                 collection  : currencies.at(0).get("packs"),
                 itemView    : CurrencyPackView
-            }).on({
-                "itemview:expand"   : $this.playSound,
-                "itemview:collapse" : $this.playSound,
-                "itemview:buy" : function(view) { $this.playSound().wantsToBuyMarketItem(view.model); }
+            }).on("itemview:buy", function(view) {
+                $this.playSound().wantsToBuyMarketItem(view.model);
             });
             this.children.add(currencyPacksView);
             headerStates[currencyPacksView.cid] = packsTitle;

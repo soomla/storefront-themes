@@ -205,6 +205,7 @@ ul {
     // Action container variables
     @actionsWidth: 160px;
     @priceHeight: 40px;
+    @secondaryFontSize: 16px;
 
     .actions {
         width: @actionsWidth;
@@ -245,7 +246,7 @@ ul {
 
     &.single-use {
         .balance-label {
-            font-size: 16px;
+            font-size: @secondaryFontSize;
         }
         .balance {
             font-weight: bold;
@@ -289,6 +290,14 @@ ul {
             }
         }
     }
+
+    // Currency pack items
+    .amount-label {
+        font-size: @secondaryFontSize;
+
+        // Align vertically to match the currency image next to it
+        vertical-align: middle;
+    }
 }
 
 
@@ -318,9 +327,18 @@ ul {
     }
 }
 
-.currencyPacks .item .item-image {
+.currencyPacks .item {
+    // In currency packs allow more flex-space for the item title by removing
+    // the price's fixed width
+    .price {
+        width: auto;
+    }
+
+    .item-image {
     // Add horizontal margin to images in the currency packs screen
     // to make up for the pixel slack of no equipping image.
-    @horizontalMargin: (@eqipImageWidth + (2 * @eqipImageHorizontalMargin)) / 2;
-    margin: 0 @horizontalMargin;
+        @horizontalMargin: (@eqipImageWidth + (2 * @eqipImageHorizontalMargin)) / 2;
+        margin: 0 @horizontalMargin;
+    }
 }
+
