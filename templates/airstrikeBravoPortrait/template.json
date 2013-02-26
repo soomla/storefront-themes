@@ -96,11 +96,6 @@
 					"type" : "text",
 					"title" : "Store Title",
 					"selector" : ".title-container h1"
-				},
-				"balance" : {
-					"type" : "image",
-					"title" : "Balance Background Image",
-					"selector" : ".balance-image"
 				}
 			}
 		}

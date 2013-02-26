@@ -77,8 +77,7 @@
 	    "currencyPacksCategoryImage" : "../theme/img/-_Object_5.png",
         "pages" : {
             "menu" : {
-                "title" : "The Store",
-                "balance" : "../theme/img/JPJR_ProductBar_Header_Right.png"
+                "title" : "The Store"
             },
 	        "goods" : {
 		        "item" : {
