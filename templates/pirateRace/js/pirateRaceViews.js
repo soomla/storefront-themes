@@ -105,11 +105,16 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 }
                 $this.categoryViews.push(view);
             });
-            this.currencyPacksView = new Components.CollectionView({
-                className           : "items currencyPacks",
-                collection          : currencies.at(0).get("packs"),
-                itemView            : CurrencyPackView
-            }).on("itemview:select", wantsToBuyMarketItem, this);
+            this.currencyPacksViews = [];
+            currencies.each(function(currency) {
+                var view = new Components.CollectionView({
+                    className           : "items currencyPacks",
+                    collection          : currency.get("packs"),
+                    itemView            : CurrencyPackView
+                }).on("itemview:select", wantsToBuyMarketItem, $this);
+
+                $this.currencyPacksViews.push(view)
+            });
 
             this.nonConsumablesView = new Components.CollectionView({
                 className           : "items nonConsumables",
@@ -154,7 +159,10 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             });
 
 
-            this.$("#currency-store .currency-packs").html(this.currencyPacksView.render().el);
+            _.each(this.currencyPacksViews, function(view) {
+                $this.$("#currency-store .currency-packs").append(view.render().el);
+            });
+
             this.$("#currency-store .non-consumables").html(this.nonConsumablesView.render().el);
 
             // Create IScrolls

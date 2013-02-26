@@ -9,7 +9,7 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
         EquippableVirtualGoodView       = ExpandableEquippableItemView.extend({ template : getTemplate("equippableItem") }),
         SingleUseVirtualGoodView        = ExpandableSingleUseItemView.extend({ template : getTemplate("singleUseItem")}),
         CurrencyPackView                = Components.ItemView.extend({ template : getTemplate("currencyPack"), triggers : {"fastclick .buy" : "buy"} }),
-        CategoryView                    = Components.ItemView.extend({ template : getTemplate("categoryMenuItem") }),
+        CategoryView                    = Components.LinkView.extend({ template : getTemplate("categoryMenuItem") }),
         NonConsumableView               = Components.BuyOnceItemView.extend({ template : getTemplate("nonConsumableItem")}),
         ExpandableIScrollCollectionView = Components.ExpandableIScrollCollectionView.extend({ template : getTemplate("collection") });
 
@@ -24,7 +24,6 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
                 tapjoy          = this.theme.tapjoy,
                 commonHelpers   = { images : this.theme.images },
                 headerStates    = {},
-                packsTitle      = "GET COINS",
                 $this           = this;
 
 
@@ -91,13 +90,18 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
             // We're using a CategoryView, because visually the button should look the same, even though
             // it doesn't represent an actual category.  This view will be force-appended to the
             // categories view when rendering
-            this.currencyPacksLink = new CategoryView({
-                className : "item currency-packs",
-                model : new categories.model({ name : packsTitle }),
-                templateHelpers : { imgFilePath : this.theme.currencyPacksCategoryImage }
-            }).on("select", function() {
-                this.playSound().changeViewTo(currencyPacksView);
-            }, this);
+            this.currencyPacksLinks = [];
+
+            currencies.each(function(currency) {
+                var link = new CategoryView({
+                    className : "item currency-packs",
+                    templateHelpers : { imgFilePath : $this.theme.currencyPacksCategoryImage }
+                }).on("select", function() {
+                    this.playSound().changeViewTo(this.children.findByCustom(currency.cid));
+                }, $this);
+
+                $this.currencyPacksLinks.push(link);
+            });
 
             // Create views for the earned currency links from the category menu.
             // We're using a CategoryView, because visually the button should look the same, even though
@@ -125,7 +129,6 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
             if (tapjoy) {
                 this.tapjoyView = new CategoryView({
                     className : "item earned-currency",
-                    model : new Backbone.Model(), // Hack to allow event binding
                     templateHelpers : { imgFilePath : this.model.get("modelAssets").tapjoy }
                 }).on("select", function() {
                     $this.playSound();
@@ -176,15 +179,17 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
 
 
             // Build currency packs category and add it to the page views
-            var currencyPacksView = new ExpandableIScrollCollectionView({
-                className   : "items currencyPacks category",
-                collection  : currencies.at(0).get("packs"),
-                itemView    : CurrencyPackView
-            }).on("itemview:buy", function(view) {
-                $this.playSound().wantsToBuyMarketItem(view.model);
+            currencies.each(function(currency) {
+                var currencyPacksView = new ExpandableIScrollCollectionView({
+                    className   : "items currencyPacks category",
+                    collection  : currency.get("packs"),
+                    itemView    : CurrencyPackView
+                }).on("itemview:buy", function(view) {
+                    $this.playSound().wantsToBuyMarketItem(view.model);
+                });
+                $this.children.add(currencyPacksView, currency.cid);
+                headerStates[currencyPacksView.cid] = currency.get("name");
             });
-            this.children.add(currencyPacksView);
-            headerStates[currencyPacksView.cid] = packsTitle;
 
 
             // Build header view
@@ -221,7 +226,9 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
             });
 
             // Append the link to the currency packs as a "category view"
-            menu.$el.append(this.currencyPacksLink.render().el);
+            _.each(this.currencyPacksLinks, function(link) {
+                menu.$el.append(link.render().el);
+            });
 
             // Append links to earned currencies as "category views"
             if (this.tapjoyView) menu.$el.append(this.tapjoyView.render().el);

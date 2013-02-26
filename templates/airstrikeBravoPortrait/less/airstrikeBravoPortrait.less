@@ -68,10 +68,6 @@ ul {
         }
     }
 
-    .back, #balance-container {
-        .box-flex(1);
-    }
-
     .back {
         text-align: left;
     }
@@ -81,16 +77,29 @@ ul {
     }
 
     #balance-container {
-        position: relative;
-        text-align: right;
+        @currencyPadding: 2px;
+        @height: (@topBarHeight - 20) - (2 * @currencyPadding);
+        .box-flex(1);
+        .box(horizontal, center, center);
 
+        // Allow several currencies
         .label-container {
-            position: absolute;
-            top: -10000px;
-            left: -10000px;
-            text-align: center;
-            font-size: 24px;
+            padding: @currencyPadding 0;
+            max-height: @height;
+            .box-flex(1);
+            text-align: right;
+            font-size: @height;
             font-weight: bold;
+            line-height: @height;
+
+            label {
+                vertical-align: middle;
+            }
+        }
+
+	    // Currency image shouldn't overflow - same height as container
+        .currency {
+            max-height: @height;
         }
     }
 
@@ -303,7 +312,11 @@ ul {
 
         // Align vertically to match the currency image next to it
         vertical-align: middle;
+
     }
+    .currency {
+        max-height: 24px;
+	}
 }
 
 

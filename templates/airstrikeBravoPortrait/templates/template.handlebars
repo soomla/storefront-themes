@@ -7,12 +7,12 @@
                 <a id="back-button"><img src="{{images.backImage}}"></a>
             </div>
             <div id="balance-container">
-                <img class="balance-image" src="{{pages.menu.balance}}" alt="Balance Image">
+                {{#each currencies}}
                 <div class="label-container">
-                    {{#each currencies}}
-                    <label>{{this.balance}}</label>
-                    {{/each}}
+                    <label data-currency="{{this.itemId}}">{{this.balance}}</label>
+                    <img class="currency" src="{{this.imgFilePath}}" alt="Balance Image">
                 </div>
+                {{/each}}
             </div>
         </div>
         <div class="title-container">

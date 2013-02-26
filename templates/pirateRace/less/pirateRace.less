@@ -30,19 +30,18 @@ ul {
     }
 
     .balance-container {
-        position: relative;
-        text-align: right;
+        @height: 36px;
+        .box(horizontal, center);
+        font-size: @height;
+        line-height: @height;
 
-        .balance-image {
-            display: block;
-            margin: 0 auto;
-        }
 
         .label-container {
-            position: absolute;
-            top: -10000px;
-            left: -10000px;
+            .box-flex(1);
             text-align: center;
+        }
+        .currency {
+            max-height: @height;
         }
     }
 }

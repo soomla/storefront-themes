@@ -6,12 +6,12 @@
         <div class="header">
             <img class="title-image" src="{{common.titleImage}}">
             <div class="balance-container font-face-2">
-                <img class="balance-image" src="{{common.balanceImage}}" alt="Balance Image">
+	            {{#each currencies}}
                 <div class="label-container">
-                    {{#each currencies}}
+                    <img class="currency" src="{{this.imgFilePath}}">
                     <label>{{this.balance}}</label>
-                    {{/each}}
                 </div>
+	            {{/each}}
             </div>
         </div>
         <div class="items-container">
@@ -30,12 +30,12 @@
         <div class="header">
             <img class="title-image" src="{{common.titleImage}}">
             <div class="balance-container font-face-2">
-                <img class="balance-image" src="{{common.balanceImage}}" alt="Balance Image">
-                <div class="label-container">
-                    {{#each currencies}}
-                    <label>{{this.balance}}</label>
-                    {{/each}}
-                </div>
+	            {{#each currencies}}
+                    <div class="label-container">
+                        <img class="currency" src="{{this.imgFilePath}}">
+                        <label>{{this.balance}}</label>
+                    </div>
+	            {{/each}}
             </div>
         </div>
         <div class="items-container">

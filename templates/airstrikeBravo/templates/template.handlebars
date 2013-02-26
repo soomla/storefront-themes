@@ -9,12 +9,12 @@
             <h1>{{pages.menu.title}}</h1>
         </div>
         <div id="balance-container">
-            <img class="balance-image" src="{{pages.menu.balance}}" alt="Balance Image">
+	        {{#each currencies}}
             <div class="label-container">
-                {{#each currencies}}
-                <label>{{this.balance}}</label>
-                {{/each}}
+                <label data-currency="{{this.itemId}}">{{this.balance}}</label>
+                <img class="currency" src="{{this.imgFilePath}}">
             </div>
+	        {{/each}}
         </div>
     </div>
     <div id="pages" class="font-face-2">

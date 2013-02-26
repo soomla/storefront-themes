@@ -10,6 +10,7 @@
 @externalHeight:    550px;
 @internalWidth:     700px;
 @internalHeight:    370px;
+@headerInternalHeight: 60px;
 
 
 // GENERAL LAYOUT
@@ -43,7 +44,7 @@ ul {
 
 .header {
     width: @internalWidth;
-    height: 60px;
+    height: @headerInternalHeight;
     margin-bottom: 10px;
     padding: 10px;
     text-align: center;
@@ -72,16 +73,28 @@ ul {
     }
 
     #balance-container {
-        position: relative;
-        text-align: right;
+        @currencyPadding: 2px;
+        @height: (@headerInternalHeight / 2) - (2 * @currencyPadding);
+        .box(vertical, center);
 
+        // Allow several currencies
         .label-container {
-            position: absolute;
-            top: -10000px;
-            left: -10000px;
-            text-align: center;
-            font-size: 24px;
+            padding: @currencyPadding 0;
+            max-height: @height;
+            .box-flex(1);
+            text-align: right;
+            font-size: @height;
             font-weight: bold;
+            line-height: @height;
+
+            label {
+                vertical-align: middle;
+            }
+        }
+
+	    // Currency image shouldn't overflow - same height as container
+        .currency {
+            max-height: @height;
         }
     }
 
@@ -297,6 +310,10 @@ ul {
 
         // Align vertically to match the currency image next to it
         vertical-align: middle;
+
+    }
+    .currency {
+        max-height: 24px;
     }
 }
 
