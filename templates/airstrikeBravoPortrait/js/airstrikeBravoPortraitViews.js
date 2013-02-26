@@ -140,6 +140,18 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
             });
 
 
+            // View event listeners
+            var wantsToBuyVirtualGoods = _.bind(function (view) {
+                this.playSound().wantsToBuyVirtualGoods(view.model);
+            }, this);
+            var wantsToEquipGoods = _.bind(function (view) {
+                this.playSound().wantsToEquipGoods(view.model);
+            }, this);
+            var wantsToBuyMarketItem = _.bind(function (view) {
+                this.playSound().wantsToBuyMarketItem(view.model);
+            }, this);
+
+
             // Mark this view as the active view,
             // as it is the first one visible when the store opens
             this.activeView = categoryMenuView;
@@ -159,10 +171,10 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                         collection  : goods,
                         itemView    : EquippableVirtualGoodView
                     }).on({
-                        "itemview:expand"       : $this.playSound,
-                        "itemview:collapse"     : $this.playSound,
-                        "itemview:buy"          : function(view) {  $this.playSound().wantsToBuyVirtualGoods(view.model);   },
-                        "itemview:equip"     	: function(view) {  $this.playSound().wantsToEquipGoods(view.model);        }
+                        "itemview:expand" 	: $this.playSound,
+                        "itemview:collapse" : $this.playSound,
+                        "itemview:buy"      : wantsToBuyVirtualGoods,
+                        "itemview:equip"    : wantsToEquipGoods
                     });
                 } else {
                     view = new ExpandableIScrollCollectionView({
@@ -170,9 +182,9 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                         collection  : goods,
                         itemView    : SingleUseVirtualGoodView
                     }).on({
-                        "itemview:expand"       : $this.playSound,
-                        "itemview:collapse"     : $this.playSound,
-                        "itemview:buy"          : function(view) {  $this.playSound().wantsToBuyVirtualGoods(view.model);   }
+                        "itemview:expand" 	: $this.playSound,
+                        "itemview:collapse" : $this.playSound,
+                        "itemview:buy"      : wantsToBuyVirtualGoods
                     });
                 }
 

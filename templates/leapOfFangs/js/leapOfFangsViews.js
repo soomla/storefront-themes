@@ -95,6 +95,13 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 $this.changeTitle(name);
             });
 
+            var wantsToBuyVirtualGoods = _.bind(function(view) {
+                this.playSound().wantsToBuyVirtualGoods(view.model);
+            }, this);
+            var wantsToBuyMarketItem = _.bind(function(view) {
+                this.playSound().wantsToBuyMarketItem(view.model);
+            }, this);
+
 
             // Build views for each category
             this.categoryViews = {};
@@ -110,7 +117,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 }).on({
                     "next"              : $this.playSound,
                     "previous"          : $this.playSound,
-                    "itemview:buy"      : function(view) { $this.playSound().wantsToBuyVirtualGoods(view.model); }
+                    "itemview:buy"      : wantsToBuyVirtualGoods
                 });
 
                 $this.categoryViews[categoryName] = view;
@@ -127,7 +134,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             }).on({
                 "next"              : this.playSound,
                 "previous"          : this.playSound,
-                "itemview:buy"      : function(view) { $this.playSound().wantsToBuyMarketItem(view.model); }
+                "itemview:buy"      : wantsToBuyMarketItem
             });
             this.categoryViews[this.currencyPacksId] = this.currencyPacksView;
 

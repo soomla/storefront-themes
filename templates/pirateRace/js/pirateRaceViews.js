@@ -72,19 +72,19 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
 
             // View event listeners
-            var wantsToBuyVirtualGoods = function (view) {
-                $this.playSound().wantsToBuyVirtualGoods(view.model);
-            };
-            var wantToEquipGoods = function (view) {
-                $this.playSound().wantsToEquipGoods(view.model);
-            };
-            var wantsToBuyMarketItem = function (view) {
+            var wantsToBuyVirtualGoods = _.bind(function (view) {
+                this.playSound().wantsToBuyVirtualGoods(view.model);
+            }, this);
+            var wantsToEquipGoods = _.bind(function (view) {
+                this.playSound().wantsToEquipGoods(view.model);
+            }, this);
+            var wantsToBuyMarketItem = _.bind(function (view) {
                 this.playSound().wantsToBuyMarketItem(view.model);
-            };
+            }, this);
 
             // Create category views
             categories.each(function(category) {
-                categoryGoods = category.get("goods");
+                var categoryGoods = category.get("goods");
                 var view;
 
                 if (!category.has("equipping")) {
@@ -99,8 +99,8 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                         itemView            : EquippableVirtualGoodView,
                         templateHelpers     : _.extend({category : category.get("name")}, $this.theme.categories)
                     }).on({
-                        "itemview:buy" : wantsToBuyVirtualGoods,
-                        "itemview:equip" : wantToEquipGoods
+                        "itemview:buy" 		: wantsToBuyVirtualGoods,
+                        "itemview:equip" 	: wantsToEquipGoods
                     });
                 }
                 $this.categoryViews.push(view);
@@ -111,7 +111,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                     className           : "items currencyPacks",
                     collection          : currency.get("packs"),
                     itemView            : CurrencyPackView
-                }).on("itemview:select", wantsToBuyMarketItem, $this);
+                }).on("itemview:select", wantsToBuyMarketItem);
 
                 $this.currencyPacksViews.push(view)
             });
@@ -120,7 +120,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 className           : "items nonConsumables",
                 collection          : nonConsumables,
                 itemView            : NonConsumableView
-            }).on("itemview:buy", wantsToBuyMarketItem, this);
+            }).on("itemview:buy", wantsToBuyMarketItem);
 
         },
         events : {
