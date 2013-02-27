@@ -35,7 +35,6 @@
         "contentBackground" : "../theme/img/BG-Level1.jpg",
         "common" : {
             "titleImage" : "../theme/img/Header_Title.png",
-            "balanceImage" : "../theme/img/Header_Balance.png",
             "backButton" : "../theme/img/Back_BTN.png",
             "moreCurrencyButton" : "../theme/img/GetMore_BTN.png",
 	        "purchasedIndicatorImage" : "../theme/img/owned.png",
@@ -51,7 +50,7 @@
 	    ],
         "itemSeparator" : "../theme/img/Item_Seperator.png",
         "balance" : {
-            "style" : "top: 10px; left: 220px; font-size: 50px; color: #E9C861;"
+            "style" : "font-size: 50px; color: #E9C861;"
         },
         "pages" : {
             "goods" :{

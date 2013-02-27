@@ -19,11 +19,6 @@
                 "title" : "Title Image",
                 "selector" : ".title-image"
             },
-            "balanceImage" : {
-                "type" : "image",
-                "title" : "Balance Image",
-                "selector" : ".balance-image"
-            },
             "backButton" : {
                 "type" : "image",
                 "title" : "Back Button",
