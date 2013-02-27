@@ -50,7 +50,7 @@
 	    ],
         "itemSeparator" : "../theme/img/Item_Seperator.png",
         "balance" : {
-            "style" : "font-size: 50px; color: #E9C861;"
+            "style" : "color: #E9C861;"
         },
         "pages" : {
             "goods" :{

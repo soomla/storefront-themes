@@ -48,7 +48,7 @@
         "name" : "jarheadWhisker",
         "version" : 1,
         "balance" : {
-            "style" : "top: 30px; left: 125px; width: 100px; text-align: right; color: #FFF;"
+            "style" : "color: #FFF;"
         },
         "background" : "../theme/img/BG_BG.jpg",
         "headerBackground" : "../theme/img/Header.png",

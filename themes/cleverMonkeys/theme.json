@@ -34,7 +34,7 @@
         "name" : "cleverMonkeys",
         "version" : 1,
         "balance" : {
-            "style" : "top: 10px; left: 0; width: 100px; text-align: right; color: #FFF;"
+            "style" : "color: #FFF;"
         },
         "background" : "../theme/img/BG_BG.jpg",
         "headerBackground" : "../theme/img/Header.png",

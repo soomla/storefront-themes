@@ -45,7 +45,7 @@
         "name" : "jungleMaze",
         "version" : 1,
         "balance" : {
-            "style" : "top: 10px; left: 10px; width: 100px; text-align: right; color: #FFF; font-size: 30px;"
+            "style" : "color: #FFF;"
         },
         "background" : "../theme/img/BG_BG.jpg",
         "headerBackground" : "",

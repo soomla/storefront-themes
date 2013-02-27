@@ -37,7 +37,7 @@
         "name" : "feedGoldy",
         "version" : 1,
         "balance" : {
-            "style" : "top: 10px; left: 0; width: 100px; text-align: right; color: #FFF; font-size: 30px;"
+            "style" : "color: #FFF; font-size: 30px;"
         },
         "background" : "../theme/img/BG_BG.jpg",
         "headerBackground" : "../theme/img/Header.png",
