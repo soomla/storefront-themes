@@ -5,40 +5,40 @@
     },
     "modelAssets" : {
         "categories" : {
-            "1" : "../theme/img/-_Object_1.png",
-            "2" : "../theme/img/-_Object_2.png",
-            "3" : "../theme/img/-_Object_3.png",
-            "4" : "../theme/img/-_Object_4.png"
+            "1" : "img/-_Object_1.png",
+            "2" : "img/-_Object_2.png",
+            "3" : "img/-_Object_3.png",
+            "4" : "img/-_Object_4.png"
         },
         "virtualGoods" : {
-            "sick_mo" : "../theme/img/characters/monsters_1.png",
-            "screaming_betty" : "../theme/img/characters/monsters_2.png",
-            "big_eye_joe" : "../theme/img/characters/monsters_3.png",
-            "jumping_tom" : "../theme/img/characters/monsters_4.png",
-            "super_knot" : "../theme/img/utilities/utilities_1.png",
-            "safety_net" : "../theme/img/utilities/utilities_2.png",
-            "umbrella" : "../theme/img/utilities/utilities_3.png",
-            "boost" : "../theme/img/powerups/boost.png",
-            "wind" : "../theme/img/powerups/wind.png",
-            "extra_life" : "../theme/img/powerups/life.png",
-            "wings" : "../theme/img/powerups/wings.png",
-            "bud_bud" : "../theme/img/helpers/helpers_1.png",
-            "cyclop" : "../theme/img/helpers/helpers_2.png",
-            "smiling_pete" : "../theme/img/helpers/helpers_3.png",
-            "rockstar_axel" : "../theme/img/helpers/helpers_4.png"
+            "sick_mo" : "img/characters/monsters_1.png",
+            "screaming_betty" : "img/characters/monsters_2.png",
+            "big_eye_joe" : "img/characters/monsters_3.png",
+            "jumping_tom" : "img/characters/monsters_4.png",
+            "super_knot" : "img/utilities/utilities_1.png",
+            "safety_net" : "img/utilities/utilities_2.png",
+            "umbrella" : "img/utilities/utilities_3.png",
+            "boost" : "img/powerups/boost.png",
+            "wind" : "img/powerups/wind.png",
+            "extra_life" : "img/powerups/life.png",
+            "wings" : "img/powerups/wings.png",
+            "bud_bud" : "img/helpers/helpers_1.png",
+            "cyclop" : "img/helpers/helpers_2.png",
+            "smiling_pete" : "img/helpers/helpers_3.png",
+            "rockstar_axel" : "img/helpers/helpers_4.png"
         },
         "currencyPacks" : {
-            "coin_booster_pack" : "../theme/img/coins/objects-01.png",
-            "coin_mega_pack" : "../theme/img/coins/objects-02.png",
-            "coin_ultra_pack" : "../theme/img/coins/objects-03.png",
-            "coin_jumbo_pack" : "../theme/img/coins/objects-05.png",
-			"coin_ultimate_pack" : "../theme/img/coins/objects-04.png"
+            "coin_booster_pack" : "img/coins/objects-01.png",
+            "coin_mega_pack" : "img/coins/objects-02.png",
+            "coin_ultra_pack" : "img/coins/objects-03.png",
+            "coin_jumbo_pack" : "img/coins/objects-05.png",
+			"coin_ultimate_pack" : "img/coins/objects-04.png"
         },
         "virtualCurrencies" : {
-            "currency_coins" : "../theme/img/coin.png"
+            "currency_coins" : "img/coin.png"
         },
 	    "nonConsumables" : {
-		    "remove_ads" : "../theme/img/no-ads.png"
+		    "remove_ads" : "img/no-ads.png"
         }
     },
     "theme" : {
@@ -47,36 +47,36 @@
         "balance" : {
             "style" : "color: #FFF;"
         },
-        "background" : "../theme/img/BG_BG.jpg",
-        "headerBackground" : "../theme/img/Header.png",
+        "background" : "img/BG_BG.jpg",
+        "headerBackground" : "img/Header.png",
         "noFundsModal" : {
-            "background" : "../theme/img/Alert-22.png"
+            "background" : "img/Alert-22.png"
         },
         "images" : {
-            "contentBackground" : "../theme/img/ContentBackground.png",
-            "itemAreaBackground" : "../theme/img/ItemAreaBackground.png",
-            "buyImage" : "../theme/img/BUY.png",
-            "ownedIndicatorImage" : "../theme/img/Green_Owned.png",
-            "notOwnedIndicatorImage" : "../theme/img/Gray_Owned.png",
-            "expandImage" : "../theme/img/Arrow_Close.png",
-            "backImage" : "../theme/img/BACK.png",
-            "quitImage" : "../theme/img/QUIT.png",
-	        "purchasedIndicatorImage" : "../theme/img/owned.png",
-            "itemBackgroundImage" : "../theme/img/BG_Product.png",
-            "itemBackgroundImageExpanded" : "../theme/img/BG_Product_Ext.png",
-            "equip" : "../theme/img/Activate.png",
-            "equipped" : "../theme/img/Selected.png"
+            "contentBackground" : "img/ContentBackground.png",
+            "itemAreaBackground" : "img/ItemAreaBackground.png",
+            "buyImage" : "img/BUY.png",
+            "ownedIndicatorImage" : "img/Green_Owned.png",
+            "notOwnedIndicatorImage" : "img/Gray_Owned.png",
+            "expandImage" : "img/Arrow_Close.png",
+            "backImage" : "img/BACK.png",
+            "quitImage" : "img/QUIT.png",
+	        "purchasedIndicatorImage" : "img/owned.png",
+            "itemBackgroundImage" : "img/BG_Product.png",
+            "itemBackgroundImageExpanded" : "img/BG_Product_Ext.png",
+            "equip" : "img/Activate.png",
+            "equipped" : "img/Selected.png"
         },
 	    "fonts" : [
 		    {
-			    "url" : "../theme/fonts/HeavyHeap.ttf"
+			    "url" : "fonts/HeavyHeap.ttf"
 		    },
 		    {
-			    "url" : "../theme/fonts/HoboStd.otf"
+			    "url" : "fonts/HoboStd.otf"
 		    }
 	    ],
         "titleStyle" : "color: #FFF",
-	    "currencyPacksCategoryImage" : "../theme/img/-_Object_5.png",
+	    "currencyPacksCategoryImage" : "img/-_Object_5.png",
         "pages" : {
             "menu" : {
                 "title" : "The Store"

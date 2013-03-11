@@ -6,78 +6,78 @@
     "modelAssets" : {
         "categories" : {},
         "virtualGoods" : {
-            "coin_magnet" : "../theme/img/Powerups/Coin_Magnet.png",
-            "mega_coin" : "../theme/img/Powerups/Mega_Coin.png",
-            "magic_portal" : "../theme/img/Powerups/Portal.png",
-            "glider_1" : "../theme/img/Utilities/glider.png",
-            "glider_2" : "../theme/img/Utilities/jet.png",
-            "kasey" : "../theme/img/Characters/Kasey.png",
-		    "robert_din" : "../theme/img/Characters/Robert.png",
-            "sir_james" : "../theme/img/Characters/James.png",
-            "lian" : "../theme/img/Characters/Lian.png",
-            "tod" : "../theme/img/Characters/Tod.png"
+            "coin_magnet" : "img/Powerups/Coin_Magnet.png",
+            "mega_coin" : "img/Powerups/Mega_Coin.png",
+            "magic_portal" : "img/Powerups/Portal.png",
+            "glider_1" : "img/Utilities/glider.png",
+            "glider_2" : "img/Utilities/jet.png",
+            "kasey" : "img/Characters/Kasey.png",
+		    "robert_din" : "img/Characters/Robert.png",
+            "sir_james" : "img/Characters/James.png",
+            "lian" : "img/Characters/Lian.png",
+            "tod" : "img/Characters/Tod.png"
         },
         "currencyPacks" : {
-            "coins_2500" : "../theme/img/CurrencyPacks/GetCoins_1.png",
-            "coins_25000" : "../theme/img/CurrencyPacks/GetCoins_2.png",
-            "coins_75000" : "../theme/img/CurrencyPacks/GetCoins_3.png",
-            "coins_200000" : "../theme/img/CurrencyPacks/GetCoins_4.png"
+            "coins_2500" : "img/CurrencyPacks/GetCoins_1.png",
+            "coins_25000" : "img/CurrencyPacks/GetCoins_2.png",
+            "coins_75000" : "img/CurrencyPacks/GetCoins_3.png",
+            "coins_200000" : "img/CurrencyPacks/GetCoins_4.png"
         },
         "virtualCurrencies" : {
-            "currency_coins" : "../theme/img/Item_Price.png"
+            "currency_coins" : "img/Item_Price.png"
         },
 	    "nonConsumables" : {
-		    "remove_ads" : "../theme/img/no-ads.png"
+		    "remove_ads" : "img/no-ads.png"
         }
     },
     "theme" : {
         "name" : "cloudSurfer",
         "version" : 1,
-        "background" : "../theme/img/BG-Level0.jpg",
-        "contentBackground" : "../theme/img/BG-Level1.png",
+        "background" : "img/BG-Level0.jpg",
+        "contentBackground" : "img/BG-Level1.png",
         "common" : {
-            "titleImage" : "../theme/img/Header_Title.png",
-            "backButton" : "../theme/img/Back_BTN.png",
-            "moreCurrencyButton" : "../theme/img/GetMore_BTN.png",
-	        "purchasedIndicatorImage" : "../theme/img/owned.png",
+            "titleImage" : "img/Header_Title.png",
+            "backButton" : "img/Back_BTN.png",
+            "moreCurrencyButton" : "img/GetMore_BTN.png",
+	        "purchasedIndicatorImage" : "img/owned.png",
             "balanceLabelStyle" : ""
         },
 	    "fonts" : [
 		    {
-			    "url" : "../theme/fonts/Devil Breeze Demi.ttf"
+			    "url" : "fonts/Devil Breeze Demi.ttf"
 		    },
 		    {
-			    "url" : "../theme/fonts/Devil Breeze Book.ttf"
+			    "url" : "fonts/Devil Breeze Book.ttf"
 		    }
 	    ],
-        "itemSeparator" : "../theme/img/Item_Seperator.png",
+        "itemSeparator" : "img/Item_Seperator.png",
         "balance" : {
             "style" : "font-size: 36px; color: #FF0;"
         },
         "pages" : {
             "goods" :{
                 "list" : {
-                    "background" : "../theme/img/Item_Area.png"
+                    "background" : "img/Item_Area.png"
                 },
                 "listItem" : {
                     "background" : "",
-                    "balanceBackground" : "../theme/img/Item_Balance.png",
-                    "buy" : "../theme/img/Unlock.png",
-                    "buyOnce" : "../theme/img/Unlock.png",
-                    "equip" : "../theme/img/equip.png",
-                    "active" : "../theme/img/active.png"
+                    "balanceBackground" : "img/Item_Balance.png",
+                    "buy" : "img/Unlock.png",
+                    "buyOnce" : "img/Unlock.png",
+                    "equip" : "img/equip.png",
+                    "active" : "img/active.png"
                 },
                 "noFundsModal" : {
-                    "background" : "../theme/img/Alert_BG.png",
+                    "background" : "img/Alert_BG.png",
                     "title" : "Need More Coins!",
                     "description" : "Would you like to get more coins?",
-                    "yesButton" : "../theme/img/Yes_BTN.png",
-                    "noButton" : "../theme/img/No_BTN.png"
+                    "yesButton" : "img/Yes_BTN.png",
+                    "noButton" : "img/No_BTN.png"
                 }
             },
             "currencyPacks" : {
                 "list" : {
-                    "background" : "../theme/img/Item_Area.png"
+                    "background" : "img/Item_Area.png"
                 },
                 "listItem" : {
                     "balanceBackground" : "",
@@ -88,7 +88,7 @@
             }
         },
         "categories" : {
-            "style" : "background-image: url('../theme/img/Category_Seperator.png'); color: #FFF;"
+            "style" : "background-image: url('img/Category_Seperator.png'); color: #FFF;"
         }
     }
 }

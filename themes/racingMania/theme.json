@@ -5,41 +5,41 @@
 	},
 	"modelAssets":{
 		"categories":{
-			"1":"../theme/img/cars-thumb.png",
-			"2":"../theme/img/tracks-thumb.png",
-			"3":"../theme/img/wheel-thumb.png",
-			"4":"../theme/img/flag-thumb.png"
+			"1":"img/cars-thumb.png",
+			"2":"img/tracks-thumb.png",
+			"3":"img/wheel-thumb.png",
+			"4":"img/flag-thumb.png"
 		},
 		"virtualGoods":{
-			"delorean":"../theme/img/car01.png",
-			"radical_sr3":"../theme/img/car02.png",
-			"ford_focus_rs3":"../theme/img/car03.png",
-			"audi_r8":"../theme/img/car04.png",
-			"daytona_500":"../theme/img/track01.png",
-			"ohio_overture":"../theme/img/track02.png",
-			"paris_grandprix":"../theme/img/track04.png",
-			"indianapolis":"../theme/img/track05.png",
-			"pirelli_pzero":"../theme/img/wheel01.png",
-			"continental_600s":"../theme/img/wheel02.png",
-			"speed_summit_f1":"../theme/img/wheel03.png",
-			"goodyear_reinforced":"../theme/img/wheel04.png",
-			"nitro_speed":"../theme/img/flag01.png",
-			"double_laps":"../theme/img/flag02.png",
-			"double_coin_upgrade":"../theme/img/flag03.png",
-			"overtake_booster":"../theme/img/flag04.png"
+			"delorean":"img/car01.png",
+			"radical_sr3":"img/car02.png",
+			"ford_focus_rs3":"img/car03.png",
+			"audi_r8":"img/car04.png",
+			"daytona_500":"img/track01.png",
+			"ohio_overture":"img/track02.png",
+			"paris_grandprix":"img/track04.png",
+			"indianapolis":"img/track05.png",
+			"pirelli_pzero":"img/wheel01.png",
+			"continental_600s":"img/wheel02.png",
+			"speed_summit_f1":"img/wheel03.png",
+			"goodyear_reinforced":"img/wheel04.png",
+			"nitro_speed":"img/flag01.png",
+			"double_laps":"img/flag02.png",
+			"double_coin_upgrade":"img/flag03.png",
+			"overtake_booster":"img/flag04.png"
 		},
 		"currencyPacks":{
-			"dollar_pack":"../theme/img/currency-01.png",
-			"euro_pack":"../theme/img/currency-02.png",
-			"sterling_pack":"../theme/img/currency-03.png"
+			"dollar_pack":"img/currency-01.png",
+			"euro_pack":"img/currency-02.png",
+			"sterling_pack":"img/currency-03.png"
 		},
 		"virtualCurrencies":{
-			"currency_coins":"../theme/img/nos.png"
+			"currency_coins":"img/nos.png"
 		},
 		"nonConsumables" : {
-			"remove_ads" : "../theme/img/no-ads.png"
+			"remove_ads" : "img/no-ads.png"
 		},
-		"tapjoy" : "../theme/img/tapjoy.png"
+		"tapjoy" : "img/tapjoy.png"
 	},
 	"theme":{
 		"name":"racingMania",
@@ -47,36 +47,36 @@
 		"balance":{
 			"style":"color: #FFF;"
 		},
-		"background":"../theme/img/street-bg.png",
+		"background":"img/street-bg.png",
 		"headerBackground":"",
 		"noFundsModal":{
-			"background":"../theme/img/Alert-22.png"
+			"background":"img/Alert-22.png"
 		},
 		"images":{
-			"contentBackground":"../theme/img/steel-bg.png",
-			"itemAreaBackground":"../theme/img/ItemAreaBackground.png",
-			"buyImage":"../theme/img/buy-button.png",
-			"ownedIndicatorImage":"../theme/img/Gray_Owned.png",
-			"notOwnedIndicatorImage":"../theme/img/Green_Owned.png",
-			"expandImage":"../theme/img/Arrow_Close.png",
-			"backImage":"../theme/img/back-button.png",
-			"quitImage":"../theme/img/quit-button.png",
-			"purchasedIndicatorImage" : "../theme/img/owned.png",
-			"itemBackgroundImage":"../theme/img/BG_Product.png",
-			"itemBackgroundImageExpanded":"../theme/img/BG_Product_Ext.png",
-            "equip" : "../theme/img/Activate.png",
-            "equipped" : "../theme/img/Selected.png"
+			"contentBackground":"img/steel-bg.png",
+			"itemAreaBackground":"img/ItemAreaBackground.png",
+			"buyImage":"img/buy-button.png",
+			"ownedIndicatorImage":"img/Gray_Owned.png",
+			"notOwnedIndicatorImage":"img/Green_Owned.png",
+			"expandImage":"img/Arrow_Close.png",
+			"backImage":"img/back-button.png",
+			"quitImage":"img/quit-button.png",
+			"purchasedIndicatorImage" : "img/owned.png",
+			"itemBackgroundImage":"img/BG_Product.png",
+			"itemBackgroundImageExpanded":"img/BG_Product_Ext.png",
+            "equip" : "img/Activate.png",
+            "equipped" : "img/Selected.png"
 		},
 		"fonts" : [
 			{
-				"url" : "../theme/fonts/HoltwoodOneSC.ttf"
+				"url" : "fonts/HoltwoodOneSC.ttf"
 			},
 			{
-				"url" : "../theme/fonts/Orbitron-Medium.ttf"
+				"url" : "fonts/Orbitron-Medium.ttf"
 			}
 		],
 		"titleStyle":"color: #fff; text-shadow: 4px 4px #000;",
-		"currencyPacksCategoryImage":"../theme/img/currency-packs.png",
+		"currencyPacksCategoryImage":"img/currency-packs.png",
 		"pages":{
 			"menu":{
 				"title":"The Store"

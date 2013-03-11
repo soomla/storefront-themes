@@ -5,43 +5,43 @@
     },
     "modelAssets" : {
         "categories" : {
-            "1" : "../theme/img/-_Object_4.png",
-            "2" : "../theme/img/-_Object_2.png",
-            "3" : "../theme/img/-_Object_3.png",
-			"4" : "../theme/img/-_Object_1.png",
-			"5" : "../theme/img/-_Object_5.png"
+            "1" : "img/-_Object_4.png",
+            "2" : "img/-_Object_2.png",
+            "3" : "img/-_Object_3.png",
+			"4" : "img/-_Object_1.png",
+			"5" : "img/-_Object_5.png"
         },
         "virtualGoods" : {
-            "character_1" : "../theme/img/characters/characters_1.png",
-            "character_2" : "../theme/img/characters/characters_2.png",
-            "character_3" : "../theme/img/characters/characters_3.png",
-            "character_4" : "../theme/img/characters/characters_4.png",
-            "laser_pointer" : "../theme/img/utilities/utilities_1.png",
-            "binoculars" : "../theme/img/utilities/utilities_2.png",
-            "compass" : "../theme/img/utilities/utilities_3.png",
-            "baloon" : "../theme/img/powerups/baloon.png",
-            "birds" : "../theme/img/powerups/birds.png",
-            "rain" : "../theme/img/powerups/rain.png",
-            "rifle" : "../theme/img/rifles/rifle.png",
-			"rifle_1" : "../theme/img/rifles/rifle_1.png",
-			"rifle_2" : "../theme/img/rifles/rifle_2.png",
-			"rifle_3" : "../theme/img/rifles/rifle_3.png",
-            "ammo_1" : "../theme/img/ammo/ammo_1.png",
-			"ammo_2" : "../theme/img/ammo/ammo_2.png",
-			"ammo_3" : "../theme/img/ammo/ammo_3.png",
-			"ammo_4" : "../theme/img/ammo/ammo_4.png"
+            "character_1" : "img/characters/characters_1.png",
+            "character_2" : "img/characters/characters_2.png",
+            "character_3" : "img/characters/characters_3.png",
+            "character_4" : "img/characters/characters_4.png",
+            "laser_pointer" : "img/utilities/utilities_1.png",
+            "binoculars" : "img/utilities/utilities_2.png",
+            "compass" : "img/utilities/utilities_3.png",
+            "baloon" : "img/powerups/baloon.png",
+            "birds" : "img/powerups/birds.png",
+            "rain" : "img/powerups/rain.png",
+            "rifle" : "img/rifles/rifle.png",
+			"rifle_1" : "img/rifles/rifle_1.png",
+			"rifle_2" : "img/rifles/rifle_2.png",
+			"rifle_3" : "img/rifles/rifle_3.png",
+            "ammo_1" : "img/ammo/ammo_1.png",
+			"ammo_2" : "img/ammo/ammo_2.png",
+			"ammo_3" : "img/ammo/ammo_3.png",
+			"ammo_4" : "img/ammo/ammo_4.png"
         },
         "currencyPacks" : {
-            "coin_booster_pack" : "../theme/img/coins/objects-01.png",
-            "coin_mega_pack" : "../theme/img/coins/objects-02.png",
-            "coin_ultra_pack" : "../theme/img/coins/objects-03.png",
-			"coin_jumbo_pack" : "../theme/img/coins/objects-04.png"
+            "coin_booster_pack" : "img/coins/objects-01.png",
+            "coin_mega_pack" : "img/coins/objects-02.png",
+            "coin_ultra_pack" : "img/coins/objects-03.png",
+			"coin_jumbo_pack" : "img/coins/objects-04.png"
         },
         "virtualCurrencies" : {
-            "currency_coins" : "../theme/img/coin.png"
+            "currency_coins" : "img/coin.png"
         },
 	    "nonConsumables" : {
-		    "remove_ads" : "../theme/img/no-ads.png"
+		    "remove_ads" : "img/no-ads.png"
         }
     },
     "theme" : {
@@ -50,36 +50,36 @@
         "balance" : {
             "style" : "color: #FFF;"
         },
-        "background" : "../theme/img/BG_BG.jpg",
-        "headerBackground" : "../theme/img/Header.png",
+        "background" : "img/BG_BG.jpg",
+        "headerBackground" : "img/Header.png",
         "noFundsModal" : {
-            "background" : "../theme/img/Alert-22.png"
+            "background" : "img/Alert-22.png"
         },
         "images" : {
-            "contentBackground" : "../theme/img/ContentBackground.png",
-            "itemAreaBackground" : "../theme/img/ItemAreaBackground.png",
-            "buyImage" : "../theme/img/BUY.png",
-            "ownedIndicatorImage" : "../theme/img/Green_Owned.png",
-            "notOwnedIndicatorImage" : "../theme/img/Gray_Owned.png",
-            "expandImage" : "../theme/img/Arrow_Close.png",
-            "backImage" : "../theme/img/BACK.png",
-            "quitImage" : "../theme/img/QUIT.png",
-	        "purchasedIndicatorImage" : "../theme/img/owned.png",
-            "itemBackgroundImage" : "../theme/img/BG_Product.png",
-            "itemBackgroundImageExpanded" : "../theme/img/BG_Product_Ext.png",
-            "equip" : "../theme/img/Activate.png",
-            "equipped" : "../theme/img/Selected.png"
+            "contentBackground" : "img/ContentBackground.png",
+            "itemAreaBackground" : "img/ItemAreaBackground.png",
+            "buyImage" : "img/BUY.png",
+            "ownedIndicatorImage" : "img/Green_Owned.png",
+            "notOwnedIndicatorImage" : "img/Gray_Owned.png",
+            "expandImage" : "img/Arrow_Close.png",
+            "backImage" : "img/BACK.png",
+            "quitImage" : "img/QUIT.png",
+	        "purchasedIndicatorImage" : "img/owned.png",
+            "itemBackgroundImage" : "img/BG_Product.png",
+            "itemBackgroundImageExpanded" : "img/BG_Product_Ext.png",
+            "equip" : "img/Activate.png",
+            "equipped" : "img/Selected.png"
         },
 	    "fonts" : [
 		    {
-			    "url" : "../theme/fonts/Commando.ttf"
+			    "url" : "fonts/Commando.ttf"
 		    },
 		    {
-			    "url" : "../theme/fonts/CPMono_v07_Plain.otf"
+			    "url" : "fonts/CPMono_v07_Plain.otf"
 		    }
 	    ],
         "titleStyle" : "color: #FFF",
-	    "currencyPacksCategoryImage" : "../theme/img/-_Object_6.png",
+	    "currencyPacksCategoryImage" : "img/-_Object_6.png",
         "pages" : {
             "menu" : {
                 "title" : "The Store"
