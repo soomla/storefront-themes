@@ -5,39 +5,39 @@
     },
     "modelAssets" : {
         "categories" : {
-            "1" : "../theme/img/-_Object_2.png",
-            "2" : "../theme/img/-_Object_1.png",
-            "3" : "../theme/img/-_Object_4.png",
-            "4" : "../theme/img/-_Object_3.png"
+            "1" : "img/-_Object_2.png",
+            "2" : "img/-_Object_1.png",
+            "3" : "img/-_Object_4.png",
+            "4" : "img/-_Object_3.png"
         },
         "virtualGoods" : {
-           "experimental_fuel" : "../theme/img/utilities/Upgrade2.png",
-            "sticky_tires" : "../theme/img/utilities/Upgrade3.png",
-            "turbo_charger" : "../theme/img/utilities/Upgrade1.png",
-            "boost" : "../theme/img/powerups/boost.png",
-            "invisibility" : "../theme/img/powerups/invisibility.png",
-            "luck_charm" : "../theme/img/powerups/luck_charm.png",
-            "wings" : "../theme/img/powerups/wings.png",
-            "jersey_curves" : "../theme/img/racingtracks/tracks1.png",
-            "texas_heat" : "../theme/img/racingtracks/tracks2.png",
-            "flat_omaha" : "../theme/img/racingtracks/tracks3.png",
-            "delorean" : "../theme/img/cars/cars1.png",
-            "ford_gran_torino" : "../theme/img/cars/cars2.png",
-            "chevrolet_camaro_replica" : "../theme/img/cars/cars3.png"
+           "experimental_fuel" : "img/utilities/Upgrade2.png",
+            "sticky_tires" : "img/utilities/Upgrade3.png",
+            "turbo_charger" : "img/utilities/Upgrade1.png",
+            "boost" : "img/powerups/boost.png",
+            "invisibility" : "img/powerups/invisibility.png",
+            "luck_charm" : "img/powerups/luck_charm.png",
+            "wings" : "img/powerups/wings.png",
+            "jersey_curves" : "img/racingtracks/tracks1.png",
+            "texas_heat" : "img/racingtracks/tracks2.png",
+            "flat_omaha" : "img/racingtracks/tracks3.png",
+            "delorean" : "img/cars/cars1.png",
+            "ford_gran_torino" : "img/cars/cars2.png",
+            "chevrolet_camaro_replica" : "img/cars/cars3.png"
         },
         "currencyPacks" : {
-           "coin_booster_pack" : "../theme/img/coins/objects-01.png",
-            "coin_mega_pack" : "../theme/img/coins/objects-02.png",
-            "coin_ultra_pack" : "../theme/img/coins/objects-03.png",
-            "coin_ultimate_pack" : "../theme/img/coins/objects-04.png"
+           "coin_booster_pack" : "img/coins/objects-01.png",
+            "coin_mega_pack" : "img/coins/objects-02.png",
+            "coin_ultra_pack" : "img/coins/objects-03.png",
+            "coin_ultimate_pack" : "img/coins/objects-04.png"
         },
         "virtualCurrencies" : {
-             "currency_coins" : "../theme/img/coin.png"
+             "currency_coins" : "img/coin.png"
         },
 	    "nonConsumables" : {
-		    "remove_ads" : "../theme/img/no-ads.png"
+		    "remove_ads" : "img/no-ads.png"
 	    },
-	    "tapjoy" : "../theme/img/tapjoy.png"
+	    "tapjoy" : "img/tapjoy.png"
     },
     "theme" : {
         "name" : "speedingHornet",
@@ -45,36 +45,36 @@
         "balance" : {
             "style" : "color: #FFF;"
         },
-        "background" : "../theme/img/BG_BG.jpg",
-        "headerBackground" : "../theme/img/Header.png",
+        "background" : "img/BG_BG.jpg",
+        "headerBackground" : "img/Header.png",
         "noFundsModal" : {
-            "background" : "../theme/img/Alert-22.png"
+            "background" : "img/Alert-22.png"
         },
         "images" : {
-            "contentBackground" : "../theme/img/ContentBackground.png",
-            "itemAreaBackground" : "../theme/img/ItemAreaBackground.png",
-            "buyImage" : "../theme/img/BUY.png",
-            "ownedIndicatorImage" : "../theme/img/Green_Owned.png",
-            "notOwnedIndicatorImage" : "../theme/img/Gray_Owned.png",
-            "expandImage" : "../theme/img/Arrow_Close.png",
-            "backImage" : "../theme/img/BACK.png",
-            "quitImage" : "../theme/img/QUIT.png",
-	        "purchasedIndicatorImage" : "../theme/img/owned.png",
-            "itemBackgroundImage" : "../theme/img/BG_Product.png",
-            "itemBackgroundImageExpanded" : "../theme/img/BG_Product_Ext.png",
-            "equip" : "../theme/img/Activate.png",
-            "equipped" : "../theme/img/Selected.png"
+            "contentBackground" : "img/ContentBackground.png",
+            "itemAreaBackground" : "img/ItemAreaBackground.png",
+            "buyImage" : "img/BUY.png",
+            "ownedIndicatorImage" : "img/Green_Owned.png",
+            "notOwnedIndicatorImage" : "img/Gray_Owned.png",
+            "expandImage" : "img/Arrow_Close.png",
+            "backImage" : "img/BACK.png",
+            "quitImage" : "img/QUIT.png",
+	        "purchasedIndicatorImage" : "img/owned.png",
+            "itemBackgroundImage" : "img/BG_Product.png",
+            "itemBackgroundImageExpanded" : "img/BG_Product_Ext.png",
+            "equip" : "img/Activate.png",
+            "equipped" : "img/Selected.png"
         },
 	    "fonts" : [
 		    {
-			    "url" : "../theme/fonts/SpaceAge.ttf"
+			    "url" : "fonts/SpaceAge.ttf"
 		    },
 		    {
-			    "url" : "../theme/fonts/Orbitron-Medium.ttf"
+			    "url" : "fonts/Orbitron-Medium.ttf"
 		    }
 	    ],
         "titleStyle" : "color: #FFF",
-	    "currencyPacksCategoryImage" : "../theme/img/-_Object_5.png",
+	    "currencyPacksCategoryImage" : "img/-_Object_5.png",
         "pages" : {
             "menu" : {
                 "title" : "The Store"

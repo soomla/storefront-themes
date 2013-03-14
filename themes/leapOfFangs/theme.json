@@ -5,67 +5,67 @@
     },
     "modelAssets" : {
         "categories" : {
-            "1" : "../theme/img/Categories/Pumpkin.png",
-            "2" : "../theme/img/Categories/Axe.png"
+            "1" : "img/Categories/Pumpkin.png",
+            "2" : "img/Categories/Axe.png"
         },
         "virtualGoods" : {
-            "vampire" : "../theme/img/Characters/Vampire.png",
-            "witch" : "../theme/img/Characters/Witch.png",
-            "skull" : "../theme/img/Characters/Skull.png",
-            "zombie" : "../theme/img/Characters/Zombie.png",
-            "chocolate_cake" : "../theme/img/Weapons/Weapon1.png",
-            "cream_cup" : "../theme/img/Weapons/Weapon2.png"
+            "vampire" : "img/Characters/Vampire.png",
+            "witch" : "img/Characters/Witch.png",
+            "skull" : "img/Characters/Skull.png",
+            "zombie" : "img/Characters/Zombie.png",
+            "chocolate_cake" : "img/Weapons/Weapon1.png",
+            "cream_cup" : "img/Weapons/Weapon2.png"
         },
         "currencyPacks" : {
-            "10_coins" : "../theme/img/CurrencyPacks/CurrencyPack1.png",
-            "50_coins" : "../theme/img/CurrencyPacks/CurrencyPack2.png",
-            "400_coins" : "../theme/img/CurrencyPacks/CurrencyPack3.png",
-            "1000_coins" : "../theme/img/CurrencyPacks/CurrencyPack4.png"
+            "10_coins" : "img/CurrencyPacks/CurrencyPack1.png",
+            "50_coins" : "img/CurrencyPacks/CurrencyPack2.png",
+            "400_coins" : "img/CurrencyPacks/CurrencyPack3.png",
+            "1000_coins" : "img/CurrencyPacks/CurrencyPack4.png"
         },
         "virtualCurrencies" : {
-            "currency_coins" : "../theme/img/Coin.png"
+            "currency_coins" : "img/Coin.png"
         },
 	    "nonConsumables" : {
-		    "remove_ads" : "../theme/img/no-ads.png"
+		    "remove_ads" : "img/no-ads.png"
         }
     },
     "theme" : {
         "name" : "leapOfFangs",
         "version" : 1,
         "balance" : {
-            "backgroundImage" : "../theme/img/BalanceBackground.png",
+            "backgroundImage" : "img/BalanceBackground.png",
             "style" : "top: -10000px; left: -10000px;"
         },
         "titleStyle" : "",
         "currencyPacksCategoryName" : "COIN PACKS",
         "noFundsModal" : {
-            "background" : "../theme/img/ModalBackground.png",
+            "background" : "img/ModalBackground.png",
             "title" : "Need More Coins!",
             "description" : "Would you like to get more coins?",
-            "yesButton" : "../theme/img/Yes_BTN.png",
-            "noButton" : "../theme/img/No_BTN.png"
+            "yesButton" : "img/Yes_BTN.png",
+            "noButton" : "img/No_BTN.png"
         },
         "images" : {
-            "globalBackground" : "../theme/img/GlobalBackground.png",
-            "contentBackground" : "../theme/img/ContentBackground.png",
-            "headerBackground" : "../theme/img/HeaderBackground.png",
-            "itemAreaBackground" : "../theme/img/ItemAreaBackground.png",
-            "footerBackground" : "../theme/img/FooterBackground.png",
-            "previousImage" : "../theme/img/Previous.png",
-            "nextImage" : "../theme/img/Next.png",
-            "buyImage" : "../theme/img/Buy.png",
-            "quitImage" : "../theme/img/Quit.png",
-	        "ownedIndicatorImage" : "../theme/img/owned.png"
+            "globalBackground" : "img/GlobalBackground.png",
+            "contentBackground" : "img/ContentBackground.png",
+            "headerBackground" : "img/HeaderBackground.png",
+            "itemAreaBackground" : "img/ItemAreaBackground.png",
+            "footerBackground" : "img/FooterBackground.png",
+            "previousImage" : "img/Previous.png",
+            "nextImage" : "img/Next.png",
+            "buyImage" : "img/Buy.png",
+            "quitImage" : "img/Quit.png",
+	        "ownedIndicatorImage" : "img/owned.png"
         },
 	    "fonts" : [
 		    {
-			    "url" : "../theme/fonts/Creepster-Regular.ttf"
+			    "url" : "fonts/Creepster-Regular.ttf"
 		    },
 		    {
-			    "url" : "../theme/fonts/Risque-Regular.ttf"
+			    "url" : "fonts/Risque-Regular.ttf"
 		    }
 	    ],
-	    "currencyPacksCategoryImage" : "../theme/img/Categories/Coins.png",
+	    "currencyPacksCategoryImage" : "img/Categories/Coins.png",
         "item" : {
             "nameStyle" : "",
             "descriptionStyle" : "",

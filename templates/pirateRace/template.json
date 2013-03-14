@@ -35,6 +35,18 @@
                 "selector" : ".item .balance label"
             }
         },
+        "fonts" : [
+            {
+                "type" : "font",
+                "title" : "Primary Font",
+                "class" : "font-face-1"
+            },
+            {
+                "type" : "font",
+                "title" : "Primary Font",
+                "class" : "font-face-2"
+            }
+        ],
         "itemSeparator" : {
             "type" : "image",
             "title" : "Item Separator Image",

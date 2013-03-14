@@ -85,6 +85,18 @@
 				"selector" : ".category .item.expanded"
 			}
 		},
+        "fonts" : [
+            {
+                "type" : "font",
+                "title" : "Primary Font",
+                "class" : "font-face-1"
+            },
+            {
+                "type" : "font",
+                "title" : "Primary Font",
+                "class" : "font-face-2"
+            }
+        ],
 		"titleStyle" : {
 			"type" : "css",
 			"title" : "Title Style",
