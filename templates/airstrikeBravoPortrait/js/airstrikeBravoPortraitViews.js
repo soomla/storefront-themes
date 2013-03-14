@@ -165,7 +165,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                     goods 			= category.get("goods"),
                     view;
 
-                if (equipping) {
+                if (equipping === "single") {
                     view = new ExpandableIScrollCollectionView({
                         className   : "items virtualGoods category " + categoryName,
                         collection  : goods,

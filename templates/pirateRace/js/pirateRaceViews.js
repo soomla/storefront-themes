@@ -84,16 +84,11 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
             // Create category views
             categories.each(function(category) {
-                var categoryGoods = category.get("goods");
-                var view;
+                var categoryGoods   = category.get("goods"),
+                    equipping       = category.get("equipping"),
+                    view;
 
-                if (!category.has("equipping")) {
-                    view = new SectionedListView({
-                        collection          : categoryGoods,
-                        itemView            : VirtualGoodView,
-                        templateHelpers     : _.extend({category : category.get("name")}, $this.theme.categories)
-                    }).on("itemview:buy", wantsToBuyVirtualGoods);
-                } else {
+                if (equipping === "single") {
                     view = new SectionedListView({
                         collection          : categoryGoods,
                         itemView            : EquippableVirtualGoodView,
@@ -102,6 +97,12 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                         "itemview:buy" 		: wantsToBuyVirtualGoods,
                         "itemview:equip" 	: wantsToEquipGoods
                     });
+                } else {
+                    view = new SectionedListView({
+                        collection          : categoryGoods,
+                        itemView            : VirtualGoodView,
+                        templateHelpers     : _.extend({category : category.get("name")}, $this.theme.categories)
+                    }).on("itemview:buy", wantsToBuyVirtualGoods);
                 }
                 $this.categoryViews.push(view);
             });
