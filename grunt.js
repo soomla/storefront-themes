@@ -63,9 +63,14 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('cleanup', 'Cleans leftover files from the build process', function() {
-        // Remove auxiliary compiled Handlebars files from all templates
+
         templates.forEach(function(template) {
+
+            // Remove auxiliary compiled Handlebars files from all templates
             rm("-f", distFolder + "/templates/" + template + "/js/handlebars-templates.js");
+
+            // Remove raw Handlebars templates
+            rm("-rf", distFolder + "/templates/" + template + "/templates");
         });
     });
 
