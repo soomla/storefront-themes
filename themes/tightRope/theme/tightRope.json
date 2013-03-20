@@ -233,7 +233,8 @@
      "categories" : [
         {
             "id" : 1,
-            "name" : "CHARACTERS"
+            "name" : "CHARACTERS",
+            "equipping" : "single"
         },
         {
             "id" : 2,
@@ -245,7 +246,8 @@
         },
         {
             "id" : 4,
-            "name" : "HELPERS"
+            "name" : "HELPERS",
+            "equipping" : "single"
         }
     ]
 }

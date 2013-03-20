@@ -225,7 +225,8 @@
      "categories" : [
         {
             "id" : 1,
-            "name" : "ANIMALS"
+            "name" : "ANIMALS",
+            "equipping" : "single"
         },
         {
             "id" : 2,

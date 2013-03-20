@@ -145,7 +145,8 @@
      "categories" : [
         {
             "id" : 1,
-            "name" : "FISHIES"
+            "name" : "FISHIES",
+            "equipping" : "single"
         },
         {
             "id" : 2,

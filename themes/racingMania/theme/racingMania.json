@@ -229,15 +229,17 @@
      "categories" : [
         {
             "id" : 1,
-            "name" : "Racing Tracks"
+            "name" : "Cars",
+            "equipping" : "single"
         },
         {
             "id" : 2,
-            "name" : "Cars"
+            "name" : "Tracks"
         },
         {
             "id" : 3,
-            "name" : "Powerups"
+            "name" : "Tires",
+            "equipping" : "single"
         },
         {
             "id" : 4,

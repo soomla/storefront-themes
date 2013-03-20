@@ -201,7 +201,8 @@
      "categories" : [
         {
             "id" : 1,
-            "name" : "Tanks"
+            "name" : "Tanks",
+            "equipping" : "single"
         },
         {
             "id" : 2,

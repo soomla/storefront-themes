@@ -109,7 +109,8 @@
      "categories" : [
         {
             "id" : 1,
-            "name" : "Characters"
+            "name" : "Characters",
+            "equipping" : "single"
         },
         {
             "id" : 2,

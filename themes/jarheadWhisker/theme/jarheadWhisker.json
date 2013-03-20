@@ -261,7 +261,8 @@
      "categories" : [
         {
             "id" : 1,
-            "name" : "CHARACTERS"
+            "name" : "CHARACTERS",
+            "equipping" : "single"
         },
         {
             "id" : 2,
@@ -273,7 +274,8 @@
         },
         {
             "id" : 4,
-            "name" : "RIFLES"
+            "name" : "RIFLES",
+            "equipping" : "single"
         },
 		{
             "id" : 5,

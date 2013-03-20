@@ -201,11 +201,13 @@
      "categories" : [
         {
             "id" : 1,
-            "name" : "Racing Tracks"
+            "name" : "Tracks",
+            "equipping" : "single"
         },
         {
             "id" : 2,
-            "name" : "Cars"
+            "name" : "Cars",
+            "equipping" : "single"
         },
         {
             "id" : 3,

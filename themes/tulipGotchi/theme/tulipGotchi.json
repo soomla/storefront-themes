@@ -245,7 +245,8 @@
      "categories" : [
         {
             "id" : 1,
-            "name" : "FLOWERS"
+            "name" : "FLOWERS",
+            "equipping" : "single"
         },
         {
             "id" : 2,

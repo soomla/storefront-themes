@@ -118,11 +118,13 @@
     "categories" : [
         {
             "id" : 1,
-            "name" : "CHARACTERS"
+            "name" : "CHARACTERS",
+            "equipping" : "single"
         },
         {
             "id" : 2,
-            "name" : "WEAPONS"
+            "name" : "WEAPONS",
+            "equipping" : "single"
         }
     ]
 }
