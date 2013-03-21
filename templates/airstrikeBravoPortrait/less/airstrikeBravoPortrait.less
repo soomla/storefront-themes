@@ -231,15 +231,21 @@ ul {
 
     .price, .buy-container {
         .box(horizontal, end, center);
-        width: @actionsWidth;
         font-size: 20px;
         font-weight: bold;
     }
-    .price img {
-        .square(@priceHeight);
+    .price {
+        width: @actionsWidth;
+        img {
+            .square(@priceHeight);
+        }
     }
-    .buy-container img {
-        .size(60px, 140px);
+    .buy-container {
+        @width: 140px;
+        width: @width;
+        img {
+            .size(60px, @width);
+        }
     }
 
     .expand-collapse, .toggle-equip {
