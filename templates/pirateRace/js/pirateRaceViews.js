@@ -143,12 +143,14 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             } else {
                 this.$("#goods-store").hide();
                 this.$("#currency-store").show();
+                this.packsIScroll.refresh();
             }
         },
         showGoodsStore : function() {
             this.playSound();
             this.$("#currency-store").hide();
             this.$("#goods-store").show();
+            this.goodsIScroll.refresh();
         },
         onRender : function() {
             var $this = this;
@@ -167,13 +169,12 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             this.$("#currency-store .non-consumables").html(this.nonConsumablesView.render().el);
 
             // Create IScrolls
-            // TODO: remove setTimeouts when heights of lists will be pre-defined
-            var goodsIScroll = new iScroll(this.$("#goods-store .items-container")[0], {hScroll: false, vScrollbar: false});
-            var packsIScroll = new iScroll(this.$("#currency-store .items-container")[0], {hScroll: false, vScrollbar: false});
-            setTimeout(function() {
-                goodsIScroll.refresh();
-                packsIScroll.refresh();
-            }, 1000);
+            this.goodsIScroll = new iScroll(this.$("#goods-store .items-container")[0],     {hScroll: false, vScrollbar: false});
+            this.packsIScroll = new iScroll(this.$("#currency-store .items-container")[0],  {hScroll: false, vScrollbar: false});
+            this.once("imagesLoaded", function() {
+                $this.goodsIScroll.refresh();
+                $this.packsIScroll.refresh();
+            });
         },
         zoomFunction : function() {
             return Math.min(innerWidth / 560, 1);
