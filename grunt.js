@@ -1,5 +1,14 @@
 /*global module:false*/
 require('shelljs/global');
+var AWS     = require('aws-sdk'),
+    wrench  = require('wrench'),
+    fs      = require('fs'),
+    async   = require('async');
+    _u      = require('underscore');
+
+var separator = function() {
+    console.log("=============================================");
+};
 
 
 module.exports = function (grunt) {
@@ -72,6 +81,68 @@ module.exports = function (grunt) {
             // Remove raw Handlebars templates
             rm("-rf", distFolder + "/templates/" + template + "/templates");
         });
+    });
+
+    grunt.registerTask('s3', 'Upload precompiled assets to s3', function() {
+
+        var done = this.async();
+        AWS.config.update({
+            accessKeyId: "AKIAJLLZKLVMVMHFHCIA",
+            secretAccessKey: "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"
+        });
+        var s3 = new AWS.S3.Client();
+
+        var localFileList = wrench.readdirSyncRecursive(distFolder);
+
+        // Filter out folder names
+        localFileList = _u.reject(localFileList, function(f) { return f.indexOf(".") === -1 } );
+        localFileList = _u.map(localFileList, function(f) { return distFolder + '/' + f } );
+
+        async.map(localFileList, fs.readFile, function(err, results) {
+
+            var files = [];
+            var regex = new RegExp("^" + distFolder + "\/");
+            _u.each(localFileList, function(file, i) {
+
+                // Make sure keys don't include the 'distFolder' prefix
+                files.push({key: 'storefront-themes/' + file.replace(regex, ""), data: results[i]});
+            });
+
+            async.map(files, function(file) {
+                s3.putObject({
+                    Bucket: 'soomla_images',
+                    Key: file.key,
+                    Body: file.data
+                }, function(err, data){
+                    if (!err) {
+                        console.log("Uploaded: " + file.key);
+                    } else {
+                        throw err;
+                    }
+                });
+
+            }, function(err, results) {
+                if (err) {
+                    separator();
+                    console.dir(err);
+                    separator();
+                }
+                done();
+            });
+
+            // Create an MD5 hash for each file
+//            var shasum = crypto.createHash('md5');
+//            var s = fs.ReadStream(distFolder + '/templates/' + file);
+//            s.on('data', function(d) { shasum.update(d); });
+//            s.on('end', function() {
+//                var md5 = shasum.digest('hex');
+//                console.log(md5);
+//                md5 = new Buffer(md5).toString('base64');
+//                console.log(md5);
+//            });
+        });
+
+
     });
 
     grunt.registerTask('default', 'clean copy configTemplates handlebars rig min cleanup');
