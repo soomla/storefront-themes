@@ -17,11 +17,14 @@
             "url"   : "https://github.com/soomla/storefront-themes/blob/master/MIT-LICENSE.txt"
         }
     ],
-    "dependencies": {},
-    "devDependencies": {
+    "dependencies": {
         "grunt"             : "~0.3.12",
         "grunt-handlebars"  : "~0.0.6",
         "grunt-rigger"      : "~0.3.0",
-        "shelljs"           : "~0.0.6"
+        "shelljs"           : "~0.0.6",
+        "async"             : "~0.2.6",
+        "aws-sdk"           : "~0.9.7",
+        "wrench"            : "~1.4.4",
+        "underscore"        : "~1.4.4"
     }
 }
