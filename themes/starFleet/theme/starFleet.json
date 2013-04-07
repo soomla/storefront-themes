@@ -1,0 +1,160 @@
+{
+    "currencyPacks" : [
+        {
+            "name"              : "Orange Power",
+            "itemId"            : "orange_power",
+            "currency_itemId"   : "currency_power",
+            "productId"         : "orange_power",
+            "price"             : 0.99,
+            "amount"            : 20000
+        },
+        {
+            "name"              : "Blue Power",
+            "itemId"            : "blue_power",
+            "currency_itemId"   : "currency_power",
+            "productId"         : "android.test.purchased",
+            "price"             : 1.99,
+            "amount"            : 50000
+        },
+        {
+            "name"              : "Green Power",
+            "itemId"            : "green_power",
+            "currency_itemId"   : "currency_power",
+            "productId"         : "green_power",
+            "price"             : 2.99,
+            "amount"            : 100000
+        }
+    ],
+    "virtualCurrencies" : [
+        {
+            "name"          : "COINS",
+            "description"   : "",
+            "itemId"        : "currency_power"
+        }
+    ],
+    "virtualGoods" : [
+        {
+            "name"          : "Ship 1",
+            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+            "itemId"        : "ship_1",
+            "categoryId"   : 1,
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_power" : 250
+                    }
+            }
+        },
+		{
+            "name"          : "Ship 2",
+            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+            "itemId"        : "ship_2",
+            "categoryId"   : 1,
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_power" : 250
+                    }
+            }
+        },
+		{
+            "name"          : "Ship 3",
+            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+            "itemId"        : "ship_3",
+            "categoryId"   : 1,
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_power" : 250
+                    }
+            }
+        },
+		{
+            "name"          : "Ship 4",
+            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+            "itemId"        : "ship_4",
+            "categoryId"   : 1,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_power" : 2500
+                }
+            }
+        },
+        {
+            "name"          : "Purple Blast",
+            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+            "itemId"        : "purple_blast",
+            "categoryId"   : 2,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_power" : 5000
+                }
+            }
+        },
+		{
+            "name"          : "Green Radar",
+            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+            "itemId"        : "green_radar",
+            "categoryId"   : 2,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_power" : 5000
+                }
+            }
+        },
+		{
+            "name"          : "Super Charge",
+            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+            "itemId"        : "super_charge",
+            "categoryId"   : 2,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_power" : 5000
+                }
+            }
+        },
+		{
+            "name"          : "Death Sun",
+            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+            "itemId"        : "death_sun",
+            "categoryId"   : 2,
+             "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_power" : 5000
+                }
+            }
+        },
+		{
+            "name"          : "Rocket Launcher",
+            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+            "itemId"        : "rocket_launcher",
+            "categoryId"   : 3,
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_power" : 2500
+                    }
+            }
+        }
+    ],
+     "categories" : [
+        {
+            "id" : 1,
+            "name" : "Starships",
+            "equipping" : "single"
+        },
+        {
+            "id" : 2,
+            "name" : "Weapons"
+        },
+        {
+            "id" : 3,
+            "name" : "Upgrades"
+        }
+    ]
+}

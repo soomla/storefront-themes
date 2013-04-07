@@ -1,0 +1,97 @@
+{
+    "template": {
+        "name": "airstrikeBravoPortrait",
+        "orientation": "portrait",
+        "noBranding": "true"
+    },
+    "modelAssets": {
+        "categories": {
+            "1": "img/-_Object_3.png",
+            "2": "img/-_Object_2.png",
+            "3": "img/-_Object_4.png",
+            "4": "img/-_Object_1.png",
+            "5": "img/-_Object_5.png"
+        },
+        "virtualGoods": {
+            "ship_1": "img/craft_1.png",
+            "ship_2": "img/craft_2.png",
+            "ship_3": "img/craft_3.png",
+            "ship_4": "img/craft_4.png",
+            "purple_blast": "img/objects-11.png",
+            "green_radar": "img/objects-12.png",
+            "super_charge": "img/objects-13.png",
+            "death_sun": "img/objects-14.png",
+            "rocket_launcher": "img/craft_5.png"
+        },
+        "currencyPacks": {
+            "orange_power": "img/objects-01.png",
+            "blue_power": "img/objects-02.png",
+            "green_power": "img/objects-03.png"
+        },
+        "virtualCurrencies": {
+            "currency_coins": "img/coin.png",
+            "currency_power": "img/coin.png"
+        },
+        "nonConsumables": {
+            "remove_ads": "img/no-ads.png"
+        }
+    },
+    "theme": {
+        "background": "img/BG_BG.jpg",
+        "balance": {
+            "style": "top: 32px; left: 125px; width: 100px; text-align: right; color: #FFF;"
+        },
+        "currencyPacksCategoryImage": "img/-_Object_1.png",
+        "fonts": [
+            {
+                "url": "fonts/Commando.ttf"
+            },
+            {
+                "url": "fonts/CPMono_v07_Plain.otf"
+            }
+        ],
+        "headerBackground": "img/titleBG.png",
+        "images": {
+            "contentBackground": "img/ContentBackground1.png",
+            "itemAreaBackground": "img/ItemAreaBackground.png",
+            "buyImage": "img/BUY.png",
+            "ownedIndicatorImage": "img/Green_Owned.png",
+            "notOwnedIndicatorImage": "img/Gray_Owned.png",
+            "expandImage": "img/Arrow_Close.png",
+            "backImage": "img/BACK.png",
+            "quitImage": "img/QUIT.png",
+            "purchasedIndicatorImage": "img/owned.png",
+            "itemBackgroundImage": "img/BG_Product.png",
+            "itemBackgroundImageExpanded": "img/BG_Product_Ext.png",
+            "equip" : "img/equip-btn.png",
+            "equipped" : "img/equipped-btn.png"
+        },
+        "name": "jarheadWhisker",
+        "noFundsModal": {
+            "background": "img/Alert-22.png",
+            "yesButton" : "img/yes_btn.png",
+            "noButton" : "img/no_btn.png"
+        },
+        "pages": {
+            "menu": {
+                "title": "Starshop"
+            },
+            "goods" : {
+                "item" : {
+                    "nameStyle" : "color: #FFF;",
+                    "priceStyle" : "color: #FFF;",
+                    "descriptionStyle" : "color: #FFF;"
+                }
+            },
+            "currencyPacks" : {
+                "item" : {
+                    "nameStyle" : "color: #FFF;",
+                    "priceStyle" : "color: #FFF;",
+                    "descriptionStyle" : "color: #FFF;"
+                }
+            }
+        },
+        "titleStyle": "color: #FFF",
+        "version": "1"
+    }
+}
