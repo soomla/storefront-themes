@@ -24,7 +24,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
-            _.bindAll(this, "changeTitle", "showCurrencyStore");
+            _.bindAll(this, "changeTitle", "showCurrencyPacks");
             this.dialogModel = this.theme.noFundsModal;
 
 
@@ -144,7 +144,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
         changeTitle : function(text) {
             this.$("#title").html(text);
         },
-        showCurrencyStore : function() {
+        showCurrencyPacks : function() {
             // When this flag is raised, there is no connectivity,
             // thus don't show the currency store
             if (this.model.get("isCurrencyStoreDisabled")) {

@@ -226,6 +226,16 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
             if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
             this.header.changeStateTo(view.cid);
         },
+        showCurrencyPacks : function(currencyId) {
+
+            // Collapse open item in current category
+            this.activeView.collapseExpandedChild({noSound: true});
+
+            // Change to view of given currency ID
+            var currency    = this.model.get("virtualCurrencies").get(currencyId),
+                view        = this.children.findByCustom(currency.cid);
+            this.changeViewTo(view);
+        },
         onRender : function() {
             var $this   = this,
                 menu    = this.children.findByCustom("menu");

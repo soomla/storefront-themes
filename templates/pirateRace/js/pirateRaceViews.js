@@ -19,7 +19,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
-            _.bindAll(this, "showCurrencyStore", "showGoodsStore");
+            _.bindAll(this, "showCurrencyPacks", "showGoodsStore");
             this.dialogModel    = this.theme.pages.goods.noFundsModal;
             this.categoryViews  = [];
 
@@ -127,13 +127,13 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
         events : {
             // TODO: Change to timedEvents with `click` once the storeview extends Marionette.View
             "fastclick .leave-store" : "leaveStore",
-            "fastclick .buy-more"    : "showCurrencyStore",
+            "fastclick .buy-more"    : "showCurrencyPacks",
             "fastclick .back"        : "showGoodsStore"
         },
         updateBalance : function(model) {
             this.$(".balance-container label").html(model.get("balance"));
         },
-        showCurrencyStore : function() {
+        showCurrencyPacks : function() {
             this.playSound();
 
             // When this flag is raised, there is no connectivity,
