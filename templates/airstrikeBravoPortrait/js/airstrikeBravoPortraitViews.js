@@ -172,7 +172,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                         itemView    : EquippableVirtualGoodView
                     }).on({
                         "itemview:expand" 	: $this.playSound,
-                        "itemview:collapse" : $this.playSound,
+                        "itemview:collapse" : $this.conditionalPlaySound,
                         "itemview:buy"      : wantsToBuyVirtualGoods,
                         "itemview:equip"    : wantsToEquipGoods
                     });
@@ -183,7 +183,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                         itemView    : SingleUseVirtualGoodView
                     }).on({
                         "itemview:expand" 	: $this.playSound,
-                        "itemview:collapse" : $this.playSound,
+                        "itemview:collapse" : $this.conditionalPlaySound,
                         "itemview:buy"      : wantsToBuyVirtualGoods
                     });
                 }
@@ -212,8 +212,8 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 back : function() {
                     this.playSound();
 
-                    // First, collapse open item in currenct category
-                    this.activeView.collapseExpandedChild();
+                    // First, collapse open item in current category
+                    this.activeView.collapseExpandedChild({noSound: true});
 
                     // Second, switch back to the menu
                     this.changeViewTo(categoryMenuView);
