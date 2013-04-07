@@ -83,6 +83,12 @@
 	    "pages" : {
             "menu" : {
                 "title" : "The Store"
+            },
+            "goods" : {
+                "item" : {}
+            },
+            "currencyPacks" : {
+                "item" : {}
             }
         }
     }

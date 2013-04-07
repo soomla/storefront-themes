@@ -1,6 +1,6 @@
 <div class="row">
     <img src="{{imgFilePath}}" class="item-image">
-    <div class="content">
+    <div class="content" style="{{item.nameStyle}}">
         <h1>{{name}}</h1>
         <span class="amount-label">
 		    {{amount}}
@@ -11,7 +11,7 @@
         <a class="buy">
             <img src="{{images.buyImage}}">
         </a>
-        <div class="price">
+        <div class="price" style="{{item.priceStyle}}">
             <label>{{price}}$</label>
         </div>
     </div>

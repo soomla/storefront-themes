@@ -41,7 +41,8 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                     currency: {
                         imgFilePath: modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
                     },
-                    price: this.model.get("priceModel").values[this.model.getCurrencyId()]
+                    price: this.model.get("priceModel").values[this.model.getCurrencyId()],
+                    item: $this.theme.pages.goods.item
                 });
             };
 
@@ -54,7 +55,8 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
 					imgFilePath : modelAssets["currencyPacks"][this.model.id],
                     currency: {
                         imgFilePath: modelAssets["virtualCurrencies"][this.model.get("currency_itemId")]
-                    }
+                    },
+                    item : $this.theme.pages.currencyPacks.item
 				});
             };
             CategoryView.prototype.templateHelpers = function() {
