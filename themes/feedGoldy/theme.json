@@ -42,7 +42,9 @@
         "background" : "img/BG_BG.jpg",
         "headerBackground" : "img/Header.png",
         "noFundsModal" : {
-            "background" : "img/Alert-22.png"
+            "background" : "img/Alert-22.png",
+            "yesButton" : "img/yes_btn.png",
+            "noButton" : "img/no_btn.png"
         },
         "images" : {
             "contentBackground" : "img/ContentBackground.png",
