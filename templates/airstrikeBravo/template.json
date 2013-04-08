@@ -27,6 +27,11 @@
 				"type" : "backgroundImage",
 				"title" : "Dialog Background Image",
 				"selector" : ".dialog"
+            },
+            "text" : {
+                "type" : "text",
+                "title" : "Dialog Text",
+                "selector" : ".dialog h1"
 			}
 		},
 		"currencyPacksCategoryImage" : {

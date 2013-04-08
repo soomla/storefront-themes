@@ -51,6 +51,7 @@
 		"headerBackground":"",
 		"noFundsModal":{
             "background" : "img/Alert-22.png",
+            "text" : "Insufficient funds.  Would you like to buy more?",
             "yesButton" : "img/yes_btn.png",
             "noButton" : "img/no_btn.png"
 		},
