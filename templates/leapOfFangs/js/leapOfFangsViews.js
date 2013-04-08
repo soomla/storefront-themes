@@ -22,6 +22,44 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
         });
 
 
+    var extendViews = function(model) {
+
+        var theme           = model.get("theme"),
+            templateHelpers = { images : theme.images };
+
+
+        // Add template helpers to view prototypes
+
+        VirtualGoodView.prototype.templateHelpers = function() {
+            var modelAssets = model.get("modelAssets");
+            return _.extend({
+                imgFilePath : modelAssets["virtualGoods"][this.model.id],
+                currency : {
+                    imgFilePath : modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
+                },
+                price : this.model.get("priceModel").values[this.model.getCurrencyId()],
+                item : theme.item
+            }, templateHelpers);
+        };
+        CurrencyPackView.prototype.templateHelpers = function() {
+            var modelAssets = model.get("modelAssets");
+            return _.extend({
+                imgFilePath : modelAssets["currencyPacks"][this.model.id],
+                currency : {
+                    imgFilePath : modelAssets["virtualCurrencies"][this.model.get("currency_itemId")]
+                },
+                item : theme.item
+            }, templateHelpers);
+        };
+        CategoryMenuItemView.prototype.templateHelpers = function() {
+            var modelAssets = model.get("modelAssets");
+            return {
+                imgFilePath : modelAssets["categories"][this.model.id]
+            };
+        };
+    };
+
+
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
             _.bindAll(this, "changeTitle", "showCurrencyPacks");
@@ -32,37 +70,6 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 categories      = this.model.get("categories"),
                 templateHelpers = { images : this.theme.images },
                 $this           = this;
-
-
-            // Add template helpers to view prototypes
-
-            VirtualGoodView.prototype.templateHelpers = function() {
-                var modelAssets = $this.model.get("modelAssets");
-                return _.extend({
-                    imgFilePath : modelAssets["virtualGoods"][this.model.id],
-                    currency : {
-                        imgFilePath : modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
-                    },
-                    price : this.model.get("priceModel").values[this.model.getCurrencyId()],
-                    item : $this.theme.item
-                }, templateHelpers);
-            };
-            CurrencyPackView.prototype.templateHelpers = function() {
-                var modelAssets = $this.model.get("modelAssets");
-                return _.extend({
-                    imgFilePath : modelAssets["currencyPacks"][this.model.id],
-                    currency : {
-                        imgFilePath : modelAssets["virtualCurrencies"][this.model.get("currency_itemId")]
-                    },
-                    item : $this.theme.item
-                }, templateHelpers);
-            };
-            CategoryMenuItemView.prototype.templateHelpers = function() {
-                var modelAssets = $this.model.get("modelAssets");
-                return {
-                    imgFilePath : modelAssets["categories"][this.model.id]
-                };
-            };
 
 
             // TODO: Fix the image for currency packs link.  It's not being passed in the template helpers for some reason...
@@ -184,7 +191,14 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
 
     return {
-        StoreView : StoreView
+        createStoreView : function(options) {
+
+            // Extend local Backbone views with theme specific template helpers
+            extendViews(options.storeViewOptions.model);
+
+            // Create store view instance
+            return new StoreView(options.storeViewOptions).on("imagesLoaded", options.imagesLoadedCallback).render();
+        }
     };
 });
 

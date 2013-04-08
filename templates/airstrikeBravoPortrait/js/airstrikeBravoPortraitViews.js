@@ -14,6 +14,63 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
         ExpandableIScrollCollectionView = Components.ExpandableIScrollCollectionView.extend({ template : getTemplate("collection") });
 
 
+    var extendViews = function(model) {
+
+        var theme           = model.get("theme"),
+            commonHelpers   = { images : theme.images };
+
+
+        // Add template helpers to view prototypes
+
+        var createTemplateHelpers = function(helpers) {
+            return _.extend(helpers, commonHelpers);
+        };
+        var templateHelpers = function () {
+
+            var modelAssets = model.get("modelAssets");
+            return createTemplateHelpers({
+                imgFilePath: modelAssets["virtualGoods"][this.model.id],
+                currency: {
+                    imgFilePath: modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
+                },
+                price: this.model.get("priceModel").values[this.model.getCurrencyId()],
+
+                // This is a hack, because Backofgen ignores empty objects in the theme
+                item: (theme.pages.goods && theme.pages.goods.item) ? theme.pages.goods.item : {}
+            });
+        };
+
+        EquippableVirtualGoodView.prototype.templateHelpers = templateHelpers;
+        SingleUseVirtualGoodView.prototype.templateHelpers = templateHelpers;
+
+        CurrencyPackView.prototype.templateHelpers = function() {
+            var modelAssets = model.get("modelAssets");
+            return createTemplateHelpers({
+                imgFilePath : modelAssets["currencyPacks"][this.model.id],
+                currency: {
+                    imgFilePath: modelAssets["virtualCurrencies"][this.model.get("currency_itemId")]
+                },
+
+                // This is a hack, because Backofgen ignores empty objects in the theme
+                item: (theme.pages.currencyPacks && theme.pages.currencyPacks.item) ? theme.pages.currencyPacks.item : {}
+            });
+        };
+        CategoryView.prototype.templateHelpers = function() {
+            var modelAssets = model.get("modelAssets");
+            return {
+                imgFilePath : modelAssets["categories"][this.model.id]
+            };
+        };
+        NonConsumableView.prototype.templateHelpers = function() {
+            var modelAssets = model.get("modelAssets");
+            return createTemplateHelpers({
+                imgFilePath : modelAssets["nonConsumables"][this.model.id]
+            });
+        };
+
+    };
+
+
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
             this.dialogModel = this.theme.noFundsModal;
@@ -21,56 +78,8 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
             var currencies 		= this.model.get("virtualCurrencies"),
                 categories      = this.model.get("categories"),
                 nonConsumables  = this.model.get("nonConsumables"),
-                commonHelpers   = { images : this.theme.images },
                 headerStates    = {},
                 $this           = this;
-
-
-
-
-            // Add template helpers to view prototypes
-
-            var createTemplateHelpers = function(helpers) {
-                return _.extend(helpers, commonHelpers);
-            };
-            var templateHelpers = function () {
-
-                var modelAssets = $this.model.get("modelAssets");
-                return createTemplateHelpers({
-                    imgFilePath: modelAssets["virtualGoods"][this.model.id],
-                    currency: {
-                        imgFilePath: modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
-                    },
-                    price: this.model.get("priceModel").values[this.model.getCurrencyId()],
-                    item: $this.theme.pages.goods.item
-                });
-            };
-
-            EquippableVirtualGoodView.prototype.templateHelpers = templateHelpers;
-            SingleUseVirtualGoodView.prototype.templateHelpers = templateHelpers;
-
-			CurrencyPackView.prototype.templateHelpers = function() {
-				var modelAssets = $this.model.get("modelAssets");
-				return createTemplateHelpers({
-					imgFilePath : modelAssets["currencyPacks"][this.model.id],
-                    currency: {
-                        imgFilePath: modelAssets["virtualCurrencies"][this.model.get("currency_itemId")]
-                    },
-                    item : $this.theme.pages.currencyPacks.item
-				});
-            };
-            CategoryView.prototype.templateHelpers = function() {
-                    var modelAssets = $this.model.get("modelAssets");
-                    return {
-                        imgFilePath : modelAssets["categories"][this.model.id]
-                    };
-            };
-            NonConsumableView.prototype.templateHelpers = function() {
-				var modelAssets = $this.model.get("modelAssets");
-				return createTemplateHelpers({
-					imgFilePath : modelAssets["nonConsumables"][this.model.id]
-				});
-            };
 
 
             // Build category menu and add it to the page views
@@ -278,7 +287,14 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
 
 
     return {
-        StoreView : StoreView
+        createStoreView : function(options) {
+
+            // Extend local Backbone views with theme specific template helpers
+            extendViews(options.storeViewOptions.model);
+
+            // Create store view instance
+            return new StoreView(options.storeViewOptions).on("imagesLoaded", options.imagesLoadedCallback).render();
+        }
     };
 });
 
