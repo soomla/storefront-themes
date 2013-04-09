@@ -133,15 +133,16 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
         events : {
             // TODO: Change to timedEvents with `click` once the storeview extends Marionette.View
             "fastclick .leave-store" : "leaveStore",
-            "fastclick .buy-more"    : "showCurrencyPacks",
+            "fastclick .buy-more"    : "onClickBuyMore",
             "fastclick .back"        : "showGoodsStore"
         },
         updateBalance : function(model) {
             this.$(".balance-container label").html(model.get("balance"));
         },
+        onClickBuyMore : function() {
+            this.playSound().showCurrencyPacks();
+        },
         showCurrencyPacks : function() {
-            this.playSound();
-
             // When this flag is raised, there is no connectivity,
             // thus don't show the currency store
             if (this.model.get("isCurrencyStoreDisabled")) {
