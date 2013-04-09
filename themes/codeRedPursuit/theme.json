@@ -66,10 +66,10 @@
                 "listItem" : {
                     "background" : "",
                     "balanceBackground" : "img/Item_Balance.png",
-                    "buy" : "img/Unlock.png",
-                    "buyOnce" : "img/Unlock.png",
+                    "buy" : "img/purchase.png",
+                    "buyOnce" : "img/unlock.png",
                     "equip" : "img/equip.png",
-                    "active" : "img/active.png"
+                    "active" : "img/equipped.png"
                 },
                 "noFundsModal" : {
                     "background" : "img/Alert_BG.png",
