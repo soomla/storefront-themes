@@ -109,7 +109,12 @@
                     },
                     "text" : {
                         "type" : "text",
-                        "title" : "Dialog Title",
+                        "title" : "Dialog Text",
+                        "selector" : ".dialog h1"
+                    },
+                    "textStyle" : {
+                        "type" : "css",
+                        "title" : "Dialog Text Style",
                         "selector" : ".dialog h1"
                     },
                     "yesButton" : {

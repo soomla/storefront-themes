@@ -32,6 +32,11 @@
                 "type" : "text",
                 "title" : "Dialog Text",
                 "selector" : ".dialog h1"
+            },
+            "textStyle" : {
+                "type" : "css",
+                "title" : "Dialog Text Style",
+                "selector" : ".dialog h1"
 			}
 		},
 		"currencyPacksCategoryImage" : {
