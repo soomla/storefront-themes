@@ -296,18 +296,16 @@ ul {
     width: 540px;
     height: 300px;
 
-    .title {
-        @height: 60px;
-        height: @height;
-        line-height: @height;
-    }
-
-    .description {
-        .box-flex(1);
+    h1 {
+        .box-flex(2);
         .box(vertical, center, center);
+        padding: 30px;
+        font-size: 28px;
+        font-weight: bold;
     }
 
     .actions {
+        .box-flex(1);
         margin-top: 10px;
         img {
             .size(60px, 260px);

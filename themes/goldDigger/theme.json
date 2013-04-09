@@ -69,8 +69,7 @@
                 },
                 "noFundsModal" : {
                     "background" : "img/Alert_BG.png",
-                    "title" : "Need More Coins!",
-                    "description" : "Would you like to get more coins?",
+                    "text" : "Insufficient funds.  Would you like to buy more?",
                     "yesButton" : "img/Yes_BTN.png",
                     "noButton" : "img/No_BTN.png"
                 }
