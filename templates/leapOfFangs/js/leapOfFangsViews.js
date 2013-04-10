@@ -154,7 +154,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             this.activeView = _.values(this.categoryViews)[0];
         },
         changeTitle : function(text) {
-            this.$("#title").html(text);
+            this.ui.title.html(text);
         },
         changeActiveView : function(view) {
             this.activeView.$el.removeClass("active");
@@ -174,6 +174,11 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 this.changeTitle(name);
             }
         },
+        ui : {
+            quit : "#quit",
+            title: "#title",
+            categoriesContainer : "#categories"
+        },
         onRender : function() {
 
             // Append background to element
@@ -184,7 +189,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             this.changeTitle(this.model.get("categories").at(0).get("name"));
 
             // Attach event handler to quit button
-            this.$("#quit").click(this.leaveStore);
+            this.ui.quit.click(this.leaveStore);
 
             // Render category menu
             // TODO: Render in separate template
@@ -193,7 +198,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
             var $this = this;
             _.each(this.categoryViews, function(view) {
-                $this.$("#categories").append(view.render().el);
+                $this.ui.categoriesContainer.append(view.render().el);
             });
 
             // Assumes that the active view is the first category view
