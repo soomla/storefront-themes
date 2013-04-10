@@ -3,7 +3,7 @@
     "currencyPacks" : [
         {
             "name"              : "10 Coins",
-            "itemId"            : "coins_10",
+            "itemId"            : "10_coins",
             "currency_itemId"   : "currency_coins",
             "productId"         : "10_coins",
             "price"             : 0.99,
