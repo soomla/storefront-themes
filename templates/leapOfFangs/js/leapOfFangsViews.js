@@ -1,9 +1,9 @@
-define(["jquery", "backbone", "components", "handlebars", "templates"], function($, Backbone, Components, Handlebars) {
+define(["jquery", "backbone", "components", "handlebars", "templates", "jquery.fastbutton"], function($, Backbone, Components, Handlebars) {
 
     // Define view types
 
     var getTemplate = Handlebars.getTemplate,
-        triggers = { "click .buy" : "buy" },
+        triggers = { "fastclick .buy" : "buy" },
         VirtualGoodView = Components.ItemView.extend({
             triggers : triggers,
             template : getTemplate("item")
@@ -83,6 +83,9 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 this.changeTitle(view.model.get("name"));
             };
 
+
+            // TODO: keep track of the active view amongst categories and currencies
+
             this.categoryMenu = new Components.CollectionView({
                 collection          : categories,
                 itemView            : CategoryMenuItemView,
@@ -118,6 +121,8 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                     "previous"          : $this.playSound,
                     "itemview:buy"      : wantsToBuyVirtualGoods
                 });
+
+                // TODO: Add equipping
 
                 $this.children.add(view, category.id);
             });
@@ -159,9 +164,11 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             this.changeTitle(name);
         },
         ui : {
-            quit : "#quit",
             title: "#title",
             categoriesContainer : "#categories"
+        },
+        events : {
+            "fastclick #quit" : "leaveStore"
         },
         onRender : function() {
 
@@ -171,10 +178,6 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
             // Show first category name in header
             this.changeTitle(this.model.get("categories").at(0).get("name"));
-
-            // Attach event handler to quit button
-            // TODO: Add fastclick
-            this.ui.quit.click(this.leaveStore);
 
             // Render category menu
             // TODO: Render in separate template
