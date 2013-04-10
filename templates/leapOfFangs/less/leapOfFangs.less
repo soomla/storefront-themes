@@ -92,9 +92,10 @@ ul {
     @descriptionHeight: 280px;
 
     height: 100%;
-    box-sizing: border-box; // TODO: Make LESS function for all vendor prefixes
+    .box-sizing(border-box);
     overflow: hidden;
     .centeredBackground;
+    display: none;
 
 
     .visual {
@@ -140,17 +141,24 @@ ul {
 // CATEGORY MENU
 // --------------------------------------------------
 
-#category-menu {
-    height: 200px;
+#menus-container {
+    overflow: hidden;
     width: @externalWidth - (2 * 20) - 120; // 2 * footer padding, quit button width + margin
+}
+
+#category-menu, #currency-menu {
+    height: 200px;
+    float: left;
 
     li {
         float: left;
-        &:not(:last-child) {
-            margin-right: 20px;
+        margin-right: 20px;
+        img {
+            .square(100px);
         }
     }
 }
+
 #categories {
     height: @categoriesHeight;
     position: relative;
