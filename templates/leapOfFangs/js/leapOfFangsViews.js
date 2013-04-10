@@ -69,7 +69,6 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
-            _.bindAll(this, "changeTitle", "showCurrencyPacks");
             this.dialogModel = this.theme.noFundsModal;
 
 
@@ -79,6 +78,11 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 $this           = this;
 
 
+            var onMenuItemSelect = function (view) {
+                this.playSound().changeActiveView(view.model.id);
+                this.changeTitle(view.model.get("name"));
+            };
+
             this.categoryMenu = new Components.CollectionView({
                 collection          : categories,
                 itemView            : CategoryMenuItemView,
@@ -86,25 +90,13 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                     // Activate tabs
                     this.$("li:first").addClass("active");
                 }
-            }).on("itemview:select", function(view) {
-                $this.playSound().changeActiveView(view);
-                var name = view.model.get("name");
-
-                // TODO: Extract to header view that listens to active title changes
-                $this.changeTitle(name);
-            });
+            }).on("itemview:select", onMenuItemSelect, this);
 
 
             this.currencyMenu = new Components.CollectionView({
                 collection : currencies,
                 itemView : CurrencyMenuItemView
-            }).on("itemview:select", function(view) {
-                $this.playSound().changeActiveView(view);
-                var name = view.model.get("name");
-
-                // TODO: Extract to header view that listens to active title changes
-                $this.changeTitle(name);
-            });
+            }).on("itemview:select", onMenuItemSelect, this);
 
             var wantsToBuyVirtualGoods = _.bind(function(view) {
                 this.playSound().wantsToBuyVirtualGoods(view.model);
@@ -128,7 +120,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                     "itemview:buy"      : wantsToBuyVirtualGoods
                 });
 
-                $this.categoryViews[category.cid] = view;
+                $this.categoryViews[category.id] = view;
             });
 
 
@@ -145,7 +137,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                     "itemview:buy"      : wantsToBuyMarketItem
                 });
 
-                $this.categoryViews[currency.cid] = view;
+                $this.categoryViews[currency.id] = view;
             });
 
 
@@ -154,25 +146,19 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             this.activeView = _.values(this.categoryViews)[0];
         },
         changeTitle : function(text) {
+            // TODO: Extract to header view that listens to active title changes
             this.ui.title.html(text);
         },
-        changeActiveView : function(view) {
+        changeActiveView : function(id) {
             this.activeView.$el.removeClass("active");
-            this.activeView = this.categoryViews[view.model.cid];
+            this.activeView = this.categoryViews[id];
             this.activeView.$el.addClass("active");
             return this;
         },
-        showCurrencyPacks : function() {
-            // When this flag is raised, there is no connectivity,
-            // thus don't show the currency store
-            if (this.model.get("isCurrencyStoreDisabled")) {
-                alert("Buying more is unavailable. Check your internet connectivity and try again.");
-            } else {
-                this.$("[href=#" + this.currencyPacksId + "]").tab("show");
-                var name = this.theme.currencyPacksCategoryName;
-                this.activeView = this.categoryViews[name];
-                this.changeTitle(name);
-            }
+        showCurrencyPacks : function(currencyId) {
+            this.changeActiveView(currencyId);
+            var name = this.model.get("virtualCurrencies").get(currencyId).get("name");
+            this.changeTitle(name);
         },
         ui : {
             quit : "#quit",
