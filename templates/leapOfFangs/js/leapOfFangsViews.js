@@ -107,7 +107,6 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
 
             // Build views for each category
-            this.categoryViews = {};
             categories.each(function(category) {
 
                 var view = new CarouselView({
@@ -120,7 +119,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                     "itemview:buy"      : wantsToBuyVirtualGoods
                 });
 
-                $this.categoryViews[category.id] = view;
+                $this.children.add(view, category.id);
             });
 
 
@@ -137,13 +136,12 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                     "itemview:buy"      : wantsToBuyMarketItem
                 });
 
-                $this.categoryViews[currency.id] = view;
+                $this.children.add(view, currency.id);
             });
 
 
             // Set the active view to be the first category's view
-            // TODO: Use BabySitter
-            this.activeView = _.values(this.categoryViews)[0];
+            this.activeView = this.children.findByIndex(0);
         },
         changeTitle : function(text) {
             // TODO: Extract to header view that listens to active title changes
@@ -151,7 +149,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
         },
         changeActiveView : function(id) {
             this.activeView.$el.removeClass("active");
-            this.activeView = this.categoryViews[id];
+            this.activeView = this.children.findByCustom(id);
             this.activeView.$el.addClass("active");
             return this;
         },
@@ -175,6 +173,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             this.changeTitle(this.model.get("categories").at(0).get("name"));
 
             // Attach event handler to quit button
+            // TODO: Add fastclick
             this.ui.quit.click(this.leaveStore);
 
             // Render category menu
@@ -183,7 +182,7 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             this.currencyMenu.setElement("#currency-menu").render();
 
             var $this = this;
-            _.each(this.categoryViews, function(view) {
+            this.children.each(function(view) {
                 $this.ui.categoriesContainer.append(view.render().el);
             });
 
