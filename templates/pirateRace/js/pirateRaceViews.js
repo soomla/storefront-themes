@@ -1,4 +1,4 @@
-define(["jquery", "backbone", "components", "marionette", "handlebars", "templates", "iscroll", "jquery.fastbutton"], function($, Backbone, Components, Marionette, Handlebars) {
+define(["jquery", "backbone", "components", "marionette", "handlebars", "templates", "jquery.fastbutton"], function($, Backbone, Components, Marionette, Handlebars) {
 
     // Define view types
 
@@ -150,14 +150,24 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             } else {
                 this.$("#goods-store").hide();
                 this.$("#currency-store").show();
-                this.packsIScroll.refresh();
+                this.iscrolls.packs.refresh();
             }
         },
         showGoodsStore : function() {
             this.playSound();
             this.$("#currency-store").hide();
             this.$("#goods-store").show();
-            this.goodsIScroll.refresh();
+            this.iscrolls.goods.refresh();
+        },
+        iscrollRegions : {
+            goods : {
+                el : "#goods-store .items-container",
+                options : {hScroll: false, vScrollbar: false}
+            },
+            packs : {
+                el : "#currency-store .items-container",
+                options : {hScroll: false, vScrollbar: false}
+            }
         },
         onRender : function() {
             var $this = this;
@@ -174,14 +184,6 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             });
 
             this.$("#currency-store .non-consumables").html(this.nonConsumablesView.render().el);
-
-            // Create IScrolls
-            this.goodsIScroll = new iScroll(this.$("#goods-store .items-container")[0],     {hScroll: false, vScrollbar: false});
-            this.packsIScroll = new iScroll(this.$("#currency-store .items-container")[0],  {hScroll: false, vScrollbar: false});
-            this.once("imagesLoaded", function() {
-                $this.goodsIScroll.refresh();
-                $this.packsIScroll.refresh();
-            });
         },
         zoomFunction : function() {
             return Math.min(innerWidth / 560, 1);
