@@ -8,12 +8,12 @@
             <h1 id="title" style="{{titleStyle}}"></h1>
         </div>
         <div id="balance-container">
-            <img class="balance-image" src="{{balance.backgroundImage}}" alt="Balance Image">
-            <div class="label-container" style="{{balance.style}}">
-                {{#each currencies}}
-                <label>{{this.balance}}</label>
-                {{/each}}
-            </div>
+		    {{#each currencies}}
+                <div class="label-container" style="{{balance.style}}">
+                    <label data-currency="{{this.itemId}}">{{this.balance}}</label>
+                    <img class="currency" src="{{this.imgFilePath}}">
+                </div>
+		    {{/each}}
         </div>
     </div>
 

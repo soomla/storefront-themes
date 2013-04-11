@@ -23,7 +23,8 @@
             "1000_coins" : "img/CurrencyPacks/CurrencyPack4.png"
         },
         "virtualCurrencies" : {
-            "currency_coins" : "img/Coin.png"
+            "currency_coins" : "img/Coin.png",
+            "currency_diamonds" : "img/Diamond.png"
         },
 	    "nonConsumables" : {
 		    "remove_ads" : "img/no-ads.png"
@@ -33,8 +34,7 @@
         "name" : "leapOfFangs",
         "version" : 1,
         "balance" : {
-            "backgroundImage" : "img/BalanceBackground.png",
-            "style" : "top: -10000px; left: -10000px;"
+            "style" : ""
         },
         "titleStyle" : "",
         "currencyPacksCategoryName" : "COIN PACKS",
