@@ -3,28 +3,28 @@
 	},
     "attributes" : {
 
-		"balance" : {
-			"style" : {
-				"type" : "css",
-				"title" : "Balance Label Style",
-				"selector" : ".header #balance-container .label-container"
-			}
-		},
-		"background" : {
-			"type" : "backgroundImage",
-			"title" : "Background Image",
-			"selector" : "#main"
-		},
-		"headerBackground" : {
-			"type" : "backgroundImage",
-			"title" : "Header Background Image",
-			"selector" : ".header"
-		},
-		"noFundsModal" : {
-			"background" : {
-				"type" : "backgroundImage",
-				"title" : "Dialog Background Image",
-				"selector" : ".dialog"
+        "balance" : {
+            "style" : {
+                "type" : "css",
+                "title" : "Balance Label Style",
+                "selector" : "#header #balance-container .label-container"
+            }
+        },
+        "titleStyle" : {
+            "type" : "css",
+            "title" : "Title Style",
+            "selector" : "#header #title"
+        },
+        "currencyPacksCategoryImage" : {
+            "type" : "image",
+            "title" : "Currency Packs Category Image",
+            "selector" : ".item.currency-packs img"
+        },
+        "noFundsModal" : {
+            "background" : {
+                "type" : "backgroundImage",
+                "title" : "Dialog Background Image",
+                "selector" : ".dialog"
             },
             "text" : {
                 "type" : "text",
@@ -35,65 +35,76 @@
                 "type" : "css",
                 "title" : "Dialog Text Style",
                 "selector" : ".dialog h1"
-			}
-		},
-		"currencyPacksCategoryImage" : {
-			"type" : "image",
-			"title" : "Currency Packs Category Image",
-			"selector" : ".item.currency-packs img"
-		},
-		"images" : {
-			"contentBackground" : {
-				"type" : "backgroundImage",
-				"title" : "Content Background Image",
-				"selector" : "#content-container"
-			},
-			"itemAreaBackground" : {
-				"type" : "backgroundImage",
-				"title" : "Item Area Background Image",
-				"selector" : "#pages"
-			},
-			"buyImage" : {
-				"type" : "image",
-				"title" : "Buy Image",
-				"selector" : ".buy img"
-			},
-			"ownedIndicatorImage" : {
-				"type" : "image",
-				"title" : "Owned Indicator Image",
-				"selector" : ".owned"
-			},
-			"notOwnedIndicatorImage" : {
-				"type" : "image",
-				"title" : "Not Owned Indicator Image",
-				"selector" : ".not-owned"
-			},
-			"expandImage" : {
-				"type" : "image",
-				"title" : "Expand Image",
-				"selector" : ".expand-collapse"
-			},
-			"backImage" : {
-				"type" : "image",
-				"title" : "Back Image",
-				"selector" : "#back-button img"
-			},
-			"quitImage" : {
-				"type" : "image",
-				"title" : "Quit Image",
-				"selector" : "#quit-button img"
-			},
-			"itemBackgroundImage" : {
-				"type" : "backgroundImage",
-				"title" : "Item Background Image",
-				"selector" : ".category .item"
-			},
-			"itemBackgroundImageExpanded" : {
-				"type" : "backgroundImage",
-				"title" : "Expanded Item Background Image",
-				"selector" : ".category .item.expanded"
-			}
-		},
+            },
+            "yesButton" : {
+                "type" : "image",
+                "title" : "Dialog 'Yes' Image",
+                "selector" : ".dialog .buy-more"
+            },
+            "noButton" : {
+                "type" : "image",
+                "title" : "Dialog 'No' Image",
+                "selector" : ".dialog .cancel"
+            }
+        },
+
+        "images" : {
+            "globalBackground" : {
+                "type" : "backgroundImage",
+                "title" : "Background Image",
+                "selector" : "#main"
+            },
+            "contentBackground" : {
+                "type" : "backgroundImage",
+                "title" : "Content Background Image",
+                "selector" : "#content-container"
+            },
+            "headerBackground" : {
+                "type" : "backgroundImage",
+                "title" : "Header Background Image",
+                "selector" : "#header"
+            },
+            "itemAreaBackground" : {
+                "type" : "backgroundImage",
+                "title" : "Item Area Background Image",
+                "selector" : "#categories"
+            },
+            "footerBackground" : {
+                "type" : "backgroundImage",
+                "title" : "Footer Background Image",
+                "selector" : "#footer"
+            },
+            "previousImage" : {
+                "type" : "image",
+                "title" : "Previous Image",
+                "selector" : ".category .previous"
+            },
+            "nextImage" : {
+                "type" : "image",
+                "title" : "Next Image",
+                "selector" : ".category .next"
+            },
+            "buyImage" : {
+                "type" : "image",
+                "title" : "Buy Image",
+                "selector" : ".item .buy"
+            },
+            "quit" : {
+                "type" : "image",
+                "title" : "Quit Image",
+                "selector" : "#quit"
+            },
+            "equip" : {
+                "type" : "image",
+                "title" : "Equip Image",
+                "selector" : ".item .equip"
+            },
+            "equipped" : {
+                "type" : "image",
+                "title" : "Equipped Image",
+                "selector" : ".item .active"
+            }
+        },
         "fonts" : [
             {
                 "type" : "font",
@@ -106,20 +117,23 @@
                 "class" : "font-face-2"
             }
         ],
-		"titleStyle" : {
-			"type" : "css",
-			"title" : "Title Style",
-			"selector" : ".header .title-container h1"
-		},
-		"pages" : {
-			"menu" : {
-				"title" : {
-					"type" : "text",
-					"title" : "Store Title",
-					"selector" : ".title-container h1"
-				}
-			}
-		}
+        "item" : {
+            "nameStyle" : {
+                "type" : "css",
+                "title" : "Name Style",
+                "selector" : ".description-container h1"
+            },
+            "descriptionStyle" : {
+                "type" : "css",
+                "title" : "Description Style",
+                "selector" : ".description-container p"
+            },
+            "priceStyle" : {
+                "type" : "css",
+                "title" : "Price Style",
+                "selector" : ".item .price"
+            }
+        }
     },
 	"validations" : {
 		"currency" : {

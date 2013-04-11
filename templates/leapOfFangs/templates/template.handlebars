@@ -1,15 +1,15 @@
 {{fontFaceStylesheet fonts}}
-<div id="content-container" style="background-image: url('{{images.contentBackground}}');">
-    <div id="header"  style="background-image: url('{{images.headerBackground}}');" class="font-face-1">
+<div id="content-container">
+    <div id="header" class="font-face-1">
         <div id="title-container">
             <a id="quit">
                 <img src="{{images.quit}}">
             </a>
-            <h1 id="title" style="{{titleStyle}}"></h1>
+            <h1 id="title"></h1>
         </div>
         <div id="balance-container">
 		    {{#each currencies}}
-                <div class="label-container" style="{{balance.style}}">
+                <div class="label-container">
                     <label data-currency="{{this.itemId}}">{{this.balance}}</label>
                     <img class="currency" src="{{this.imgFilePath}}">
                 </div>
@@ -17,8 +17,8 @@
         </div>
     </div>
 
-    <div id="categories" style="background-image: url('{{images.itemAreaBackground}}');" class="font-face-2"></div>
-    <div id="footer" style="background-image: url('{{images.footerBackground}}');">
+    <div id="categories" class="font-face-2"></div>
+    <div id="footer">
 	    <div id="menus-container" class="clearfix">
             <ul id="category-menu"></ul>
             <ul id="currency-menu"></ul>

@@ -225,10 +225,6 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
         },
         onRender : function() {
 
-            // Append background to element
-            // TODO: Remove once this CSS property is injected dynamically from template.json definition
-            this.$el.css("background-image", "url('" + this.theme.images.globalBackground + "')");
-
             // Render regions
             _.each(this.regions, function(selector, region) {
                 this[region].setElement(selector).render();
