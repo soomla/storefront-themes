@@ -55,6 +55,8 @@
             "nextImage" : "img/Next.png",
             "buyImage" : "img/Buy.png",
             "quitImage" : "img/Quit.png",
+            "equip" : "img/equip.png",
+            "equipped" : "img/equipped.png",
 	        "ownedIndicatorImage" : "img/owned.png"
         },
 	    "fonts" : [

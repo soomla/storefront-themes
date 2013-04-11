@@ -90,6 +90,7 @@ ul {
 
     @priceContainerHeight: 160px;
     @descriptionHeight: 280px;
+    @actionPaddingTop: 10px;
 
     height: 100%;
     .box-sizing(border-box);
@@ -103,23 +104,20 @@ ul {
         text-align: center;
     }
 
-    .price-container {
+    .buy-container {
         height: @priceContainerHeight;
-        text-align: left;
-        .box;
+        text-align: center;
+        padding-top: @actionPaddingTop;
 
-        & > div {
-            .box-flex(1);
-            .box(vertical, center, stretch);
-        }
-        .buy-container {
-            text-align: right;
-        }
         label {
             font-size: 44px;
             line-height: 50px;
             vertical-align: middle;
         }
+    }
+
+    .price-container {
+        margin-top: 20px;
     }
 
     .description-container {
@@ -135,6 +133,47 @@ ul {
             line-height: 50px;
         }
     }
+
+    .equip, .active {
+        display: block;
+        margin: 0 auto;
+        padding-top: @actionPaddingTop;
+    }
+
+
+	// Add specific styling for equippable items
+    &.equippable {
+
+    	// State: not owned
+        .equip, .active {
+            display: none;
+        }
+
+    	// State: owned, not equipped
+        &.owned {
+            .equip {
+                display: block;
+            }
+            .buy {
+                display: none;
+            }
+
+            .buy-container {
+                display: none;
+            }
+
+        	// State: owned and equipped
+            &.equipped {
+                .equip {
+                    display: none;
+                }
+                .active {
+                    display: block;
+                }
+            }
+        }
+    }
+
 }
 
 

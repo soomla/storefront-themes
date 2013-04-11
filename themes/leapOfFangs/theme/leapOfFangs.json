@@ -123,8 +123,7 @@
         },
         {
             "id" : 2,
-            "name" : "WEAPONS",
-            "equipping" : "single"
+            "name" : "WEAPONS"
         }
     ]
 }

@@ -8,6 +8,11 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
             triggers : triggers,
             template : getTemplate("item")
         }),
+        EquippableItemView = Components.EquippableItemView.extend({
+
+            // Local triggers not included, they are inherited from EquippableItemView
+            template : getTemplate("equippableItem")
+        }),
         CurrencyPackView = Components.ItemView.extend({
             triggers : triggers,
             template : getTemplate("currencyPack")
@@ -48,17 +53,20 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
 
         // Add template helpers to view prototypes
 
-        VirtualGoodView.prototype.templateHelpers = function() {
+        var virtualGoodTemplateHelpers = function () {
             var modelAssets = model.get("modelAssets");
             return _.extend({
-                imgFilePath : modelAssets["virtualGoods"][this.model.id],
-                currency : {
-                    imgFilePath : modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
+                imgFilePath: modelAssets["virtualGoods"][this.model.id],
+                currency: {
+                    imgFilePath: modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
                 },
-                price : this.model.get("priceModel").values[this.model.getCurrencyId()],
-                item : theme.item
+                price: this.model.get("priceModel").values[this.model.getCurrencyId()],
+                item: theme.item
             }, templateHelpers);
         };
+        VirtualGoodView.prototype.templateHelpers = virtualGoodTemplateHelpers;
+        EquippableItemView.prototype.templateHelpers = virtualGoodTemplateHelpers;
+
         CurrencyPackView.prototype.templateHelpers = function() {
             var modelAssets = model.get("modelAssets");
             return _.extend({
@@ -100,8 +108,6 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
             };
 
 
-            // TODO: keep track of the active view amongst categories and currencies
-
             this.categoryMenu = new Components.CollectionView({
                 collection          : categories,
                 itemView            : CategoryMenuItemView,
@@ -123,21 +129,38 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
             var wantsToBuyMarketItem = _.bind(function(view) {
                 this.playSound().wantsToBuyMarketItem(view.model);
             }, this);
+            var wantsToEquipGoods = _.bind(function (view) {
+                this.playSound().wantsToEquipGoods(view.model);
+            }, this);
 
 
             // Build views for each category
             categories.each(function(category) {
 
-                var view = new CarouselView({
-                    collection          : category.get("goods"),
-                    itemView            : VirtualGoodView,
-                    templateHelpers     : templateHelpers
-                }).on({
-                    "next previous"     : this.playSound,
-                    "itemview:buy"      : wantsToBuyVirtualGoods
-                });
+                var categoryGoods   = category.get("goods"),
+                    equipping       = category.get("equipping"),
+                    view;
 
-                // TODO: Add equipping
+                if (equipping === "single") {
+                    view = new CarouselView({
+                        collection          : categoryGoods,
+                        itemView            : EquippableItemView,
+                        templateHelpers     : templateHelpers
+                    }).on({
+                        "next previous"     : this.playSound,
+                        "itemview:buy"      : wantsToBuyVirtualGoods,
+                        "itemview:equip" 	: wantsToEquipGoods
+                    });
+                } else {
+                    view = new CarouselView({
+                        collection          : categoryGoods,
+                        itemView            : VirtualGoodView,
+                        templateHelpers     : templateHelpers
+                    }).on({
+                        "next previous"     : this.playSound,
+                        "itemview:buy"      : wantsToBuyVirtualGoods
+                    });
+                }
 
                 this.children.add(view, category.id);
             }, this);
