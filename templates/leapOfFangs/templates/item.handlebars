@@ -3,8 +3,15 @@
 </div>
 <div class="buy-container">
     <img src="{{images.buyImage}}" class="buy">
-    <img src="{{currency.imgFilePath}}">
-    <label style="{{item.priceStyle}}">{{price}}</label>
+	<div class="info">
+		<div>
+            <img src="{{currency.imgFilePath}}">
+            <label style="{{item.priceStyle}}">{{price}}</label>
+		</div>
+		<div>
+            Balance: <label class="balance">{{balance}}</label>
+		</div>
+	</div>
 </div>
 <div class="description-container">
     <h1 style="{{item.nameStyle}}">{{name}}</h1>
