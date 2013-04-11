@@ -91,8 +91,7 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
 
             var categories      = this.model.get("categories"),
                 currencies      = this.model.get("virtualCurrencies"),
-                templateHelpers = { images : this.theme.images },
-                $this           = this;
+                templateHelpers = { images : this.theme.images };
 
 
             var onMenuItemSelect = function (view) {
@@ -134,14 +133,14 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
                     itemView            : VirtualGoodView,
                     templateHelpers     : templateHelpers
                 }).on({
-                    "next previous"     : $this.playSound,
+                    "next previous"     : this.playSound,
                     "itemview:buy"      : wantsToBuyVirtualGoods
                 });
 
                 // TODO: Add equipping
 
-                $this.children.add(view, category.id);
-            });
+                this.children.add(view, category.id);
+            }, this);
 
 
             // Build views for each currency
@@ -152,20 +151,20 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
                     itemView            : CurrencyPackView,
                     templateHelpers     : templateHelpers
                 }).on({
-                    "next previous"     : $this.playSound,
+                    "next previous"     : this.playSound,
                     "itemview:buy"      : wantsToBuyMarketItem
                 });
 
-                $this.children.add(view, currency.id);
-            });
+                this.children.add(view, currency.id);
+            }, this);
 
 
             // Set the active view to be the first category's view
             this.activeView = this.children.findByIndex(0);
-            var title = categories.at(0).get("name");
 
 
             // Create header
+            var title = categories.at(0).get("name");
             this.header = new Backbone.Model({title : title});
             this.headerView = new HeaderView({ model : this.header });
 
@@ -201,18 +200,14 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
             // TODO: Remove once this CSS property is injected dynamically from template.json definition
             this.$el.css("background-image", "url('" + this.theme.images.globalBackground + "')");
 
-            // Show first category name in header
-            this.changeTitle(this.model.get("categories").at(0).get("name"));
-
             // Render regions
             _.each(this.regions, function(selector, region) {
                 this[region].setElement(selector).render();
             }, this);
 
-            var $this = this;
             this.children.each(function(view) {
-                $this.ui.categoriesContainer.append(view.render().el);
-            });
+                this.ui.categoriesContainer.append(view.render().el);
+            }, this);
 
             // Assumes that the active view is the first category view
             this.activeView.$el.addClass("active");
