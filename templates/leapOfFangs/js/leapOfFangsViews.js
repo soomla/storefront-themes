@@ -1,4 +1,4 @@
-define(["jquery", "backbone", "components", "handlebars", "templates", "jquery.fastbutton"], function($, Backbone, Components, Handlebars) {
+define(["jquery", "backbone", "components", "handlebars", "marionette", "templates", "jquery.fastbutton"], function($, Backbone, Components, Handlebars, Marionette) {
 
     // Define view types
 
@@ -21,6 +21,23 @@ define(["jquery", "backbone", "components", "handlebars", "templates", "jquery.f
             itemViewContainer   : ".goods",
             template            : getTemplate("category")
         });
+
+
+    var HeaderView = Marionette.ItemView.extend({
+        initialize : function() {
+            this.model.on("change:title", this.changeTitle, this);
+        },
+        ui : {
+            title : "#title"
+        },
+        render : function() {
+            this.bindUIElements();
+            this.changeTitle();
+        },
+        changeTitle : function() {
+            this.ui.title.html(this.model.get("title"));
+        }
+    });
 
 
     var extendViews = function(model) {
@@ -147,10 +164,19 @@ define(["jquery", "backbone", "components", "handlebars", "templates", "jquery.f
 
             // Set the active view to be the first category's view
             this.activeView = this.children.findByIndex(0);
+            var title = categories.at(0).get("name");
+
+
+            // Create header
+            this.header = new Backbone.Model({title : title});
+            this.headerView = new HeaderView({
+                el : $("#header"),
+                model : this.header
+            });
+
         },
         changeTitle : function(text) {
-            // TODO: Extract to header view that listens to active title changes
-            this.ui.title.html(text);
+            this.header.set("title", text);
         },
         changeActiveView : function(id) {
             this.activeView.$el.removeClass("active");
@@ -178,6 +204,8 @@ define(["jquery", "backbone", "components", "handlebars", "templates", "jquery.f
 
             // Show first category name in header
             this.changeTitle(this.model.get("categories").at(0).get("name"));
+
+            this.headerView.setElement("#header").render();
 
             // Render category menu
             // TODO: Render in separate template
