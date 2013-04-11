@@ -71,8 +71,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             this.dialogModel    = this.theme.pages.goods.noFundsModal;
             this.categoryViews  = [];
 
-            var $this           = this,
-                currencies      = this.model.get("virtualCurrencies"),
+            var currencies      = this.model.get("virtualCurrencies"),
                 categories      = this.model.get("categories"),
                 nonConsumables  = this.model.get("nonConsumables");
 
@@ -98,7 +97,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                     view = new SectionedListView({
                         collection          : categoryGoods,
                         itemView            : EquippableVirtualGoodView,
-                        templateHelpers     : _.extend({category : category.get("name")}, $this.theme.categories)
+                        templateHelpers     : _.extend({category : category.get("name")}, this.theme.categories)
                     }).on({
                         "itemview:buy" 		: wantsToBuyVirtualGoods,
                         "itemview:equip" 	: wantsToEquipGoods
@@ -107,11 +106,11 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                     view = new SectionedListView({
                         collection          : categoryGoods,
                         itemView            : VirtualGoodView,
-                        templateHelpers     : _.extend({category : category.get("name")}, $this.theme.categories)
+                        templateHelpers     : _.extend({category : category.get("name")}, this.theme.categories)
                     }).on("itemview:buy", wantsToBuyVirtualGoods);
                 }
-                $this.categoryViews.push(view);
-            });
+                this.categoryViews.push(view);
+            }, this);
             this.currencyPacksViews = [];
             currencies.each(function(currency) {
                 var view = new Components.CollectionView({
@@ -120,8 +119,8 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                     itemView            : CurrencyPackView
                 }).on("itemview:select", wantsToBuyMarketItem);
 
-                $this.currencyPacksViews.push(view)
-            });
+                this.currencyPacksViews.push(view)
+            }, this);
 
             this.nonConsumablesView = new Components.CollectionView({
                 className           : "items nonConsumables",
@@ -160,18 +159,17 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             this.goodsIScroll.refresh();
         },
         onRender : function() {
-            var $this = this;
             this.$("#currency-store").hide();
 
             // Render subviews (items in goods store and currency store)
             _.each(this.categoryViews, function(view) {
-                $this.$("#goods-store .items-container [data-iscroll='true']").append(view.render().el);
-            });
+                this.$("#goods-store .items-container [data-iscroll='true']").append(view.render().el);
+            }, this);
 
 
             _.each(this.currencyPacksViews, function(view) {
-                $this.$("#currency-store .currency-packs").append(view.render().el);
-            });
+                this.$("#currency-store .currency-packs").append(view.render().el);
+            }, this);
 
             this.$("#currency-store .non-consumables").html(this.nonConsumablesView.render().el);
 
@@ -179,9 +177,9 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             this.goodsIScroll = new iScroll(this.$("#goods-store .items-container")[0],     {hScroll: false, vScrollbar: false});
             this.packsIScroll = new iScroll(this.$("#currency-store .items-container")[0],  {hScroll: false, vScrollbar: false});
             this.once("imagesLoaded", function() {
-                $this.goodsIScroll.refresh();
-                $this.packsIScroll.refresh();
-            });
+                this.goodsIScroll.refresh();
+                this.packsIScroll.refresh();
+            }, this);
         },
         zoomFunction : function() {
             return Math.min(innerWidth / 560, 1);
