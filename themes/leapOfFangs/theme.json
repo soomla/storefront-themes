@@ -54,7 +54,7 @@
             "previousImage" : "img/Previous.png",
             "nextImage" : "img/Next.png",
             "buyImage" : "img/Buy.png",
-            "quitImage" : "img/Quit.png",
+            "quit" : "img/quit.png",
             "equip" : "img/equip.png",
             "equipped" : "img/equipped.png",
 	        "ownedIndicatorImage" : "img/owned.png"

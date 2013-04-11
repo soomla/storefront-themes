@@ -47,11 +47,18 @@ ul {
 
     #title-container {
         width: 400px;
-        .box(vertical, center);
-        text-align: center;
+        .box(vertical);
+
+        #quit img{
+            .maxSize(50px, 150px);
+        }
+
         h1 {
+            .box-flex(1);
+            .box(vertical, center);
             font-size: 60px;
             line-height: 70px;
+            text-align: center;
         }
     }
 
@@ -201,9 +208,6 @@ ul {
 #categories {
     height: @categoriesHeight;
     position: relative;
-}
-#quit {
-    float: right;
 }
 
 // The cateogries behave like a tab.  It's displayed only when it's active
