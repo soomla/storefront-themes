@@ -242,15 +242,19 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
                 view        = this.children.findByCustom(currency.cid);
             this.changeViewTo(view);
         },
+        ui : {
+            pages   : "#pages",
+            header  : ".header"
+        },
         onRender : function() {
             var menu = this.children.findByCustom("menu");
 
             // Set header element to bind event delegation
-            this.header.setElement(this.$(".header")).render().bindUIElements();
+            this.header.setElement(this.ui.header).render().bindUIElements();
 
             // Render child views (items in goods store and currency store)
             this.children.each(function(view) {
-                this.$("#pages").append(view.render().el);
+                this.ui.pages.append(view.render().el);
             }, this);
 
             // Append the link to the currency packs as a "category view"
