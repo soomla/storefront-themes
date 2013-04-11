@@ -78,8 +78,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
             var currencies 		= this.model.get("virtualCurrencies"),
                 categories      = this.model.get("categories"),
                 nonConsumables  = this.model.get("nonConsumables"),
-                headerStates    = {},
-                $this           = this;
+                headerStates    = {};
 
 
             // Build category menu and add it to the page views
@@ -103,13 +102,13 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
             currencies.each(function(currency) {
                 var link = new CategoryView({
                 className : "item currency-packs",
-                    templateHelpers : { imgFilePath : $this.theme.currencyPacksCategoryImage }
+                    templateHelpers : { imgFilePath : this.theme.currencyPacksCategoryImage }
             	}).on("select", function() {
                     this.playSound().changeViewTo(this.children.findByCustom(currency.cid));
-                }, $this);
+                }, this);
 
-                $this.currencyPacksLinks.push(link);
-            });
+                this.currencyPacksLinks.push(link);
+            }, this);
 
             // Create views for the earned currency links from the category menu.
             // We're using a CategoryView, because visually the button should look the same, even though
@@ -122,13 +121,12 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 var view = new NonConsumableView({
                     className : "item non-consumable",
                     model : nonConsumable
-                }).on("buy", function() {
-                    $this.playSound();
-                    $this.wantsToBuyMarketItem(this.model);
-                });
+                }).on("buy", function(args) {
+                    this.playSound().wantsToBuyMarketItem(args.model);
+                }, this);
 
-                $this.nonConsumbaleLinks.push(view);
-            });
+                this.nonConsumbaleLinks.push(view);
+            }, this);
 
             // Create views for the earned currency links from the category menu.
             // We're using a CategoryView, because visually the button should look the same, even though
@@ -143,12 +141,11 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                     model : new categories.model(earnedCurrency),
                     templateHelpers : { imgFilePath : earnedCurrency.imgFilePath }
                 }).on("select", function() {
-                    $this.playSound();
-                    $this.nativeAPI.requestEarnedCurrency(this.model.get("provider"));
-                });
+                    this.playSound().requestEarnedCurrency(this.model.get("provider"));
+                }, this);
 
-                $this.earnedCurrencyLinks.push(earnedCurrency);
-            });
+                this.earnedCurrencyLinks.push(earnedCurrency);
+            }, this);
 
 
             // View event listeners
@@ -182,8 +179,8 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                         collection  : goods,
                         itemView    : EquippableVirtualGoodView
                     }).on({
-                        "itemview:expand" 	: $this.playSound,
-                        "itemview:collapse" : $this.conditionalPlaySound,
+                        "itemview:expand" 	: this.playSound,
+                        "itemview:collapse" : this.conditionalPlaySound,
                         "itemview:buy"      : wantsToBuyVirtualGoods,
                         "itemview:equip"    : wantsToEquipGoods
                     });
@@ -193,15 +190,15 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                         collection  : goods,
                         itemView    : SingleUseVirtualGoodView
                     }).on({
-                        "itemview:expand" 	: $this.playSound,
-                        "itemview:collapse" : $this.conditionalPlaySound,
+                        "itemview:expand" 	: this.playSound,
+                        "itemview:collapse" : this.conditionalPlaySound,
                         "itemview:buy"      : wantsToBuyVirtualGoods
                     });
                 }
 
-                $this.children.add(view, category.cid);
+                this.children.add(view, category.cid);
                 headerStates[view.cid] = categoryName;
-            });
+            }, this);
 
 
             // Build currency packs category and add it to the page views
@@ -211,11 +208,11 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
 					collection  : currency.get("packs"),
 					itemView    : CurrencyPackView
 				}).on("itemview:buy", function(view) {
-					$this.playSound().wantsToBuyMarketItem(view.model);
-				});
-                $this.children.add(currencyPacksView, currency.cid);
+					this.playSound().wantsToBuyMarketItem(view.model);
+				}, this);
+                this.children.add(currencyPacksView, currency.cid);
                 headerStates[currencyPacksView.cid] = currency.get("name");
-            });
+            }, this);
 
 
             // Build header view
@@ -250,16 +247,15 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
             this.changeViewTo(view);
         },
         onRender : function() {
-            var $this   = this,
-                menu    = this.children.findByCustom("menu");
+            var menu = this.children.findByCustom("menu");
 
             // Set header element to bind event delegation
             this.header.setElement(this.$(".header")).render().bindUIElements();
 
             // Render child views (items in goods store and currency store)
             this.children.each(function(view) {
-                $this.$("#pages").append(view.render().el);
-            });
+                this.$("#pages").append(view.render().el);
+            }, this);
 
             // Append the link to the currency packs as a "category view"
             _.each(this.currencyPacksLinks, function(link) {
