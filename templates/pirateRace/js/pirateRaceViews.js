@@ -135,7 +135,14 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             "fastclick .buy-more"    : "onClickBuyMore",
             "fastclick .back"        : "showGoodsStore"
         },
+        ui : {
+            goodsStore : "#goods-store",
+            currencyStore : "#currency-store",
+            goodsIscrollContainer : "#goods-store .items-container [data-iscroll='true']",
+            currencyPacksContainer : "#currency-store .currency-packs"
+        },
         updateBalance : function(model) {
+            // TODO: Move to a header view
             this.$(".balance-container label").html(model.get("balance"));
         },
         onClickBuyMore : function() {
@@ -147,28 +154,28 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             if (this.model.get("isCurrencyStoreDisabled")) {
                 alert("Buying more " + this.model.get("currency").get("name") + " is unavailable. Check your internet connectivity and try again.");
             } else {
-                this.$("#goods-store").hide();
-                this.$("#currency-store").show();
+                this.ui.goodsStore.hide();
+                this.ui.currencyStore.show();
                 this.packsIScroll.refresh();
             }
         },
         showGoodsStore : function() {
             this.playSound();
-            this.$("#currency-store").hide();
-            this.$("#goods-store").show();
+            this.ui.currencyStore.hide();
+            this.ui.goodsStore.show();
             this.goodsIScroll.refresh();
         },
         onRender : function() {
-            this.$("#currency-store").hide();
+            this.ui.currencyStore.hide();
 
             // Render subviews (items in goods store and currency store)
             _.each(this.categoryViews, function(view) {
-                this.$("#goods-store .items-container [data-iscroll='true']").append(view.render().el);
+                this.ui.goodsIscrollContainer.append(view.render().el);
             }, this);
 
 
             _.each(this.currencyPacksViews, function(view) {
-                this.$("#currency-store .currency-packs").append(view.render().el);
+                this.ui.currencyPacksContainer.append(view.render().el);
             }, this);
 
             this.$("#currency-store .non-consumables").html(this.nonConsumablesView.render().el);
