@@ -191,6 +191,12 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
             currencyMenu : "#currency-menu",
             headerView   : "#header"
         },
+        iscrollRegions : {
+            categoryMenu : {
+                el : "#footer",
+                options : {vScroll: false, vScrollbar: false, hScrollbar: false}
+            }
+        },
         events : {
             "fastclick #quit" : "leaveStore"
         },
@@ -204,6 +210,7 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
             _.each(this.regions, function(selector, region) {
                 this[region].setElement(selector).render();
             }, this);
+
 
             this.children.each(function(view) {
                 this.ui.categoriesContainer.append(view.render().el);
