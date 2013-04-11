@@ -134,8 +134,7 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
                     itemView            : VirtualGoodView,
                     templateHelpers     : templateHelpers
                 }).on({
-                    "next"              : $this.playSound,
-                    "previous"          : $this.playSound,
+                    "next previous"     : $this.playSound,
                     "itemview:buy"      : wantsToBuyVirtualGoods
                 });
 
@@ -153,8 +152,7 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
                     itemView            : CurrencyPackView,
                     templateHelpers     : templateHelpers
                 }).on({
-                    "next"              : $this.playSound,
-                    "previous"          : $this.playSound,
+                    "next previous"     : $this.playSound,
                     "itemview:buy"      : wantsToBuyMarketItem
                 });
 
