@@ -167,10 +167,7 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
 
             // Create header
             this.header = new Backbone.Model({title : title});
-            this.headerView = new HeaderView({
-                el : $("#header"),
-                model : this.header
-            });
+            this.headerView = new HeaderView({ model : this.header });
 
         },
         changeTitle : function(text) {
@@ -188,8 +185,12 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
             this.changeTitle(name);
         },
         ui : {
-            title: "#title",
             categoriesContainer : "#categories"
+        },
+        regions: {
+            categoryMenu : "#category-menu",
+            currencyMenu : "#currency-menu",
+            headerView   : "#header"
         },
         events : {
             "fastclick #quit" : "leaveStore"
@@ -203,12 +204,10 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
             // Show first category name in header
             this.changeTitle(this.model.get("categories").at(0).get("name"));
 
-            this.headerView.setElement("#header").render();
-
-            // Render category menu
-            // TODO: Render in separate template
-            this.categoryMenu.setElement("#category-menu").render();
-            this.currencyMenu.setElement("#currency-menu").render();
+            // Render regions
+            _.each(this.regions, function(selector, region) {
+                this[region].setElement(selector).render();
+            }, this);
 
             var $this = this;
             this.children.each(function(view) {
