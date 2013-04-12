@@ -23,7 +23,8 @@
             "1000_coins" : "img/CurrencyPacks/CurrencyPack4.png"
         },
         "virtualCurrencies" : {
-            "currency_coins" : "img/Coin.png"
+            "currency_coins" : "img/Coin.png",
+            "currency_diamonds" : "img/Diamond.png"
         },
 	    "nonConsumables" : {
 		    "remove_ads" : "img/no-ads.png"
@@ -33,15 +34,14 @@
         "name" : "leapOfFangs",
         "version" : 1,
         "balance" : {
-            "backgroundImage" : "img/BalanceBackground.png",
-            "style" : "top: -10000px; left: -10000px;"
+            "style" : ""
         },
         "titleStyle" : "",
         "currencyPacksCategoryName" : "COIN PACKS",
         "noFundsModal" : {
             "background" : "img/ModalBackground.png",
-            "title" : "Need More Coins!",
-            "description" : "Would you like to get more coins?",
+            "text" : "Insufficient funds.  Would you like to buy more?",
+            "textStyle" : "text-shadow: 1px 2px #808080",
             "yesButton" : "img/Yes_BTN.png",
             "noButton" : "img/No_BTN.png"
         },
@@ -54,7 +54,9 @@
             "previousImage" : "img/Previous.png",
             "nextImage" : "img/Next.png",
             "buyImage" : "img/Buy.png",
-            "quitImage" : "img/Quit.png",
+            "quit" : "img/quit.png",
+            "equip" : "img/equip.png",
+            "equipped" : "img/equipped.png",
 	        "ownedIndicatorImage" : "img/owned.png"
         },
 	    "fonts" : [

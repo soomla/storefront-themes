@@ -1,0 +1,263 @@
+{
+	"supportedFeatures" : {
+	},
+    "attributes" : {
+
+        "balance" : {
+            "style" : {
+                "type" : "css",
+                "title" : "Balance Label Style",
+                "selector" : "#header #balance-container .label-container"
+            }
+        },
+        "titleStyle" : {
+            "type" : "css",
+            "title" : "Title Style",
+            "selector" : "#header #title"
+        },
+        "currencyPacksCategoryImage" : {
+            "type" : "image",
+            "title" : "Currency Packs Category Image",
+            "selector" : ".item.currency-packs img"
+        },
+        "noFundsModal" : {
+            "background" : {
+                "type" : "backgroundImage",
+                "title" : "Dialog Background Image",
+                "selector" : ".dialog"
+            },
+            "text" : {
+                "type" : "text",
+                "title" : "Dialog Text",
+                "selector" : ".dialog h1"
+            },
+            "textStyle" : {
+                "type" : "css",
+                "title" : "Dialog Text Style",
+                "selector" : ".dialog h1"
+            },
+            "yesButton" : {
+                "type" : "image",
+                "title" : "Dialog 'Yes' Image",
+                "selector" : ".dialog .buy-more"
+            },
+            "noButton" : {
+                "type" : "image",
+                "title" : "Dialog 'No' Image",
+                "selector" : ".dialog .cancel"
+            }
+        },
+
+        "images" : {
+            "globalBackground" : {
+                "type" : "backgroundImage",
+                "title" : "Background Image",
+                "selector" : "#main"
+            },
+            "contentBackground" : {
+                "type" : "backgroundImage",
+                "title" : "Content Background Image",
+                "selector" : "#content-container"
+            },
+            "headerBackground" : {
+                "type" : "backgroundImage",
+                "title" : "Header Background Image",
+                "selector" : "#header"
+            },
+            "itemAreaBackground" : {
+                "type" : "backgroundImage",
+                "title" : "Item Area Background Image",
+                "selector" : "#categories"
+            },
+            "footerBackground" : {
+                "type" : "backgroundImage",
+                "title" : "Footer Background Image",
+                "selector" : "#footer"
+            },
+            "previousImage" : {
+                "type" : "image",
+                "title" : "Previous Image",
+                "selector" : ".category .previous"
+            },
+            "nextImage" : {
+                "type" : "image",
+                "title" : "Next Image",
+                "selector" : ".category .next"
+            },
+            "buyImage" : {
+                "type" : "image",
+                "title" : "Buy Image",
+                "selector" : ".item .buy"
+            },
+            "quit" : {
+                "type" : "image",
+                "title" : "Quit Image",
+                "selector" : "#quit"
+            },
+            "equip" : {
+                "type" : "image",
+                "title" : "Equip Image",
+                "selector" : ".item .equip"
+            },
+            "equipped" : {
+                "type" : "image",
+                "title" : "Equipped Image",
+                "selector" : ".item .active"
+            }
+        },
+        "fonts" : [
+            {
+                "type" : "font",
+                "title" : "Primary Font",
+                "class" : "font-face-1"
+            },
+            {
+                "type" : "font",
+                "title" : "Primary Font",
+                "class" : "font-face-2"
+            }
+        ],
+        "item" : {
+            "nameStyle" : {
+                "type" : "css",
+                "title" : "Name Style",
+                "selector" : ".description-container h1"
+            },
+            "descriptionStyle" : {
+                "type" : "css",
+                "title" : "Description Style",
+                "selector" : ".description-container p"
+            },
+            "priceStyle" : {
+                "type" : "css",
+                "title" : "Price Style",
+                "selector" : ".item .price"
+            }
+        }
+    },
+	"validations" : {
+		"currency" : {
+			"rules" : {
+				"name" : {
+					"required" : true,
+					"matches" : "^[a-zA-Z]",
+					"maxlength" : 30
+				}
+			},
+			"messages" : {
+				"name" : {
+					"required" : "Required",
+					"matches" : "Must begin with a letter",
+					"maxlength" : "Max. {0} characters"
+				}
+			}
+		},
+		"currencyPack" : {
+			"rules" : {
+				"name" : {
+					"required" : true,
+					"maxlength" : 40
+				},
+				"description" : {
+					"maxlength" : 120
+				},
+				"itemId" : {
+					"required" : true,
+					"matches" : "^[a-zA-Z][a-zA-Z0-9_\\-\\.]*$"
+				},
+				"productId" : {
+					"required" : true,
+					"matches" : "^[a-z0-9][a-z0-9_\\.]*$"
+				},
+				"amount" : {
+					"required" : true,
+					"number" : true,
+					"range" : [1, 999999999]
+				},
+				"price" : {
+					"required" : true,
+					"currency" : true
+				}
+			},
+			"messages" : {
+				"name" : {
+					"required" : "Required",
+					"maxlength" : "Max. {0} characters"
+				},
+				"description" : {
+					"maxlength" : "Max. {0} characters"
+				},
+				"itemId" : {
+					"required" : "Required",
+					"matches" : "Letters, numbers, dots & underscores only"
+				},
+				"productId" : {
+					"required" : "Required",
+					"matches" : "Letters, numbers, dots & underscores only"
+				},
+				"amount" : {
+					"required" : "Required",
+					"number" : "Numbers only",
+					"range" : "Positive numbers only"
+				},
+				"price" : {
+					"required" : "Required",
+					"range" : "Positive numbers only"
+				}
+			}
+		},
+		"category" : {
+			"rules" : {
+				"name" : {
+					"required" : true,
+					"matches" : "^[a-zA-Z]",
+					"maxlength" : 15
+				}
+			},
+			"messages" : {
+				"name" : {
+					"required" : "Required",
+					"matches" : "Must begin with a letter",
+					"maxlength" : "Max. {0} characters"
+				}
+			}
+		},
+		"virtualGood" : {
+			"rules" : {
+				"name" : {
+					"required" : true,
+					"maxlength" : 40
+				},
+				"description" : {
+					"maxlength" : 120
+				},
+				"itemId" : {
+					"required" : true,
+					"matches" : "^[a-zA-Z][a-zA-Z0-9_\\-\\.]*$"
+				},
+				"price" : {
+					"required" : true,
+					"number" : true,
+					"range" : [1, 999999999]
+				}
+			},
+			"messages" : {
+				"name" : {
+					"required" : "Required",
+					"maxlength" : "Max. {0} characters"
+				},
+				"description" : {
+					"maxlength" : "Max. {0} characters"
+				},
+				"itemId" : {
+					"required" : "Required",
+					"matches" : "Letters, numbers, dots & underscores only"
+				},
+				"price" : {
+					"required" : "Required",
+					"range" : "Positive numbers only"
+				}
+			}
+		}
+	}
+}

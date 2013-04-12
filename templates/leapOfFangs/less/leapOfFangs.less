@@ -47,28 +47,51 @@ ul {
 
     #title-container {
         width: 400px;
-        .box(vertical, center);
-        text-align: center;
+        .box(vertical);
+
+        #quit img{
+            .maxSize(50px, 150px);
+        }
+
         h1 {
+            .box-flex(1);
+            .box(vertical, center);
             font-size: 60px;
             line-height: 70px;
-        }
-    }
-
-    #balance-container {
-        .box-flex(1);
-        position: relative;
-        text-align: right;
-
-        .label-container {
-            position: absolute;
-            top: -10000px;
-            left: -10000px;
             text-align: center;
         }
     }
-
 }
+
+#balance-container {
+    @currencyPadding: 2px;
+    @headerInternalHeight: 120px;
+    @height: (@headerInternalHeight / 2) - (2 * @currencyPadding);
+
+    .box(vertical, center);
+    .box-flex(1);
+
+    // Allow several currencies
+    .label-container {
+        padding: @currencyPadding 0;
+        max-height: @height;
+        .box-flex(1);
+        text-align: right;
+        font-size: @height;
+        font-weight: bold;
+        line-height: @height;
+
+        label {
+            vertical-align: middle;
+        }
+    }
+
+    // Currency image shouldn't overflow - same height as container
+    .currency {
+        max-height: @height;
+    }
+}
+
 
 #footer {
     padding: 20px;
@@ -90,11 +113,13 @@ ul {
 
     @priceContainerHeight: 160px;
     @descriptionHeight: 280px;
+    @actionPaddingTop: 10px;
 
     height: 100%;
-    box-sizing: border-box; // TODO: Make LESS function for all vendor prefixes
+    .box-sizing(border-box);
     overflow: hidden;
     .centeredBackground;
+    display: none;
 
 
     .visual {
@@ -102,21 +127,17 @@ ul {
         text-align: center;
     }
 
-    .price-container {
+    .buy-container {
         height: @priceContainerHeight;
-        text-align: left;
-        .box;
+        text-align: center;
+        padding-top: @actionPaddingTop;
+        font-size: 44px;
+        line-height: 50px;
 
-        & > div {
-            .box-flex(1);
-            .box(vertical, center, stretch);
-        }
-        .buy-container {
-            text-align: right;
-        }
-        label {
-            font-size: 44px;
-            line-height: 50px;
+        .info {
+            .box(vertical);
+            display: inline-block;
+            margin-left: 10px;
             vertical-align: middle;
         }
     }
@@ -134,29 +155,74 @@ ul {
             line-height: 50px;
         }
     }
+
+    .equip, .active {
+        display: block;
+        margin: 0 auto;
+        padding-top: @actionPaddingTop;
+    }
+
+
+	// Add specific styling for equippable items
+    &.equippable {
+
+    	// State: not owned
+        .equip, .active {
+            display: none;
+        }
+
+    	// State: owned, not equipped
+        &.owned {
+            .equip {
+                display: block;
+            }
+            .buy {
+                display: none;
+            }
+
+            .buy-container {
+                display: none;
+            }
+
+        	// State: owned and equipped
+            &.equipped {
+                .equip {
+                    display: none;
+                }
+                .active {
+                    display: block;
+                }
+            }
+        }
+    }
+
 }
 
 
 // CATEGORY MENU
 // --------------------------------------------------
 
-#category-menu {
+#menus-container {
+    overflow: hidden;
+    display: inline-block;
+}
+
+#category-menu, #currency-menu {
     height: 200px;
-    width: @externalWidth - (2 * 20) - 120; // 2 * footer padding, quit button width + margin
+    float: left;
 
     li {
         float: left;
-        &:not(:last-child) {
-            margin-right: 20px;
+        margin-right: 20px;
+        img {
+            .square(100px);
         }
     }
 }
+
 #categories {
     height: @categoriesHeight;
     position: relative;
-}
-#quit {
-    float: right;
 }
 
 // The cateogries behave like a tab.  It's displayed only when it's active
@@ -202,19 +268,12 @@ ul {
     text-align: center;
     width: 540px;
     height: 300px;
-    .box(vertical, center);
+    .box(vertical, center, center);
 
-    .title {
-        @height: 60px;
-        font-size: 44px;
-        line-height: 50px;
-    }
-
-    .description {
-        .box-flex(1);
-        .box(vertical, center);
-        font-size: 24px;
-        line-height: 30px;
+    h1 {
+        font-size: 28px;
+        text-align: center;
+        width: 480px;
     }
 
     .actions {

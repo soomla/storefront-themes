@@ -3,9 +3,9 @@
     "currencyPacks" : [
         {
             "name"              : "10 Coins",
-            "itemId"            : "coins_10",
+            "itemId"            : "10_coins",
             "currency_itemId"   : "currency_coins",
-            "productId"         : "10_coins",
+            "productId"         : "coins_10",
             "price"             : 0.99,
             "amount"            : 10
         },
@@ -32,6 +32,30 @@
             "productId"         : "coins_1000",
             "price"             : 8.99,
             "amount"            : 1000
+        },
+        {
+            "name"              : "10 Diamonds",
+            "itemId"            : "10_diamonds",
+            "currency_itemId"   : "currency_diamonds",
+            "productId"         : "diamonds_10",
+            "price"             : 0.99,
+            "amount"            : 10
+        },
+        {
+            "name"              : "100 Diamonds",
+            "itemId"            : "100_diamonds",
+            "currency_itemId"   : "currency_diamonds",
+            "productId"         : "diamonds_100",
+            "price"             : 2.99,
+            "amount"            : 100
+        },
+        {
+            "name"              : "1000 Diamonds",
+            "itemId"            : "1000_diamonds",
+            "currency_itemId"   : "currency_diamonds",
+            "productId"         : "diamonds_1000",
+            "price"             : 9.99,
+            "amount"            : 1000
         }
     ],
     "virtualCurrencies" : [
@@ -39,6 +63,11 @@
             "name"          : "Coins",
             "description"   : "",
             "itemId"        : "currency_coins"
+        },
+        {
+            "name"          : "Diamonds",
+            "description"   : "",
+            "itemId"        : "currency_diamonds"
         }
     ],
     "virtualGoods" : [
@@ -123,8 +152,7 @@
         },
         {
             "id" : 2,
-            "name" : "WEAPONS",
-            "equipping" : "single"
+            "name" : "WEAPONS"
         }
     ]
 }

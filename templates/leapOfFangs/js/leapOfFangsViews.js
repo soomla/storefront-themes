@@ -1,12 +1,17 @@
-define(["jquery", "backbone", "components", "handlebars", "templates"], function($, Backbone, Components, Handlebars) {
+define(["jquery", "backbone", "components", "handlebars", "marionette", "templates", "jquery.fastbutton"], function($, Backbone, Components, Handlebars, Marionette) {
 
     // Define view types
 
     var getTemplate = Handlebars.getTemplate,
-        triggers = { "click .buy" : "buy" },
+        triggers = { "fastclick .buy" : "buy" },
         VirtualGoodView = Components.ItemView.extend({
             triggers : triggers,
             template : getTemplate("item")
+        }),
+        EquippableItemView = Components.EquippableItemView.extend({
+
+            // Local triggers not included, they are inherited from EquippableItemView
+            template : getTemplate("equippableItem")
         }),
         CurrencyPackView = Components.ItemView.extend({
             triggers : triggers,
@@ -15,11 +20,29 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
         CategoryMenuItemView = Components.ItemView.extend({
             template : getTemplate("categoryMenuItem")
         }),
+        CurrencyMenuItemView = CategoryMenuItemView.extend(),
         CarouselView = Components.CarouselView.extend({
             className           : "category",
             itemViewContainer   : ".goods",
             template            : getTemplate("category")
         });
+
+
+    var HeaderView = Marionette.ItemView.extend({
+        initialize : function() {
+            this.model.on("change:title", this.changeTitle, this);
+        },
+        ui : {
+            title : "#title"
+        },
+        render : function() {
+            this.bindUIElements();
+            this.changeTitle();
+        },
+        changeTitle : function() {
+            this.ui.title.html(this.model.get("title"));
+        }
+    });
 
 
     var extendViews = function(model) {
@@ -30,17 +53,20 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
 
         // Add template helpers to view prototypes
 
-        VirtualGoodView.prototype.templateHelpers = function() {
+        var virtualGoodTemplateHelpers = function () {
             var modelAssets = model.get("modelAssets");
             return _.extend({
-                imgFilePath : modelAssets["virtualGoods"][this.model.id],
-                currency : {
-                    imgFilePath : modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
+                imgFilePath: modelAssets["virtualGoods"][this.model.id],
+                currency: {
+                    imgFilePath: modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
                 },
-                price : this.model.get("priceModel").values[this.model.getCurrencyId()],
-                item : theme.item
+                price: this.model.get("priceModel").values[this.model.getCurrencyId()],
+                item: theme.item
             }, templateHelpers);
         };
+        VirtualGoodView.prototype.templateHelpers = virtualGoodTemplateHelpers;
+        EquippableItemView.prototype.templateHelpers = virtualGoodTemplateHelpers;
+
         CurrencyPackView.prototype.templateHelpers = function() {
             var modelAssets = model.get("modelAssets");
             return _.extend({
@@ -57,50 +83,45 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
                 imgFilePath : modelAssets["categories"][this.model.id]
             };
         };
+        CurrencyMenuItemView.prototype.templateHelpers = function() {
+            var modelAssets = model.get("modelAssets");
+            return {
+                imgFilePath : modelAssets["virtualCurrencies"][this.model.id]
+            };
+        };
     };
 
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
-            _.bindAll(this, "changeTitle", "showCurrencyPacks");
             this.dialogModel = this.theme.noFundsModal;
 
 
-            var currencyPacks   = this.model.get("virtualCurrencies").at(0).get("packs"),
-                categories      = this.model.get("categories"),
-                templateHelpers = { images : this.theme.images },
-                $this           = this;
+            var categories      = this.model.get("categories"),
+                currencies      = this.model.get("virtualCurrencies"),
+                templateHelpers = { images : this.theme.images };
 
 
-            // TODO: Fix the image for currency packs link.  It's not being passed in the template helpers for some reason...
+            var onMenuItemSelect = function (view) {
+                this.playSound().changeActiveView(view.model.id);
+                this.changeTitle(view.model.get("name"));
+            };
 
-            // Build a category menu that will cause the main area
-            // to switch categories every time a menu item is selected, using tabs.
-            // In order to extend the categories with a "currency packs" category,
-            // we need to clone the original collection
-            var menuCategories = new Backbone.Collection(categories.toJSON());
-            this.currencyPacksId = "currency-packs"
-            menuCategories.add({name : this.currencyPacksId, imgFilePath : this.model.get("modelAssets").currencyPacksCategory});
+
             this.categoryMenu = new Components.CollectionView({
-                collection          : menuCategories,
+                collection          : categories,
                 itemView            : CategoryMenuItemView,
                 onRender            : function() {
                     // Activate tabs
                     this.$("li:first").addClass("active");
                 }
-            }).on("itemview:select", function(view) {
-                $this.playSound();
+            }).on("itemview:select", onMenuItemSelect, this);
 
-                view.$("a").tab("show");
-                var name = view.model.get("name");
 
-                // If the selected category is currency packs, take title from specific
-                // field in JSON, since currency packs don't have a category and a name
-                if (name == $this.currencyPacksId) name = $this.theme.currencyPacksCategoryName;
-
-                $this.activeView = $this.categoryViews[name];
-                $this.changeTitle(name);
-            });
+            this.currencyMenu = new Components.CollectionView({
+                collection : currencies,
+                itemView : CurrencyMenuItemView
+            }).on("itemview:select", onMenuItemSelect, this);
 
             var wantsToBuyVirtualGoods = _.bind(function(view) {
                 this.playSound().wantsToBuyVirtualGoods(view.model);
@@ -108,81 +129,114 @@ define(["jquery", "backbone", "components", "handlebars", "templates"], function
             var wantsToBuyMarketItem = _.bind(function(view) {
                 this.playSound().wantsToBuyMarketItem(view.model);
             }, this);
+            var wantsToEquipGoods = _.bind(function (view) {
+                this.playSound().wantsToEquipGoods(view.model);
+            }, this);
 
 
             // Build views for each category
-            this.categoryViews = {};
             categories.each(function(category) {
 
-                var categoryName = category.get("name");
+                var categoryGoods   = category.get("goods"),
+                    equipping       = category.get("equipping"),
+                    view;
+
+                if (equipping === "single") {
+                    view = new CarouselView({
+                        collection          : categoryGoods,
+                        itemView            : EquippableItemView,
+                        templateHelpers     : templateHelpers
+                    }).on({
+                        "next previous"     : this.playSound,
+                        "itemview:buy"      : wantsToBuyVirtualGoods,
+                        "itemview:equip" 	: wantsToEquipGoods
+                    });
+                } else {
+                    view = new CarouselView({
+                        collection          : categoryGoods,
+                        itemView            : VirtualGoodView,
+                        templateHelpers     : templateHelpers
+                    }).on({
+                        "next previous"     : this.playSound,
+                        "itemview:buy"      : wantsToBuyVirtualGoods
+                    });
+                }
+
+                this.children.add(view, category.id);
+            }, this);
+
+
+            // Build views for each currency
+            currencies.each(function(currency) {
 
                 var view = new CarouselView({
-                    id                  : categoryName,
-                    collection          : category.get("goods"),
-                    itemView            : VirtualGoodView,
+                    collection          : currency.get("packs"),
+                    itemView            : CurrencyPackView,
                     templateHelpers     : templateHelpers
                 }).on({
-                    "next"              : $this.playSound,
-                    "previous"          : $this.playSound,
-                    "itemview:buy"      : wantsToBuyVirtualGoods
+                    "next previous"     : this.playSound,
+                    "itemview:buy"      : wantsToBuyMarketItem
                 });
 
-                $this.categoryViews[categoryName] = view;
-            });
+                this.children.add(view, currency.id);
+            }, this);
 
-
-            // Build the currency packs carousel and place it last
-            // in the category views
-            this.currencyPacksView = new CarouselView({
-                id                  : this.currencyPacksId,  // Hack the category name in
-                collection          : currencyPacks,
-                itemView            : CurrencyPackView,
-                templateHelpers     : templateHelpers
-            }).on({
-                "next"              : this.playSound,
-                "previous"          : this.playSound,
-                "itemview:buy"      : wantsToBuyMarketItem
-            });
-            this.categoryViews[this.currencyPacksId] = this.currencyPacksView;
 
             // Set the active view to be the first category's view
-            this.activeView = this.categoryViews[categories.at(0).get("name")];
+            this.activeView = this.children.findByIndex(0);
+
+
+            // Create header
+            var title = categories.at(0).get("name");
+            this.header = new Backbone.Model({title : title});
+            this.headerView = new HeaderView({ model : this.header });
+
         },
         changeTitle : function(text) {
-            this.$("#title").html(text);
+            this.header.set("title", text);
         },
-        showCurrencyPacks : function() {
-            // When this flag is raised, there is no connectivity,
-            // thus don't show the currency store
-            if (this.model.get("isCurrencyStoreDisabled")) {
-                alert("Buying more is unavailable. Check your internet connectivity and try again.");
-            } else {
-                this.$("[href=#" + this.currencyPacksId + "]").tab("show");
-                var name = this.theme.currencyPacksCategoryName;
-                this.activeView = this.categoryViews[name];
-                this.changeTitle(name);
+        changeActiveView : function(id) {
+            this.activeView.$el.removeClass("active");
+            this.activeView = this.children.findByCustom(id);
+            this.activeView.$el.addClass("active");
+            return this;
+        },
+        showCurrencyPacks : function(currencyId) {
+            this.changeActiveView(currencyId);
+            var name = this.model.get("virtualCurrencies").get(currencyId).get("name");
+            this.changeTitle(name);
+        },
+        ui : {
+            categoriesContainer : "#categories"
+        },
+        regions: {
+            categoryMenu : "#category-menu",
+            currencyMenu : "#currency-menu",
+            headerView   : "#header"
+        },
+        iscrollRegions : {
+            categoryMenu : {
+                el : "#footer",
+                options : {vScroll: false, vScrollbar: false, hScrollbar: false}
             }
+        },
+        events : {
+            "fastclick #quit" : "leaveStore"
         },
         onRender : function() {
 
-            // Append background to element
-            // TODO: Remove once this CSS property is injected dynamically from template.json definition
-            this.$el.css("background-image", "url('" + this.theme.images.globalBackground + "')");
+            // Render regions
+            _.each(this.regions, function(selector, region) {
+                this[region].setElement(selector).render();
+            }, this);
 
-            // Show first category name in header
-            this.changeTitle(this.model.get("categories").at(0).get("name"));
 
-            // Attach event handler to quit button
-            this.$("#quit").click(this.leaveStore);
+            this.children.each(function(view) {
+                this.ui.categoriesContainer.append(view.render().el);
+            }, this);
 
-            // Render category menu
-            this.categoryMenu.setElement("#category-menu").render();
-
-            var $this = this;
-            _.each(this.categoryViews, function(view) {
-                $this.$("#categories").append(view.render().el);
-            });
-            this.$("#categories > div:first").addClass("active");
+            // Assumes that the active view is the first category view
+            this.activeView.$el.addClass("active");
         },
         zoomFunction : function() {
             return (innerHeight / innerWidth) > 1.5 ? (innerWidth / 720) : (innerHeight / 1280);
