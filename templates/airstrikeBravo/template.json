@@ -37,7 +37,17 @@
                 "type" : "css",
                 "title" : "Dialog Text Style",
                 "selector" : ".dialog h1"
-			}
+			},
+            "yesButton" : {
+                "type" : "image",
+                "title" : "Dialog 'Yes' Image",
+                "selector" : ".dialog .buy-more"
+            },
+            "noButton" : {
+                "type" : "image",
+                "title" : "Dialog 'No' Image",
+                "selector" : ".dialog .cancel"
+            }
 		},
 		"currencyPacksCategoryImage" : {
 			"type" : "image",
