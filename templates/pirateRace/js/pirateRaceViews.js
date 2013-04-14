@@ -163,7 +163,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             this.playSound();
             this.ui.currencyStore.hide();
             this.ui.goodsStore.show();
-            this.goodsIScroll.refresh();
+            this.iscrolls.goods.refresh();
         },
         iscrollRegions : {
             goods : {
