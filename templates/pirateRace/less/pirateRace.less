@@ -257,19 +257,31 @@ ul {
 .nonConsumables .item {
 
     .visual-container {
+
+        // State: not owned
         float: left;
         position: relative;
 
-        .visual {
-            &.owned {
-                opacity: 0.4;
-            }
-        }
-
         .owned-indicator {
+            display: none;
             position: absolute;
             right: 0;
             bottom: 0;
+        }
+    }
+
+    // State: owned
+    &.owned {
+        .owned-indicator {
+            display: block;
+        }
+
+        .visual {
+            opacity: 0.4;
+        }
+
+        h2 {
+            display: none;
         }
     }
 }
