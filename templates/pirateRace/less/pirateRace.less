@@ -94,16 +94,17 @@ ul {
 // SINGLE LIST ITEMS - VIRTUAL GOODS
 // --------------------------------------------------
 
-@itemHeight: 122px;
+@itemMinHeight: 122px;
+@itemTotalHeight: 100px;
+
 .item {
-    min-height:  @itemHeight;
+    min-height:  @itemMinHeight;
 }
 
 .virtualGoods .item {
 
     // Local variables
-    @totalHeight: 100px;
-    @visualWidth: 100px;
+    @visualWidth: @itemTotalHeight;
     @secondRowHeight: 30px;
     @balanceWidth: 50px;
     @balanceHeight: 50px;
@@ -115,13 +116,13 @@ ul {
     .visual {
         float: left;
         width: @visualWidth;
-        height: @totalHeight;
+        height: @itemTotalHeight;
     }
 
     // Item content (container of description, price, balance, buy button)
     .content {
         @padding: 10px;
-        height: @totalHeight - (2 * @padding);
+        height: @itemTotalHeight - (2 * @padding);
         margin-left: @visualWidth;
         padding: @padding;
     }
@@ -214,14 +215,13 @@ ul {
 }
 
 .currencyPacks .item, .nonConsumables .item {
-    @totalHeight: 100px;
     @visualWidth: 180px;
 
     // Currency pack image
     .visual {
         float: left;
         max-width: @visualWidth;
-        max-height: @totalHeight;
+        max-height: @itemTotalHeight;
     }
 
     // Amount & Price
@@ -281,6 +281,10 @@ ul {
 
 #restore-purchases .item {
     text-align: center;
+
+    .restore {
+        height: @itemTotalHeight;
+    }
 }
 
 
