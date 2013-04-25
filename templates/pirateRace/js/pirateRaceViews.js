@@ -14,7 +14,11 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
         }),
         EquippableVirtualGoodView   = Components.EquippableItemView.extend({ template : getTemplate("equippableItem")}),
         CurrencyPackView            = Components.ItemView.extend({ template : getTemplate("currencyPack") }),
-        NonConsumableView           = Components.BuyOnceItemView.extend({template : getTemplate("nonConsumableItem") });
+        NonConsumableView           = Components.BuyOnceItemView.extend({template : getTemplate("nonConsumableItem") }),
+        RestorePurchasesView        = Components.LinkView.extend({
+            tagName: "div",
+            template: getTemplate("restorePurchases")
+        });
 
 
     var extendViews = function(model) {
@@ -62,6 +66,13 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 imgFilePath         : modelAssets["nonConsumables"][this.model.id]
             };
         };
+
+        RestorePurchasesView.prototype.templateHelpers = function() {
+            return {
+                itemSeparator   : theme.itemSeparator,
+                imgFilePath     : theme.common.restorePurchasesImage
+            };
+        }
     };
 
 
@@ -85,6 +96,9 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             }, this);
             var wantsToBuyMarketItem = _.bind(function (view) {
                 this.playSound().wantsToBuyMarketItem(view.model);
+            }, this);
+            var wantsToRestorePurchases = _.bind(function () {
+                this.playSound().wantsToRestorePurchases();
             }, this);
 
             // Create category views
@@ -127,6 +141,12 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 collection          : nonConsumables,
                 itemView            : NonConsumableView
             }).on("itemview:buy", wantsToBuyMarketItem);
+
+
+            // Add restore purchases view if necessary
+            if (!nonConsumables.isEmpty()) {
+                this.restorePurchasesView = new RestorePurchasesView().on("select", wantsToRestorePurchases);
+            }
 
         },
         events : {
@@ -189,6 +209,11 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             }, this);
 
             this.$("#currency-store .non-consumables").html(this.nonConsumablesView.render().el);
+
+            if (this.restorePurchasesView) {
+                this.$("#restore-purchases").html(this.restorePurchasesView.render().el);
+            }
+
         },
         zoomFunction : function() {
             return Math.min(innerWidth / 560, 1);

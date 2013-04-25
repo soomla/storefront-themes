@@ -207,13 +207,15 @@ ul {
 // SINGLE LIST ITEMS - CURRENCY PACKS
 // --------------------------------------------------
 
+.currencyPacks .item, .nonConsumables .item, #restore-purchases .item {
+    background-position: center;
+    width: 400px;
+    margin: 0 auto;
+}
+
 .currencyPacks .item, .nonConsumables .item {
     @totalHeight: 100px;
     @visualWidth: 180px;
-    background-position: center;
-
-    width: 400px;
-    margin: 0 auto;
 
     // Currency pack image
     .visual {
@@ -271,6 +273,16 @@ ul {
         }
     }
 }
+
+
+
+// RESTORE PURCHASES
+// --------------------------------------------------
+
+#restore-purchases .item {
+    text-align: center;
+}
+
 
 
 
