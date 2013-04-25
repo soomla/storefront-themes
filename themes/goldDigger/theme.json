@@ -38,7 +38,8 @@
             "backButton" : "img/Back_BTN.png",
             "moreCurrencyButton" : "img/GetMore_BTN.png",
 	        "purchasedIndicatorImage" : "img/owned.png",
-            "balanceLabelStyle" : "color: #E9C861;"
+            "balanceLabelStyle" : "color: #E9C861;",
+            "restorePurchasesImage" : "img/restore_purchases.png"
         },
 	    "fonts" : [
 		    {

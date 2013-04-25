@@ -33,6 +33,11 @@
                 "type" : "css",
                 "title" : "Balance Label Style",
                 "selector" : ".item .balance label"
+            },
+            "restorePurchasesImage" : {
+                "type" : "image",
+                "title" : "Restore Purchases Image",
+                "selector" : "#restore-purchases img"
             }
         },
         "fonts" : [

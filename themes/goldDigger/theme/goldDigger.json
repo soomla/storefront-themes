@@ -148,5 +148,15 @@
             "itemId"        : "tod",
             "categoryId"   : 2
         }
+    ],
+    "nonConsumables" : [
+        {
+            "name"              : "Remove Ads",
+            "description"       : "Lorem Ipsum is not simply random text",
+            "itemId"            : "remove_ads",
+            "currency_itemId"   : "currency_coins",
+            "productId"         : "remove_ads",
+            "price"             : 2.99
+        }
     ]
 }
