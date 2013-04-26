@@ -160,13 +160,98 @@ ul {
     padding: 0;
     margin: 10px;
     overflow: auto;
-    height: @internalHeight;
+    /*height: @internalHeight;*/
 }
+ /* chaim start: ------------------------- */
+ #pages{
+    position:relative;
+ }
+.items {
+    /*margin: 0px;*/
+}
+.items.menu{
+    float: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 900;
 
+    min-height:@internalHeight;
+    margin: 10px 20px;
+
+    -webkit-transform: rotateX(0deg) rotateY(0deg);
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+
+    -moz-transform: rotateX(0deg) rotateY(0deg);
+    -moz-transform-style: preserve-3d;
+    -moz-backface-visibility: hidden;
+
+    -o-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+
+    -moz-opacity:1;
+    -khtml-opacity: 1;
+    opacity: 1;
+}
+#pages.flip .items.menu {
+    z-index: 900;
+
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+
+    -moz-opacity:0;
+    -khtml-opacity: 0;
+    opacity: 0;
+    
+}
+.items.category{
+    float: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 800;
+    
+    -webkit-transform: rotateY(-180deg);
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+
+    -moz-transform: rotateY(-180deg);
+    -moz-transform-style: preserve-3d;
+    -moz-backface-visibility: hidden;
+
+    -o-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+
+    -moz-opacity:0;
+    -khtml-opacity: 0;
+    opacity: 0;
+}
+#pages.flip .items.category{
+    -moz-opacity:0;
+    -khtml-opacity: 0;
+    opacity: 0;
+}
+#pages.flip .items.category.on {
+    z-index: 1000;
+
+    -webkit-transform: rotateX(0deg) rotateY(0deg);
+    -moz-transform: rotateX(0deg) rotateY(0deg);
+
+    -moz-opacity:1;
+    -khtml-opacity: 1;
+    opacity: 1;
+}
 .category {
-    display: none;
+    /*display: none;*/
 }
-
+/* // chaim ------------------------------ */
 
 // SINGLE LIST ITEMS - VIRTUAL GOODS
 // --------------------------------------------------
