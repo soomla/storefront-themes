@@ -87,6 +87,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 collection  : categories,
                 itemView    : CategoryView
             }).on("itemview:select", function(view) {
+                console.log("tightRope itemview:select", view.model.cid)
                 this.playSound().changeViewTo(this.children.findByCustom(view.model.cid));
             }, this);
             this.children.add(categoryMenuView, "menu");
@@ -230,9 +231,30 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
             }, this);
         },
         changeViewTo : function(view) {
+
+            var _pages = this.activeView.$el.parents("div#pages");
+            var _isMenuActive = this.activeView.$el.hasClass("menu");
+            if(_isMenuActive){
+                _pages.addClass("flip");
+                // add class "on" to the relevant category only 
+                view.$el.addClass("on");
+            }else{
+                _pages.removeClass("flip");
+                this.activeView.$el.removeClass("on"); 
+            }
+
+            this.activeView = view;
+            view.$el.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
+                //console.log("end")
+                view.$el.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+                $(_pages).animate({ scrollTop: 0 }, "slow");
+            });
+            /*
             this.activeView.$el.hide();
             this.activeView = view;
             this.activeView.$el.show();
+            */
+
             if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
             this.header.changeStateTo(view.cid);
         },
