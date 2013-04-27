@@ -233,13 +233,11 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
         changeViewTo : function(view) {
 
             var _pages = this.activeView.$el.parents("div#pages");
-            var _isMenuActive = this.activeView.$el.hasClass("menu");
-            if(_isMenuActive){
-                _pages.addClass("flip");
+            _pages.toggleClass("flip");
+            if(_pages.hasClass("flip")){
                 // add class "on" to the relevant category only 
                 view.$el.addClass("on");
             }else{
-                _pages.removeClass("flip");
                 this.activeView.$el.removeClass("on"); 
             }
 
