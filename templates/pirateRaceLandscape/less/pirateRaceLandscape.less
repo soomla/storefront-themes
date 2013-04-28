@@ -1,0 +1,392 @@
+@import "css/mixins/bootstrap/variables.less";
+@import "css/mixins/bootstrap/mixins.less";
+@import "css/mixins/layout.less";
+@baseUrl: "../theme";
+.webkitScrollbar();
+
+// THEME VARIABLES
+// --------------------------------------------------
+
+@externalWidth:     880px;
+@externalHeight:    550px;
+@internalWidth:     700px;
+@internalHeight:    370px;
+
+// GENERAL LAYOUT
+// --------------------------------------------------
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+
+#main {
+    .background-size(cover);
+    background-position: center;
+    .box(vertical,center, center);
+}
+
+// Sets the outer most dimensions in which
+// all the content is held i.e. header, pages etc.
+#content-container {
+    width: 100%;// @externalWidth;
+    height: 100%;//@externalHeight;
+    .background-size(cover);
+    //.box(vertical,center, center);
+}
+
+.header, .footer {
+	text-align: center;
+}
+
+.header {
+    margin: 0 auto;
+
+    .title-image {
+        display: block;
+        width: @internalWidth;
+        height: 100px;
+        margin: 0 auto;
+    }
+
+    .balance-container {
+        @height: 36px;
+        .box(horizontal, center);
+        font-size: @height;
+        line-height: @height;
+
+
+        .label-container {
+            .box-flex(1);
+            text-align: center;
+
+            label {
+                vertical-align: middle;
+            }
+        }
+        .currency {
+            max-height: @height;
+        }
+    }
+}
+
+.footer {
+    img {
+        display: inline-block;
+        width: @internalWidth / 2.5;
+        height: 100px;
+        margin: 0 auto;
+    }
+}
+
+#goods-store, #currency-store {
+
+    // Make sure that level-0 backgrounds "contain" the viewport
+    .background-size(cover);
+
+    & > .content {
+        width: @internalWidth;
+        height: @externalHeight;
+        .background-size(cover);
+        .box(vertical, center, center);
+        margin: 0 auto;
+    }
+}
+
+
+.items-container {
+    width: @internalWidth;
+    height: @internalHeight;
+	margin: 0 auto;
+    padding: 0;
+	.background-size(cover);
+	.box-flex(1);
+    overflow: auto;
+
+    div[data-iscroll='true'] {
+        width: @internalWidth * 2;
+    }
+}
+
+
+.virtualGoods, .currencyPacks {
+	background-position: center;
+    //clear: both;
+    width: @internalWidth;
+    display: inline-block;
+}
+
+.category {
+    text-align: center;
+    //display: block;
+}
+
+
+// SINGLE LIST ITEMS - VIRTUAL GOODS
+// --------------------------------------------------
+
+@itemMinHeight: 122px;
+@itemTotalHeight: 100px;
+@itemWidth: @internalWidth / 4 - 10;
+
+.item {
+    min-height:  @itemMinHeight;
+    width: @itemWidth;
+    border: 1px dotted black;
+    display: inline-block;
+}
+
+/*.virtualGoods {
+    width: 400px;
+}*/
+
+.virtualGoods .container {
+    height: @itemMinHeight;
+}
+
+.virtualGoods .item {
+
+    // Local variables
+    @visualWidth: @itemTotalHeight;
+    @secondRowHeight: 30px;
+    @balanceWidth: 50px;
+    @balanceHeight: 50px;
+
+    background-position: center;
+
+    // Item image
+    .visual {
+        float: left;
+        width: @visualWidth;
+        height: @itemTotalHeight;
+    }
+
+    // Item content (container of description, price, balance, buy button)
+    .content {
+        @padding: 10px;
+        height: @itemTotalHeight - (2 * @padding);
+        margin-top: @itemTotalHeight;
+        //margin-left: @visualWidth;
+        padding: @padding;
+    }
+
+    // The content is layed out in two rows
+    .row:first-child {
+        height: @balanceHeight;
+    }
+    .row:last-child {
+        height: @secondRowHeight;
+    }
+
+    // 1st row contents
+    .balance {
+        float:right;
+        font-size: 18px;
+        font-weight: bold;
+        width: @balanceWidth;
+        background-size: 100%;
+    }
+    .description {
+        margin-right: @balanceWidth;
+        font-size: 16px;
+        overflow:hidden;
+
+        label {
+            .hyphens();
+        }
+    }
+    .balance, .description {
+        .box(vertical, center, center);
+        height: 100%;
+    }
+
+    // 2nd row contents
+    .price {
+        font-size: 20px;
+        font-weight: bold;
+        font-style: italic;
+        color: #FFF;
+        text-shadow: 2px 2px 2px #000;
+    }
+    .currency {
+        width: @secondRowHeight;
+        height: @secondRowHeight;
+    }
+    .buy {
+        float:right;
+    }
+
+    // Add specific styling for equippable items
+    &.equippable {
+
+        // State: not owned
+        .equip, .active {
+            display: none;
+            float:right;
+        }
+
+        // State: owned, not equipped
+        &.owned {
+            .equip {
+                display: block;
+            }
+            .buy {
+                display: none;
+            }
+
+            // State: owned and equipped
+            &.equipped {
+                .equip {
+                    display: none;
+                }
+                .active {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+
+// SINGLE LIST ITEMS - CURRENCY PACKS
+// --------------------------------------------------
+
+@currItemHeight: 200px;
+@currItemWidth: 160px;
+
+.currencyPacks .item, .nonConsumables .item, #restore-purchases .item {
+    background-position: center;
+    width: @currItemWidth;
+    height: @currItemHeight;
+    margin: 0 auto;
+}
+
+.currencyPacks .item, .nonConsumables .item {
+    @visualWidth: @currItemWidth;
+
+    // Currency pack image
+    .visual {
+        //float: left;
+        max-width: @visualWidth;
+        max-height: @itemTotalHeight;
+    }
+
+    // Amount & Price
+    .price {
+        //height: 100%;
+        //margin-left: @visualWidth;
+        padding: 10px;
+    }
+    @nameHeight: 50px;
+    @priceHeight: 30px;
+    h1 {
+        height: @nameHeight;
+        line-height: @nameHeight;
+    }
+    h2 {
+        height: @priceHeight;
+        line-height: @priceHeight;
+    }
+    h1, h2 {
+        margin: 0;
+        text-align: right;
+    }
+}
+
+.separator {
+    //width: 100%;
+    height:  0;//10px;
+}
+
+// SINGLE LIST ITEMS - NON CONSUMABLES
+// --------------------------------------------------
+
+.nonConsumables .item {
+
+    .visual-container {
+
+        // State: not owned
+        float: left;
+        position: relative;
+
+        .owned-indicator {
+            display: none;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+    }
+
+    // State: owned
+    &.owned {
+        .owned-indicator {
+            display: block;
+        }
+
+        .visual {
+            opacity: 0.4;
+        }
+
+        h2 {
+            display: none;
+        }
+    }
+}
+
+
+
+// RESTORE PURCHASES
+// --------------------------------------------------
+
+#restore-purchases .item {
+    text-align: center;
+
+    .restore {
+        height: @itemTotalHeight;
+    }
+}
+
+
+
+
+// MODAL DIALOG
+// --------------------------------------------------
+.dialog {
+	.box(vertical, center);
+}
+
+.modal {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    .box(horizontal, center, center);
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.dialog {
+    text-align: center;
+    width: 540px;
+    height: 300px;
+
+    h1 {
+        .box-flex(2);
+        .box(vertical, center, center);
+        padding: 30px;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .actions {
+        .box-flex(1);
+        margin-top: 10px;
+        img {
+            .maxSize(60px, 260px);
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,152 @@
+{
+    "currencyPacks" : [
+        {
+            "name"              : "2,500",
+            "itemId"            : "coins_2500",
+            "currency_itemId"   : "currency_coins",
+            "productId"         : "2500_coins",
+            "price"             : 0.99,
+            "amount"            : 2500
+        },
+        {
+            "name"              : "25,000",
+            "itemId"            : "coins_25000",
+            "currency_itemId"   : "currency_coins",
+            "productId"         : "android.test.purchased",
+            "price"             : 4.99,
+            "amount"            : 25000
+        },
+        {
+            "name"              : "75,000",
+            "itemId"            : "coins_75000",
+            "currency_itemId"   : "currency_coins",
+            "productId"         : "75000_coins",
+            "price"             : 9.99,
+            "amount"            : 75000
+        },
+        {
+            "name"              : "200,000",
+            "itemId"            : "coins_200000",
+            "currency_itemId"   : "currency_coins",
+            "productId"         : "200000_coins",
+            "price"             : 19.99,
+            "amount"            : 200000
+        }
+    ],
+    "virtualCurrencies" : [
+        {
+            "name"          : "Coins",
+            "description"   : "",
+            "itemId"        : "currency_coins"
+        }
+    ],
+    "categories" : [
+        {
+            "id" : 1,
+            "name" : "POWERUPS"
+        },
+        {
+            "id" : 2,
+            "name" : "CHARACTERS",
+            "equipping" : "single"
+        }
+    ],
+    "virtualGoods" : [
+        {
+            "name"          : "Bomb",
+            "description"   : "Lorem Ipsum is not simply random text",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coins" : 500
+                }
+            },
+            "itemId"        : "bomb",
+            "categoryId"   : 1
+        },
+        {
+            "name"          : "Gold Pot",
+            "description"   : "Lorem Ipsum is not simply random text",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coins" : 500
+                }
+            },
+            "itemId"        : "gold_pot",
+            "categoryId"   : 1
+        },
+        {
+            "name"          : "Lucky Clover",
+            "description"   : "Lorem Ipsum is not simply random text",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coins" : 750
+                }
+            },
+            "itemId"        : "lucky_clover",
+            "categoryId"   : 1
+        },
+		{
+            "name"          : "Rock Book",
+            "description"   : "Lorem Ipsum is not simply random text",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coins" : 750
+                }
+            },
+            "itemId"        : "rock_book",
+            "categoryId"   : 1
+        },
+		{
+            "name"          : "Kasey",
+            "description"   : "Lorem Ipsum is not simply random text",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coins" : 10000
+                }
+            },
+            "itemId"        : "kasey",
+            "categoryId"   : 2
+        },
+		{
+            "name"          : "Robert Din",
+            "description"   : "Lorem Ipsum is not simply random text",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coins" : 10000
+                }
+            },
+            "itemId"        : "robert_din",
+            "categoryId"   : 2
+        },
+        {
+            "name"          : "Sir James",
+            "description"   : "Lorem Ipsum is not simply random text",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coins" : 25000
+                }
+            },
+            "itemId"        : "sir_james",
+            "categoryId"   : 2
+        },
+        {
+            "name"          : "Tod",
+            "description"   : "Lorem Ipsum is not simply random text",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coins" : 25000
+                }
+            },
+            "itemId"        : "tod",
+            "categoryId"   : 2
+        }
+    ]
+}
