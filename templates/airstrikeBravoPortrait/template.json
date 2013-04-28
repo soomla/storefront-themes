@@ -84,6 +84,16 @@
 				"title" : "Expand Image",
 				"selector" : ".expand-collapse"
 			},
+            "equip" : {
+                "type" : "image",
+                "title" : "Equip Image",
+                "selector" : ".item .equip"
+            },
+            "equipped" : {
+                "type" : "image",
+                "title" : "Equipped Image",
+                "selector" : ".item .equip"
+            },
 			"backImage" : {
 				"type" : "image",
 				"title" : "Back Image",
