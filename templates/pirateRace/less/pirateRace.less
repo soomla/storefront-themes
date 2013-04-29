@@ -94,16 +94,17 @@ ul {
 // SINGLE LIST ITEMS - VIRTUAL GOODS
 // --------------------------------------------------
 
-@itemHeight: 122px;
+@itemMinHeight: 122px;
+@itemTotalHeight: 100px;
+
 .item {
-    min-height:  @itemHeight;
+    min-height:  @itemMinHeight;
 }
 
 .virtualGoods .item {
 
     // Local variables
-    @totalHeight: 100px;
-    @visualWidth: 100px;
+    @visualWidth: @itemTotalHeight;
     @secondRowHeight: 30px;
     @balanceWidth: 50px;
     @balanceHeight: 50px;
@@ -115,13 +116,13 @@ ul {
     .visual {
         float: left;
         width: @visualWidth;
-        height: @totalHeight;
+        height: @itemTotalHeight;
     }
 
     // Item content (container of description, price, balance, buy button)
     .content {
         @padding: 10px;
-        height: @totalHeight - (2 * @padding);
+        height: @itemTotalHeight - (2 * @padding);
         margin-left: @visualWidth;
         padding: @padding;
     }
@@ -207,19 +208,20 @@ ul {
 // SINGLE LIST ITEMS - CURRENCY PACKS
 // --------------------------------------------------
 
-.currencyPacks .item, .nonConsumables .item {
-    @totalHeight: 100px;
-    @visualWidth: 180px;
+.currencyPacks .item, .nonConsumables .item, #restore-purchases .item {
     background-position: center;
-
     width: 400px;
     margin: 0 auto;
+}
+
+.currencyPacks .item, .nonConsumables .item {
+    @visualWidth: 180px;
 
     // Currency pack image
     .visual {
         float: left;
         max-width: @visualWidth;
-        max-height: @totalHeight;
+        max-height: @itemTotalHeight;
     }
 
     // Amount & Price
@@ -255,22 +257,48 @@ ul {
 .nonConsumables .item {
 
     .visual-container {
+
+        // State: not owned
         float: left;
         position: relative;
 
-        .visual {
-            &.owned {
-                opacity: 0.4;
-            }
-        }
-
         .owned-indicator {
+            display: none;
             position: absolute;
             right: 0;
             bottom: 0;
         }
     }
+
+    // State: owned
+    &.owned {
+        .owned-indicator {
+            display: block;
+        }
+
+        .visual {
+            opacity: 0.4;
+        }
+
+        h2 {
+            display: none;
+        }
+    }
 }
+
+
+
+// RESTORE PURCHASES
+// --------------------------------------------------
+
+#restore-purchases .item {
+    text-align: center;
+
+    .restore {
+        height: @itemTotalHeight;
+    }
+}
+
 
 
 
