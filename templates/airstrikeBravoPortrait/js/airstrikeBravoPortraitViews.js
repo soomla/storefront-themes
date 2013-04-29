@@ -229,36 +229,12 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 quit : this.leaveStore
             }, this);
         },
-        changeViewTo : function(newview) {
-            var _activeMenu = this.activeView.$el.hasClass("menu");
-            var _pages = this.activeView.$el.parents("div#pages");
-
-            if(_activeMenu){
-                _pages.addClass("flip");
-                // add class "on" to the relevant category only 
-                newview.$el.addClass("on");
-            }else{
-                if(newview.$el.hasClass("menu")){
-                    // new view is menu 
-                    _pages.removeClass("flip");
-                }else{
-                    // switching between two views and NOT going thru menu...
-                    // add class "on" to the relevant category only 
-                    newview.$el.addClass("on");
-                }
-                // remove class "on" from "old" category
-                this.activeView.$el.removeClass("on");
-            }
-
-            newview.$el.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
-                //console.log("end")
-                newview.$el.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
-                $(_pages).animate({ scrollTop: 0 }, "slow");
-            });
-
-            this.activeView = newview;
+        changeViewTo : function(view) {
+            this.activeView.$el.hide();
+            this.activeView = view;
+            this.activeView.$el.show();
             if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
-            this.header.changeStateTo(newview.cid);
+            this.header.changeStateTo(view.cid);
         },
         showCurrencyPacks : function(currencyId) {
 
