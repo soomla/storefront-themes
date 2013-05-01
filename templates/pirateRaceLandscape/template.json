@@ -56,7 +56,7 @@
             "style" : {
                 "type" : "css",
                 "title" : "Balance Style",
-                "selector" : ".header .balance-container .label-container"
+                "selector" : ".footer .balance-container .label-container"
             }
         },
         "pages" : {

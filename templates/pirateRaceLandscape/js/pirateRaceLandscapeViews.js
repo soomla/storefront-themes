@@ -7,6 +7,11 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             template : getTemplate("item"),
             triggers : { "fastclick .buy" : "buy" }
         })),
+        CategoryHeaderView = Components.LinkView.extend({
+            tagName: "span",
+            template: getTemplate("categoryHeader"),
+            triggers: { "fastclick .category": "chooseCategory" }
+        }),
         SectionedListView = Marionette.CompositeView.extend({
             className           : "items virtualGoods", // clearfix
             template            : getTemplate("listContainer"),
@@ -44,7 +49,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             }, theme.pages.goods.listItem);
         };
 
-
+        CategoryHeaderView.prototype.templateHelpers = templateHelpers;
         VirtualGoodView.prototype.templateHelpers = templateHelpers;
         EquippableVirtualGoodView.prototype.templateHelpers = templateHelpers;
         CurrencyPackView.prototype.templateHelpers = function() {
@@ -79,7 +84,8 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
             _.bindAll(this, "showCurrencyPacks", "showGoodsStore");
-            this.dialogModel    = this.theme.pages.goods.noFundsModal;
+            this.dialogModel = this.theme.pages.goods.noFundsModal;
+            this.categoryHeaderViews = [];
             this.categoryViews  = [];
 
             var currencies      = this.model.get("virtualCurrencies"),
@@ -100,9 +106,23 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             var wantsToRestorePurchases = _.bind(function () {
                 this.playSound().wantsToRestorePurchases();
             }, this);
+            var chooseCategory = _.bind(function (view) {
+                console.log(view.model);
+            }, this);
 
             // Create category views
-            categories.each(function(category) {
+            categories.each(function (category) {
+
+                var headerView;
+
+                headerView = new CategoryHeaderView({
+                    className: "categoryHeaderClass",
+                    templateHelpers: _.extend({ category: category.get("name"), id: category.get("id") }, this.theme.categories)
+                }).on("chooseCategory", chooseCategory);
+
+                this.categoryHeaderViews.push(headerView);
+
+
                 var categoryGoods   = category.get("goods"),
                     equipping       = category.get("equipping"),
                     view;
@@ -157,7 +177,8 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
         },
         ui : {
             goodsStore : "#goods-store",
-            currencyStore : "#currency-store",
+            currencyStore: "#currency-store",
+            goodsHeader: "#goods-store .header",
             goodsIscrollContainer : "#goods-store .items-container [data-iscroll='true']",
             currencyPacksContainer : "#currency-store .currency-packs"
         },
@@ -188,17 +209,21 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
         iscrollRegions : {
             goods : {
                 el : "#goods-store .items-container",
-                options: { hScroll: true, vScroll: true, hScrollbar: false, vScrollbar: false}
+                options: { hScroll: true, vScroll: false, hScrollbar: false, vScrollbar: false}
             },
             packs : {
                 el : "#currency-store .items-container",
-                options : {hScroll: false, vScrollbar: false}
+                options: { hScroll: true, vScroll: false, hScrollbar: false, vScrollbar: false }
             }
         },
         onRender : function() {
             this.ui.currencyStore.hide();
 
-            // Render subviews (items in goods store and currency store)
+            // Render subviews (categories, items in goods store and currency store)
+            _.each(this.categoryHeaderViews, function (view) {
+                this.ui.goodsHeader.append(view.render().el);
+            }, this);
+
             _.each(this.categoryViews, function(view) {
                 this.ui.goodsIscrollContainer.append(view.render().el);
             }, this);

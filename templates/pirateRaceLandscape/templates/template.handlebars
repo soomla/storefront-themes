@@ -4,29 +4,12 @@
 		<div class="content">
 			<div class="header">
 				<img class="title-image" src="{{common.titleImage}}">
-				<div class="balance-container font-face-2">
-					{{#each currencies}}
-					<div class="label-container">
-						<img class="currency" src="{{this.imgFilePath}}">
-						<label>{{this.balance}}</label>
-					</div>
-					{{/each}}
-				</div>
 			</div>
 			<div class="items-container">
 				<div data-iscroll="true">
 				</div>
 			</div>
 			<div class="footer">
-				<a><img src="{{common.moreCurrencyButton}}" class="currency buy-more"></a>
-				<a><img src="{{common.backButton}}" class="leave-store"></a>
-			</div>
-		</div>
-	</div>
-	<div id="currency-store" data-role="page">
-		<div class="content">
-			<div class="header">
-				<img class="title-image" src="{{common.titleImage}}">
 				<div class="balance-container font-face-2">
 					{{#each currencies}}
 						<div class="label-container">
@@ -35,6 +18,17 @@
 						</div>
 					{{/each}}
 				</div>
+				<div class="buttons">
+					<a><img src="{{common.moreCurrencyButton}}" class="currency buy-more"></a>
+					<a><img src="{{common.backButton}}" class="leave-store"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="currency-store" data-role="page">
+		<div class="content">
+			<div class="header">
+				<img class="title-image" src="{{common.titleImage}}">
 			</div>
 			<div class="items-container">
 				<div data-iscroll="true">
@@ -47,7 +41,17 @@
 				</div>
 			</div>
 			<div class="footer">
-				<a><img src="{{common.backButton}}" class="back"></a>
+				<div class="balance-container font-face-2">
+					{{#each currencies}}
+						<div class="label-container">
+							<img class="currency" src="{{this.imgFilePath}}">
+							<label>{{this.balance}}</label>
+						</div>
+					{{/each}}
+				</div>
+				<div class="buttons">
+					<a><img src="{{common.backButton}}" class="back"></a>
+				</div>
 			</div>
 		</div>
 	</div>
