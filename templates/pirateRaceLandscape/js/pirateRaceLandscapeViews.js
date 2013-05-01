@@ -107,17 +107,22 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 this.playSound().wantsToRestorePurchases();
             }, this);
             var chooseCategory = _.bind(function (view) {
-                console.log(view.model);
+                var numItems = view.model.get('goods').length;
+                var elementId = 'soomCat' + view.model.get('id');
+                var element = $('#'+elementId);
+                this.iscrolls.goods.scrollTo(this.iscrolls.goods.x - element.position().left, 0, 500);
             }, this);
 
             // Create category views
+            var i = 0;
             categories.each(function (category) {
 
                 var headerView;
 
                 headerView = new CategoryHeaderView({
+                    model: category,
                     className: "categoryHeaderClass",
-                    templateHelpers: _.extend({ category: category.get("name"), id: category.get("id") }, this.theme.categories)
+                    templateHelpers: _.extend({ category: category.get("name"), id: category.get("id"), selected: (i++ == 0) ? "selected" : "" }, this.theme.categories)
                 }).on("chooseCategory", chooseCategory);
 
                 this.categoryHeaderViews.push(headerView);
@@ -131,7 +136,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                     view = new SectionedListView({
                         collection          : categoryGoods,
                         itemView            : EquippableVirtualGoodView,
-                        templateHelpers     : _.extend({category : category.get("name")}, this.theme.categories)
+                        templateHelpers     : _.extend({category : category.get("name"), id: category.get("id")}, this.theme.categories)
                     }).on({
                         "itemview:buy" 		: wantsToBuyVirtualGoods,
                         "itemview:equip" 	: wantsToEquipGoods
@@ -140,7 +145,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                     view = new SectionedListView({
                         collection          : categoryGoods,
                         itemView            : VirtualGoodView,
-                        templateHelpers     : _.extend({category : category.get("name")}, this.theme.categories)
+                        templateHelpers     : _.extend({category : category.get("name"), id: category.get("id")}, this.theme.categories)
                     }).on("itemview:buy", wantsToBuyVirtualGoods);
                 }
                 this.categoryViews.push(view);
@@ -209,7 +214,16 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
         iscrollRegions : {
             goods : {
                 el : "#goods-store .items-container",
-                options: { hScroll: true, vScroll: false, hScrollbar: false, vScrollbar: false}
+                options: {
+                    snap: 'li', hScroll: true, vScroll: false, hScrollbar: false, vScrollbar: false, onScrollEnd: function () {
+                        var itemIndex = Math.floor(Math.max(0, (Math.abs(this.x) - 14)) / 167);
+                        var categoryIndex = Math.floor(itemIndex / 4) + 1;
+                        for (var i = 1; i <= 2; i++) {
+                            $('#soomCatHeader' + i).toggleClass('selected', (i == categoryIndex));
+                        }
+                        
+                        //    document.elementFromPoint( $('.items-container').position().left + Math.abs(this.x), $('.items-container').position().top + Math.abs(this.y) )
+                } }
             },
             packs : {
                 el : "#currency-store .items-container",
