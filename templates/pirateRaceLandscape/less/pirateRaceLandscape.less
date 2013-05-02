@@ -175,7 +175,6 @@ ul {
 
     // Item image
     .visual {
-        float: left;
         width: @visualWidth;
         height: @itemTotalHeight;
     }
@@ -183,10 +182,8 @@ ul {
     // Item content (container of description, price, balance, buy button)
     .content {
         @padding: 10px;
-        height: @itemTotalHeight - (2 * @padding);
-        margin-top: @itemTotalHeight;
-        //margin-left: @visualWidth;
         padding: @padding;
+        text-align: center;
     }
 
     // The content is layed out in two rows
@@ -206,7 +203,6 @@ ul {
         background-size: 100%;
     }
     .description {
-        margin-right: @balanceWidth;
         font-size: 16px;
         overflow:hidden;
 
@@ -231,8 +227,8 @@ ul {
         width: @secondRowHeight;
         height: @secondRowHeight;
     }
-    .buy {
-        float:right;
+    .buy img {
+        width: 100%;
     }
 
     // Add specific styling for equippable items

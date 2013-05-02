@@ -1,19 +1,18 @@
-<img src="{{imgFilePath}}" class="visual">
 <div class="content">
     <div class="row">
-        <div class="balance">
-            <label>{{balance}}</label>
-        </div>
         <div class="description">
             <label style="{{descriptionStyle}}}">{{description}}</label>
         </div>
     </div>
+    <img src="{{imgFilePath}}" class="visual" />
     <div class="row price">
-        <img src="{{currency.imgFilePath}}" class="currency">
-        <label style="{{priceStyle}}}">{{price}}</label>
-        <a class="buy">
-            <img src="{{buy}}">
-        </a>
+      <label style="{{priceStyle}}}">{{price}}</label>
+      <img src="{{currency.imgFilePath}}" class="currency" />
+      <div>
+            <a class="buy">
+                <img src="{{buy}}" />
+            </a>
+        </div>
     </div>
 </div>
-<img src="{{itemSeparator}}" class="separator">
+<img src="{{itemSeparator}}" class="separator" />
