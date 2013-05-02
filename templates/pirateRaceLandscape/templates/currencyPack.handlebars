@@ -1,6 +1,15 @@
-<img src="{{imgFilePath}}" class="visual">
-<div class="price font-face-2">
-    <h1 style="{{nameStyle}}">{{name}}</h1>
-    <h2 style="{{priceStyle}}">{{price}}$</h2>
+<div class="content font-face-2">
+  <div class="row">
+    <div class="description">
+      <label style="{{nameStyle}}">{{name}}</label>
+    </div>
+  </div>
+  <img src="{{imgFilePath}}" class="visual" />
+  <div class="row price">
+    <label style="{{priceStyle}}}">{{price}}$</label>
+    <a class="buy">
+      <img src="{{buy}}" />
+    </a>
+  </div>
 </div>
-<img src="{{itemSeparator}}" class="separator">
+<img src="{{itemSeparator}}" class="separator" />

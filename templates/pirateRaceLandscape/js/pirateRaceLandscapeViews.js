@@ -57,6 +57,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             return {
                 nameStyle       : theme.pages.currencyPacks.listItem.nameStyle,
                 priceStyle      : theme.pages.currencyPacks.listItem.priceStyle,
+                buy             : theme.pages.currencyPacks.listItem.buy,
                 itemSeparator   : theme.itemSeparator,
                 imgFilePath     : modelAssets["currencyPacks"][this.model.id]
             };
@@ -83,7 +84,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
-            _.bindAll(this, "showCurrencyPacks", "showGoodsStore");
+            _.bindAll(this, "showGoodsStore");
             this.dialogModel = this.theme.pages.goods.noFundsModal;
             this.categoryHeaderViews = [];
             this.categoryViews  = [];
@@ -110,18 +111,16 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 var numItems = view.model.get('goods').length;
                 var elementId = 'soomCat' + view.model.get('id');
                 var element = $('#'+elementId);
-                this.iscrolls.goods.scrollTo(this.iscrolls.goods.x - element.position().left, 0, 500);
+                this.iscrolls.goods.scrollToElement('#' + elementId, 500);
             }, this);
 
             // Create category views
             var i = 0;
             categories.each(function (category) {
 
-                var headerView;
-
-                headerView = new CategoryHeaderView({
+                var headerView = new CategoryHeaderView({
                     model: category,
-                    className: "categoryHeaderClass",
+                    className: "categoryHeader",
                     templateHelpers: _.extend({ category: category.get("name"), id: category.get("id"), selected: (i++ == 0) ? "selected" : "" }, this.theme.categories)
                 }).on("chooseCategory", chooseCategory);
 
@@ -150,8 +149,17 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 }
                 this.categoryViews.push(view);
             }, this);
+
             this.currencyPacksViews = [];
-            currencies.each(function(currency) {
+            currencies.each(function (currency) {
+                var headerView = new CategoryHeaderView({
+                    model: currency,
+                    className: "currencyHeader",
+                    templateHelpers: _.extend({ category: currency.get("name"), id: currency.get("itemId"), selected: "" }, this.theme.categories)
+                }).on("chooseCategory", chooseCategory);
+
+                this.categoryHeaderViews.push(headerView);
+
                 var view = new Components.CollectionView({
                     className           : "items currencyPacks",
                     collection          : currency.get("packs"),
@@ -182,11 +190,10 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
         },
         ui : {
             goodsStore : "#goods-store",
-            currencyStore: "#currency-store",
             goodsHeader: "#goods-store .header",
             goodsCategoriesHeader: "#goods-store .header .categories",
             goodsIscrollContainer : "#goods-store .items-container [data-iscroll='true']",
-            currencyPacksContainer : "#currency-store .currency-packs"
+            currencyPacksContainer : ".currency-packs"
         },
         updateBalance : function(model) {
             // TODO: Move to a header view
@@ -201,14 +208,12 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             if (this.model.get("isCurrencyStoreDisabled")) {
                 alert("Buying more " + this.model.get("currency").get("name") + " is unavailable. Check your internet connectivity and try again.");
             } else {
-                this.ui.goodsStore.hide();
-                this.ui.currencyStore.show();
+                this.iscrolls.goods.scrollToElement('.currencyPacks', 500);
                 this.iscrolls.packs.refresh();
             }
         },
         showGoodsStore : function() {
             this.playSound();
-            this.ui.currencyStore.hide();
             this.ui.goodsStore.show();
             this.iscrolls.goods.refresh();
         },
@@ -216,7 +221,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             goods : {
                 el : "#goods-store .items-container",
                 options: {
-                    snap: 'li', hScroll: true, vScroll: false, hScrollbar: false, vScrollbar: false, onScrollEnd: function () {
+                    snap: 'li', hScroll: true, vScroll: false, hScrollbar: false, vScrollbar: false, onScrollEnd: function (e, x) {
                         var itemIndex = Math.floor(Math.max(0, (Math.abs(this.x) - 14)) / 167);
                         var categoryIndex = Math.floor(itemIndex / 4) + 1;
                         for (var i = 1; i <= 5; i++) {
@@ -226,14 +231,8 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                         //    document.elementFromPoint( $('.items-container').position().left + Math.abs(this.x), $('.items-container').position().top + Math.abs(this.y) )
                 } }
             },
-            packs : {
-                el : "#currency-store .items-container",
-                options: { hScroll: true, vScroll: false, hScrollbar: false, vScrollbar: false }
-            }
         },
         onRender : function() {
-            this.ui.currencyStore.hide();
-
             // Render subviews (categories, items in goods store and currency store)
             _.each(this.categoryHeaderViews, function (view) {
                 this.ui.goodsCategoriesHeader.append(view.render().el);
@@ -245,10 +244,10 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
 
             _.each(this.currencyPacksViews, function(view) {
-                this.ui.currencyPacksContainer.append(view.render().el);
+                this.ui.goodsIscrollContainer.append(view.render().el);
             }, this);
 
-            this.$("#currency-store .non-consumables").html(this.nonConsumablesView.render().el);
+            this.$(".non-consumables").html(this.nonConsumablesView.render().el);
 
             if (this.restorePurchasesView) {
                 this.$("#restore-purchases").html(this.restorePurchasesView.render().el);

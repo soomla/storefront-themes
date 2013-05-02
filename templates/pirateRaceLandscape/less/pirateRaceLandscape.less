@@ -64,8 +64,9 @@ ul {
     width: 100%;
 
     .balance-container {
+        background-color: olive;
         @height: 36px;
-        .box(horizontal, center);
+        .box(horizontal, center ,center);
         font-size: @height;
         line-height: @height;
 
@@ -95,7 +96,7 @@ ul {
     }
 }
 
-#goods-store, #currency-store {
+#goods-store {
 
     // Make sure that level-0 backgrounds "contain" the viewport
     .background-size(cover);
@@ -119,7 +120,7 @@ ul {
     overflow: auto;
 
     div[data-iscroll='true'] {
-        width: @internalWidth * 10;
+        width: @internalWidth * 4;
     }
 }
 
@@ -131,20 +132,22 @@ ul {
 }
 
 .category {
+    font-size: 1.5em;
     float: left;
     text-align: center;
     padding: 0 10px 0 10px;
 }
 
 .category.selected {
-    font-size: 1.5em;
+    background-color: darkblue;
+    color: yellow !important;
 }
 
 
 // SINGLE LIST ITEMS - VIRTUAL GOODS
 // --------------------------------------------------
 
-@itemMinHeight: 260px;
+@itemMinHeight: 250px;
 @itemTotalHeight: 100px;
 @itemWidth: @internalWidth / 5 - 10;
 
@@ -163,7 +166,7 @@ ul {
     height: @itemMinHeight;
 }
 
-.virtualGoods .item {
+.item {
 
     // Local variables
     @visualWidth: @itemTotalHeight;
@@ -199,7 +202,7 @@ ul {
         float:right;
         font-size: 18px;
         font-weight: bold;
-        width: @balanceWidth;
+        width: W@balanceWidth;
         background-size: 100%;
     }
     .description {
@@ -233,11 +236,18 @@ ul {
 
     // Add specific styling for equippable items
     &.equippable {
+        .buy, .equip {
+            img {
+                width: 100%;
+            }
+        }
+        img.active {
+            width: 100%;
+        }
 
         // State: not owned
         .equip, .active {
             display: none;
-            float:right;
         }
 
         // State: owned, not equipped
@@ -269,42 +279,15 @@ ul {
 @currItemHeight: 200px;
 @currItemWidth: 160px;
 
-.currencyPacks .item, .nonConsumables .item, #restore-purchases .item {
-    background-position: center;
-    width: @currItemWidth;
-    height: @currItemHeight;
-    margin: 0 auto;
-}
-
 .currencyPacks .item, .nonConsumables .item {
     @visualWidth: @currItemWidth;
 
     // Currency pack image
     .visual {
-        //float: left;
+        width: auto;
+        height: auto;
         max-width: @visualWidth;
         max-height: @itemTotalHeight;
-    }
-
-    // Amount & Price
-    .price {
-        //height: 100%;
-        //margin-left: @visualWidth;
-        padding: 10px;
-    }
-    @nameHeight: 50px;
-    @priceHeight: 30px;
-    h1 {
-        height: @nameHeight;
-        line-height: @nameHeight;
-    }
-    h2 {
-        height: @priceHeight;
-        line-height: @priceHeight;
-    }
-    h1, h2 {
-        margin: 0;
-        text-align: right;
     }
 }
 

@@ -80,14 +80,6 @@
         },
         {
             "id" : 3,
-            "name" : "Coins"
-        },
-        {
-            "id" : 4,
-            "name" : "Gems"
-        },
-        {
-            "id" : 5,
             "name" : "Characters",
             "equipping" : "single"
         }
@@ -163,7 +155,7 @@
                 }
             },
             "itemId"        : "lucky_clover",
-            "categoryId"   : 3
+            "categoryId"   : 2
         },
 		{
             "name"          : "Rock Book",
@@ -175,7 +167,7 @@
                 }
             },
             "itemId"        : "rock_book_gems",
-            "categoryId"   : 4
+            "categoryId"   : 2
         },
 		{
             "name"          : "Kasey",
@@ -187,7 +179,7 @@
                 }
             },
             "itemId"        : "kasey",
-            "categoryId"   : 5
+            "categoryId"   : 3
         },
 		{
             "name"          : "Robert Din",
@@ -199,7 +191,7 @@
                 }
             },
             "itemId"        : "robert_din",
-            "categoryId"   : 5
+            "categoryId"   : 3
         },
         {
             "name"          : "Sir James",
@@ -211,7 +203,7 @@
                 }
             },
             "itemId"        : "sir_james",
-            "categoryId"   : 5
+            "categoryId"   : 3
         },
         {
             "name"          : "Tod",
@@ -223,7 +215,7 @@
                 }
             },
             "itemId"        : "tod",
-            "categoryId"   : 5
+            "categoryId"   : 3
         }
     ]
 }

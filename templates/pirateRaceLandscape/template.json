@@ -6,7 +6,7 @@
         "background" : {
             "type" : "backgroundImage",
             "title" : "Background Image",
-            "selector" : "#goods-store, #currency-store"
+            "selector" : "#goods-store"
         },
         "contentBackground" : {
             "type" : "backgroundImage",
@@ -23,11 +23,6 @@
                 "type" : "image",
                 "title" : "Back Button",
                 "selector" : ".footer .leave-store, .footer .back"
-            },
-            "moreCurrencyButton" : {
-                "type" : "image",
-                "title" : "More Currency Button",
-                "selector" : ".footer .buy-more"
             },
             "balanceLabelStyle" : {
                 "type" : "css",
@@ -138,15 +133,6 @@
                         "type" : "image",
                         "title" : "'No' Button",
                         "selector" : ".dialog .cancel"
-                    }
-                }
-            },
-            "currencyPacks" : {
-                "list" : {
-                    "background" : {
-                        "type" : "backgroundImage",
-                        "title" : "Currency Pack Area Background",
-                        "selector" : "#currency-store .items-container"
                     }
                 }
             }

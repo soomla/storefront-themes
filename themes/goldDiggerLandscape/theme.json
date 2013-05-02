@@ -41,7 +41,6 @@
         "common" : {
             "titleImage" : "img/Header_Title.png",
             "backButton" : "img/Back_BTN.png",
-            "moreCurrencyButton" : "img/GetMore_BTN.png",
 	        "purchasedIndicatorImage" : "img/owned.png",
             "balanceLabelStyle" : "color: #E9C861;"
         },
@@ -85,15 +84,12 @@
                 }
             },
             "currencyPacks" : {
-                "list" : {
-                    "background" : "img/Item_Area.jpg"
-                },
                 "listItem" : {
                     "balanceBackground" : "",
-                    "nameStyle" : "color: #E9C861; font-weight: normal;",
-                    "priceStyle" : "font-style: normal; color: #F7EABE; font-weight: normal;"
+                    "nameStyle" : "color: #E9C861; font-size: 28px;",
+                    "priceStyle" : "font-style: normal; color: #F7EABE; font-weight: normal;",
+                    "buy" : "img/purchase.png"
                 }
-
             }
         },
         "categories" : {
