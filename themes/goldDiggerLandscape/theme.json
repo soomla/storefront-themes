@@ -10,6 +10,7 @@
             "gold_pot" : "img/Powerups/Gold_Pot.png",
             "lucky_clover" : "img/Powerups/Lucky_Clover.png",
             "rock_book" : "img/Powerups/Rock_Book.png",
+			"rock_book_gems" : "img/Powerups/Rock_Book.png",
             "kasey" : "img/Characters/Kasey.png",
 		    "robert_din" : "img/Characters/Robert_Din.png",
             "sir_james" : "img/Characters/Sir_James.png",
@@ -19,10 +20,14 @@
             "coins_2500" : "img/CurrencyPacks/GetCoins_1.png",
             "coins_25000" : "img/CurrencyPacks/GetCoins_2.png",
             "coins_75000" : "img/CurrencyPacks/GetCoins_3.png",
-            "coins_200000" : "img/CurrencyPacks/GetCoins_4.png"
+            "coins_200000" : "img/CurrencyPacks/GetCoins_4.png",
+			"10_gems" : "img/CurrencyPacks/GetGems_1.png",
+			"100_gems" : "img/CurrencyPacks/GetGems_2.png",
+			"1000_gems" : "img/CurrencyPacks/GetGems_3.png"
         },
         "virtualCurrencies" : {
-            "currency_coins" : "img/Item_Price.png"
+            "currency_coins" : "img/Item_Price.png",
+			"currency_gems" : "img/Gem_Price.png"
         },
 	    "nonConsumables" : {
 		    "remove_ads" : "img/no-ads.png"
@@ -50,6 +55,10 @@
 	    ],
         "itemSeparator" : "img/Item_Seperator.png",
         "balance" : {
+			"title" : {
+				"text" : "Treasure:",
+				"style" : "color: #E9C861;"
+			},
             "style" : "color: #E9C861;"
         },
         "pages" : {

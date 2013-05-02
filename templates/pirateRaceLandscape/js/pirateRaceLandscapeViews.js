@@ -184,12 +184,13 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             goodsStore : "#goods-store",
             currencyStore: "#currency-store",
             goodsHeader: "#goods-store .header",
+            goodsCategoriesHeader: "#goods-store .header .categories",
             goodsIscrollContainer : "#goods-store .items-container [data-iscroll='true']",
             currencyPacksContainer : "#currency-store .currency-packs"
         },
         updateBalance : function(model) {
             // TODO: Move to a header view
-            this.$(".balance-container label").html(model.get("balance"));
+            this.$(".balance-container label[data-currency='" + model.id + "']").html(model.get("balance"));
         },
         onClickBuyMore : function() {
             this.playSound().showCurrencyPacks();
@@ -218,7 +219,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                     snap: 'li', hScroll: true, vScroll: false, hScrollbar: false, vScrollbar: false, onScrollEnd: function () {
                         var itemIndex = Math.floor(Math.max(0, (Math.abs(this.x) - 14)) / 167);
                         var categoryIndex = Math.floor(itemIndex / 4) + 1;
-                        for (var i = 1; i <= 2; i++) {
+                        for (var i = 1; i <= 5; i++) {
                             $('#soomCatHeader' + i).toggleClass('selected', (i == categoryIndex));
                         }
                         
@@ -235,7 +236,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
             // Render subviews (categories, items in goods store and currency store)
             _.each(this.categoryHeaderViews, function (view) {
-                this.ui.goodsHeader.append(view.render().el);
+                this.ui.goodsCategoriesHeader.append(view.render().el);
             }, this);
 
             _.each(this.categoryViews, function(view) {

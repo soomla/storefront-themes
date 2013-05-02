@@ -53,6 +53,18 @@
             "selector" : ".separator"
         },
         "balance" : {
+			"title" : {
+				"text": {
+					"type" : "text",
+					"title" : "Balance Title Text",
+					"selector" : ".footer .balance-container .label-title"
+				},
+				"style" : {
+					"type" : "css",
+					"title" : "Balance Title Style",
+					"selector" : ".footer .balance-container .label-title"
+				}
+			},
             "style" : {
                 "type" : "css",
                 "title" : "Balance Style",

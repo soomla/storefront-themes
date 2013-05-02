@@ -7,10 +7,10 @@
 // THEME VARIABLES
 // --------------------------------------------------
 
-@externalWidth:     880px;
-@externalHeight:    550px;
-@internalWidth:     700px;
-@internalHeight:    370px;
+@externalWidth:     1280px;
+@externalHeight:    720px;
+@internalWidth:     1018px;
+@internalHeight:    484px;
 
 // GENERAL LAYOUT
 // --------------------------------------------------
@@ -44,6 +44,14 @@ ul {
 .header {
     margin: 0 auto;
 
+    .categories {
+        .box(horizontal, center);
+
+        .category {
+            .box-flex(1);
+        }
+    }
+
     .title-image {
         display: block;
         width: @internalWidth;
@@ -53,31 +61,37 @@ ul {
 }
 
 .footer {
+    width: 100%;
+
     .balance-container {
         @height: 36px;
         .box(horizontal, center);
         font-size: @height;
         line-height: @height;
 
-
         .label-container {
-            .box-flex(1);
             text-align: center;
-
+            padding: 0 30px;
             label {
                 vertical-align: middle;
             }
         }
+
         .currency {
             max-height: @height;
         }
     }
 
-    .buttons img {
-        display: inline-block;
-        width: @internalWidth / 2.5;
-        height: 100px;
-        margin: 0 auto;
+    .buttons {
+        position: relative;
+
+        img {
+            position: absolute;
+            height: 60px;
+            width: 20%;
+            padding-right: 20px;
+            right: 0;
+        }
     }
 }
 
@@ -98,15 +112,14 @@ ul {
 
 .items-container {
     width: @internalWidth;
-    height: @internalHeight;
+    min-height: @itemMinHeight;
 	margin: 0 auto;
     padding: 0;
 	.background-size(cover);
-	.box-flex(1);
     overflow: auto;
 
     div[data-iscroll='true'] {
-        width: @internalWidth * 2;
+        width: @internalWidth * 10;
     }
 }
 
@@ -114,7 +127,6 @@ ul {
 .virtualGoods, .currencyPacks {
 	background-position: center;
     //clear: both;
-    width: @internalWidth;
     display: inline-block;
 }
 
@@ -132,9 +144,9 @@ ul {
 // SINGLE LIST ITEMS - VIRTUAL GOODS
 // --------------------------------------------------
 
-@itemMinHeight: 122px;
+@itemMinHeight: 260px;
 @itemTotalHeight: 100px;
-@itemWidth: @internalWidth / 4 - 10;
+@itemWidth: @internalWidth / 5 - 10;
 
 .item {
     min-height:  @itemMinHeight;

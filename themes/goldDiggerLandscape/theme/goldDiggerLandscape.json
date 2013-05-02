@@ -31,6 +31,30 @@
             "productId"         : "200000_coins",
             "price"             : 19.99,
             "amount"            : 200000
+        },
+		{
+            "name"              : "10 Gems",
+            "itemId"            : "10_gems",
+            "currency_itemId"   : "currency_gems",
+            "productId"         : "gems_10",
+            "price"             : 0.99,
+            "amount"            : 10
+        },
+        {
+            "name"              : "100 Gems",
+            "itemId"            : "100_gems",
+            "currency_itemId"   : "currency_gems",
+            "productId"         : "gems_100",
+            "price"             : 2.99,
+            "amount"            : 100
+        },
+        {
+            "name"              : "1000 Gems",
+            "itemId"            : "1000_gems",
+            "currency_itemId"   : "currency_gems",
+            "productId"         : "gems_1000",
+            "price"             : 9.99,
+            "amount"            : 1000
         }
     ],
     "virtualCurrencies" : [
@@ -38,22 +62,39 @@
             "name"          : "Coins",
             "description"   : "",
             "itemId"        : "currency_coins"
+        },
+        {
+            "name"          : "Gems",
+            "description"   : "",
+            "itemId"        : "currency_gems"
         }
     ],
     "categories" : [
         {
             "id" : 1,
-            "name" : "POWERUPS"
+            "name" : "Energy"
         },
         {
             "id" : 2,
-            "name" : "CHARACTERS",
+            "name" : "Health"
+        },
+        {
+            "id" : 3,
+            "name" : "Coins"
+        },
+        {
+            "id" : 4,
+            "name" : "Gems"
+        },
+        {
+            "id" : 5,
+            "name" : "Characters",
             "equipping" : "single"
         }
     ],
     "virtualGoods" : [
         {
-            "name"          : "Bomb",
+            "name"          : "Bomb (gems)",
             "description"   : "Lorem Ipsum is not simply random text",
             "priceModel"    : {
                 "type" : "static",
@@ -100,6 +141,42 @@
             "itemId"        : "rock_book",
             "categoryId"   : 1
         },
+        {
+            "name"          : "Gold Pot",
+            "description"   : "Lorem Ipsum is not simply random text",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coins" : 20
+                }
+            },
+            "itemId"        : "gold_pot",
+            "categoryId"   : 2
+        },
+        {
+            "name"          : "Lucky Clover",
+            "description"   : "Lorem Ipsum is not simply random text",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_coins" : 30
+                }
+            },
+            "itemId"        : "lucky_clover",
+            "categoryId"   : 3
+        },
+		{
+            "name"          : "Rock Book",
+            "description"   : "Rock book, price in gems",
+            "priceModel"    : {
+                "type" : "static",
+                "values" :{
+                    "currency_gems" : 40
+                }
+            },
+            "itemId"        : "rock_book_gems",
+            "categoryId"   : 4
+        },
 		{
             "name"          : "Kasey",
             "description"   : "Lorem Ipsum is not simply random text",
@@ -110,7 +187,7 @@
                 }
             },
             "itemId"        : "kasey",
-            "categoryId"   : 2
+            "categoryId"   : 5
         },
 		{
             "name"          : "Robert Din",
@@ -122,7 +199,7 @@
                 }
             },
             "itemId"        : "robert_din",
-            "categoryId"   : 2
+            "categoryId"   : 5
         },
         {
             "name"          : "Sir James",
@@ -134,7 +211,7 @@
                 }
             },
             "itemId"        : "sir_james",
-            "categoryId"   : 2
+            "categoryId"   : 5
         },
         {
             "name"          : "Tod",
@@ -146,7 +223,7 @@
                 }
             },
             "itemId"        : "tod",
-            "categoryId"   : 2
+            "categoryId"   : 5
         }
     ]
 }
