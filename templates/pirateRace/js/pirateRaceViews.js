@@ -79,7 +79,13 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
             _.bindAll(this, "showCurrencyPacks", "showGoodsStore");
-            this.dialogModel    = this.theme.pages.goods.noFundsModal;
+            this.dialogModal    = this.theme.pages.goods.noFundsModal;
+            this.loadingModal = {
+                "text": "Loading...",
+                "background": this.dialogModal.background,
+                "textStyle": this.dialogModal.textStyle
+            };
+
             this.categoryViews  = [];
 
             var currencies      = this.model.get("virtualCurrencies"),

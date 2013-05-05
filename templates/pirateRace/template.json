@@ -101,33 +101,33 @@
                     }
 
                 },
-                "noFundsModal" : {
-                    "background" : {
-                        "type" : "backgroundImage",
-                        "title" : "Dialog Background Image",
-                        "selector" : ".dialog"
-                    },
-                    "text" : {
-                        "type" : "text",
-                        "title" : "Dialog Text",
-                        "selector" : ".dialog h1"
-                    },
-                    "textStyle" : {
-                        "type" : "css",
-                        "title" : "Dialog Text Style",
-                        "selector" : ".dialog h1"
-                    },
-                    "yesButton" : {
-                        "type" : "image",
-                        "title" : "'Yes' Button",
-                        "selector" : ".dialog .buy-more"
-                    },
-                    "noButton" : {
-                        "type" : "image",
-                        "title" : "'No' Button",
-                        "selector" : ".dialog .cancel"
-                    }
-                }
+				"noFundsModal" : {
+					"background" : {
+						"type" : "backgroundImage",
+						"title" : "No Funds Dialog Background Image",
+						"selector" : ".dialog"
+					},
+					"text" : {
+						"type" : "text",
+						"title" : "No Funds Dialog Text",
+						"selector" : ".dialog h1"
+					},
+					"textStyle" : {
+						"type" : "css",
+						"title" : "No Funds Dialog Text Style",
+						"selector" : ".dialog h1"
+					},
+					"yesButton" : {
+						"type" : "image",
+						"title" : "No Funds Dialog 'Yes' Image",
+						"selector" : ".dialog .buy-more"
+					},
+					"noButton" : {
+						"type" : "image",
+						"title" : "No Funds Dialog 'No' Image",
+						"selector" : ".dialog .cancel"
+					}
+				}
             },
             "currencyPacks" : {
                 "list" : {
@@ -136,7 +136,7 @@
                         "title" : "Currency Pack Area Background",
                         "selector" : "#currency-store .items-container"
                     }
-                }
+				}
             }
         }
     },
