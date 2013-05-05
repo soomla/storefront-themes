@@ -80,7 +80,11 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
         initialize : function() {
             _.bindAll(this, "showCurrencyPacks", "showGoodsStore");
             this.dialogModal    = this.theme.pages.goods.noFundsModal;
-            this.loadingModal = this.theme.pages.currencyPacks.loadingModal;
+            this.loadingModal = {
+                "text": "Loading...",
+                "background": this.dialogModal.background,
+                "textStyle": this.dialogModal.textStyle
+            };
 
             this.categoryViews  = [];
 

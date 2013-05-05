@@ -86,11 +86,7 @@
                     "balanceBackground" : "",
                     "nameStyle" : "",
                     "priceStyle" : ""
-                },
-				"loadingModal": {
-					"background": "img/Alert_BG.png",
-					"text" : "Loading..."
-				}
+                }
             }
         },
         "categories" : {

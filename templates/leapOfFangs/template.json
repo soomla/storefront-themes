@@ -47,24 +47,6 @@
                 "selector" : ".dialog .cancel"
             }
 		},
-		"loadingModal" : {
-			"background" : {
-				"type" : "backgroundImage",
-				"title" : "Loading Dialog Background Image",
-				"selector" : ".dialog"
-            },
-            "text" : {
-                "type" : "text",
-                "title" : "Loading Dialog Text",
-                "selector" : ".dialog h1"
-            },
-            "textStyle" : {
-                "type" : "css",
-                "title" : "Loading Dialog Text Style",
-                "selector" : ".dialog h1"
-			}
-		},
-
         "images" : {
             "globalBackground" : {
                 "type" : "backgroundImage",
