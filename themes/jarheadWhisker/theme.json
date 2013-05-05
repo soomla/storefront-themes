@@ -59,7 +59,7 @@
             "noButton" : "img/no_btn.png"
         },
 		"loadingModal": {
-            "background": "img/lert-22.png",
+            "background": "img/Alert-22.png",
             "text" : "Loading..."
         },
         "images" : {

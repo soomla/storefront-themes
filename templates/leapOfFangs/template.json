@@ -21,7 +21,6 @@
             "selector" : ".item.currency-packs img"
         },
         "noFundsModal" : {
-		"noFundsModal" : {
 			"background" : {
 				"type" : "backgroundImage",
 				"title" : "No Funds Dialog Background Image",
