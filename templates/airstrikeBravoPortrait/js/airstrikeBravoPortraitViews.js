@@ -74,6 +74,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
             this.dialogModel = this.theme.noFundsModal;
+            this.loadingModel = this.theme.loadingModal;
 
             var currencies 		= this.model.get("virtualCurrencies"),
                 categories      = this.model.get("categories"),
@@ -87,7 +88,6 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 collection  : categories,
                 itemView    : CategoryView
             }).on("itemview:select", function(view) {
-                console.log("tightRope itemview:select", view.model.cid)
                 this.playSound().changeViewTo(this.children.findByCustom(view.model.cid));
             }, this);
             this.children.add(categoryMenuView, "menu");

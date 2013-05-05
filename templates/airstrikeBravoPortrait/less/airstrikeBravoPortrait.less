@@ -68,16 +68,11 @@ ul {
             font-size: 60px;
             width:100%;
             position:absolute;
-            /*left:0;*/
             top:0;
             color:#fff;
             margin:0;
             
-            -o-transition: all .5s ease-in-out;
-            -ms-transition: all .5s ease-in-out;
-            -moz-transition: all .5s ease-in-out;
-            -webkit-transition: all .5s ease-in-out;
-            transition: all .5s ease-in-out;
+            .transition(all .5s ease-in-out);
         }
         h1 {
             opacity: 1;
@@ -216,39 +211,50 @@ ul {
     margin: 10px;
     overflow: auto;
     min-height: @internalHeight;
+    &.menu{
+        float: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 900;
+
+        min-height:@internalHeight;
+        margin: 10px 20px;
+
+        -webkit-transform: rotateX(0deg) rotateY(0deg);
+        -webkit-transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+
+        -moz-transform: rotateX(0deg) rotateY(0deg);
+        -moz-transform-style: preserve-3d;
+        -moz-backface-visibility: hidden;
+
+        .transition(all .5s ease-in-out);
+
+        opacity:1;
+    }
+    &.category{
+        float: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 800;
+        
+        -webkit-transform: rotateY(-180deg);
+        -webkit-transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+
+        -moz-transform: rotateY(-180deg);
+        -moz-transform-style: preserve-3d;
+        -moz-backface-visibility: hidden;
+
+        .transition(all .5s ease-in-out);
+
+        opacity: 0;
+    }
 }
- /* chaim start: ------------------------- */
- #pages{
+#pages{
     position:relative;
- }
-.items {
-    /*margin: 0px;*/
-}
-.items.menu{
-    float: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 900;
-
-    min-height:@internalHeight;
-    margin: 10px 20px;
-
-    -webkit-transform: rotateX(0deg) rotateY(0deg);
-    -webkit-transform-style: preserve-3d;
-    -webkit-backface-visibility: hidden;
-
-    -moz-transform: rotateX(0deg) rotateY(0deg);
-    -moz-transform-style: preserve-3d;
-    -moz-backface-visibility: hidden;
-
-    -o-transition: all .5s ease-in-out;
-    -ms-transition: all .5s ease-in-out;
-    -moz-transition: all .5s ease-in-out;
-    -webkit-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
-
-    opacity:1;
 }
 #pages.flip .items.menu {
     z-index: 900;
@@ -258,29 +264,6 @@ ul {
 
     opacity: 0;
     
-}
-.items.category{
-    float: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 800;
-    
-    -webkit-transform: rotateY(-180deg);
-    -webkit-transform-style: preserve-3d;
-    -webkit-backface-visibility: hidden;
-
-    -moz-transform: rotateY(-180deg);
-    -moz-transform-style: preserve-3d;
-    -moz-backface-visibility: hidden;
-
-    -o-transition: all .5s ease-in-out;
-    -ms-transition: all .5s ease-in-out;
-    -moz-transition: all .5s ease-in-out;
-    -webkit-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
-
-    opacity: 0;
 }
 #pages.flip .items.category{
     opacity: 0;
@@ -293,10 +276,6 @@ ul {
 
     opacity: 1;
 }
-.category {
-    /*display: none;*/
-}
-/* // chaim ------------------------------ */
 
 // SINGLE LIST ITEMS - VIRTUAL GOODS
 // --------------------------------------------------
@@ -396,11 +375,26 @@ ul {
     }
 
     &.single-use {
-        .balance-label {
-            font-size: @secondaryFontSize;
+        .balance-wrap{
+            display:inline;
+            position:relative;
+            .transition(all .5s ease-in-out);
+
+            .balance-label {
+                font-size: @secondaryFontSize;
+                color:green !important
+            }
+            .balance {
+                font-weight: bold;
+            }
         }
-        .balance {
-            font-weight: bold;
+        &.changed {
+            -webkit-animation: jiggle 0.2s infinite;
+            -moz-animation-duration: 0.2s;
+            -moz-animation-name: jiggle;
+            -moz-animation-iteration-count: infinite;
+            -webkit-transform: rotate(-1deg) scale(1.1);
+            -moz-transform: rotate(-1deg) scale(1.1);
         }
     }
 
