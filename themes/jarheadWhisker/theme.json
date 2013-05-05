@@ -58,6 +58,10 @@
             "yesButton" : "img/yes_btn.png",
             "noButton" : "img/no_btn.png"
         },
+		"loadingModal": {
+            "background": "img/lert-22.png",
+            "text" : "Loading..."
+        },
         "images" : {
             "contentBackground" : "img/ContentBackground.png",
             "itemAreaBackground" : "img/ItemAreaBackground.png",

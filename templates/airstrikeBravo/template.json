@@ -25,29 +25,46 @@
 		"noFundsModal" : {
 			"background" : {
 				"type" : "backgroundImage",
-				"title" : "Dialog Background Image",
+				"title" : "No Funds Dialog Background Image",
 				"selector" : ".dialog"
             },
             "text" : {
                 "type" : "text",
-                "title" : "Dialog Text",
+                "title" : "No Funds Dialog Text",
                 "selector" : ".dialog h1"
             },
             "textStyle" : {
                 "type" : "css",
-                "title" : "Dialog Text Style",
+                "title" : "No Funds Dialog Text Style",
                 "selector" : ".dialog h1"
 			},
             "yesButton" : {
                 "type" : "image",
-                "title" : "Dialog 'Yes' Image",
+                "title" : "No Funds Dialog 'Yes' Image",
                 "selector" : ".dialog .buy-more"
             },
             "noButton" : {
                 "type" : "image",
-                "title" : "Dialog 'No' Image",
+                "title" : "No Funds Dialog 'No' Image",
                 "selector" : ".dialog .cancel"
             }
+		},
+		"loadingModal" : {
+			"background" : {
+				"type" : "backgroundImage",
+				"title" : "Loading Dialog Background Image",
+				"selector" : ".dialog"
+            },
+            "text" : {
+                "type" : "text",
+                "title" : "Loading Dialog Text",
+                "selector" : ".dialog h1"
+            },
+            "textStyle" : {
+                "type" : "css",
+                "title" : "Loading Dialog Text Style",
+                "selector" : ".dialog h1"
+			}
 		},
 		"currencyPacksCategoryImage" : {
 			"type" : "image",

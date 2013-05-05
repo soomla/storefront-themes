@@ -83,8 +83,12 @@
                     "balanceBackground" : "",
                     "nameStyle" : "color: #E9C861; font-weight: normal;",
                     "priceStyle" : "font-style: normal; color: #F7EABE; font-weight: normal;"
-                }
-
+                },
+				"loadingModal": {
+					"background": "img/Alert_BG.png",
+					"text" : "Loading...",
+					"textStyle" : "color: #DEBE8D; text-shadow: 1px 2px #000"
+				}
             }
         },
         "categories" : {

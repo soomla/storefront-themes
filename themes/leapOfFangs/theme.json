@@ -45,6 +45,11 @@
             "yesButton" : "img/Yes_BTN.png",
             "noButton" : "img/No_BTN.png"
         },
+		"loadingModal": {
+            "background": "img/ModalBackground.png",
+            "text" : "Loading...",
+            "textStyle" : "color: #fff; text-shadow: 1px 2px #000"
+        },
         "images" : {
             "globalBackground" : "img/GlobalBackground.png",
             "contentBackground" : "img/ContentBackground.png",

@@ -56,6 +56,11 @@
             "yesButton" : "img/yes_btn.png",
             "noButton" : "img/no_btn.png"
 		},
+		"loadingModal": {
+            "background": "img/Alert-22.png",
+            "text" : "Loading...",
+            "textStyle" : "color: #fff; text-shadow: 1px 2px #000"
+        },
 		"images":{
 			"contentBackground":"img/steel-bg.png",
 			"itemAreaBackground":"img/ItemAreaBackground.png",

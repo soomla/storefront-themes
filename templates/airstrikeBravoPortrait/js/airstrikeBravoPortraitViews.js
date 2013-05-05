@@ -73,7 +73,8 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
-            this.dialogModel = this.theme.noFundsModal;
+            this.dialogModal = this.theme.noFundsModal;
+            this.loadingModal = this.theme.loadingModal;
 
             var currencies 		= this.model.get("virtualCurrencies"),
                 categories      = this.model.get("categories"),
