@@ -177,17 +177,49 @@ ul {
     background-position: center;
     background-repeat: no-repeat;
 }
-
+/* chaim > */
+#pages{
+    position:relative;
+}
 .items {
     list-style-type: none;
     padding: 0;
-    margin: 10px;
     overflow: auto;
     height: @internalHeight;
 }
+.items.menu{
+    float: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 900;
 
-.category {
-    display: none;
+    -o-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+
+}
+#pages.slide .items.menu {
+     left: -100%;
+}
+.items.category {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    opacity: 0;
+    min-width:100%;
+    max-width:100%;
+    -o-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+#pages.slide .items.category.on{
+    left:0;
+    opacity: 1;
 }
 
 
