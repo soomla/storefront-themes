@@ -263,23 +263,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
             });
 
             this.activeView = newview;
-            /*
 
-            var _pages = this.activeView.$el.parents("div#pages");
-            _pages.toggleClass("flip");
-            if(_pages.hasClass("flip")){
-                // add class "on" to the relevant category only 
-                view.$el.addClass("on");
-            }else{
-                this.activeView.$el.removeClass("on"); 
-            }
-
-            this.activeView = view;
-            view.$el.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
-                //console.log("end")
-                view.$el.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
-                $(_pages).animate({ scrollTop: 0 }, "slow");
-            });
             /*
             this.activeView.$el.hide();
             this.activeView = view;
