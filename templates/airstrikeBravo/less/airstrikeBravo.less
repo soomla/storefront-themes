@@ -80,11 +80,41 @@ ul {
 
     .title-container {
         .box-flex(1);
+        margin-top:10px;
         overflow: hidden;
-
-        h1 {
+        position:relative;
+        h1, h2  {
             text-align: center;
-            font-size: 50px;
+           /* font-size: 60px;*/
+            width:100%;
+            position:absolute;
+            top:0;
+            color:#fff;
+            margin:0;
+            
+            -o-transition: all .5s ease-in-out;
+            -ms-transition: all .5s ease-in-out;
+            -moz-transition: all .5s ease-in-out;
+            -webkit-transition: all .5s ease-in-out;
+            transition: all .5s ease-in-out;
+        }
+        h1 {
+            opacity: 1;
+            left:0;
+        }
+        h2 {
+            opacity: 0;
+            left:100%;
+        }
+    }
+    .title-container.secondView{
+        h1 {
+            opacity: 0;
+            left:-100%;
+        }
+        h2 {
+            opacity: 1;
+            left:0;
         }
     }
 
