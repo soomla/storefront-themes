@@ -142,7 +142,7 @@
                     "currency_coins" : 20
                 }
             },
-            "itemId"        : "gold_pot",
+            "itemId"        : "gold_pot_2",
             "categoryId"   : 2
         },
         {
@@ -154,7 +154,7 @@
                     "currency_coins" : 30
                 }
             },
-            "itemId"        : "lucky_clover",
+            "itemId"        : "lucky_clover_2",
             "categoryId"   : 2
         },
 		{

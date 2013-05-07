@@ -1,23 +1,25 @@
 {{fontFaceStylesheet fonts}}
-<div id="content-container">
-	<div id="goods-store" data-role="page">
-		<div class="content">
-			<div class="header">
-				<img class="title-image" src="{{common.titleImage}}">
+<div id="content-container" data-role="page">
+	<div class="content">
+		<div class="header">
+			<img class="title-image" src="{{common.titleImage}}">
+			<div class="categories-container">
 				<div class="categories"></div>
 			</div>
-			<div class="items-container">
-				<div data-iscroll="true">
-					<div class="currency-packs">
-					</div>
-					<div class="non-consumables">
-					</div>
-					<div id="restore-purchases">
-					</div>
+		</div>
+		<div class="items-container">
+			<div data-iscroll="true">
+				<div class="currency-packs">
+				</div>
+				<div class="non-consumables">
+				</div>
+				<div id="restore-purchases">
 				</div>
 			</div>
-			<div class="footer">
-				<div class="balance-container font-face-2">
+		</div>
+		<div class="footer">
+			<div class="balance-container font-face-2">
+				<div class="balance-contained">
 					<label class="label-title" style="{{balance.title.style}}">{{balance.title.text}}</label>
 					{{#each currencies}}
 						<div class="label-container">
@@ -26,9 +28,9 @@
 						</div>
 					{{/each}}
 				</div>
-				<div class="buttons">
-					<a><img src="{{common.backButton}}" class="leave-store"></a>
-				</div>
+			</div>
+			<div class="buttons">
+				<a><img src="{{common.backButton}}" class="leave-store"></a>
 			</div>
 		</div>
 	</div>

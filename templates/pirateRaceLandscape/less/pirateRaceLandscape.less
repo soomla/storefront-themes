@@ -11,6 +11,8 @@
 @externalHeight:    720px;
 @internalWidth:     1018px;
 @internalHeight:    484px;
+@headerInternalHeight: 60px;
+
 
 // GENERAL LAYOUT
 // --------------------------------------------------
@@ -21,20 +23,29 @@ ul {
     list-style-type: none;
 }
 
-
-#main {
-    .background-size(cover);
-    background-position: center;
-    .box(vertical,center, center);
-}
-
 // Sets the outer most dimensions in which
 // all the content is held i.e. header, pages etc.
 #content-container {
-    width: 100%;// @externalWidth;
-    height: 100%;//@externalHeight;
+    width: 100%; //@externalWidth;
+    height: 100%; //@externalHeight;
     .background-size(cover);
-    //.box(vertical,center, center);
+    .box(vertical,center, center);
+    background-color: red;
+    background-image: none;
+
+    & > .content {
+        width: @internalWidth;
+        height: @externalHeight;
+        .background-size(cover);
+        .box(vertical, center, center);
+        margin: 0 auto;
+    }
+}
+
+#pages {
+    width: @internalWidth;
+    height: @internalHeight;
+    overflow-y: scroll;
 }
 
 .header, .footer {
@@ -42,13 +53,19 @@ ul {
 }
 
 .header {
-    margin: 0 auto;
+    width: @internalWidth;
+    text-align: center;
 
-    .categories {
+    .categories-container {
         .box(horizontal, center);
 
-        .category {
-            .box-flex(1);
+        .categories {
+            background-color: olive;
+            .box;
+
+            .category {
+                .box-flex(1);
+            }
         }
     }
 
@@ -61,25 +78,33 @@ ul {
 }
 
 .footer {
-    width: 100%;
+    width: @internalWidth;
+    height: @headerInternalHeight;
+    //margin-bottom: 10px;
+    //padding: 10px;
+    text-align: center;
 
     .balance-container {
-        background-color: olive;
         @height: 36px;
-        .box(horizontal, center ,center);
+        .box(horizontal, center,center);
         font-size: @height;
         line-height: @height;
 
-        .label-container {
-            text-align: center;
-            padding: 0 30px;
-            label {
-                vertical-align: middle;
-            }
-        }
+        .balance-contained {
+            background-color: olive;
+            .box(horizontal, center, center);
+            .label-container {
+                text-align: center;
+                padding: 0 30px;
 
-        .currency {
-            max-height: @height;
+                label {
+                    vertical-align: middle;
+                }
+            }
+
+            .currency {
+                max-height: @height;
+            }
         }
     }
 
@@ -96,39 +121,26 @@ ul {
     }
 }
 
-#goods-store {
-
-    // Make sure that level-0 backgrounds "contain" the viewport
-    .background-size(cover);
-
-    & > .content {
-        width: @internalWidth;
-        height: @externalHeight;
-        .background-size(cover);
-        .box(vertical, center, center);
-        margin: 0 auto;
-    }
-}
-
-
 .items-container {
-    width: @internalWidth;
+    width: @internalWidth - 30;
     min-height: @itemMinHeight;
-	margin: 0 auto;
+    margin: 0 auto;
     padding: 0;
-	.background-size(cover);
+    .background-size(cover);
     overflow: auto;
 
     div[data-iscroll='true'] {
-        width: @internalWidth * 4;
+        //width: Set In JS!!
+
+        .items {
+            background-position: center;
+            //clear: both;
+            display: inline-block;
+            .container {
+                height: @itemMinHeight;
+            }
+        }
     }
-}
-
-
-.virtualGoods, .currencyPacks {
-	background-position: center;
-    //clear: both;
-    display: inline-block;
 }
 
 .category {
@@ -149,24 +161,13 @@ ul {
 
 @itemMinHeight: 250px;
 @itemTotalHeight: 100px;
-@itemWidth: @internalWidth / 5 - 10;
+@itemWidth: 204px; // Should be the same as in the JS.
 
 .item {
     min-height:  @itemMinHeight;
     width: @itemWidth;
     border: 1px dotted black;
     display: inline-block;
-}
-
-/*.virtualGoods {
-    width: 400px;
-}*/
-
-.virtualGoods .container {
-    height: @itemMinHeight;
-}
-
-.item {
 
     // Local variables
     @visualWidth: @itemTotalHeight;
@@ -275,7 +276,7 @@ ul {
 
 // SINGLE LIST ITEMS - CURRENCY PACKS
 // --------------------------------------------------
-
+/*
 @currItemHeight: 200px;
 @currItemWidth: 160px;
 
@@ -290,7 +291,7 @@ ul {
         max-height: @itemTotalHeight;
     }
 }
-
+*/
 .separator {
     //width: 100%;
     height:  0;//10px;
@@ -300,9 +301,7 @@ ul {
 // --------------------------------------------------
 
 .nonConsumables .item {
-
     .visual-container {
-
         // State: not owned
         float: left;
         position: relative;

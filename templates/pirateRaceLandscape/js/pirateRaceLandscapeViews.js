@@ -13,7 +13,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             triggers: { "fastclick .category": "chooseCategory" }
         }),
         SectionedListView = Marionette.CompositeView.extend({
-            className           : "items virtualGoods", // clearfix
+            className           : "items", // clearfix
             template            : getTemplate("listContainer"),
             itemViewContainer   : ".container"
         }),
@@ -91,8 +91,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
             var currencies      = this.model.get("virtualCurrencies"),
                 categories      = this.model.get("categories"),
-                nonConsumables  = this.model.get("nonConsumables");
-
+                nonConsumables = this.model.get("nonConsumables");
 
             // View event listeners
             var wantsToBuyVirtualGoods = _.bind(function (view) {
@@ -108,14 +107,14 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 this.playSound().wantsToRestorePurchases();
             }, this);
             var chooseCategory = _.bind(function (view) {
-                var numItems = view.model.get('goods').length;
-                var elementId = 'soomCat' + view.model.get('id');
-                var element = $('#'+elementId);
+                var elementId = 'soomCat' + view.model.id;
                 this.iscrolls.goods.scrollToElement('#' + elementId, 500);
             }, this);
 
             // Create category views
             var i = 0;
+            this.numOfItems = 0;
+
             categories.each(function (category) {
 
                 var headerView = new CategoryHeaderView({
@@ -130,6 +129,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 var categoryGoods   = category.get("goods"),
                     equipping       = category.get("equipping"),
                     view;
+                this.numOfItems += (!!categoryGoods) ? categoryGoods.length : 0;
 
                 if (equipping === "single") {
                     view = new SectionedListView({
@@ -160,10 +160,14 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
                 this.categoryHeaderViews.push(headerView);
 
-                var view = new Components.CollectionView({
+                var packs = currency.get("packs");
+                this.numOfItems += (!!packs) ? packs.length : 0;
+
+                var view = new SectionedListView({
                     className           : "items currencyPacks",
-                    collection          : currency.get("packs"),
-                    itemView            : CurrencyPackView
+                    collection          : packs,
+                    itemView            : CurrencyPackView,
+                    templateHelpers: _.extend({ category: currency.get("name"), id: currency.get("itemId"), selected: "" }, this.theme.categories)
                 }).on("itemview:select", wantsToBuyMarketItem);
 
                 this.currencyPacksViews.push(view)
@@ -175,12 +179,12 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 itemView            : NonConsumableView
             }).on("itemview:buy", wantsToBuyMarketItem);
 
-
             // Add restore purchases view if necessary
             if (!nonConsumables.isEmpty()) {
                 this.restorePurchasesView = new RestorePurchasesView().on("select", wantsToRestorePurchases);
             }
 
+            this.numOfItems += nonConsumables.length;
         },
         events : {
             // TODO: Change to timedEvents with `click` once the storeview extends Marionette.View
@@ -189,10 +193,10 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             "fastclick .back"        : "showGoodsStore"
         },
         ui : {
-            goodsStore : "#goods-store",
-            goodsHeader: "#goods-store .header",
-            goodsCategoriesHeader: "#goods-store .header .categories",
-            goodsIscrollContainer : "#goods-store .items-container [data-iscroll='true']",
+            goodsStore: "#content-container",
+            goodsHeader: "#content-container .header",
+            goodsCategoriesHeader: "#content-container .header .categories",
+            goodsIscrollContainer: "#content-container .items-container [data-iscroll='true']",
             currencyPacksContainer : ".currency-packs"
         },
         updateBalance : function(model) {
@@ -219,16 +223,15 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
         },
         iscrollRegions : {
             goods : {
-                el : "#goods-store .items-container",
+                el : "#content-container .items-container",
                 options: {
-                    snap: 'li', hScroll: true, vScroll: false, hScrollbar: false, vScrollbar: false, onScrollEnd: function (e, x) {
-                        var itemIndex = Math.floor(Math.max(0, (Math.abs(this.x) - 14)) / 167);
-                        var categoryIndex = Math.floor(itemIndex / 4) + 1;
-                        for (var i = 1; i <= 5; i++) {
-                            $('#soomCatHeader' + i).toggleClass('selected', (i == categoryIndex));
-                        }
-                        
-                        //    document.elementFromPoint( $('.items-container').position().left + Math.abs(this.x), $('.items-container').position().top + Math.abs(this.y) )
+                    snap: 'li', hScroll: true, vScroll: false, hScrollbar: false, vScrollbar: false, onScrollEnd: function () {
+                        //TODO: Change "206" to @itemWidth.
+                        var itemIndex = Math.floor(Math.max(0, (Math.abs(this.x) + 3)) / 206);
+                        var liElement = $('ul li', this.scroller)[itemIndex];
+                        var categoryId = $('> div', liElement).data('categoryid');
+                        $('div .categories .selected').toggleClass('selected', false);
+                        $('#soomCatHeader' + categoryId).toggleClass('selected', true);
                 } }
             },
         },
@@ -238,10 +241,12 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 this.ui.goodsCategoriesHeader.append(view.render().el);
             }, this);
 
+            //TODO: Change "208" to @itemWidth.
+            this.ui.goodsIscrollContainer[0].style.width = this.numOfItems * 208 + 'px';
+
             _.each(this.categoryViews, function(view) {
                 this.ui.goodsIscrollContainer.append(view.render().el);
             }, this);
-
 
             _.each(this.currencyPacksViews, function(view) {
                 this.ui.goodsIscrollContainer.append(view.render().el);
@@ -255,7 +260,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
         },
         zoomFunction : function() {
-            return Math.min(innerWidth / 560, 1);
+            return (innerWidth / innerHeight) > 1.5 ? (innerHeight / 838) : (innerWidth / 1400);
         }
     });
 

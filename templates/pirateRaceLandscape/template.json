@@ -6,12 +6,12 @@
         "background" : {
             "type" : "backgroundImage",
             "title" : "Background Image",
-            "selector" : "#goods-store"
+            "selector" : "#content-container"
         },
         "contentBackground" : {
             "type" : "backgroundImage",
             "title" : "Content Background Image",
-            "selector" : "#content-container"
+            "selector" : "#content-container > .content"
         },
         "common" : {
             "titleImage" : {
@@ -72,7 +72,7 @@
                     "background" : {
                         "type" : "backgroundImage",
                         "title" : "Item Area Background",
-                        "selector" : "#goods-store .items-container"
+                        "selector" : ".items-container"
                     }
                 },
                 "listItem" : {

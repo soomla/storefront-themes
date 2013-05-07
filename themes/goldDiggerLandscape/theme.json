@@ -8,7 +8,9 @@
         "virtualGoods" : {
             "bomb" : "img/Powerups/Bomb.png",
             "gold_pot" : "img/Powerups/Gold_Pot.png",
+			"gold_pot_2" : "img/Powerups/Gold_Pot.png",
             "lucky_clover" : "img/Powerups/Lucky_Clover.png",
+			"lucky_clover_2" : "img/Powerups/Lucky_Clover.png",
             "rock_book" : "img/Powerups/Rock_Book.png",
 			"rock_book_gems" : "img/Powerups/Rock_Book.png",
             "kasey" : "img/Characters/Kasey.png",
@@ -34,7 +36,7 @@
         }
     },
     "theme" : {
-        "name" : "goldDigger",
+        "name" : "goldDiggerLandscape",
         "version" : 1,
         "background" : "img/BG-Level0.jpg",
         "contentBackground" : "img/BG-Level1.jpg",
