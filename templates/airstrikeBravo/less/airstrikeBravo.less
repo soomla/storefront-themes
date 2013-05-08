@@ -102,9 +102,8 @@ ul {
 
     #balance-container {
         @currencyPadding: 2px;
-        @height: (@topBarHeight - 20) - (2 * @currencyPadding);
-        .box-flex(1);
-        .box(horizontal, center, center);
+        @height: (@headerInternalHeight / 2) - (2 * @currencyPadding);
+        .box(vertical, center);
 
         // Allow several currencies
         .label-container {
