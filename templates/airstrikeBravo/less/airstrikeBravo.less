@@ -80,11 +80,37 @@ ul {
 
     .title-container {
         .box-flex(1);
+        margin-top:10px;
         overflow: hidden;
-
-        h1 {
+        position:relative;
+        h1, h2  {
             text-align: center;
-            font-size: 50px;
+           /* font-size: 60px;*/
+            width:100%;
+            position:absolute;
+            top:0;
+            color:#fff;
+            margin:0;
+            
+            .transition(all .5s ease-in-out);
+        }
+        h1 {
+            opacity: 1;
+            left:0;
+        }
+        h2 {
+            opacity: 0;
+            left:100%;
+        }
+    }
+    .title-container.secondView{
+        h1 {
+            opacity: 0;
+            left:-100%;
+        }
+        h2 {
+            opacity: 1;
+            left:0;
         }
     }
 
@@ -188,17 +214,49 @@ ul {
     background-position: center;
     background-repeat: no-repeat;
 }
-
+/* chaim > */
+#pages{
+    position:relative;
+}
 .items {
     list-style-type: none;
     padding: 0;
-    margin: 10px;
     overflow: auto;
     height: @internalHeight;
 }
+.items.menu{
+    float: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 900;
 
-.category {
-    display: none;
+    -o-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+
+}
+#pages.slide .items.menu {
+     left: -100%;
+}
+.items.category {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    opacity: 0;
+    min-width:100%;
+    max-width:100%;
+    -o-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+#pages.slide .items.category.on{
+    left:0;
+    opacity: 1;
 }
 
 
@@ -297,11 +355,26 @@ ul {
     }
 
     &.single-use {
-        .balance-label {
-            font-size: @secondaryFontSize;
-        }
-        .balance {
-            font-weight: bold;
+        .balance-wrap{
+            display:inline-block;
+            position:relative;
+            .transition(all .5s ease-in-out);
+
+            .balance-label {
+                font-size: @secondaryFontSize;
+                color:green !important
+            }
+            .balance {
+                font-weight: bold;
+            }
+            &.changed {
+                -webkit-animation: jiggle2 0.3s infinite;
+                -moz-animation-duration: 0.3s;
+                -moz-animation-name: jiggle2;
+                -moz-animation-iteration-count: infinite;
+                -webkit-transform: rotate(-2deg);
+                -moz-transform: rotate(-2deg);
+            }
         }
     }
 
