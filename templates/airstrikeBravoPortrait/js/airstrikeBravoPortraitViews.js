@@ -92,7 +92,6 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 collection  : categories,
                 itemView    : CategoryView
             }).on("itemview:select", function(view) {
-                console.log("tightRope itemview:select", view.model.cid)
                 this.playSound().changeViewTo(this.children.findByCustom(view.model.cid));
             }, this);
             this.children.add(categoryMenuView, "menu");
@@ -257,7 +256,6 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
             }
 
             newview.$el.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
-                //console.log("end")
                 newview.$el.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
                 $(_pages).animate({ scrollTop: 0 }, "slow");
             });
