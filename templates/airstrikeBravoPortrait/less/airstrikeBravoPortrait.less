@@ -95,16 +95,11 @@ ul {
             font-size: 60px;
             width:100%;
             position:absolute;
-            /*left:0;*/
             top:0;
             color:#fff;
             margin:0;
             
-            -o-transition: all .5s ease-in-out;
-            -ms-transition: all .5s ease-in-out;
-            -moz-transition: all .5s ease-in-out;
-            -webkit-transition: all .5s ease-in-out;
-            transition: all .5s ease-in-out;
+            .transition(all .5s ease-in-out);
         }
         h1 {
             opacity: 1;
@@ -231,15 +226,7 @@ ul {
     margin: 10px;
     overflow: auto;
     min-height: @internalHeight;
-}
- /* chaim start: ------------------------- */
- #pages{
-    position:relative;
- }
-.items {
-    /*margin: 0px;*/
-}
-.items.menu{
+    &.menu{
     float: none;
     position: absolute;
     top: 0;
@@ -257,24 +244,11 @@ ul {
     -moz-transform-style: preserve-3d;
     -moz-backface-visibility: hidden;
 
-    -o-transition: all .5s ease-in-out;
-    -ms-transition: all .5s ease-in-out;
-    -moz-transition: all .5s ease-in-out;
-    -webkit-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
+        .transition(all .5s ease-in-out);
 
     opacity:1;
 }
-#pages.flip .items.menu {
-    z-index: 900;
-
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-
-    opacity: 0;
-    
-}
-.items.category{
+    &.category{
     float: none;
     position: absolute;
     top: 0;
@@ -289,13 +263,22 @@ ul {
     -moz-transform-style: preserve-3d;
     -moz-backface-visibility: hidden;
 
-    -o-transition: all .5s ease-in-out;
-    -ms-transition: all .5s ease-in-out;
-    -moz-transition: all .5s ease-in-out;
-    -webkit-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
+        .transition(all .5s ease-in-out);
 
     opacity: 0;
+}
+}
+#pages{
+    position:relative;
+}
+#pages.flip .items.menu {
+    z-index: 900;
+
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+
+    opacity: 0;
+    
 }
 #pages.flip .items.category{
     opacity: 0;
@@ -308,10 +291,6 @@ ul {
 
     opacity: 1;
 }
-.category {
-    /*display: none;*/
-}
-/* // chaim ------------------------------ */
 
 // SINGLE LIST ITEMS - VIRTUAL GOODS
 // --------------------------------------------------
