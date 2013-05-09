@@ -18,7 +18,10 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             itemViewContainer   : ".container"
         }),
         EquippableVirtualGoodView   = Components.EquippableItemView.extend({ template : getTemplate("equippableItem")}),
-        CurrencyPackView            = Components.ItemView.extend({ template : getTemplate("currencyPack") }),
+        CurrencyPackView = Components.ItemView.extend(_.extend({
+            template: getTemplate("currencyPack"),
+            triggers: { "fastclick .buy": "buy" }
+        })),
         NonConsumableView           = Components.BuyOnceItemView.extend({template : getTemplate("nonConsumableItem") }),
         RestorePurchasesView        = Components.LinkView.extend({
             tagName: "div",
@@ -168,7 +171,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                     collection          : packs,
                     itemView            : CurrencyPackView,
                     templateHelpers: _.extend({ category: currency.get("name"), id: currency.get("itemId"), selected: "" }, this.theme.categories)
-                }).on("itemview:select", wantsToBuyMarketItem);
+                }).on("itemview:buy", wantsToBuyMarketItem);
 
                 this.currencyPacksViews.push(view)
             }, this);

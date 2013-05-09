@@ -19,6 +19,11 @@
                 "title" : "Title Image",
                 "selector" : ".title-image"
             },
+			"categoriesTitleBackground" : {
+                "type" : "image",
+                "title" : "Categories Title Background",
+                "selector" : ".header .categories"
+			},
             "backButton" : {
                 "type" : "image",
                 "title" : "Back Button",
@@ -58,6 +63,11 @@
 					"type" : "css",
 					"title" : "Balance Title Style",
 					"selector" : ".footer .balance-container .label-title"
+				},
+				"background" : {
+					"type" : "image",
+					"title" : "Balance Title Background",
+					"selector" : ".footer .balance-container .balance-contained"
 				}
 			},
             "style" : {

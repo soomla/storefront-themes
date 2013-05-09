@@ -1,16 +1,16 @@
-<div class="content" data-categoryid="{{categoryId}}">
-    <div class="row">
-        <div class="description">
-            <label style="{{descriptionStyle}}">{{description}}</label>
-        </div>
+<div class="content" data-categoryid="{{categoryId}}" style="background-image: url({{imgFilePath}})">
+  <div class="row">
+    <div class="description">
+      <label style="{{descriptionStyle}}">{{description}}</label>
     </div>
-    <img src="{{imgFilePath}}" class="visual" />
-    <div class="row price">
-        <label style="{{priceStyle}}">{{price}}</label>
-        <img src="{{currency.imgFilePath}}" class="currency" />
-        <a class="buy">
-            <img src="{{buy}}" />
-        </a>
-    </div>
+  </div>
+  <div class="visual"></div>
+  <div class="row price">
+    <label style="{{priceStyle}}">{{price}}</label>
+    <img src="{{currency.imgFilePath}}" class="currency" />
+    <a class="buy">
+      <img src="{{buy}}" />
+    </a>
+  </div>
 </div>
 <img src="{{itemSeparator}}" class="separator" />

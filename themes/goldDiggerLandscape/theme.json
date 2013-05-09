@@ -42,6 +42,7 @@
         "contentBackground" : "img/BG-Level1.jpg",
         "common" : {
             "titleImage" : "img/Header_Title.png",
+			"categoriesTitleBackground" : "img/BG-Level0.jpg",
             "backButton" : "img/Back_BTN.png",
 	        "purchasedIndicatorImage" : "img/owned.png",
             "balanceLabelStyle" : "color: #E9C861;"
@@ -58,7 +59,8 @@
         "balance" : {
 			"title" : {
 				"text" : "Treasure:",
-				"style" : "color: #E9C861;"
+				"style" : "color: #E9C861;",
+				"background" : "img/BG-Level0.jpg"
 			},
             "style" : "color: #E9C861;"
         },

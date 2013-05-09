@@ -60,7 +60,8 @@ ul {
         .box(horizontal, center);
 
         .categories {
-            background-color: olive;
+            .background-size(100% 100%);
+            padding: 0 15px;
             .box;
 
             .category {
@@ -98,9 +99,10 @@ ul {
         line-height: @height;
 
         .balance-contained {
-            background-color: olive;
+            .background-size(100% 100%);
             .box(horizontal, center, center);
-            .label-container {
+
+            .label-container, .label-title {
                 text-align: center;
                 padding: 0 30px;
 
@@ -185,6 +187,8 @@ ul {
         @padding: 10px;
         padding: @padding;
         text-align: center;
+        min-height:  @itemMinHeight;
+        .background-size(100% 100%);
     }
 
     // The content is layed out in two rows
