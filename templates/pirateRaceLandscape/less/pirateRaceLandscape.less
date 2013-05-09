@@ -10,9 +10,7 @@
 @externalWidth:     1280px;
 @externalHeight:    720px;
 @internalWidth:     1018px;
-@internalHeight:    484px;
-@headerInternalHeight: 60px;
-
+@internalHeight:    504px;
 
 // GENERAL LAYOUT
 // --------------------------------------------------
@@ -35,10 +33,11 @@ ul {
 
     & > .content {
         width: @internalWidth;
-        height: @externalHeight;
+        height: @internalHeight;
         .background-size(cover);
         .box(vertical, center, center);
         margin: 0 auto;
+        padding: 0 20px;
     }
 }
 
@@ -55,6 +54,7 @@ ul {
 .header {
     width: @internalWidth;
     text-align: center;
+    position: relative;
 
     .categories-container {
         .box(horizontal, center);
@@ -75,13 +75,20 @@ ul {
         height: 100px;
         margin: 0 auto;
     }
+
+    a img {
+        position: absolute;
+        height: 60px;
+        width: 20%;
+        padding-right: 20px;
+        margin: 15px;
+        top:0;
+        left:0;
+    }
 }
 
 .footer {
     width: @internalWidth;
-    height: @headerInternalHeight;
-    //margin-bottom: 10px;
-    //padding: 10px;
     text-align: center;
 
     .balance-container {
@@ -107,18 +114,6 @@ ul {
             }
         }
     }
-
-    .buttons {
-        position: relative;
-
-        img {
-            position: absolute;
-            height: 60px;
-            width: 20%;
-            padding-right: 20px;
-            right: 0;
-        }
-    }
 }
 
 .items-container {
@@ -137,7 +132,7 @@ ul {
             //clear: both;
             display: inline-block;
             .container {
-                height: @itemMinHeight;
+                height: @itemTotalHeight;
             }
         }
     }
@@ -155,7 +150,9 @@ ul {
     color: yellow !important;
 }
 
-
+.non-consumables {
+    height: 0;
+}
 // SINGLE LIST ITEMS - VIRTUAL GOODS
 // --------------------------------------------------
 

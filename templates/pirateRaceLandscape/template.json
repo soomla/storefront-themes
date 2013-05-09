@@ -22,7 +22,7 @@
             "backButton" : {
                 "type" : "image",
                 "title" : "Back Button",
-                "selector" : ".footer .leave-store, .footer .back"
+                "selector" : ".header .leave-store"
             },
             "balanceLabelStyle" : {
                 "type" : "css",
