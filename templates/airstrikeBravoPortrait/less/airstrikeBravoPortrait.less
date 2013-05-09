@@ -226,59 +226,58 @@ ul {
     margin: 10px;
     overflow: auto;
     min-height: @internalHeight;
-    &.menu{
-    float: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 900;
-
-    min-height:@internalHeight;
-    margin: 10px 20px;
-
-    -webkit-transform: rotateX(0deg) rotateY(0deg);
-    -webkit-transform-style: preserve-3d;
-    -webkit-backface-visibility: hidden;
-
-    -moz-transform: rotateX(0deg) rotateY(0deg);
-    -moz-transform-style: preserve-3d;
-    -moz-backface-visibility: hidden;
-
-        .transition(all .5s ease-in-out);
-
-    opacity:1;
-}
-    &.category{
-    float: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 800;
     
-    -webkit-transform: rotateY(-180deg);
-    -webkit-transform-style: preserve-3d;
-    -webkit-backface-visibility: hidden;
+    &.menu{
+        float: none;
+        position: absolute;
+        top: 0;
+        left: 0;
 
-    -moz-transform: rotateY(-180deg);
-    -moz-transform-style: preserve-3d;
-    -moz-backface-visibility: hidden;
+        min-height:@internalHeight;
+        margin: 10px 20px;
+
+        -webkit-transform: rotateX(0deg) rotateY(0deg);
+        -webkit-transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+
+        -moz-transform: rotateX(0deg) rotateY(0deg);
+        -moz-transform-style: preserve-3d;
+        -moz-backface-visibility: hidden;
 
         .transition(all .5s ease-in-out);
 
-    opacity: 0;
-}
+        opacity:1;
+    }
+    
+    &.category{
+        float: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 800;
+    
+        -webkit-transform: rotateY(-180deg);
+        -webkit-transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+
+        -moz-transform: rotateY(-180deg);
+        -moz-transform-style: preserve-3d;
+        -moz-backface-visibility: hidden;
+
+        .transition(all .5s ease-in-out);
+
+        opacity: 0;
+    }
+
 }
 #pages{
     position:relative;
 }
 #pages.flip .items.menu {
-    z-index: 900;
-
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
 
     opacity: 0;
-    
 }
 #pages.flip .items.category{
     opacity: 0;

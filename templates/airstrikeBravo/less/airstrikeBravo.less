@@ -220,25 +220,23 @@ ul {
     overflow: auto;
     height: @internalHeight;
 
-	&.menu{
-	    float: none;
-	    position: absolute;
-	    top: 0;
-	    left: 0;
-	    z-index: 900;
+    &.menu {
+        float: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        .transition(left .5s ease-in-out);
+    }
 
+    &.category {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        opacity: 0;
+        min-width: 100%;
+        max-width: 100%;
         .transition(all .5s ease-in-out);
-	}
-
-	&.category {
-	    position: absolute;
-	    top: 0;
-	    left: 100%;
-	    opacity: 0;
-	    min-width:100%;
-	    max-width:100%;
-        .transition(all .5s ease-in-out);
-	}
+    }
 }
 #pages.slide .items{
 	&.menu {
@@ -264,7 +262,7 @@ ul {
     height: @collapsedHeight;
     overflow: hidden;
     .background-size(cover);
-    .transition(height 0.2s ease-out);
+    .transition(height 0.2s ease-out); // Visible on page load. Should be assigned only to 'explandable' items
 
     &.expanded {
         height: 2 * @collapsedHeight;
