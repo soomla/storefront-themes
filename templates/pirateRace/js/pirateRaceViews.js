@@ -181,11 +181,14 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 alert("Buying more " + this.model.get("currency").get("name") + " is unavailable. Check your internet connectivity and try again.");
             } else {
                 var that = this;
+                that.ui.currencyStore.removeClass("hide");
+                that.ui.currencyStore.removeClass("showBtn");
                 that.ui.currencyStore.addClass("on");
+                
                 that.ui.currencyStore.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
                     that.ui.currencyStore.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
-                    that.ui.currencyStore.addClass("showBtn");
                     that.ui.goodsStore.removeClass("showBtn");
+                    that.ui.currencyStore.addClass("showBtn");
                     that.iscrolls.packs.refresh();
                 });
                 /*
@@ -199,11 +202,10 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             var that = this;
             that.playSound();
 
-            that.ui.currencyStore.removeClass("on");
-
+            that.ui.currencyStore.addClass("hide");
             that.ui.currencyStore.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
                 that.ui.currencyStore.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
-                that.ui.currencyStore.removeClass("showBtn");
+                that.ui.currencyStore.removeClass("on");
                 that.ui.goodsStore.addClass("showBtn");
                 that.iscrolls.goods.refresh();
             });

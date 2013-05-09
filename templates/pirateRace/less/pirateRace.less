@@ -51,6 +51,8 @@ ul {
 }
 
 .footer {
+    
+    height:0;
     img {
         display: block;
         width: 500px;
@@ -60,7 +62,7 @@ ul {
     &.animated{
         position:relative;
         >a{
-            .transition(all .3s ease-in-out);
+            .transition(all .3s ease-out);
             position:absolute;
             left:0;
             &.btn1{
@@ -80,7 +82,7 @@ ul {
     // Make sure that level-0 backgrounds "contain" the viewport
     .background-size(cover);
 
-    .transition(all 0.5s ease-in-out);
+    .transition(all 0.4s ease-in);
 
     & > .content {
         width: 500px;
@@ -99,11 +101,9 @@ ul {
         top:0;
         &.showBtn{
             .footer.animated{
-                /*
-                display:block;
-                min-height:100px;
-                */
+                height:30px;
                 >a{
+                    .transition(all .2s ease);
                     &.btn1{
                         opacity: 1;
                         bottom:0;
@@ -115,31 +115,43 @@ ul {
                 }
             }
         }
-        
-        
+        &.hide{
+            .transition(all 0.2s ease-in);
+            opacity: 0;
+        }    
     }
+    &.hide{
+        opacity: 0;
+    }   
 }
 #goods-store{
     .footer.animated{
+        opacity: 1;
+        height:0;
         >a{
             &.btn1{
-                opacity: 0;
-                bottom:-200px;
+                opacity: 1;
+                bottom:-400px;
             }
             &.btn2{
-                opacity: 0;
+                opacity: 1;
                 bottom:-100px;
             }
         }
     }
     &.showBtn{
         .footer.animated{
+            opacity: 1;
+            height:110px;
+            .transition(all 0.2s ease);
             >a{
                 &.btn1{
+                    .transition(all 0.4s ease);
                     opacity: 1;
                     bottom:0;
                 }
                 &.btn2{
+                    .transition(all 0.2s ease);
                     opacity: 1;
                     bottom:100px;
                 }
