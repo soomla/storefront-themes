@@ -4,7 +4,10 @@
 @baseUrl: "../theme";
 .webkitScrollbar();
 
-@standardWidth: 460px;
+@standardWidth: 500px;
+@standardInnerWidth: 450px;
+@standardInnerLeftPadd: 25px;
+
 
 // GENERAL LAYOUT
 // --------------------------------------------------
@@ -49,124 +52,123 @@ ul {
         }
     }
 }
-
-.footer {
-    
-    height:0;
-    img {
-        display: block;
-        width: 500px;
-        height: 100px;
-        margin: 0 auto;
-    }
-    &.animated{
-        position:relative;
-        >a{
-            .transition(all .3s ease-out);
-            position:absolute;
-            left:0;
-            &.btn1{
-                opacity: 0;
-                bottom:-200px;
-            }
-            &.btn2{
-                opacity: 0;
-                bottom:-100px;
-            }
-        }
-    }
-
+.soombot{
+    z-index:2001;
 }
-#goods-store, #currency-store {
-
+#store-wrapper{
     // Make sure that level-0 backgrounds "contain" the viewport
     .background-size(cover);
-
-    .transition(all 0.4s ease-in);
-
-    & > .content {
+    >.content {
         width: 500px;
         height: 100%;
         .box(vertical);
         margin: 0 auto;
+        position:relative;
+        &>.header{
+            position:absolute;
+            left:0;
+            top:0;
+            z-index:30;
+        }
+        &>.items-container{
+            position:absolute;
+            left:@standardInnerLeftPadd;
+            top:0;
+            width: @standardInnerWidth;
+            margin: 0 auto;
+            padding: 140px 0 0 0;
+            background-position-x:-@standardInnerLeftPadd;
+            background-position-y:0;
+            .box-flex(1);
+            overflow: auto;
+            min-height:100%;
+        }
+        &>.footer{
+            position:absolute;
+            left:0;
+            bottom:0;
+            z-index:20;
+            height:110px;
+            width: @standardWidth;
+            background-position-y:-50%;
+            .transition(all .2s ease-out);
+            img {
+                display: block;
+                width: 500px;
+                height: 100px;
+                margin: 0 auto;
+            }
+            .btn1{
+                .transition(all .3s ease-out);
+                position:absolute;
+                left:0;
+                bottom:100px;
+                display:block;
+            }
+            .btn2{
+                .transition(all .6s ease-out);
+                position:absolute;
+                left:0;
+                bottom:0;
+                display:block;
+            }
+            .btn3{
+                .transition(all .3s ease-out);
+                position:absolute;
+                left:0;
+                bottom:-100px;
+                display:block;
+            }
+        }
     }
+}
+#goods-store, #currency-store {
+    .transition(all 0.4s ease-in);
 }
 #goods-store{
     z-index:10;
 }
-#currency-store {
+#currency-store{
     z-index:20;
-    top:-100%;
-    &.on{
-        top:0;
-        &.showBtn{
-            .footer.animated{
-                height:30px;
-                >a{
-                    .transition(all .2s ease);
-                    &.btn1{
-                        opacity: 1;
-                        bottom:0;
-                    }
-                    &.btn2{
-                        opacity: 1;
-                        bottom:100px;
-                    }
-                }
+}
+#store-wrapper{
+    .content{
+        &>.items-container#currency-store{
+            top:-100%;
+        }
+        /*
+        .footer{
+            .btn1{
+                display:block;
+            }
+            .btn2{
+                display:block;
+            }
+            .btn3{
+                display:none;
             }
         }
-        &.hide{
-            .transition(all 0.2s ease-in);
-            opacity: 0;
-        }    
-    }
-    &.hide{
-        opacity: 0;
+        */
     }   
 }
-#goods-store{
-    .footer.animated{
-        opacity: 1;
-        height:0;
-        >a{
-            &.btn1{
-                opacity: 1;
-                bottom:-400px;
+#store-wrapper{
+    .content.currency-store{
+        &>.items-container#currency-store{
+            top:0;
+        }
+        .footer{
+            height:10px !important;
+            .btn1{
+                bottom:-100px;   
             }
-            &.btn2{
-                opacity: 1;
-                bottom:-100px;
+            .btn2{
+                bottom:-200px;
+            }
+            .btn3{
+                bottom:0;
             }
         }
     }
-    &.showBtn{
-        .footer.animated{
-            opacity: 1;
-            height:110px;
-            .transition(all 0.2s ease);
-            >a{
-                &.btn1{
-                    .transition(all 0.4s ease);
-                    opacity: 1;
-                    bottom:0;
-                }
-                &.btn2{
-                    .transition(all 0.2s ease);
-                    opacity: 1;
-                    bottom:100px;
-                }
-            }
-        }
-    }
-}
-
-.items-container {
-    width: @standardWidth;
-	margin: 0 auto;
-    padding: 0;
-	.background-size(cover);
-	.box-flex(1);
-    overflow: auto;
 }
 
 .virtualGoods, .currencyPacks {

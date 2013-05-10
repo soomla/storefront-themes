@@ -164,7 +164,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
         ui : {
             goodsStore : "#goods-store",
             currencyStore : "#currency-store",
-            goodsIscrollContainer : "#goods-store .items-container [data-iscroll='true']",
+            goodsIscrollContainer : "#goods-store.items-container [data-iscroll='true']",
             currencyPacksContainer : "#currency-store .currency-packs"
         },
         updateBalance : function(model) {
@@ -180,17 +180,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             if (this.model.get("isCurrencyStoreDisabled")) {
                 alert("Buying more " + this.model.get("currency").get("name") + " is unavailable. Check your internet connectivity and try again.");
             } else {
-                var that = this;
-                that.ui.currencyStore.removeClass("hide");
-                that.ui.currencyStore.removeClass("showBtn");
-                that.ui.currencyStore.addClass("on");
-                
-                that.ui.currencyStore.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
-                    that.ui.currencyStore.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
-                    that.ui.goodsStore.removeClass("showBtn");
-                    that.ui.currencyStore.addClass("showBtn");
-                    that.iscrolls.packs.refresh();
-                });
+                $(".content").addClass("currency-store");
                 /*
                 this.ui.goodsStore.hide();
                 this.ui.currencyStore.show();
@@ -199,16 +189,8 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             }
         },
         showGoodsStore : function() {
-            var that = this;
-            that.playSound();
-
-            that.ui.currencyStore.addClass("hide");
-            that.ui.currencyStore.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
-                that.ui.currencyStore.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
-                that.ui.currencyStore.removeClass("on");
-                that.ui.goodsStore.addClass("showBtn");
-                that.iscrolls.goods.refresh();
-            });
+            this.playSound();
+            $(".content").removeClass("currency-store");
 
             //this.ui.currencyStore.hide();
             //this.ui.goodsStore.show();
@@ -216,11 +198,11 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
         },
         iscrollRegions : {
             goods : {
-                el : "#goods-store .items-container",
+                el : "#goods-store.items-container",
                 options : {hScroll: false, vScrollbar: false}
             },
             packs : {
-                el : "#currency-store .items-container",
+                el : "#currency-store.items-container",
                 options : {hScroll: false, vScrollbar: false}
             }
         },
@@ -243,10 +225,10 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             if (this.restorePurchasesView) {
                 this.$("#restore-purchases").html(this.restorePurchasesView.render().el);
             }
-            var that = this;
+            /*var that = this;
             setTimeout(function(){
                     that.ui.goodsStore.addClass("showBtn");
-                }, 200);
+                }, 200);*/
 
         },
         zoomFunction : function() {

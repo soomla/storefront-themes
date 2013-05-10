@@ -32,7 +32,7 @@
         "name" : "goldDigger",
         "version" : 1,
         "background" : "img/BG-Level0.jpg",
-        "contentBackground" : "img/BG-Level1.jpg",
+        "contentBackground" : "img/BG-Level01.jpg",
         "common" : {
             "titleImage" : "img/Header_Title.png",
             "backButton" : "img/Back_BTN.png",

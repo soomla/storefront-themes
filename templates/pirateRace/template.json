@@ -6,12 +6,12 @@
         "background" : {
             "type" : "backgroundImage",
             "title" : "Background Image",
-            "selector" : "#goods-store, #currency-store"
+            "selector" : "#store-wrapper"
         },
         "contentBackground" : {
             "type" : "backgroundImage",
             "title" : "Content Background Image",
-            "selector" : "#main > div > .content"
+            "selector" : "#store-wrapper > .content, #store-wrapper .footer, .header, #currency-store"
         },
         "common" : {
             "titleImage" : {
