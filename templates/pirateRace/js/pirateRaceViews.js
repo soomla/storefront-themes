@@ -191,6 +191,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
         showGoodsStore : function() {
             this.playSound();
             $(".content").removeClass("currency-store");
+
             //this.ui.currencyStore.hide();
             //this.ui.goodsStore.show();
             //that.iscrolls.goods.refresh();
