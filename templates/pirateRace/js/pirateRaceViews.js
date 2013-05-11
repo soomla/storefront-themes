@@ -164,7 +164,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
         ui : {
             goodsStore : "#goods-store",
             currencyStore : "#currency-store",
-            goodsIscrollContainer : "#goods-store.items-container [data-iscroll='true']",
+            goodsIscrollContainer : "#goods-store .items-container [data-iscroll='true']",
             currencyPacksContainer : "#currency-store .currency-packs"
         },
         updateBalance : function(model) {
@@ -198,11 +198,11 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
         },
         iscrollRegions : {
             goods : {
-                el : "#goods-store.items-container",
+                el : "#goods-store",
                 options : {hScroll: false, vScrollbar: false}
             },
             packs : {
-                el : "#currency-store.items-container",
+                el : "#currency-store",
                 options : {hScroll: false, vScrollbar: false}
             }
         },

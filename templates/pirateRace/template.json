@@ -11,7 +11,7 @@
         "contentBackground" : {
             "type" : "backgroundImage",
             "title" : "Content Background Image",
-            "selector" : "#store-wrapper > .content, #store-wrapper .footer, .header, #currency-store"
+            "selector" : "#store-wrapper > .content, #store-wrapper .footer, #store-wrapper .header"
         },
         "common" : {
             "titleImage" : {
@@ -61,13 +61,6 @@
         },
         "pages" : {
             "goods" :{
-                "list" : {
-                    "background" : {
-                        "type" : "backgroundImage",
-                        "title" : "Item Area Background",
-                        "selector" : "#goods-store .items-container"
-                    }
-                },
                 "listItem" : {
                     "background" : {
                         "type" : "backgroundImage",
@@ -134,7 +127,7 @@
                     "background" : {
                         "type" : "backgroundImage",
                         "title" : "Currency Pack Area Background",
-                        "selector" : "#currency-store .items-container"
+                        "selector" : "#currency-store"
                     }
 				}
             }

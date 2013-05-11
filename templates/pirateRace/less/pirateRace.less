@@ -55,6 +55,21 @@ ul {
 .soombot{
     z-index:2001;
 }
+#goods-store, #currency-store {
+    margin-left:@standardInnerLeftPadd;
+    width: @standardInnerWidth;
+    .transition(all 0.4s ease-in);
+    overflow:auto;
+}
+#goods-store{
+    .box-flex(1);
+    z-index:10;
+}
+#currency-store{
+    z-index:20;
+    min-height:100%;
+    position:absolute;
+}
 #store-wrapper{
     // Make sure that level-0 backgrounds "contain" the viewport
     .background-size(cover);
@@ -64,31 +79,20 @@ ul {
         .box(vertical);
         margin: 0 auto;
         position:relative;
+        background-position-y:140px;
         &>.header{
-            position:absolute;
-            left:0;
-            top:0;
+            position:relative;
             z-index:30;
         }
-        &>.items-container{
-            position:absolute;
-            left:@standardInnerLeftPadd;
-            top:0;
+        .items-container{
             width: @standardInnerWidth;
             margin: 0 auto;
-            padding: 140px 0 0 0;
-            background-position-x:-@standardInnerLeftPadd;
-            background-position-y:0;
-            .box-flex(1);
-            overflow: auto;
-            min-height:100%;
         }
-        &>.footer{
-            position:absolute;
-            left:0;
-            bottom:0;
+        .footer{
+            position:relative;
             z-index:20;
             height:110px;
+            margin-top:80px;
             width: @standardWidth;
             background-position-y:-50%;
             .transition(all .2s ease-out);
@@ -122,50 +126,28 @@ ul {
         }
     }
 }
-#goods-store, #currency-store {
-    .transition(all 0.4s ease-in);
-}
-#goods-store{
-    z-index:10;
-}
-#currency-store{
-    z-index:20;
-}
 #store-wrapper{
     .content{
-        &>.items-container#currency-store{
+        &>#currency-store{
+            .transition(all .4s ease-out);
             top:-100%;
         }
-        /*
-        .footer{
-            .btn1{
-                display:block;
+        &.currency-store{
+            &>#currency-store{
+                .transition(all .4s ease-out);
+                top:140px;
             }
-            .btn2{
-                display:block;
-            }
-            .btn3{
-                display:none;
-            }
-        }
-        */
-    }   
-}
-#store-wrapper{
-    .content.currency-store{
-        &>.items-container#currency-store{
-            top:0;
-        }
-        .footer{
-            height:10px !important;
-            .btn1{
-                bottom:-100px;   
-            }
-            .btn2{
-                bottom:-200px;
-            }
-            .btn3{
-                bottom:0;
+            .footer{
+                height:10px !important;
+                .btn1{
+                    bottom:-100px;   
+                }
+                .btn2{
+                    bottom:-200px;
+                }
+                .btn3{
+                    bottom:0;
+                }
             }
         }
     }
