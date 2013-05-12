@@ -95,6 +95,11 @@ ul {
     z-index:10;
 }
 #currency-store {
+    .items-container {
+        >[data-iscroll='true']{
+            padding-bottom:90px;
+        }
+    }
     z-index:20;
     top:-100%;
     &.on{
@@ -125,6 +130,11 @@ ul {
     }   
 }
 #goods-store{
+    .items-container {
+        >[data-iscroll='true']{
+            padding-bottom:190px;
+        }
+    }
     .footer.animated{
         opacity: 1;
         height:0;
@@ -167,6 +177,7 @@ ul {
 	.background-size(cover);
 	.box-flex(1);
     overflow: auto;
+    
 }
 
 .virtualGoods, .currencyPacks {

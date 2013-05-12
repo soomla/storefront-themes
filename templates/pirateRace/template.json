@@ -6,7 +6,7 @@
         "background" : {
             "type" : "backgroundImage",
             "title" : "Background Image",
-            "selector" : "#goods-store, #currency-store"
+            "selector" : "#goods-store"
         },
         "contentBackground" : {
             "type" : "backgroundImage",
