@@ -11,7 +11,31 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
         CurrencyPackView                = Components.ItemView.extend({ template : getTemplate("currencyPack"), triggers : {"fastclick .buy" : "buy"} }),
         CategoryView                    = Components.LinkView.extend({ template : getTemplate("categoryMenuItem") }),
         NonConsumableView               = Components.BuyOnceItemView.extend({ template : getTemplate("nonConsumableItem")}),
-        ExpandableIScrollCollectionView = Components.ExpandableIScrollCollectionView.extend({ template : getTemplate("collection") });
+		CurrencyPacksCollectionView     = Components.ExpandableIScrollCollectionView.extend({ template: getTemplate("collection") }),
+		GoodsCollectionView             = Components.ExpandableIScrollCollectionView.extend({
+			template: getTemplate("collection"),
+			getItemView: function(item) {
+
+				if (!item) {
+					return Components.ExpandableIScrollCollectionView.prototype.getItemView.apply(this, arguments);
+				} else {
+
+					var itemView;
+
+					// some logic to calculate which view to return
+					// TODO: Add all virtual good types
+					switch (item.get("type")) {
+						case "singleUse":
+							itemView = SingleUseVirtualGoodView;
+							break;
+						case "equippable":
+							itemView = EquippableVirtualGoodView;
+							break;
+					}
+					return itemView;
+				}
+			}
+		});
 
 
     var extendViews = function(model) {
@@ -33,7 +57,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 currency: {
                     imgFilePath: modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
                 },
-                price: this.model.get("priceModel").values[this.model.getCurrencyId()],
+                price: this.model.getPrice(),
 
                 // This is a hack, because Backofgen ignores empty objects in the theme
                 item: (theme.pages.goods && theme.pages.goods.item) ? theme.pages.goods.item : {}
@@ -46,6 +70,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
         CurrencyPackView.prototype.templateHelpers = function() {
             var modelAssets = model.get("modelAssets");
             return createTemplateHelpers({
+                price: this.model.getPrice(),
                 imgFilePath : modelAssets["currencyPacks"][this.model.id],
                 currency: {
                     imgFilePath: modelAssets["virtualCurrencies"][this.model.get("currency_itemId")]
@@ -106,7 +131,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
 
             currencies.each(function(currency) {
                 var link = new CategoryView({
-                className : "item currency-packs",
+                	className : "item currency-packs",
                     templateHelpers : { imgFilePath : this.theme.currencyPacksCategoryImage }
             	}).on("select", function() {
                     this.playSound().changeViewTo(this.children.findByCustom(currency.cid));
@@ -174,32 +199,18 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
             categories.each(function(category) {
 
                 var categoryName 	= category.get("name"),
-                    equipping 		= category.get("equipping"),
                     goods 			= category.get("goods"),
                     view;
 
-                if (equipping === "single") {
-                    view = new ExpandableIScrollCollectionView({
-                        className   : "items virtualGoods category " + categoryName,
-                        collection  : goods,
-                        itemView    : EquippableVirtualGoodView
-                    }).on({
-                        "itemview:expand" 	: this.playSound,
-                        "itemview:collapse" : this.conditionalPlaySound,
-                        "itemview:buy"      : wantsToBuyVirtualGoods,
-                        "itemview:equip"    : wantsToEquipGoods
-                    });
-                } else {
-                    view = new ExpandableIScrollCollectionView({
-                        className   : "items virtualGoods category " + categoryName,
-                        collection  : goods,
-                        itemView    : SingleUseVirtualGoodView
-                    }).on({
-                        "itemview:expand" 	: this.playSound,
-                        "itemview:collapse" : this.conditionalPlaySound,
-                        "itemview:buy"      : wantsToBuyVirtualGoods
-                    });
-                }
+                view = new GoodsCollectionView({
+					className   : "items virtualGoods category " + categoryName,
+                    collection  : goods
+				}).on({
+					"itemview:expand" 	: this.playSound,
+					"itemview:collapse" : this.conditionalPlaySound,
+					"itemview:buy"      : wantsToBuyVirtualGoods,
+					"itemview:equip"    : wantsToEquipGoods
+				}, this);
 
                 this.children.add(view, category.cid);
                 headerStates[view.cid] = categoryName;
@@ -208,7 +219,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
 
             // Build currency packs category and add it to the page views
             currencies.each(function(currency) {
-				var currencyPacksView = new ExpandableIScrollCollectionView({
+                var currencyPacksView = new CurrencyPacksCollectionView({
 					className   : "items currencyPacks category",
 					collection  : currency.get("packs"),
 					itemView    : CurrencyPackView

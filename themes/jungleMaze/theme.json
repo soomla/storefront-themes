@@ -5,10 +5,10 @@
     },
     "modelAssets" : {
         "categories" : {
-            "1" : "img/-_Object_4.png",
-            "2" : "img/-_Object_1.png",
-            "3" : "img/-_Object_2.png",
-            "4" : "img/-_Object_3.png"
+            "ANIMALS" : "img/-_Object_4.png",
+            "HINTS" : "img/-_Object_1.png",
+            "POWERUPS" : "img/-_Object_2.png",
+            "UTILITIES" : "img/-_Object_3.png"
         },
         "virtualGoods" : {
            "elephant" : "img/Animals/Animal01.png",

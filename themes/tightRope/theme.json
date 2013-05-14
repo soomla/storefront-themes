@@ -5,10 +5,10 @@
     },
     "modelAssets" : {
         "categories" : {
-            "1" : "img/-_Object_1.png",
-            "2" : "img/-_Object_2.png",
-            "3" : "img/-_Object_3.png",
-            "4" : "img/-_Object_4.png"
+            "CHARACTERS" : "img/-_Object_1.png",
+            "UTILITIES" : "img/-_Object_2.png",
+            "POWERUPS" : "img/-_Object_3.png",
+            "HELPERS" : "img/-_Object_4.png"
         },
         "virtualGoods" : {
             "sick_mo" : "img/characters/monsters_1.png",
