@@ -1,36 +1,60 @@
 {
     "currencyPacks" : [
         {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 0.99,
+                    "productId": "android.test.canceled"
+                },
+                "purchaseType": "market"
+            },
             "name"              : "2,500",
             "itemId"            : "coins_2500",
             "currency_itemId"   : "currency_coins",
-            "productId"         : "2500_coins",
-            "price"             : 0.99,
-            "amount"            : 2500
+            "currency_amount"   : 2500
         },
         {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 4.99,
+                    "productId": "android.test.refunded"
+                },
+                "purchaseType": "market"
+            },
             "name"              : "25,000",
             "itemId"            : "coins_25000",
             "currency_itemId"   : "currency_coins",
-            "productId"         : "android.test.purchased",
-            "price"             : 4.99,
-            "amount"            : 25000
+            "currency_amount"   : 25000
         },
         {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 9.99,
+                    "productId": "android.test.purchased"
+                },
+                "purchaseType": "market"
+            },
             "name"              : "75,000",
             "itemId"            : "coins_75000",
             "currency_itemId"   : "currency_coins",
-            "productId"         : "75000_coins",
-            "price"             : 9.99,
-            "amount"            : 75000
+            "currency_amount"   : 75000
         },
         {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 19.99,
+                    "productId": "android.test.purchased"
+                },
+                "purchaseType": "market"
+            },
             "name"              : "200,000",
             "itemId"            : "coins_200000",
             "currency_itemId"   : "currency_coins",
-            "productId"         : "200000_coins",
-            "price"             : 19.99,
-            "amount"            : 200000
+            "currency_amount"   : 200000
         }
     ],
     "virtualCurrencies" : [
@@ -42,111 +66,115 @@
     ],
     "categories" : [
         {
-            "id" : 1,
+            "goods_itemIds": [
+                "bomb",
+                "gold_pot",
+                "lucky_clover",
+                "rock_book"
+            ],
             "name" : "POWERUPS"
         },
         {
-            "id" : 2,
-            "name" : "CHARACTERS",
-            "equipping" : "single"
+            "goods_itemIds": [
+                "kasey",
+                "robert_din",
+                "sir_james",
+                "tod"
+            ],
+            "name" : "CHARACTERS"
         }
     ],
-    "virtualGoods" : [
-        {
-            "name"          : "Bomb",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 500
-                }
+    "goods" : {
+        "goodUpgrades" : [],
+        "lifetime" : [],
+        "equippable" : [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 10000,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Kasey",
+                "description"   : "Lorem Ipsum is not simply random text",
+                "equipping"     : "category",
+                "itemId"        : "kasey"
             },
-            "itemId"        : "bomb",
-            "categoryId"   : 1
-        },
-        {
-            "name"          : "Gold Pot",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 500
-                }
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 10000,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Robert Din",
+                "description"   : "Lorem Ipsum is not simply random text",
+                "equipping"     : "category",
+                "itemId"        : "robert_din"
             },
-            "itemId"        : "gold_pot",
-            "categoryId"   : 1
-        },
-        {
-            "name"          : "Lucky Clover",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 750
-                }
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 25000,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Sir James",
+                "description"   : "Lorem Ipsum is not simply random text",
+                "equipping"     : "category",
+                "itemId"        : "sir_james"
             },
-            "itemId"        : "lucky_clover",
-            "categoryId"   : 1
-        },
-		{
-            "name"          : "Rock Book",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 750
-                }
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 25000,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Tod",
+                "description"   : "Lorem Ipsum is not simply random text",
+                "equipping"     : "category",
+                "itemId"        : "tod"
+            }
+        ],
+        "singleUse" : [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 500,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Bomb",
+                "description"   : "Lorem Ipsum is not simply random text",
+                "itemId"        : "bomb"
             },
-            "itemId"        : "rock_book",
-            "categoryId"   : 1
-        },
-		{
-            "name"          : "Kasey",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 10000
-                }
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 500,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Gold Pot",
+                "description"   : "Lorem Ipsum is not simply random text",
+                "itemId"        : "gold_pot"
             },
-            "itemId"        : "kasey",
-            "categoryId"   : 2
-        },
-		{
-            "name"          : "Robert Din",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 10000
-                }
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 750,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Lucky Clover",
+                "description"   : "Lorem Ipsum is not simply random text",
+                "itemId"        : "lucky_clover"
             },
-            "itemId"        : "robert_din",
-            "categoryId"   : 2
-        },
-        {
-            "name"          : "Sir James",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 25000
-                }
-            },
-            "itemId"        : "sir_james",
-            "categoryId"   : 2
-        },
-        {
-            "name"          : "Tod",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 25000
-                }
-            },
-            "itemId"        : "tod",
-            "categoryId"   : 2
-        }
-    ]
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 750,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Rock Book",
+                "description"   : "Lorem Ipsum is not simply random text",
+                "itemId"        : "rock_book"
+            }
+        ],
+        "goodPacks" : []
+    }
 }

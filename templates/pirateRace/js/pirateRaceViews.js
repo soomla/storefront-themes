@@ -3,14 +3,35 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
     // Define view types
 
     var getTemplate = Handlebars.getTemplate,
-        VirtualGoodView = Components.ItemView.extend(_.extend({
+        SingleUseVirtualGoodView = Components.ItemView.extend(_.extend({
             template : getTemplate("item"),
             triggers : { "fastclick .buy" : "buy" }
         })),
         SectionedListView = Marionette.CompositeView.extend({
             className           : "items virtualGoods",
             template            : getTemplate("listContainer"),
-            itemViewContainer   : ".container"
+            itemViewContainer   : ".container",
+            getItemView: function(item) {
+
+                if (!item) {
+                    return Marionette.CompositeView.prototype.getItemView.apply(this, arguments);
+                } else {
+
+                    var itemView;
+
+                    // some logic to calculate which view to return
+                    // TODO: Add all virtual good types
+                    switch (item.get("type")) {
+                        case "singleUse":
+                            itemView = SingleUseVirtualGoodView;
+                            break;
+                        case "equippable":
+                            itemView = EquippableVirtualGoodView;
+                            break;
+                    }
+                    return itemView;
+                }
+            }
         }),
         EquippableVirtualGoodView   = Components.EquippableItemView.extend({ template : getTemplate("equippableItem")}),
         CurrencyPackView            = Components.ItemView.extend({ template : getTemplate("currencyPack") }),
@@ -36,7 +57,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 currency : {
                     imgFilePath : modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
                 },
-                price : this.model.get("priceModel").values[this.model.getCurrencyId()],
+                price : this.model.getPrice(),
                 itemSeparator       : theme.itemSeparator
 
                 // TODO: Move all properties under pages.goods.item and pages.currencyPacks.item and migrate DB
@@ -45,11 +66,12 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
         };
 
 
-        VirtualGoodView.prototype.templateHelpers = templateHelpers;
+        SingleUseVirtualGoodView.prototype.templateHelpers = templateHelpers;
         EquippableVirtualGoodView.prototype.templateHelpers = templateHelpers;
         CurrencyPackView.prototype.templateHelpers = function() {
             var modelAssets = model.get("modelAssets");
             return {
+                price           : this.model.getPrice(),
                 nameStyle       : theme.pages.currencyPacks.listItem.nameStyle,
                 priceStyle      : theme.pages.currencyPacks.listItem.priceStyle,
                 itemSeparator   : theme.itemSeparator,
@@ -113,22 +135,14 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                     equipping       = category.get("equipping"),
                     view;
 
-                if (equipping === "single") {
-                    view = new SectionedListView({
-                        collection          : categoryGoods,
-                        itemView            : EquippableVirtualGoodView,
-                        templateHelpers     : _.extend({category : category.get("name")}, this.theme.categories)
-                    }).on({
-                        "itemview:buy" 		: wantsToBuyVirtualGoods,
-                        "itemview:equip" 	: wantsToEquipGoods
-                    });
-                } else {
-                    view = new SectionedListView({
-                        collection          : categoryGoods,
-                        itemView            : VirtualGoodView,
-                        templateHelpers     : _.extend({category : category.get("name")}, this.theme.categories)
-                    }).on("itemview:buy", wantsToBuyVirtualGoods);
-                }
+                view = new SectionedListView({
+                    collection          : categoryGoods,
+                    templateHelpers     : _.extend({category : category.get("name")}, this.theme.categories)
+                }).on({
+                    "itemview:buy" 		: wantsToBuyVirtualGoods,
+                    "itemview:equip" 	: wantsToEquipGoods
+                });
+
                 this.categoryViews.push(view);
             }, this);
             this.currencyPacksViews = [];
