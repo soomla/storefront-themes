@@ -4,7 +4,7 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
 
     var getTemplate = Handlebars.getTemplate,
         triggers = { "fastclick .buy" : "buy" },
-        VirtualGoodView = Components.ItemView.extend({
+        SingleUseVirtualGoodView = Components.ItemView.extend({
             triggers : triggers,
             template : getTemplate("item")
         }),
@@ -25,6 +25,30 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
             className           : "category",
             itemViewContainer   : ".goods",
             template            : getTemplate("category")
+        }),
+        CurrencyPacksCollectionView = CarouselView.extend(),
+        GoodsCollectionView         = CarouselView.extend({
+            getItemView: function(item) {
+
+                if (!item) {
+                    return CarouselView.prototype.getItemView.apply(this, arguments);
+                } else {
+
+                    var itemView;
+
+                    // some logic to calculate which view to return
+                    // TODO: Add all virtual good types
+                    switch (item.get("type")) {
+                        case "singleUse":
+                            itemView = SingleUseVirtualGoodView;
+                            break;
+                        case "equippable":
+                            itemView = EquippableItemView;
+                            break;
+                    }
+                    return itemView;
+                }
+            }
         });
 
 
@@ -60,11 +84,11 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
                 currency: {
                     imgFilePath: modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
                 },
-                price: this.model.get("priceModel").values[this.model.getCurrencyId()],
+                price: this.model.getPrice(),
                 item: theme.item
             }, templateHelpers);
         };
-        VirtualGoodView.prototype.templateHelpers = virtualGoodTemplateHelpers;
+        SingleUseVirtualGoodView.prototype.templateHelpers = virtualGoodTemplateHelpers;
         EquippableItemView.prototype.templateHelpers = virtualGoodTemplateHelpers;
 
         CurrencyPackView.prototype.templateHelpers = function() {
@@ -74,6 +98,7 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
                 currency : {
                     imgFilePath : modelAssets["virtualCurrencies"][this.model.get("currency_itemId")]
                 },
+                price: this.model.getPrice(),
                 item : theme.item
             }, templateHelpers);
         };
@@ -141,30 +166,16 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
             // Build views for each category
             categories.each(function(category) {
 
-                var categoryGoods   = category.get("goods"),
-                    equipping       = category.get("equipping"),
-                    view;
+                var categoryGoods = category.get("goods");
 
-                if (equipping === "single") {
-                    view = new CarouselView({
-                        collection          : categoryGoods,
-                        itemView            : EquippableItemView,
-                        templateHelpers     : templateHelpers
-                    }).on({
-                        "next previous"     : this.playSound,
-                        "itemview:buy"      : wantsToBuyVirtualGoods,
-                        "itemview:equip" 	: wantsToEquipGoods
-                    });
-                } else {
-                    view = new CarouselView({
-                        collection          : categoryGoods,
-                        itemView            : VirtualGoodView,
-                        templateHelpers     : templateHelpers
-                    }).on({
-                        "next previous"     : this.playSound,
-                        "itemview:buy"      : wantsToBuyVirtualGoods
-                    });
-                }
+                var view = new GoodsCollectionView({
+                    collection          : categoryGoods,
+                    templateHelpers     : templateHelpers
+                }).on({
+                    "next previous"     : this.playSound,
+                    "itemview:buy"      : wantsToBuyVirtualGoods,
+                    "itemview:equip" 	: wantsToEquipGoods
+                });
 
                 this.children.add(view, category.id);
             }, this);
@@ -173,7 +184,7 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
             // Build views for each currency
             currencies.each(function(currency) {
 
-                var view = new CarouselView({
+                var view = new CurrencyPacksCollectionView({
                     collection          : currency.get("packs"),
                     itemView            : CurrencyPackView,
                     templateHelpers     : templateHelpers

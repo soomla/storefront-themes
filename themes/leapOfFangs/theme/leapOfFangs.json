@@ -2,60 +2,106 @@
     "isCurrencyStoreDisabled" : false,
     "currencyPacks" : [
         {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 0.99,
+                    "productId": "android.test.canceled"
+                },
+                "purchaseType": "market"
+            },
             "name"              : "10 Coins",
             "itemId"            : "10_coins",
             "currency_itemId"   : "currency_coins",
-            "productId"         : "coins_10",
-            "price"             : 0.99,
-            "amount"            : 10
+            "currency_amount"   : 10
         },
         {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 1.99,
+                    "productId": "android.test.refunded"
+                },
+                "purchaseType": "market"
+            },
             "name"              : "50 Coins",
             "itemId"            : "50_coins",
             "currency_itemId"   : "currency_coins",
-            "productId"         : "android.test.purchased",
-            "price"             : 1.99,
-            "amount"            : 50
+            "currency_amount"   : 50
         },
         {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 4.99,
+                    "productId": "android.test.purchased"
+                },
+                "purchaseType": "market"
+            },
             "name"              : "400 Coins",
             "itemId"            : "400_coins",
             "currency_itemId"   : "currency_coins",
-            "productId"         : "coins_400",
-            "price"             : 4.99,
-            "amount"            : 400
+            "currency_amount"   : 400
         },
         {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 8.99,
+                    "productId": "android.test.purchased"
+                },
+                "purchaseType": "market"
+            },
             "name"              : "1000 Coins",
             "itemId"            : "1000_coins",
             "currency_itemId"   : "currency_coins",
-            "productId"         : "coins_1000",
-            "price"             : 8.99,
-            "amount"            : 1000
+            "currency_amount"   : 1000
         },
         {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 0.99,
+                    "productId": "android.test.purchased"
+                },
+                "purchaseType": "market"
+            },
             "name"              : "10 Diamonds",
             "itemId"            : "10_diamonds",
             "currency_itemId"   : "currency_diamonds",
-            "productId"         : "diamonds_10",
-            "price"             : 0.99,
-            "amount"            : 10
+            "currency_amount"   : 10
         },
         {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 2.99,
+                    "productId": "android.test.purchased"
+                },
+                "purchaseType": "market"
+            },
             "name"              : "100 Diamonds",
             "itemId"            : "100_diamonds",
             "currency_itemId"   : "currency_diamonds",
             "productId"         : "diamonds_100",
             "price"             : 2.99,
-            "amount"            : 100
+            "currency_amount"   : 100
         },
         {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 9.99,
+                    "productId": "android.test.purchased"
+                },
+                "purchaseType": "market"
+            },
             "name"              : "1000 Diamonds",
             "itemId"            : "1000_diamonds",
             "currency_itemId"   : "currency_diamonds",
             "productId"         : "diamonds_1000",
             "price"             : 9.99,
-            "amount"            : 1000
+            "currency_amount"   : 1000
         }
     ],
     "virtualCurrencies" : [
@@ -70,88 +116,94 @@
             "itemId"        : "currency_diamonds"
         }
     ],
-    "virtualGoods" : [
-        {
-            "name"          : "Vampire",
-            "description"   : "Lorem ipsum dolor sit amet, ad aeterno rationibus mel. Fastidii urbanitas ad cum, vel in eripuit feugiat. Prima graece nam cu, his no sensibus facilisis",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 225
-                }
+    "goods" : {
+        "goodUpgrades" : [],
+        "lifetime" : [],
+        "equippable" : [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 225,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Vampire",
+                "description"   : "Lorem ipsum dolor sit amet, ad aeterno rationibus mel. Fastidii urbanitas ad cum, vel in eripuit feugiat. Prima graece nam cu, his no sensibus facilisis",
+                "equipping"     : "category",
+                "itemId"        : "vampire"
             },
-            "itemId"        : "vampire",
-            "categoryId"   : 1
-        },
-        {
-            "name"          : "Witch",
-            "description"   : "Lorem ipsum dolor sit amet, ad aeterno rationibus mel. Fastidii urbanitas ad cum, vel in eripuit feugiat. Prima graece nam cu, his no sensibus facilisis",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 175
-                }
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 175,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Witch",
+                "description"   : "Lorem ipsum dolor sit amet, ad aeterno rationibus mel. Fastidii urbanitas ad cum, vel in eripuit feugiat. Prima graece nam cu, his no sensibus facilisis",
+                "equipping"     : "category",
+                "itemId"        : "witch"
             },
-            "itemId"        : "witch",
-            "categoryId"   : 1
-        },
-        {
-            "name"          : "Skull",
-            "description"   : "Lorem ipsum dolor sit amet, ad aeterno rationibus mel. Fastidii urbanitas ad cum, vel in eripuit feugiat. Prima graece nam cu, his no sensibus facilisis",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 225
-                }
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 225,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Skull",
+                "description"   : "Lorem ipsum dolor sit amet, ad aeterno rationibus mel. Fastidii urbanitas ad cum, vel in eripuit feugiat. Prima graece nam cu, his no sensibus facilisis",
+                "equipping"     : "category",
+                "itemId"        : "skull"
             },
-            "itemId"        : "skull",
-            "categoryId"   : 1
-        },
-        {
-            "name"          : "Zombie",
-            "description"   : "Lorem ipsum dolor sit amet, ad aeterno rationibus mel. Fastidii urbanitas ad cum, vel in eripuit feugiat. Prima graece nam cu, his no sensibus facilisis",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 175
-                }
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 175,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Zombie",
+                "description"   : "Lorem ipsum dolor sit amet, ad aeterno rationibus mel. Fastidii urbanitas ad cum, vel in eripuit feugiat. Prima graece nam cu, his no sensibus facilisis",
+                "equipping"     : "category",
+                "itemId"        : "zombie"
+            }
+        ],
+        "singleUse" : [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Chocolate Cake",
+                "description"   : "A classic cake to maximize customer satisfaction",
+                "itemId"        : "chocolate_cake"
             },
-            "itemId"        : "zombie",
-            "categoryId"   : 1
-        },
-        {
-            "name"          : "Chocolate Cake",
-            "description"   : "A classic cake to maximize customer satisfaction",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 250
-                }
-            },
-            "itemId"        : "chocolate_cake",
-            "categoryId"   : 2
-        },
-        {
-            "name"          : "Cream Cup",
-            "description"   : "Increase bakery reputation with this original pastry",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 50
-                }
-            },
-            "itemId"        : "cream_cup",
-            "categoryId"   : 2
-        }
-    ],
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 50,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Cream Cup",
+                "description"   : "Increase bakery reputation with this original pastry",
+                "itemId"        : "cream_cup"
+            }
+        ],
+        "goodPacks" : []
+    },
     "categories" : [
         {
-            "id" : 1,
-            "name" : "CHARACTERS",
-            "equipping" : "single"
+            "goods_itemIds": [
+                "vampire",
+                "witch",
+                "skull",
+                "zombie"
+            ],
+            "name" : "CHARACTERS"
         },
         {
-            "id" : 2,
+            "goods_itemIds": [
+                "chocolate_cake",
+                "cream_cup"
+            ],
             "name" : "WEAPONS"
         }
     ]

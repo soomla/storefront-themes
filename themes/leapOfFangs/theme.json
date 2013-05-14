@@ -5,8 +5,8 @@
     },
     "modelAssets" : {
         "categories" : {
-            "1" : "img/Categories/Pumpkin.png",
-            "2" : "img/Categories/Axe.png"
+            "CHARACTERS" : "img/Categories/Pumpkin.png",
+            "WEAPONS" : "img/Categories/Axe.png"
         },
         "virtualGoods" : {
             "vampire" : "img/Characters/Vampire.png",
