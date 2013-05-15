@@ -70,7 +70,38 @@
     ],
     "goods" : {
         "goodUpgrades" : [],
-        "lifetime" : [],
+        "lifetime" : [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 225,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Super Knot",
+                "description"   : "Allows you to tie a know and connect an extra rope",
+                "itemId"        : "super_knot"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 175,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Safety Net",
+                "description"   : "Use this as a way to limit how deep you will fall",
+                "itemId"        : "safety_net"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 375,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Umbrella",
+                "description"   : "Once you fall, double tap to use the umbrella but note it only lasts for 5 seconds",
+                "itemId"        : "umbrella"
+            }
+        ],
         "equippable" : [
             {
                 "purchasableItem": {
@@ -162,36 +193,6 @@
             }
         ],
         "singleUse" : [
-            {
-                "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
-                    "pvi_amount": 225,
-                    "purchaseType": "virtualItem"
-                },
-                "name"          : "Super Knot",
-                "description"   : "Allows you to tie a know and connect an extra rope",
-                "itemId"        : "super_knot"
-            },
-            {
-                "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
-                    "pvi_amount": 175,
-                    "purchaseType": "virtualItem"
-                },
-                "name"          : "Safety Net",
-                "description"   : "Use this as a way to limit how deep you will fall",
-                "itemId"        : "safety_net"
-            },
-            {
-                "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
-                    "pvi_amount": 375,
-                    "purchaseType": "virtualItem"
-                },
-                "name"          : "Umbrella",
-                "description"   : "Once you fall, double tap to use the umbrella but note it only lasts for 5 seconds",
-                "itemId"        : "umbrella"
-            },
             {
                 "purchasableItem": {
                     "pvi_itemId": "currency_coins",

@@ -202,6 +202,23 @@ ul {
             }
         }
     }
+
+    // Add specific styling for lifetime items
+    &.lifetime {
+
+        // State: not owned
+        .equip, .active {
+            display: none;
+            float:right;
+        }
+
+        // State: owned
+        &.owned {
+            .buy {
+                display: none;
+            }
+        }
+    }
 }
 
 

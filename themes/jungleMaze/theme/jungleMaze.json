@@ -71,7 +71,38 @@
     ],
     "goods" : {
         "goodUpgrades" : [],
-        "lifetime" : [],
+        "lifetime" : [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "BANANA",
+                "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "itemId"        : "banana"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 500,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "COCONUT",
+                "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "itemId"        : "coconut"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 1000,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "FLOWER",
+                "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "itemId"        : "flower"
+            }
+        ],
         "equippable" : [
             {
                 "purchasableItem": {
@@ -198,36 +229,6 @@
                 "name"          : "SWITCH",
                 "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
                 "itemId"        : "switch"
-            },
-            {
-                "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
-                    "pvi_amount": 250,
-                    "purchaseType": "virtualItem"
-                },
-                "name"          : "BANANA",
-                "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-                "itemId"        : "banana"
-            },
-            {
-                "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
-                    "pvi_amount": 500,
-                    "purchaseType": "virtualItem"
-                },
-                "name"          : "COCONUT",
-                "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-                "itemId"        : "coconut"
-            },
-            {
-                "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
-                    "pvi_amount": 1000,
-                    "purchaseType": "virtualItem"
-                },
-                "name"          : "FLOWER",
-                "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-                "itemId"        : "flower"
             }
         ],
         "goodPacks" : []

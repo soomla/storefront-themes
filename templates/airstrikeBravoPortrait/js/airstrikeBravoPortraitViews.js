@@ -8,6 +8,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
         ExpandableSingleUseItemView     = Components.ExpandableSingleUseItemView,
         EquippableVirtualGoodView       = ExpandableEquippableItemView.extend({ template : getTemplate("equippableItem") }),
         SingleUseVirtualGoodView        = ExpandableSingleUseItemView.extend({ template : getTemplate("singleUseItem")}),
+        LifetimeVirtualGoodView         = Components.ExpandableLifetimeItemView.extend({ template : getTemplate("equippableItem")}),
         CurrencyPackView                = Components.ItemView.extend({ template : getTemplate("currencyPack"), triggers : {"fastclick .buy" : "buy"} }),
         CategoryView                    = Components.LinkView.extend({ template : getTemplate("categoryMenuItem") }),
         NonConsumableView               = Components.BuyOnceItemView.extend({ template : getTemplate("nonConsumableItem")}),
@@ -31,6 +32,9 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
 						case "equippable":
 							itemView = EquippableVirtualGoodView;
 							break;
+                        case "lifetime":
+                            itemView = LifetimeVirtualGoodView;
+                            break;
 					}
 					return itemView;
 				}
@@ -65,7 +69,8 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
         };
 
         EquippableVirtualGoodView.prototype.templateHelpers = templateHelpers;
-        SingleUseVirtualGoodView.prototype.templateHelpers = templateHelpers;
+        SingleUseVirtualGoodView.prototype.templateHelpers  = templateHelpers;
+        LifetimeVirtualGoodView.prototype.templateHelpers   = templateHelpers;
 
         CurrencyPackView.prototype.templateHelpers = function() {
             var modelAssets = model.get("modelAssets");

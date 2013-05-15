@@ -13,6 +13,11 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
             // Local triggers not included, they are inherited from EquippableItemView
             template : getTemplate("equippableItem")
         }),
+        LifetimeItemView = Components.LifetimeItemView.extend({
+
+            // Local triggers not included, they are inherited from EquippableItemView
+            template : getTemplate("equippableItem")
+        }),
         CurrencyPackView = Components.ItemView.extend({
             triggers : triggers,
             template : getTemplate("currencyPack")
@@ -44,6 +49,9 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
                             break;
                         case "equippable":
                             itemView = EquippableItemView;
+                            break;
+                        case "lifetime":
+                            itemView = LifetimeItemView;
                             break;
                     }
                     return itemView;
@@ -88,8 +96,9 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
                 item: theme.item
             }, templateHelpers);
         };
-        SingleUseVirtualGoodView.prototype.templateHelpers = virtualGoodTemplateHelpers;
-        EquippableItemView.prototype.templateHelpers = virtualGoodTemplateHelpers;
+        SingleUseVirtualGoodView.prototype.templateHelpers  = virtualGoodTemplateHelpers;
+        EquippableItemView.prototype.templateHelpers        = virtualGoodTemplateHelpers;
+        LifetimeItemView.prototype.templateHelpers          = virtualGoodTemplateHelpers;
 
         CurrencyPackView.prototype.templateHelpers = function() {
             var modelAssets = model.get("modelAssets");

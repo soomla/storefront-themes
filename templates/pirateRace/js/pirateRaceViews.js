@@ -28,12 +28,16 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                         case "equippable":
                             itemView = EquippableVirtualGoodView;
                             break;
+                        case "lifetime":
+                            itemView = LifetimeVirtualGoodView;
+                            break;
                     }
                     return itemView;
                 }
             }
         }),
         EquippableVirtualGoodView   = Components.EquippableItemView.extend({ template : getTemplate("equippableItem")}),
+        LifetimeVirtualGoodView     = Components.LifetimeItemView.extend({ template : getTemplate("equippableItem")}),
         CurrencyPackView            = Components.ItemView.extend({ template : getTemplate("currencyPack") }),
         NonConsumableView           = Components.BuyOnceItemView.extend({template : getTemplate("nonConsumableItem") }),
         RestorePurchasesView        = Components.LinkView.extend({
@@ -66,8 +70,10 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
         };
 
 
-        SingleUseVirtualGoodView.prototype.templateHelpers = templateHelpers;
+        SingleUseVirtualGoodView.prototype.templateHelpers  = templateHelpers;
         EquippableVirtualGoodView.prototype.templateHelpers = templateHelpers;
+        LifetimeVirtualGoodView.prototype.templateHelpers   = templateHelpers;
+
         CurrencyPackView.prototype.templateHelpers = function() {
             var modelAssets = model.get("modelAssets");
             return {

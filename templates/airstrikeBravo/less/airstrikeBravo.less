@@ -404,6 +404,29 @@ ul {
         }
     }
 
+    // Lifetime items have two states: not owned and owned, that are toggled by adding classes to the element
+    &.lifetime {
+
+        // State: not owned
+        .equip, .equipped, .owned {
+            display: none;
+        }
+
+        .not-owned {
+            display: inline-block;
+        }
+
+        // State: owned
+        &.owned {
+            .owned {
+                display: inline-block;
+            }
+            .buy-container, .price, .expand-collapse, .not-owned {
+                display: none;
+            }
+        }
+    }
+
     // Currency pack items
     .amount-label {
         font-size: @secondaryFontSize;
