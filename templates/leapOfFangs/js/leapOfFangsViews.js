@@ -128,12 +128,15 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
+
+            // Initialize dialog metadata
             this.dialogModal = this.theme.noFundsModal;
-            this.loadingModal = {
-                "text": "Loading...",
-                "background": this.dialogModal.background,
-                "textStyle": this.dialogModal.textStyle
+            this.messageDialogOptions = {
+                background 	: this.dialogModal.background,
+                textStyle 	: this.dialogModal.textStyle
             };
+            this.loadingModal = _.extend({text : "Loading..."}, this.messageDialogOptions);
+
 
             var categories      = this.model.get("categories"),
                 currencies      = this.model.get("virtualCurrencies"),
