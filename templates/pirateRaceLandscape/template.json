@@ -1,6 +1,5 @@
 {
 	"supportedFeatures" : {
-		"removeAds" : {}
 	},
     "attributes" : {
         "background" : {
@@ -13,12 +12,42 @@
             "title" : "Content Background Image",
             "selector" : "#content-container > .content"
         },
+		"currencyPacksCategoryImage_currency_coins" : {
+			"type" : "backgroundImage",
+			"title" : "Soft Currency Packs Category Image",
+			"selector" : ".item.currency-packs img"
+		},
+		"currencyPacksCategoryImage_currency_gems" : {
+			"type" : "backgroundImage",
+			"title" : "Hard Currency Packs Category Image",
+			"selector" : ".item.currency-packs img"
+		},
         "common" : {
             "titleImage" : {
                 "type" : "image",
                 "title" : "Title Image",
                 "selector" : ".title-image"
             },
+			"activeCategoryTitleBackground" : {
+                "type" : "image",
+                "title" : "Active Category Title Background",
+                "selector" : ".header .categories .category .selected"
+			},
+			"activeCategoryTitleStyle" : {
+                "type" : "css",
+                "title" : "Active Category Title Style",
+                "selector" : ".header .categories .category .selected"
+			},
+			"inactiveCategoryTitleBackground" : {
+                "type" : "image",
+                "title" : "Inactive Category Title Background",
+                "selector" : ".header .categories .category"
+			},
+			"inactiveCategoryTitleStyle" : {
+                "type" : "css",
+                "title" : "Inactive Category Title Style",
+                "selector" : ".header .categories .category"
+			},
 			"categoriesTitleBackground" : {
                 "type" : "image",
                 "title" : "Categories Title Background",
@@ -47,11 +76,6 @@
                 "class" : "font-face-2"
             }
         ],
-        "itemSeparator" : {
-            "type" : "image",
-            "title" : "Item Separator Image",
-            "selector" : ".separator"
-        },
         "balance" : {
 			"title" : {
 				"text": {
@@ -86,16 +110,6 @@
                     }
                 },
                 "listItem" : {
-                    "background" : {
-                        "type" : "backgroundImage",
-                        "title" : "Item Background",
-                        "selector" : ".item"
-                    },
-                    "balanceBackground" : {
-                        "type" : "backgroundImage",
-                        "title" : "Item Balance Background",
-                        "selector" : ".item .content .balance"
-                    },
                     "buy" : {
                         "type" : "image",
                         "title" : "Unlock Image",

@@ -21,12 +21,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
         CurrencyPackView = Components.ItemView.extend(_.extend({
             template: getTemplate("currencyPack"),
             triggers: { "fastclick .buy": "buy" }
-        })),
-        NonConsumableView           = Components.BuyOnceItemView.extend({template : getTemplate("nonConsumableItem") }),
-        RestorePurchasesView        = Components.LinkView.extend({
-            tagName: "div",
-            template: getTemplate("restorePurchases")
-        });
+        }));
 
 
     var extendViews = function(model) {
@@ -40,15 +35,14 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
             var modelAssets = model.get("modelAssets");
             return _.extend({
-                imgFilePath : modelAssets["virtualGoods"][this.model.id],
+                imgFilePath: modelAssets["virtualGoods"][this.model.id],
+                backgroundImgFilePath: modelAssets["categories"][this.model.get('categoryId')],
                 currency : {
                     imgFilePath : modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
                 },
-                price : this.model.get("priceModel").values[this.model.getCurrencyId()],
-                itemSeparator       : theme.itemSeparator
+                price : this.model.get("priceModel").values[this.model.getCurrencyId()]
 
                 // TODO: Move all properties under pages.goods.item and pages.currencyPacks.item and migrate DB
-
             }, theme.pages.goods.listItem);
         };
 
@@ -61,27 +55,10 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 nameStyle       : theme.pages.currencyPacks.listItem.nameStyle,
                 priceStyle      : theme.pages.currencyPacks.listItem.priceStyle,
                 buy             : theme.pages.currencyPacks.listItem.buy,
-                itemSeparator   : theme.itemSeparator,
-                imgFilePath     : modelAssets["currencyPacks"][this.model.id]
+                imgFilePath: modelAssets["currencyPacks"][this.model.id],
+                backgroundImgFilePath: eval('theme.currencyPacksCategoryImage_' + this.model.get('currency_itemId'))
             };
         };
-        NonConsumableView.prototype.templateHelpers = function() {
-            var modelAssets = model.get("modelAssets");
-            return {
-                nameStyle           : theme.pages.currencyPacks.listItem.nameStyle,
-                priceStyle          : theme.pages.currencyPacks.listItem.priceStyle,
-                itemSeparator       : theme.itemSeparator,
-                ownedIndicatorImage : theme.common.ownedIndicatorImage,
-                imgFilePath         : modelAssets["nonConsumables"][this.model.id]
-            };
-        };
-
-        RestorePurchasesView.prototype.templateHelpers = function() {
-            return {
-                itemSeparator   : theme.itemSeparator,
-                imgFilePath     : theme.common.restorePurchasesImage
-            };
-        }
     };
 
 
@@ -93,8 +70,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             this.categoryViews  = [];
 
             var currencies      = this.model.get("virtualCurrencies"),
-                categories      = this.model.get("categories"),
-                nonConsumables = this.model.get("nonConsumables");
+                categories      = this.model.get("categories");
 
             // View event listeners
             var wantsToBuyVirtualGoods = _.bind(function (view) {
@@ -105,9 +81,6 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             }, this);
             var wantsToBuyMarketItem = _.bind(function (view) {
                 this.playSound().wantsToBuyMarketItem(view.model);
-            }, this);
-            var wantsToRestorePurchases = _.bind(function () {
-                this.playSound().wantsToRestorePurchases();
             }, this);
             var chooseCategory = _.bind(function (view) {
                 var elementId = 'soomCat' + view.model.id;
@@ -127,7 +100,6 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 }).on("chooseCategory", chooseCategory);
 
                 this.categoryHeaderViews.push(headerView);
-
 
                 var categoryGoods   = category.get("goods"),
                     equipping       = category.get("equipping"),
@@ -153,6 +125,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 this.categoryViews.push(view);
             }, this);
 
+            var currencyIndex = 1;
             this.currencyPacksViews = [];
             currencies.each(function (currency) {
                 var headerView = new CategoryHeaderView({
@@ -165,29 +138,17 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
                 var packs = currency.get("packs");
                 this.numOfItems += (!!packs) ? packs.length : 0;
-
+                
                 var view = new SectionedListView({
                     className           : "items currencyPacks",
                     collection          : packs,
                     itemView            : CurrencyPackView,
-                    templateHelpers: _.extend({ category: currency.get("name"), id: currency.get("itemId"), selected: "" }, this.theme.categories)
+                    templateHelpers: _.extend({ category: currency.get("name"), id: currency.get("itemId"), selected: ""}, this.theme.categories)
                 }).on("itemview:buy", wantsToBuyMarketItem);
 
-                this.currencyPacksViews.push(view)
+                this.currencyPacksViews.push(view);
+                currencyIndex++;
             }, this);
-
-            this.nonConsumablesView = new Components.CollectionView({
-                className           : "items nonConsumables",
-                collection          : nonConsumables,
-                itemView            : NonConsumableView
-            }).on("itemview:buy", wantsToBuyMarketItem);
-
-            // Add restore purchases view if necessary
-            if (!nonConsumables.isEmpty()) {
-                this.restorePurchasesView = new RestorePurchasesView().on("select", wantsToRestorePurchases);
-            }
-
-            this.numOfItems += nonConsumables.length;
         },
         events : {
             // TODO: Change to timedEvents with `click` once the storeview extends Marionette.View
@@ -229,13 +190,17 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 el : "#content-container .items-container",
                 options: {
                     snap: 'li', hScroll: true, vScroll: false, hScrollbar: false, vScrollbar: false, onScrollEnd: function () {
-                        //TODO: Change "206" to @itemWidth.
-                        var itemIndex = Math.floor(Math.max(0, (Math.abs(this.x) + 3)) / 206);
+                        var itemWidth = 204; //TODO: Change "204" to @itemWidth.
+                        var xPos = (Math.abs(this.x) <= Math.abs(this.maxScrollX) - 1) ?
+                            Math.max(0, (Math.abs(this.x) + 3)) :
+                            this.scroller.clientWidth - 1; // Handle the edge case of getting to the end of the scroller.
+                        var itemIndex = Math.floor(xPos / itemWidth);
                         var liElement = $('ul li', this.scroller)[itemIndex];
                         var categoryId = $('> div', liElement).data('categoryid');
                         $('div .categories .selected').toggleClass('selected', false);
                         $('#soomCatHeader' + categoryId).toggleClass('selected', true);
-                } }
+                    }
+                }
             },
         },
         onRender : function() {
@@ -244,8 +209,9 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 this.ui.goodsCategoriesHeader.append(view.render().el);
             }, this);
 
-            //TODO: Change "208" to @itemWidth.
-            this.ui.goodsIscrollContainer[0].style.width = this.numOfItems * 208 + 'px';
+            //TODO: Change "204" to @itemWidth.
+            var itemWidth = 204;
+            this.ui.goodsIscrollContainer[0].style.width = this.numOfItems * itemWidth + 'px';
 
             _.each(this.categoryViews, function(view) {
                 this.ui.goodsIscrollContainer.append(view.render().el);
@@ -254,16 +220,9 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             _.each(this.currencyPacksViews, function(view) {
                 this.ui.goodsIscrollContainer.append(view.render().el);
             }, this);
-
-            this.$(".non-consumables").html(this.nonConsumablesView.render().el);
-
-            if (this.restorePurchasesView) {
-                this.$("#restore-purchases").html(this.restorePurchasesView.render().el);
-            }
-
         },
         zoomFunction : function() {
-            return (innerWidth / innerHeight) > 1.5 ? (innerHeight / 838) : (innerWidth / 1400);
+            return (innerWidth / innerHeight) > 1.5 ? (innerHeight / 670) : (innerWidth / 1120);
         }
     });
 

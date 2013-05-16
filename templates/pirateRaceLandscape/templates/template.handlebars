@@ -1,4 +1,14 @@
 {{fontFaceStylesheet fonts}}
+<style>
+.category {
+	{{common.inactiveCategoryTitleStyle}}
+	background-image: url({{common.inactiveCategoryTitleBackground}});
+}
+.category.selected {
+	{{common.activeCategoryTitleStyle}}
+	background-image: url({{common.activeCategoryTitleBackground}});
+}
+</style>
 <div id="content-container" data-role="page">
 	<div class="content">
 		<div class="header">
@@ -11,10 +21,6 @@
 		<div class="items-container">
 			<div data-iscroll="true">
 				<div class="currency-packs">
-				</div>
-				<div class="non-consumables">
-				</div>
-				<div id="restore-purchases">
 				</div>
 			</div>
 		</div>

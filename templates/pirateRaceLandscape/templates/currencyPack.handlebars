@@ -1,10 +1,10 @@
-<div class="content font-face-2" data-categoryid="{{currency_itemId}}" style="background-image: url({{imgFilePath}})">
+<div class="content font-face-2" data-categoryid="{{currency_itemId}}" style="background-image: url({{backgroundImgFilePath}})">
   <div class="row">
     <div class="description">
       <label style="{{nameStyle}}">{{name}}</label>
     </div>
   </div>
-  <div class="visual"></div>
+  <img class="visual" src="{{imgFilePath}}"></img>
   <div class="row price">
     <label style="{{priceStyle}}">{{price}}$</label>
     <a class="buy">
@@ -12,4 +12,3 @@
     </a>
   </div>
 </div>
-<img src="{{itemSeparator}}" class="separator" />

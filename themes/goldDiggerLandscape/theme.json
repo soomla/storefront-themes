@@ -4,7 +4,10 @@
 		"orientation" : "landscape"
     },
     "modelAssets" : {
-        "categories" : {},
+        "categories" : {
+            "1" : "img/-_Object_1.png",
+			"3" : "img/-_Object_3.png"
+		},
         "virtualGoods" : {
             "bomb" : "img/Powerups/Bomb.png",
             "gold_pot" : "img/Powerups/Gold_Pot.png",
@@ -30,9 +33,6 @@
         "virtualCurrencies" : {
             "currency_coins" : "img/Item_Price.png",
 			"currency_gems" : "img/Gem_Price.png"
-        },
-	    "nonConsumables" : {
-		    "remove_ads" : "img/no-ads.png"
         }
     },
     "theme" : {
@@ -40,8 +40,14 @@
         "version" : 1,
         "background" : "img/BG-Level0.jpg",
         "contentBackground" : "img/BG-Level1.jpg",
+		"currencyPacksCategoryImage_currency_coins" : "img/BG-Coins.png",
+		"currencyPacksCategoryImage_currency_gems" : "img/BG-Gems.png",
         "common" : {
             "titleImage" : "img/Header_Title.png",
+			"activeCategoryTitleBackground" : "img/BG-Level0.jpg",
+			"activeCategoryTitleStyle" : "color: yellow !important;",
+			"inactiveCategoryTitleBackground" : "img/BG-Level1.jpg",
+			"inactiveCategoryTitleStyle" : "",
 			"categoriesTitleBackground" : "img/BG-Level0.jpg",
             "backButton" : "img/Back_BTN.png",
 	        "purchasedIndicatorImage" : "img/owned.png",
@@ -55,7 +61,6 @@
 			    "url" : "fonts/Lobster_1.3.otf"
 		    }
 	    ],
-        "itemSeparator" : "img/Item_Seperator.png",
         "balance" : {
 			"title" : {
 				"text" : "Treasure:",
@@ -70,8 +75,6 @@
                     "background" : "img/Item_Area.jpg"
                 },
                 "listItem" : {
-                    "background" : "",
-                    "balanceBackground" : "img/Item_Balance.png",
                     "buy" : "img/purchase.png",
                     "buyOnce" : "img/unlock.png",
                     "equip" : "img/equip.png",
@@ -89,7 +92,6 @@
             },
             "currencyPacks" : {
                 "listItem" : {
-                    "balanceBackground" : "",
                     "nameStyle" : "color: #E9C861; font-size: 28px;",
                     "priceStyle" : "font-style: normal; color: #F7EABE; font-weight: normal;",
                     "buy" : "img/purchase.png"

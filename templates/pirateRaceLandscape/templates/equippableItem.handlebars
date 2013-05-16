@@ -1,10 +1,10 @@
-<div class="content" data-categoryid="{{categoryId}}" style="background-image: url({{imgFilePath}})">
+<div class="content" data-categoryid="{{categoryId}}" style="background-image: url({{backgroundImgFilePath}})">
   <div class="row">
     <div class="description">
       <label style="{{descriptionStyle}}">{{description}}</label>
     </div>
   </div>
-  <div class="visual"></div>
+  <img class="visual" src="{{imgFilePath}}"></img>
   <div class="row price">
     <label style="{{priceStyle}}">{{price}}</label>
     <img src="{{currency.imgFilePath}}" class="currency" />
@@ -17,4 +17,3 @@
     <img class="active" src="{{active}}" />
   </div>
 </div>
-<img src="{{itemSeparator}}" class="separator" />
