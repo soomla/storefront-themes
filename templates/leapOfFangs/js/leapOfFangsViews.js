@@ -164,11 +164,8 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
                 itemView : CurrencyMenuItemView
             }).on("itemview:select", onMenuItemSelect, this);
 
-            var wantsToBuyVirtualGoods = _.bind(function(view) {
-                this.playSound().wantsToBuyVirtualGoods(view.model);
-            }, this);
-            var wantsToBuyMarketItem = _.bind(function(view) {
-                this.playSound().wantsToBuyMarketItem(view.model);
+            var wantsToBuyItem = _.bind(function(view) {
+                this.playSound().wantsToBuyItem(view.model.id);
             }, this);
             var wantsToEquipGoods = _.bind(function (view) {
                 this.playSound().wantsToEquipGoods(view.model);
@@ -185,7 +182,7 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
                     templateHelpers     : templateHelpers
                 }).on({
                     "next previous"     : this.playSound,
-                    "itemview:buy"      : wantsToBuyVirtualGoods,
+                    "itemview:buy"      : wantsToBuyItem,
                     "itemview:equip" 	: wantsToEquipGoods
                 });
 
@@ -202,7 +199,7 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
                     templateHelpers     : templateHelpers
                 }).on({
                     "next previous"     : this.playSound,
-                    "itemview:buy"      : wantsToBuyMarketItem
+                    "itemview:buy"      : wantsToBuyItem
                 });
 
                 this.children.add(view, currency.id);

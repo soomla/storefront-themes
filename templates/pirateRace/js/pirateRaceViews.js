@@ -125,14 +125,11 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
 
             // View event listeners
-            var wantsToBuyVirtualGoods = _.bind(function (view) {
-                this.playSound().wantsToBuyVirtualGoods(view.model);
+            var wantsToBuyItem = _.bind(function (view) {
+                this.playSound().wantsToBuyItem(view.model.id);
             }, this);
             var wantsToEquipGoods = _.bind(function (view) {
                 this.playSound().wantsToEquipGoods(view.model);
-            }, this);
-            var wantsToBuyMarketItem = _.bind(function (view) {
-                this.playSound().wantsToBuyMarketItem(view.model);
             }, this);
             var wantsToRestorePurchases = _.bind(function () {
                 this.playSound().wantsToRestorePurchases();
@@ -148,7 +145,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                     collection          : categoryGoods,
                     templateHelpers     : _.extend({category : category.get("name")}, this.theme.categories)
                 }).on({
-                    "itemview:buy" 		: wantsToBuyVirtualGoods,
+                    "itemview:buy" 		: wantsToBuyItem,
                     "itemview:equip" 	: wantsToEquipGoods
                 });
 
@@ -160,7 +157,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                     className           : "items currencyPacks",
                     collection          : currency.get("packs"),
                     itemView            : CurrencyPackView
-                }).on("itemview:select", wantsToBuyMarketItem);
+                }).on("itemview:select", wantsToBuyItem);
 
                 this.currencyPacksViews.push(view)
             }, this);
@@ -169,7 +166,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 className           : "items nonConsumables",
                 collection          : nonConsumables,
                 itemView            : NonConsumableView
-            }).on("itemview:buy", wantsToBuyMarketItem);
+            }).on("itemview:buy", wantsToBuyItem);
 
 
             // Add restore purchases view if necessary

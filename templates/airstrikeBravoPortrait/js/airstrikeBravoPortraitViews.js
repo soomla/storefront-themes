@@ -159,9 +159,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 var view = new NonConsumableView({
                     className : "item non-consumable",
                     model : nonConsumable
-                }).on("buy", function(args) {
-                    this.playSound().wantsToBuyMarketItem(args.model);
-                }, this);
+                }).on("buy", wantsToBuyItem);
 
                 this.nonConsumbaleLinks.push(view);
             }, this);
@@ -187,14 +185,11 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
 
 
             // View event listeners
-            var wantsToBuyVirtualGoods = _.bind(function (view) {
-                this.playSound().wantsToBuyVirtualGoods(view.model);
+            var wantsToBuyItem = _.bind(function (view) {
+                this.playSound().wantsToBuyItem(view.model.id);
             }, this);
             var wantsToEquipGoods = _.bind(function (view) {
                 this.playSound().wantsToEquipGoods(view.model);
-            }, this);
-            var wantsToBuyMarketItem = _.bind(function (view) {
-                this.playSound().wantsToBuyMarketItem(view.model);
             }, this);
 
 
@@ -216,7 +211,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
 				}).on({
 					"itemview:expand" 	: this.playSound,
 					"itemview:collapse" : this.conditionalPlaySound,
-					"itemview:buy"      : wantsToBuyVirtualGoods,
+                    "itemview:buy"      : wantsToBuyItem,
 					"itemview:equip"    : wantsToEquipGoods
 				}, this);
 
@@ -231,9 +226,7 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
 					className   : "items currencyPacks category",
 					collection  : currency.get("packs"),
 					itemView    : CurrencyPackView
-				}).on("itemview:buy", function(view) {
-					this.playSound().wantsToBuyMarketItem(view.model);
-				}, this);
+                }).on("itemview:buy", wantsToBuyItem);
                 this.children.add(currencyPacksView, currency.cid);
                 headerStates[currencyPacksView.cid] = currency.get("name");
             }, this);
