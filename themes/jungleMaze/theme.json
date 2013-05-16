@@ -33,7 +33,7 @@
             "coin_ultra_pack" : "img/Coins/objects-08.png",
             "coin_ultimate_pack" : "img/Coins/objects-08.png"
         },
-        "virtualCurrencies" : {
+        "currencies" : {
              "currency_coins" : "img/coin.png"
         },
 	    "nonConsumables" : {

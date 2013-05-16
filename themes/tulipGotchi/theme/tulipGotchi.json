@@ -41,7 +41,7 @@
             "amount"            : 500000
         }
     ],
-    "virtualCurrencies" : [
+    "currencies" : [
         {
             "name"          : "COIN PACKS",
             "description"   : "",

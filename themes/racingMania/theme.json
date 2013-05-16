@@ -33,7 +33,7 @@
 			"euro_pack":"img/currency-02.png",
 			"sterling_pack":"img/currency-03.png"
 		},
-		"virtualCurrencies":{
+		"currencies":{
 			"currency_coins":"img/nos.png"
 		},
 		"nonConsumables" : {

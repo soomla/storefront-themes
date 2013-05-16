@@ -62,7 +62,7 @@
             "currency_amount"            : 600000
         }
     ],
-    "virtualCurrencies" : [
+    "currencies" : [
         {
             "name"          : "COINS",
             "description"   : "",

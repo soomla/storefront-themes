@@ -22,7 +22,7 @@
             "400_coins" : "img/CurrencyPacks/CurrencyPack3.png",
             "1000_coins" : "img/CurrencyPacks/CurrencyPack4.png"
         },
-        "virtualCurrencies" : {
+        "currencies" : {
             "currency_coins" : "img/Coin.png",
             "currency_diamonds" : "img/Diamond.png"
         },

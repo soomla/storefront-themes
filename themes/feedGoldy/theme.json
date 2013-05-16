@@ -25,7 +25,7 @@
             "coin_mega_pack" : "img/coins/objects-02.png",
             "coin_ultra_pack" : "img/coins/objects-03.png"
         },
-        "virtualCurrencies" : {
+        "currencies" : {
              "currency_coins" : "img/coin.png"
         },
 	    "nonConsumables" : {

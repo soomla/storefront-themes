@@ -59,7 +59,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             return _.extend({
                 imgFilePath : modelAssets["virtualGoods"][this.model.id],
                 currency : {
-                    imgFilePath : modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
+                    imgFilePath : modelAssets["currencies"][this.model.getCurrencyId()]
                 },
                 price : this.model.getPrice(),
                 itemSeparator       : theme.itemSeparator
@@ -119,7 +119,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
             this.categoryViews  = [];
 
-            var currencies      = this.model.get("virtualCurrencies"),
+            var currencies      = this.model.get("currencies"),
                 categories      = this.model.get("categories"),
                 nonConsumables  = this.model.get("nonConsumables");
 

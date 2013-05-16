@@ -90,7 +90,7 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
             return _.extend({
                 imgFilePath: modelAssets["virtualGoods"][this.model.id],
                 currency: {
-                    imgFilePath: modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
+                    imgFilePath: modelAssets["currencies"][this.model.getCurrencyId()]
                 },
                 price: this.model.getPrice(),
                 item: theme.item
@@ -105,7 +105,7 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
             return _.extend({
                 imgFilePath : modelAssets["currencyPacks"][this.model.id],
                 currency : {
-                    imgFilePath : modelAssets["virtualCurrencies"][this.model.get("currency_itemId")]
+                    imgFilePath : modelAssets["currencies"][this.model.get("currency_itemId")]
                 },
                 price: this.model.getPrice(),
                 item : theme.item
@@ -120,7 +120,7 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
         CurrencyMenuItemView.prototype.templateHelpers = function() {
             var modelAssets = model.get("modelAssets");
             return {
-                imgFilePath : modelAssets["virtualCurrencies"][this.model.id]
+                imgFilePath : modelAssets["currencies"][this.model.id]
             };
         };
     };
@@ -139,7 +139,7 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
 
 
             var categories      = this.model.get("categories"),
-                currencies      = this.model.get("virtualCurrencies"),
+                currencies      = this.model.get("currencies"),
                 templateHelpers = { images : this.theme.images };
 
 
@@ -227,7 +227,7 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
         },
         showCurrencyPacks : function(currencyId) {
             this.changeActiveView(currencyId);
-            var name = this.model.get("virtualCurrencies").get(currencyId).get("name");
+            var name = this.model.get("currencies").get(currencyId).get("name");
             this.changeTitle(name);
         },
         ui : {

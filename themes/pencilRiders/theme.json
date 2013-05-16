@@ -26,7 +26,7 @@
             "coins_75000" : "img/CurrencyPacks/GetCoins_3.png",
             "coins_200000" : "img/CurrencyPacks/GetCoins_4.png"
         },
-        "virtualCurrencies" : {
+        "currencies" : {
             "currency_coins" : "img/Item_Price.png"
         },
 	    "nonConsumables" : {

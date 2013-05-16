@@ -25,7 +25,7 @@
             "amount"            : 100000
         }
     ],
-    "virtualCurrencies" : [
+    "currencies" : [
         {
             "name"          : "COINS",
             "description"   : "",

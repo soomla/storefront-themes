@@ -28,7 +28,7 @@
             "blue_power": "img/objects-02.png",
             "green_power": "img/objects-03.png"
         },
-        "virtualCurrencies": {
+        "currencies": {
             "currency_coins": "img/coin.png",
             "currency_power": "img/coin.png"
         },

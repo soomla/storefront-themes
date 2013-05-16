@@ -60,7 +60,7 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
             return createTemplateHelpers({
                 imgFilePath: modelAssets["virtualGoods"][this.model.id],
                 currency: {
-                    imgFilePath: modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
+                    imgFilePath: modelAssets["currencies"][this.model.getCurrencyId()]
                 },
                 price: this.model.getPrice(),
 
@@ -79,7 +79,7 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
                 price: this.model.getPrice(),
                 imgFilePath : modelAssets["currencyPacks"][this.model.id],
                 currency: {
-                    imgFilePath: modelAssets["virtualCurrencies"][this.model.get("currency_itemId")]
+                    imgFilePath: modelAssets["currencies"][this.model.get("currency_itemId")]
                 },
 
                 // This is a hack, because Backofgen ignores empty objects in the theme
@@ -114,7 +114,7 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
             this.loadingModal = _.extend({text : "Loading..."}, this.messageDialogOptions);
 
 
-            var currencies 		= this.model.get("virtualCurrencies"),
+            var currencies 		= this.model.get("currencies"),
                 categories      = this.model.get("categories"),
                 nonConsumables  = this.model.get("nonConsumables"),
                 tapjoy          = this.theme.tapjoy,
@@ -280,7 +280,7 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
             this.activeView.collapseExpandedChild({noSound: true});
 
             // Change to view of given currency ID
-            var currency    = this.model.get("virtualCurrencies").get(currencyId),
+            var currency    = this.model.get("currencies").get(currencyId),
                 view        = this.children.findByCustom(currency.cid);
             this.changeViewTo(view);
         },
