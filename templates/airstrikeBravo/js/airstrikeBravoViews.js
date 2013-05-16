@@ -189,6 +189,13 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
                 this.playSound().wantsToEquipGoods(view.model);
             }, this);
 
+            // This is a special playSound function that resolves the playSound
+            // function defined on the store view object only when called.
+            // This is used so that the function from the nativeAPI stubs is called
+            var playSound = _.bind(function() {
+                return this.playSound();
+            }, this);
+
 
             // Mark this view as the active view,
             // as it is the first one visible when the store opens
@@ -206,7 +213,7 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
                     className   : "items virtualGoods category " + categoryName,
                     collection  : goods
                 }).on({
-                    "itemview:expand"   : this.playSound,
+                    "itemview:expand"   : playSound,
                     "itemview:collapse" : this.conditionalPlaySound,
                     "itemview:buy"      : wantsToBuyItem,
                     "itemview:equip"    : wantsToEquipGoods

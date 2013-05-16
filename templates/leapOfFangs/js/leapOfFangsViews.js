@@ -171,6 +171,13 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
                 this.playSound().wantsToEquipGoods(view.model);
             }, this);
 
+            // This is a special playSound function that resolves the playSound
+            // function defined on the store view object only when called.
+            // This is used so that the function from the nativeAPI stubs is called
+            var playSound = _.bind(function() {
+                return this.playSound();
+            }, this);
+
 
             // Build views for each category
             categories.each(function(category) {
@@ -181,7 +188,7 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
                     collection          : categoryGoods,
                     templateHelpers     : templateHelpers
                 }).on({
-                    "next previous"     : this.playSound,
+                    "next previous"     : playSound,
                     "itemview:buy"      : wantsToBuyItem,
                     "itemview:equip" 	: wantsToEquipGoods
                 });
@@ -198,7 +205,7 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
                     itemView            : CurrencyPackView,
                     templateHelpers     : templateHelpers
                 }).on({
-                    "next previous"     : this.playSound,
+                    "next previous"     : playSound,
                     "itemview:buy"      : wantsToBuyItem
                 });
 
