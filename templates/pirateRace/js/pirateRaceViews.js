@@ -24,12 +24,19 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
     var extendViews = function(model) {
 
         var theme = model.get("theme");
-
-
+        
         // Add template helpers to view prototypes
 
         var templateHelpers = function() {
-
+            // add the animation work only while adding virtual currencies or goods
+            if(this.initialized){
+                var that = this;
+                that.$el.addClass("changed"); 
+                setTimeout(function(){
+                    that.$el.removeClass("changed"); 
+                }, 1500)   
+            }
+            this.initialized = true;
             var modelAssets = model.get("modelAssets");
             return _.extend({
                 imgFilePath : modelAssets["virtualGoods"][this.model.id],
@@ -198,7 +205,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             this.playSound();
             this.ui.currencyStore.hide();
             this.ui.goodsStore.show();
-            this.iscrolls.goods.refresh();
+            //this.iscrolls.goods.refresh();
         },
         iscrollRegions : {
             goods : {
