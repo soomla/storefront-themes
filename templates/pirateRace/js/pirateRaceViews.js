@@ -169,7 +169,16 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
         },
         updateBalance : function(model) {
             // TODO: Move to a header view
-            this.$(".balance-container label").html(model.get("balance"));
+            
+            var that = this;
+            // make it happen only when you add to balance
+            if(model.previous("balance")<model.get("balance")){
+                that.$(".balance-container label").addClass("changed");
+                setTimeout(function(){
+                    that.$(".balance-container label").removeClass("changed");
+                }, 1000)
+            }
+            that.$(".balance-container label").html(model.get("balance"));
         },
         onClickBuyMore : function() {
             this.playSound().showCurrencyPacks();
