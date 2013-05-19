@@ -31,10 +31,14 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             // add the animation work only while adding virtual currencies or goods
             if(this.initialized){
                 var that = this;
-                that.$el.addClass("changed"); 
                 setTimeout(function(){
-                    that.$el.removeClass("changed"); 
-                }, 1500)   
+                    that.$el.addClass("changed"); 
+                    var balanceEl = that.$el.find(".balanceWrap > div");
+                    balanceEl.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
+                        balanceEl.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+                        that.$el.removeClass("changed"); 
+                    });
+                }, 200)   
             }
             this.initialized = true;
             var modelAssets = model.get("modelAssets");
