@@ -167,12 +167,6 @@ ul {
 
     background-position: center;
 
-    // Item image
-    .visual {
-        width: @visualWidth;
-        height: @itemTotalHeight;
-    }
-
     // Item content (container of description, price, balance, buy button)
     .content {
         @padding: 10px;
@@ -182,7 +176,7 @@ ul {
         .background-size(100% 100%);
     }
 
-    // The content is layed out in two rows
+    // The content is layed out in three rows
     .row:first-child {
         height: @balanceHeight;
     }
@@ -191,13 +185,6 @@ ul {
     }
 
     // 1st row contents
-    .balance {
-        float:right;
-        font-size: 18px;
-        font-weight: bold;
-        width: @balanceWidth;
-        background-size: 100%;
-    }
     .description {
         font-size: 16px;
         overflow:hidden;
@@ -212,6 +199,26 @@ ul {
     }
 
     // 2nd row contents
+    .balanceRow {
+        position: relative;
+
+        .balance {
+            position: absolute;
+            right: 0;
+            font-size: 18px;
+            font-weight: bold;
+            height: @balanceHeight;
+            width: @balanceWidth;
+            background-size: 100%;
+        }
+    }
+    // Item image
+    .visual {
+        width: @visualWidth;
+        height: @itemTotalHeight;
+    }
+
+    // 3nd row contents
     .price {
         font-size: 20px;
         font-weight: bold;
