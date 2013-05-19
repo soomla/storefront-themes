@@ -21,33 +21,33 @@
 			"title" : "Header Background Image",
 			"selector" : ".header"
 		},
-        "noFundsModal" : {
-            "background" : {
-                "type" : "backgroundImage",
-                "title" : "Dialog Background Image",
-                "selector" : ".dialog"
+		"noFundsModal" : {
+			"background" : {
+				"type" : "backgroundImage",
+				"title" : "No Funds Dialog Background Image",
+				"selector" : ".dialog"
             },
             "text" : {
                 "type" : "text",
-                "title" : "Dialog Text",
+                "title" : "No Funds Dialog Text",
                 "selector" : ".dialog h1"
             },
             "textStyle" : {
                 "type" : "css",
-                "title" : "Dialog Text Style",
+                "title" : "No Funds Dialog Text Style",
                 "selector" : ".dialog h1"
-            },
+			},
             "yesButton" : {
                 "type" : "image",
-                "title" : "Dialog 'Yes' Image",
+                "title" : "No Funds Dialog 'Yes' Image",
                 "selector" : ".dialog .buy-more"
             },
             "noButton" : {
                 "type" : "image",
-                "title" : "Dialog 'No' Image",
+                "title" : "No Funds Dialog 'No' Image",
                 "selector" : ".dialog .cancel"
             }
-        },
+		},
 		"currencyPacksCategoryImage" : {
 			"type" : "image",
 			"title" : "Currency Packs Category Image",
@@ -84,6 +84,16 @@
 				"title" : "Expand Image",
 				"selector" : ".expand-collapse"
 			},
+            "equip" : {
+                "type" : "image",
+                "title" : "Equip Image",
+                "selector" : ".item .equip"
+            },
+            "equipped" : {
+                "type" : "image",
+                "title" : "Equipped Image",
+                "selector" : ".item .equip"
+            },
 			"backImage" : {
 				"type" : "image",
 				"title" : "Back Image",

@@ -11,7 +11,8 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
         CurrencyPackView                = Components.ItemView.extend({ template : getTemplate("currencyPack"), triggers : {"fastclick .buy" : "buy"} }),
         CategoryView                    = Components.LinkView.extend({ template : getTemplate("categoryMenuItem") }),
         NonConsumableView               = Components.BuyOnceItemView.extend({ template : getTemplate("nonConsumableItem")}),
-        ExpandableIScrollCollectionView = Components.ExpandableIScrollCollectionView.extend({ template : getTemplate("collection") });
+        IScrollCollectionView           = Components.IScrollCollectionView.extend({ template: getTemplate("collection") });
+        ExpandableIScrollCollectionView = Components.ExpandableIScrollCollectionView.extend({ template: getTemplate("collection") });
 
 
     var extendViews = function(model) {
@@ -73,7 +74,12 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
-            this.dialogModel = this.theme.noFundsModal;
+            this.dialogModal = this.theme.noFundsModal;
+            this.loadingModal = {
+                "text": "Loading...",
+                "background": this.dialogModal.background,
+                "textStyle": this.dialogModal.textStyle
+            };
 
             var currencies 		= this.model.get("virtualCurrencies"),
                 categories      = this.model.get("categories"),
@@ -83,7 +89,7 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
 
 
             // Build category menu and add it to the page views
-            var categoryMenuView = new Components.CollectionView({
+            var categoryMenuView = new IScrollCollectionView({
                 className   : "menu items clearfix",
                 collection  : categories,
                 itemView    : CategoryView
@@ -225,12 +231,36 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
                 quit : this.leaveStore
             }, this);
         },
-        changeViewTo : function(view) {
-            this.activeView.$el.hide();
-            this.activeView = view;
-            this.activeView.$el.show();
+        changeViewTo : function(newview) {
+            var _activeMenu = this.activeView.$el.hasClass("menu");
+            var _pages = this.activeView.$el.parents("div#pages");
+
+            if(_activeMenu){
+                _pages.addClass("slide");
+                // add class "on" to the relevant category only 
+                newview.$el.addClass("on");
+            }else{
+                if(newview.$el.hasClass("menu")){
+                    // new view is menu 
+                    _pages.removeClass("slide");
+                }else{
+                    // switching between two views and NOT going thru menu...
+                    // add class "on" to the relevant category only 
+                    newview.$el.addClass("on");
+                }
+                // remove class "on" from "old" category
+                this.activeView.$el.removeClass("on");
+            }
+
+            newview.$el.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
+                newview.$el.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+                $(_pages).animate({ scrollTop: 0 }, "slow");
+            });
+
+            this.activeView = newview;
+            
             if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
-            this.header.changeStateTo(view.cid);
+            this.header.changeStateTo(newview.cid);
         },
         showCurrencyPacks : function(currencyId) {
 
@@ -246,9 +276,7 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
             pages   : "#pages",
             header  : ".header"
         },
-        onRender : function() {
-            var menu = this.children.findByCustom("menu");
-
+        onRender: function () {
             // Set header element to bind event delegation
             this.header.setElement(this.ui.header).render().bindUIElements();
 
@@ -257,18 +285,22 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
                 this.ui.pages.append(view.render().el);
             }, this);
 
+            var menu = this.children.findByCustom("menu").$el.children(":first-child");
+
             // Append the link to the currency packs as a "category view"
             _.each(this.currencyPacksLinks, function(link) {
-                menu.$el.append(link.render().el);
+                menu.append(link.render().el);
             });
 
             // Append links to earned currencies as "category views"
-            if (this.tapjoyView) menu.$el.append(this.tapjoyView.render().el);
+            if (this.tapjoyView) menu.append(this.tapjoyView.render().el);
 
             // Append non consumable items as "category views"
             _.each(this.nonConsumbaleLinks, function(view) {
-                menu.$el.append(view.render().el);
+                menu.append(view.render().el);
             });
+
+            if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
         },
         zoomFunction : function() {
             return (innerWidth / innerHeight) > 1.5 ? (innerHeight / 640) : (innerWidth / 960);
