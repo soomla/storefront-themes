@@ -219,16 +219,16 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
 
             // Build header view
             this.header = new HeaderView({states : headerStates, initialState : categoryMenuView.cid}).on({
-                back : function() {
+                back: function () {
                     this.playSound();
 
                     // First, collapse open item in current category
-                    this.activeView.collapseExpandedChild({noSound: true});
+                    this.activeView.collapseExpandedChild({ noSound: true });
 
                     // Second, switch back to the menu
                     this.changeViewTo(categoryMenuView);
                 },
-                quit : this.leaveStore
+                quit: this.leaveStore
             }, this);
         },
         changeViewTo : function(newview) {
@@ -252,7 +252,7 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
                 this.activeView.$el.removeClass("on");
             }
 
-            newview.$el.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
+            newview.$el.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function () {
                 newview.$el.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
                 $(_pages).animate({ scrollTop: 0 }, "slow");
             });
@@ -261,6 +261,18 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
             
             if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
             this.header.changeStateTo(newview.cid);
+        },
+        changeViewToItem: function (itemId) {
+            // Collapse open item in current category
+            if (this.activeView.collapseExpandedChild)
+                this.activeView.collapseExpandedChild({ noSound: true });
+
+            var categoryId = this.model.goodsMap[itemId].get('categoryId'),
+                categroy = this.model.get("categories").get(categoryId),
+                view = this.children.findByCustom(categroy.cid);
+
+            // Change to view of given category
+            this.changeViewTo(view);
         },
         showCurrencyPacks : function(currencyId) {
 
@@ -301,6 +313,10 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
             });
 
             if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
+
+            if (this.options.initViewItemId) {
+                this.changeViewToItem(this.options.initViewItemId);
+            }
         },
         zoomFunction : function() {
             return (innerWidth / innerHeight) > 1.5 ? (innerHeight / 640) : (innerWidth / 960);
