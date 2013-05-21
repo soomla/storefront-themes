@@ -225,16 +225,17 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                 back : function() {
                     this.playSound();
 
-                    // First, collapse open item in current category
-                    this.activeView.collapseExpandedChild({noSound: true});
-
-                    // Second, switch back to the menu
+                    // Switch back to the menu
                     this.changeViewTo(categoryMenuView);
                 },
                 quit : this.leaveStore
             }, this);
         },
-        changeViewTo : function(newview) {
+        changeViewTo: function (newview) {
+            // Collapse open item in current category
+            if (this.activeView.collapseExpandedChild)
+                this.activeView.collapseExpandedChild({ noSound: true });
+
             var _activeMenu = this.activeView.$el.hasClass("menu");
             var _pages = this.activeView.$el.parents("div#pages");
 
@@ -271,11 +272,31 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
             if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
             this.header.changeStateTo(newview.cid);
         },
-        showCurrencyPacks : function(currencyId) {
+        changeViewToItem: function (itemId) {
+            if (!itemId)
+                return;
 
-            // Collapse open item in current category
-            this.activeView.collapseExpandedChild({noSound: true});
+            var currencyPacksItem = this.model.currencyPacksMap[itemId];
+            if (currencyPacksItem) {
+                var currency = currencyPacksItem.get("currency_itemId");
+                this.showCurrencyPacks(currency);
+                return;
+            }
 
+            var goodsItem = this.model.goodsMap[itemId];
+            if (!goodsItem) {
+                console.log('View was not changed. Could not find item: "' + itemId + '".');
+                return;
+            }
+
+            var categoryId = goodsItem.get('categoryId'),
+                categroy = this.model.get("categories").get(categoryId),
+                view = this.children.findByCustom(categroy.cid);
+
+            // Change to view of given category
+            this.changeViewTo(view);
+        },
+        showCurrencyPacks: function (currencyId) {
             // Change to view of given currency ID
             var currency    = this.model.get("virtualCurrencies").get(currencyId),
                 view        = this.children.findByCustom(currency.cid);

@@ -222,16 +222,17 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
                 back: function () {
                     this.playSound();
 
-                    // First, collapse open item in current category
-                    this.activeView.collapseExpandedChild({ noSound: true });
-
-                    // Second, switch back to the menu
+                    // Switch back to the menu
                     this.changeViewTo(categoryMenuView);
                 },
                 quit: this.leaveStore
             }, this);
         },
-        changeViewTo : function(newview) {
+        changeViewTo: function (newview) {
+            // Collapse open item in current category
+            if (this.activeView.collapseExpandedChild)
+                this.activeView.collapseExpandedChild({ noSound: true });
+
             var _activeMenu = this.activeView.$el.hasClass("menu");
             var _pages = this.activeView.$el.parents("div#pages");
 
@@ -263,11 +264,23 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
             this.header.changeStateTo(newview.cid);
         },
         changeViewToItem: function (itemId) {
-            // Collapse open item in current category
-            if (this.activeView.collapseExpandedChild)
-                this.activeView.collapseExpandedChild({ noSound: true });
+            if (!itemId)
+                return;
+            
+            var currencyPacksItem = this.model.currencyPacksMap[itemId];
+            if (currencyPacksItem) {
+                var currency = currencyPacksItem.get("currency_itemId");
+                this.showCurrencyPacks(currency);
+                return;
+            }
 
-            var categoryId = this.model.goodsMap[itemId].get('categoryId'),
+            var goodsItem = this.model.goodsMap[itemId];
+            if (!goodsItem) {
+                console.log('View was not changed. Could not find item: "' + itemId + '".');
+                return;
+            }
+
+            var categoryId = goodsItem.get('categoryId'),
                 categroy = this.model.get("categories").get(categoryId),
                 view = this.children.findByCustom(categroy.cid);
 
@@ -275,10 +288,6 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
             this.changeViewTo(view);
         },
         showCurrencyPacks : function(currencyId) {
-
-            // Collapse open item in current category
-            this.activeView.collapseExpandedChild({noSound: true});
-
             // Change to view of given currency ID
             var currency    = this.model.get("virtualCurrencies").get(currencyId),
                 view        = this.children.findByCustom(currency.cid);
@@ -313,10 +322,6 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
             });
 
             if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
-
-            if (this.options.initViewItemId) {
-                this.changeViewToItem(this.options.initViewItemId);
-            }
         },
         zoomFunction : function() {
             return (innerWidth / innerHeight) > 1.5 ? (innerHeight / 640) : (innerWidth / 960);
