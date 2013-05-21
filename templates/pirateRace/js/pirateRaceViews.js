@@ -171,10 +171,33 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             // TODO: Move to a header view
             this.$(".balance-container label").html(model.get("balance"));
         },
-        onClickBuyMore : function() {
-            this.playSound().showCurrencyPacks();
+        onClickBuyMore: function () {
+            this.showCurrencyPacks();
+        },
+        changeViewToItem: function (itemId) {
+            if (!itemId)
+                return;
+
+            var currencyPacksItem = this.model.currencyPacksMap[itemId];
+            var nonConsumableItem = this.model.get("nonConsumables").get(itemId);
+            if (currencyPacksItem || nonConsumableItem) {
+                this.showCurrencyPacks();
+                this.iscrolls.packs.scrollToElement('[data-itemid="' + itemId + '"]', 500);
+                return;
+            }
+
+            var goodsItem = this.model.goodsMap[itemId];
+            if (goodsItem) {
+                this.showGoodsStore();
+                this.iscrolls.goods.scrollToElement('[data-itemid="' + itemId + '"]', 500);
+                return;
+            }
+
+            console.log('View was not changed. Could not find item: "' + itemId + '".');
         },
         showCurrencyPacks : function() {
+            this.playSound();
+
             // When this flag is raised, there is no connectivity,
             // thus don't show the currency store
             if (this.model.get("isCurrencyStoreDisabled")) {

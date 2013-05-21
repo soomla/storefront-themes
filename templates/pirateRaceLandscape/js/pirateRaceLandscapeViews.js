@@ -84,7 +84,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             }, this);
             var chooseCategory = _.bind(function (view) {
                 var elementId = 'soomCat' + view.model.id;
-                this.iscrolls.goods.scrollToElement('#' + elementId, 500);
+                this.iscrolls.onlyOne.scrollToElement('#' + elementId, 500);
             }, this);
 
             // Create category views
@@ -168,25 +168,39 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             this.$(".balance-container label[data-currency='" + model.id + "']").html(model.get("balance"));
         },
         onClickBuyMore : function() {
-            this.playSound().showCurrencyPacks();
+            this.showCurrencyPacks();
         },
-        showCurrencyPacks : function() {
+        changeViewToItem: function (itemId) {
+            if (!itemId)
+                return;
+
+            var goodsItem = this.model.goodsMap[itemId];
+            var currencyPacksItem = this.model.currencyPacksMap[itemId];
+            if (!goodsItem && !currencyPacksItem) {
+                console.log('View was not changed. Could not find item: "' + itemId + '".');
+                return;
+            }
+
+            this.iscrolls.onlyOne.scrollToElement('[data-itemid="' + itemId + '"]', 500);
+        },
+        showCurrencyPacks: function () {
+            this.playSound();
+
             // When this flag is raised, there is no connectivity,
             // thus don't show the currency store
             if (this.model.get("isCurrencyStoreDisabled")) {
                 alert("Buying more " + this.model.get("currency").get("name") + " is unavailable. Check your internet connectivity and try again.");
             } else {
-                this.iscrolls.goods.scrollToElement('.currencyPacks', 500);
-                this.iscrolls.packs.refresh();
+                this.iscrolls.onlyOne.scrollToElement('.currencyPacks', 500);
             }
         },
         showGoodsStore : function() {
             this.playSound();
             this.ui.goodsStore.show();
-            this.iscrolls.goods.refresh();
+            this.iscrolls.onlyOne.refresh();
         },
         iscrollRegions : {
-            goods : {
+            onlyOne : {
                 el : "#content-container .items-container",
                 options: {
                     snap: 'li', hScroll: true, vScroll: false, hScrollbar: false, vScrollbar: false, onScrollEnd: function () {
@@ -201,7 +215,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                         $('#soomCatHeader' + categoryId).toggleClass('selected', true);
                     }
                 }
-            },
+            }
         },
         onRender : function() {
             // Render subviews (categories, items in goods store and currency store)
