@@ -82,9 +82,23 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             var wantsToBuyMarketItem = _.bind(function (view) {
                 this.playSound().wantsToBuyMarketItem(view.model);
             }, this);
+            var chooseCurrencyCategory = _.bind(function (view) {
+                var currencyPacks = view.model.get('packs');
+                _.each(this.currencyPacksViews, function (currencyPacksView) {
+                    if (currencyPacks == currencyPacksView.collection) {
+                        this.iscrolls.onlyOne.scrollToElement(currencyPacksView.el, 500);
+                        return;
+                    }
+                }, this);
+            }, this);
             var chooseCategory = _.bind(function (view) {
-                var elementId = 'soomCat' + view.model.id;
-                this.iscrolls.onlyOne.scrollToElement('#' + elementId, 500);
+                var categroyGoods = view.model.get('goods');
+                _.each(this.categoryViews, function (categoryView) {
+                    if (categroyGoods == categoryView.collection) {
+                        this.iscrolls.onlyOne.scrollToElement(categoryView.el, 500);
+                        return;
+                    }
+                }, this);
             }, this);
 
             // Create category views
@@ -132,7 +146,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                     model: currency,
                     className: "currencyHeader",
                     templateHelpers: _.extend({ category: currency.get("name"), id: currency.get("itemId"), selected: "" }, this.theme.categories)
-                }).on("chooseCategory", chooseCategory);
+                }).on("chooseCategory", chooseCurrencyCategory);
 
                 this.categoryHeaderViews.push(headerView);
 
@@ -176,12 +190,20 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
             var goodsItem = this.model.goodsMap[itemId];
             var currencyPacksItem = this.model.currencyPacksMap[itemId];
-            if (!goodsItem && !currencyPacksItem) {
+            var item = goodsItem || currencyPacksItem;
+            if (!item) {
                 console.log('View was not changed. Could not find item: "' + itemId + '".');
                 return;
             }
 
-            this.iscrolls.onlyOne.scrollToElement('[data-itemid="' + itemId + '"]', 500);
+            var catCurrViews = this.categoryViews.concat(this.currencyPacksViews);
+            _.each(catCurrViews, function (catCurrView) {
+                var itemView = catCurrView.children.findByModel(item);
+                if (itemView) {
+                    this.iscrolls.onlyOne.scrollToElement(itemView.el, 500);
+                    return;
+                }
+            }, this);
         },
         showCurrencyPacks: function () {
             this.playSound();
@@ -203,16 +225,24 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             onlyOne : {
                 el : "#content-container .items-container",
                 options: {
-                    snap: 'li', hScroll: true, vScroll: false, hScrollbar: false, vScrollbar: false, onScrollEnd: function () {
+                    snap: 'li',
+                    hScroll: true, vScroll: false, hScrollbar: false, vScrollbar: false,
+                    onScrollEnd: function ($this, iScroll) {
                         var itemWidth = 204; //TODO: Change "204" to @itemWidth.
-                        var xPos = (Math.abs(this.x) <= Math.abs(this.maxScrollX) - 1) ?
-                            Math.max(0, (Math.abs(this.x) + 3)) :
-                            this.scroller.clientWidth - 1; // Handle the edge case of getting to the end of the scroller.
+                        var xPos = (Math.abs(iScroll.x) <= Math.abs(iScroll.maxScrollX) - 1) ?
+                            Math.max(0, (Math.abs(iScroll.x) + 3)) :
+                            iScroll.scroller.clientWidth - 1; // Handle the edge case of getting to the end of the scroller.
                         var itemIndex = Math.floor(xPos / itemWidth);
-                        var liElement = $('ul li', this.scroller)[itemIndex];
+                        var liElement = $('ul li', iScroll.scroller)[itemIndex];
                         var categoryId = $('> div', liElement).data('categoryid');
                         $('div .categories .selected').toggleClass('selected', false);
-                        $('#soomCatHeader' + categoryId).toggleClass('selected', true);
+
+                        _.each($this.categoryHeaderViews, function (categoryHeaderView) {
+                            if (categoryHeaderView.model.id == categoryId) {
+                                $(categoryHeaderView.el.firstChild).toggleClass('selected', true);
+                                return;
+                            }
+                        });
                     }
                 }
             }

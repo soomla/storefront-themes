@@ -179,17 +179,38 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 return;
 
             var currencyPacksItem = this.model.currencyPacksMap[itemId];
-            var nonConsumableItem = this.model.get("nonConsumables").get(itemId);
-            if (currencyPacksItem || nonConsumableItem) {
+            if (currencyPacksItem) {
                 this.showCurrencyPacks();
-                this.iscrolls.packs.scrollToElement('[data-itemid="' + itemId + '"]', 500);
+                _.each(this.currencyPacksViews, function (currencyPackView) {
+                    var itemView = currencyPackView.children.findByModel(currencyPacksItem);
+                    if (itemView) {
+                        this.iscrolls.packs.scrollToElement(itemView.el, 500);
+                        return;
+                    }
+                }, this);
+                return;
+            }
+
+            var nonConsumableItem = this.model.get("nonConsumables").get(itemId);
+            if (nonConsumableItem) {
+                this.showCurrencyPacks();
+                var itemView = this.nonConsumablesView.children.findByModel(nonConsumableItem);
+                if (itemView) {
+                    this.iscrolls.packs.scrollToElement(itemView.el, 500);
+                }
                 return;
             }
 
             var goodsItem = this.model.goodsMap[itemId];
             if (goodsItem) {
                 this.showGoodsStore();
-                this.iscrolls.goods.scrollToElement('[data-itemid="' + itemId + '"]', 500);
+                _.each(this.categoryViews, function (categoryView) {
+                    var itemView = categoryView.children.findByModel(goodsItem);
+                    if (itemView) {
+                        this.iscrolls.goods.scrollToElement(itemView.el, 500);
+                        return;
+                    }
+                }, this);
                 return;
             }
 
