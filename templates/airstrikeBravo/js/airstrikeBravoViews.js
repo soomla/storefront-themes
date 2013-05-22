@@ -233,33 +233,35 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
             if (this.activeView.collapseExpandedChild)
                 this.activeView.collapseExpandedChild({ noSound: true });
 
-            var _activeMenu = this.activeView.$el.hasClass("menu");
-            var _pages = this.activeView.$el.parents("div#pages");
+            if (this.activeView != newview) {
+                var _activeMenu = this.activeView.$el.hasClass("menu");
+                var _pages = this.activeView.$el.parents("div#pages");
 
-            if(_activeMenu){
-                _pages.addClass("slide");
-                // add class "on" to the relevant category only 
-                newview.$el.addClass("on");
-            }else{
-                if(newview.$el.hasClass("menu")){
-                    // new view is menu 
-                    _pages.removeClass("slide");
-                }else{
-                    // switching between two views and NOT going thru menu...
+                if (_activeMenu) {
+                    _pages.addClass("slide");
                     // add class "on" to the relevant category only 
                     newview.$el.addClass("on");
+                } else {
+                    if (newview.$el.hasClass("menu")) {
+                        // new view is menu 
+                        _pages.removeClass("slide");
+                    } else {
+                        // switching between two views and NOT going thru menu...
+                        // add class "on" to the relevant category only 
+                        newview.$el.addClass("on");
+                    }
+                    // remove class "on" from "old" category
+                    this.activeView.$el.removeClass("on");
                 }
-                // remove class "on" from "old" category
-                this.activeView.$el.removeClass("on");
+
+                newview.$el.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function () {
+                    newview.$el.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+                    $(_pages).animate({ scrollTop: 0 }, "slow");
+                });
+
+                this.activeView = newview;
             }
 
-            newview.$el.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function () {
-                newview.$el.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
-                $(_pages).animate({ scrollTop: 0 }, "slow");
-            });
-
-            this.activeView = newview;
-            
             if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
             this.header.changeStateTo(newview.cid);
         },
@@ -271,6 +273,7 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
             if (currencyPacksItem) {
                 var currency = currencyPacksItem.get("currency_itemId");
                 this.showCurrencyPacks(currency);
+                this.activeView.scrollToItemByModel(currencyPacksItem, 500);
                 return;
             }
 
@@ -286,6 +289,7 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
 
             // Change to view of given category
             this.changeViewTo(view);
+            this.activeView.scrollToItemByModel(goodsItem, 500);
         },
         showCurrencyPacks : function(currencyId) {
             // Change to view of given currency ID
