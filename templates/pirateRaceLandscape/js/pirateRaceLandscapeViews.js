@@ -65,7 +65,13 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
             _.bindAll(this, "showGoodsStore");
-            this.dialogModel = this.theme.pages.goods.noFundsModal;
+            this.dialogModal = this.theme.pages.goods.noFundsModal;
+            this.loadingModal = {
+                "text": "Loading...",
+                "background": this.dialogModal.background,
+                "textStyle": this.dialogModal.textStyle
+            };
+
             this.categoryHeaderViews = [];
             this.categoryViews  = [];
 
@@ -151,8 +157,12 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 this.categoryHeaderViews.push(headerView);
 
                 var packs = currency.get("packs");
-                this.numOfItems += (!!packs) ? packs.length : 0;
-                
+                var numOfPacks = (!!packs) ? packs.length : 0;
+                if (currencyIndex == currencies.length && numOfPacks > 0 && numOfPacks < 3) {
+                    numOfPacks = 5; // add padding to the last pack
+                }
+                this.numOfItems += numOfPacks;
+
                 var view = new SectionedListView({
                     className           : "items currencyPacks",
                     collection          : packs,
@@ -229,9 +239,11 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                     hScroll: true, vScroll: false, hScrollbar: false, vScrollbar: false,
                     onScrollEnd: function ($this, iScroll) {
                         var itemWidth = 204; //TODO: Change "204" to @itemWidth.
-                        var xPos = (Math.abs(iScroll.x) <= Math.abs(iScroll.maxScrollX) - 1) ?
-                            Math.max(0, (Math.abs(iScroll.x) + 3)) :
-                            iScroll.scroller.clientWidth - 1; // Handle the edge case of getting to the end of the scroller.
+                        var xPos = Math.max(0, (Math.abs(iScroll.x) + 3));
+                        if (Math.abs(iScroll.x) <= Math.abs(iScroll.maxScrollX) - 1) {
+                            // Handle the edge case of getting to the end of the scroller.
+                            xPos = iScroll.scroller.clientWidth - 1; 
+                        }
                         var itemIndex = Math.floor(xPos / itemWidth);
                         var liElement = $('ul li', iScroll.scroller)[itemIndex];
                         var categoryId = $('> div', liElement).data('categoryid');
@@ -265,8 +277,8 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 this.ui.goodsIscrollContainer.append(view.render().el);
             }, this);
         },
-        zoomFunction : function() {
-            return (innerWidth / innerHeight) > 1.5 ? (innerHeight / 670) : (innerWidth / 1120);
+        zoomFunction: function () {
+            return (innerWidth / innerHeight) > (1120/570) ? (innerHeight / 570) : (innerWidth / 1120);
         }
     });
 

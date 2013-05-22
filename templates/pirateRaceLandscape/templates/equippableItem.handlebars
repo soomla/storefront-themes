@@ -4,7 +4,9 @@
       <label style="{{descriptionStyle}}">{{description}}</label>
     </div>
   </div>
-  <img class="visual" src="{{imgFilePath}}"></img>
+  <div class="row balanceRow">
+    <img class="visual" src="{{imgFilePath}}" />
+  </div>
   <div class="row price">
     <label style="{{priceStyle}}">{{price}}</label>
     <img src="{{currency.imgFilePath}}" class="currency" />
@@ -14,6 +16,8 @@
     <a class="equip">
       <img src="{{equip}}" />
     </a>
-    <img class="active" src="{{active}}" />
+    <span class="active">
+      <img src="{{active}}" />
+    </span>
   </div>
 </div>

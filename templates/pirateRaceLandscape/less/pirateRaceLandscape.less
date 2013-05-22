@@ -111,7 +111,7 @@ ul {
             }
 
             .currency {
-                max-height: @height;
+                height: @height;
             }
         }
     }
@@ -119,22 +119,19 @@ ul {
 
 .items-container {
     width: @internalWidth - 30;
-    min-height: @itemMinHeight;
+    height: @itemHeight;
     margin: 0 auto;
     padding: 0;
     .background-size(cover);
     overflow: auto;
 
     div[data-iscroll='true'] {
+        height: @itemHeight;
         //width: Set In JS!!
 
         .items {
             background-position: center;
-            //clear: both;
             display: inline-block;
-            .container {
-                height: @itemTotalHeight;
-            }
         }
     }
 }
@@ -150,20 +147,21 @@ ul {
 // SINGLE LIST ITEMS - VIRTUAL GOODS
 // --------------------------------------------------
 
-@itemMinHeight: 250px;
-@itemTotalHeight: 100px;
+@itemHeight: 270px;
 @itemWidth: 204px; // Should be the same as in the JS.
 
 .item {
-    min-height:  @itemMinHeight;
+    height:  @itemHeight;
     width: @itemWidth;
     display: inline-block;
 
     // Local variables
-    @visualWidth: @itemTotalHeight;
+    @visualHeight: 100px;
+    @visualWidth: @visualHeight;
     @secondRowHeight: 30px;
     @balanceWidth: 50px;
     @balanceHeight: 50px;
+    @buyImgWidth: 180px;
 
     background-position: center;
 
@@ -172,7 +170,7 @@ ul {
         @padding: 10px;
         padding: @padding;
         text-align: center;
-        min-height:  @itemMinHeight;
+        height:  @itemHeight - 2 * @padding;
         .background-size(100% 100%);
     }
 
@@ -201,9 +199,11 @@ ul {
     // 2nd row contents
     .balanceRow {
         position: relative;
+        padding-top: 7px;
 
         .balance {
             position: absolute;
+            top: -7px;
             right: 0;
             font-size: 18px;
             font-weight: bold;
@@ -215,7 +215,7 @@ ul {
     // Item image
     .visual {
         width: @visualWidth;
-        height: @itemTotalHeight;
+        height: @visualHeight;
     }
 
     // 3nd row contents
@@ -225,28 +225,29 @@ ul {
         font-style: italic;
         color: #FFF;
         text-shadow: 2px 2px 2px #000;
+        padding-top: 7px;
     }
     .currency {
         width: @secondRowHeight;
         height: @secondRowHeight;
+        vertical-align: middle;
+        display: inline;
     }
-    .buy img {
-        width: 100%;
+    .buy {
+        img {
+            width: @buyImgWidth;
+        }
+        display: block;
     }
 
     // Add specific styling for equippable items
     &.equippable {
-        .buy, .equip {
+        .equip, .active{
             img {
-                width: 100%;
+                width: @buyImgWidth;
             }
-        }
-        img.active {
-            width: 100%;
-        }
 
-        // State: not owned
-        .equip, .active {
+            // State: not owned
             display: none;
         }
 
