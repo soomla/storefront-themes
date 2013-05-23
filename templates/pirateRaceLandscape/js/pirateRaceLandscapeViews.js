@@ -240,7 +240,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                     onScrollEnd: function ($this, iScroll) {
                         var itemWidth = 204; //TODO: Change "204" to @itemWidth.
                         var xPos = Math.max(0, (Math.abs(iScroll.x) + 3));
-                        if (Math.abs(iScroll.x) <= Math.abs(iScroll.maxScrollX) - 1) {
+                        if (Math.abs(iScroll.x) > Math.abs(iScroll.maxScrollX) - 1) {
                             // Handle the edge case of getting to the end of the scroller.
                             xPos = iScroll.scroller.clientWidth - 1; 
                         }
