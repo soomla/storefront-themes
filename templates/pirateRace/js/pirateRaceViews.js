@@ -171,10 +171,54 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             // TODO: Move to a header view
             this.$(".balance-container label").html(model.get("balance"));
         },
-        onClickBuyMore : function() {
-            this.playSound().showCurrencyPacks();
+        onClickBuyMore: function () {
+            this.showCurrencyPacks();
+        },
+        changeViewToItem: function (itemId) {
+            if (!itemId)
+                return;
+
+            var currencyPacksItem = this.model.currencyPacksMap[itemId];
+            if (currencyPacksItem) {
+                this.showCurrencyPacks();
+                _.each(this.currencyPacksViews, function (currencyPackView) {
+                    var itemView = currencyPackView.children.findByModel(currencyPacksItem);
+                    if (itemView) {
+                        this.iscrolls.packs.scrollToElement(itemView.el, 500);
+                        return;
+                    }
+                }, this);
+                return;
+            }
+
+            var nonConsumableItem = this.model.get("nonConsumables").get(itemId);
+            if (nonConsumableItem) {
+                this.showCurrencyPacks();
+                var itemView = this.nonConsumablesView.children.findByModel(nonConsumableItem);
+                if (itemView) {
+                    this.iscrolls.packs.scrollToElement(itemView.el, 500);
+                }
+                return;
+            }
+
+            var goodsItem = this.model.goodsMap[itemId];
+            if (goodsItem) {
+                this.showGoodsStore();
+                _.each(this.categoryViews, function (categoryView) {
+                    var itemView = categoryView.children.findByModel(goodsItem);
+                    if (itemView) {
+                        this.iscrolls.goods.scrollToElement(itemView.el, 500);
+                        return;
+                    }
+                }, this);
+                return;
+            }
+
+            console.log('View was not changed. Could not find item: "' + itemId + '".');
         },
         showCurrencyPacks : function() {
+            this.playSound();
+
             // When this flag is raised, there is no connectivity,
             // thus don't show the currency store
             if (this.model.get("isCurrencyStoreDisabled")) {
