@@ -12,6 +12,7 @@
 @headerHeight: 220px;
 @categoriesHeight: 860px;
 @visualHeight: 420px;
+@maxCategories: 10;
 
 
 .centeredBackground {
@@ -265,7 +266,7 @@ ul {
     .catClass(@index - 1);
 }
 .catClass (0) {}
-.catClass (10);
+.catClass (@maxCategories);
 
 // The cateogries behave like a tab.  It's displayed only when it's active
 .category {
@@ -305,7 +306,7 @@ ul {
     .categoryClass(@index - 1);
 }
 .categoryClass (0) {}
-.categoryClass (10);
+.categoryClass (@maxCategories);
 
 // MODAL DIALOG
 // --------------------------------------------------
