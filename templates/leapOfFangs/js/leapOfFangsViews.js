@@ -24,7 +24,62 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
         CarouselView = Components.CarouselView.extend({
             className           : "category",
             itemViewContainer   : ".goods",
-            template            : getTemplate("category")
+            template            : getTemplate("category"),
+            showNext            : function() {
+                this.activeIndex += 1;
+                if (this.activeIndex === this.children.length) this.activeIndex = 0;
+                this.getActiveChild().$el.removeClass("appearLeftTransition").removeClass("appearLeftImmediately");
+                this.getActiveChild().$el.addClass("appearRightImmediately");
+                this.direction = "Left";
+                this.switchActive().trigger("next");
+            },
+            showPrevious        : function() {
+                this.activeIndex -= 1;
+                this.activeChild.$el.addClass("appearRightTransition");
+                if (this.activeIndex === -1) this.activeIndex = this.children.length - 1;
+                this.direction = "Right";
+                this.switchActive().trigger("previous");
+            },
+            switchActive        : function() {
+                console.log(this.direction);
+                var that = this;
+                that.activeChild.$el.removeClass("isOn");
+                var oldActiveChild = that.activeChild;
+                if(that.direction=="Left"){
+                    that.activeChild.$el.addClass("appearLeftTransition");
+                }else{
+                    oldActiveChild.$el.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
+                        oldActiveChild.$el.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+                        oldActiveChild.$el.removeClass("appearRightTransition").addClass("appearLeftImmediately");
+                        // just a minor pause and then handle classes (cannot use "unbind" since relevant animation is 0 seconds)
+                        setTimeout(function(){
+                            oldActiveChild.$el.addClass("appearLeftTransition").removeClass("appearLeftImmediately");
+                        }, 0)
+                    }) 
+                }
+                
+                that.activeChild = this.getActiveChild();
+                that.activeChild.$el.addClass("isOn");
+                
+                setTimeout(function(){
+                        that.activeChild.$el.removeClass( that.direction=="Left"?"appearRightImmediately":"appearLeftTransition" );
+                }, 0)
+
+                return this;
+            },
+            onRender            : function() {
+                // Initialize variables necessary for next / previous functionality
+                this.activeIndex = 0;
+                this.activeChild = this.getActiveChild();
+
+                this.children.each(function(view, idx) {
+                    //console.log("view", view, idx)
+                    view.$el.addClass("appearLeftTransition");
+                }, this);
+                this.activeChild.$el.removeClass("appearLeftTransition");
+                this.activeChild.$el.addClass("isOn");
+                return this;
+        }
         });
 
 
@@ -202,6 +257,8 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
         changeActiveView : function(id) {
             this.activeView.$el.removeClass("active");
             this.activeView = this.children.findByCustom(id);
+            var _index =  $("ul").index(this.activeView.$el);
+            $("#categories > div").removeAttr("class").addClass("cat-" + _index)
             this.activeView.$el.addClass("active");
             return this;
         },
@@ -211,7 +268,7 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
             this.changeTitle(name);
         },
         ui : {
-            categoriesContainer : "#categories"
+            categoriesContainer : "#categories > div"
         },
         regions: {
             categoryMenu : "#category-menu",
@@ -235,7 +292,7 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
             }, this);
 
 
-            this.children.each(function(view) {
+            this.children.each(function(view, idx) {
                 this.ui.categoriesContainer.append(view.render().el);
             }, this);
 
