@@ -128,6 +128,7 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
             }).on("itemview:select", onMenuItemSelect, this);
 
             var wantsToBuyVirtualGoods = _.bind(function(view) {
+                balanceChanged(view);
                 this.playSound().wantsToBuyVirtualGoods(view.model);
             }, this);
             var wantsToBuyMarketItem = _.bind(function(view) {
@@ -137,7 +138,16 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
                 this.playSound().wantsToEquipGoods(view.model);
             }, this);
 
-
+            var balanceChanged = function(view){
+                setTimeout(function(){
+                        var _balance = view.$el.find(".buy-container label.balance");
+                        $(_balance).addClass("changed");
+                        setTimeout(function(){
+                            $(_balance).removeClass("changed");
+                        }, 1500)
+                     }, 100)
+                
+            }
             // Build views for each category
             categories.each(function(category) {
 
@@ -169,7 +179,7 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
                 this.children.add(view, category.id);
             }, this);
 
-
+            
             // Build views for each currency
             currencies.each(function(currency) {
 
@@ -225,7 +235,7 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
             }
         },
         events : {
-            "fastclick #quit" : "leaveStore"
+            "fastclick #quit"  : "leaveStore"
         },
         onRender : function() {
 

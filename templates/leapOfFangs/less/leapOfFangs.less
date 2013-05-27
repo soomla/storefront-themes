@@ -82,7 +82,16 @@ ul {
         line-height: @height;
 
         label {
+            position:relative;
+            display:inline-block;
             vertical-align: middle;
+            &.changed{
+                -webkit-animation: jiggle 0.2s infinite;
+                -moz-animation-duration: 0.2s;
+                -moz-animation-name: jiggle;
+                -moz-animation-iteration-count: infinite;
+                -webkit-transform: rotate(-1deg) scale(1.1);
+            }
         }
     }
 
@@ -139,6 +148,17 @@ ul {
             display: inline-block;
             margin-left: 10px;
             vertical-align: middle;
+        }
+        .balance{
+            display:inline-block;
+            position:relative;
+            &.changed {
+                -webkit-animation: jiggle2 0.3s infinite;
+                -moz-animation-duration: 0.3s;
+                -moz-animation-name: jiggle2;
+                -moz-animation-iteration-count: infinite;
+                -webkit-transform: rotate(-2deg);
+            }
         }
     }
 
@@ -282,4 +302,25 @@ ul {
             .maxSize(80px, 260px);
         }
     }
+}
+@-moz-keyframes jiggle {
+    0% {-moz-transform: rotate(-1deg) scale(1);}
+    33% {-moz-transform: rotate(0deg) scale(1.1);}
+    66% {-moz-transform: rotate(1deg) scale(1);}
+}
+
+@-webkit-keyframes jiggle {
+    0% {-webkit-transform: rotate(-1deg) scale(1);}
+    33% {-webkit-transform: rotate(0deg) scale(1.1);}
+    66% {-webkit-transform: rotate(1deg) scale(1);}
+}
+
+@-moz-keyframes jiggle2 {
+    0% {-moz-transform: rotate(-2deg);}
+    50% {-moz-transform: rotate(2deg);}
+}
+
+@-webkit-keyframes jiggle2 {
+    0% {-webkit-transform: rotate(-2deg);}
+    50% {-webkit-transform: rotate(2deg);}
 }
