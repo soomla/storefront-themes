@@ -153,8 +153,8 @@ ul {
             display:inline-block;
             position:relative;
             &.changed {
-                -webkit-animation: jiggle2 0.3s infinite;
-                -moz-animation-duration: 0.3s;
+                -webkit-animation: jiggle2 1s infinite;
+                -moz-animation-duration: 1s;
                 -moz-animation-name: jiggle2;
                 -moz-animation-iteration-count: infinite;
                 -webkit-transform: rotate(-2deg);
@@ -316,11 +316,19 @@ ul {
 }
 
 @-moz-keyframes jiggle2 {
-    0% {-moz-transform: rotate(-2deg);}
-    50% {-moz-transform: rotate(2deg);}
+    0% {-moz-transform: rotate(0deg) scale(1.2);}
+    18% {-moz-transform: rotate(-2deg) scale(1.2);}
+    36% {-moz-transform: rotate(2deg) scale(1.2);}
+    54% {-moz-transform: rotate(-2deg) scale(1);}
+    72% {-moz-transform: rotate(2deg) scale(1);}
+    90% {-moz-transform: rotate(0deg) scale(1);}
 }
 
 @-webkit-keyframes jiggle2 {
-    0% {-webkit-transform: rotate(-2deg);}
-    50% {-webkit-transform: rotate(2deg);}
+    0% {-webkit-transform: rotate(0deg) scale(1.2);}
+    18% {-webkit-transform: rotate(-2deg) scale(1.2);}
+    36% {-webkit-transform: rotate(2deg) scale(1.2);}
+    54% {-webkit-transform: rotate(-2deg) scale(1);}
+    72% {-webkit-transform: rotate(2deg) scale(1);}
+    90% {-webkit-transform: rotate(0deg) scale(1);}
 }
