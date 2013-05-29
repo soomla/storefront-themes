@@ -57,9 +57,9 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
             var modelAssets = model.get("modelAssets");
             return _.extend({
-                imgFilePath : modelAssets["virtualGoods"][this.model.id],
+                imgFilePath : modelAssets.items[this.model.id].url,
                 currency : {
-                    imgFilePath : modelAssets["currencies"][this.model.getCurrencyId()]
+                    imgFilePath : modelAssets.items[this.model.getCurrencyId()].url
                 },
                 price : this.model.getPrice(),
                 itemSeparator       : theme.itemSeparator
@@ -81,7 +81,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 nameStyle       : theme.pages.currencyPacks.listItem.nameStyle,
                 priceStyle      : theme.pages.currencyPacks.listItem.priceStyle,
                 itemSeparator   : theme.itemSeparator,
-                imgFilePath     : modelAssets["currencyPacks"][this.model.id]
+                imgFilePath     : modelAssets.items[this.model.id].url
             };
         };
         NonConsumableView.prototype.templateHelpers = function() {
@@ -91,7 +91,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
                 priceStyle          : theme.pages.currencyPacks.listItem.priceStyle,
                 itemSeparator       : theme.itemSeparator,
                 ownedIndicatorImage : theme.common.ownedIndicatorImage,
-                imgFilePath         : modelAssets["nonConsumables"][this.model.id]
+                imgFilePath         : modelAssets.items[this.model.id].url
             };
         };
 

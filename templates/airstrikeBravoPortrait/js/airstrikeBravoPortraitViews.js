@@ -57,9 +57,9 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
 
             var modelAssets = model.get("modelAssets");
             return createTemplateHelpers({
-                imgFilePath: modelAssets["virtualGoods"][this.model.id],
+                imgFilePath: modelAssets.items[this.model.id].url,
                 currency: {
-                    imgFilePath: modelAssets["currencies"][this.model.getCurrencyId()]
+                    imgFilePath: modelAssets.items[this.model.getCurrencyId()].url
                 },
                 price: this.model.getPrice(),
 
@@ -76,9 +76,9 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
             var modelAssets = model.get("modelAssets");
             return createTemplateHelpers({
                 price: this.model.getPrice(),
-                imgFilePath : modelAssets["currencyPacks"][this.model.id],
+                imgFilePath : modelAssets.items[this.model.id].url,
                 currency: {
-                    imgFilePath: modelAssets["currencies"][this.model.get("currency_itemId")]
+                    imgFilePath: modelAssets.items[this.model.get("currency_itemId")].url
                 },
 
                 // This is a hack, because Backofgen ignores empty objects in the theme
@@ -88,13 +88,13 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
         CategoryView.prototype.templateHelpers = function() {
             var modelAssets = model.get("modelAssets");
             return {
-                imgFilePath : modelAssets["categories"][this.model.id]
+                imgFilePath : modelAssets.categories[this.model.id].url
             };
         };
         NonConsumableView.prototype.templateHelpers = function() {
             var modelAssets = model.get("modelAssets");
             return createTemplateHelpers({
-                imgFilePath : modelAssets["nonConsumables"][this.model.id]
+                imgFilePath : modelAssets.items[this.model.id].url
             });
         };
 

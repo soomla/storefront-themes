@@ -58,9 +58,9 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
 
             var modelAssets = model.get("modelAssets");
             return createTemplateHelpers({
-                imgFilePath: modelAssets["virtualGoods"][this.model.id],
+                imgFilePath: modelAssets.items[this.model.id].url,
                 currency: {
-                    imgFilePath: modelAssets["currencies"][this.model.getCurrencyId()]
+                    imgFilePath: modelAssets.items[this.model.getCurrencyId()].url
                 },
                 price: this.model.getPrice(),
 
@@ -77,9 +77,9 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
             var modelAssets = model.get("modelAssets");
             return createTemplateHelpers({
                 price: this.model.getPrice(),
-                imgFilePath : modelAssets["currencyPacks"][this.model.id],
+                imgFilePath : modelAssets.items[this.model.id].url,
                 currency: {
-                    imgFilePath: modelAssets["currencies"][this.model.get("currency_itemId")]
+                    imgFilePath: modelAssets.items[this.model.get("currency_itemId")].url
                 },
 
                 // This is a hack, because Backofgen ignores empty objects in the theme
@@ -89,13 +89,13 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
         CategoryView.prototype.templateHelpers = function() {
             var modelAssets = model.get("modelAssets");
             return {
-                imgFilePath : modelAssets["categories"][this.model.id]
+                imgFilePath : modelAssets.categories[this.model.id].url
             };
         };
         NonConsumableView.prototype.templateHelpers = function() {
             var modelAssets = model.get("modelAssets");
             return createTemplateHelpers({
-                imgFilePath : modelAssets["nonConsumables"][this.model.id]
+                imgFilePath : modelAssets.items[this.model.id].url
             });
         };
 
@@ -173,7 +173,7 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
             if (tapjoy) {
                 this.tapjoyView = new CategoryView({
                     className : "item earned-currency",
-                    templateHelpers : { imgFilePath : this.model.get("modelAssets").tapjoy }
+                    templateHelpers : { imgFilePath : this.model.get("modelAssets").items.tapjoy }
                 }).on("select", function() {
                     this.playSound().requestEarnedCurrency("tapjoy");
                 }, this);

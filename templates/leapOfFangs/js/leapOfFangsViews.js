@@ -88,9 +88,9 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
         var virtualGoodTemplateHelpers = function () {
             var modelAssets = model.get("modelAssets");
             return _.extend({
-                imgFilePath: modelAssets["virtualGoods"][this.model.id],
+                imgFilePath: modelAssets.items[this.model.id].url,
                 currency: {
-                    imgFilePath: modelAssets["currencies"][this.model.getCurrencyId()]
+                    imgFilePath: modelAssets.items[this.model.getCurrencyId()].url
                 },
                 price: this.model.getPrice(),
                 item: theme.item
@@ -102,10 +102,11 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
 
         CurrencyPackView.prototype.templateHelpers = function() {
             var modelAssets = model.get("modelAssets");
+            console.log(this.model.id);
             return _.extend({
-                imgFilePath : modelAssets["currencyPacks"][this.model.id],
+                imgFilePath : modelAssets.items[this.model.id].url,
                 currency : {
-                    imgFilePath : modelAssets["currencies"][this.model.get("currency_itemId")]
+                    imgFilePath : modelAssets.items[this.model.get("currency_itemId")].url
                 },
                 price: this.model.getPrice(),
                 item : theme.item
@@ -114,13 +115,13 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
         CategoryMenuItemView.prototype.templateHelpers = function() {
             var modelAssets = model.get("modelAssets");
             return {
-                imgFilePath : modelAssets["categories"][this.model.id]
+                imgFilePath : modelAssets.categories[this.model.id].url
             };
         };
         CurrencyMenuItemView.prototype.templateHelpers = function() {
             var modelAssets = model.get("modelAssets");
             return {
-                imgFilePath : modelAssets["currencies"][this.model.id]
+                imgFilePath : modelAssets.items[this.model.id].url
             };
         };
     };

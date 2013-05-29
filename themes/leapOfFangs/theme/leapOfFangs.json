@@ -56,52 +56,6 @@
             "itemId"            : "1000_coins",
             "currency_itemId"   : "currency_coins",
             "currency_amount"   : 1000
-        },
-        {
-            "purchasableItem": {
-                "marketItem": {
-                    "consumable": 1,
-                    "price": 0.99,
-                    "productId": "android.test.purchased"
-                },
-                "purchaseType": "market"
-            },
-            "name"              : "10 Diamonds",
-            "itemId"            : "10_diamonds",
-            "currency_itemId"   : "currency_diamonds",
-            "currency_amount"   : 10
-        },
-        {
-            "purchasableItem": {
-                "marketItem": {
-                    "consumable": 1,
-                    "price": 2.99,
-                    "productId": "android.test.purchased"
-                },
-                "purchaseType": "market"
-            },
-            "name"              : "100 Diamonds",
-            "itemId"            : "100_diamonds",
-            "currency_itemId"   : "currency_diamonds",
-            "productId"         : "diamonds_100",
-            "price"             : 2.99,
-            "currency_amount"   : 100
-        },
-        {
-            "purchasableItem": {
-                "marketItem": {
-                    "consumable": 1,
-                    "price": 9.99,
-                    "productId": "android.test.purchased"
-                },
-                "purchaseType": "market"
-            },
-            "name"              : "1000 Diamonds",
-            "itemId"            : "1000_diamonds",
-            "currency_itemId"   : "currency_diamonds",
-            "productId"         : "diamonds_1000",
-            "price"             : 9.99,
-            "currency_amount"   : 1000
         }
     ],
     "currencies" : [
@@ -109,11 +63,6 @@
             "name"          : "Coins",
             "description"   : "",
             "itemId"        : "currency_coins"
-        },
-        {
-            "name"          : "Diamonds",
-            "description"   : "",
-            "itemId"        : "currency_diamonds"
         }
     ],
     "goods" : {
