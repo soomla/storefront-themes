@@ -50,11 +50,22 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
 
         var theme = model.get("theme");
 
-
         // Add template helpers to view prototypes
 
         var templateHelpers = function() {
-
+            // add the animation work only while adding virtual currencies or goods
+            if(this.initialized){
+                var that = this;
+                setTimeout(function(){
+                    that.$el.addClass("changed");
+                    var balanceEl = that.$el.find(".balanceWrap > div");
+                    balanceEl.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
+                        balanceEl.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+                        that.$el.removeClass("changed");
+                    });
+                }, 200)
+            }
+            this.initialized = true;
             var modelAssets = model.get("modelAssets");
             return _.extend({
                 imgFilePath : modelAssets.items[this.model.id].url,
@@ -189,27 +200,103 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
         },
         updateBalance : function(model) {
             // TODO: Move to a header view
-            this.$(".balance-container label").html(model.get("balance"));
+            
+            var that = this;
+            // make it happen only when you add to balance
+            if(model.previous("balance")<model.get("balance")){
+                that.$(".balance-container label").addClass("changed");
+                setTimeout(function(){
+                    that.$(".balance-container label").removeClass("changed");
+                }, 1000)
+            }
+            that.$(".balance-container label").html(model.get("balance"));
         },
-        onClickBuyMore : function() {
-            this.playSound().showCurrencyPacks();
+        onClickBuyMore: function () {
+            this.showCurrencyPacks();
+        },
+        changeViewToItem: function (itemId) {
+            if (!itemId)
+                return;
+
+            var currencyPacksItem = this.model.marketItemsMap[itemId];
+            if (currencyPacksItem) {
+                this.showCurrencyPacks();
+                _.each(this.currencyPacksViews, function (currencyPackView) {
+                    var itemView = currencyPackView.children.findByModel(currencyPacksItem);
+                    if (itemView) {
+                        this.iscrolls.packs.scrollToElement(itemView.el, 500);
+                        return;
+                    }
+                }, this);
+                return;
+            }
+
+            var nonConsumableItem = this.model.get("nonConsumables").get(itemId);
+            if (nonConsumableItem) {
+                this.showCurrencyPacks();
+                var itemView = this.nonConsumablesView.children.findByModel(nonConsumableItem);
+                if (itemView) {
+                    this.iscrolls.packs.scrollToElement(itemView.el, 500);
+                }
+                return;
+            }
+
+            var goodsItem = this.model.goodsMap[itemId];
+            if (goodsItem) {
+                this.showGoodsStore();
+                _.each(this.categoryViews, function (categoryView) {
+                    var itemView = categoryView.children.findByModel(goodsItem);
+                    if (itemView) {
+                        this.iscrolls.goods.scrollToElement(itemView.el, 500);
+                        return;
+                    }
+                }, this);
+                return;
+            }
+
+            console.log('View was not changed. Could not find item: "' + itemId + '".');
         },
         showCurrencyPacks : function() {
+            this.playSound();
+
             // When this flag is raised, there is no connectivity,
             // thus don't show the currency store
             if (this.model.get("isCurrencyStoreDisabled")) {
                 alert("Buying more " + this.model.get("currency").get("name") + " is unavailable. Check your internet connectivity and try again.");
             } else {
+                var that = this;
+                that.ui.currencyStore.removeClass("hide");
+                that.ui.currencyStore.removeClass("showBtn");
+                that.ui.currencyStore.addClass("on");
+                
+                that.ui.currencyStore.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
+                    that.ui.currencyStore.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+                    that.ui.goodsStore.removeClass("showBtn");
+                    that.ui.currencyStore.addClass("showBtn");
+                    that.iscrolls.packs.refresh();
+                });
+                /*
                 this.ui.goodsStore.hide();
                 this.ui.currencyStore.show();
                 this.iscrolls.packs.refresh();
+                */
             }
         },
         showGoodsStore : function() {
-            this.playSound();
-            this.ui.currencyStore.hide();
-            this.ui.goodsStore.show();
-            this.iscrolls.goods.refresh();
+            var that = this;
+            that.playSound();
+
+            that.ui.currencyStore.addClass("hide");
+            that.ui.currencyStore.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
+                that.ui.currencyStore.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+                that.ui.currencyStore.removeClass("on");
+                that.ui.goodsStore.addClass("showBtn");
+                that.iscrolls.goods.refresh();
+            });
+
+            //this.ui.currencyStore.hide();
+            //this.ui.goodsStore.show();
+            //that.iscrolls.goods.refresh();
         },
         iscrollRegions : {
             goods : {
@@ -222,7 +309,8 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             }
         },
         onRender : function() {
-            this.ui.currencyStore.hide();
+            //this.ui.currencyStore.hide();
+            //this.ui.goodsStore.addClass("showBtn");
 
             // Render subviews (items in goods store and currency store)
             _.each(this.categoryViews, function(view) {
@@ -239,6 +327,10 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             if (this.restorePurchasesView) {
                 this.$("#restore-purchases").html(this.restorePurchasesView.render().el);
             }
+            var that = this;
+            setTimeout(function(){
+                    that.ui.goodsStore.addClass("showBtn");
+                }, 200);
 
         },
         zoomFunction : function() {
