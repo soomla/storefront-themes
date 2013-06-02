@@ -219,54 +219,79 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
 
             // Build header view
             this.header = new HeaderView({states : headerStates, initialState : categoryMenuView.cid}).on({
-                back : function() {
+                back: function () {
                     this.playSound();
 
-                    // First, collapse open item in current category
-                    this.activeView.collapseExpandedChild({noSound: true});
-
-                    // Second, switch back to the menu
+                    // Switch back to the menu
                     this.changeViewTo(categoryMenuView);
                 },
-                quit : this.leaveStore
+                quit: this.leaveStore
             }, this);
         },
-        changeViewTo : function(newview) {
-            var _activeMenu = this.activeView.$el.hasClass("menu");
-            var _pages = this.activeView.$el.parents("div#pages");
+        changeViewTo: function (newview) {
+            // Collapse open item in current category
+            if (this.activeView.collapseExpandedChild)
+                this.activeView.collapseExpandedChild({ noSound: true });
 
-            if(_activeMenu){
-                _pages.addClass("slide");
-                // add class "on" to the relevant category only 
-                newview.$el.addClass("on");
-            }else{
-                if(newview.$el.hasClass("menu")){
-                    // new view is menu 
-                    _pages.removeClass("slide");
-                }else{
-                    // switching between two views and NOT going thru menu...
+            if (this.activeView != newview) {
+                var _activeMenu = this.activeView.$el.hasClass("menu");
+                var _pages = this.activeView.$el.parents("div#pages");
+
+                if (_activeMenu) {
+                    _pages.addClass("slide");
                     // add class "on" to the relevant category only 
                     newview.$el.addClass("on");
+                } else {
+                    if (newview.$el.hasClass("menu")) {
+                        // new view is menu 
+                        _pages.removeClass("slide");
+                    } else {
+                        // switching between two views and NOT going thru menu...
+                        // add class "on" to the relevant category only 
+                        newview.$el.addClass("on");
+                    }
+                    // remove class "on" from "old" category
+                    this.activeView.$el.removeClass("on");
                 }
-                // remove class "on" from "old" category
-                this.activeView.$el.removeClass("on");
+
+                newview.$el.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function () {
+                    newview.$el.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+                    $(_pages).animate({ scrollTop: 0 }, "slow");
+                });
+
+                this.activeView = newview;
             }
 
-            newview.$el.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
-                newview.$el.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
-                $(_pages).animate({ scrollTop: 0 }, "slow");
-            });
-
-            this.activeView = newview;
-            
             if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
             this.header.changeStateTo(newview.cid);
         },
+        changeViewToItem: function (itemId) {
+            if (!itemId)
+                return;
+            
+            var currencyPacksItem = this.model.currencyPacksMap[itemId];
+            if (currencyPacksItem) {
+                var currency = currencyPacksItem.get("currency_itemId");
+                this.showCurrencyPacks(currency);
+                this.activeView.scrollToItemByModel(currencyPacksItem, 500);
+                return;
+            }
+
+            var goodsItem = this.model.goodsMap[itemId];
+            if (!goodsItem) {
+                console.log('View was not changed. Could not find item: "' + itemId + '".');
+                return;
+            }
+
+            var categoryId = goodsItem.get('categoryId'),
+                categroy = this.model.get("categories").get(categoryId),
+                view = this.children.findByCustom(categroy.cid);
+
+            // Change to view of given category
+            this.changeViewTo(view);
+            this.activeView.scrollToItemByModel(goodsItem, 500);
+        },
         showCurrencyPacks : function(currencyId) {
-
-            // Collapse open item in current category
-            this.activeView.collapseExpandedChild({noSound: true});
-
             // Change to view of given currency ID
             var currency    = this.model.get("virtualCurrencies").get(currencyId),
                 view        = this.children.findByCustom(currency.cid);

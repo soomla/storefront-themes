@@ -107,8 +107,7 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
 
 
             var onMenuItemSelect = function (view) {
-                this.playSound().changeActiveView(view.model.id);
-                this.changeTitle(view.model.get("name"));
+                this.playSound().changeActiveViewByModel(view.model);
             };
 
 
@@ -199,16 +198,42 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
         changeTitle : function(text) {
             this.header.set("title", text);
         },
-        changeActiveView : function(id) {
+        changeActiveViewByModel: function (model) {
+            this.changeActiveView(model.id, model.get('name'));
+        },
+        changeActiveView : function(id, title) {
             this.activeView.$el.removeClass("active");
             this.activeView = this.children.findByCustom(id);
             this.activeView.$el.addClass("active");
+            this.changeTitle(title);
             return this;
         },
-        showCurrencyPacks : function(currencyId) {
-            this.changeActiveView(currencyId);
-            var name = this.model.get("virtualCurrencies").get(currencyId).get("name");
-            this.changeTitle(name);
+        changeViewToItem: function (itemId) {
+            if (!itemId)
+                return;
+
+            var currencyPacksItem = this.model.currencyPacksMap[itemId];
+            if (currencyPacksItem) {
+                var currency = currencyPacksItem.get("currency_itemId");
+                this.showCurrencyPacks(currency);
+                this.activeView.changeActiveByModel(currencyPacksItem);
+                return;
+            }
+
+            var goodsItem = this.model.goodsMap[itemId];
+            if (goodsItem) {
+                var categoryId = goodsItem.get('categoryId'),
+                    categroy = this.model.get('categories').get(categoryId);
+                this.changeActiveViewByModel(categroy);
+                this.activeView.changeActiveByModel(goodsItem);
+                return;
+            }
+
+            console.log('View was not changed. Could not find item: "' + itemId + '".');
+        },
+        showCurrencyPacks: function (currencyId) {
+            var currency = this.model.get("virtualCurrencies").get(currencyId);
+            this.changeActiveViewByModel(currency);
         },
         ui : {
             categoriesContainer : "#categories"
