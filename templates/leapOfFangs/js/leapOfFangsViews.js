@@ -102,7 +102,6 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
 
         CurrencyPackView.prototype.templateHelpers = function() {
             var modelAssets = model.get("modelAssets");
-            console.log(this.model.id);
             return _.extend({
                 imgFilePath : modelAssets.items[this.model.id].url,
                 currency : {
