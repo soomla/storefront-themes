@@ -12,6 +12,7 @@
 @headerHeight: 220px;
 @categoriesHeight: 860px;
 @visualHeight: 420px;
+@maxCategories: 10;
 
 
 .centeredBackground {
@@ -108,19 +109,25 @@ ul {
 
 .goods {
     height: 100%;
+    z-index:50;
+    position:relative;
+    overflow: hidden;
 }
 .goods .item {
 
     @priceContainerHeight: 160px;
     @descriptionHeight: 280px;
     @actionPaddingTop: 10px;
-
+    width:100%;
     height: 100%;
     .box-sizing(border-box);
     overflow: hidden;
     .centeredBackground;
-    display: none;
-
+    display: block;
+    position: absolute;
+    //border:1px solid red;
+    top:0;
+    left:-100%;
 
     .visual {
         height: @visualHeight;
@@ -161,8 +168,26 @@ ul {
         margin: 0 auto;
         padding-top: @actionPaddingTop;
     }
-
-
+    &.isOn{
+        .transition(all 0.3s ease);
+        left:0;
+    }
+    &.appearRightTransition{
+        .transition(all 0.3s ease);
+        left:100%;
+    }
+    &.appearRightImmediately{
+        .transition(all 0s ease);
+        left:100%;
+    }
+    &.appearLeftTransition{
+        .transition(all 0.3s ease);
+        left:-100%;
+    }
+    &.appearLeftImmediately{
+        .transition(all 0s ease);
+        left:-100%;
+    }
 	// Add specific styling for equippable items
     &.equippable {
 
@@ -219,20 +244,42 @@ ul {
         }
     }
 }
-
 #categories {
     height: @categoriesHeight;
     position: relative;
+    overflow: hidden;
 }
+#categories > div{
+    width:100%;
+    height: @categoriesHeight;
+    position:absolute;
+    left:0;
+    top:0;
+    .transition(all 0.3s ease);
+}
+
+.catClass (@index) when (@index > 0) {
+    @ind : (-1 * @index);
+    (~"#categories > div.cat-@{index}"){
+        left: percentage(@ind);
+    }
+    .catClass(@index - 1);
+}
+.catClass (0) {}
+.catClass (@maxCategories);
 
 // The cateogries behave like a tab.  It's displayed only when it's active
 .category {
-    display: none;
-    position: relative;
-
+    width:100%;
+    height: 100%;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index: 10;
+    .box(vertical, center);
     // When a category (tab) is active, this will show it and lay it out as a flex box
     &.active {
-        .box(vertical, center);
+
     }
 
     // Define absolute locations for previous / next buttons
@@ -244,12 +291,22 @@ ul {
     }
     .next {
         right: 0;
+        z-index:100;
     }
     .previous {
         left: 0;
+        z-index:110;
     }
 }
-
+.categoryClass (@index) when (@index > 0) {
+    @ind : (@index + 1);
+    .category:nth-child(@ind) {
+        left: percentage(@index);
+    }
+    .categoryClass(@index - 1);
+}
+.categoryClass (0) {}
+.categoryClass (@maxCategories);
 
 // MODAL DIALOG
 // --------------------------------------------------
