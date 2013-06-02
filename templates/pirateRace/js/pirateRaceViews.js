@@ -24,12 +24,23 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
     var extendViews = function(model) {
 
         var theme = model.get("theme");
-
-
+        
         // Add template helpers to view prototypes
 
         var templateHelpers = function() {
-
+            // add the animation work only while adding virtual currencies or goods
+            if(this.initialized){
+                var that = this;
+                setTimeout(function(){
+                    that.$el.addClass("changed"); 
+                    var balanceEl = that.$el.find(".balanceWrap > div");
+                    balanceEl.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
+                        balanceEl.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+                        that.$el.removeClass("changed"); 
+                    });
+                }, 200)   
+            }
+            this.initialized = true;
             var modelAssets = model.get("modelAssets");
             return _.extend({
                 imgFilePath : modelAssets["virtualGoods"][this.model.id],
@@ -169,7 +180,16 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
         },
         updateBalance : function(model) {
             // TODO: Move to a header view
-            this.$(".balance-container label").html(model.get("balance"));
+            
+            var that = this;
+            // make it happen only when you add to balance
+            if(model.previous("balance")<model.get("balance")){
+                that.$(".balance-container label").addClass("changed");
+                setTimeout(function(){
+                    that.$(".balance-container label").removeClass("changed");
+                }, 1000)
+            }
+            that.$(".balance-container label").html(model.get("balance"));
         },
         onClickBuyMore: function () {
             this.showCurrencyPacks();
@@ -233,7 +253,7 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
             this.playSound();
             this.ui.currencyStore.hide();
             this.ui.goodsStore.show();
-            this.iscrolls.goods.refresh();
+            //this.iscrolls.goods.refresh();
         },
         iscrollRegions : {
             goods : {
