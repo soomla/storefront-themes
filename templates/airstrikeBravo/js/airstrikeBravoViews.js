@@ -239,31 +239,34 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
 
                 if (_activeMenu) {
                     _pages.addClass("slide");
-                    // add class "on" to the relevant category only 
+                    // add class "on" to the relevant category only
                     newview.$el.addClass("on");
                 } else {
                     if (newview.$el.hasClass("menu")) {
-                        // new view is menu 
+                        // new view is menu
                         _pages.removeClass("slide");
                     } else {
                         // switching between two views and NOT going thru menu...
-                        // add class "on" to the relevant category only 
+                        // add class "on" to the relevant category only
                         newview.$el.addClass("on");
                     }
                     // remove class "on" from "old" category
                     this.activeView.$el.removeClass("on");
                 }
 
-                newview.$el.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function () {
+                newview.$el.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
                     newview.$el.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
                     $(_pages).animate({ scrollTop: 0 }, "slow");
                 });
-
+                /*
+                 this.activeView.$el.hide();
+                 this.activeView = newview;
+                 this.activeView.$el.show();
+                 */
                 this.activeView = newview;
+                if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
+                this.header.changeStateTo(newview.cid);
             }
-
-            if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
-            this.header.changeStateTo(newview.cid);
         },
         changeViewToItem: function (itemId) {
             if (!itemId)

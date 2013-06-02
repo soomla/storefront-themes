@@ -261,12 +261,15 @@ define(["jquery", "backbone", "components", "helperViews", "handlebars", "templa
                     newview.$el.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
                     $(_pages).animate({ scrollTop: 0 }, "slow");
                 });
-
+                /*
+                 this.activeView.$el.hide();
+                 this.activeView = view;
+                 this.activeView.$el.show();
+                 */
                 this.activeView = newview;
+                if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
+                this.header.changeStateTo(newview.cid);
             }
-
-            if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
-            this.header.changeStateTo(newview.cid);
         },
         changeViewToItem: function (itemId) {
             if (!itemId)
