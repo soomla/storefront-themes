@@ -11,9 +11,17 @@ var separator = function() {
 };
 
 
+
 module.exports = function (grunt) {
 
-    var distFolder = "dist", templates;
+    var templatesFolder = "./templates", templates;
+
+    var getTemplateSrcFolder = function(template) {
+        return templatesFolder + "/" + template + "/src";
+    };
+    var getTemplateDistFolder = function(template) {
+        return templatesFolder + "/" + template + "/dist";
+    };
 
     // Project configuration.
     var config = {
@@ -37,49 +45,59 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-rigger');
 
 
-
+    //
     // Register helper tasks
+    //
 
-    grunt.registerTask('copy', 'Copies more necessary resources to the distribution folder', function() {
-
-        // Copy templates and themes to distribution folder
-        mkdir("-p", distFolder);
-        cp("-R", "templates", "themes", distFolder + "/");
+    grunt.registerTask('prepareFolders', 'Cleans the distribution folder', function() {
+        ls(templatesFolder).forEach(function(template) {
+            var templateSrcFolder = getTemplateSrcFolder(template);
+            var templateDistFolder = getTemplateDistFolder(template);
+            console.log(templateSrcFolder);
+            console.log(templateDistFolder);
+            mkdir("-p", templateDistFolder);
+            cp("-R", templateSrcFolder + "/*", templateDistFolder);
+        });
     });
 
-
     grunt.registerTask('configTemplates', 'Creates a build configuration for each template', function() {
-        templates = ls(distFolder + "/templates");
-        templates.forEach(function(template) {
+        ls(templatesFolder).forEach(function(template) {
             var handlebars  = grunt.config.get("handlebars"),
                 rig         = grunt.config.get("rig"),
                 min         = grunt.config.get("min");
 
+            var templateDistFolder = getTemplateDistFolder(template);
+
             // Define a build configuration for the current template
             handlebars[template] = {
-                src: distFolder + "/templates/" + template + "/templates",
-                dest: distFolder + "/templates/" + template + "/js/handlebars-templates.js"
+                src: templateDistFolder + "/templates",
+                dest: templateDistFolder + "/js/handlebars-templates.js"
             };
 
-            var viewsFile = distFolder + "/templates/" + template + "/js/" + template + "Views.js";
+            var viewsFile = templateDistFolder + "/js/" + template + "Views.js";
             rig[template] = { src  : viewsFile, dest : viewsFile };
             min[template] = { src  : viewsFile, dest : viewsFile };
         })
     });
 
     grunt.registerTask('clean', 'Cleans the distribution folder', function() {
-        rm("-rf", distFolder);
+        ls(templatesFolder).forEach(function(template) {
+            var templateDistFolder = getTemplateDistFolder(template);
+            rm("-rf", templateDistFolder);
+        });
     });
 
     grunt.registerTask('cleanup', 'Cleans leftover files from the build process', function() {
 
-        templates.forEach(function(template) {
+        ls(templatesFolder).forEach(function(template) {
+
+            var templateDistFolder = getTemplateDistFolder(template);
 
             // Remove auxiliary compiled Handlebars files from all templates
-            rm("-f", distFolder + "/templates/" + template + "/js/handlebars-templates.js");
+            rm("-f", templateDistFolder + "/js/handlebars-templates.js");
 
             // Remove raw Handlebars templates
-            rm("-rf", distFolder + "/templates/" + template + "/templates");
+            rm("-rf", templateDistFolder + "/templates");
         });
     });
 
@@ -145,6 +163,6 @@ module.exports = function (grunt) {
 
     });
 
-    grunt.registerTask('default', 'clean copy configTemplates handlebars rig min cleanup');
+    grunt.registerTask('default', 'clean prepareFolders configTemplates handlebars rig min cleanup');
 
 };
