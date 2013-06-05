@@ -19,9 +19,13 @@ module.exports = function (grunt) {
     var getTemplateSrcFolder = function(template) {
         return templatesFolder + "/" + template + "/src";
     };
-    var getTemplateDistFolder = function(template) {
-        return templatesFolder + "/" + template + "/dist";
+    var getTemplateDeployFolder = function(template) {
+        return templatesFolder + "/" + template + "/deploy";
     };
+    var getTemplateDistFolder = function(template) {
+        return getTemplateDeployFolder(template) + "/dist";
+    };
+
 
     // Project configuration.
     var config = {
@@ -51,7 +55,7 @@ module.exports = function (grunt) {
     // Register helper tasks
     //
 
-    grunt.registerTask('prepareFolders', 'Cleans the distribution folder', function() {
+    grunt.registerTask('prepareFolders', 'Prepares a deploy folder structure', function() {
         ls(templatesFolder).forEach(function(template) {
             var templateSrcFolder = getTemplateSrcFolder(template);
             var templateDistFolder = getTemplateDistFolder(template);
@@ -97,10 +101,19 @@ module.exports = function (grunt) {
         });
 	});
 
+    grunt.registerTask('copySrc', 'Copies the dist folder to an src folder just before minification', function() {
+        ls(templatesFolder).forEach(function(template) {
+            var templateDeployFolder = getTemplateDeployFolder(template),
+                templateDistFolder   = getTemplateDistFolder(template);
+
+            mkdir("-p", templateDeployFolder + "/src");
+            cp("-rf", templateDistFolder + "/*", templateDeployFolder + "/src/");
+        });
+    });
+
     grunt.registerTask('clean', 'Cleans the distribution folder', function() {
         ls(templatesFolder).forEach(function(template) {
-            var templateDistFolder = getTemplateDistFolder(template);
-            rm("-rf", templateDistFolder);
+            rm("-rf", getTemplateDeployFolder(template));
         });
     });
 
@@ -180,6 +193,6 @@ module.exports = function (grunt) {
 
     });
 
-    grunt.registerTask('default', 'clean prepareFolders configTemplates less handlebars rig min cleanup');
+    grunt.registerTask('default', 'clean prepareFolders configTemplates less handlebars rig cleanup copySrc min');
 
 };
