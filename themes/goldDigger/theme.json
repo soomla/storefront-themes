@@ -6,20 +6,20 @@
     "modelAssets" : {
         "categories" : {},
         "items" : {
-            "bomb" : {"name" : "img/Powerups/Bomb.png"},
-            "gold_pot" : {"name" : "img/Powerups/Gold_Pot.png"},
-            "lucky_clover" : {"name" : "img/Powerups/Lucky_Clover.png"},
-            "rock_book" : {"name" : "img/Powerups/Rock_Book.png"},
-            "kasey" : {"name" : "img/Characters/Kasey.png"},
-		    "robert_din" : {"name" : "img/Characters/Robert_Din.png"},
-            "sir_james" : {"name" : "img/Characters/Sir_James.png"},
-            "tod" : {"name" : "img/Characters/Tod.png"},
-            "coins_2500" : {"name" : "img/CurrencyPacks/GetCoins_1.png"},
-            "coins_25000" : {"name" : "img/CurrencyPacks/GetCoins_2.png"},
-            "coins_75000" : {"name" : "img/CurrencyPacks/GetCoins_3.png"},
-            "coins_200000" : {"name" : "img/CurrencyPacks/GetCoins_4.png"},
-            "currency_coins" : {"name" : "img/Item_Price.png"},
-		    "remove_ads" : {"name" : "img/no-ads.png"}
+            "bomb" : "img/Powerups/Bomb.png",
+            "gold_pot" : "img/Powerups/Gold_Pot.png",
+            "lucky_clover" : "img/Powerups/Lucky_Clover.png",
+            "rock_book" : "img/Powerups/Rock_Book.png",
+            "kasey" : "img/Characters/Kasey.png",
+		    "robert_din" : "img/Characters/Robert_Din.png",
+            "sir_james" : "img/Characters/Sir_James.png",
+            "tod" : "img/Characters/Tod.png",
+            "coins_2500" : "img/CurrencyPacks/GetCoins_1.png",
+            "coins_25000" : "img/CurrencyPacks/GetCoins_2.png",
+            "coins_75000" : "img/CurrencyPacks/GetCoins_3.png",
+            "coins_200000" : "img/CurrencyPacks/GetCoins_4.png",
+            "currency_coins" : "img/Item_Price.png",
+		    "remove_ads" : "img/no-ads.png"
         }
     },
     "theme" : {

@@ -74,9 +74,9 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "marionette", "ha
             this.initialized = true;
             var modelAssets = model.get("modelAssets");
             return _.extend({
-                imgFilePath : modelAssets.items[this.model.id].url,
+                imgFilePath : modelAssets.items[this.model.id],
                 currency : {
-                    imgFilePath : modelAssets.items[this.model.getCurrencyId()].url
+                    imgFilePath : modelAssets.items[this.model.getCurrencyId()]
                 },
                 price : this.model.getPrice(),
                 itemSeparator       : theme.itemSeparator
@@ -98,7 +98,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "marionette", "ha
                 nameStyle       : theme.pages.currencyPacks.listItem.nameStyle,
                 priceStyle      : theme.pages.currencyPacks.listItem.priceStyle,
                 itemSeparator   : theme.itemSeparator,
-                imgFilePath     : modelAssets.items[this.model.id].url
+                imgFilePath     : modelAssets.items[this.model.id]
             };
         };
         NonConsumableView.prototype.templateHelpers = function() {
@@ -108,7 +108,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "marionette", "ha
                 priceStyle          : theme.pages.currencyPacks.listItem.priceStyle,
                 itemSeparator       : theme.itemSeparator,
                 ownedIndicatorImage : theme.common.ownedIndicatorImage,
-                imgFilePath         : modelAssets.items[this.model.id].url
+                imgFilePath         : modelAssets.items[this.model.id]
             };
         };
 
