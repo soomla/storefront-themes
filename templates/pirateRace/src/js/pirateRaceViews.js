@@ -1,4 +1,10 @@
-define(["jquery", "backbone", "components", "marionette", "handlebars", "templates", "jquery.fastbutton"], function($, Backbone, Components, Marionette, Handlebars) {
+define("pirateRaceViews", ["jquery", "backbone", "components", "marionette", "handlebars", "templates", "jquery.fastbutton"], function($, Backbone, Components, Marionette, Handlebars) {
+
+	//
+	// grunt-rigger directive - DO NOT DELETE
+	//= handlebars-templates
+    //
+
 
     // Define view types
 
@@ -349,6 +355,3 @@ define(["jquery", "backbone", "components", "marionette", "handlebars", "templat
         }
     };
 });
-
-// grunt-rigger directive:
-//= handlebars-templates

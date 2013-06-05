@@ -1,4 +1,10 @@
-define(["jquery", "backbone", "components", "handlebars", "marionette", "templates", "jquery.fastbutton"], function($, Backbone, Components, Handlebars, Marionette) {
+define("leapOfFangs", ["jquery", "backbone", "components", "handlebars", "marionette", "templates", "jquery.fastbutton"], function($, Backbone, Components, Handlebars, Marionette) {
+
+    //
+    // grunt-rigger directive - DO NOT DELETE
+    //= handlebars-templates
+    //
+
 
     // Define view types
 
@@ -368,6 +374,3 @@ define(["jquery", "backbone", "components", "handlebars", "marionette", "templat
         }
     };
 });
-
-// grunt-rigger directive:
-//= handlebars-templates

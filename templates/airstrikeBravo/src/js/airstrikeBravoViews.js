@@ -1,4 +1,10 @@
-define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templates"], function($, Backbone, Components, HelperViews, Handlebars) {
+define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews",  "handlebars", "templates"], function($, Backbone, Components, HelperViews, Handlebars) {
+
+    //
+    // grunt-rigger directive - DO NOT DELETE
+    //= handlebars-templates
+    //
+
 
     // Define view types
 
@@ -365,6 +371,3 @@ define(["jquery", "backbone", "components", "helperViews",  "handlebars", "templ
         }
     };
 });
-
-// grunt-rigger directive:
-//= handlebars-templates
