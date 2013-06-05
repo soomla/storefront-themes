@@ -19,6 +19,7 @@
     ],
     "dependencies": {
         "grunt"             : "~0.3.12",
+        "grunt-contrib-less": "~0.3.2",
         "grunt-handlebars"  : "~0.0.6",
         "grunt-rigger"      : "~0.3.0",
         "shelljs"           : "~0.0.6",

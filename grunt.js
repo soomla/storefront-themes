@@ -33,6 +33,7 @@ module.exports = function (grunt) {
                 '* Copyright (c) <%= grunt.template.today("yyyy") %> ' +
                 'YOUR_NAME; Licensed MIT */'
         },
+        less : {},
         handlebars : {},
         rig : {},
         min : {}
@@ -41,6 +42,7 @@ module.exports = function (grunt) {
     grunt.initConfig(config);
 
     // Load grunt plugins
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-handlebars');
     grunt.loadNpmTasks('grunt-rigger');
 
@@ -53,8 +55,6 @@ module.exports = function (grunt) {
         ls(templatesFolder).forEach(function(template) {
             var templateSrcFolder = getTemplateSrcFolder(template);
             var templateDistFolder = getTemplateDistFolder(template);
-            console.log(templateSrcFolder);
-            console.log(templateDistFolder);
             mkdir("-p", templateDistFolder);
             cp("-R", templateSrcFolder + "/*", templateDistFolder);
         });
@@ -62,13 +62,30 @@ module.exports = function (grunt) {
 
     grunt.registerTask('configTemplates', 'Creates a build configuration for each template', function() {
         ls(templatesFolder).forEach(function(template) {
-            var handlebars  = grunt.config.get("handlebars"),
+            var less        = grunt.config.get("less"),
+                handlebars  = grunt.config.get("handlebars"),
                 rig         = grunt.config.get("rig"),
                 min         = grunt.config.get("min");
 
             var templateDistFolder = getTemplateDistFolder(template);
 
+            //
             // Define a build configuration for the current template
+            //
+
+            var lessFiles    = {},
+                templateLess = templateDistFolder + "/less/" + template + ".less";
+            lessFiles[templateLess] = templateLess;
+
+            less[template] = {
+                files: lessFiles,
+                options : {
+                    paths: ["../storefront/src/"],
+                    compress : true
+                }
+            };
+
+
             handlebars[template] = {
                 src: templateDistFolder + "/templates",
                 dest: templateDistFolder + "/js/handlebars-templates.js"
@@ -77,8 +94,8 @@ module.exports = function (grunt) {
             var viewsFile = templateDistFolder + "/js/" + template + "Views.js";
             rig[template] = { src  : viewsFile, dest : viewsFile };
             min[template] = { src  : viewsFile, dest : viewsFile };
-        })
-    });
+        });
+	});
 
     grunt.registerTask('clean', 'Cleans the distribution folder', function() {
         ls(templatesFolder).forEach(function(template) {
@@ -163,6 +180,6 @@ module.exports = function (grunt) {
 
     });
 
-    grunt.registerTask('default', 'clean prepareFolders configTemplates handlebars rig min cleanup');
+    grunt.registerTask('default', 'clean prepareFolders configTemplates less handlebars rig min cleanup');
 
 };
