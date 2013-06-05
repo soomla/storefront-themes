@@ -5,7 +5,7 @@ muffinRush/ios-example/MuffinRush.xcodeproj/project.xcworkspace/xcuserdata/refae
 *workspace.xml
 *out/
 *gen/
-dist/
+templates/**/deploy/
 node_modules/
 
 *xcuserdata
