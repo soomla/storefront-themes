@@ -1,4 +1,4 @@
-define("leapOfFangs", ["jquery", "backbone", "components", "handlebars", "marionette", "templates", "jquery.fastbutton"], function($, Backbone, Components, Handlebars, Marionette) {
+define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "marionette", "templates", "jquery.fastbutton"], function($, Backbone, Components, Handlebars, Marionette) {
 
     //
     // grunt-rigger directive - DO NOT DELETE
