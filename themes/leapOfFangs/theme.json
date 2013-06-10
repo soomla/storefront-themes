@@ -5,23 +5,23 @@
     },
     "modelAssets" : {
         "categories" : {
-            "CHARACTERS" : {"name" : "img/Categories/Pumpkin.png"},
-            "WEAPONS" : {"name" : "img/Categories/Axe.png"}
+            "CHARACTERS" : "img/Categories/Pumpkin.png",
+            "WEAPONS" : "img/Categories/Axe.png"
         },
         "items" : {
-            "vampire" : {"name" : "img/Characters/Vampire.png"},
-            "witch" : {"name" : "img/Characters/Witch.png"},
-            "skull" : {"name" : "img/Characters/Skull.png"},
-            "zombie" : {"name" : "img/Characters/Zombie.png"},
-            "chocolate_cake" : {"name" : "img/Weapons/Weapon1.png"},
-            "cream_cup" : {"name" : "img/Weapons/Weapon2.png"},
-            "10_coins" : {"name" : "img/CurrencyPacks/CurrencyPack1.png"},
-            "50_coins" : {"name" : "img/CurrencyPacks/CurrencyPack2.png"},
-            "400_coins" : {"name" : "img/CurrencyPacks/CurrencyPack3.png"},
-            "1000_coins" : {"name" : "img/CurrencyPacks/CurrencyPack4.png"},
-            "currency_coins" : {"name" : "img/Coin.png"},
-            "currency_diamonds" : {"name" : "img/Diamond.png"},
-		    "remove_ads" : {"name" : "img/no-ads.png"}
+            "vampire" : "img/Characters/Vampire.png",
+            "witch" : "img/Characters/Witch.png",
+            "skull" : "img/Characters/Skull.png",
+            "zombie" : "img/Characters/Zombie.png",
+            "chocolate_cake" : "img/Weapons/Weapon1.png",
+            "cream_cup" : "img/Weapons/Weapon2.png",
+            "10_coins" : "img/CurrencyPacks/CurrencyPack1.png",
+            "50_coins" : "img/CurrencyPacks/CurrencyPack2.png",
+            "400_coins" : "img/CurrencyPacks/CurrencyPack3.png",
+            "1000_coins" : "img/CurrencyPacks/CurrencyPack4.png",
+            "currency_coins" : "img/Coin.png",
+            "currency_diamonds" : "img/Diamond.png",
+		    "remove_ads" : "img/no-ads.png"
         }
     },
     "theme" : {

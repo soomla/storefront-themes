@@ -1,4 +1,4 @@
-define("leapOfFangs", ["jquery", "backbone", "components", "handlebars", "marionette", "templates", "jquery.fastbutton"], function($, Backbone, Components, Handlebars, Marionette) {
+define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "marionette", "templates", "jquery.fastbutton"], function($, Backbone, Components, Handlebars, Marionette) {
 
     //
     // grunt-rigger directive - DO NOT DELETE
@@ -150,9 +150,9 @@ define("leapOfFangs", ["jquery", "backbone", "components", "handlebars", "marion
         var virtualGoodTemplateHelpers = function () {
             var modelAssets = model.get("modelAssets");
             return _.extend({
-                imgFilePath: modelAssets.items[this.model.id].url,
+                imgFilePath: modelAssets.items[this.model.id],
                 currency: {
-                    imgFilePath: modelAssets.items[this.model.getCurrencyId()].url
+                    imgFilePath: modelAssets.items[this.model.getCurrencyId()]
                 },
                 price: this.model.getPrice(),
                 item: theme.item
@@ -165,9 +165,9 @@ define("leapOfFangs", ["jquery", "backbone", "components", "handlebars", "marion
         CurrencyPackView.prototype.templateHelpers = function() {
             var modelAssets = model.get("modelAssets");
             return _.extend({
-                imgFilePath : modelAssets.items[this.model.id].url,
+                imgFilePath : modelAssets.items[this.model.id],
                 currency : {
-                    imgFilePath : modelAssets.items[this.model.get("currency_itemId")].url
+                    imgFilePath : modelAssets.items[this.model.get("currency_itemId")]
                 },
                 price: this.model.getPrice(),
                 item : theme.item
@@ -176,13 +176,13 @@ define("leapOfFangs", ["jquery", "backbone", "components", "handlebars", "marion
         CategoryMenuItemView.prototype.templateHelpers = function() {
             var modelAssets = model.get("modelAssets");
             return {
-                imgFilePath : modelAssets.categories[this.model.id].url
+                imgFilePath : modelAssets.categories[this.model.id]
             };
         };
         CurrencyMenuItemView.prototype.templateHelpers = function() {
             var modelAssets = model.get("modelAssets");
             return {
-                imgFilePath : modelAssets.items[this.model.id].url
+                imgFilePath : modelAssets.items[this.model.id]
             };
         };
     };

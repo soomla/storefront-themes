@@ -1,4 +1,4 @@
-define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews", "handlebars", "templates"], function($, Backbone, Components, HelperViews, Handlebars) {
+define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "helperViews", "handlebars", "templates"], function($, Backbone, Components, HelperViews, Handlebars) {
 
     //
     // grunt-rigger directive - DO NOT DELETE
@@ -63,9 +63,9 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
 
             var modelAssets = model.get("modelAssets");
             return createTemplateHelpers({
-                imgFilePath: modelAssets.items[this.model.id].url,
+                imgFilePath: modelAssets.items[this.model.id],
                 currency: {
-                    imgFilePath: modelAssets.items[this.model.getCurrencyId()].url
+                    imgFilePath: modelAssets.items[this.model.getCurrencyId()]
                 },
                 price: this.model.getPrice(),
 
@@ -82,9 +82,9 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
             var modelAssets = model.get("modelAssets");
             return createTemplateHelpers({
                 price: this.model.getPrice(),
-                imgFilePath : modelAssets.items[this.model.id].url,
+                imgFilePath : modelAssets.items[this.model.id],
                 currency: {
-                    imgFilePath: modelAssets.items[this.model.get("currency_itemId")].url
+                    imgFilePath: modelAssets.items[this.model.get("currency_itemId")]
                 },
 
                 // This is a hack, because Backofgen ignores empty objects in the theme
@@ -94,13 +94,13 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
         CategoryView.prototype.templateHelpers = function() {
             var modelAssets = model.get("modelAssets");
             return {
-                imgFilePath : modelAssets.categories[this.model.id].url
+                imgFilePath : modelAssets.categories[this.model.id]
             };
         };
         NonConsumableView.prototype.templateHelpers = function() {
             var modelAssets = model.get("modelAssets");
             return createTemplateHelpers({
-                imgFilePath : modelAssets.items[this.model.id].url
+                imgFilePath : modelAssets.items[this.model.id]
             });
         };
 
