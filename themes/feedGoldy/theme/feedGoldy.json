@@ -1,160 +1,169 @@
 {
-    "currencyPacks" : [
+    "currencyPacks": [
         {
-            "name"              : "COIN BOOSTER PACK",
-            "itemId"            : "coin_booster_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "coin_booster_pack",
-            "price"             : 0.99,
-            "amount"            : 20000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 0.99,
+                    "productId": "coin_booster_pack"
+                },
+                "purchaseType": "market"
+            },
+            "name": "COIN BOOSTER PACK",
+            "itemId": "coin_booster_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 20000
         },
         {
-            "name"              : "COIN MEGA PACK",
-            "itemId"            : "coin_mega_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "android.test.purchased",
-            "price"             : 1.99,
-            "amount"            : 50000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 1.99,
+                    "productId": "android.test.purchased"
+                },
+                "purchaseType": "market"
+            },
+            "name": "COIN MEGA PACK",
+            "itemId": "coin_mega_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 50000
         },
         {
-            "name"              : "COIN ULTRA PACK",
-            "itemId"            : "coin_ultra_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "coin_ultra_pack",
-            "price"             : 2.99,
-            "amount"            : 100000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 2.99,
+                    "productId": "coin_ultra_pack"
+                },
+                "purchaseType": "market"
+            },
+            "name": "COIN ULTRA PACK",
+            "itemId": "coin_ultra_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 100000
         }
     ],
-    "currencies" : [
+    "currencies": [
         {
-            "name"          : "COINS",
-            "description"   : "",
-            "itemId"        : "currency_coins"
+            "name": "COINS",
+            "description": "",
+            "itemId": "currency_coins"
         }
     ],
-    "virtualGoods" : [
+    "categories": [
         {
-            "name"          : "Goldy",
-            "description"   : "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "itemId"        : "goldy",
-            "categoryId"   : 1,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 250
-                    }
-            }
-        },
-		{
-            "name"          : "Rainbow",
-            "description"   : "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "itemId"        : "rainbow",
-            "categoryId"   : 1,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 250
-                    }
-            }
-        },
-		{
-            "name"          : "Octy",
-            "description"   : "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "itemId"        : "octy",
-            "categoryId"   : 1,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 250
-                    }
-            }
-        },
-		{
-            "name"          : "Ducks",
-            "description"   : "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "itemId"        : "ducks",
-            "categoryId"   : 2,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 2500
-                }
-            }
+            "goods_itemIds": ["goldy", "rainbow", "octy"],
+            "name": "FISHIES"
         },
         {
-            "name"          : "Games",
-            "description"   : "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "itemId"        : "games",
-            "categoryId"   : 2,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 5000
-                }
-            }
+            "goods_itemIds": ["ducks", "games", "decorations"],
+            "name": "UTILITIES"
         },
-		{
-            "name"          : "Decorations",
-            "description"   : "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "itemId"        : "decorations",
-            "categoryId"   : 2,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 5000
-                }
-            }
-        },
-		{
-            "name"          : "Yellow Food",
-            "description"   : "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "itemId"        : "yellow_food",
-            "categoryId"   : 3,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 2500
-                    }
-            }
-        },
-		{
-            "name"          : "Purple Food",
-            "description"   : "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "itemId"        : "purple_food",
-            "categoryId"   : 3,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 2500
-                    }
-            }
-        },
-		{
-            "name"          : "Blue Food",
-            "description"   : "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "itemId"        : "blue_food",
-            "categoryId"   : 3,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 2500
-                    }
-            }
+        {
+            "goods_itemIds": ["yellow_food", "purple_food", "blue_food"],
+            "name": "FISH FOOD"
         }
     ],
-     "categories" : [
-        {
-            "id" : 1,
-            "name" : "FISHIES",
-            "equipping" : "single"
-        },
-        {
-            "id" : 2,
-            "name" : "UTILITIES"
-        },
-        {
-            "id" : 3,
-            "name" : "FISH FOOD"
-        }
-    ]
+    "goods": {
+        "goodUpgrades": [],
+        "lifetime": [],
+        "equippable": [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Goldy",
+                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                "equipping": "category",
+                "itemId": "goldy"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Rainbow",
+                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                "equipping": "category",
+                "itemId": "rainbow"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Octy",
+                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                "equipping": "category",
+                "itemId": "octy"
+            }
+        ],
+        "singleUse": [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Ducks",
+                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                "itemId": "ducks"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 5000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Games",
+                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                "itemId": "games"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 5000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Decorations",
+                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                "itemId": "decorations"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Yellow Food",
+                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                "itemId": "yellow_food"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Purple Food",
+                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                "itemId": "purple_food"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Blue Food",
+                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                "itemId": "blue_food"
+            }
+        ],
+        "goodPacks": []
+    }
 }

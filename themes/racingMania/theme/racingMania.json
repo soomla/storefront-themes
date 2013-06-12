@@ -1,249 +1,248 @@
 {
-    "currencyPacks" : [
+    "currencyPacks": [
         {
-            "name"              : "Dollar Pack",
-            "itemId"            : "dollar_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "dollar_pack",
-            "price"             : 0.99,
-            "amount"            : 20000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 0.99,
+                    "productId": "dollar_pack"
+                },
+                "purchaseType": "market"
+            },
+            "name": "Dollar Pack",
+            "itemId": "dollar_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 20000
         },
         {
-            "name"              : "Euro Pack",
-            "itemId"            : "euro_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "android.test.purchased",
-            "price"             : 1.99,
-            "amount"            : 50000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 1.99,
+                    "productId": "android.test.purchased"
+                },
+                "purchaseType": "market"
+            },
+            "name": "Euro Pack",
+            "itemId": "euro_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 50000
         },
         {
-            "name"              : "Sterling Pack",
-            "itemId"            : "sterling_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "sterling_pack",
-            "price"             : 2.99,
-            "amount"            : 100000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 2.99,
+                    "productId": "sterling_pack"
+                },
+                "purchaseType": "market"
+            },
+            "name": "Sterling Pack",
+            "itemId": "sterling_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 100000
         }
     ],
-    "currencies" : [
+    "currencies": [
         {
-            "name"          : "COINS",
-            "description"   : "",
-            "itemId"        : "currency_coins"
+            "name": "COINS",
+            "description": "",
+            "itemId": "currency_coins"
         }
     ],
-    "virtualGoods" : [
+    "categories": [
         {
-            "name"          : "Delorean",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "delorean",
-            "categoryId"   : 1,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 250
-                    }
-            }
+            "goods_itemIds": ["delorean", "radical_sr3", "ford_focus_rs3", "audi_r8"],
+            "name": "Cars"
         },
-		{
-            "name"          : "Radical SR3",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "radical_sr3",
-            "categoryId"   : 1,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 250
-                    }
-            }
+        {
+            "goods_itemIds": ["pirelli_pzero", "continental_600s", "speed_summit_f1", "goodyear_reinforced"],
+            "name": "Tires"
         },
-		{
-            "name"          : "Ford Focus RS3",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "ford_focus_rs3",
-            "categoryId"   : 1,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 2500
-                    }
-            }
+        {
+            "goods_itemIds": ["daytona_500", "ohio_overture", "paris_grandprix", "indianapolis"],
+            "name": "Tracks"
         },
-		{
-            "name"          : "Audi R8",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "audi_r8",
-            "categoryId"   : 1,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 2500
-                    }
-            }
-        },
-		{
-            "name"          : "Daytona 500",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "daytona_500",
-            "categoryId"   : 2,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 5000
-                    }
-            }
-        },
-		{
-            "name"          : "Ohio Overture",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "ohio_overture",
-            "categoryId"   : 2,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 5000
-                    }
-            }
-        },
-		{
-            "name"          : "Paris Grand-Prix",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "paris_grandprix",
-            "categoryId"   : 2,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 5000
-                    }
-            }
-        },
-		{
-            "name"          : "Indianapolis",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "indianapolis",
-            "categoryId"   : 2,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 5000
-                    }
-            }
-        },
-		{
-            "name"          : "Pirelli P-ZERO",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "pirelli_pzero",
-            "categoryId"   : 3,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 2500
-                    }
-            }
-        },
-		{
-            "name"          : "Continental 600s",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "continental_600s",
-            "categoryId"   : 3,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 4500
-                    }
-            }
-        },
-		{
-            "name"          : "Speed Summit F1",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "speed_summit_f1",
-            "categoryId"   : 3,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 6000
-                    }
-            }
-        },
-		{
-            "name"          : "Goodyear Reinforced",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "goodyear_reinforced",
-            "categoryId"   : 3,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 10000
-                    }
-            }
-        },
-		{
-            "name"          : "Nitro Speed",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "nitro_speed",
-            "categoryId"   : 4,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 250
-                    }
-            }
-        },
-		{
-            "name"          : "Double Laps",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "double_laps",
-            "categoryId"   : 4,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 500
-                    }
-            }
-        },
-		{
-            "name"          : "Double Coin Upgrade",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "double_coin_upgrade",
-            "categoryId"   : 4,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 1000
-                    }
-            }
-        },
-		{
-            "name"          : "Overtake booster",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "overtake_booster",
-            "categoryId"   : 4,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 2000
-                    }
-            }
+        {
+            "goods_itemIds": ["nitro_speed", "double_laps", "double_coin_upgrade", "overtake_booster"],
+            "name": "Utilities"
         }
-   ],
-     "categories" : [
-        {
-            "id" : 1,
-            "name" : "Cars",
-            "equipping" : "single"
-        },
-        {
-            "id" : 2,
-            "name" : "Tracks"
-        },
-        {
-            "id" : 3,
-            "name" : "Tires",
-            "equipping" : "single"
-        },
-        {
-            "id" : 4,
-            "name" : "Utilities"
-        }
-    ]
+    ],
+    "goods": {
+        "goodUpgrades": [],
+        "lifetime": [],
+        "equippable": [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Delorean",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "equipping": "category",
+                "itemId": "delorean"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Radical SR3",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "equipping": "category",
+                "itemId": "radical_sr3"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Ford Focus RS3",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "equipping": "category",
+                "itemId": "ford_focus_rs3"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Audi R8",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "equipping": "category",
+                "itemId": "audi_r8"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Pirelli P-ZERO",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "equipping": "category",
+                "itemId": "pirelli_pzero"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 4500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Continental 600s",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "equipping": "category",
+                "itemId": "continental_600s"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 6000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Speed Summit F1",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "equipping": "category",
+                "itemId": "speed_summit_f1"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 10000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Goodyear Reinforced",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "equipping": "category",
+                "itemId": "goodyear_reinforced"
+            }
+        ],
+        "singleUse": [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 5000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Daytona 500",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "itemId": "daytona_500"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 5000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Ohio Overture",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "itemId": "ohio_overture"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 5000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Paris Grand-Prix",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "itemId": "paris_grandprix"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 5000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Indianapolis",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "itemId": "indianapolis"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Nitro Speed",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "itemId": "nitro_speed"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Double Laps",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "itemId": "double_laps"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 1000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Double Coin Upgrade",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "itemId": "double_coin_upgrade"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Overtake booster",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "itemId": "overtake_booster"
+            }
+        ],
+        "goodPacks": []
+    }
 }

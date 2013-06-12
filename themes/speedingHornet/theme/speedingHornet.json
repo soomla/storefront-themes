@@ -1,221 +1,230 @@
 {
-    "currencyPacks" : [
+    "currencyPacks": [
         {
-            "name"              : "COIN BOOSTER PACK",
-            "itemId"            : "coin_booster_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "coin_booster_pack",
-            "price"             : 0.99,
-            "amount"            : 20000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 0.99,
+                    "productId": "coin_booster_pack"
+                },
+                "purchaseType": "market"
+            },
+            "name": "COIN BOOSTER PACK",
+            "itemId": "coin_booster_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 20000
         },
         {
-            "name"              : "COIN MEGA PACK",
-            "itemId"            : "coin_mega_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "android.test.purchased",
-            "price"             : 1.99,
-            "amount"            : 50000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 1.99,
+                    "productId": "android.test.purchased"
+                },
+                "purchaseType": "market"
+            },
+            "name": "COIN MEGA PACK",
+            "itemId": "coin_mega_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 50000
         },
         {
-            "name"              : "COIN ULTRA PACK",
-            "itemId"            : "coin_ultra_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "coin_ultra_pack",
-            "price"             : 2.99,
-            "amount"            : 100000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 2.99,
+                    "productId": "coin_ultra_pack"
+                },
+                "purchaseType": "market"
+            },
+            "name": "COIN ULTRA PACK",
+            "itemId": "coin_ultra_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 100000
         },
         {
-            "name"              : "COIN ULTIMATE PACK",
-            "itemId"            : "coin_ultimate_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "coin_ultimate_pack",
-            "price"             : 9.99,
-            "amount"            : 600000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 9.99,
+                    "productId": "coin_ultimate_pack"
+                },
+                "purchaseType": "market"
+            },
+            "name": "COIN ULTIMATE PACK",
+            "itemId": "coin_ultimate_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 600000
         }
     ],
-    "currencies" : [
+    "currencies": [
         {
-            "name"          : "COINS",
-            "description"   : "",
-            "itemId"        : "currency_coins"
+            "name": "COINS",
+            "description": "",
+            "itemId": "currency_coins"
         }
     ],
-    "virtualGoods" : [
+    "categories": [
         {
-            "name"          : "Jersey Curves",
-            "description"   : "Watch out for the nasty turns on this one",
-            "itemId"        : "jersey_curves",
-            "categoryId"   : 1,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 250
-                    }
-            }
-        },
-		{
-            "name"          : "Texas Heat",
-            "description"   : "Drive fast but watch your engine temperature",
-            "itemId"        : "texas_heat",
-            "categoryId"   : 1,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 250
-                    }
-            }
-        },
-		{
-            "name"          : "Flat Omaha",
-            "description"   : "Those long stratches will get your car flying",
-            "itemId"        : "flat_omaha",
-            "categoryId"   : 1,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 250
-                    }
-            }
-        },
-		{
-            "name"          : "DeLorean",
-            "description"   : "This one will take you back to the future",
-            "itemId"        : "delorean",
-            "categoryId"   : 2,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 2500
-                }
-            }
+            "goods_itemIds": ["jersey_curves", "texas_heat", "flat_omaha"],
+            "name": "Tracks"
         },
         {
-            "name"          : "Ford Gran Torino",
-            "description"   : "This one will get you non stop action",
-            "itemId"        : "ford_gran_torino",
-            "categoryId"   : 2,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 5000
-                }
-            }
-        },
-		{
-            "name"          : "Chevrolet Camaro Replica",
-            "description"   : "Transforms into a robot",
-            "itemId"        : "chevrolet_camaro_replica",
-            "categoryId"   : 2,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 5000
-                }
-            }
-        },
-		{
-            "name"          : "Boost",
-            "description"   : "Collect during the race to boost ahead 5 miles",
-            "itemId"        : "boost",
-            "categoryId"   : 3,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 2500
-                    }
-            }
-        },
-		{
-            "name"          : "Invisibility",
-            "description"   : "Find this power up to pass your oponenets more easily",
-            "itemId"        : "invisibility",
-            "categoryId"   : 3,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 2500
-                    }
-            }
-        },
-		{
-            "name"          : "Luck Charm",
-            "description"   : "Protect yourself against engine fires",
-            "itemId"        : "luck_charm",
-            "categoryId"   : 3,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 2500
-                    }
-            }
-        },
-		{
-            "name"          : "Wings",
-            "description"   : "Jump over other cars",
-            "itemId"        : "wings",
-            "categoryId"   : 3,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 10000
-                    }
-            }
-        },
-		{
-            "name"          : "Experimental Fuel",
-            "description"   : "Drive twice as fast but be careful not to set your engine on fire",
-            "itemId"        : "experimental_fuel",
-            "categoryId"   : 4,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 250
-                    }
-            }
+            "goods_itemIds": ["delorean", "ford_gran_torino", "chevrolet_camaro_replica"],
+            "name": "Cars"
         },
         {
-            "name"          : "Sticky Tires",
-            "description"   : "Cut corners like you are driving on rails",
-            "itemId"        : "sticky_tires",
-            "categoryId"   : 4, 
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 500
-                }
-            }
-        },       
-        {
-            "name"          : "Turbo Charger",
-            "description"   : "Leave others in the dust with a super charged leap forward",
-            "itemId"        : "turbo_charger",
-            "categoryId"   : 4, 
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 1000
-                }
-            }
-        }  
-    ],
-     "categories" : [
-        {
-            "id" : 1,
-            "name" : "Tracks",
-            "equipping" : "single"
+            "goods_itemIds": ["boost", "invisibility", "luck_charm", "wings"],
+            "name": "Powerups"
         },
         {
-            "id" : 2,
-            "name" : "Cars",
-            "equipping" : "single"
-        },
-        {
-            "id" : 3,
-            "name" : "Powerups"
-        },
-        {
-            "id" : 4,
-            "name" : "Utilities"
+            "goods_itemIds": ["experimental_fuel", "sticky_tires", "turbo_charger"],
+            "name": "Utilities"
         }
-    ]
+    ],
+    "goods": {
+        "goodUpgrades": [],
+        "lifetime": [],
+        "equippable": [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Jersey Curves",
+                "description": "Watch out for the nasty turns on this one",
+                "equipping": "category",
+                "itemId": "jersey_curves"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Texas Heat",
+                "description": "Drive fast but watch your engine temperature",
+                "equipping": "category",
+                "itemId": "texas_heat"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Flat Omaha",
+                "description": "Those long stratches will get your car flying",
+                "equipping": "category",
+                "itemId": "flat_omaha"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "DeLorean",
+                "description": "This one will take you back to the future",
+                "equipping": "category",
+                "itemId": "delorean"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 5000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Ford Gran Torino",
+                "description": "This one will get you non stop action",
+                "equipping": "category",
+                "itemId": "ford_gran_torino"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 5000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Chevrolet Camaro Replica",
+                "description": "Transforms into a robot",
+                "equipping": "category",
+                "itemId": "chevrolet_camaro_replica"
+            }
+        ],
+        "singleUse": [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Boost",
+                "description": "Collect during the race to boost ahead 5 miles",
+                "itemId": "boost"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Invisibility",
+                "description": "Find this power up to pass your oponenets more easily",
+                "itemId": "invisibility"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Luck Charm",
+                "description": "Protect yourself against engine fires",
+                "itemId": "luck_charm"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 10000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Wings",
+                "description": "Jump over other cars",
+                "itemId": "wings"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Experimental Fuel",
+                "description": "Drive twice as fast but be careful not to set your engine on fire",
+                "itemId": "experimental_fuel"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Sticky Tires",
+                "description": "Cut corners like you are driving on rails",
+                "itemId": "sticky_tires"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 1000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Turbo Charger",
+                "description": "Leave others in the dust with a super charged leap forward",
+                "itemId": "turbo_charger"
+            }
+        ],
+        "goodPacks": []
+    }
 }

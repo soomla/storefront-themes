@@ -1,264 +1,272 @@
 {
-    "currencyPacks" : [
+    "currencyPacks": [
         {
-            "name"              : "COIN BOOSTER PACK",
-            "itemId"            : "coin_booster_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "coin_booster_pack",
-            "price"             : 0.99,
-            "amount"            : 20000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 0.99,
+                    "productId": "coin_booster_pack"
+                },
+                "purchaseType": "market"
+            },
+            "name": "COIN BOOSTER PACK",
+            "itemId": "coin_booster_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 20000
         },
         {
-            "name"              : "COIN MEGA PACK",
-            "itemId"            : "coin_mega_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "android.test.purchased",
-            "price"             : 1.99,
-            "amount"            : 50000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 1.99,
+                    "productId": "android.test.purchased"
+                },
+                "purchaseType": "market"
+            },
+            "name": "COIN MEGA PACK",
+            "itemId": "coin_mega_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 50000
         },
         {
-            "name"              : "COIN ULTRA PACK",
-            "itemId"            : "coin_ultra_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "coin_ultra_pack",
-            "price"             : 2.99,
-            "amount"            : 100000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 2.99,
+                    "productId": "coin_ultra_pack"
+                },
+                "purchaseType": "market"
+            },
+            "name": "COIN ULTRA PACK",
+            "itemId": "coin_ultra_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 100000
         },
         {
-            "name"              : "COIN JUMBO PACK",
-            "itemId"            : "coin_jumbo_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "coin_jumbo_pack",
-            "price"             : 4.99,
-            "amount"            : 250000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 4.99,
+                    "productId": "coin_jumbo_pack"
+                },
+                "purchaseType": "market"
+            },
+            "name": "COIN JUMBO PACK",
+            "itemId": "coin_jumbo_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 250000
         },
-		{
-            "name"              : "COIN MAMBO PACK",
-            "itemId"            : "coin_mambo_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "coin_mambo_pack",
-            "price"             : 9.99,
-            "amount"            : 500000
+        {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 9.99,
+                    "productId": "coin_mambo_pack"
+                },
+                "purchaseType": "market"
+            },
+            "name": "COIN MAMBO PACK",
+            "itemId": "coin_mambo_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 500000
         }
     ],
-    "currencies" : [
+    "currencies": [
         {
-            "name"          : "COIN PACKS",
-            "description"   : "",
-            "itemId"        : "currency_coins"
+            "name": "COIN PACKS",
+            "description": "",
+            "itemId": "currency_coins"
         }
     ],
-    "virtualGoods" : [
+    "categories": [
         {
-            "name"          : "Flower 1",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "flower_1",
-            "categoryId"   : 1,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 250
-                    }
-            }
+            "goods_itemIds": ["flower_1", "flower_2", "flower_3", "flower_4"],
+            "name": "FLOWERS"
         },
         {
-            "name"          : "Flower 2",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "flower_2",
-            "categoryId"   : 1, 
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 500
-                }
-            }
-        },       
-        {
-            "name"          : "Flower 3",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "flower_3",
-            "categoryId"   : 1, 
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 1000
-                }
-            }
-        },  
-        {
-            "name"          : "Flower 4",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "flower_4",
-            "categoryId"   : 1, 
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 5000
-                }
-            }
+            "goods_itemIds": ["soil_1", "soil_2", "soil_3", "soil_4"],
+            "name": "MUSIC"
         },
         {
-            "name"          : "SOIL 1",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "soil_1",
-            "categoryId"   : 2,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 525
-                }
-            }
+            "goods_itemIds": ["music_1", "music_2", "music_3", "music_4"],
+            "name": "SOIL"
         },
         {
-            "name"          : "SOIL 2",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "soil_2",
-            "categoryId"   : 2,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 500
-                }
-            }
-        },
-        {
-            "name"          : "SOIL 3",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "soil_3",
-            "categoryId"   : 2,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 1000
-                }
-            }
-        },
-        {
-            "name"          : "SOIL 4",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "soil_4",
-            "categoryId"   : 2,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 2500
-                }
-            }
-        },
-        {
-            "name"          : "MUSIC 1",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "music_1",
-            "categoryId"   : 3,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 225
-                }
-            }
-        },
-        {
-            "name"          : "MUSIC 2",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "music_2",
-            "categoryId"   : 3,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 175
-                }
-            }
-        },
-        {
-            "name"          : "MUSIC 3",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "music_3",
-            "categoryId"   : 3,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 375
-                }
-             }
-        },
-        {
-            "name"          : "MUSIC 4",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "music_4",
-            "categoryId"   : 3,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 525
-                }
-            }
-        },
-        {
-            "name"          : "WATER 1",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "water_1",
-            "categoryId"   : 4,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 2500
-                }
-            }
-        },
-        {
-            "name"          : "WATER 2",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "water_2",
-            "categoryId"   : 4,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 2500
-                }
-            }
-        },
-        {
-            "name"          : "WATER 3",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "water_3",
-            "categoryId"   : 4,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 2500
-                }
-            }
-        },
-        {
-            "name"          : "WATER 4",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "water_4",
-            "categoryId"   : 4,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 2500
-                }
-            }
+            "goods_itemIds": ["water_1", "water_2", "water_3", "water_4"],
+            "name": "WATER"
         }
     ],
-     "categories" : [
-        {
-            "id" : 1,
-            "name" : "FLOWERS",
-            "equipping" : "single"
-        },
-        {
-            "id" : 2,
-            "name" : "MUSIC"
-        },
-        {
-            "id" : 3,
-            "name" : "SOIL"
-        },
-		{
-            "id" : 4,
-            "name" : "WATER"
-        }
-    ]
+    "goods": {
+        "goodUpgrades": [],
+        "lifetime": [],
+        "equippable": [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Flower 1",
+                "description": "Lorem Ipsum is not simply random text",
+                "equipping": "category",
+                "itemId": "flower_1"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Flower 2",
+                "description": "Lorem Ipsum is not simply random text",
+                "equipping": "category",
+                "itemId": "flower_2"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 1000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Flower 3",
+                "description": "Lorem Ipsum is not simply random text",
+                "equipping": "category",
+                "itemId": "flower_3"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 5000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Flower 4",
+                "description": "Lorem Ipsum is not simply random text",
+                "equipping": "category",
+                "itemId": "flower_4"
+            }
+        ],
+        "singleUse": [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 525,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "SOIL 1",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "soil_1"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "SOIL 2",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "soil_2"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 1000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "SOIL 3",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "soil_3"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "SOIL 4",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "soil_4"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 225,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "MUSIC 1",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "music_1"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 175,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "MUSIC 2",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "music_2"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 375,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "MUSIC 3",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "music_3"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 525,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "MUSIC 4",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "music_4"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "WATER 1",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "water_1"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "WATER 2",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "water_2"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "WATER 3",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "water_3"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "WATER 4",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "water_4"
+            }
+        ],
+        "goodPacks": []
+    }
 }

@@ -1,102 +1,95 @@
 {
-    "template" : {
-        "name" : "airstrikeBravo",
-		"orientation" : "landscape"
+    "template": {
+        "name": "airstrikeBravo",
+        "orientation": "landscape"
     },
-    "modelAssets" : {
-        "categories" : {
-            "1" : "img/-_Object_1.png",
-            "2" : "img/-_Object_2.png",
-            "3" : "img/-_Object_4.png",
-            "4" : "img/-_Object_3.png"
+    "modelAssets": {
+        "items": {
+            "tank_1": "img/tanks/tank1.png",
+            "tank_2": "img/tanks/tank2.png",
+            "tank_3": "img/tanks/tank3.png",
+            "tank_4": "img/tanks/tank4.png",
+            "explosion": "img/ammo/explosion.png",
+            "fire": "img/ammo/fire.png",
+            "nuke": "img/ammo/nuke.png",
+            "fighter_jet": "img/powerups/airplane.png",
+            "mystery_box": "img/powerups/misterybox.png",
+            "parachute": "img/powerups/parachute.png",
+            "armor": "img/utilities/armor.png",
+            "cloaking": "img/utilities/cloaking.png",
+            "fuel": "img/utilities/fuel.png",
+            "coin_booster_pack": "img/coins/objects-01.png",
+            "coin_mega_pack": "img/coins/objects-02.png",
+            "coin_ultra_pack": "img/coins/objects-03.png",
+            "coin_ultimate_pack": "img/coins/objects-04.png",
+            "currency_coins": "img/coin.png",
+            "remove_ads": "img/no-ads.png",
+            "tapjoy": "img/tapjoy.png"
         },
-        "virtualGoods" : {
-           "tank_1" : "img/tanks/tank1.png",
-           "tank_2" : "img/tanks/tank2.png",
-		   "tank_3" : "img/tanks/tank3.png",
-		   "tank_4" : "img/tanks/tank4.png",
-		   "explosion" : "img/ammo/explosion.png",
-           "fire" : "img/ammo/fire.png",
-           "nuke" : "img/ammo/nuke.png",
-			"fighter_jet" : "img/powerups/airplane.png",
-            "mystery_box" : "img/powerups/misterybox.png",
-            "parachute" : "img/powerups/parachute.png",
-            "armor" : "img/utilities/armor.png",
-            "cloaking" : "img/utilities/cloaking.png",
-            "fuel" : "img/utilities/fuel.png"
-        },
-        "currencyPacks" : {
-           "coin_booster_pack" : "img/coins/objects-01.png",
-            "coin_mega_pack" : "img/coins/objects-02.png",
-            "coin_ultra_pack" : "img/coins/objects-03.png",
-            "coin_ultimate_pack" : "img/coins/objects-04.png"
-        },
-        "currencies" : {
-             "currency_coins" : "img/coin.png"
-        },
-	    "nonConsumables" : {
-		    "remove_ads" : "img/no-ads.png"
-	    },
-	    "tapjoy" : "img/tapjoy.png"
+        "categories": {
+            "Tanks": "img/-_Object_1.png",
+            "Ammo": "img/-_Object_2.png",
+            "Powerups": "img/-_Object_4.png",
+            "Utilities": "img/-_Object_3.png"
+        }
     },
-    "theme" : {
-        "name" : "scorchedHill",
-        "version" : 1,
-        "balance" : {
-            "style" : "color: #FFF;"
+    "theme": {
+        "name": "scorchedHill",
+        "version": 1,
+        "balance": {
+            "style": "color: #FFF;"
         },
-        "background" : "img/BG_BG.jpg",
-        "headerBackground" : "img/Header.png",
-        "noFundsModal" : {
-            "background" : "img/Alert-22.png",
-            "text" : "Insufficient funds.  Would you like to buy more?",
-            "yesButton" : "img/yes_btn.png",
-            "noButton" : "img/no_btn.png"
+        "background": "img/BG_BG.jpg",
+        "headerBackground": "img/Header.png",
+        "noFundsModal": {
+            "background": "img/Alert-22.png",
+            "text": "Insufficient funds.  Would you like to buy more?",
+            "yesButton": "img/yes_btn.png",
+            "noButton": "img/no_btn.png"
         },
-        "images" : {
-            "contentBackground" : "img/ContentBackground.png",
-            "itemAreaBackground" : "img/ItemAreaBackground.png",
-            "buyImage" : "img/BUY.png",
-            "ownedIndicatorImage" : "img/Green_Owned.png",
-            "notOwnedIndicatorImage" : "img/Gray_Owned.png",
-            "expandImage" : "img/expand.png",
-            "backImage" : "img/BACK.png",
-            "quitImage" : "img/QUIT.png",
-	        "purchasedIndicatorImage" : "img/owned.png",
-            "itemBackgroundImage" : "img/BG_Product.png",
-            "itemBackgroundImageExpanded" : "img/BG_Product_Ext.png",
-            "equip" : "img/equip.png",
-            "equipped" : "img/equipped.png"
+        "images": {
+            "contentBackground": "img/ContentBackground.png",
+            "itemAreaBackground": "img/ItemAreaBackground.png",
+            "buyImage": "img/BUY.png",
+            "ownedIndicatorImage": "img/Green_Owned.png",
+            "notOwnedIndicatorImage": "img/Gray_Owned.png",
+            "expandImage": "img/expand.png",
+            "backImage": "img/BACK.png",
+            "quitImage": "img/QUIT.png",
+            "purchasedIndicatorImage": "img/owned.png",
+            "itemBackgroundImage": "img/BG_Product.png",
+            "itemBackgroundImageExpanded": "img/BG_Product_Ext.png",
+            "equip": "img/equip.png",
+            "equipped": "img/equipped.png"
         },
-	    "fonts" : [
-		    {
-			    "url" : "fonts/Stencil.ttf"
-		    },
-		    {
-			    "url" : "fonts/Stencil.ttf"
-		    }
-	    ],
-        "titleStyle" : "color: #FFF",
-	    "currencyPacksCategoryImage" : "img/-_Object_5.png",
-        "pages" : {
-            "menu" : {
-                "title" : "The Store"
+        "fonts": [
+            {
+                "url": "fonts/Stencil.ttf"
             },
-	        "goods" : {
-		        "item" : {
-			        "nameStyle" : "",
-			        "priceStyle" : "font-size: 24px;",
-			        "descriptionStyle" : "font-size: 20px;"
-		        }
-	        },
-	        "currencyPacks" : {
-		        "item" : {
-			        "nameStyle" : "",
-			        "priceStyle" : "font-size: 24px;",
-			        "descriptionStyle" : ""
-		        }
+            {
+                "url": "fonts/Stencil.ttf"
+            }
+        ],
+        "titleStyle": "color: #FFF",
+        "currencyPacksCategoryImage": "img/-_Object_5.png",
+        "pages": {
+            "menu": {
+                "title": "The Store"
+            },
+            "goods": {
+                "item": {
+                    "nameStyle": "",
+                    "priceStyle": "font-size: 24px;",
+                    "descriptionStyle": "font-size: 20px;"
+                }
+            },
+            "currencyPacks": {
+                "item": {
+                    "nameStyle": "",
+                    "priceStyle": "font-size: 24px;",
+                    "descriptionStyle": ""
+                }
             }
         }
     }
-
 }

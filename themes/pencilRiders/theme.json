@@ -1,95 +1,89 @@
 {
-    "template" : {
-        "name" : "pirateRace",
-		"orientation" : "portrait"
+    "template": {
+        "name": "pirateRace",
+        "orientation": "portrait"
     },
-    "modelAssets" : {
-        "categories" : {},
-        "virtualGoods" : {
-            "nitro_pack" : "img/Powerups/Boost.png",
-            "coin_magnet" : "img/Powerups/Coin_Magnet.png",
-            "mega_coin" : "img/Powerups/Mega_Coin.png",
-            "triple_value" : "img/Powerups/Triple_Value.png",
-            "wings" : "img/Utilities/Wings.png",
-            "permanent_wings" : "img/Utilities/Perm_Wings.png",
-            "mega_boost" : "img/Utilities/Mega_Boost.png",
-			"boost_ahead" : "img/Utilities/Boost_Ahead.png",
-            "cool_bob" : "img/Characters/Guy_Dangerous.png",
-			"dian_fox" : "img/Characters/Scarlett_Fox.png",
-            "barry_jones" : "img/Characters/Barry_Bones.png",
-			"panda_kim" : "img/Characters/Karma_Kim.png",
-            "tim_smith" : "img/Characters/Montana_Smith.png"
+    "modelAssets": {
+        "items": {
+            "nitro_pack": "img/Powerups/Boost.png",
+            "coin_magnet": "img/Powerups/Coin_Magnet.png",
+            "mega_coin": "img/Powerups/Mega_Coin.png",
+            "triple_value": "img/Powerups/Triple_Value.png",
+            "wings": "img/Utilities/Wings.png",
+            "permanent_wings": "img/Utilities/Perm_Wings.png",
+            "mega_boost": "img/Utilities/Mega_Boost.png",
+            "boost_ahead": "img/Utilities/Boost_Ahead.png",
+            "cool_bob": "img/Characters/Guy_Dangerous.png",
+            "dian_fox": "img/Characters/Scarlett_Fox.png",
+            "barry_jones": "img/Characters/Barry_Bones.png",
+            "panda_kim": "img/Characters/Karma_Kim.png",
+            "tim_smith": "img/Characters/Montana_Smith.png",
+            "coins_2500": "img/CurrencyPacks/GetCoins_1.png",
+            "coins_25000": "img/CurrencyPacks/GetCoins_2.png",
+            "coins_75000": "img/CurrencyPacks/GetCoins_3.png",
+            "coins_200000": "img/CurrencyPacks/GetCoins_4.png",
+            "currency_coins": "img/Item_Price.png",
+            "remove_ads": "img/no-ads.png"
         },
-        "currencyPacks" : {
-            "coins_2500" : "img/CurrencyPacks/GetCoins_1.png",
-            "coins_25000" : "img/CurrencyPacks/GetCoins_2.png",
-            "coins_75000" : "img/CurrencyPacks/GetCoins_3.png",
-            "coins_200000" : "img/CurrencyPacks/GetCoins_4.png"
-        },
-        "currencies" : {
-            "currency_coins" : "img/Item_Price.png"
-        },
-	    "nonConsumables" : {
-		    "remove_ads" : "img/no-ads.png"
-        }
+        "categories": {}
     },
-    "theme" : {
-        "name" : "pencilRiders",
-        "version" : 1,
-        "background" : "img/BG-Level0.png",
-        "contentBackground" : "img/BG-Level1.png",
-        "common" : {
-            "titleImage" : "img/Header_Title.png",
-            "backButton" : "img/Back_BTN.png",
-            "moreCurrencyButton" : "img/GetMore_BTN.png",
-	        "purchasedIndicatorImage" : "img/owned.png",
-            "balanceLabelStyle" : ""
+    "theme": {
+        "name": "pencilRiders",
+        "version": 1,
+        "background": "img/BG-Level0.png",
+        "contentBackground": "img/BG-Level1.png",
+        "common": {
+            "titleImage": "img/Header_Title.png",
+            "backButton": "img/Back_BTN.png",
+            "moreCurrencyButton": "img/GetMore_BTN.png",
+            "purchasedIndicatorImage": "img/owned.png",
+            "balanceLabelStyle": ""
         },
-	    "fonts" : [
-		    {
-			    "url" : "fonts/Alegreya-Bold.ttf"
-		    },
-		    {
-			    "url" : "fonts/Alegreya-Bold.ttf"
-		    }
-	    ],
-        "itemSeparator" : "img/Item_Seperator.png",
-        "balance" : {
-            "style" : "font-size: 36px; color: #FFF;"
+        "fonts": [
+            {
+                "url": "fonts/Alegreya-Bold.ttf"
+            },
+            {
+                "url": "fonts/Alegreya-Bold.ttf"
+            }
+        ],
+        "itemSeparator": "img/Item_Seperator.png",
+        "balance": {
+            "style": "font-size: 36px; color: #FFF;"
         },
-        "pages" : {
-            "goods" :{
-                "list" : {
-                    "background" : "img/Item_Area.png"
+        "pages": {
+            "goods": {
+                "list": {
+                    "background": "img/Item_Area.png"
                 },
-                "listItem" : {
-                    "background" : "",
-                    "balanceBackground" : "img/Item_Balance.png",
-                    "buy" : "img/buy.png",
-                    "buyOnce" : "img/buy.png",
-                    "equip" : "img/equip.png",
-                    "active" : "img/equipped.png"
+                "listItem": {
+                    "background": "",
+                    "balanceBackground": "img/Item_Balance.png",
+                    "buy": "img/buy.png",
+                    "buyOnce": "img/buy.png",
+                    "equip": "img/equip.png",
+                    "active": "img/equipped.png"
                 },
-                "noFundsModal" : {
-                    "background" : "img/Alert_BG.png",
-                    "text" : "Insufficient funds.  Would you like to buy more?",
-                    "yesButton" : "img/Yes_BTN.png",
-                    "noButton" : "img/No_BTN.png"
+                "noFundsModal": {
+                    "background": "img/Alert_BG.png",
+                    "text": "Insufficient funds.  Would you like to buy more?",
+                    "yesButton": "img/Yes_BTN.png",
+                    "noButton": "img/No_BTN.png"
                 }
             },
-            "currencyPacks" : {
-                "list" : {
-                    "background" : "img/Item_Area.png"
+            "currencyPacks": {
+                "list": {
+                    "background": "img/Item_Area.png"
                 },
-                "listItem" : {
-                    "balanceBackground" : "",
-                    "nameStyle" : "",
-                    "priceStyle" : ""
+                "listItem": {
+                    "balanceBackground": "",
+                    "nameStyle": "",
+                    "priceStyle": ""
                 }
             }
         },
-        "categories" : {
-            "style" : "background-image: url('img/Category_Separator.png'); color: #FFF;"
+        "categories": {
+            "style": "background-image: url('img/Category_Separator.png'); color: #FFF;"
         }
     }
 }

@@ -1,96 +1,90 @@
 {
-    "template" : {
-        "name" : "pirateRace",
-		"orientation" : "portrait"
+    "template": {
+        "name": "pirateRace",
+        "orientation": "portrait"
     },
-    "modelAssets" : {
-        "categories" : {},
-        "virtualGoods" : {
-            "boost_ahead" : "img/Powerups/Boost.png",
-            "coin_magnet" : "img/Powerups/Coin_Magnet.png",
-            "portal" : "img/Powerups/Portal.png",
-            "mega_coin" : "img/Powerups/Mega_Coin.png",
-            "triple_value" : "img/Powerups/Triple_Value.png",
-            "wings" : "img/Utilities/Wings.png",
-            "permanent_wings" : "img/Utilities/Perm_Wings.png",
-            "fire_boost" : "img/Utilities/Fire_Boost.png",
-	        "flamer" : "img/Utilities/Flamer.png",
-            "cool_bob" : "img/Characters/Cool_Bob.png",
-		    "dian_fox" : "img/Characters/Dian_Fox.png",
-            "barry_jones" : "img/Characters/Barry_Jones.png",
-		    "panda_kim" : "img/Characters/Panda_Kim.png",
-            "tim_smith" : "img/Characters/Tim_Smith.png"
+    "modelAssets": {
+        "items": {
+            "boost_ahead": "img/Powerups/Boost.png",
+            "coin_magnet": "img/Powerups/Coin_Magnet.png",
+            "portal": "img/Powerups/Portal.png",
+            "mega_coin": "img/Powerups/Mega_Coin.png",
+            "triple_value": "img/Powerups/Triple_Value.png",
+            "wings": "img/Utilities/Wings.png",
+            "permanent_wings": "img/Utilities/Perm_Wings.png",
+            "fire_boost": "img/Utilities/Fire_Boost.png",
+            "flamer": "img/Utilities/Flamer.png",
+            "cool_bob": "img/Characters/Cool_Bob.png",
+            "dian_fox": "img/Characters/Dian_Fox.png",
+            "barry_jones": "img/Characters/Barry_Jones.png",
+            "panda_kim": "img/Characters/Panda_Kim.png",
+            "tim_smith": "img/Characters/Tim_Smith.png",
+            "coins_2500": "img/CurrencyPacks/GetCoins_1.png",
+            "coins_25000": "img/CurrencyPacks/GetCoins_2.png",
+            "coins_75000": "img/CurrencyPacks/GetCoins_3.png",
+            "coins_200000": "img/CurrencyPacks/GetCoins_4.png",
+            "currency_coins": "img/Item_Price.png",
+            "remove_ads": "img/no-ads.png"
         },
-        "currencyPacks" : {
-            "coins_2500" : "img/CurrencyPacks/GetCoins_1.png",
-            "coins_25000" : "img/CurrencyPacks/GetCoins_2.png",
-            "coins_75000" : "img/CurrencyPacks/GetCoins_3.png",
-            "coins_200000" : "img/CurrencyPacks/GetCoins_4.png"
-        },
-        "currencies" : {
-            "currency_coins" : "img/Item_Price.png"
-        },
-	    "nonConsumables" : {
-		    "remove_ads" : "img/no-ads.png"
-        }
+        "categories": {}
     },
-    "theme" : {
-        "name" : "codeRedPursuit",
-        "version" : 1,
-        "background" : "img/BG-Level0.jpg",
-        "contentBackground" : "img/BG-Level1.png",
-        "common" : {
-            "titleImage" : "img/Header_Title.png",
-            "backButton" : "img/Back_BTN.png",
-            "moreCurrencyButton" : "img/GetMore_BTN.png",
-	        "purchasedIndicatorImage" : "img/owned.png",
-            "balanceLabelStyle" : ""
+    "theme": {
+        "name": "codeRedPursuit",
+        "version": 1,
+        "background": "img/BG-Level0.jpg",
+        "contentBackground": "img/BG-Level1.png",
+        "common": {
+            "titleImage": "img/Header_Title.png",
+            "backButton": "img/Back_BTN.png",
+            "moreCurrencyButton": "img/GetMore_BTN.png",
+            "purchasedIndicatorImage": "img/owned.png",
+            "balanceLabelStyle": ""
         },
-	    "fonts" : [
-		    {
-			    "url" : "fonts/Coda-Heavy.ttf"
-		    },
-		    {
-			    "url" : "fonts/Coda-Regular.ttf"
-		    }
-	    ],
-        "itemSeparator" : "img/Item_Seperator.png",
-        "balance" : {
-            "style" : "font-size: 36px; color: #FFF;"
+        "fonts": [
+            {
+                "url": "fonts/Coda-Heavy.ttf"
+            },
+            {
+                "url": "fonts/Coda-Regular.ttf"
+            }
+        ],
+        "itemSeparator": "img/Item_Seperator.png",
+        "balance": {
+            "style": "font-size: 36px; color: #FFF;"
         },
-        "pages" : {
-            "goods" :{
-                "list" : {
-                    "background" : "img/Item_Area.jpg"
+        "pages": {
+            "goods": {
+                "list": {
+                    "background": "img/Item_Area.jpg"
                 },
-                "listItem" : {
-                    "background" : "",
-                    "balanceBackground" : "img/Item_Balance.png",
-                    "buy" : "img/purchase.png",
-                    "buyOnce" : "img/unlock.png",
-                    "equip" : "img/equip.png",
-                    "active" : "img/equipped.png"
+                "listItem": {
+                    "background": "",
+                    "balanceBackground": "img/Item_Balance.png",
+                    "buy": "img/purchase.png",
+                    "buyOnce": "img/unlock.png",
+                    "equip": "img/equip.png",
+                    "active": "img/equipped.png"
                 },
-                "noFundsModal" : {
-                    "background" : "img/Alert_BG.png",
-                    "text" : "Insufficient funds.  Would you like to buy more?",
-                    "yesButton" : "img/Yes_BTN.png",
-                    "noButton" : "img/No_BTN.png"
+                "noFundsModal": {
+                    "background": "img/Alert_BG.png",
+                    "text": "Insufficient funds.  Would you like to buy more?",
+                    "yesButton": "img/Yes_BTN.png",
+                    "noButton": "img/No_BTN.png"
                 }
             },
-            "currencyPacks" : {
-                "list" : {
-                    "background" : "img/Item_Area.jpg"
+            "currencyPacks": {
+                "list": {
+                    "background": "img/Item_Area.jpg"
                 },
-                "listItem" : {
-                    "balanceBackground" : "",
-                    "nameStyle" : "",
-                    "priceStyle" : ""
+                "listItem": {
+                    "balanceBackground": "",
+                    "nameStyle": "",
+                    "priceStyle": ""
                 }
             }
         },
-        "categories" : {
-            "style" : "background-image: url('img/Category_Separator.png'); color: #FFF;"
+        "categories": {
+            "style": "background-image: url('img/Category_Separator.png'); color: #FFF;"
         }
     }
 }

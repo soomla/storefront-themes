@@ -1,215 +1,225 @@
 {
-    "currencyPacks" : [
+    "currencyPacks": [
         {
-            "name"              : "2,500",
-            "itemId"            : "coins_2500",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "2500_coins",
-            "price"             : 0.99,
-            "amount"            : 2500
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 0.99,
+                    "productId": "2500_coins"
+                },
+                "purchaseType": "market"
+            },
+            "name": "2,500",
+            "itemId": "coins_2500",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 2500
         },
         {
-            "name"              : "25,000",
-            "itemId"            : "coins_25000",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "android.test.purchased",
-            "price"             : 4.99,
-            "amount"            : 25000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 4.99,
+                    "productId": "android.test.purchased"
+                },
+                "purchaseType": "market"
+            },
+            "name": "25,000",
+            "itemId": "coins_25000",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 25000
         },
         {
-            "name"              : "75,000",
-            "itemId"            : "coins_75000",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "75000_coins",
-            "price"             : 9.99,
-            "amount"            : 75000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 9.99,
+                    "productId": "75000_coins"
+                },
+                "purchaseType": "market"
+            },
+            "name": "75,000",
+            "itemId": "coins_75000",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 75000
         },
         {
-            "name"              : "200,000",
-            "itemId"            : "coins_200000",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "200000_coins",
-            "price"             : 19.99,
-            "amount"            : 200000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 19.99,
+                    "productId": "200000_coins"
+                },
+                "purchaseType": "market"
+            },
+            "name": "200,000",
+            "itemId": "coins_200000",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 200000
         }
     ],
-    "currencies" : [
+    "currencies": [
         {
-            "name"          : "Coins",
-            "description"   : "",
-            "itemId"        : "currency_coins"
+            "name": "Coins",
+            "description": "",
+            "itemId": "currency_coins"
         }
     ],
-    "categories" : [
+    "categories": [
         {
-            "id" : 1,
-            "name" : "POWERUPS"
+            "goods_itemIds": ["cool_bob", "dian_fox", "barry_jones", "panda_kim", "tim_smith"],
+            "name": "CHARACTERS"
         },
         {
-            "id" : 2,
-            "name" : "UTILITIES"
+            "goods_itemIds": ["nitro_pack", "coin_magnet", "mega_coin", "triple_value"],
+            "name": "POWERUPS"
         },
         {
-            "id" : 3,
-            "name" : "CHARACTERS",
-            "equipping" : "single"
+            "goods_itemIds": ["wings", "permanent_wings", "mega_boost", "boost_ahead"],
+            "name": "UTILITIES"
         }
     ],
-    "virtualGoods" : [
-        {
-            "name"          : "Nitro Pack",
-            "description"   : "start 100 miles ahead",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 500
-                }
+    "goods": {
+        "goodUpgrades": [],
+        "lifetime": [],
+        "equippable": [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 10000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Cool Bob",
+                "description": "Cool Bob, your draw by numbers guy",
+                "equipping": "category",
+                "itemId": "cool_bob"
             },
-            "itemId"        : "nitro_pack",
-            "categoryId"   : 1
-        },
-        {
-            "name"          : "Coin Magnet",
-            "description"   : "Collect coins more easily",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 500
-                }
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 10000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Dian Fox",
+                "description": "Dian Fox, the pencil artist",
+                "equipping": "category",
+                "itemId": "dian_fox"
             },
-            "itemId"        : "coin_magnet",
-            "categoryId"   : 1
-        },
-        {
-            "name"          : "Mega Coin",
-            "description"   : "Receive 100 coins when collecting a mega coin",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 750
-                }
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 10000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Barry Jones",
+                "description": "Barry Jones, a teacher with a chalk",
+                "equipping": "category",
+                "itemId": "barry_jones"
             },
-            "itemId"        : "mega_coin",
-            "categoryId"   : 1
-        },
-		{
-            "name"          : "Triple Value",
-            "description"   : "Find triple value coins after 1000 miles",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 750
-                }
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 25000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Panda Kim",
+                "description": "Panda Kim, tiger painter from the far east",
+                "equipping": "category",
+                "itemId": "panda_kim"
             },
-            "itemId"        : "triple_value",
-            "categoryId"   : 1
-        },
-		{
-            "name"          : "Wings",
-            "description"   : "Fly past your enemies",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 750
-                }
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 25000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Tim Smith",
+                "description": "Tim Smith, the quick scatch artist",
+                "equipping": "category",
+                "itemId": "tim_smith"
+            }
+        ],
+        "singleUse": [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Nitro Pack",
+                "description": "start 100 miles ahead",
+                "itemId": "nitro_pack"
             },
-            "itemId"        : "wings",
-            "categoryId"   : 2
-        },
-		{
-            "name"          : "Permanent Wings",
-            "description"   : "Wings that last forever",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 750
-                }
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Coin Magnet",
+                "description": "Collect coins more easily",
+                "itemId": "coin_magnet"
             },
-            "itemId"        : "permanent_wings",
-            "categoryId"   : 2
-        },
-		{
-            "name"          : "Mega Boost",
-            "description"   : "Get extra speed",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 750
-                }
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 750,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Mega Coin",
+                "description": "Receive 100 coins when collecting a mega coin",
+                "itemId": "mega_coin"
             },
-            "itemId"        : "mega_boost",
-            "categoryId"   : 2
-        },
-		{
-            "name"          : "Boost Ahead",
-            "description"   : "Leave your opponents in the dust",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 750
-                }
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 750,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Triple Value",
+                "description": "Find triple value coins after 1000 miles",
+                "itemId": "triple_value"
             },
-            "itemId"        : "boost_ahead",
-            "categoryId"   : 2
-        },		{
-            "name"          : "Cool Bob",
-            "description"   : "Cool Bob, your draw by numbers guy",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 10000
-                }
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 750,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Wings",
+                "description": "Fly past your enemies",
+                "itemId": "wings"
             },
-            "itemId"        : "cool_bob",
-            "categoryId"   : 3
-        },
-		{
-            "name"          : "Dian Fox",
-            "description"   : "Dian Fox, the pencil artist",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 10000
-                }
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 750,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Permanent Wings",
+                "description": "Wings that last forever",
+                "itemId": "permanent_wings"
             },
-            "itemId"        : "dian_fox",
-            "categoryId"   : 3
-        },
-		{
-            "name"          : "Barry Jones",
-            "description"   : "Barry Jones, a teacher with a chalk",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 10000
-                }
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 750,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Mega Boost",
+                "description": "Get extra speed",
+                "itemId": "mega_boost"
             },
-            "itemId"        : "barry_jones",
-            "categoryId"   : 3
-        },
-        {
-            "name"          : "Panda Kim",
-            "description"   : "Panda Kim, tiger painter from the far east",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 25000
-                }
-            },
-            "itemId"        : "panda_kim",
-            "categoryId"   : 3
-        },
-        {
-            "name"          : "Tim Smith",
-            "description"   : "Tim Smith, the quick scatch artist",
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 25000
-                }
-            },
-            "itemId"        : "tim_smith",
-            "categoryId"   : 3
-        }
-    ]
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 750,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Boost Ahead",
+                "description": "Leave your opponents in the dust",
+                "itemId": "boost_ahead"
+            }
+        ],
+        "goodPacks": []
+    }
 }

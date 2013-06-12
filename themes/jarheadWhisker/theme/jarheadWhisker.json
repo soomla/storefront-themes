@@ -1,285 +1,286 @@
 {
-    "currencyPacks" : [
+    "currencyPacks": [
         {
-            "name"              : "COIN BOOSTER PACK",
-            "itemId"            : "coin_booster_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "coin_booster_pack",
-            "price"             : 0.99,
-            "amount"            : 20000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 0.99,
+                    "productId": "coin_booster_pack"
+                },
+                "purchaseType": "market"
+            },
+            "name": "COIN BOOSTER PACK",
+            "itemId": "coin_booster_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 20000
         },
         {
-            "name"              : "COIN MEGA PACK",
-            "itemId"            : "coin_mega_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "android.test.purchased",
-            "price"             : 1.99,
-            "amount"            : 50000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 1.99,
+                    "productId": "android.test.purchased"
+                },
+                "purchaseType": "market"
+            },
+            "name": "COIN MEGA PACK",
+            "itemId": "coin_mega_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 50000
         },
         {
-            "name"              : "COIN ULTRA PACK",
-            "itemId"            : "coin_ultra_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "coin_ultra_pack",
-            "price"             : 2.99,
-            "amount"            : 100000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 2.99,
+                    "productId": "coin_ultra_pack"
+                },
+                "purchaseType": "market"
+            },
+            "name": "COIN ULTRA PACK",
+            "itemId": "coin_ultra_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 100000
         },
         {
-            "name"              : "COIN JUMBO PACK",
-            "itemId"            : "coin_jumbo_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "coin_jumbo_pack",
-            "price"             : 4.99,
-            "amount"            : 250000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 4.99,
+                    "productId": "coin_jumbo_pack"
+                },
+                "purchaseType": "market"
+            },
+            "name": "COIN JUMBO PACK",
+            "itemId": "coin_jumbo_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 250000
         }
     ],
-    "currencies" : [
+    "currencies": [
         {
-            "name"          : "COIN PACKS",
-            "description"   : "",
-            "itemId"        : "currency_coins"
+            "name": "COIN PACKS",
+            "description": "",
+            "itemId": "currency_coins"
         }
     ],
-    "virtualGoods" : [
+    "categories": [
         {
-            "name"          : "Character 1",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "character_1",
-            "categoryId"   : 1,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 250
-                    }
-            }
+            "goods_itemIds": ["character_1", "character_2", "character_3", "character_4"],
+            "name": "CHARACTERS"
         },
         {
-            "name"          : "Character 2",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "character_2",
-            "categoryId"   : 1, 
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 500
-                }
-            }
-        },       
-        {
-            "name"          : "Character 3",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "character_3",
-            "categoryId"   : 1, 
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 1000
-                }
-            }
-        },  
-        {
-            "name"          : "Character 4",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "character_4",
-            "categoryId"   : 1, 
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 5000
-                }
-            }
-        },       
-        {
-            "name"          : "Binoculars",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "binoculars",
-            "categoryId"   : 2,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 375
-                }
-             }
+            "goods_itemIds": ["rifle_1", "rifle_2", "rifle_3", "rifle"],
+            "name": "RIFLES"
         },
         {
-            "name"          : "Compass",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "compass",
-            "categoryId"   : 2,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 525
-                }
-            }
-        },
-		{
-            "name"          : "Laser Pointer",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "laser_pointer",
-            "categoryId"   : 2,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 2250
-                }
-            }
+            "goods_itemIds": ["binoculars", "compass", "laser_pointer"],
+            "name": "UTILITIES"
         },
         {
-            "name"          : "Baloon",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "baloon",
-            "categoryId"   : 3,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 525
-                }
-            }
+            "goods_itemIds": ["baloon", "birds", "rain"],
+            "name": "POWERUPS"
         },
         {
-            "name"          : "Birds",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "birds",
-            "categoryId"   : 3,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 500
-                }
-            }
-        },
-        {
-            "name"          : "Rain",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "rain",
-            "categoryId"   : 3,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 1000
-                }
-            }
-        },
-        {
-            "name"          : "Rifle 1",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "rifle_1",
-            "categoryId"   : 4,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 2500
-                }
-            }
-        },
-        {
-            "name"          : "Rifle 2",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "rifle_2",
-            "categoryId"   : 4,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 5000
-                }
-            }
-        },
-        {
-            "name"          : "Rifle 3",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "rifle_3",
-            "categoryId"   : 4,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 5000
-                }
-            }
-        },
-        {
-            "name"          : "Rifle 4",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "rifle",
-            "categoryId"   : 4,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 15000
-                }
-            }
-        },
-		{
-            "name"          : "Ammo 1",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "ammo_1",
-            "categoryId"   : 5,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 5000
-                }
-            }
-        },
-				{
-            "name"          : "Ammo 2",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "ammo_2",
-            "categoryId"   : 5,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 5000
-                }
-            }
-        },
-				{
-            "name"          : "Ammo 3",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "ammo_3",
-            "categoryId"   : 5,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 5000
-                }
-            }
-        },
-				{
-            "name"          : "Ammo 4",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "ammo_4",
-            "categoryId"   : 5,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 5000
-                }
-            }
+            "goods_itemIds": ["ammo_1", "ammo_2", "ammo_3", "ammo_4"],
+            "name": "AMMO"
         }
     ],
-     "categories" : [
-        {
-            "id" : 1,
-            "name" : "CHARACTERS",
-            "equipping" : "single"
-        },
-        {
-            "id" : 2,
-            "name" : "UTILITIES"
-        },
-        {
-            "id" : 3,
-            "name" : "POWERUPS"
-        },
-        {
-            "id" : 4,
-            "name" : "RIFLES",
-            "equipping" : "single"
-        },
-		{
-            "id" : 5,
-            "name" : "AMMO"
-        }
-    ]
+    "goods": {
+        "goodUpgrades": [],
+        "lifetime": [],
+        "equippable": [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Character 1",
+                "description": "Lorem Ipsum is not simply random text",
+                "equipping": "category",
+                "itemId": "character_1"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Character 2",
+                "description": "Lorem Ipsum is not simply random text",
+                "equipping": "category",
+                "itemId": "character_2"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 1000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Character 3",
+                "description": "Lorem Ipsum is not simply random text",
+                "equipping": "category",
+                "itemId": "character_3"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 5000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Character 4",
+                "description": "Lorem Ipsum is not simply random text",
+                "equipping": "category",
+                "itemId": "character_4"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Rifle 1",
+                "description": "Lorem Ipsum is not simply random text",
+                "equipping": "category",
+                "itemId": "rifle_1"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 5000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Rifle 2",
+                "description": "Lorem Ipsum is not simply random text",
+                "equipping": "category",
+                "itemId": "rifle_2"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 5000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Rifle 3",
+                "description": "Lorem Ipsum is not simply random text",
+                "equipping": "category",
+                "itemId": "rifle_3"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 15000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Rifle 4",
+                "description": "Lorem Ipsum is not simply random text",
+                "equipping": "category",
+                "itemId": "rifle"
+            }
+        ],
+        "singleUse": [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 375,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Binoculars",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "binoculars"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 525,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Compass",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "compass"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Laser Pointer",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "laser_pointer"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 525,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Baloon",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "baloon"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Birds",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "birds"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 1000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Rain",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "rain"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 5000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Ammo 1",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "ammo_1"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 5000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Ammo 2",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "ammo_2"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 5000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Ammo 3",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "ammo_3"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 5000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Ammo 4",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "ammo_4"
+            }
+        ],
+        "goodPacks": []
+    }
 }

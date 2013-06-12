@@ -5,14 +5,7 @@
         "noBranding": "true"
     },
     "modelAssets": {
-        "categories": {
-            "1": "img/-_Object_3.png",
-            "2": "img/-_Object_2.png",
-            "3": "img/-_Object_4.png",
-            "4": "img/-_Object_1.png",
-            "5": "img/-_Object_5.png"
-        },
-        "virtualGoods": {
+        "items": {
             "ship_1": "img/craft_1.png",
             "ship_2": "img/craft_2.png",
             "ship_3": "img/craft_3.png",
@@ -21,19 +14,18 @@
             "green_radar": "img/objects-12.png",
             "super_charge": "img/objects-13.png",
             "death_sun": "img/objects-14.png",
-            "rocket_launcher": "img/craft_5.png"
-        },
-        "currencyPacks": {
+            "rocket_launcher": "img/craft_5.png",
             "orange_power": "img/objects-01.png",
             "blue_power": "img/objects-02.png",
-            "green_power": "img/objects-03.png"
-        },
-        "currencies": {
+            "green_power": "img/objects-03.png",
             "currency_coins": "img/coin.png",
-            "currency_power": "img/coin.png"
-        },
-        "nonConsumables": {
+            "currency_power": "img/coin.png",
             "remove_ads": "img/no-ads.png"
+        },
+        "categories": {
+            "Starships": "img/-_Object_3.png",
+            "Weapons": "img/-_Object_2.png",
+            "Upgrades": "img/-_Object_4.png"
         }
     },
     "theme": {
@@ -63,33 +55,33 @@
             "purchasedIndicatorImage": "img/owned.png",
             "itemBackgroundImage": "img/BG_Product.png",
             "itemBackgroundImageExpanded": "img/BG_Product_Ext.png",
-            "equip" : "img/equip.png",
-            "equipped" : "img/equipped.png"
+            "equip": "img/equip.png",
+            "equipped": "img/equipped.png"
         },
         "name": "jarheadWhisker",
         "noFundsModal": {
             "background": "img/Alert-22.png",
-            "text" : "Insufficient funds.  Would you like to buy more?",
-            "textStyle" : "color: #fff; text-shadow: 1px 2px #000",
-            "yesButton" : "img/yes_btn.png",
-            "noButton" : "img/no_btn.png"
+            "text": "Insufficient funds.  Would you like to buy more?",
+            "textStyle": "color: #fff; text-shadow: 1px 2px #000",
+            "yesButton": "img/yes_btn.png",
+            "noButton": "img/no_btn.png"
         },
         "pages": {
             "menu": {
                 "title": "Starshop"
             },
-            "goods" : {
-                "item" : {
-                    "nameStyle" : "color: #FFF;",
-                    "priceStyle" : "color: #FFF;",
-                    "descriptionStyle" : "color: #FFF;"
+            "goods": {
+                "item": {
+                    "nameStyle": "color: #FFF;",
+                    "priceStyle": "color: #FFF;",
+                    "descriptionStyle": "color: #FFF;"
                 }
             },
-            "currencyPacks" : {
-                "item" : {
-                    "nameStyle" : "color: #FFF;",
-                    "priceStyle" : "color: #FFF;",
-                    "descriptionStyle" : "color: #FFF;"
+            "currencyPacks": {
+                "item": {
+                    "nameStyle": "color: #FFF;",
+                    "priceStyle": "color: #FFF;",
+                    "descriptionStyle": "color: #FFF;"
                 }
             }
         },

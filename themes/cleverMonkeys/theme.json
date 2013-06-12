@@ -1,94 +1,87 @@
 {
-    "template" : {
-        "name" : "airstrikeBravo",
-		"orientation" : "landscape"
+    "template": {
+        "name": "airstrikeBravo",
+        "orientation": "landscape"
     },
-    "modelAssets" : {
-        "categories" : {
-            "1" : "img/-_Object_1.png",
-            "2" : "img/-_Object_4.png",
-            "3" : "img/-_Object_2.png"
+    "modelAssets": {
+        "items": {
+            "fishing_rod": "img/UtilitiesObjects/objects-06.png",
+            "extra_rope": "img/UtilitiesObjects/objects-07.png",
+            "trampoline": "img/UtilitiesObjects/objects-08.png",
+            "monkey_1": "img/characters/objects-01.png",
+            "monkey_2": "img/characters/objects-02.png",
+            "monkey_3": "img/characters/objects-03.png",
+            "banana_pack": "img/coins/objects-01.png",
+            "banana_basket": "img/coins/objects-02.png",
+            "banana_tree": "img/coins/objects-03.png",
+            "currency_coins": "img/coin.png",
+            "remove_ads": "img/no-ads.png",
+            "tapjoy": "img/tapjoy.png"
         },
-        "virtualGoods" : {
-            "fishing_rod" : "img/UtilitiesObjects/objects-06.png",
-            "extra_rope" : "img/UtilitiesObjects/objects-07.png",
-            "trampoline" : "img/UtilitiesObjects/objects-08.png",
-            "monkey_1" : "img/characters/objects-01.png",
-            "monkey_2" : "img/characters/objects-02.png",
-            "monkey_3" : "img/characters/objects-03.png"
-        },
-        "currencyPacks" : {
-           "banana_pack" : "img/coins/objects-01.png",
-            "banana_basket" : "img/coins/objects-02.png",
-            "banana_tree" : "img/coins/objects-03.png"
-        },
-        "currencies" : {
-             "currency_coins" : "img/coin.png"
-        },
-	    "nonConsumables" : {
-		    "remove_ads" : "img/no-ads.png"
-	    },
-	    "tapjoy" : "img/tapjoy.png"
+        "categories": {
+            "Characters": "img/-_Object_1.png",
+            "Utilities": "img/-_Object_4.png",
+            "Jetpacks": "img/-_Object_2.png"
+        }
     },
-    "theme" : {
-        "name" : "cleverMonkeys",
-        "version" : 1,
-        "balance" : {
-            "style" : "color: #FFF;"
+    "theme": {
+        "name": "cleverMonkeys",
+        "version": 1,
+        "balance": {
+            "style": "color: #FFF;"
         },
-        "background" : "img/BG_BG.jpg",
-        "headerBackground" : "img/Header.png",
-        "noFundsModal" : {
-            "background" : "img/Alert-22.png",
-            "text" : "Insufficient funds.  Would you like to buy more?",
-            "textStyle" : "color: #FFF; text-shadow: 1px 2px #000",
-            "yesButton" : "img/yes_btn.png",
-            "noButton" : "img/no_btn.png"
+        "background": "img/BG_BG.jpg",
+        "headerBackground": "img/Header.png",
+        "noFundsModal": {
+            "background": "img/Alert-22.png",
+            "text": "Insufficient funds.  Would you like to buy more?",
+            "textStyle": "color: #FFF; text-shadow: 1px 2px #000",
+            "yesButton": "img/yes_btn.png",
+            "noButton": "img/no_btn.png"
         },
-        "images" : {
-            "contentBackground" : "img/ContentBackground.png",
-            "itemAreaBackground" : "img/ItemAreaBackground.png",
-            "buyImage" : "img/BUY.png",
-            "ownedIndicatorImage" : "img/Green_Owned.png",
-            "notOwnedIndicatorImage" : "img/Gray_Owned.png",
-            "expandImage" : "img/expand.png",
-            "backImage" : "img/BACK.png",
-            "quitImage" : "img/QUIT.png",
-	        "purchasedIndicatorImage" : "img/owned.png",
-            "itemBackgroundImage" : "img/BG_Product.png",
-            "itemBackgroundImageExpanded" : "img/BG_Product_Ext.png",
-            "equip" : "img/equip.png",
-            "equipped" : "img/equipped.png"
+        "images": {
+            "contentBackground": "img/ContentBackground.png",
+            "itemAreaBackground": "img/ItemAreaBackground.png",
+            "buyImage": "img/BUY.png",
+            "ownedIndicatorImage": "img/Green_Owned.png",
+            "notOwnedIndicatorImage": "img/Gray_Owned.png",
+            "expandImage": "img/expand.png",
+            "backImage": "img/BACK.png",
+            "quitImage": "img/QUIT.png",
+            "purchasedIndicatorImage": "img/owned.png",
+            "itemBackgroundImage": "img/BG_Product.png",
+            "itemBackgroundImageExpanded": "img/BG_Product_Ext.png",
+            "equip": "img/equip.png",
+            "equipped": "img/equipped.png"
         },
-	    "fonts" : [
-		    {
-			    "url" : "fonts/MachineScript.ttf"
-		    },
-		    {
-			    "url" : "fonts/CalibriBold.ttf"
-		    }
-	    ],
-        "titleStyle" : "color: #E4C51C; font-weight: normal; font-size: 40px;",
-	    "currencyPacksCategoryImage" : "img/-_Object_5.png",
-        "pages" : {
-            "menu" : {
-                "title" : "The Store"
+        "fonts": [
+            {
+                "url": "fonts/MachineScript.ttf"
             },
-	        "goods" : {
-		        "item" : {
-			        "nameStyle" : "color: #FFF;",
-			        "priceStyle" : "color: #FFF; font-size: 24px;",
-			        "descriptionStyle" : "color: #FFF; font-size: 24px;"
-		        }
+            {
+                "url": "fonts/CalibriBold.ttf"
+            }
+        ],
+        "titleStyle": "color: #E4C51C; font-weight: normal; font-size: 40px;",
+        "currencyPacksCategoryImage": "img/-_Object_5.png",
+        "pages": {
+            "menu": {
+                "title": "The Store"
             },
-	        "currencyPacks" : {
-		        "item" : {
-			        "nameStyle" : "color: #FFF;",
-			        "priceStyle" : "color: #FFF; font-size: 24px;",
-			        "descriptionStyle" : "color: #FFF;"
-		        }
-	        }
+            "goods": {
+                "item": {
+                    "nameStyle": "color: #FFF;",
+                    "priceStyle": "color: #FFF; font-size: 24px;",
+                    "descriptionStyle": "color: #FFF; font-size: 24px;"
+                }
+            },
+            "currencyPacks": {
+                "item": {
+                    "nameStyle": "color: #FFF;",
+                    "priceStyle": "color: #FFF; font-size: 24px;",
+                    "descriptionStyle": "color: #FFF;"
+                }
+            }
         }
     }
-
 }

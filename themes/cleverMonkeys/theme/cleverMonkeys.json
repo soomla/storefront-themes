@@ -1,124 +1,139 @@
 {
-    "currencyPacks" : [
+    "currencyPacks": [
         {
-            "name"              : "Banana Pack",
-            "itemId"            : "banana_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "coin_booster_pack",
-            "price"             : 0.99,
-            "amount"            : 20000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 0.99,
+                    "productId": "coin_booster_pack"
+                },
+                "purchaseType": "market"
+            },
+            "name": "Banana Pack",
+            "itemId": "banana_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 20000
         },
         {
-            "name"              : "Banana Basket",
-            "itemId"            : "banana_basket",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "android.test.purchased",
-            "price"             : 1.99,
-            "amount"            : 50000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 1.99,
+                    "productId": "android.test.purchased"
+                },
+                "purchaseType": "market"
+            },
+            "name": "Banana Basket",
+            "itemId": "banana_basket",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 50000
         },
         {
-            "name"              : "Banana Tree",
-            "itemId"            : "banana_tree",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "coin_ultra_pack",
-            "price"             : 2.99,
-            "amount"            : 100000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 2.99,
+                    "productId": "coin_ultra_pack"
+                },
+                "purchaseType": "market"
+            },
+            "name": "Banana Tree",
+            "itemId": "banana_tree",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 100000
         }
     ],
-    "currencies" : [
+    "currencies": [
         {
-            "name"          : "COINS",
-            "description"   : "",
-            "itemId"        : "currency_coins"
+            "name": "COINS",
+            "description": "",
+            "itemId": "currency_coins"
         }
     ],
-    "virtualGoods" : [
+    "categories": [
         {
-            "name"          : "Monkey 1",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "monkey_1",
-            "categoryId"   : 1,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 250
-                    }
-            }
-        },
-		{
-            "name"          : "Monkey 2",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "monkey_2",
-            "categoryId"   : 1,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 250
-                    }
-            }
-        },
-		{
-            "name"          : "Monkey 3",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "monkey_3",
-            "categoryId"   : 1,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 250
-                    }
-            }
+            "goods_itemIds": ["monkey_1", "monkey_2", "monkey_3"],
+            "name": "Characters"
         },
         {
-            "name"          : "Fishing Rod",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "fishing_rod",
-            "categoryId"   : 2,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 500
-                }
-            }
-        },       
+            "goods_itemIds": ["fishing_rod", "extra_rope", "trampoline"],
+            "name": "Utilities"
+        },
         {
-            "name"          : "Extra Rope",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "extra_rope",
-            "categoryId"   : 2,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 500
-                }
-            }
-        },    
-        {
-            "name"          : "Trampoline",
-            "description"   : "Lorem Ipsum is not simply random text",
-            "itemId"        : "trampoline",
-            "categoryId"   : 2,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 500
-                }
-            }
+            "goods_itemIds": [],
+            "name": "Jetpacks"
         }
     ],
-     "categories" : [
-        {
-            "id" : 1,
-            "name" : "Characters",
-            "equipping" : "single"
-        },
-        {
-            "id" : 2,
-            "name" : "Utilities"
-        },
-        {
-            "id" : 3,
-            "name" : "Jetpacks"
-        }
-    ]
+    "goods": {
+        "goodUpgrades": [],
+        "lifetime": [],
+        "equippable": [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Monkey 1",
+                "description": "Lorem Ipsum is not simply random text",
+                "equipping": "category",
+                "itemId": "monkey_1"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Monkey 2",
+                "description": "Lorem Ipsum is not simply random text",
+                "equipping": "category",
+                "itemId": "monkey_2"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Monkey 3",
+                "description": "Lorem Ipsum is not simply random text",
+                "equipping": "category",
+                "itemId": "monkey_3"
+            }
+        ],
+        "singleUse": [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Fishing Rod",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "fishing_rod"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Extra Rope",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "extra_rope"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Trampoline",
+                "description": "Lorem Ipsum is not simply random text",
+                "itemId": "trampoline"
+            }
+        ],
+        "goodPacks": []
+    }
 }

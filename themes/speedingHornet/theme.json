@@ -1,102 +1,95 @@
 {
-    "template" : {
-        "name" : "airstrikeBravo",
-		"orientation" : "landscape"
+    "template": {
+        "name": "airstrikeBravo",
+        "orientation": "landscape"
     },
-    "modelAssets" : {
-        "categories" : {
-            "1" : "img/-_Object_2.png",
-            "2" : "img/-_Object_1.png",
-            "3" : "img/-_Object_4.png",
-            "4" : "img/-_Object_3.png"
+    "modelAssets": {
+        "items": {
+            "experimental_fuel": "img/utilities/Upgrade2.png",
+            "sticky_tires": "img/utilities/Upgrade3.png",
+            "turbo_charger": "img/utilities/Upgrade1.png",
+            "boost": "img/powerups/boost.png",
+            "invisibility": "img/powerups/invisibility.png",
+            "luck_charm": "img/powerups/luck_charm.png",
+            "wings": "img/powerups/wings.png",
+            "jersey_curves": "img/racingtracks/tracks1.png",
+            "texas_heat": "img/racingtracks/tracks2.png",
+            "flat_omaha": "img/racingtracks/tracks3.png",
+            "delorean": "img/cars/cars1.png",
+            "ford_gran_torino": "img/cars/cars2.png",
+            "chevrolet_camaro_replica": "img/cars/cars3.png",
+            "coin_booster_pack": "img/coins/objects-01.png",
+            "coin_mega_pack": "img/coins/objects-02.png",
+            "coin_ultra_pack": "img/coins/objects-03.png",
+            "coin_ultimate_pack": "img/coins/objects-04.png",
+            "currency_coins": "img/coin.png",
+            "remove_ads": "img/no-ads.png",
+            "tapjoy": "img/tapjoy.png"
         },
-        "virtualGoods" : {
-           "experimental_fuel" : "img/utilities/Upgrade2.png",
-            "sticky_tires" : "img/utilities/Upgrade3.png",
-            "turbo_charger" : "img/utilities/Upgrade1.png",
-            "boost" : "img/powerups/boost.png",
-            "invisibility" : "img/powerups/invisibility.png",
-            "luck_charm" : "img/powerups/luck_charm.png",
-            "wings" : "img/powerups/wings.png",
-            "jersey_curves" : "img/racingtracks/tracks1.png",
-            "texas_heat" : "img/racingtracks/tracks2.png",
-            "flat_omaha" : "img/racingtracks/tracks3.png",
-            "delorean" : "img/cars/cars1.png",
-            "ford_gran_torino" : "img/cars/cars2.png",
-            "chevrolet_camaro_replica" : "img/cars/cars3.png"
-        },
-        "currencyPacks" : {
-           "coin_booster_pack" : "img/coins/objects-01.png",
-            "coin_mega_pack" : "img/coins/objects-02.png",
-            "coin_ultra_pack" : "img/coins/objects-03.png",
-            "coin_ultimate_pack" : "img/coins/objects-04.png"
-        },
-        "currencies" : {
-             "currency_coins" : "img/coin.png"
-        },
-	    "nonConsumables" : {
-		    "remove_ads" : "img/no-ads.png"
-	    },
-	    "tapjoy" : "img/tapjoy.png"
+        "categories": {
+            "Tracks": "img/-_Object_2.png",
+            "Cars": "img/-_Object_1.png",
+            "Powerups": "img/-_Object_4.png",
+            "Utilities": "img/-_Object_3.png"
+        }
     },
-    "theme" : {
-        "name" : "speedingHornet",
-        "version" : 1,
-        "balance" : {
-            "style" : "color: #FFF;"
+    "theme": {
+        "name": "speedingHornet",
+        "version": 1,
+        "balance": {
+            "style": "color: #FFF;"
         },
-        "background" : "img/BG_BG.jpg",
-        "headerBackground" : "img/Header.png",
-        "noFundsModal" : {
-            "background" : "img/Alert-22.png",
-            "text" : "Insufficient funds.  Would you like to buy more?",
-            "yesButton" : "img/yes_btn.png",
-            "noButton" : "img/no_btn.png"
+        "background": "img/BG_BG.jpg",
+        "headerBackground": "img/Header.png",
+        "noFundsModal": {
+            "background": "img/Alert-22.png",
+            "text": "Insufficient funds.  Would you like to buy more?",
+            "yesButton": "img/yes_btn.png",
+            "noButton": "img/no_btn.png"
         },
-        "images" : {
-            "contentBackground" : "img/ContentBackground.png",
-            "itemAreaBackground" : "img/ItemAreaBackground.png",
-            "buyImage" : "img/BUY.png",
-            "ownedIndicatorImage" : "img/Green_Owned.png",
-            "notOwnedIndicatorImage" : "img/Gray_Owned.png",
-            "expandImage" : "img/expand.png",
-            "backImage" : "img/BACK.png",
-            "quitImage" : "img/QUIT.png",
-	        "purchasedIndicatorImage" : "img/owned.png",
-            "itemBackgroundImage" : "img/BG_Product.png",
-            "itemBackgroundImageExpanded" : "img/BG_Product_Ext.png",
-            "equip" : "img/equip.png",
-            "equipped" : "img/equipped.png"
+        "images": {
+            "contentBackground": "img/ContentBackground.png",
+            "itemAreaBackground": "img/ItemAreaBackground.png",
+            "buyImage": "img/BUY.png",
+            "ownedIndicatorImage": "img/Green_Owned.png",
+            "notOwnedIndicatorImage": "img/Gray_Owned.png",
+            "expandImage": "img/expand.png",
+            "backImage": "img/BACK.png",
+            "quitImage": "img/QUIT.png",
+            "purchasedIndicatorImage": "img/owned.png",
+            "itemBackgroundImage": "img/BG_Product.png",
+            "itemBackgroundImageExpanded": "img/BG_Product_Ext.png",
+            "equip": "img/equip.png",
+            "equipped": "img/equipped.png"
         },
-	    "fonts" : [
-		    {
-			    "url" : "fonts/SpaceAge.ttf"
-		    },
-		    {
-			    "url" : "fonts/Orbitron-Medium.ttf"
-		    }
-	    ],
-        "titleStyle" : "color: #FFF",
-	    "currencyPacksCategoryImage" : "img/-_Object_5.png",
-        "pages" : {
-            "menu" : {
-                "title" : "The Store"
+        "fonts": [
+            {
+                "url": "fonts/SpaceAge.ttf"
             },
-	        "goods" : {
-		        "item" : {
-			        "nameStyle" : "color: #101914;",
-			        "priceStyle" : "color: #101914;",
-			        "descriptionStyle" : "font-size: 20px; color: #101914;"
-		        }
-	        },
-	        "currencyPacks" : {
-		        "item" : {
-			        "nameStyle" : "font-size: 24px;",
-			        "priceStyle" : "font-size: 24px;",
-			        "descriptionStyle" : ""
-		        }
+            {
+                "url": "fonts/Orbitron-Medium.ttf"
+            }
+        ],
+        "titleStyle": "color: #FFF",
+        "currencyPacksCategoryImage": "img/-_Object_5.png",
+        "pages": {
+            "menu": {
+                "title": "The Store"
+            },
+            "goods": {
+                "item": {
+                    "nameStyle": "color: #101914;",
+                    "priceStyle": "color: #101914;",
+                    "descriptionStyle": "font-size: 20px; color: #101914;"
+                }
+            },
+            "currencyPacks": {
+                "item": {
+                    "nameStyle": "font-size: 24px;",
+                    "priceStyle": "font-size: 24px;",
+                    "descriptionStyle": ""
+                }
             }
         }
     }
-
 }

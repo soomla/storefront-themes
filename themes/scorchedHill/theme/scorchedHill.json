@@ -1,220 +1,228 @@
 {
-    "currencyPacks" : [
+    "currencyPacks": [
         {
-            "name"              : "COIN BOOSTER PACK",
-            "itemId"            : "coin_booster_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "coin_booster_pack",
-            "price"             : 0.99,
-            "amount"            : 20000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 0.99,
+                    "productId": "coin_booster_pack"
+                },
+                "purchaseType": "market"
+            },
+            "name": "COIN BOOSTER PACK",
+            "itemId": "coin_booster_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 20000
         },
         {
-            "name"              : "COIN MEGA PACK",
-            "itemId"            : "coin_mega_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "android.test.purchased",
-            "price"             : 1.99,
-            "amount"            : 50000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 1.99,
+                    "productId": "android.test.purchased"
+                },
+                "purchaseType": "market"
+            },
+            "name": "COIN MEGA PACK",
+            "itemId": "coin_mega_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 50000
         },
         {
-            "name"              : "COIN ULTRA PACK",
-            "itemId"            : "coin_ultra_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "coin_ultra_pack",
-            "price"             : 2.99,
-            "amount"            : 100000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 2.99,
+                    "productId": "coin_ultra_pack"
+                },
+                "purchaseType": "market"
+            },
+            "name": "COIN ULTRA PACK",
+            "itemId": "coin_ultra_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 100000
         },
         {
-            "name"              : "COIN ULTIMATE PACK",
-            "itemId"            : "coin_ultimate_pack",
-            "currency_itemId"   : "currency_coins",
-            "productId"         : "coin_ultimate_pack",
-            "price"             : 9.99,
-            "amount"            : 600000
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 9.99,
+                    "productId": "coin_ultimate_pack"
+                },
+                "purchaseType": "market"
+            },
+            "name": "COIN ULTIMATE PACK",
+            "itemId": "coin_ultimate_pack",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 600000
         }
     ],
-    "currencies" : [
+    "currencies": [
         {
-            "name"          : "COINS",
-            "description"   : "",
-            "itemId"        : "currency_coins"
+            "name": "COINS",
+            "description": "",
+            "itemId": "currency_coins"
         }
     ],
-    "virtualGoods" : [
+    "categories": [
         {
-            "name"          : "Tank 1",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "tank_1",
-            "categoryId"   : 1,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 250
-                    }
-            }
+            "goods_itemIds": ["tank_1", "tank_2", "tank_3", "tank_4"],
+            "name": "Tanks"
         },
         {
-            "name"          : "Tank 2",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "tank_2",
-            "categoryId"   : 1,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 250
-                    }
-            }
+            "goods_itemIds": ["explosion", "fire", "nuke"],
+            "name": "Ammo"
         },
         {
-            "name"          : "Tank 3",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "tank_3",
-            "categoryId"   : 1,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 250
-                    }
-            }
+            "goods_itemIds": ["fighter_jet", "mystery_box", "parachute"],
+            "name": "Powerups"
         },
         {
-            "name"          : "Tank 4",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "tank_4",
-            "categoryId"   : 1,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 250
-                    }
-            }
-        },
-		{
-            "name"          : "Explosion",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "explosion",
-            "categoryId"   : 2,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 2500
-                }
-            }
-        },
-        {
-            "name"          : "Fire",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "fire",
-            "categoryId"   : 2,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 5000
-                }
-            }
-        },
-		{
-            "name"          : "Nuke",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "nuke",
-            "categoryId"   : 2,
-             "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 5000
-                }
-            }
-        },
-		{
-            "name"          : "Fighter Jet",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "fighter_jet",
-            "categoryId"   : 3,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 2500
-                    }
-            }
-        },
-		{
-            "name"          : "Mystery Box",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "mystery_box",
-            "categoryId"   : 3,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 2500
-                    }
-            }
-        },
-		{
-            "name"          : "Parachute",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "parachute",
-            "categoryId"   : 3,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 2500
-                    }
-            }
-        },
-		{
-            "name"          : "Armor",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "armor",
-            "categoryId"   : 4,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 10000
-                    }
-            }
-        },
-		{
-            "name"          : "Cloaking",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "cloaking",
-            "categoryId"   : 4,
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 250
-                    }
-            }
-        },
-        {
-            "name"          : "Fuel",
-            "description"   : "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
-            "itemId"        : "fuel",
-            "categoryId"   : 4, 
-            "priceModel"    : {
-                "type" : "static",
-                "values" :{
-                    "currency_coins" : 500
-                }
-            }
-        }       
-    ],
-     "categories" : [
-        {
-            "id" : 1,
-            "name" : "Tanks",
-            "equipping" : "single"
-        },
-        {
-            "id" : 2,
-            "name" : "Ammo"
-        },
-        {
-            "id" : 3,
-            "name" : "Powerups"
-        },
-        {
-            "id" : 4,
-            "name" : "Utilities"
+            "goods_itemIds": ["armor", "cloaking", "fuel"],
+            "name": "Utilities"
         }
-    ]
+    ],
+    "goods": {
+        "goodUpgrades": [],
+        "lifetime": [],
+        "equippable": [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Tank 1",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "equipping": "category",
+                "itemId": "tank_1"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Tank 2",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "equipping": "category",
+                "itemId": "tank_2"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Tank 3",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "equipping": "category",
+                "itemId": "tank_3"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Tank 4",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "equipping": "category",
+                "itemId": "tank_4"
+            }
+        ],
+        "singleUse": [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Explosion",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "itemId": "explosion"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 5000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Fire",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "itemId": "fire"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 5000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Nuke",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "itemId": "nuke"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Fighter Jet",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "itemId": "fighter_jet"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Mystery Box",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "itemId": "mystery_box"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Parachute",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "itemId": "parachute"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 10000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Armor",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "itemId": "armor"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Cloaking",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "itemId": "cloaking"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 500,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Fuel",
+                "description": "In publishing and graphic design, lorem ipsum is placeholder text (filler text)",
+                "itemId": "fuel"
+            }
+        ],
+        "goodPacks": []
+    }
 }
