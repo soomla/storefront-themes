@@ -30,7 +30,7 @@
 			"100_gems" : "img/CurrencyPacks/GetGems_2.png",
 			"1000_gems" : "img/CurrencyPacks/GetGems_3.png"
         },
-        "virtualCurrencies" : {
+        "currencies" : {
             "currency_coins" : "img/Item_Price.png",
 			"currency_gems" : "img/Gem_Price.png"
         }

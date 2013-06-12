@@ -44,7 +44,7 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "marione
                 imgFilePath: modelAssets["virtualGoods"][this.model.id],
                 backgroundImgFilePath: modelAssets["categories"][this.model.get('categoryId')],
                 currency : {
-                    imgFilePath : modelAssets["virtualCurrencies"][this.model.getCurrencyId()]
+                    imgFilePath : modelAssets["currencies"][this.model.getCurrencyId()]
                 },
                 price : this.model.get("priceModel").values[this.model.getCurrencyId()]
 
@@ -81,7 +81,7 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "marione
             this.categoryHeaderViews = [];
             this.categoryViews  = [];
 
-            var currencies      = this.model.get("virtualCurrencies"),
+            var currencies      = this.model.get("currencies"),
                 categories      = this.model.get("categories");
 
             // View event listeners

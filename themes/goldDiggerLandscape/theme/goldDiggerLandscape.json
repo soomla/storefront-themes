@@ -57,7 +57,7 @@
             "amount"            : 1000
         }
     ],
-    "virtualCurrencies" : [
+    "currencies" : [
         {
             "name"          : "Coins",
             "description"   : "",
