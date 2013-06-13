@@ -72,7 +72,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "marionette", "ha
                 }, 200)
             }
             this.initialized = true;
-            var modelAssets = model.get("modelAssets");
+            var modelAssets = model.getModelAssets();
             return _.extend({
                 imgFilePath : modelAssets.items[this.model.id],
                 currency : {
@@ -92,7 +92,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "marionette", "ha
         LifetimeVirtualGoodView.prototype.templateHelpers   = templateHelpers;
 
         CurrencyPackView.prototype.templateHelpers = function() {
-            var modelAssets = model.get("modelAssets");
+            var modelAssets = model.getModelAssets();
             return {
                 price           : this.model.getPrice(),
                 nameStyle       : theme.pages.currencyPacks.listItem.nameStyle,
@@ -102,7 +102,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "marionette", "ha
             };
         };
         NonConsumableView.prototype.templateHelpers = function() {
-            var modelAssets = model.get("modelAssets");
+            var modelAssets = model.getModelAssets();
             return {
                 nameStyle           : theme.pages.currencyPacks.listItem.nameStyle,
                 priceStyle          : theme.pages.currencyPacks.listItem.priceStyle,

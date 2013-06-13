@@ -148,7 +148,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
         // Add template helpers to view prototypes
 
         var virtualGoodTemplateHelpers = function () {
-            var modelAssets = model.get("modelAssets");
+            var modelAssets = model.getModelAssets();
             return _.extend({
                 imgFilePath: modelAssets.items[this.model.id],
                 currency: {
@@ -163,7 +163,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
         LifetimeItemView.prototype.templateHelpers          = virtualGoodTemplateHelpers;
 
         CurrencyPackView.prototype.templateHelpers = function() {
-            var modelAssets = model.get("modelAssets");
+            var modelAssets = model.getModelAssets();
             return _.extend({
                 imgFilePath : modelAssets.items[this.model.id],
                 currency : {
@@ -174,13 +174,13 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             }, templateHelpers);
         };
         CategoryMenuItemView.prototype.templateHelpers = function() {
-            var modelAssets = model.get("modelAssets");
+            var modelAssets = model.getModelAssets();
             return {
                 imgFilePath : modelAssets.categories[this.model.id]
             };
         };
         CurrencyMenuItemView.prototype.templateHelpers = function() {
-            var modelAssets = model.get("modelAssets");
+            var modelAssets = model.getModelAssets();
             return {
                 imgFilePath : modelAssets.items[this.model.id]
             };

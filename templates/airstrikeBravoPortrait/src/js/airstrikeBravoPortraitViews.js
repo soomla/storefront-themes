@@ -61,7 +61,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
         };
         var templateHelpers = function () {
 
-            var modelAssets = model.get("modelAssets");
+            var modelAssets = model.getModelAssets();
             return createTemplateHelpers({
                 imgFilePath: modelAssets.items[this.model.id],
                 currency: {
@@ -79,7 +79,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
         LifetimeVirtualGoodView.prototype.templateHelpers   = templateHelpers;
 
         CurrencyPackView.prototype.templateHelpers = function() {
-            var modelAssets = model.get("modelAssets");
+            var modelAssets = model.getModelAssets();
             return createTemplateHelpers({
                 price: this.model.getPrice(),
                 imgFilePath : modelAssets.items[this.model.id],
@@ -92,13 +92,13 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
             });
         };
         CategoryView.prototype.templateHelpers = function() {
-            var modelAssets = model.get("modelAssets");
+            var modelAssets = model.getModelAssets();
             return {
                 imgFilePath : modelAssets.categories[this.model.id]
             };
         };
         NonConsumableView.prototype.templateHelpers = function() {
-            var modelAssets = model.get("modelAssets");
+            var modelAssets = model.getModelAssets();
             return createTemplateHelpers({
                 imgFilePath : modelAssets.items[this.model.id]
             });

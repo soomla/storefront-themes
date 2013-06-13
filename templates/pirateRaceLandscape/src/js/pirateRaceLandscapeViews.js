@@ -39,7 +39,7 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "marione
 
         var templateHelpers = function() {
 
-            var modelAssets = model.get("modelAssets");
+            var modelAssets = model.getModelAssets();
             return _.extend({
                 imgFilePath: modelAssets["virtualGoods"][this.model.id],
                 backgroundImgFilePath: modelAssets["categories"][this.model.get('categoryId')],
@@ -56,7 +56,7 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "marione
         VirtualGoodView.prototype.templateHelpers = templateHelpers;
         EquippableVirtualGoodView.prototype.templateHelpers = templateHelpers;
         CurrencyPackView.prototype.templateHelpers = function() {
-            var modelAssets = model.get("modelAssets");
+            var modelAssets = model.getModelAssets();
             return {
                 nameStyle       : theme.pages.currencyPacks.listItem.nameStyle,
                 priceStyle      : theme.pages.currencyPacks.listItem.priceStyle,

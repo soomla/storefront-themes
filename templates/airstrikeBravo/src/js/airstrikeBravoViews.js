@@ -62,7 +62,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
         };
         var templateHelpers = function () {
 
-            var modelAssets = model.get("modelAssets");
+            var modelAssets = model.getModelAssets();
             return createTemplateHelpers({
                 imgFilePath: modelAssets.items[this.model.id],
                 currency: {
@@ -80,7 +80,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
         LifetimeVirtualGoodView.prototype.templateHelpers   = templateHelpers;
 
         CurrencyPackView.prototype.templateHelpers = function() {
-            var modelAssets = model.get("modelAssets");
+            var modelAssets = model.getModelAssets();
             return createTemplateHelpers({
                 price: this.model.getPrice(),
                 imgFilePath : modelAssets.items[this.model.id],
@@ -93,13 +93,13 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
             });
         };
         CategoryView.prototype.templateHelpers = function() {
-            var modelAssets = model.get("modelAssets");
+            var modelAssets = model.getModelAssets();
             return {
                 imgFilePath : modelAssets.categories[this.model.id]
             };
         };
         NonConsumableView.prototype.templateHelpers = function() {
-            var modelAssets = model.get("modelAssets");
+            var modelAssets = model.getModelAssets();
             return createTemplateHelpers({
                 imgFilePath : modelAssets.items[this.model.id]
             });
@@ -179,7 +179,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
             if (tapjoy) {
                 this.tapjoyView = new CategoryView({
                     className : "item earned-currency",
-                    templateHelpers : { imgFilePath : this.model.get("modelAssets").items.tapjoy }
+                    templateHelpers : { imgFilePath : this.model.getModelAssets().items.tapjoy }
                 }).on("select", function() {
                     this.playSound().requestEarnedCurrency("tapjoy");
                 }, this);
