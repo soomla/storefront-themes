@@ -193,6 +193,11 @@ module.exports = function (grunt) {
 
     });
 
-    grunt.registerTask('default', 'clean prepareFolders configTemplates less handlebars rig cleanup copySrc min');
+    var tasks = 'clean prepareFolders configTemplates less handlebars rig cleanup copySrc min';
+
+    // Uncomment to prevent code obfuscation
+    tasks = tasks.replace(" min", "");
+
+    grunt.registerTask('default', tasks);
 
 };
