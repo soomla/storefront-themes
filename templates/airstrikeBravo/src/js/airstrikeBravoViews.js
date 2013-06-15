@@ -111,6 +111,8 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
 
+            _.bindAll(this, "buyItem", "equipGoods");
+
             // Initialize dialog metadata
             this.dialogModal = this.theme.noFundsModal;
             this.messageDialogOptions = {
@@ -123,37 +125,35 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
             var currencies 		= this.model.get("currencies"),
                 categories      = this.model.get("categories"),
                 nonConsumables  = this.model.get("nonConsumables"),
-                tapjoy          = this.theme.tapjoy,
-                headerStates    = {};
+                tapjoy          = this.theme.tapjoy;
+
+            this.headerStates   = {};
 
 
             // Build category menu and add it to the page views
-            var categoryMenuView = new IScrollCollectionView({
+            this.categoryMenuView = new IScrollCollectionView({
                 className   : "menu items clearfix",
                 collection  : categories,
                 itemView    : CategoryView
             }).on("itemview:select", function(view) {
                 this.playSound().changeViewTo(this.children.findByCustom(view.model.cid));
             }, this);
-            this.children.add(categoryMenuView, "menu");
-            headerStates[categoryMenuView.cid] = this.theme.pages.menu.title;
+            this.children.add(this.categoryMenuView, "menu");
+            this.headerStates[this.categoryMenuView.cid] = this.theme.pages.menu.title;
 
 
             // Create a view for the button linking from the category menu to the currency packs view
             // We're using a CategoryView, because visually the button should look the same, even though
             // it doesn't represent an actual category.  This view will be force-appended to the
             // categories view when rendering
-            this.currencyPacksLinks = [];
+            this.currencyPacksLinks = new Backbone.ChildViewContainer();
 
-            currencies.each(function(currency) {
-                var link = new CategoryView({
-                    className : "item currency-packs",
-                    templateHelpers : { imgFilePath : this.theme.currencyPacksCategoryImage }
-                }).on("select", function() {
-                    this.playSound().changeViewTo(this.children.findByCustom(currency.cid));
-                }, this);
-
-                this.currencyPacksLinks.push(link);
+            currencies.each(this.addCurrencyLinkView, this);
+            currencies.on({
+                add : function(currency) {
+                    this.addCurrencyLinkView(currency, {render : true});
+                },
+                remove : this.removeCurrencyLinkView
             }, this);
 
             // Create views for the earned currency links from the category menu.
@@ -167,7 +167,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
                 var view = new NonConsumableView({
                     className : "item non-consumable",
                     model : nonConsumable
-                }).on("buy", wantsToBuyItem);
+                }).on("buy", this.buyItem);
 
                 this.nonConsumbaleLinks.push(view);
             }, this);
@@ -186,69 +186,39 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
             }
 
 
-
-            // View event listeners
-            var wantsToBuyItem = _.bind(function (view) {
-                this.playSound().wantsToBuyItem(view.model.id);
-            }, this);
-            var wantsToEquipGoods = _.bind(function (view) {
-                this.playSound().wantsToEquipGoods(view.model);
-            }, this);
-
-            // This is a special playSound function that resolves the playSound
-            // function defined on the store view object only when called.
-            // This is used so that the function from the nativeAPI stubs is called
-            var playSound = _.bind(function() {
-                return this.playSound();
-            }, this);
-
-
             // Mark this view as the active view,
             // as it is the first one visible when the store opens
-            this.activeView = categoryMenuView;
+            this.activeView = this.categoryMenuView;
 
 
             // Render all categories with goods
-            categories.each(function(category) {
-
-                var categoryName 	= category.get("name"),
-                	goods 			= category.get("goods"),
-                    view;
-
-                view = new GoodsCollectionView({
-                    className   : "items virtualGoods category " + categoryName,
-                    collection  : goods
-                }).on({
-                    "itemview:expand"   : playSound,
-                    "itemview:collapse" : this.conditionalPlaySound,
-                    "itemview:buy"      : wantsToBuyItem,
-                    "itemview:equip"    : wantsToEquipGoods
-                }, this);
-
-                this.children.add(view, category.cid);
-                headerStates[view.cid] = categoryName;
+            categories.each(this.addCategoryView, this);
+            categories.on({
+                add : function(category) {
+                    this.addCategoryView(category, {render : true});
+                },
+                remove : this.removeCategoryView
             }, this);
 
 
             // Build currency packs category and add it to the page views
-            currencies.each(function(currency) {
-                var currencyPacksView = new CurrencyPacksCollectionView({
-                    className   : "items currencyPacks category",
-                    collection  : currency.get("packs"),
-                    itemView    : CurrencyPackView
-                }).on("itemview:buy", wantsToBuyItem);
-                this.children.add(currencyPacksView, currency.cid);
-                headerStates[currencyPacksView.cid] = currency.get("name");
+            currencies.each(this.addCurrencyView, this);
+            currencies.on({
+                add : function(currency) {
+                    this.addCurrencyView(currency, {render : true});
+                },
+                remove : this.removeCurrencyView
             }, this);
 
 
+
             // Build header view
-            this.header = new HeaderView({states : headerStates, initialState : categoryMenuView.cid}).on({
+            this.header = new HeaderView({states : this.headerStates, initialState : this.categoryMenuView.cid}).on({
                 back: function () {
                     this.playSound();
 
                     // Switch back to the menu
-                    this.changeViewTo(categoryMenuView);
+                    this.changeViewTo(this.categoryMenuView);
                 },
                 quit: this.leaveStore
             }, this);
@@ -333,16 +303,12 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
             this.header.setElement(this.ui.header).render().bindUIElements();
 
             // Render child views (items in goods store and currency store)
-            this.children.each(function(view) {
-                this.ui.pages.append(view.render().el);
-            }, this);
+            this.children.each(this._appendContainerView, this);
 
             var menu = this.children.findByCustom("menu").$el.children(":first-child");
 
             // Append the link to the currency packs as a "category view"
-            _.each(this.currencyPacksLinks, function(link) {
-                menu.append(link.render().el);
-            });
+            this.currencyPacksLinks.each(this.appendCurrencyLinkView, this);
 
             // Append links to earned currencies as "category views"
             if (this.tapjoyView) menu.append(this.tapjoyView.render().el);
@@ -354,9 +320,103 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
 
             if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
         },
+        // View event listeners
+        buyItem : function (view) {
+            this.playSound().wantsToBuyItem(view.model.id);
+        },
+        equipGoods : function (view) {
+            this.playSound().wantsToEquipGoods(view.model);
+        },
         zoomFunction : function() {
             return (innerWidth / innerHeight) > 1.5 ? (innerHeight / 640) : (innerWidth / 960);
+        },
+
+        _appendContainerView : function(view) {
+            this.ui.pages.append(view.render().el);
+        },
+
+        appendCurrencyLinkView : function(link) {
+            var menu = this.children.findByCustom("menu").$el.children(":first-child");
+            menu.append(link.render().el);
+        },
+
+        addCategoryView : function(category, options) {
+
+            var categoryName 	= category.get("name"),
+                goods           = category.get("goods"),
+                view;
+
+            view = new GoodsCollectionView({
+                className   : "items virtualGoods category " + categoryName,
+                collection  : goods
+            }).on({
+
+                // This is a special playSound function that resolves the playSound
+                // function defined on the store view object only when called.
+                // This is used so that the function from the nativeAPI stubs is called
+                "itemview:expand"   : _.bind(function() {
+                    return this.playSound();
+                }, this),
+                "itemview:collapse" : this.conditionalPlaySound,
+                "itemview:buy"      : this.buyItem,
+                "itemview:equip"    : this.equipGoods
+            }, this);
+
+            this.children.add(view, category.cid);
+            this.headerStates[view.cid] = categoryName;
+
+            // If the `render` flag is provided, i.e. a category
+            // was externally added, render it!
+            if (options && options.render === true) this.appendCategoryView(view);
+        },
+
+        addCurrencyLinkView : function(currency, options) {
+            var view = new CategoryView({
+                className : "item currency-packs",
+                templateHelpers : { imgFilePath : this.theme.currencyPacksCategoryImage }
+            }).on("select", function() {
+                this.playSound().changeViewTo(this.children.findByCustom(currency.cid));
+            }, this);
+
+            this.currencyPacksLinks.add(view, currency.id);
+
+            // If the `render` flag is provided, i.e. a category
+            // was externally added, render it!
+            if (options && options.render === true) this.appendCurrencyLinkView(view);
+        },
+
+        addCurrencyView : function(currency, options) {
+            var view = new CurrencyPacksCollectionView({
+                className   : "items currencyPacks category",
+                collection  : currency.get("packs"),
+                itemView    : CurrencyPackView
+            }).on("itemview:buy", this.buyItem);
+            this.children.add(view, currency.cid);
+            this.headerStates[view.cid] = currency.get("name");
+
+            // If the `render` flag is provided, i.e. a category
+            // was externally added, render it!
+            if (options && options.render === true) this.appendCurrencyView(view);
+        },
+        removeCurrencyLinkView : function(currency) {
+            var view = this.currencyPacksLinks.findByCustom(currency.id);
+            view.close();
+            this.currencyPacksLinks.remove(view);
+        },
+        _removeContainerView : function(container) {
+            this.changeViewTo(this.categoryMenuView);
+            var view = this.children.findByCustom(container.cid);
+            view.close();
+            this.children.remove(view);
+            delete this.headerStates[view.cid];
         }
+    });
+
+    _.extend(StoreView.prototype, {
+        appendCategoryView : StoreView.prototype._appendContainerView,
+        appendCurrencyView : StoreView.prototype._appendContainerView,
+        removeCategoryView : StoreView.prototype._removeContainerView,
+        removeCurrencyView : StoreView.prototype._removeContainerView
     });
 
 

@@ -83,13 +83,18 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
                 this.activeIndex = 0;
                 this.activeChild = this.getActiveChild();
 
-                this.children.each(function(view, idx) {
-                    //console.log("view", view, idx)
-                    view.$el.addClass("appearLeftTransition");
-                }, this);
-                this.activeChild.$el.removeClass("appearLeftTransition");
-                this.activeChild.$el.addClass("isOn");
-                return this;
+                // When adding an empty carousel (new category \ currency)
+                // The active child will be undefined
+                if (this.activeChild) {
+
+                    this.children.each(function(view, idx) {
+                        //console.log("view", view, idx)
+                        view.$el.addClass("appearLeftTransition");
+                    }, this);
+                    this.activeChild.$el.removeClass("appearLeftTransition");
+                    this.activeChild.$el.addClass("isOn");
+                    return this;
+                }
             }
         }),
 
@@ -191,6 +196,8 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
 
+            _.bindAll(this, "buyItem", "equipGoods");
+
             // Initialize dialog metadata
             this.dialogModal = this.theme.noFundsModal;
             this.messageDialogOptions = {
@@ -200,9 +207,10 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             this.loadingModal = _.extend({text : "Loading..."}, this.messageDialogOptions);
 
 
-            var categories      = this.model.get("categories"),
-                currencies      = this.model.get("currencies"),
-                templateHelpers = { images : this.theme.images };
+            var categories              = this.model.get("categories"),
+                currencies              = this.model.get("currencies");
+
+            this.entityTemplateHelpers  = { images : this.theme.images };
 
 
             var onMenuItemSelect = function (view) {
@@ -225,52 +233,25 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
                 itemView : CurrencyMenuItemView
             }).on("itemview:select", onMenuItemSelect, this);
 
-            var wantsToBuyItem = _.bind(function(view) {
-                this.playSound().wantsToBuyItem(view.model.id);
-            }, this);
-            var wantsToEquipGoods = _.bind(function (view) {
-                this.playSound().wantsToEquipGoods(view.model);
-            }, this);
-
-            // This is a special playSound function that resolves the playSound
-            // function defined on the store view object only when called.
-            // This is used so that the function from the nativeAPI stubs is called
-            var playSound = _.bind(function() {
-                return this.playSound();
-            }, this);
 
 
             // Build views for each category
-            categories.each(function(category) {
-
-                var categoryGoods = category.get("goods");
-
-                var view = new GoodsCollectionView({
-                    collection          : categoryGoods,
-                    templateHelpers     : templateHelpers
-                }).on({
-                    "next previous"     : playSound,
-                    "itemview:buy"      : wantsToBuyItem,
-                    "itemview:equip" 	: wantsToEquipGoods
-                });
-
-                this.children.add(view, category.id);
+            categories.each(this.addCategoryView, this);
+            categories.on({
+                add : function(category) {
+                    this.addCategoryView(category, {render : true});
+                },
+                remove : this.removeCategoryView
             }, this);
 
 
             // Build views for each currency
-            currencies.each(function(currency) {
-
-                var view = new CurrencyPacksCollectionView({
-                    collection          : currency.get("packs"),
-                    itemView            : CurrencyPackView,
-                    templateHelpers     : templateHelpers
-                }).on({
-                    "next previous"     : playSound,
-                    "itemview:buy"      : wantsToBuyItem
-                });
-
-                this.children.add(view, currency.id);
+            currencies.each(this.addCurrencyView, this);
+            currencies.on({
+                add : function(currency) {
+                    this.addCurrencyView(currency, {render : true});
+                },
+                remove : this.removeCurrencyView
             }, this);
 
 
@@ -350,16 +331,79 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             }, this);
 
 
-            this.children.each(function(view, idx) {
-                this.ui.categoriesContainer.append(view.render().el);
-            }, this);
+            this.children.each(this._appendContainerView, this);
 
             // Assumes that the active view is the first category view
             this.activeView.$el.addClass("active");
         },
         zoomFunction : function() {
             return (innerHeight / innerWidth) > 1.5 ? (innerWidth / 720) : (innerHeight / 1280);
+        },
+        buyItem : function(view) {
+            this.playSound().wantsToBuyItem(view.model.id);
+        },
+        equipGoods : function (view) {
+            this.playSound().wantsToEquipGoods(view.model);
+        },
+        addCategoryView : function(category, options) {
+
+            var view = new GoodsCollectionView({
+                collection          : category.get("goods"),
+                templateHelpers     : this.entityTemplateHelpers
+            }).on({
+                // This is a special playSound function that resolves the playSound
+                // function defined on the store view object only when called.
+                // This is used so that the function from the nativeAPI stubs is called
+                "next previous"     : _.bind(function() {
+                    return this.playSound();
+                }, this),
+                "itemview:buy"      : this.buyItem,
+                "itemview:equip" 	: this.equipGoods
+            });
+
+            this.children.add(view, category.id);
+
+            // If the `render` flag is provided, i.e. a category
+            // was externally added, render it!
+            if (options && options.render === true) this.appendCategoryView(view);
+        },
+        addCurrencyView : function(currency, options) {
+
+            var view = new CurrencyPacksCollectionView({
+                collection          : currency.get("packs"),
+                itemView            : CurrencyPackView,
+                templateHelpers     : this.entityTemplateHelpers
+            }).on({
+                // This is a special playSound function that resolves the playSound
+                // function defined on the store view object only when called.
+                // This is used so that the function from the nativeAPI stubs is called
+                "next previous"     : _.bind(function() {
+                    return this.playSound();
+                }, this),
+                "itemview:buy"      : this.buyItem
+            });
+
+            this.children.add(view, currency.id);
+
+            // If the `render` flag is provided, i.e. a category
+            // was externally added, render it!
+            if (options && options.render === true) this.appendCurrencyView(view);
+        },
+        _removeContainerView : function(container) {
+            var view = this.children.findByCustom(container.id);
+            view.close();
+            this.children.remove(view);
+        },
+        _appendContainerView : function(view) {
+            this.ui.categoriesContainer.append(view.render().el);
         }
+    });
+
+    _.extend(StoreView.prototype, {
+        appendCategoryView : StoreView.prototype._appendContainerView,
+        appendCurrencyView : StoreView.prototype._appendContainerView,
+        removeCategoryView : StoreView.prototype._removeContainerView,
+        removeCurrencyView : StoreView.prototype._removeContainerView
     });
 
 

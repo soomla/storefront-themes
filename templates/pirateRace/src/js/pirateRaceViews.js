@@ -123,7 +123,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "marionette", "ha
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
-            _.bindAll(this, "showCurrencyPacks", "showGoodsStore");
+            _.bindAll(this, "showCurrencyPacks", "showGoodsStore", "buyItem", "equipGoods", "restorePurchase");
 
             // Initialize dialog metadata
             this.dialogModal = this.theme.pages.goods.noFundsModal;
@@ -134,61 +134,42 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "marionette", "ha
             this.loadingModal = _.extend({text : "Loading..."}, this.messageDialogOptions);
 
 
-            this.categoryViews  = [];
+            this.categoryViews      = new Backbone.ChildViewContainer();
+            this.currencyPacksViews = new Backbone.ChildViewContainer();
 
-            var currencies      = this.model.get("currencies"),
-                categories      = this.model.get("categories"),
-                nonConsumables  = this.model.get("nonConsumables");
+            var currencies          = this.model.get("currencies"),
+                categories          = this.model.get("categories"),
+                nonConsumables      = this.model.get("nonConsumables");
 
-
-            // View event listeners
-            var wantsToBuyItem = _.bind(function (view) {
-                this.playSound().wantsToBuyItem(view.model.id);
-            }, this);
-            var wantsToEquipGoods = _.bind(function (view) {
-                this.playSound().wantsToEquipGoods(view.model);
-            }, this);
-            var wantsToRestorePurchases = _.bind(function () {
-                this.playSound().wantsToRestorePurchases();
-            }, this);
 
             // Create category views
-            categories.each(function(category) {
-                var categoryGoods   = category.get("goods"),
-                    equipping       = category.get("equipping"),
-                    view;
-
-                view = new SectionedListView({
-                    collection          : categoryGoods,
-                    templateHelpers     : _.extend({category : category.get("name")}, this.theme.categories)
-                }).on({
-                    "itemview:buy" 		: wantsToBuyItem,
-                    "itemview:equip" 	: wantsToEquipGoods
-                });
-
-                this.categoryViews.push(view);
+            categories.each(this.addCategoryView, this);
+            categories.on({
+                add : function(category) {
+                    this.addCategoryView(category, {render : true});
+                },
+                remove : this.removeCategoryView
             }, this);
-            this.currencyPacksViews = [];
-            currencies.each(function(currency) {
-                var view = new Components.CollectionView({
-                    className           : "items currencyPacks",
-                    collection          : currency.get("packs"),
-                    itemView            : CurrencyPackView
-                }).on("itemview:select", wantsToBuyItem);
 
-                this.currencyPacksViews.push(view)
+            // Create currency views
+            currencies.each(this.addCurrencyView, this);
+            currencies.on({
+                add : function(currency) {
+                    this.addCurrencyView(currency, {render : true});
+                },
+                remove : this.removeCurrencyView
             }, this);
 
             this.nonConsumablesView = new Components.CollectionView({
                 className           : "items nonConsumables",
                 collection          : nonConsumables,
                 itemView            : NonConsumableView
-            }).on("itemview:buy", wantsToBuyItem);
+            }).on("itemview:buy", this.buyItem);
 
 
             // Add restore purchases view if necessary
             if (!nonConsumables.isEmpty()) {
-                this.restorePurchasesView = new RestorePurchasesView().on("select", wantsToRestorePurchases);
+                this.restorePurchasesView = new RestorePurchasesView().on("select", this.restorePurchase);
             }
 
         },
@@ -227,7 +208,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "marionette", "ha
             var currencyPacksItem = this.model.marketItemsMap[itemId];
             if (currencyPacksItem) {
                 this.showCurrencyPacks();
-                _.each(this.currencyPacksViews, function (currencyPackView) {
+                this.currencyPacksViews.each(function (currencyPackView) {
                     var itemView = currencyPackView.children.findByModel(currencyPacksItem);
                     if (itemView) {
                         this.iscrolls.packs.scrollToElement(itemView.el, 500);
@@ -250,7 +231,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "marionette", "ha
             var goodsItem = this.model.goodsMap[itemId];
             if (goodsItem) {
                 this.showGoodsStore();
-                _.each(this.categoryViews, function (categoryView) {
+                this.categoryViews.each(function (categoryView) {
                     var itemView = categoryView.children.findByModel(goodsItem);
                     if (itemView) {
                         this.iscrolls.goods.scrollToElement(itemView.el, 500);
@@ -319,14 +300,8 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "marionette", "ha
             //this.ui.goodsStore.addClass("showBtn");
 
             // Render subviews (items in goods store and currency store)
-            _.each(this.categoryViews, function(view) {
-                this.ui.goodsIscrollContainer.append(view.render().el);
-            }, this);
-
-
-            _.each(this.currencyPacksViews, function(view) {
-                this.ui.currencyPacksContainer.append(view.render().el);
-            }, this);
+            this.categoryViews.each(this.appendCategoryView, this);
+            this.currencyPacksViews.each(this.appendCurrencyView, this);
 
             this.$("#currency-store .non-consumables").html(this.nonConsumablesView.render().el);
 
@@ -339,8 +314,76 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "marionette", "ha
                 }, 200);
 
         },
+        appendCategoryView : function(view) {
+            this.ui.goodsIscrollContainer.append(view.render().el);
+
+            // The iscrolls exist only after initial rendering is complete
+            if (this.iscrolls) this.iscrolls.goods.refresh();
+        },
+        appendCurrencyView : function(view) {
+            this.ui.currencyPacksContainer.append(view.render().el);
+
+            // The iscrolls exist only after initial rendering is complete
+            if (this.iscrolls) this.iscrolls.packs.refresh();
+        },
+        buyItem : function (view) {
+            this.playSound().wantsToBuyItem(view.model.id);
+        },
+        equipGoods : function (view) {
+            this.playSound().wantsToEquipGoods(view.model);
+        },
+        restorePurchase : function () {
+            this.playSound().wantsToRestorePurchases();
+        },
         zoomFunction : function() {
             return Math.min(innerWidth / 560, 1);
+        },
+
+
+        //
+        // Functions for supporting external addition and removal of
+        // categories and currencies.  Use by dashboard.
+        //
+
+        addCategoryView : function(category, options) {
+            var view = new SectionedListView({
+                collection          : category.get("goods"),
+                templateHelpers     : _.extend({category : category.get("name")}, this.theme.categories)
+            }).on({
+                "itemview:buy" 		: this.buyItem,
+                "itemview:equip" 	: this.equipGoods
+            });
+
+            this.categoryViews.add(view, category.id);
+
+            // If the `render` flag is provided, i.e. a category
+            // was externally added, render it!
+            if (options && options.render === true) this.appendCategoryView(view);
+        },
+        addCurrencyView : function(currency, options) {
+            var view = new Components.CollectionView({
+                className           : "items currencyPacks",
+                collection          : currency.get("packs"),
+                itemView            : CurrencyPackView
+            }).on("itemview:select", this.buyItem);
+
+            this.currencyPacksViews.add(view, currency.id);
+
+            // If the `render` flag is provided, i.e. a category
+            // was externally added, render it!
+            if (options && options.render === true) this.appendCurrencyView(view);
+        },
+        removeCategoryView : function(category) {
+            var view = this.categoryViews.findByCustom(category.id);
+            view.close();
+            this.categoryViews.remove(view);
+            this.iscrolls.goods.refresh();
+        },
+        removeCurrencyView : function(currency) {
+            var view = this.currencyPacksViews.findByCustom(currency.id);
+            view.close();
+            this.currencyPacksViews.remove(view);
+            this.iscrolls.packs.refresh();
         }
     });
 
