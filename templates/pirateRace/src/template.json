@@ -2,66 +2,88 @@
 	"supportedFeatures" : {
 		"removeAds" : {}
 	},
+    "sections" : {
+        "global" : {
+            "title" : "Global"
+        },
+        "singleItems" : {
+            "title" : "Single Items"
+        },
+        "fonts" : {
+            "title" : "Fonts"
+        }
+    },
     "attributes" : {
         "background" : {
             "type" : "backgroundImage",
             "title" : "Background Image",
-            "selector" : "#goods-store"
+            "selector" : "#goods-store",
+            "section" : "global"
         },
         "contentBackground" : {
             "type" : "backgroundImage",
             "title" : "Content Background Image",
-            "selector" : "#main > div > .content"
+            "selector" : "#main > div > .content",
+            "section" : "global"
         },
         "common" : {
             "titleImage" : {
                 "type" : "image",
                 "title" : "Title Image",
-                "selector" : ".title-image"
+                "selector" : ".title-image",
+                "section" : "global"
             },
             "backButton" : {
                 "type" : "image",
                 "title" : "Back Button",
-                "selector" : ".footer .leave-store, .footer .back"
+                "selector" : ".footer .leave-store, .footer .back",
+                "section" : "global"
             },
             "moreCurrencyButton" : {
                 "type" : "image",
                 "title" : "More Currency Button",
-                "selector" : ".footer .buy-more"
+                "selector" : ".footer .buy-more",
+                "section" : "global"
             },
             "balanceLabelStyle" : {
                 "type" : "css",
                 "title" : "Balance Label Style",
-                "selector" : ".item .balance label"
+                "selector" : ".item .balance label",
+                "section" : "global"
             },
             "restorePurchasesImage" : {
                 "type" : "image",
                 "title" : "Restore Purchases Image",
-                "selector" : "#restore-purchases img"
+                "selector" : "#restore-purchases img",
+                "section" : "global"
             }
         },
         "fonts" : [
             {
                 "type" : "font",
                 "title" : "Primary Font",
-                "class" : "font-face-1"
+                "class" : "font-face-1",
+                "section" : "fonts"
             },
             {
                 "type" : "font",
                 "title" : "Primary Font",
-                "class" : "font-face-2"
+                "class" : "font-face-2",
+                "section" : "fonts"
             }
         ],
         "itemSeparator" : {
             "type" : "image",
             "title" : "Item Separator Image",
-            "selector" : ".separator"
+            "selector" : ".separator",
+            "section" : "singleItems"
         },
         "balance" : {
             "style" : {
                 "type" : "css",
                 "title" : "Balance Style",
-                "selector" : ".header .balance-container .label-container"
+                "selector" : ".header .balance-container .label-container",
+                "section" : "global"
             }
         },
         "pages" : {
@@ -70,39 +92,46 @@
                     "background" : {
                         "type" : "backgroundImage",
                         "title" : "Item Area Background",
-                        "selector" : "#goods-store .items-container"
+                        "selector" : "#goods-store .items-container",
+                        "section" : "singleItems"
                     }
                 },
                 "listItem" : {
                     "background" : {
                         "type" : "backgroundImage",
                         "title" : "Item Background",
-                        "selector" : ".item"
+                        "selector" : ".item",
+                        "section" : "singleItems"
                     },
                     "balanceBackground" : {
                         "type" : "backgroundImage",
                         "title" : "Item Balance Background",
-                        "selector" : ".item .content .balance"
+                        "selector" : ".item .content .balance",
+                        "section" : "singleItems"
                     },
                     "buy" : {
                         "type" : "image",
                         "title" : "Unlock Image",
-                        "selector" : ".item .buy"
+                        "selector" : ".item .buy",
+                        "section" : "singleItems"
                     },
                     "buyOnce" : {
                         "type" : "image",
                         "title" : "Unlock Image",
-                        "selector" : ".item .buy"
+                        "selector" : ".item .buy",
+                        "section" : "singleItems"
                     },
                     "equip" : {
                         "type" : "image",
                         "title" : "Activate Image",
-                        "selector" : ".item .equip"
+                        "selector" : ".item .equip",
+                        "section" : "singleItems"
                     },
                     "active" : {
                         "type" : "image",
                         "title" : "Active Image",
-                        "selector" : ".item .active"
+                        "selector" : ".item .active",
+                        "section" : "singleItems"
                     }
 
                 },
@@ -110,27 +139,32 @@
 					"background" : {
 						"type" : "backgroundImage",
 						"title" : "No Funds Dialog Background Image",
-						"selector" : ".dialog"
+						"selector" : ".dialog",
+                        "section" : "globals"
 					},
 					"text" : {
 						"type" : "text",
 						"title" : "No Funds Dialog Text",
-						"selector" : ".dialog h1"
+						"selector" : ".dialog h1",
+                        "section" : "global"
 					},
 					"textStyle" : {
 						"type" : "css",
 						"title" : "No Funds Dialog Text Style",
-						"selector" : ".dialog h1"
+						"selector" : ".dialog h1",
+                        "section" : "global"
 					},
 					"yesButton" : {
 						"type" : "image",
 						"title" : "No Funds Dialog 'Yes' Image",
-						"selector" : ".dialog .buy-more"
+						"selector" : ".dialog .buy-more",
+                        "section" : "global"
 					},
 					"noButton" : {
 						"type" : "image",
 						"title" : "No Funds Dialog 'No' Image",
-						"selector" : ".dialog .cancel"
+						"selector" : ".dialog .cancel",
+                        "section" : "global"
 					}
 				}
             },
@@ -139,7 +173,8 @@
                     "background" : {
                         "type" : "backgroundImage",
                         "title" : "Currency Pack Area Background",
-                        "selector" : "#currency-store .items-container"
+                        "selector" : "#currency-store .items-container",
+                        "section" : "singleItems"
                     }
 				}
             }
