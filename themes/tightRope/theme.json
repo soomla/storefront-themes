@@ -65,12 +65,8 @@
             "equipped" : "img/equipped.png"
         },
 	    "fonts" : [
-		    {
-			    "url" : "fonts/HeavyHeap.ttf"
-		    },
-		    {
-			    "url" : "fonts/HoboStd.otf"
-		    }
+            "fonts/HeavyHeap.ttf",
+            "fonts/HoboStd.otf"
 	    ],
         "titleStyle" : "color: #FFF",
 	    "currencyPacksCategoryImage" : "img/-_Object_5.png",

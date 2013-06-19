@@ -66,12 +66,8 @@
             "equipped": "img/equipped.png"
         },
         "fonts": [
-            {
-                "url": "fonts/DeliusUnicase-Bold.ttf"
-            },
-            {
-                "url": "fonts/Abrila.ttf"
-            }
+            "fonts/DeliusUnicase-Bold.ttf",
+            "fonts/Abrila.ttf"
         ],
         "titleStyle": "color: #FFF",
         "currencyPacksCategoryImage": "img/-_Object_5.png",

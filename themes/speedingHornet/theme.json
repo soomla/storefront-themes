@@ -63,12 +63,8 @@
             "equipped": "img/equipped.png"
         },
         "fonts": [
-            {
-                "url": "fonts/SpaceAge.ttf"
-            },
-            {
-                "url": "fonts/Orbitron-Medium.ttf"
-            }
+            "fonts/SpaceAge.ttf",
+            "fonts/Orbitron-Medium.ttf"
         ],
         "titleStyle": "color: #FFF",
         "currencyPacksCategoryImage": "img/-_Object_5.png",

@@ -50,12 +50,8 @@
             "balanceLabelStyle": "color: #E9C861;"
         },
         "fonts": [
-            {
-                "url": "fonts/MetalLord.otf"
-            },
-            {
-                "url": "fonts/Lobster_1.3.otf"
-            }
+            "fonts/MetalLord.otf",
+            "fonts/Lobster_1.3.otf"
         ],
         "balance": {
             "title": {

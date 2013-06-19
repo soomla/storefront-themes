@@ -35,12 +35,8 @@
         },
         "currencyPacksCategoryImage": "img/-_Object_1.png",
         "fonts": [
-            {
-                "url": "fonts/Commando.ttf"
-            },
-            {
-                "url": "fonts/CPMono_v07_Plain.otf"
-            }
+            "fonts/Commando.ttf",
+            "fonts/CPMono_v07_Plain.otf"
         ],
         "headerBackground": "img/titleBG.png",
         "images": {

@@ -63,12 +63,8 @@
             "equipped": "img/equipped.png"
         },
         "fonts": [
-            {
-                "url": "fonts/Stencil.ttf"
-            },
-            {
-                "url": "fonts/Stencil.ttf"
-            }
+            "fonts/Stencil.ttf",
+            "fonts/Stencil.ttf"
         ],
         "titleStyle": "color: #FFF",
         "currencyPacksCategoryImage": "img/-_Object_5.png",

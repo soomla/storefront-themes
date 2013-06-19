@@ -58,12 +58,8 @@
             "equipped": "img/equipped.png"
         },
         "fonts": [
-            {
-                "url": "fonts/WendyOne-Regular.ttf"
-            },
-            {
-                "url": "fonts/FredokaOne-Regular.ttf"
-            }
+            "fonts/WendyOne-Regular.ttf",
+            "fonts/FredokaOne-Regular.ttf"
         ],
         "titleStyle": "color: #FFF; font-weight: normal;",
         "currencyPacksCategoryImage": "img/-_Object_4.png",

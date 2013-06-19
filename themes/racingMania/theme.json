@@ -66,12 +66,8 @@
             "equipped": "img/equipped.png"
         },
         "fonts": [
-            {
-                "url": "fonts/HoltwoodOneSC.ttf"
-            },
-            {
-                "url": "fonts/Orbitron-Medium.ttf"
-            }
+            "fonts/HoltwoodOneSC.ttf",
+            "fonts/Orbitron-Medium.ttf"
         ],
         "titleStyle": "color: #fff; text-shadow: 4px 4px #000;",
         "currencyPacksCategoryImage": "img/currency-packs.png",

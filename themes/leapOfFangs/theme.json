@@ -54,12 +54,8 @@
 	        "ownedIndicatorImage" : "img/owned.png"
         },
 	    "fonts" : [
-		    {
-			    "url" : "fonts/Creepster-Regular.ttf"
-		    },
-		    {
-			    "url" : "fonts/Risque-Regular.ttf"
-		    }
+            "fonts/Creepster-Regular.ttf",
+            "fonts/Risque-Regular.ttf"
 	    ],
 	    "currencyPacksCategoryImage" : "img/Categories/Coins.png",
         "item" : {

@@ -41,12 +41,8 @@
             "balanceLabelStyle": ""
         },
         "fonts": [
-            {
-                "url": "fonts/Coda-Heavy.ttf"
-            },
-            {
-                "url": "fonts/Coda-Regular.ttf"
-            }
+            "fonts/Coda-Heavy.ttf",
+            "fonts/Coda-Regular.ttf"
         ],
         "itemSeparator": "img/Item_Seperator.png",
         "balance": {

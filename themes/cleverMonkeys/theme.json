@@ -55,12 +55,8 @@
             "equipped": "img/equipped.png"
         },
         "fonts": [
-            {
-                "url": "fonts/MachineScript.ttf"
-            },
-            {
-                "url": "fonts/CalibriBold.ttf"
-            }
+            "fonts/MachineScript.ttf",
+            "fonts/CalibriBold.ttf"
         ],
         "titleStyle": "color: #E4C51C; font-weight: normal; font-size: 40px;",
         "currencyPacksCategoryImage": "img/-_Object_5.png",

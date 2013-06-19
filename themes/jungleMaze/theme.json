@@ -66,12 +66,8 @@
             "equipped" : "img/equipped.png"
         },
 	    "fonts" : [
-		    {
-			    "url" : "fonts/Abrila.ttf"
-		    },
-		    {
-			    "url" : "fonts/Abrila.ttf"
-		    }
+            "fonts/Abrila.ttf",
+            "fonts/Abrila.ttf"
 	    ],
         "titleStyle" : "color: #FFF",
 	    "currencyPacksCategoryImage" : "img/get_coins.png",

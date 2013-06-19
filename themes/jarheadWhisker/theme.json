@@ -68,12 +68,8 @@
             "equipped": "img/equipped.png"
         },
         "fonts": [
-            {
-                "url": "fonts/Commando.ttf"
-            },
-            {
-                "url": "fonts/CPMono_v07_Plain.otf"
-            }
+            "fonts/Commando.ttf",
+            "fonts/CPMono_v07_Plain.otf"
         ],
         "titleStyle": "color: #FFF",
         "currencyPacksCategoryImage": "img/-_Object_6.png",

@@ -40,12 +40,8 @@
             "balanceLabelStyle": ""
         },
         "fonts": [
-            {
-                "url": "fonts/Alegreya-Bold.ttf"
-            },
-            {
-                "url": "fonts/Alegreya-Bold.ttf"
-            }
+            "fonts/Alegreya-Bold.ttf",
+            "fonts/Alegreya-Bold.ttf"
         ],
         "itemSeparator": "img/Item_Seperator.png",
         "balance": {

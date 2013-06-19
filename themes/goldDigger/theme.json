@@ -36,12 +36,8 @@
             "restorePurchasesImage" : "img/restore_purchases.png"
         },
 	    "fonts" : [
-		    {
-			    "url" : "fonts/MetalLord.otf"
-		    },
-		    {
-			    "url" : "fonts/Lobster_1.3.otf"
-		    }
+            "fonts/MetalLord.otf",
+            "fonts/Lobster_1.3.otf"
 	    ],
         "itemSeparator" : "img/Item_Seperator.png",
         "balance" : {
