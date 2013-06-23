@@ -1,6 +1,9 @@
 {
 	"supportedFeatures" : {
         "goods" : {
+            "singleUse" : true,
+            "equippable" : true,
+            "lifetime" : true,
             "goodUpgrades" : true
         },
 		"removeAds" : {},
