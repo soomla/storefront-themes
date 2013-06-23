@@ -473,6 +473,22 @@ ul {
         }
     }
 
+    // Upgradable items
+    &.upgradable {
+
+        .upgrade-bar {
+            .size(30px, 200px);
+        }
+
+        // State: complete - no more upgrades can be purchased
+        &.complete {
+
+            .upgrade, .buy-container, .price {
+                display: none;
+            }
+        }
+    }
+
     // Currency pack items
     .amount-label {
         font-size: @secondaryFontSize;

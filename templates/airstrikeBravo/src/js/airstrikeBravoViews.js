@@ -14,6 +14,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
         ExpandableSingleUseItemView     = Components.ExpandableSingleUseItemView,
         EquippableVirtualGoodView       = ExpandableEquippableItemView.extend({ template : getTemplate("equippableItem") }),
         SingleUseVirtualGoodView        = ExpandableSingleUseItemView.extend({ template : getTemplate("singleUseItem")}),
+        UpgradableItemView              = Components.ExpandableUpgradableItemView.extend({ template : getTemplate("upgradableItem")}),
         LifetimeVirtualGoodView         = Components.ExpandableLifetimeItemView.extend({ template : getTemplate("equippableItem")}),
         CurrencyPackView                = Components.ItemView.extend({ template : getTemplate("currencyPack"), triggers : {"fastclick .buy" : "buy"} }),
         CategoryView                    = Components.LinkView.extend({ template : getTemplate("categoryMenuItem") }),
@@ -30,19 +31,25 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
 
                     var itemView;
 
-                    // some logic to calculate which view to return
-                    // TODO: Add all virtual good types
-                    switch (item.get("type")) {
-                        case "singleUse":
-                            itemView = SingleUseVirtualGoodView;
-                            break;
-                        case "equippable":
-                            itemView = EquippableVirtualGoodView;
-                            break;
-                        case "lifetime":
-                            itemView = LifetimeVirtualGoodView;
-                            break;
+                    if (item.get("upgrades")) {
+                        itemView = UpgradableItemView;
+                    } else {
+
+                        // some logic to calculate which view to return
+                        // TODO: Add all virtual good types
+                        switch (item.get("type")) {
+                            case "singleUse":
+                                itemView = SingleUseVirtualGoodView;
+                                break;
+                            case "equippable":
+                                itemView = EquippableVirtualGoodView;
+                                break;
+                            case "lifetime":
+                                itemView = LifetimeVirtualGoodView;
+                                break;
+                        }
                     }
+
                     return itemView;
                 }
             }
@@ -78,6 +85,29 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
         EquippableVirtualGoodView.prototype.templateHelpers = templateHelpers;
         SingleUseVirtualGoodView.prototype.templateHelpers  = templateHelpers;
         LifetimeVirtualGoodView.prototype.templateHelpers   = templateHelpers;
+        UpgradableItemView.prototype.templateHelpers        = function() {
+            var modelAssets     = model.getModelAssets(),
+                nextUpgrade     = this.model.getNextUpgrade(),
+                upgradeBarImage = this.model.getUpgradeBarAssetId();
+
+            return createTemplateHelpers({
+
+                // Assets
+                imgFilePath 	: modelAssets.items[nextUpgrade.id],
+                upgradeBarImage : modelAssets.items[upgradeBarImage],
+
+                // Metadata
+                name 			: nextUpgrade.get("name"),
+                description 	: nextUpgrade.get("description"),
+                price 			: this.model.getPrice(),
+                currency 		: {
+                    imgFilePath : modelAssets.items[this.model.getCurrencyId()]
+                },
+
+                // This is a hack, because Backofgen ignores empty objects in the theme
+                item : (theme.pages.goods && theme.pages.goods.item) ? theme.pages.goods.item : {}
+            });
+        };
 
         CurrencyPackView.prototype.templateHelpers = function() {
             var modelAssets = model.getModelAssets();
@@ -327,6 +357,9 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
         equipGoods : function (view) {
             this.playSound().wantsToEquipGoods(view.model);
         },
+        upgradeGood : function(view) {
+            this.playSound().wantsToUpgradeVirtualGood(view.model);
+        },
         zoomFunction : function() {
             return (innerWidth / innerHeight) > 1.5 ? (innerHeight / 640) : (innerWidth / 960);
         },
@@ -359,7 +392,8 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
                 }, this),
                 "itemview:collapse" : this.conditionalPlaySound,
                 "itemview:buy"      : this.buyItem,
-                "itemview:equip"    : this.equipGoods
+                "itemview:equip"    : this.equipGoods,
+                "itemview:upgrade"  : this.upgradeGood
             }, this);
 
             this.children.add(view, category.cid);

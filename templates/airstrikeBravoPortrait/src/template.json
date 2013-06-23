@@ -1,5 +1,8 @@
 {
 	"supportedFeatures" : {
+        "goods" : {
+            "goodUpgrades" : true
+        },
 		"removeAds" : {}
 	},
     "sections" : {
