@@ -17,6 +17,9 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
             className           : "items virtualGoods",
             template            : getTemplate("listContainer"),
             itemViewContainer   : ".container",
+            initialize : function() {
+                this.listenTo(this.model, "change:name", this.render);
+            },
             getItemView: function(item) {
 
                 if (!item) {
@@ -346,9 +349,11 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
         //
 
         addCategoryView : function(category, options) {
+
             var view = new SectionedListView({
+                model 				: category,
                 collection          : category.get("goods"),
-                templateHelpers     : _.extend({category : category.get("name")}, this.theme.categories)
+                templateHelpers     : this.theme.categories
             }).on({
                 "itemview:buy" 		: this.buyItem,
                 "itemview:equip" 	: this.equipGoods
