@@ -6,6 +6,7 @@
             "lifetime" : true,
             "goodUpgrades" : true
         },
+        "categoryImages" : true,
 		"removeAds" : {},
 		"tapjoy" : {}
 	},

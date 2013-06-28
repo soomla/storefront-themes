@@ -4,7 +4,8 @@
             "singleUse" : true,
             "equippable" : true,
             "lifetime" : true
-        }
+        },
+        "categoryImages" : true,
 	},
     "sections" : {
         "global" : {
