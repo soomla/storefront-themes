@@ -1,4 +1,4 @@
-define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "marionette", "handlebars", "templates", "jquery.fastbutton"], function($, Backbone, Components, Marionette, Handlebars) {
+define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handlebars", "templates", "jquery.fastbutton"], function($, Backbone, Components, Handlebars) {
 
     //
     // grunt-rigger directive - DO NOT DELETE
@@ -18,7 +18,7 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "marione
             template: getTemplate("categoryHeader"),
             triggers: { "fastclick .category": "chooseCategory" }
         }),
-        SectionedListView = Marionette.CompositeView.extend({
+        SectionedListView = Components.BaseCompositeView.extend({
             className           : "items", // clearfix
             template            : getTemplate("listContainer"),
             itemViewContainer   : ".container"

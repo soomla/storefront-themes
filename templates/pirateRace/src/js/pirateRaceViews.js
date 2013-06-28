@@ -1,4 +1,4 @@
-define("pirateRaceViews", ["jquery", "backbone", "components", "marionette", "handlebars", "templates", "jquery.fastbutton"], function($, Backbone, Components, Marionette, Handlebars) {
+define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "templates", "jquery.fastbutton"], function($, Backbone, Components, Handlebars) {
 
 	//
 	// grunt-rigger directive - DO NOT DELETE
@@ -13,14 +13,14 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "marionette", "ha
             template : getTemplate("item"),
             triggers : { "fastclick .buy" : "buy" }
         })),
-        SectionedListView = Marionette.CompositeView.extend({
+        SectionedListView = Components.BaseCompositeView.extend({
             className           : "items virtualGoods",
             template            : getTemplate("listContainer"),
             itemViewContainer   : ".container",
             getItemView: function(item) {
 
                 if (!item) {
-                    return Marionette.CompositeView.prototype.getItemView.apply(this, arguments);
+                    return Components.BaseCompositeView.prototype.getItemView.apply(this, arguments);
                 } else {
 
                     var itemView;
