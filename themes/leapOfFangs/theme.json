@@ -1,67 +1,71 @@
 {
-    "template" : {
-        "name" : "leapOfFangs",
-		"orientation" : "portrait"
+    "template": {
+        "name": "leapOfFangs",
+        "orientation": "portrait"
     },
-    "modelAssets" : {
-        "categories" : {
-            "CHARACTERS" : "img/Categories/Pumpkin.png",
-            "WEAPONS" : "img/Categories/Axe.png"
+    "modelAssets": {
+        "items": {
+            "vampire": "img/Characters/Vampire.png",
+            "witch": "img/Characters/Witch.png",
+            "green": "img/Characters/Green.png",
+            "zombie": "img/Characters/Zombie2.png",
+            "grim": "img/Characters/Grim.png",
+            "shield": "img/Weapons/Shield.png",
+            "coffin": "img/Weapons/Coffin.png",
+            "small_flask": "img/Weapons/Small-Flask.png",
+            "big_flask": "img/Weapons/Big-Flask.png",
+            "weapon": "img/Weapons/Weapon1.png",
+            "10_coins": "img/CurrencyPacks/Gold1.png",
+            "50_coins": "img/CurrencyPacks/Gold2.png",
+            "400_coins": "img/CurrencyPacks/Gold3.png",
+            "1_blood": "img/CurrencyPacks/Blood1.png",
+            "5_blood": "img/CurrencyPacks/Blood2.png",
+            "25_blood": "img/CurrencyPacks/Blood3.png",
+            "currency_coins": "img/Gold.png",
+            "currency_blood": "img/Blood.png",
+            "remove_ads": "img/no-ads.png"
         },
-        "items" : {
-            "vampire" : "img/Characters/Vampire.png",
-            "witch" : "img/Characters/Witch.png",
-            "skull" : "img/Characters/Skull.png",
-            "zombie" : "img/Characters/Zombie.png",
-            "chocolate_cake" : "img/Weapons/Weapon1.png",
-            "cream_cup" : "img/Weapons/Weapon2.png",
-            "10_coins" : "img/CurrencyPacks/CurrencyPack1.png",
-            "50_coins" : "img/CurrencyPacks/CurrencyPack2.png",
-            "400_coins" : "img/CurrencyPacks/CurrencyPack3.png",
-            "1000_coins" : "img/CurrencyPacks/CurrencyPack4.png",
-            "currency_coins" : "img/Coin.png",
-            "currency_diamonds" : "img/Diamond.png",
-		    "remove_ads" : "img/no-ads.png"
+        "categories": {
+            "CHARACTERS": "img/Categories/Characters.png",
+            "WEAPONS": "img/Categories/Utilities.png"
         }
     },
-    "theme" : {
-        "name" : "leapOfFangs",
-        "version" : 1,
-        "balance" : {
-            "style" : ""
+    "theme": {
+        "name": "leapOfFangs",
+        "version": 1,
+        "balance": {
+            "style": "color: #ffffff; font-weight: 100;"
         },
-        "titleStyle" : "",
-        "currencyPacksCategoryName" : "COIN PACKS",
-        "noFundsModal" : {
-            "background" : "img/ModalBackground.png",
-            "text" : "Insufficient funds.  Would you like to buy more?",
-            "textStyle" : "text-shadow: 1px 2px #808080",
-            "yesButton" : "img/Yes_BTN.png",
-            "noButton" : "img/No_BTN.png"
+        "titleStyle": "color: #ffffff; font-weight: 100;",
+        "currencyPacksCategoryName": "COIN PACKS",
+        "noFundsModal": {
+            "background": "img/ModalBackground.png",
+            "text": "Insufficient funds.  Would you like to buy more?",
+            "textStyle": "color: #ffffff; text-shadow: 1px 2px #808080;",
+            "yesButton": "img/Yes_BTN.png",
+            "noButton": "img/No_BTN.png"
         },
-        "images" : {
-            "globalBackground" : "img/GlobalBackground.png",
-            "contentBackground" : "img/ContentBackground.png",
-            "headerBackground" : "img/HeaderBackground.png",
-            "itemAreaBackground" : "img/ItemAreaBackground.png",
-            "footerBackground" : "img/FooterBackground.png",
-            "previousImage" : "img/Previous.png",
-            "nextImage" : "img/Next.png",
-            "buyImage" : "img/Buy.png",
-            "quit" : "img/quit.png",
-            "equip" : "img/equip.png",
-            "equipped" : "img/equipped.png",
-	        "ownedIndicatorImage" : "img/owned.png"
+        "images": {
+            "globalBackground": "img/GlobalBackground.png",
+            "contentBackground": "img/ContentBackground.png",
+            "headerBackground": "img/HeaderBackground.png",
+            "itemAreaBackground": "img/ItemAreaBackground.png",
+            "footerBackground": "img/FooterBackground.png",
+            "previousImage": "img/Previous.png",
+            "nextImage": "img/Next.png",
+            "buyImage": "img/Buy.png",
+            "quit": "img/quit.png",
+            "equip": "img/equip.png",
+            "equipped": "img/equipped.png",
+            "ownedIndicatorImage": "img/owned.png"
         },
-	    "fonts" : [
-            "fonts/Creepster-Regular.ttf",
-            "fonts/Risque-Regular.ttf"
-	    ],
-	    "currencyPacksCategoryImage" : "img/Categories/Coins.png",
-        "item" : {
-            "nameStyle" : "",
-            "descriptionStyle" : "",
-            "priceStyle" : ""
+        "fonts": ["fonts/Creepster-Regular.ttf", "fonts/Risque-Regular.ttf"],
+        "currencyPacksCategoryImage": "img/Categories/Gold.png",
+		"currencyPacksCategoryImage2": "img/Categories/Blood.png",
+        "item": {
+            "nameStyle": "color: #E2A0A2",
+            "descriptionStyle": "color: #E2A0A2",
+            "priceStyle": "color: #ffffff"
         }
     }
 }

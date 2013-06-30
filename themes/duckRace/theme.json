@@ -1,0 +1,70 @@
+{
+    "template": {
+        "name": "leapOfFangs",
+        "orientation": "portrait"
+    },
+    "modelAssets": {
+        "items": {
+            "duck1": "img/Characters/duck1.png",
+            "duck2": "img/Characters/duck2.png",
+            "duck3": "img/Characters/duck3.png",
+            "duck4": "img/Characters/duck4.png",
+            "skateboard": "img/powerups/powerups1.png",
+            "wings": "img/powerups/powerups2.png",
+            "jetpack": "img/powerups/powerups3.png",
+            "portal": "img/powerups/powerups4.png",
+            "10_coins": "img/CurrencyPacks/CurrencyPack1.png",
+            "50_coins": "img/CurrencyPacks/CurrencyPack2.png",
+            "400_coins": "img/CurrencyPacks/CurrencyPack3.png",
+            "1000_coins": "img/CurrencyPacks/CurrencyPack3.png",
+            "10_diamonds": "img/CurrencyPacks/CurrencyPack4.png",
+            "100_diamonds": "img/CurrencyPacks/CurrencyPack5.png",
+            "1000_diamonds": "img/CurrencyPacks/CurrencyPack6.png",
+            "currency_coins": "img/Coin.png",
+            "currency_diamonds": "img/Diamond.png",
+            "remove_ads": "img/no-ads.png"
+        },
+        "categories": {
+            "CHARACTERS": "img/Categories/Characters.png",
+            "WEAPONS": "img/Categories/powerups.png"
+        }
+    },
+    "theme": {
+        "name": "duckRace",
+        "version": 1,
+        "balance": {
+            "style": ""
+        },
+        "titleStyle": "",
+        "currencyPacksCategoryName": "COIN PACKS",
+        "noFundsModal": {
+            "background": "img/ModalBackground.png",
+            "text": "Insufficient funds.  Would you like to buy more?",
+            "textStyle": "text-shadow: 1px 2px #808080",
+            "yesButton": "img/Yes_BTN.png",
+            "noButton": "img/No_BTN.png"
+        },
+        "images": {
+            "globalBackground": "img/GlobalBackground.png",
+            "contentBackground": "img/ContentBackground.png",
+            "headerBackground": "img/HeaderBackground.png",
+            "itemAreaBackground": "img/ItemAreaBackground.png",
+            "footerBackground": "img/FooterBackground.png",
+            "previousImage": "img/Previous.png",
+            "nextImage": "img/Next.png",
+            "buyImage": "img/Buy.png",
+            "quit": "img/quit.png",
+            "equip": "img/equip.png",
+            "equipped": "img/equipped.png",
+            "ownedIndicatorImage": "img/owned.png"
+        },
+        "fonts": ["fonts/HoboStd.otf", "fonts/HoboStd.otf"],
+        "currencyPacksCategoryImage": "img/Categories/Coins.png",
+		"currencyPacksCategoryImage2": "img/Categories/Cash.png",
+        "item": {
+            "nameStyle": "",
+            "descriptionStyle": "",
+            "priceStyle": ""
+        }
+    }
+}

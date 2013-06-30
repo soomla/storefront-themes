@@ -187,7 +187,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
         CurrencyMenuItemView.prototype.templateHelpers = function() {
             var modelAssets = model.getModelAssets();
             return {
-                imgFilePath : modelAssets.items[this.model.id]
+                imgFilePath: (this.model.id == 'currency_coins') ? theme.currencyPacksCategoryImage : theme.currencyPacksCategoryImage2
             };
         };
     };
