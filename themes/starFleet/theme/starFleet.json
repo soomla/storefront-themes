@@ -5,7 +5,8 @@
                 "marketItem": {
                     "consumable": 1,
                     "price": 0.99,
-                    "productId": "android.test.canceled"
+                    "androidId": "android.test.canceled",
+                    "iosId": "orange_power"
                 },
                 "purchaseType": "market"
             },
@@ -19,7 +20,8 @@
                 "marketItem": {
                     "consumable": 1,
                     "price": 1.99,
-                    "productId": "android.test.refunded"
+                    "androidId": "android.test.refunded",
+                    "iosId": "blue_power"
                 },
                 "purchaseType": "market"
             },
@@ -33,7 +35,8 @@
                 "marketItem": {
                     "consumable": 1,
                     "price": 2.99,
-                    "productId": "android.test.purchased"
+                    "androidId": "android.test.purchased",
+                    "iosId": "green_power"
                 },
                 "purchaseType": "market"
             },

@@ -5,7 +5,8 @@
             "marketItem": {
                 "consumable": 1,
                 "price": 0.99,
-                "productId": "android.test.canceled"
+                "androidId": "android.test.canceled",
+                "iosId" : "coins_2500"
             },
             "purchaseType": "market"
         },
@@ -19,7 +20,8 @@
             "marketItem": {
                 "consumable": 1,
                 "price": 4.99,
-                "productId": "android.test.refunded"
+                "androidId": "android.test.refunded",
+                "iosId" : "coins_25000"
             },
             "purchaseType": "market"
         },
@@ -33,7 +35,8 @@
             "marketItem": {
                 "consumable": 1,
                 "price": 9.99,
-                "productId": "android.test.purchased"
+                "androidId": "android.test.purchased",
+                "iosId" : "coins_75000"
             },
             "purchaseType": "market"
         },
@@ -47,7 +50,8 @@
             "marketItem": {
                 "consumable": 1,
                 "price": 19.99,
-                "productId": "android.test.purchased"
+                "androidId": "android.test.purchased",
+                "iosId" : "coins_200000"
             },
             "purchaseType": "market"
         },
@@ -61,7 +65,8 @@
             "marketItem": {
                 "consumable": 1,
                 "price": 0.99,
-                "productId": "android.test.canceled"
+                "androidId": "android.test.canceled",
+                "iosId" : "gems_10"
             },
             "purchaseType": "market"
         },
@@ -75,7 +80,8 @@
             "marketItem": {
                 "consumable": 1,
                 "price": 2.99,
-                "productId": "android.test.refunded"
+                "androidId": "android.test.refunded",
+                "iosId" : "gems_100"
             },
             "purchaseType": "market"
         },
@@ -89,7 +95,8 @@
             "marketItem": {
                 "consumable": 1,
                 "price": 9.99,
-                "productId": "android.test.purchased"
+                "androidId": "android.test.purchased",
+                "iosId" : "gems_1000"
             },
             "purchaseType": "market"
         },
