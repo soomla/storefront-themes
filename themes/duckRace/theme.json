@@ -60,6 +60,7 @@
         },
         "fonts": ["fonts/HoboStd.otf", "fonts/HoboStd.otf"],
         "currencyPacksCategoryImage": "img/Categories/Coins.png",
+		"currencyPacksCategoryImage2": "img/Categories/Cash.png",
         "item": {
             "nameStyle": "",
             "descriptionStyle": "",

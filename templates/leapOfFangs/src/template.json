@@ -36,7 +36,13 @@
         "currencyPacksCategoryImage" : {
             "type" : "image",
             "title" : "Currency Packs Category Image",
-            "selector" : ".item.currency-packs img",
+            "selector" : ".item.currency-packs:first img",
+            "section" : "global"
+        },
+        "currencyPacksCategoryImage2" : {
+            "type" : "image",
+            "title" : "Currency Packs Category Image 2",
+            "selector" : ".item.currency-packs:last img",
             "section" : "global"
         },
         "noFundsModal" : {
