@@ -1,0 +1,193 @@
+{
+    "isCurrencyStoreDisabled": false,
+    "currencyPacks": [
+        {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 0.99,
+                    "productId": "coins_10"
+                },
+                "purchaseType": "market"
+            },
+            "name": "10 Coins",
+            "itemId": "10_coins",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 10
+        },
+        {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 1.99,
+                    "productId": "android.test.purchased"
+                },
+                "purchaseType": "market"
+            },
+            "name": "50 Coins",
+            "itemId": "50_coins",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 50
+        },
+        {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 4.99,
+                    "productId": "coins_400"
+                },
+                "purchaseType": "market"
+            },
+            "name": "400 Coins",
+            "itemId": "400_coins",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 400
+        },
+        {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 0.99,
+                    "productId": "diamonds_10"
+                },
+                "purchaseType": "market"
+            },
+            "name": "10 Diamonds",
+            "itemId": "10_diamonds",
+            "currency_itemId": "currency_diamonds",
+            "currency_amount": 10
+        },
+        {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 2.99,
+                    "productId": "diamonds_100"
+                },
+                "purchaseType": "market"
+            },
+            "name": "100 Diamonds",
+            "itemId": "100_diamonds",
+            "currency_itemId": "currency_diamonds",
+            "currency_amount": 100
+        },
+        {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 9.99,
+                    "productId": "diamonds_1000"
+                },
+                "purchaseType": "market"
+            },
+            "name": "1000 Diamonds",
+            "itemId": "1000_diamonds",
+            "currency_itemId": "currency_diamonds",
+            "currency_amount": 1000
+        }
+    ],
+    "categories": [
+        {
+            "goods_itemIds": ["duck1", "duck2", "duck3"],
+            "name": "CHARACTERS"
+        },
+        {
+            "goods_itemIds": ["skateboard", "wings", "jetpack", "portal"],
+            "name": "WEAPONS"
+        }
+    ],
+    "goods": {
+        "goodUpgrades": [],
+        "lifetime": [],
+        "equippable": [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 225,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Yellow Duck",
+                "description": "All time favorite. SPEED: 27, JUMP: 15, LIFE: 10",
+                "equipping": "category",
+                "itemId": "duck1"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 175,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "White Duck",
+                "description": "The best jumper around. SPEED: 17, JUMP: 25, LIFE: 15",
+                "equipping": "category",
+                "itemId": "duck2"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_diamonds",
+                    "pvi_amount": 25,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Dolphin",
+                "description": "Run like a fish out of the water. SPEED: 35, JUMP: 10, LIFE: 29",
+                "equipping": "category",
+                "itemId": "duck3"
+            }
+        ],
+        "singleUse": [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Skateboard",
+                "description": "It beats running. Speed +3",
+                "itemId": "skateboard"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 50,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Wings",
+                "description": "Use these to fly past obstacles",
+                "itemId": "wings"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 50,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Jet Pack",
+                "description": "Use it to fly longer",
+                "itemId": "jetpack"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 50,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Portal",
+                "description": "Use it to skip ahead",
+                "itemId": "portal"
+            }
+        ],
+        "goodPacks": []
+    },
+    "currencies": [
+        {
+            "name": "Coins",
+            "description": "",
+            "itemId": "currency_coins"
+        },
+        {
+            "name": "Diamonds",
+            "description": "",
+            "itemId": "currency_diamonds"
+        }
+    ]
+}
