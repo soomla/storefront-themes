@@ -241,7 +241,18 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
                 add : function(category) {
                     this.addCategoryView(category, {render : true});
                 },
-                remove : this.removeCategoryView
+                remove : this.removeCategoryView,
+                "change:name" : function(model) {
+                    var changedAttributes   = model.changedAttributes(),
+                        previousAttributes  = model.previousAttributes();
+
+                    // Replace the indexed child view's key
+                    if (changedAttributes && previousAttributes && changedAttributes.name && previousAttributes.name) {
+                        var view = this.children.findByCustom(previousAttributes.name);
+                        this.children.remove(view);
+                        this.children.add(view, changedAttributes.name)
+                    }
+                }
             }, this);
 
 
@@ -251,7 +262,18 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
                 add : function(currency) {
                     this.addCurrencyView(currency, {render : true});
                 },
-                remove : this.removeCurrencyView
+                remove : this.removeCurrencyView,
+                "change:itemId" : function(model) {
+                    var changedAttributes   = model.changedAttributes(),
+                        previousAttributes  = model.previousAttributes();
+
+                    // Replace the indexed child view's key
+                    if (changedAttributes && previousAttributes && changedAttributes.itemId && previousAttributes.itemId) {
+                        var view = this.children.findByCustom(previousAttributes.itemId);
+                        this.children.remove(view);
+                        this.children.add(view, changedAttributes.itemId)
+                    }
+                }
             }, this);
 
 

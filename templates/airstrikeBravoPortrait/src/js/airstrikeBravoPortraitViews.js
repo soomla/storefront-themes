@@ -165,7 +165,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
                 collection  : categories,
                 itemView    : CategoryView
             }).on("itemview:select", function(view) {
-                this.playSound().changeViewTo(this.children.findByCustom(view.model.cid));
+                this.playSound().changeViewTo(this.children.findByCustom(view.model.id));
             }, this);
             this.children.add(this.categoryMenuView, "menu");
             this.headerStates[this.categoryMenuView.cid] = this.theme.pages.menu.title;
@@ -232,7 +232,18 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
                 add : function(category) {
                     this.addCategoryView(category, {render : true});
                 },
-                remove : this.removeCategoryView
+                remove : this.removeCategoryView,
+                "change:name" : function(model) {
+                    var changedAttributes   = model.changedAttributes(),
+                        previousAttributes  = model.previousAttributes();
+
+                    // Replace the indexed child view's key
+                    if (changedAttributes && previousAttributes && changedAttributes.name && previousAttributes.name) {
+                        var view = this.children.findByCustom(previousAttributes.name);
+                        this.children.remove(view);
+                        this.children.add(view, changedAttributes.name)
+                    }
+                }
 			}, this);
 
 
@@ -242,7 +253,18 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
                 add : function(currency) {
                     this.addCurrencyView(currency, {render : true});
                 },
-                remove : this.removeCurrencyView
+                remove : this.removeCurrencyView,
+                "change:itemId" : function(model) {
+                    var changedAttributes   = model.changedAttributes(),
+                    previousAttributes  = model.previousAttributes();
+
+                    // Replace the indexed child view's key
+                    if (changedAttributes && previousAttributes && changedAttributes.itemId && previousAttributes.itemId) {
+                        var view = this.children.findByCustom(previousAttributes.itemId);
+                        this.children.remove(view);
+                        this.children.add(view, changedAttributes.itemId)
+                    }
+                }
             }, this);
 
 
@@ -317,7 +339,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
             }
 
             var category = this.model.categoryMap[itemId],
-                view     = this.children.findByCustom(category.cid);
+                view     = this.children.findByCustom(category.id);
 
             // Change to view of given category
             this.changeViewTo(view);
@@ -326,7 +348,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
         showCurrencyPacks: function (currencyId) {
             // Change to view of given currency ID
             var currency    = this.model.get("currencies").get(currencyId),
-                view        = this.children.findByCustom(currency.cid);
+                view        = this.children.findByCustom(currency.id);
             this.changeViewTo(view);
         },
         ui : {
@@ -405,7 +427,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
                 "itemview:upgrade"  : this.upgradeGood
             }, this);
 
-            this.children.add(view, category.cid);
+            this.children.add(view, category.id);
             this.headerStates[view.cid] = categoryName;
 
             // If the `render` flag is provided, i.e. a category
@@ -418,7 +440,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
                 className : "item currency-packs",
                 templateHelpers : { imgFilePath : this.theme.currencyPacksCategoryImage }
             }).on("select", function() {
-                this.playSound().changeViewTo(this.children.findByCustom(currency.cid));
+                this.playSound().changeViewTo(this.children.findByCustom(currency.id));
             }, this);
 
             this.currencyPacksLinks.add(view, currency.id);
@@ -434,7 +456,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
                 collection  : currency.get("packs"),
                 itemView    : CurrencyPackView
             }).on("itemview:buy", this.buyItem);
-            this.children.add(view, currency.cid);
+            this.children.add(view, currency.id);
             this.headerStates[view.cid] = currency.get("name");
 
             // If the `render` flag is provided, i.e. a category
@@ -448,7 +470,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
         },
         _removeContainerView : function(container) {
             this.changeViewTo(this.categoryMenuView);
-            var view = this.children.findByCustom(container.cid);
+            var view = this.children.findByCustom(container.id);
             view.close();
             this.children.remove(view);
             delete this.headerStates[view.cid];
