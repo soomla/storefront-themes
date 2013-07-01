@@ -6,7 +6,8 @@
                 "marketItem": {
                     "consumable": 1,
                     "price": 0.99,
-                    "productId": "coins_10"
+                    "androidId": "coins_10",
+                    "iosId" : "coins_10"
                 },
                 "purchaseType": "market"
             },
@@ -20,7 +21,8 @@
                 "marketItem": {
                     "consumable": 1,
                     "price": 1.99,
-                    "productId": "android.test.purchased"
+                    "androidId": "android.test.purchased",
+                    "iosId" : "50_coins"
                 },
                 "purchaseType": "market"
             },
@@ -34,7 +36,8 @@
                 "marketItem": {
                     "consumable": 1,
                     "price": 4.99,
-                    "productId": "coins_400"
+                    "androidId": "coins_400",
+                    "iosId" : "coins_400"
                 },
                 "purchaseType": "market"
             },
@@ -48,7 +51,8 @@
                 "marketItem": {
                     "consumable": 1,
                     "price": 0.99,
-                    "productId": "diamonds_10"
+                    "androidId": "diamonds_10",
+                    "iosId" : "diamonds_10"
                 },
                 "purchaseType": "market"
             },
@@ -62,7 +66,8 @@
                 "marketItem": {
                     "consumable": 1,
                     "price": 2.99,
-                    "productId": "diamonds_100"
+                    "androidId": "diamonds_100",
+                    "iosId" : "diamonds_100"
                 },
                 "purchaseType": "market"
             },
@@ -76,7 +81,8 @@
                 "marketItem": {
                     "consumable": 1,
                     "price": 9.99,
-                    "productId": "diamonds_1000"
+                    "androidId": "diamonds_1000",
+                    "iosId" : "diamonds_1000"
                 },
                 "purchaseType": "market"
             },
