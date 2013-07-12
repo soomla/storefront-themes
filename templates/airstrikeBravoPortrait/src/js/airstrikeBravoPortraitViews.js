@@ -88,7 +88,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
         UpgradableItemView.prototype.templateHelpers        = function() {
             var modelAssets     = model.getModelAssets(),
                 nextUpgrade     = this.model.getNextUpgrade(),
-                upgradeBarImage = this.model.getUpgradeBarAssetId();
+                upgradeBarImage = this.model.getCurrentUpgradeBarAssetId();
 
             return createTemplateHelpers({
 
