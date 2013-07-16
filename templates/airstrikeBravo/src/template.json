@@ -164,7 +164,7 @@
             },
             {
                 "type" : "font",
-                "title" : "Primary Font",
+                "title" : "Secondary Font",
                 "class" : "font-face-2",
                 "section" : "fonts"
             }
