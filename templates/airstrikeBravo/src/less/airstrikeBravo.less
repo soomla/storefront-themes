@@ -312,7 +312,7 @@ ul {
     @priceHeight: 40px;
     @secondaryFontSize: 16px;
 
-    .actions {
+    .actions, .complete-indicator {
         width: @actionsWidth;
         .box(vertical, center);
         height: @collapsedHeight;
@@ -436,6 +436,12 @@ ul {
     // Upgradable items
     &.upgradable {
 
+        .complete-indicator {
+            display: none;
+            font-size: 24px;
+            text-align: center;
+        }
+
         .upgrade-bar {
             .size(30px, 350px);
         }
@@ -443,8 +449,12 @@ ul {
         // State: complete - no more upgrades can be purchased
         &.complete {
 
-            .upgrade, .buy-container, .price {
+            .upgrade, .buy-container, .actions {
                 display: none;
+            }
+
+            .complete-indicator {
+                display: inherit;
             }
         }
     }
