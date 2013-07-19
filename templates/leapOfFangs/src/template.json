@@ -5,7 +5,7 @@
             "equippable" : true,
             "lifetime" : true
         },
-        "categoryImages" : true,
+        "categoryImages" : true
 	},
     "sections" : {
         "global" : {
