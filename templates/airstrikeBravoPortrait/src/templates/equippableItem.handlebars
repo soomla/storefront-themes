@@ -5,13 +5,13 @@
 
     <img src="{{imgFilePath}}" class="item-image">
     <div class="content">
-        <h1 style="{{item.nameStyle}}">{{name}}</h1>
+        <h1 class="item-name" style="{{item.nameStyle}}">{{name}}</h1>
     </div>
     <div class="actions">
 	    <img src="{{images.equipped}}" class="toggle-equip equipped">
         <img src="{{images.equip}}" class="toggle-equip equip">
 
-        <div class="price" style="{{item.priceStyle}}">
+        <div class="item-price" style="{{item.priceStyle}}">
 	        <label>{{price}}</label>
 	        <img src="{{currency.imgFilePath}}">
 	    </div>
@@ -19,7 +19,7 @@
 	</div>
 </div>
 <div class="row">
-    <div class="description" style="{{item.descriptionStyle}}">{{description}}</div>
+    <div class="item-description" style="{{item.descriptionStyle}}">{{description}}</div>
     <div class="buy-container">
         <a class="buy">
             <img src="{{images.buyImage}}">

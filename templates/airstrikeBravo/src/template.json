@@ -183,7 +183,51 @@
 					"selector" : ".title-container h1",
                     "section" : "global"
 				}
-			}
+			},
+            "goods" : {
+                "item" : {
+                    "nameStyle" : {
+                        "type" : "css",
+                        "title" : "Virtual Good Name Style",
+                        "selector" : "#pages .items.virtualGoods .item .item-name",
+                        "section" : "singleItems"
+                    },
+                    "priceStyle" : {
+                        "type" : "css",
+                        "title" : "Virtual Good Price Style",
+                        "selector" : "#pages .items.virtualGoods .item .item-price, #pages .items.virtualGoods .item .complete-indicator",
+                        "section" : "singleItems"
+                    },
+                    "descriptionStyle" : {
+                        "type" : "css",
+                        "title" : "Virtual Good Description Style",
+                        "selector" : "#pages .items.virtualGoods .item .item-description",
+                        "section" : "singleItems"
+                    }
+                }
+			},
+            "currencyPacks" : {
+                "item" : {
+                    "nameStyle" : {
+                        "type" : "css",
+                        "title" : "Currency Pack Name Style",
+                        "selector" : "#pages .items.currencyPacks .item .item-name",
+                        "section" : "singleItems"
+                    },
+                    "priceStyle" : {
+                        "type" : "css",
+                        "title" : "Currency Pack Price Style",
+                        "selector" : "#pages .items.currencyPacks .item .item-price",
+                        "section" : "singleItems"
+                    },
+                    "descriptionStyle" : {
+                        "type" : "css",
+                        "title" : "Currency Pack Amount Style",
+                        "selector" : "#pages .items.currencyPacks .item .item-amount-label",
+                        "section" : "singleItems"
+                    }
+                }
+            }
 		}
     },
 	"validations" : {

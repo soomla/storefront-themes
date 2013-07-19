@@ -26,7 +26,7 @@ body.iphone {
             line-height: 4.4;
         }
 
-        .description {
+        .item-description {
             line-height: 2.4;
         }
     }
@@ -301,7 +301,7 @@ ul {
         .box(vertical, center);
     }
 
-    h1 {
+    .item-name {
         font-size: 27px;
         line-height: 30px;
         .hyphens();
@@ -320,13 +320,13 @@ ul {
         text-align: right;
     }
 
-    .price, .buy-container {
+    .item-price, .buy-container {
         .box(horizontal, end, center);
         width: @actionsWidth;
         font-size: 20px;
         font-weight: bold;
     }
-    .price img {
+    .item-price img {
 		.square(@priceHeight);
     }
     .buy-container img {
@@ -343,7 +343,7 @@ ul {
         max-height: @collapsedHeight - @priceHeight;
     }
 
-    .description {
+    .item-description {
         padding: @innerMargin;
         .box-flex(1);
         .box(vertical, center);
@@ -394,7 +394,7 @@ ul {
             .owned {
                 display: inline-block;
             }
-            .buy-container, .price, .expand-collapse, .not-owned {
+            .buy-container, .item-price, .expand-collapse, .not-owned {
                 display: none;
             }
 
@@ -428,7 +428,7 @@ ul {
             .owned {
                 display: inline-block;
             }
-            .buy-container, .price, .expand-collapse, .not-owned {
+            .buy-container, .item-price, .expand-collapse, .not-owned {
                 display: none;
             }
         }
@@ -461,7 +461,7 @@ ul {
     }
 
     // Currency pack items
-    .amount-label {
+    .item-amount-label {
         font-size: @secondaryFontSize;
 
         // Align vertically to match the currency image next to it
@@ -498,7 +498,7 @@ ul {
         width: 480px;
     }
 
-    .description {
+    .item-description {
         .box-flex(1);
         .box(vertical, center, center);
     }
@@ -515,7 +515,7 @@ ul {
 .currencyPacks .item {
     // In currency packs allow more flex-space for the item title by removing
     // the price's fixed width
-    .price {
+    .item-price {
         width: auto;
     }
 
