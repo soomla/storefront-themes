@@ -197,6 +197,12 @@
                         "selector" : "#pages .items.virtualGoods .item .item-price, #pages .items.virtualGoods .item .complete-indicator",
                         "section" : "singleItems"
                     },
+                    "balanceStyle" : {
+                        "type" : "css",
+                        "title" : "Virtual Good Balance Style",
+                        "selector" : ".item.single-use .item-balance-wrap",
+                        "section" : "singleItems"
+                    },
                     "descriptionStyle" : {
                         "type" : "css",
                         "title" : "Virtual Good Description Style",
