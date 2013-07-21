@@ -15,32 +15,6 @@
 @headerHeight:      200px;
 @padding:           10px;
 
-// IPHONE HACKS
-// --------------------------------------------------
-body.iphone {
-
-    .title-container {
-        line-height: 3.4;
-    }
-
-    .item {
-        .content {
-            line-height: 4.4;
-        }
-
-        .item-description {
-            line-height: 2.4;
-        }
-    }
-
-    .currencyPacks .item .content h1 {
-        line-height: 2.4;
-    }
-
-    .dialog {
-        line-height: 3.0;
-    }
-}
 
 // GENERAL LAYOUT
 // --------------------------------------------------
@@ -142,7 +116,9 @@ ul {
             text-align: right;
             font-size: @height;
             font-weight: bold;
-            line-height: @height;
+
+            // TODO: Instead of line-height and max-height do something else
+            // line-height: @height;
 
             label {
                 position:relative;
@@ -335,8 +311,8 @@ ul {
     }
 
     h1 {
+        margin-bottom: 6px;
         font-size: 18px;
-        line-height: 30px;
         .hyphens();
     }
 
