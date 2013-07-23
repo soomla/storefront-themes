@@ -279,9 +279,8 @@ ul {
 }
 
 .catClass (@index) when (@index > 0) {
-    @ind : (-1 * @index);
     (~"#categories > div.cat-@{index}"){
-        left: percentage(@ind);
+        left: percentage(-@index);
     }
     .catClass(@index - 1);
 }
@@ -318,10 +317,9 @@ ul {
         z-index:110;
     }
 }
-.categoryClass (@index) when (@index > 0) {
-    @ind : (@index + 1);
-    .category:nth-child(@ind) {
-        left: percentage(@index);
+.categoryClass (@index) when (@index > 1) {
+    (~".category:nth-child(@{index})") {
+        left: percentage(@index - 1);
     }
     .categoryClass(@index - 1);
 }

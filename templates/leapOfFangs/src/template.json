@@ -151,13 +151,13 @@
                 "type" : "font",
                 "title" : "Primary Font",
                 "class" : "font-face-1",
-                "section" : "global"
+                "section" : "fonts"
             },
             {
                 "type" : "font",
                 "title" : "Secondary Font",
                 "class" : "font-face-2",
-                "section" : "global"
+                "section" : "fonts"
             }
         ],
         "item" : {
