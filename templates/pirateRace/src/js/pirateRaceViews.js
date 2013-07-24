@@ -208,6 +208,12 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
             if (!itemId)
                 return;
 
+            var currency = this.model.get("currencies").get(itemId);
+            if (currency) {
+                this.showCurrencyPacks();
+                return;
+            }
+
             var currencyPacksItem = this.model.marketItemsMap[itemId];
             if (currencyPacksItem) {
                 this.showCurrencyPacks();
@@ -231,6 +237,13 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
                 return;
             }
 
+
+            var category = this.model.get("categories").get(itemId);
+            if (category) {
+                this.showGoodsStore();
+                return;
+            }
+
             var goodsItem = this.model.goodsMap[itemId];
             if (goodsItem) {
                 this.showGoodsStore();
@@ -245,6 +258,9 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
             }
 
             console.log('View was not changed. Could not find item: "' + itemId + '".');
+        },
+        changeActiveViewByModel: function (model) {
+            this.changeViewToItem(model.id);
         },
         showCurrencyPacks : function() {
             this.playSound();
