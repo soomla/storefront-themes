@@ -172,7 +172,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             return _.extend({
                 imgFilePath : modelAssets.items[this.model.id],
                 currency : {
-                    imgFilePath : modelAssets.items[this.model.get("currency_itemId")]
+                    imgFilePath : modelAssets.items[this.model.getCurrencyId()]
                 },
                 price: this.model.getPrice(),
                 item : theme.item
@@ -308,7 +308,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
 
             var currencyPacksItem = this.model.marketItemsMap[itemId];
             if (currencyPacksItem) {
-                var currency = currencyPacksItem.get("currency_itemId");
+                var currency = currencyPacksItem.getCurrencyId();
                 this.showCurrencyPacks(currency);
                 this.activeView.changeActiveByModel(currencyPacksItem);
                 return;

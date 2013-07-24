@@ -115,7 +115,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
                 price: this.model.getPrice(),
                 imgFilePath : modelAssets.items[this.model.id],
                 currency: {
-                    imgFilePath: modelAssets.items[this.model.get("currency_itemId")]
+                    imgFilePath: modelAssets.items[this.model.getCurrencyId()]
                 },
 
                 // This is a hack, because Backofgen ignores empty objects in the theme
@@ -275,6 +275,10 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
                 quit: this.leaveStore
             }, this);
         },
+        changeActiveViewByModel: function (model) {
+            var view = this.children.findByCustom(model.id);
+            this.changeViewTo(view);
+        },
         changeViewTo: function (newview) {
             // Collapse open item in current category
             if (this.activeView.collapseExpandedChild)
@@ -316,12 +320,11 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
             }
         },
         changeViewToItem: function (itemId) {
-            if (!itemId)
-                return;
+            if (!itemId) return;
             
             var currencyPacksItem = this.model.marketItemsMap[itemId];
             if (currencyPacksItem) {
-                var currency = currencyPacksItem.get("currency_itemId");
+                var currency = currencyPacksItem.getCurrencyId();
                 this.showCurrencyPacks(currency);
                 this.activeView.scrollToItemByModel(currencyPacksItem, 500);
                 return;
