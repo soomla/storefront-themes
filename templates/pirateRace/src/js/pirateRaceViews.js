@@ -77,9 +77,9 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
             this.initialized = true;
             var modelAssets = model.getModelAssets();
             return _.extend({
-                imgFilePath : modelAssets.items[this.model.id],
+                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder,
                 currency : {
-                    imgFilePath : modelAssets.items[this.model.getCurrencyId()]
+                    imgFilePath : modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
                 },
                 price : this.model.getPrice(),
                 itemSeparator       : theme.itemSeparator
@@ -101,7 +101,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
                 nameStyle       : theme.pages.currencyPacks.listItem.nameStyle,
                 priceStyle      : theme.pages.currencyPacks.listItem.priceStyle,
                 itemSeparator   : theme.itemSeparator,
-                imgFilePath     : modelAssets.items[this.model.id]
+                imgFilePath     : modelAssets.items[this.model.id] || this._imagePlaceholder
             };
         };
         NonConsumableView.prototype.templateHelpers = function() {
@@ -111,7 +111,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
                 priceStyle          : theme.pages.currencyPacks.listItem.priceStyle,
                 itemSeparator       : theme.itemSeparator,
                 ownedIndicatorImage : theme.common.ownedIndicatorImage,
-                imgFilePath         : modelAssets.items[this.model.id]
+                imgFilePath         : modelAssets.items[this.model.id] || this._imagePlaceholder
             };
         };
 
