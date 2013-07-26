@@ -51,15 +51,15 @@
                 "marketItem": {
                     "consumable": 1,
                     "price": 0.99,
-                    "androidId": "coins_10",
-                    "iosId": "coins_10"
+                    "androidId": "coins_100",
+                    "iosId": "coins_100"
                 },
                 "purchaseType": "market"
             },
-            "name": "10 Coins",
-            "itemId": "10_coins",
+            "name": "100 Coins",
+            "itemId": "100_coins",
             "currency_itemId": "currency_coins",
-            "currency_amount": 10
+            "currency_amount": 100
         },
         {
             "purchasableItem": {
@@ -67,38 +67,38 @@
                     "consumable": 1,
                     "price": 1.99,
                     "androidId": "android.test.purchased",
-                    "iosId": "50_coins"
+                    "iosId": "500_coins"
                 },
                 "purchaseType": "market"
             },
-            "name": "50 Coins",
-            "itemId": "50_coins",
+            "name": "500 Coins",
+            "itemId": "500_coins",
             "currency_itemId": "currency_coins",
-            "currency_amount": 50
+            "currency_amount": 500
         },
         {
             "purchasableItem": {
                 "marketItem": {
                     "consumable": 1,
                     "price": 4.99,
-                    "androidId": "coins_400",
-                    "iosId": "coins_400"
+                    "androidId": "coins_2000",
+                    "iosId": "coins_2000"
                 },
                 "purchaseType": "market"
             },
-            "name": "400 Coins",
-            "itemId": "400_coins",
+            "name": "2000 Coins",
+            "itemId": "2000_coins",
             "currency_itemId": "currency_coins",
-            "currency_amount": 400
+            "currency_amount": 2000
         }
     ],
     "categories": [
         {
-            "goods_itemIds": ["vampire", "witch", "green", "zombie", "grim"],
+            "goods_itemIds": ["zombie", "witch", "grim", "vampire", "green"],
             "name": "CHARACTERS"
         },
         {
-            "goods_itemIds": ["shield", "coffin", "small_flask", "big_flask", "weapon"],
+            "goods_itemIds": ["shield", "small_flask", "big_flask", "coffin", "weapon"],
             "name": "WEAPONS"
         }
     ],
@@ -106,39 +106,6 @@
         "goodUpgrades": [],
         "lifetime": [],
         "equippable": [
-            {
-                "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
-                    "pvi_amount": 2250,
-                    "purchaseType": "virtualItem"
-                },
-                "name": "Vampire",
-                "description": "Lorem ipsum dolor sit amet, ad aeterno rationibus mel. Fastidii urbanitas ad cum, vel in eripuit feugiat. Prima graece nam cu, his no sensibus facilisis",
-                "equipping": "category",
-                "itemId": "vampire"
-            },
-            {
-                "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
-                    "pvi_amount": 1750,
-                    "purchaseType": "virtualItem"
-                },
-                "name": "Witch",
-                "description": "Lorem ipsum dolor sit amet, ad aeterno rationibus mel. Fastidii urbanitas ad cum, vel in eripuit feugiat. Prima graece nam cu, his no sensibus facilisis",
-                "equipping": "category",
-                "itemId": "witch"
-            },
-            {
-                "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
-                    "pvi_amount": 2250,
-                    "purchaseType": "virtualItem"
-                },
-                "name": "Mr. Green",
-                "description": "Lorem ipsum dolor sit amet, ad aeterno rationibus mel. Fastidii urbanitas ad cum, vel in eripuit feugiat. Prima graece nam cu, his no sensibus facilisis",
-                "equipping": "category",
-                "itemId": "green"
-            },
             {
                 "purchasableItem": {
                     "pvi_itemId": "currency_coins",
@@ -156,10 +123,43 @@
                     "pvi_amount": 1750,
                     "purchaseType": "virtualItem"
                 },
+                "name": "Witch",
+                "description": "Lorem ipsum dolor sit amet, ad aeterno rationibus mel. Fastidii urbanitas ad cum, vel in eripuit feugiat. Prima graece nam cu, his no sensibus facilisis",
+                "equipping": "category",
+                "itemId": "witch"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 1750,
+                    "purchaseType": "virtualItem"
+                },
                 "name": "Grim Reaper",
                 "description": "Lorem ipsum dolor sit amet, ad aeterno rationibus mel. Fastidii urbanitas ad cum, vel in eripuit feugiat. Prima graece nam cu, his no sensibus facilisis",
                 "equipping": "category",
                 "itemId": "grim"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Vampire",
+                "description": "Lorem ipsum dolor sit amet, ad aeterno rationibus mel. Fastidii urbanitas ad cum, vel in eripuit feugiat. Prima graece nam cu, his no sensibus facilisis",
+                "equipping": "category",
+                "itemId": "vampire"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 2250,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Mr. Green",
+                "description": "Lorem ipsum dolor sit amet, ad aeterno rationibus mel. Fastidii urbanitas ad cum, vel in eripuit feugiat. Prima graece nam cu, his no sensibus facilisis",
+                "equipping": "category",
+                "itemId": "green"
             }
         ],
         "singleUse": [
@@ -176,16 +176,6 @@
             {
                 "purchasableItem": {
                     "pvi_itemId": "currency_coins",
-                    "pvi_amount": 5000,
-                    "purchaseType": "virtualItem"
-                },
-                "name": "Coffin",
-                "description": "Gives the night dwellers a chance to survive the deadly daylight",
-                "itemId": "coffin"
-            },
-            {
-                "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
                     "pvi_amount": 500,
                     "purchaseType": "virtualItem"
                 },
@@ -195,7 +185,7 @@
             },
             {
                 "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
+                    "pvi_itemId": "currency_blood",
                     "pvi_amount": 1000,
                     "purchaseType": "virtualItem"
                 },
@@ -205,7 +195,17 @@
             },
             {
                 "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
+                    "pvi_itemId": "currency_blood",
+                    "pvi_amount": 5000,
+                    "purchaseType": "virtualItem"
+                },
+                "name": "Coffin",
+                "description": "Gives the night dwellers a chance to survive the deadly daylight",
+                "itemId": "coffin"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_blood",
                     "pvi_amount": 5000,
                     "purchaseType": "virtualItem"
                 },

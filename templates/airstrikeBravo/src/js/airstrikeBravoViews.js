@@ -1,4 +1,4 @@
-define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews",  "handlebars", "templates"], function($, Backbone, Components, HelperViews, Handlebars) {
+define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews", "handlebars", "templates"], function($, Backbone, Components, HelperViews, Handlebars) {
 
     //
     // grunt-rigger directive - DO NOT DELETE
@@ -71,9 +71,9 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
 
             var modelAssets = model.getModelAssets();
             return createTemplateHelpers({
-                imgFilePath: modelAssets.items[this.model.id],
+                imgFilePath: modelAssets.items[this.model.id] || this._imagePlaceholder,
                 currency: {
-                    imgFilePath: modelAssets.items[this.model.getCurrencyId()]
+                    imgFilePath: modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
                 },
                 price: this.model.getPrice(),
 
@@ -93,15 +93,15 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
             return createTemplateHelpers({
 
                 // Assets
-                imgFilePath 	: modelAssets.items[nextUpgrade.id],
-                upgradeBarImage : modelAssets.items[upgradeBarImage],
+                imgFilePath 	: modelAssets.items[nextUpgrade.id] || this._imagePlaceholder,
+                upgradeBarImage : modelAssets.items[upgradeBarImage] || this._progressBarPlaceholder,
 
                 // Metadata
                 name 			: nextUpgrade.get("name"),
                 description 	: nextUpgrade.get("description"),
                 price 			: this.model.getPrice(),
                 currency 		: {
-                    imgFilePath : modelAssets.items[this.model.getCurrencyId()]
+                    imgFilePath : modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
                 },
 
                 // This is a hack, because Backofgen ignores empty objects in the theme
@@ -113,9 +113,9 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
             var modelAssets = model.getModelAssets();
             return createTemplateHelpers({
                 price: this.model.getPrice(),
-                imgFilePath : modelAssets.items[this.model.id],
+                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder,
                 currency: {
-                    imgFilePath: modelAssets.items[this.model.get("currency_itemId")]
+                    imgFilePath: modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
                 },
 
                 // This is a hack, because Backofgen ignores empty objects in the theme
@@ -125,13 +125,13 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
         CategoryView.prototype.templateHelpers = function() {
             var modelAssets = model.getModelAssets();
             return {
-                imgFilePath : modelAssets.categories[this.model.id]
+                imgFilePath : modelAssets.categories[this.model.id] || this._imagePlaceholder
             };
         };
         NonConsumableView.prototype.templateHelpers = function() {
             var modelAssets = model.getModelAssets();
             return createTemplateHelpers({
-                imgFilePath : modelAssets.items[this.model.id]
+                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder
             });
         };
 
@@ -209,7 +209,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
             if (tapjoy) {
                 this.tapjoyView = new CategoryView({
                     className : "item earned-currency",
-                    templateHelpers : { imgFilePath : this.model.getModelAssets().items.tapjoy }
+                    templateHelpers : { imgFilePath : this.model.getModelAssets().items.tapjoy || this._imagePlaceholder }
                 }).on("select", function() {
                     this.playSound().requestEarnedCurrency("tapjoy");
                 }, this);
@@ -275,6 +275,10 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
                 quit: this.leaveStore
             }, this);
         },
+        changeActiveViewByModel: function (model) {
+            var view = this.children.findByCustom(model.id);
+            this.changeViewTo(view);
+        },
         changeViewTo: function (newview) {
             // Collapse open item in current category
             if (this.activeView.collapseExpandedChild)
@@ -316,12 +320,11 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
             }
         },
         changeViewToItem: function (itemId) {
-            if (!itemId)
-                return;
+            if (!itemId) return;
             
             var currencyPacksItem = this.model.marketItemsMap[itemId];
             if (currencyPacksItem) {
-                var currency = currencyPacksItem.get("currency_itemId");
+                var currency = currencyPacksItem.getCurrencyId();
                 this.showCurrencyPacks(currency);
                 this.activeView.scrollToItemByModel(currencyPacksItem, 500);
                 return;

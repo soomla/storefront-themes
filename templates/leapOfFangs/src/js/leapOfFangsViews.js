@@ -155,9 +155,9 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
         var virtualGoodTemplateHelpers = function () {
             var modelAssets = model.getModelAssets();
             return _.extend({
-                imgFilePath: modelAssets.items[this.model.id],
+                imgFilePath: modelAssets.items[this.model.id] || this._imagePlaceholder,
                 currency: {
-                    imgFilePath: modelAssets.items[this.model.getCurrencyId()]
+                    imgFilePath: modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
                 },
                 price: this.model.getPrice(),
                 item: theme.item
@@ -170,9 +170,9 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
         CurrencyPackView.prototype.templateHelpers = function() {
             var modelAssets = model.getModelAssets();
             return _.extend({
-                imgFilePath : modelAssets.items[this.model.id],
+                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder,
                 currency : {
-                    imgFilePath : modelAssets.items[this.model.get("currency_itemId")]
+                    imgFilePath : modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
                 },
                 price: this.model.getPrice(),
                 item : theme.item
@@ -181,13 +181,13 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
         CategoryMenuItemView.prototype.templateHelpers = function() {
             var modelAssets = model.getModelAssets();
             return {
-                imgFilePath : modelAssets.categories[this.model.id]
+                imgFilePath : modelAssets.categories[this.model.id] || this._imagePlaceholder
             };
         };
         CurrencyMenuItemView.prototype.templateHelpers = function() {
             var modelAssets = model.getModelAssets();
             return {
-                imgFilePath: (this.model.id == 'currency_coins') ? theme.currencyPacksCategoryImage : theme.currencyPacksCategoryImage2
+                imgFilePath: (this.model.id == 'currency_coins') ? theme.currencyPacksCategoryImage : theme.currencyPacksCategoryImage2 || this._imagePlaceholder
             };
         };
     };
@@ -308,7 +308,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
 
             var currencyPacksItem = this.model.marketItemsMap[itemId];
             if (currencyPacksItem) {
-                var currency = currencyPacksItem.get("currency_itemId");
+                var currency = currencyPacksItem.getCurrencyId();
                 this.showCurrencyPacks(currency);
                 this.activeView.changeActiveByModel(currencyPacksItem);
                 return;

@@ -79,7 +79,8 @@
             }
         },
         "categories": {
-            "style": "background-image: url('img/Category_Separator.png'); color: #FFF;"
+            "titleBackground" : "img/Category_Separator.png",
+            "titleStyle" : "color: #FFF;"
         }
     }
 }

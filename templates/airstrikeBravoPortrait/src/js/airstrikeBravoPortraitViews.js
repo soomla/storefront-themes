@@ -71,9 +71,9 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
 
             var modelAssets = model.getModelAssets();
             return createTemplateHelpers({
-                imgFilePath: modelAssets.items[this.model.id],
+                imgFilePath: modelAssets.items[this.model.id] || this._imagePlaceholder,
                 currency: {
-                    imgFilePath: modelAssets.items[this.model.getCurrencyId()]
+                    imgFilePath: modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
                 },
                 price: this.model.getPrice(),
 
@@ -93,15 +93,15 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
             return createTemplateHelpers({
 
                 // Assets
-                imgFilePath 	: modelAssets.items[nextUpgrade.id],
-                upgradeBarImage : modelAssets.items[upgradeBarImage],
+                imgFilePath 	: modelAssets.items[nextUpgrade.id] || this._imagePlaceholder,
+                upgradeBarImage : modelAssets.items[upgradeBarImage] || this._progressBarPlaceholder,
 
                 // Metadata
                 name 			: nextUpgrade.get("name"),
                 description 	: nextUpgrade.get("description"),
                 price 			: this.model.getPrice(),
                 currency 		: {
-                    imgFilePath : modelAssets.items[this.model.getCurrencyId()]
+                    imgFilePath : modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
                 },
 
                 // This is a hack, because Backofgen ignores empty objects in the theme
@@ -113,9 +113,9 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
             var modelAssets = model.getModelAssets();
             return createTemplateHelpers({
                 price: this.model.getPrice(),
-                imgFilePath : modelAssets.items[this.model.id],
+                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder,
                 currency: {
-                    imgFilePath: modelAssets.items[this.model.get("currency_itemId")]
+                    imgFilePath: modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
                 },
 
                 // This is a hack, because Backofgen ignores empty objects in the theme
@@ -125,13 +125,13 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
         CategoryView.prototype.templateHelpers = function() {
             var modelAssets = model.getModelAssets();
             return {
-                imgFilePath : modelAssets.categories[this.model.id]
+                imgFilePath : modelAssets.categories[this.model.id] || this._imagePlaceholder
             };
         };
         NonConsumableView.prototype.templateHelpers = function() {
             var modelAssets = model.getModelAssets();
             return createTemplateHelpers({
-                imgFilePath : modelAssets.items[this.model.id]
+                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder
             });
         };
 
@@ -280,6 +280,10 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
                 quit : this.leaveStore
             }, this);
         },
+        changeActiveViewByModel: function (model) {
+            var view = this.children.findByCustom(model.id);
+            this.changeViewTo(view);
+        },
         changeViewTo: function (newview) {
             // Collapse open item in current category
             if (this.activeView.collapseExpandedChild)
@@ -321,12 +325,11 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
             }
         },
         changeViewToItem: function (itemId) {
-            if (!itemId)
-                return;
+            if (!itemId) return;
 
             var currencyPacksItem = this.model.marketItemsMap[itemId];
             if (currencyPacksItem) {
-                var currency = currencyPacksItem.get("currency_itemId");
+                var currency = currencyPacksItem.getCurrencyId();
                 this.showCurrencyPacks(currency);
                 this.activeView.scrollToItemByModel(currencyPacksItem, 500);
                 return;

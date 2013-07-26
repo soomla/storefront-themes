@@ -183,6 +183,20 @@
                     }
 				}
             }
+        },
+        "categories": {
+            "titleBackground" : {
+                "type" : "backgroundImage",
+                "title" : "Category Background Image",
+                "selector" : ".items .category",
+                "section" : "global"
+            },
+            "titleStyle" : {
+                "type" : "css",
+                "title" : "Category Title Style",
+                "selector" : ".items .category",
+                "section" : "global"
+            }
         }
     },
 	"validations" : {
