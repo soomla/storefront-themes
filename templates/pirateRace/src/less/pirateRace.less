@@ -403,11 +403,24 @@ ul {
 
         // State: owned
         &.owned {
-            .buy {
+            .buy, .price {
                 display: none;
+            }
+
+            .own {
+                display: block;
             }
         }
     }
+    .own {
+        display: none;
+        float: right;
+
+        label {
+            margin: 0 20px;
+        }
+    }
+
 }
 
 
