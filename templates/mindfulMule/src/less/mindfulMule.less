@@ -18,6 +18,7 @@ ul {
     margin: 0;
     list-style: none;
     list-style-image: none;
+    list-style-type: none;
 }
 
 #main {
@@ -52,7 +53,6 @@ ul {
 
 
 .items {
-    list-style-type: none;
     overflow: auto;
     .box-flex(1);
     margin: 30px;
@@ -62,15 +62,14 @@ ul {
 // SINGLE LIST ITEMS - VIRTUAL GOODS
 // --------------------------------------------------
 
-@eqipImageWidth: 20px;
-@eqipImageHorizontalMargin: 10px;
-
 .item {
+
+    // The item has no fixed height, and neither do its descendant images.
+    // This turns the template's items to more flexible in terms of dimensions
+
     padding: 25px;
     margin: 20px 0;
     @innerMargin: 15px;
-    @collapsedHeight: 150px;
-    height: @collapsedHeight;
     .box();
     overflow: hidden;
     .background-size(cover);
@@ -86,17 +85,12 @@ ul {
         }
     }
 
-    .item-image {
-        width: @collapsedHeight;
-        height: @collapsedHeight;
-    }
     .content {
         .box-flex(1);
         .box(vertical, center);
     }
 
     .item-name {
-        font-size: 27px;
         .hyphens();
     }
 

@@ -43,7 +43,7 @@
         "pages" : {
 	        "currencyPacks" : {
 		        "item" : {
-			        "nameStyle" : "font-size: 24px;",
+			        "nameStyle" : "font-size: 28px;",
 			        "priceStyle" : "font-size: 30px; font-weight: bold;"
 		        }
             }
