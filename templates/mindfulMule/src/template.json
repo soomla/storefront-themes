@@ -114,7 +114,7 @@
                     "nameStyle" : {
                         "type" : "css",
                         "title" : "Currency Pack Name Style",
-                        "selector" : ".item-name",
+                        "selector" : ".item-description",
                         "section" : "singleItems"
                     },
                     "priceStyle" : {
