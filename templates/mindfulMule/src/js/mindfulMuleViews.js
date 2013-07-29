@@ -8,9 +8,9 @@ define("mindfulMuleViews", ["jquery", "backbone", "components", "helperViews", "
 
     // Define view types
 
-    var getTemplate                     = Handlebars.getTemplate,
-        MarketItemView                  = Components.ItemView.extend({ template : getTemplate("marketItem"), triggers : {"fastclick .buy" : "buy"} }),
-        MarketItemsCollectionView       = Components.IScrollCollectionView.extend({ template: getTemplate("collection") });
+    var getTemplate         = Handlebars.getTemplate,
+        GoodView            = Components.ItemView.extend({ template : getTemplate("good"), triggers : {"fastclick .buy" : "buy"} }),
+        GoodsCollectionView = Components.IScrollCollectionView.extend({ template: getTemplate("collection") });
 
 
     var extendViews = function(model) {
@@ -19,7 +19,7 @@ define("mindfulMuleViews", ["jquery", "backbone", "components", "helperViews", "
             commonHelpers   = { images : theme.images };
 
         // Add template helpers to view prototypes
-        MarketItemView.prototype.templateHelpers = function() {
+        GoodView.prototype.templateHelpers = function() {
             var modelAssets = model.getModelAssets();
             return _.extend({
                 price 		: this.model.getPrice(),
@@ -43,24 +43,24 @@ define("mindfulMuleViews", ["jquery", "backbone", "components", "helperViews", "
             this.loadingModal = _.extend({text : "Loading..."}, this.messageDialogOptions);
 
 
-            var currency    = this.model.get("currencies").at(0),
-                marketItems = currency.get("packs");
+            var category    = this.model.get("categories").at(0),
+                goods = category.get("goods");
 
-            this.marketItemsView = new MarketItemsCollectionView({
+            this.goodsView = new GoodsCollectionView({
                 className   : "items",
-                collection  : marketItems,
-                itemView    : MarketItemView
+                collection  : goods,
+                itemView    : GoodView
             });
 
-            this.listenTo(this.marketItemsView, "itemview:buy", this.buyItem);
-            this.listenTo(marketItems, "add remove", this.marketItemsView.refreshIScroll);
+            this.listenTo(this.goodsView, "itemview:buy", this.buyItem);
+            this.listenTo(goods, "add remove", this.goodsView.refreshIScroll);
         },
         ui : {
             contentContainer   : "#content-container"
         },
         onRender: function () {
-            this.ui.contentContainer.append(this.marketItemsView.render().el);
-            this.marketItemsView.refreshIScroll();
+            this.ui.contentContainer.append(this.goodsView.render().el);
+            this.goodsView.refreshIScroll();
         },
         changeActiveViewByModel : function() {},
         changeViewTo : function() {},
