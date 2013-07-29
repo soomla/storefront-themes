@@ -18,36 +18,13 @@ define("mindfulMuleViews", ["jquery", "backbone", "components", "helperViews", "
         var theme           = model.get("theme"),
             commonHelpers   = { images : theme.images };
 
-
         // Add template helpers to view prototypes
-
-        var createTemplateHelpers = function(helpers) {
-            return _.extend(helpers, commonHelpers);
-        };
-        var templateHelpers = function () {
-
-            var modelAssets = model.getModelAssets();
-            return createTemplateHelpers({
-                imgFilePath: modelAssets.items[this.model.id] || this._imagePlaceholder,
-                price: this.model.getPrice(),
-
-                // This is a hack, because Backofgen ignores empty objects in the theme
-                item: (theme.pages.goods && theme.pages.goods.item) ? theme.pages.goods.item : {}
-            });
-        };
-
         MarketItemView.prototype.templateHelpers = function() {
             var modelAssets = model.getModelAssets();
-            return createTemplateHelpers({
-                price: this.model.getPrice(),
-                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder,
-                currency: {
-                    imgFilePath: modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
-                },
-
-                // This is a hack, because Backofgen ignores empty objects in the theme
-                item: (theme.pages.currencyPacks && theme.pages.currencyPacks.item) ? theme.pages.currencyPacks.item : {}
-            });
+            return _.extend({
+                price 		: this.model.getPrice(),
+                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder
+            }, commonHelpers);
         };
     };
 
@@ -70,16 +47,13 @@ define("mindfulMuleViews", ["jquery", "backbone", "components", "helperViews", "
                 marketItems = currency.get("packs");
 
             this.marketItemsView = new MarketItemsCollectionView({
-                className : "items market-items",
-                collection : marketItems,
-                itemView : MarketItemView
+                className   : "items",
+                collection  : marketItems,
+                itemView    : MarketItemView
             });
 
-            this.listenTo(this.marketItemsView,{
-                "itemview:buy" : this.buyItem,
-                "add remove" : this.marketItemsView.refreshIScroll
-            });
-
+            this.listenTo(this.marketItemsView, "itemview:buy", this.buyItem);
+            this.listenTo(marketItems, "add remove", this.marketItemsView.refreshIScroll);
         },
         ui : {
             contentContainer   : "#content-container"
@@ -99,7 +73,6 @@ define("mindfulMuleViews", ["jquery", "backbone", "components", "helperViews", "
             return (innerHeight / innerWidth) > 1.5 ? (innerWidth / 720) : (innerHeight / 1080);
         }
     });
-
 
 
     return {
