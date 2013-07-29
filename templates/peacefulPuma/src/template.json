@@ -1,0 +1,255 @@
+{
+	"supportedFeatures" : {
+        "goods" : {
+            "singleUse" : true,
+            "lifetime" : true,
+            "goodUpgrades" : true
+        },
+        "categoryImages" : true,
+		"removeAds" : {},
+		"tapjoy" : {}
+	},
+    "sections" : {
+        "global" : {
+            "title" : "Global"
+        },
+        "singleItems" : {
+            "title" : "Single Items"
+        },
+        "fonts" : {
+            "title" : "Fonts"
+        }
+    },
+    "attributes" : {
+
+		"balance" : {
+			"style" : {
+				"type" : "css",
+				"title" : "Balance Label Style",
+				"selector" : ".header #balance-container .label-container",
+                "section" : "global"
+			}
+		},
+		"background" : {
+			"type" : "backgroundImage",
+			"title" : "Background Image",
+			"selector" : "#main",
+            "section" : "global"
+		},
+        "quitButtonStyle" : {
+            "type" : "css",
+            "title" : "Quit Button Style",
+            "selector" : "#quit-button",
+            "section" : "global"
+        },
+		"noFundsModal" : {
+			"background" : {
+				"type" : "backgroundImage",
+				"title" : "No Funds Dialog Background Image",
+				"selector" : ".dialog",
+                "section" : "global"
+            },
+            "text" : {
+                "type" : "text",
+                "title" : "No Funds Dialog Text",
+                "selector" : ".dialog h1",
+                "section" : "global"
+            },
+            "textStyle" : {
+                "type" : "css",
+                "title" : "No Funds Dialog Text Style",
+                "selector" : ".dialog h1",
+                "section" : "global"
+			}
+		},
+		"images" : {
+            "itemAreaBackground" : {
+                "type" : "backgroundImage",
+                "title" : "Item Area Background Image",
+                "selector" : "#content-container",
+                "section" : "global"
+            },
+			"buyImage" : {
+				"type" : "image",
+				"title" : "Buy Image",
+				"selector" : ".buy img",
+                "section" : "singleItems"
+			},
+			"quitImage" : {
+				"type" : "image",
+				"title" : "Quit Image",
+				"selector" : "#quit-button img",
+                "section" : "global"
+			},
+			"itemBackgroundImage" : {
+				"type" : "backgroundImage",
+				"title" : "Item Background Image",
+				"selector" : ".category .item",
+                "section" : "singleItems"
+			}
+		},
+        "fonts" : [
+            {
+                "type" : "font",
+                "title" : "Primary Font",
+                "class" : "font-face-1",
+                "section" : "fonts"
+            },
+            {
+                "type" : "font",
+                "title" : "Secondary Font",
+                "class" : "font-face-2",
+                "section" : "fonts"
+            }
+        ],
+		"titleStyle" : {
+			"type" : "css",
+			"title" : "Title Style",
+			"selector" : ".header .title-container .title",
+            "section" : "global"
+		},
+		"pages" : {
+            "currencyPacks" : {
+                "item" : {
+                    "nameStyle" : {
+                        "type" : "css",
+                        "title" : "Currency Pack Name Style",
+                        "selector" : ".item-description",
+                        "section" : "singleItems"
+                    },
+                    "priceStyle" : {
+                        "type" : "css",
+                        "title" : "Currency Pack Price Style",
+                        "selector" : ".item-price",
+                        "section" : "singleItems"
+                    }
+                }
+            }
+		}
+    },
+	"validations" : {
+		"currency" : {
+			"rules" : {
+				"name" : {
+					"required" : true,
+					"matches" : "^[a-zA-Z]",
+					"maxlength" : 30
+				}
+			},
+			"messages" : {
+				"name" : {
+					"required" : "Required",
+					"matches" : "Must begin with a letter",
+					"maxlength" : "Max. {0} characters"
+				}
+			}
+		},
+		"currencyPack" : {
+			"rules" : {
+				"name" : {
+					"required" : true,
+					"maxlength" : 40
+				},
+				"description" : {
+					"maxlength" : 120
+				},
+				"itemId" : {
+					"required" : true,
+					"matches" : "^[a-zA-Z][a-zA-Z0-9_\\-\\.]*$"
+				},
+				"productId" : {
+					"required" : true,
+					"matches" : "^[a-z0-9][a-z0-9_\\.]*$"
+				},
+				"amount" : {
+					"required" : true,
+					"number" : true,
+					"range" : [1, 999999999]
+				},
+				"price" : {
+					"required" : true,
+					"currency" : true
+				}
+			},
+			"messages" : {
+				"name" : {
+					"required" : "Required",
+					"maxlength" : "Max. {0} characters"
+				},
+				"description" : {
+					"maxlength" : "Max. {0} characters"
+				},
+				"itemId" : {
+					"required" : "Required",
+					"matches" : "Letters, numbers, dots & underscores only"
+				},
+				"productId" : {
+					"required" : "Required",
+					"matches" : "Letters, numbers, dots & underscores only"
+				},
+				"amount" : {
+					"required" : "Required",
+					"number" : "Numbers only",
+					"range" : "Positive numbers only"
+				},
+				"price" : {
+					"required" : "Required",
+					"range" : "Positive numbers only"
+				}
+			}
+		},
+		"category" : {
+			"rules" : {
+				"name" : {
+					"required" : true,
+					"matches" : "^[a-zA-Z]",
+					"maxlength" : 15
+				}
+			},
+			"messages" : {
+				"name" : {
+					"required" : "Required",
+					"matches" : "Must begin with a letter",
+					"maxlength" : "Max. {0} characters"
+				}
+			}
+		},
+		"virtualGood" : {
+			"rules" : {
+				"name" : {
+					"required" : true,
+					"maxlength" : 40
+				},
+				"description" : {
+					"maxlength" : 120
+				},
+				"itemId" : {
+					"required" : true,
+					"matches" : "^[a-zA-Z][a-zA-Z0-9_\\-\\.]*$"
+				},
+				"price" : {
+					"required" : true,
+					"number" : true,
+					"range" : [1, 999999999]
+				}
+			},
+			"messages" : {
+				"name" : {
+					"required" : "Required",
+					"maxlength" : "Max. {0} characters"
+				},
+				"description" : {
+					"maxlength" : "Max. {0} characters"
+				},
+				"itemId" : {
+					"required" : "Required",
+					"matches" : "Letters, numbers, dots & underscores only"
+				},
+				"price" : {
+					"required" : "Required",
+					"range" : "Positive numbers only"
+				}
+			}
+		}
+	}
+}
