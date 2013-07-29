@@ -1,0 +1,160 @@
+@import "css/mixins/bootstrap/variables.less";
+@import "css/mixins/bootstrap/mixins.less";
+@import "css/mixins/layout.less";
+.webkitScrollbar();
+
+// THEME VARIABLES
+// --------------------------------------------------
+
+@externalWidth:     600px;
+@externalHeight:    800px;
+
+
+// GENERAL LAYOUT
+// --------------------------------------------------
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    list-style-image: none;
+}
+
+#main {
+    .background-size(cover);
+    background-position: center;
+    .box(vertical,center, center);
+}
+
+
+// Sets the outer most dimensions in which
+// all the content is held i.e. header, pages etc.
+#content-container {
+    position: relative;
+    .size(@externalHeight, @externalWidth);
+    .background-size(cover);
+    .box(vertical,center); // ???
+}
+
+#quit-button {
+    position: absolute;
+    z-index: 1;
+}
+
+
+// In case a background image is applied...
+.item {
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+
+.items {
+    list-style-type: none;
+    overflow: auto;
+    .box-flex(1);
+    margin: 30px;
+}
+
+
+// SINGLE LIST ITEMS - VIRTUAL GOODS
+// --------------------------------------------------
+
+@eqipImageWidth: 20px;
+@eqipImageHorizontalMargin: 10px;
+
+.item {
+    padding: 25px;
+    margin: 20px 0;
+    @innerMargin: 15px;
+    @collapsedHeight: 150px;
+    height: @collapsedHeight;
+    .box();
+    overflow: hidden;
+    .background-size(cover);
+    .transition(height 0.2s ease-out); // Visible on page load. Should be assigned only to 'explandable' items
+
+    background-color: #d7ca92;
+
+    & > * {
+        padding-right: @innerMargin;
+
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+
+    .item-image {
+        width: @collapsedHeight;
+        height: @collapsedHeight;
+    }
+    .content {
+        .box-flex(1);
+        .box(vertical, center);
+    }
+
+    .item-name {
+        font-size: 27px;
+        .hyphens();
+    }
+
+    .buy-container {
+        .box(vertical, center, center);
+
+        .buy {
+            display: block;
+        }
+        img {
+            .maxSize(80px, 140px);
+        }
+    }
+
+    .item-description {
+        padding: @innerMargin;
+        .box-flex(1);
+        .box(vertical, center);
+        .hyphens();
+    }
+
+}
+
+
+// MODAL DIALOG
+// --------------------------------------------------
+.modal {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    .box(horizontal, center, center);
+    z-index: 2001;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.dialog {
+	width: 520px;
+    height: 200px;
+    .box(vertical, center, center);
+
+    h1 {
+        font-size: 28px;
+        text-align: center;
+        width: 480px;
+    }
+
+    .item-description {
+        .box-flex(1);
+        .box(vertical, center, center);
+    }
+
+    .actions {
+        margin-top: 10px;
+        img {
+            .maxSize(50px, 200px);
+            cursor: pointer;
+        }
+    }
+}
