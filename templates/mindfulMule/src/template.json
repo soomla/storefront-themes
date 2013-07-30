@@ -69,23 +69,11 @@
                 "selector" : "#content-container",
                 "section" : "global"
             },
-			"buyImage" : {
-				"type" : "image",
-				"title" : "Buy Image",
-				"selector" : ".buy img",
-                "section" : "singleItems"
-			},
 			"quitImage" : {
 				"type" : "image",
 				"title" : "Quit Image",
 				"selector" : "#quit-button img",
                 "section" : "global"
-			},
-			"itemBackgroundImage" : {
-				"type" : "backgroundImage",
-				"title" : "Item Background Image",
-				"selector" : ".category .item",
-                "section" : "singleItems"
 			}
 		},
         "fonts" : [
@@ -102,30 +90,32 @@
                 "section" : "fonts"
             }
         ],
-		"titleStyle" : {
-			"type" : "css",
-			"title" : "Title Style",
-			"selector" : ".header .title-container .title",
-            "section" : "global"
-		},
-		"pages" : {
-            "currencyPacks" : {
-                "item" : {
-                    "nameStyle" : {
-                        "type" : "css",
-                        "title" : "Currency Pack Name Style",
-                        "selector" : ".item-description",
-                        "section" : "singleItems"
-                    },
-                    "priceStyle" : {
-                        "type" : "css",
-                        "title" : "Currency Pack Price Style",
-                        "selector" : ".item-price",
-                        "section" : "singleItems"
-                    }
-                }
+        "item" : {
+            "backgroundImage" : {
+                "type" : "backgroundImage",
+                "title" : "Item Background Image",
+                "selector" : ".item",
+                "section" : "singleItems"
+            },
+            "buyImage" : {
+                "type" : "image",
+                "title" : "Buy Image",
+                "selector" : ".buy img",
+                "section" : "singleItems"
+            },
+            "nameStyle" : {
+                "type" : "css",
+                "title" : "Currency Pack Name Style",
+                "selector" : ".item-description",
+                "section" : "singleItems"
+            },
+            "priceStyle" : {
+                "type" : "css",
+                "title" : "Currency Pack Price Style",
+                "selector" : ".item-price",
+                "section" : "singleItems"
             }
-		}
+        }
     },
 	"validations" : {
 		"currency" : {

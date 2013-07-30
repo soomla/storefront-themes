@@ -23,23 +23,18 @@
             "textStyle" : "text-shadow: 1px 2px #808080"
         },
         "images" : {
-            "buyImage" : "img/BUY.png",
             "quitImage" : "img/QUIT.png",
-            "itemAreaBackground": "img/ItemAreaBackground.png",
-            "itemBackgroundImage" : "img/BG_Product.png"
+            "itemAreaBackground": "img/ItemAreaBackground.png"
         },
 	    "fonts" : [
             "fonts/Abrila.ttf",
             "fonts/Abrila.ttf"
 	    ],
-        "titleStyle" : "color: #FFF",
-        "pages" : {
-	        "currencyPacks" : {
-		        "item" : {
-			        "nameStyle" : "font-size: 28px;",
-			        "priceStyle" : "font-size: 30px; font-weight: bold;"
-		        }
-            }
+        "item" : {
+            "backgroundImage" : "img/BG_Product.png",
+            "buyImage" : "img/BUY.png",
+            "nameStyle" : "font-size: 28px;",
+            "priceStyle" : "font-size: 30px; font-weight: bold;"
         }
     }
 
