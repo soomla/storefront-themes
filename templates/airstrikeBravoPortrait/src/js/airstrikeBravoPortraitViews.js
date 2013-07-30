@@ -36,7 +36,6 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
                     } else {
 
 						// some logic to calculate which view to return
-						// TODO: Add all virtual good types
 						switch (item.get("type")) {
 							case "singleUse":
 								itemView = SingleUseVirtualGoodView;

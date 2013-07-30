@@ -29,7 +29,6 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
                     var itemView;
 
                     // some logic to calculate which view to return
-                    // TODO: Add all virtual good types
                     switch (item.get("type")) {
                         case "singleUse":
                             itemView = SingleUseVirtualGoodView;
@@ -177,7 +176,6 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
 
         },
         events : {
-            // TODO: Change to timedEvents with `click` once the storeview extends Marionette.View
             "fastclick .leave-store" : "leaveStore",
             "fastclick .buy-more"    : "onClickBuyMore",
             "fastclick .back"        : "showGoodsStore"

@@ -181,7 +181,6 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handleb
             }, this);
         },
         events : {
-            // TODO: Change to timedEvents with `click` once the storeview extends Marionette.View
             "fastclick .leave-store" : "leaveStore",
             "fastclick .buy-more"    : "onClickBuyMore",
             "fastclick .back"        : "showGoodsStore"
