@@ -18,10 +18,7 @@
                 },
                 "name"              : "COIN BOOSTER PACK",
                 "itemId"            : "coin_booster_pack",
-                "description"       : "The most affordable pack",
-                "currency_itemId"   : "currency_coins",
-                "currency_amount"   : 20000
-
+                "description"       : "The most affordable pack"
             },
             {
                 "purchasableItem": {
@@ -35,9 +32,7 @@
                 },
                 "name"              : "COIN MEGA PACK",
                 "itemId"            : "coin_mega_pack",
-                "description"       : "The most popular pack",
-                "currency_itemId"   : "currency_coins",
-                "currency_amount"   : 50000
+                "description"       : "The most popular pack"
             },
             {
                 "purchasableItem": {
@@ -51,9 +46,7 @@
                 },
                 "name"              : "COIN ULTRA PACK",
                 "itemId"            : "coin_ultra_pack",
-                "description"       : "A huge coin refill for your shopping spree",
-                "currency_itemId"   : "currency_coins",
-                "currency_amount"   : 100000
+                "description"       : "A huge coin refill for your shopping spree"
             },
             {
                 "purchasableItem": {
@@ -67,9 +60,7 @@
                 },
                 "name"              : "COIN ULTIMATE PACK",
                 "itemId"            : "coin_ultimate_pack",
-                "description"       : "The ultimate purchase - buy anything you want",
-                "currency_itemId"   : "currency_coins",
-                "currency_amount"            : 600000
+                "description"       : "The ultimate purchase - buy anything you want"
             }
         ],
         "goodPacks" : []

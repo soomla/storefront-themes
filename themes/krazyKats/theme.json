@@ -4,24 +4,17 @@
 		"orientation" : "portrait"
     },
     "modelAssets" : {
-        "categories" : {
-        },
+        "categories" : {},
         "items" : {
             "coin_booster_pack" : "img/Coins/objects-08.png",
             "coin_mega_pack" : "img/Coins/objects-08.png",
             "coin_ultra_pack" : "img/Coins/objects-08.png",
-            "coin_ultimate_pack" : "img/Coins/objects-08.png",
-            "currency_coins" : "img/coin.png",
-            "remove_ads" : "img/no-ads.png",
-            "tapjoy" : "img/tapjoy.png"
+            "coin_ultimate_pack" : "img/Coins/objects-08.png"
 	    }
     },
     "theme" : {
         "name" : "krazyKats",
         "version" : 1,
-        "balance" : {
-            "style" : "color: #FFF;"
-        },
         "background" : "img/BG_BG.jpg",
         "quitButtonStyle" : "top: -20px; left: -20px;",
         "noFundsModal" : {
