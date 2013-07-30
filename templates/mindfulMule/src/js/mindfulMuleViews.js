@@ -23,6 +23,7 @@ define("mindfulMuleViews", ["jquery", "backbone", "components", "helperViews", "
             var modelAssets = model.getModelAssets();
             return _.extend({
                 price 		: this.model.getPrice(),
+                buyImage    : theme.item.buyImage,
                 imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder
             }, commonHelpers);
         };
