@@ -58,6 +58,9 @@ define("mindfulMuleViews", ["jquery", "backbone", "components", "helperViews", "
         ui : {
             contentContainer   : "#content-container"
         },
+        events : {
+            "fastclick #quit-button" : "leaveStore"
+        },
         onRender: function () {
             this.ui.contentContainer.append(this.goodsView.render().el);
             this.goodsView.refreshIScroll();
