@@ -6,8 +6,9 @@
 // THEME VARIABLES
 // --------------------------------------------------
 
-@externalWidth:     600px;
-@externalHeight:    800px;
+// Theme dimensions: 1536 x 2048
+@externalWidth:     1420px;
+@externalHeight:    1080px;
 
 
 // GENERAL LAYOUT
@@ -35,7 +36,7 @@
 
 .items {
     .box-flex(1);
-    margin: 30px;
+    margin: 60px 160px;
 }
 
 
@@ -44,43 +45,52 @@
 
 .item {
 
-    // The item has no fixed height, and neither do its descendant images.
-    // This turns the template's items to more flexible in terms of dimensions
+    @width: 775px;
+    @height: 300px;
+    @edge: @height;
+    .size(@height, @width);
+    position: relative;
 
-    padding: 25px;
-    margin: 20px 0;
+
+    margin: 10px 0;
     .box;
     .centralizedBackground;
-    background-color: #d7ca92;
+    clear: both;
 
-    & > * {
-        padding-right: 15px;
+    &:first-child {
+        margin-top: 0;
+    }
 
-        &:last-child {
-            padding-right: 0;
-        }
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &:nth-child(odd) {
+        float: left;
+    }
+
+    &:nth-child(even) {
+        float: right;
+    }
+
+    .item-image {
+        .square(@edge);
     }
 
     .content {
         .box-flex(1);
-        .box(vertical, center);
+        .box(vertical, start, stretch);
     }
 
-    .item-description {
+    .item-name, .item-description {
         .hyphens;
-        .box-flex(1);
         .box(vertical, center);
     }
 
-    .buy-container {
+    .item-price {
+        position: absolute;
         .box(vertical, center, center);
-
-        .buy {
-            display: block;
-        }
-        img {
-            .maxSize(80px, 140px);
-        }
+        display: inline-block;
     }
 }
 

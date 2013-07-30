@@ -9,7 +9,7 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
     // Define view types
 
     var getTemplate         = Handlebars.getTemplate,
-        GoodView            = Components.ItemView.extend({ template : getTemplate("good"), triggers : {"fastclick .buy" : "buy"} }),
+        GoodView            = Components.ItemView.extend({ template : getTemplate("good"), triggers : {"fastclick" : "buy"} }),
         GoodsCollectionView = Components.IScrollCollectionView.extend({ template: getTemplate("collection") });
 
 
@@ -22,6 +22,7 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
         GoodView.prototype.templateHelpers = function() {
             var modelAssets = model.getModelAssets();
             return _.extend({
+                odd         : (this.model.collection.indexOf(this.model) + 1) % 2 == 1,
                 price 		: this.model.getPrice(),
                 imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder
             }, commonHelpers);
@@ -58,6 +59,9 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
         ui : {
             contentContainer   : "#content-container"
         },
+        events : {
+            "fastclick #quit-button" : "leaveStore"
+        },
         onRender: function () {
             this.ui.contentContainer.append(this.goodsView.render().el);
             this.goodsView.refreshIScroll();
@@ -70,7 +74,7 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
             this.playSound().wantsToBuyItem(view.model.id);
         },
         zoomFunction : function() {
-            return (innerHeight / innerWidth) > 1.5 ? (innerWidth / 720) : (innerHeight / 1080);
+            return (innerHeight / innerWidth) > (4/3) ? (innerWidth / 1536) : (innerHeight / 2048);
         }
     });
 

@@ -1,0 +1,64 @@
+{
+    "currencyPacks" : [],
+    "currencies" : [],
+    "goods" : {
+        "goodUpgrades" : [],
+        "lifetime" : [],
+        "equippable" : [],
+        "singleUse" : [
+            {
+                "purchasableItem": {
+                    "marketItem": {
+                        "consumable": 1,
+                        "price": 0.99,
+                        "androidId": "android.test.canceled",
+                        "iosId": "multi_pack"
+                    },
+                    "purchaseType": "market"
+                },
+                "name"              : "MULTI PACK",
+                "itemId"            : "multi_pack",
+                "description"       : "Buy a variety of cones and flavors"
+            },
+            {
+                "purchasableItem": {
+                    "marketItem": {
+                        "consumable": 1,
+                        "price": 1.99,
+                        "androidId": "android.test.refunded",
+                        "iosId": "cone_pack"
+                    },
+                    "purchaseType": "market"
+                },
+                "name"              : "CONE PACK",
+                "itemId"            : "cone_pack",
+                "description"       : "Buy ALL types of ice cream cones"
+            },
+            {
+                "purchasableItem": {
+                    "marketItem": {
+                        "consumable": 1,
+                        "price": 2.99,
+                        "androidId": "android.test.purchased",
+                        "iosId": "flavor_pack"
+                    },
+                    "purchaseType": "market"
+                },
+                "name"              : "FLAVOR PACK",
+                "itemId"            : "flavor_pack",
+                "description"       : "Buy ALL flavors of ice cream."
+            }
+        ],
+        "goodPacks" : []
+    },
+    "categories" : [
+        {
+            "goods_itemIds": [
+                "multi_pack",
+                "cone_pack",
+                "flavor_pack"
+            ],
+            "name" : "general"
+        }
+    ]
+}

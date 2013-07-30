@@ -1,10 +1,15 @@
-<img src="{{imgFilePath}}" class="item-image">
-<div class="content">
-    <h1 class="item-description font-face-1">{{name}}</h1>
-</div>
-<div class="buy-container">
-    <label class="item-price font-face-2">${{price}}</label>
-    <a class="buy">
-        <img src="{{images.buyImage}}">
-    </a>
-</div>
+{{#if odd}}
+    <img src="{{imgFilePath}}" class="item-image">
+    <div class="content">
+        <div class="item-name font-face-1">{{name}}</div>
+        <div class="item-description font-face-1">{{description}}</div>
+    </div>
+{{else}}
+    <div class="content">
+        <div class="item-name font-face-1">{{name}}</div>
+        <div class="item-description font-face-1">{{description}}</div>
+    </div>
+    <img src="{{imgFilePath}}" class="item-image">
+{{/if}}
+
+<label class="item-price font-face-2">${{price}}</label>

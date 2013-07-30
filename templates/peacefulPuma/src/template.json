@@ -21,15 +21,6 @@
         }
     },
     "attributes" : {
-
-		"balance" : {
-			"style" : {
-				"type" : "css",
-				"title" : "Balance Label Style",
-				"selector" : ".header #balance-container .label-container",
-                "section" : "global"
-			}
-		},
 		"background" : {
 			"type" : "backgroundImage",
 			"title" : "Background Image",
@@ -69,23 +60,11 @@
                 "selector" : "#content-container",
                 "section" : "global"
             },
-			"buyImage" : {
-				"type" : "image",
-				"title" : "Buy Image",
-				"selector" : ".buy img",
-                "section" : "singleItems"
-			},
 			"quitImage" : {
 				"type" : "image",
 				"title" : "Quit Image",
 				"selector" : "#quit-button img",
                 "section" : "global"
-			},
-			"itemBackgroundImage" : {
-				"type" : "backgroundImage",
-				"title" : "Item Background Image",
-				"selector" : ".category .item",
-                "section" : "singleItems"
 			}
 		},
         "fonts" : [
@@ -102,30 +81,44 @@
                 "section" : "fonts"
             }
         ],
-		"titleStyle" : {
-			"type" : "css",
-			"title" : "Title Style",
-			"selector" : ".header .title-container .title",
-            "section" : "global"
-		},
-		"pages" : {
-            "currencyPacks" : {
-                "item" : {
-                    "nameStyle" : {
-                        "type" : "css",
-                        "title" : "Currency Pack Name Style",
-                        "selector" : ".item-description",
-                        "section" : "singleItems"
-                    },
-                    "priceStyle" : {
-                        "type" : "css",
-                        "title" : "Currency Pack Price Style",
-                        "selector" : ".item-price",
-                        "section" : "singleItems"
-                    }
-                }
+        "item" : {
+            "oddBackgroundImage" : {
+                "type" : "backgroundImage",
+                "title" : "Item Background Image",
+                "selector" : ".item:nth-child(odd)",
+                "section" : "singleItems"
+            },
+            "evenBackgroundImage" : {
+                "type" : "backgroundImage",
+                "title" : "Item Background Image",
+                "selector" : ".item:nth-child(even)",
+                "section" : "singleItems"
+            },
+            "nameStyle" : {
+                "type" : "css",
+                "title" : "Item Name Style",
+                "selector" : ".item .item-name",
+                "section" : "singleItems"
+            },
+            "descriptionStyle" : {
+                "type" : "css",
+                "title" : "Item Description Style",
+                "selector" : ".item .item-description",
+                "section" : "singleItems"
+            },
+            "oddPriceStyle" : {
+                "type" : "css",
+                "title" : "Price Style (odd items)",
+                "selector" : ".item:nth-child(odd) .item-price",
+                "section" : "singleItems"
+            },
+            "evenPriceStyle" : {
+                "type" : "css",
+                "title" : "Price Style (even items)",
+                "selector" : ".item:nth-child(even) .item-price",
+                "section" : "singleItems"
             }
-		}
+        }
     },
 	"validations" : {
 		"currency" : {
