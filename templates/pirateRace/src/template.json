@@ -5,6 +5,9 @@
             "equippable" : true,
             "lifetime" : true
         },
+        "purchaseTypes" : {
+            "virtualItem" : true
+        },
 		"removeAds" : {}
 	},
     "sections" : {
