@@ -205,7 +205,7 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handleb
                 return;
 
             var goodsItem = this.model.goodsMap[itemId];
-            var currencyPacksItem = this.model.marketItemsMap[itemId];
+            var currencyPacksItem = this.model.packsMap[itemId];
             var item = goodsItem || currencyPacksItem;
             if (!item) {
                 console.log('View was not changed. Could not find item: "' + itemId + '".');
