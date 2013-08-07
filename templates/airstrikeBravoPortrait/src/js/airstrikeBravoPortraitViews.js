@@ -326,7 +326,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
         changeViewToItem: function (itemId) {
             if (!itemId) return;
 
-            var currencyPacksItem = this.model.marketItemsMap[itemId];
+            var currencyPacksItem = this.model.packsMap[itemId];
             if (currencyPacksItem) {
                 var currency = currencyPacksItem.getCurrencyId();
                 this.showCurrencyPacks(currency);

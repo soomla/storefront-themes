@@ -212,7 +212,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
                 return;
             }
 
-            var currencyPacksItem = this.model.marketItemsMap[itemId];
+            var currencyPacksItem = this.model.packsMap[itemId];
             if (currencyPacksItem) {
                 this.showCurrencyPacks();
                 this.currencyPacksViews.each(function (currencyPackView) {

@@ -6,6 +6,9 @@
             "lifetime" : true,
             "goodUpgrades" : true
         },
+        "purchaseTypes" : {
+            "virtualItem" : true
+        },
         "categoryImages" : true,
 		"removeAds" : {},
 		"tapjoy" : {}
