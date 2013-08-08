@@ -3,22 +3,20 @@
     "currencies" : [],
     "goods" : {
         "goodUpgrades" : [],
-        "lifetime" : [],
-        "equippable" : [],
-        "singleUse" : [
+        "lifetime" : [
             {
                 "purchasableItem": {
                     "marketItem": {
                         "consumable": 1,
                         "price": 0.99,
                         "androidId": "android.test.canceled",
-                        "iosId": "multi_pack"
+                        "iosId": "harmony"
                     },
                     "purchaseType": "market"
                 },
-                "name"              : "MULTI PACK",
-                "itemId"            : "multi_pack",
-                "description"       : "Buy a variety of cones and flavors"
+                "name"              : "Harmony",
+                "itemId"            : "harmony",
+                "description"       : "Harmony: The prom-winning doll"
             },
             {
                 "purchasableItem": {
@@ -26,13 +24,13 @@
                         "consumable": 1,
                         "price": 1.99,
                         "androidId": "android.test.refunded",
-                        "iosId": "cone_pack"
+                        "iosId": "dolly"
                     },
                     "purchaseType": "market"
                 },
-                "name"              : "CONE PACK",
-                "itemId"            : "cone_pack",
-                "description"       : "Buy ALL types of ice cream cones"
+                "name"              : "Dolly",
+                "itemId"            : "dolly",
+                "description"       : "Dolly: queen of the doll house"
             },
             {
                 "purchasableItem": {
@@ -40,23 +38,25 @@
                         "consumable": 1,
                         "price": 2.99,
                         "androidId": "android.test.purchased",
-                        "iosId": "flavor_pack"
+                        "iosId": "angel"
                     },
                     "purchaseType": "market"
                 },
-                "name"              : "FLAVOR PACK",
-                "itemId"            : "flavor_pack",
-                "description"       : "Buy ALL flavors of ice cream."
+                "name"              : "Angel",
+                "itemId"            : "angel",
+                "description"       : "Angel: 'Simple is beautiful'"
             }
         ],
+        "equippable" : [],
+        "singleUse" : [],
         "goodPacks" : []
     },
     "categories" : [
         {
             "goods_itemIds": [
-                "multi_pack",
-                "cone_pack",
-                "flavor_pack"
+                "harmony",
+                "dolly",
+                "angel"
             ],
             "name" : "general"
         }

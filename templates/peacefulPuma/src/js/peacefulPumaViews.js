@@ -36,7 +36,7 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
             _.bindAll(this, "buyItem");
 
             // Initialize dialog metadata
-            this.dialogModal = this.theme.noFundsModal;
+            this.dialogModal = this.theme.loadingModal;
             this.messageDialogOptions = {
                 background 	: this.dialogModal.background,
                 textStyle 	: this.dialogModal.textStyle

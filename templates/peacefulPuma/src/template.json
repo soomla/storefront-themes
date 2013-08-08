@@ -33,22 +33,16 @@
             "selector" : "#quit-button",
             "section" : "global"
         },
-		"noFundsModal" : {
+		"loadingModal" : {
 			"background" : {
 				"type" : "backgroundImage",
-				"title" : "No Funds Dialog Background Image",
+				"title" : "'Loading' Dialog Background Image",
 				"selector" : ".dialog",
-                "section" : "global"
-            },
-            "text" : {
-                "type" : "text",
-                "title" : "No Funds Dialog Text",
-                "selector" : ".dialog h1",
                 "section" : "global"
             },
             "textStyle" : {
                 "type" : "css",
-                "title" : "No Funds Dialog Text Style",
+                "title" : "'Loading' Dialog Text Style",
                 "selector" : ".dialog h1",
                 "section" : "global"
 			}
@@ -84,13 +78,13 @@
         "item" : {
             "oddBackgroundImage" : {
                 "type" : "backgroundImage",
-                "title" : "Item Background Image",
+                "title" : "Odd Item Background Image",
                 "selector" : ".item:nth-child(odd)",
                 "section" : "singleItems"
             },
             "evenBackgroundImage" : {
                 "type" : "backgroundImage",
-                "title" : "Item Background Image",
+                "title" : "Even Item Background Image",
                 "selector" : ".item:nth-child(even)",
                 "section" : "singleItems"
             },

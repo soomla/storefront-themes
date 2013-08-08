@@ -6,9 +6,9 @@
     "modelAssets" : {
         "categories" : {},
         "items" : {
-            "multi_pack" : "img/Pack1.png",
-            "cone_pack" : "img/Pack2.png",
-            "flavor_pack" : "img/Pack3.png"
+            "harmony" : "img/Pack1.png",
+            "dolly" : "img/Pack2.png",
+            "angel" : "img/Pack3.png"
 	    }
     },
     "theme" : {
@@ -16,9 +16,8 @@
         "version" : 1,
         "background" : "img/Background.jpg",
         "quitButtonStyle" : "top: -50px; right: -50px;",
-        "noFundsModal" : {
+        "loadingModal" : {
             "background" : "img/modalBG.png",
-            "text" : "Insufficient funds.  Would you like to buy more?",
             "textStyle" : "text-shadow: 1px 2px #808080"
         },
         "images" : {
