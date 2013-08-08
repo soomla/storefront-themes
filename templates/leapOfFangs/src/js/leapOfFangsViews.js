@@ -206,8 +206,8 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             this.loadingModal = _.extend({text : "Loading..."}, this.messageDialogOptions);
 
 
-            var categories              = this.model.get("categories"),
-                currencies              = this.model.get("currencies");
+            var categories              = this.model.getCategories(),
+                currencies              = this.model.getCurrencies();
 
             this.entityTemplateHelpers  = { images : this.theme.images };
 
@@ -324,7 +324,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             console.log('View was not changed. Could not find item: "' + itemId + '".');
         },
         showCurrencyPacks: function (currencyId) {
-            var currency = this.model.get("currencies").get(currencyId);
+            var currency = this.model.getCurrency(currencyId);
             this.changeActiveViewByModel(currency);
         },
         ui : {

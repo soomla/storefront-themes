@@ -44,8 +44,8 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
             this.loadingModal = _.extend({text : "Loading..."}, this.messageDialogOptions);
 
 
-            var category    = this.model.get("categories").at(0),
-                goods = category.get("goods");
+            var category    = this.model.getCategories().at(0),
+                goods       = category.get("goods");
 
             this.goodsView = new GoodsCollectionView({
                 className   : "items",
