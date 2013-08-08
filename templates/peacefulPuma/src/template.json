@@ -1,11 +1,11 @@
 {
 	"supportedFeatures" : {
         "goods" : {
-            "singleUse" : true,
-            "lifetime" : true,
-            "goodUpgrades" : true
+            "lifetime" : true
         },
-        "categoryImages" : true,
+        "purchaseTypes" : {
+            "market" : true
+        },
 		"removeAds" : {},
 		"tapjoy" : {}
 	},
