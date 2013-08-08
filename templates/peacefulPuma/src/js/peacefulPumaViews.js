@@ -81,9 +81,6 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
             // Re-render the entire list when goods are added \ removed  to prevent
             // a UI artifact of text mis-alignment due to flipping sides of even \ odd items
             this.listenTo(goods, "add remove", this.goodsView.render);
-
-            // This is a click-to-buy store that exits on each successful purchase
-            this.listenTo(this.model, "goods:update:after", _.partial(this.leaveStore, {silent : true}));
         },
         ui : {
             contentContainer   : "#content-container"
