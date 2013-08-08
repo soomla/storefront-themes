@@ -87,10 +87,32 @@
         .box(vertical, center);
     }
 
-    .item-price {
+    .item-price, .owned {
         position: absolute;
         .box(vertical, center, center);
+    }
+
+    .item-price {
         display: inline-block;
+    }
+
+    // Lifetime items have two states: not owned and owned, that are toggled by adding classes to the element
+    &.lifetime {
+
+        // State: not owned
+        .owned {
+            display: none;
+        }
+
+        // State: owned
+        &.owned {
+            .owned {
+                display: inline-block;
+            }
+            .item-price {
+                display: none;
+            }
+        }
     }
 }
 

@@ -8,9 +8,31 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
 
     // Define view types
 
-    var getTemplate         = Handlebars.getTemplate,
-        GoodView            = Components.ItemView.extend({ template : getTemplate("good"), triggers : {"fastclick" : "buy"} }),
-        GoodsCollectionView = Components.IScrollCollectionView.extend({ template: getTemplate("collection") });
+    var getTemplate             = Handlebars.getTemplate,
+        LifetimeVirtualGoodView = Components.LifetimeItemView.extend({ template : getTemplate("lifetimeItem"), triggers : {"fastclick" : "buy"} }),
+        GoodsCollectionView     = Components.IScrollCollectionView.extend({
+            template: getTemplate("collection"),
+            getItemView: function(item) {
+
+                if (!item) {
+                    return Components.IScrollCollectionView.prototype.getItemView.apply(this, arguments);
+                } else {
+
+                    var itemView;
+
+                    // some logic to calculate which view to return
+                    switch (item.get("type")) {
+//                        case "singleUse":
+//                            itemView = SingleUseVirtualGoodView;
+//                            break;
+                        case "lifetime":
+                            itemView = LifetimeVirtualGoodView;
+                            break;
+                    }
+                    return itemView;
+                }
+            }
+        });
 
 
     var extendViews = function(model) {
@@ -19,7 +41,7 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
             commonHelpers   = { images : theme.images };
 
         // Add template helpers to view prototypes
-        GoodView.prototype.templateHelpers = function() {
+        LifetimeVirtualGoodView.prototype.templateHelpers = function() {
             var modelAssets = model.getModelAssets();
             return _.extend({
                 odd         : (this.model.collection.indexOf(this.model) + 1) % 2 == 1,
@@ -50,7 +72,7 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
             this.goodsView = new GoodsCollectionView({
                 className   : "items",
                 collection  : goods,
-                itemView    : GoodView
+                itemView    : LifetimeVirtualGoodView
             });
 
             this.listenTo(this.goodsView, "itemview:buy", this.buyItem);

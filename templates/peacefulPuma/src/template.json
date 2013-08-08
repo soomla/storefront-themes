@@ -111,6 +111,18 @@
                 "title" : "Price Style (even items)",
                 "selector" : ".item:nth-child(even) .item-price",
                 "section" : "singleItems"
+            },
+            "oddOwnedLabelStyle" : {
+                "type" : "css",
+                "title" : "Owned Label Style (odd items)",
+                "selector" : ".item:nth-child(odd) .owned",
+                "section" : "singleItems"
+            },
+            "evenOwnedLabelStyle" : {
+                "type" : "css",
+                "title" : "Owned Label Style (even items)",
+                "selector" : ".item:nth-child(even) .owned",
+                "section" : "singleItems"
             }
         }
     },
