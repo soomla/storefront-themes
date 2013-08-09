@@ -8,9 +8,10 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
 
     // Define view types
 
-    var getTemplate             = Handlebars.getTemplate,
-        LifetimeVirtualGoodView = Components.LifetimeItemView.extend({ template : getTemplate("lifetimeItem"), triggers : {"fastclick" : "buy"} }),
-        GoodsCollectionView     = Components.IScrollCollectionView.extend({
+    var getTemplate                 = Handlebars.getTemplate,
+        SingleUseVirtualGoodView    = Components.ItemView.extend({template : getTemplate("singleUseItem"), triggers : { fastclick : "buy" } }),
+        LifetimeVirtualGoodView     = Components.LifetimeItemView.extend({ template : getTemplate("lifetimeItem"), triggers : {fastclick : "buy"} }),
+        GoodsCollectionView         = Components.IScrollCollectionView.extend({
             template: getTemplate("collection"),
             getItemView: function(item) {
 
@@ -22,9 +23,9 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
 
                     // some logic to calculate which view to return
                     switch (item.get("type")) {
-//                        case "singleUse":
-//                            itemView = SingleUseVirtualGoodView;
-//                            break;
+                        case "singleUse":
+                            itemView = SingleUseVirtualGoodView;
+                            break;
                         case "lifetime":
                             itemView = LifetimeVirtualGoodView;
                             break;
@@ -37,18 +38,20 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
 
     var extendViews = function(model) {
 
-        var theme           = model.get("theme"),
-            commonHelpers   = { images : theme.images };
-
-        // Add template helpers to view prototypes
-        LifetimeVirtualGoodView.prototype.templateHelpers = function() {
+        var theme = model.get("theme");
+        var commonTemplateHelpers = function() {
             var modelAssets = model.getModelAssets();
-            return _.extend({
+            return {
                 odd         : (this.model.collection.indexOf(this.model) + 1) % 2 == 1,
                 price 		: this.model.getPrice(),
-                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder
-            }, commonHelpers);
+                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder,
+                images      : theme.images
+            };
         };
+
+        // Add template helpers to view prototypes
+        LifetimeVirtualGoodView.prototype.templateHelpers = commonTemplateHelpers;
+        SingleUseVirtualGoodView.prototype.templateHelpers = commonTemplateHelpers;
     };
 
 
@@ -66,7 +69,7 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
             this.loadingModal = _.extend({text : "Loading..."}, this.messageDialogOptions);
 
 
-            var category    = this.model.getCategories().at(0),
+            var category    = this.model.getFirstCategory(),
                 goods       = category.get("goods");
 
             this.goodsView = new GoodsCollectionView({
