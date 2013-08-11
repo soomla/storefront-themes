@@ -16,15 +16,9 @@
 // GENERAL LAYOUT
 // --------------------------------------------------
 
-ul {
-    padding: 0;
-    margin: 0;
-}
-
 #main {
-    .background-size(cover);
-    background-position: center;
     .box(vertical,center, center);
+    .centralizedBackground;
 }
 
 // Sets the outer most dimensions in which
@@ -148,7 +142,6 @@ ul {
     @itemPadding: 0;
     @itemFace: 150px;
 
-    list-style-type: none;
     padding: 0;
     margin: 0 auto;
 //    width: (2 * (@itemPadding + @itemMargin) + @itemFace) * 4;
@@ -195,7 +188,6 @@ ul {
 }
 
 .items {
-    list-style-type: none;
     padding: 0;
     overflow: auto;
     height: @internalHeight;

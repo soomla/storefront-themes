@@ -1,0 +1,64 @@
+{
+    "currencyPacks" : [],
+    "currencies" : [],
+    "goods" : {
+        "goodUpgrades" : [],
+        "lifetime" : [
+            {
+                "purchasableItem": {
+                    "marketItem": {
+                        "consumable": 1,
+                        "price": 0.99,
+                        "androidId": "android.test.canceled",
+                        "iosId": "harmony"
+                    },
+                    "purchaseType": "market"
+                },
+                "name"              : "Harmony",
+                "itemId"            : "harmony",
+                "description"       : "Harmony: The prom-winning doll"
+            },
+            {
+                "purchasableItem": {
+                    "marketItem": {
+                        "consumable": 1,
+                        "price": 1.99,
+                        "androidId": "android.test.refunded",
+                        "iosId": "dolly"
+                    },
+                    "purchaseType": "market"
+                },
+                "name"              : "Dolly",
+                "itemId"            : "dolly",
+                "description"       : "Dolly: queen of the doll house"
+            },
+            {
+                "purchasableItem": {
+                    "marketItem": {
+                        "consumable": 1,
+                        "price": 2.99,
+                        "androidId": "android.test.purchased",
+                        "iosId": "angel"
+                    },
+                    "purchaseType": "market"
+                },
+                "name"              : "Angel",
+                "itemId"            : "angel",
+                "description"       : "Angel: 'Simple is beautiful'"
+            }
+        ],
+        "equippable" : [],
+        "singleUse" : [],
+        "goodPacks" : []
+    },
+    "categories" : [
+        {
+            "goods_itemIds": [
+                "harmony",
+                "dolly",
+                "angel"
+            ],
+            "name" : "general"
+        }
+    ]
+}

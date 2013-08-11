@@ -1,0 +1,41 @@
+{
+    "template" : {
+        "name" : "mindfulMule",
+		"orientation" : "portrait"
+    },
+    "modelAssets" : {
+        "categories" : {},
+        "items" : {
+            "coin_booster_pack" : "img/Coins/objects-08.png",
+            "coin_mega_pack" : "img/Coins/objects-08.png",
+            "coin_ultra_pack" : "img/Coins/objects-08.png",
+            "coin_ultimate_pack" : "img/Coins/objects-08.png"
+	    }
+    },
+    "theme" : {
+        "name" : "krazyKats",
+        "version" : 1,
+        "background" : "img/BG_BG.jpg",
+        "quitButtonStyle" : "top: -20px; left: -20px;",
+        "noFundsModal" : {
+            "background" : "img/Alert-22.png",
+            "text" : "Insufficient funds.  Would you like to buy more?",
+            "textStyle" : "text-shadow: 1px 2px #808080"
+        },
+        "images" : {
+            "quitImage" : "img/QUIT.png",
+            "itemAreaBackground": "img/ItemAreaBackground.png"
+        },
+	    "fonts" : [
+            "fonts/Abrila.ttf",
+            "fonts/Abrila.ttf"
+	    ],
+        "item" : {
+            "backgroundImage" : "img/BG_Product.png",
+            "buyImage" : "img/BUY.png",
+            "nameStyle" : "font-size: 28px;",
+            "priceStyle" : "font-size: 30px; font-weight: bold;"
+        }
+    }
+
+}

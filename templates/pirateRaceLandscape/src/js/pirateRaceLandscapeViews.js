@@ -81,8 +81,8 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handleb
             this.categoryHeaderViews = [];
             this.categoryViews  = [];
 
-            var currencies      = this.model.get("currencies"),
-                categories      = this.model.get("categories");
+            var currencies      = this.model.getCurrencies(),
+                categories      = this.model.getCategories();
 
             // View event listeners
             var wantsToBuyVirtualGoods = _.bind(function (view) {
@@ -181,7 +181,6 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handleb
             }, this);
         },
         events : {
-            // TODO: Change to timedEvents with `click` once the storeview extends Marionette.View
             "fastclick .leave-store" : "leaveStore",
             "fastclick .buy-more"    : "onClickBuyMore",
             "fastclick .back"        : "showGoodsStore"

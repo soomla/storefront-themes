@@ -1,0 +1,121 @@
+@import "css/mixins/bootstrap/variables.less";
+@import "css/mixins/bootstrap/mixins.less";
+@import "css/mixins/layout.less";
+.webkitScrollbar;
+
+// THEME VARIABLES
+// --------------------------------------------------
+
+@externalWidth:     600px;
+@externalHeight:    800px;
+
+
+// GENERAL LAYOUT
+// --------------------------------------------------
+
+#main {
+    .centralizedBackground;
+    .box(vertical,center, center);
+}
+
+
+// Sets the outer most dimensions in which
+// all the content is held i.e. header, pages etc.
+#content-container {
+    position: relative;
+    .size(@externalHeight, @externalWidth);
+    .centralizedBackground;
+    .box(vertical,center);
+}
+
+#quit-button {
+    position: absolute;
+    z-index: 1;
+}
+
+.items {
+    .box-flex(1);
+    margin: 30px;
+}
+
+
+// SINGLE LIST ITEMS - VIRTUAL GOODS
+// --------------------------------------------------
+
+.item {
+
+    // The item has no fixed height, and neither do its descendant images.
+    // This turns the template's items to more flexible in terms of dimensions
+
+    padding: 25px;
+    margin: 20px 0;
+    .box;
+    .centralizedBackground;
+    background-color: #d7ca92;
+
+    & > * {
+        padding-right: 15px;
+
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+
+    .content {
+        .box-flex(1);
+        .box(vertical, center);
+    }
+
+    .item-description {
+        .hyphens;
+        .box-flex(1);
+        .box(vertical, center);
+    }
+
+    .buy-container {
+        .box(vertical, center, center);
+
+        .buy {
+            display: block;
+        }
+        img {
+            .maxSize(80px, 140px);
+        }
+    }
+}
+
+
+// MODAL DIALOG
+// --------------------------------------------------
+.modal {
+    .square(100%);
+    position: absolute;
+    .offset(0, 0);
+    .box(horizontal, center, center);
+    z-index: 2001;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.dialog {
+    .size(200px, 520px);
+    .box(vertical, center, center);
+
+    h1 {
+        font-size: 28px;
+        text-align: center;
+        width: 480px;
+    }
+
+    .item-description {
+        .box-flex(1);
+        .box(vertical, center, center);
+    }
+
+    .actions {
+        margin-top: 10px;
+        img {
+            .maxSize(50px, 200px);
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,45 @@
+{
+    "template" : {
+        "name" : "peacefulPuma",
+		"orientation" : "portrait"
+    },
+    "modelAssets" : {
+        "categories" : {},
+        "items" : {
+            "harmony" : "img/Pack1.png",
+            "dolly" : "img/Pack2.png",
+            "angel" : "img/Pack3.png"
+	    }
+    },
+    "theme" : {
+        "name" : "dressUp",
+        "version" : 1,
+        "background" : "img/Background.jpg",
+        "quitButtonStyle" : "top: -50px; right: -50px;",
+        "loadingModal" : {
+            "background" : "img/modalBG.png",
+            "textStyle" : "text-shadow: 1px 2px #808080"
+        },
+        "images" : {
+            "quitImage" : "img/Quit.png",
+            "itemAreaBackground": "img/Content_BG.png"
+        },
+	    "fonts" : [
+            "fonts/HoboStd.otf",
+            "fonts/Abrila.ttf"
+	    ],
+        "item" : {
+            "oddBackgroundImage" : "img/ItemBG_Right.png",
+            "evenBackgroundImage" : "img/ItemBG_Left.png",
+            "nameStyle" : "display: none; text-align: center; font-size: 36px; font-weight: bold; margin: 60px 20px 0 10px; color: #fff;",
+            "descriptionStyle" : "text-align: center; font-size: 36px; margin: 64px 20px 0 20px; color: #fff;",
+            "oddPriceStyle" : "bottom: 20px; right: 40px; font-size: 60px; font-weight: bold; color: #fff;",
+            "evenPriceStyle" : "bottom: 20px; left: 40px; font-size: 60px; font-weight: bold; color: #fff;",
+            "oddBalanceLabelStyle" : "font-size: 30px; font-weight: bold; color: yellow;",
+            "evenBalanceLabelStyle" : "font-size: 30px; font-weight: bold; color: yellow;",
+            "oddOwnedLabelStyle" : "bottom: 35px; right: 40px; font-size: 40px; font-weight: bold; color: #fff;",
+            "evenOwnedLabelStyle" : "bottom: 35px; left: 40px; font-size: 40px; font-weight: bold; color: #fff;"
+        }
+    }
+
+}

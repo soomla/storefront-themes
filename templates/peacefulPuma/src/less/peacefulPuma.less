@@ -1,0 +1,155 @@
+@import "css/mixins/bootstrap/variables.less";
+@import "css/mixins/bootstrap/mixins.less";
+@import "css/mixins/layout.less";
+.webkitScrollbar;
+
+// THEME VARIABLES
+// --------------------------------------------------
+
+// Theme dimensions: 1536 x 2048
+@externalWidth:     1420px;
+@externalHeight:    1080px;
+
+
+// GENERAL LAYOUT
+// --------------------------------------------------
+
+#main {
+    .centralizedBackground;
+    .box(vertical,center, center);
+}
+
+
+// Sets the outer most dimensions in which
+// all the content is held i.e. header, pages etc.
+#content-container {
+    position: relative;
+    .size(@externalHeight, @externalWidth);
+    .centralizedBackground;
+    .box(vertical,center);
+}
+
+#quit-button {
+    position: absolute;
+    z-index: 1;
+}
+
+.items {
+    .box-flex(1);
+    margin: 60px 160px;
+}
+
+
+// SINGLE LIST ITEMS - VIRTUAL GOODS
+// --------------------------------------------------
+
+.item {
+
+    @width: 775px;
+    @height: 300px;
+    @edge: @height;
+    .size(@height, @width);
+    position: relative;
+
+
+    margin: 10px 0;
+    .box;
+    .centralizedBackground;
+    clear: both;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &:nth-child(odd) {
+        float: left;
+    }
+
+    &:nth-child(even) {
+        float: right;
+    }
+
+    .item-image {
+        .square(@edge);
+    }
+
+    .content {
+        .box-flex(1);
+        .box(vertical, start, stretch);
+    }
+
+    .item-name, .item-description {
+        .hyphens;
+        .box(vertical, center);
+    }
+
+    .item-price, .owned {
+        position: absolute;
+        .box(vertical, center, center);
+    }
+
+    .item-price {
+        display: inline-block;
+    }
+
+    // Lifetime items have two states: not owned and owned, that are toggled by adding classes to the element
+    &.lifetime {
+
+        // State: not owned
+        .owned {
+            display: none;
+        }
+
+        // State: owned
+        &.owned {
+            .owned {
+                display: inline-block;
+            }
+            .item-price {
+                display: none;
+            }
+        }
+    }
+}
+
+
+// MODAL DIALOG
+// --------------------------------------------------
+.modal {
+    .square(100%);
+    position: absolute;
+    .offset(0, 0);
+    .box(horizontal, center, center);
+    z-index: 2001;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.dialog {
+    .size(400px, 800px);
+    .box(vertical, center, center);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    h1 {
+        font-size: 60px;
+        text-align: center;
+        width: 480px;
+    }
+
+    .item-description {
+        .box-flex(1);
+        .box(vertical, center, center);
+    }
+
+    .actions {
+        margin-top: 10px;
+        img {
+            .maxSize(50px, 200px);
+            cursor: pointer;
+        }
+    }
+}
