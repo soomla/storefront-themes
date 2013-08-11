@@ -88,16 +88,28 @@
                 "selector" : ".item:nth-child(even)",
                 "section" : "singleItems"
             },
-            "nameStyle" : {
+            "oddNameStyle" : {
                 "type" : "css",
-                "title" : "Item Name Style",
-                "selector" : ".item .item-name",
+                "title" : "Odd Item Name Style",
+                "selector" : ".item:nth-child(odd) .item-name",
                 "section" : "singleItems"
             },
-            "descriptionStyle" : {
+            "evenNameStyle" : {
                 "type" : "css",
-                "title" : "Item Description Style",
-                "selector" : ".item .item-description",
+                "title" : "Even Item Name Style",
+                "selector" : ".item:nth-child(even) .item-name",
+                "section" : "singleItems"
+            },
+            "oddDescriptionStyle" : {
+                "type" : "css",
+                "title" : "Odd Item Description Style",
+                "selector" : ".item:nth-child(odd) .item-description",
+                "section" : "singleItems"
+            },
+            "evenDescriptionStyle" : {
+                "type" : "css",
+                "title" : "Even Item Description Style",
+                "selector" : ".item:nth-child(even) .item-description",
                 "section" : "singleItems"
             },
             "oddPriceStyle" : {

@@ -16,7 +16,7 @@
                 },
                 "name"              : "Harmony",
                 "itemId"            : "harmony",
-                "description"       : "Harmony: The prom-winning doll"
+                "description"       : "The prom-winning doll"
             },
             {
                 "purchasableItem": {
@@ -30,7 +30,7 @@
                 },
                 "name"              : "Dolly",
                 "itemId"            : "dolly",
-                "description"       : "Dolly: queen of the doll house"
+                "description"       : "The doll house queen"
             },
             {
                 "purchasableItem": {
@@ -44,7 +44,7 @@
                 },
                 "name"              : "Angel",
                 "itemId"            : "angel",
-                "description"       : "Angel: 'Simple is beautiful'"
+                "description"       : "Simple is beautiful"
             }
         ],
         "equippable" : [],
