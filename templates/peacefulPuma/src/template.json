@@ -1,6 +1,7 @@
 {
 	"supportedFeatures" : {
         "goods" : {
+            "singleUse" : true,
             "lifetime" : true
         },
         "purchaseTypes" : {
@@ -114,37 +115,37 @@
             },
             "oddPriceStyle" : {
                 "type" : "css",
-                "title" : "Price Style (odd items)",
+                "title" : "Odd Item Price Style",
                 "selector" : ".item:nth-child(odd) .item-price",
                 "section" : "singleItems"
             },
             "evenPriceStyle" : {
                 "type" : "css",
-                "title" : "Price Style (even items)",
+                "title" : "Even Item Price Style",
                 "selector" : ".item:nth-child(even) .item-price",
                 "section" : "singleItems"
             },
             "oddBalanceLabelStyle" : {
                 "type" : "css",
-                "title" : "Balance Label Style (odd items)",
+                "title" : "Odd Item Balance Label Style",
                 "selector" : ".item:nth-child(odd) .balance-container",
                 "section" : "singleItems"
             },
             "evenBalanceLabelStyle" : {
                 "type" : "css",
-                "title" : "Balance Label Style (even items)",
+                "title" : "Even Item Balance Label Style",
                 "selector" : ".item:nth-child(even) .balance-container",
                 "section" : "singleItems"
             },
             "oddOwnedLabelStyle" : {
                 "type" : "css",
-                "title" : "Owned Label Style (odd items)",
+                "title" : "Odd Item Owned Label Style",
                 "selector" : ".item:nth-child(odd) .owned",
                 "section" : "singleItems"
             },
             "evenOwnedLabelStyle" : {
                 "type" : "css",
-                "title" : "Owned Label Style (even items)",
+                "title" : "Even Item Owned Label Style",
                 "selector" : ".item:nth-child(even) .owned",
                 "section" : "singleItems"
             }
