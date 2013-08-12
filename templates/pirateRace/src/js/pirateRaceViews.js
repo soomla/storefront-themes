@@ -29,7 +29,6 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
                     var itemView;
 
                     // some logic to calculate which view to return
-                    // TODO: Add all virtual good types
                     switch (item.get("type")) {
                         case "singleUse":
                             itemView = SingleUseVirtualGoodView;
@@ -140,8 +139,8 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
             this.categoryViews      = new Backbone.ChildViewContainer();
             this.currencyPacksViews = new Backbone.ChildViewContainer();
 
-            var currencies          = this.model.get("currencies"),
-                categories          = this.model.get("categories"),
+            var currencies          = this.model.getCurrencies(),
+                categories          = this.model.getCategories(),
                 nonConsumables      = this.model.get("nonConsumables");
 
 
@@ -177,7 +176,6 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
 
         },
         events : {
-            // TODO: Change to timedEvents with `click` once the storeview extends Marionette.View
             "fastclick .leave-store" : "leaveStore",
             "fastclick .buy-more"    : "onClickBuyMore",
             "fastclick .back"        : "showGoodsStore"
@@ -208,7 +206,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
             if (!itemId)
                 return;
 
-            var currency = this.model.get("currencies").get(itemId);
+            var currency = this.model.getCurrency(itemId);
             if (currency) {
                 this.showCurrencyPacks();
                 return;
@@ -238,7 +236,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
             }
 
 
-            var category = this.model.get("categories").get(itemId);
+            var category = this.model.getCategory(itemId);
             if (category) {
                 this.showGoodsStore();
                 return;

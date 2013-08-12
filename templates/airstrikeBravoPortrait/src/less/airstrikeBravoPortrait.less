@@ -19,15 +19,9 @@
 // GENERAL LAYOUT
 // --------------------------------------------------
 
-ul {
-    padding: 0;
-    margin: 0;
-}
-
 #main {
     .box(horizontal, center, center);
-    .background-size(cover);
-    background-position: center;
+    .centralizedBackground;
 }
 
 // Holds all the content i.e. header, pages etc.
@@ -35,8 +29,7 @@ ul {
     height: @externalHeight;
     width: @externalWidth;
     .box(vertical,center, center);
-    .background-size(cover);
-    background-position: center;
+    .centralizedBackground;
 }
 
 #pages {
@@ -196,7 +189,6 @@ ul {
 }
 
 .items {
-    list-style-type: none;
     padding: 0;
     margin: 10px;
     overflow: auto;

@@ -36,7 +36,6 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
                     } else {
 
                         // some logic to calculate which view to return
-                        // TODO: Add all virtual good types
                         switch (item.get("type")) {
                             case "singleUse":
                                 itemView = SingleUseVirtualGoodView;
@@ -152,8 +151,8 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
             this.loadingModal = _.extend({text : "Loading..."}, this.messageDialogOptions);
 
 
-            var currencies 		= this.model.get("currencies"),
-                categories      = this.model.get("categories"),
+            var currencies 		= this.model.getCurrencies(),
+                categories      = this.model.getCategories(),
                 nonConsumables  = this.model.get("nonConsumables"),
                 tapjoy          = this.theme.tapjoy;
 
@@ -345,7 +344,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
         },
         showCurrencyPacks : function(currencyId) {
             // Change to view of given currency ID
-            var currency    = this.model.get("currencies").get(currencyId),
+            var currency    = this.model.getCurrency(currencyId),
                 view        = this.children.findByCustom(currency.id);
             this.changeViewTo(view);
         },

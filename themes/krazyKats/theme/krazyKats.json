@@ -1,0 +1,79 @@
+{
+    "currencyPacks" : [],
+    "currencies" : [],
+    "goods" : {
+        "goodUpgrades" : [],
+        "lifetime" : [],
+        "equippable" : [],
+        "singleUse" : [
+            {
+                "purchasableItem": {
+                    "marketItem": {
+                        "consumable": 1,
+                        "price": 0.99,
+                        "androidId": "android.test.canceled",
+                        "iosId": "coin_booster_pack"
+                    },
+                    "purchaseType": "market"
+                },
+                "name"              : "COIN BOOSTER PACK",
+                "itemId"            : "coin_booster_pack",
+                "description"       : "The most affordable pack"
+            },
+            {
+                "purchasableItem": {
+                    "marketItem": {
+                        "consumable": 1,
+                        "price": 2.99,
+                        "androidId": "android.test.refunded",
+                        "iosId": "coin_mega_pack"
+                    },
+                    "purchaseType": "market"
+                },
+                "name"              : "COIN MEGA PACK",
+                "itemId"            : "coin_mega_pack",
+                "description"       : "The most popular pack"
+            },
+            {
+                "purchasableItem": {
+                    "marketItem": {
+                        "consumable": 1,
+                        "price": 2.99,
+                        "androidId": "android.test.purchased",
+                        "iosId": "coin_ultra_pack"
+                    },
+                    "purchaseType": "market"
+                },
+                "name"              : "COIN ULTRA PACK",
+                "itemId"            : "coin_ultra_pack",
+                "description"       : "A huge coin refill for your shopping spree"
+            },
+            {
+                "purchasableItem": {
+                    "marketItem": {
+                        "consumable": 1,
+                        "price": 9.99,
+                        "androidId": "android.test.purchased",
+                        "iosId": "coin_ultimate_pack"
+                    },
+                    "purchaseType": "market"
+                },
+                "name"              : "COIN ULTIMATE PACK",
+                "itemId"            : "coin_ultimate_pack",
+                "description"       : "The ultimate purchase - buy anything you want"
+            }
+        ],
+        "goodPacks" : []
+    },
+    "categories" : [
+        {
+            "goods_itemIds": [
+                "coin_booster_pack",
+                "coin_mega_pack",
+                "coin_ultra_pack",
+                "coin_ultimate_pack"
+            ],
+            "name" : "general"
+        }
+    ]
+}
