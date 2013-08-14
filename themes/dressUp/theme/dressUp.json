@@ -9,7 +9,7 @@
                     "marketItem": {
                         "consumable": 1,
                         "price": 0.99,
-                        "androidId": "android.test.canceled",
+                        "androidId": "android.test.purchased",
                         "iosId": "harmony"
                     },
                     "purchaseType": "market"
@@ -23,7 +23,7 @@
                     "marketItem": {
                         "consumable": 1,
                         "price": 1.99,
-                        "androidId": "android.test.refunded",
+                        "androidId": "android.test.purchased",
                         "iosId": "dolly"
                     },
                     "purchaseType": "market"
