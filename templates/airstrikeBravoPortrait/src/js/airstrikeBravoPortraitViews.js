@@ -403,7 +403,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
 
         appendCurrencyLinkView : function(link) {
             var menu = this.children.findByCustom("menu");
-            menu.$el.append(link.render().el);
+            menu.$itemViewContainer.append(link.render().el);
         },
 
         addCategoryView : function(category, options) {
