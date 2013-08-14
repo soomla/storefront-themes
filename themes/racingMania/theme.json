@@ -79,6 +79,7 @@
                 "item": {
                     "nameStyle": "font-size: 24px; color: #fff;",
                     "priceStyle": "font-size: 24px; color: #ffff00;",
+                    "balanceStyle": "font-size: 18px; color: #fff;",
                     "descriptionStyle": "font-size: 20px; color: #f2efd0;"
                 }
             },
