@@ -41,8 +41,9 @@
 
 .header {
     @topBarHeight: 60px;
+    .box-sizing(border-box);
     width: @internalWidth;
-    height: @headerHeight - (2 * @padding);
+    height: @headerHeight;
     margin-bottom: 10px;
     padding: @padding;
     text-align: center;
@@ -279,6 +280,11 @@
         .expand-collapse {
             display: none;
         }
+
+        .buy-container {
+            opacity: 1;
+            .scale(1);
+        }
     }
 
     .row {
@@ -336,6 +342,10 @@
         font-weight: bold;
         @width: 140px;
         width: @width;
+        .transition(all 0.4s ease-in-out);
+        opacity: 0;
+        .scale(0.8);
+
         img {
             .size(60px, @width);
         }
