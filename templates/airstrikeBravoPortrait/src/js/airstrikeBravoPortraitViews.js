@@ -378,10 +378,6 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
             _.each(this.nonConsumbaleLinks, function(view) {
                 menu.$el.append(view.render().el);
             });
-            // iPhone hack for problematic description line height
-            if (isMobile.iOS()) {
-                this.$(".item .description").css("line-height", "70px");
-            }
 
             // Initial iScroll refresh for menu
             if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
