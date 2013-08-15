@@ -18,7 +18,7 @@
 
 #main {
     .box(vertical,center, center);
-    .centralizedBackground;
+    .centralizedCoveringBackground;
 }
 
 // Sets the outer most dimensions in which
@@ -26,15 +26,16 @@
 #content-container {
     width: @externalWidth;
     height: @externalHeight;
-    .background-size(cover);
     .box(vertical,center, center);
+    .centralizedBackground;
 }
 
 #pages {
     width: @internalWidth;
     height: @internalHeight;
     overflow-y: scroll;
-    position:relative;
+    position: relative;
+    .centralizedBackground;
 }
 
 .header {

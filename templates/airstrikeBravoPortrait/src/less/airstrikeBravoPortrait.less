@@ -21,7 +21,7 @@
 
 #main {
     .box(horizontal, center, center);
-    .centralizedBackground;
+    .centralizedCoveringBackground;
 }
 
 // Holds all the content i.e. header, pages etc.
@@ -36,6 +36,7 @@
     height: @internalHeight;
     width: @internalWidth;
     overflow-y: scroll;
+    .centralizedBackground;
 }
 
 .header {
