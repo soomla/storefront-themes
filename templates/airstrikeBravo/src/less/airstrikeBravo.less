@@ -236,6 +236,7 @@
     overflow: hidden;
     .background-size(cover);
     .transition(height 0.2s ease-out); // Visible on page load. Should be assigned only to 'explandable' items
+    .hardware-accelerate;
 
     &.expanded {
         height: 2 * @collapsedHeight;
