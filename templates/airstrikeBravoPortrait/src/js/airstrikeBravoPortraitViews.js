@@ -448,7 +448,13 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
 
             // If the `render` flag is provided, i.e. a category
             // was externally added, render it!
-            if (options && options.render === true) this.appendCurrencyLinkView(view);
+            if (options && options.render === true) {
+                this.appendCurrencyLinkView(view);
+
+                // Refresh iscroll to support adding more currencies from dashboard
+                var menu = this.children.findByCustom("menu");
+                menu.refreshIScroll();
+            }
         },
 
         addCurrencyView : function(currency, options) {
