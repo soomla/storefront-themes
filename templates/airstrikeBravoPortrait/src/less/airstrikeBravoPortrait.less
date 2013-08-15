@@ -153,7 +153,7 @@
     width: (2 * (@itemPadding + @itemMargin) + @itemFace) * 2;
 
     li {
-        float: left;
+        display: inline-block;
         padding: @itemPadding;
         margin: @itemMargin;
         width: @itemFace;
@@ -192,7 +192,7 @@
     padding: 0;
     margin: 10px;
     overflow: auto;
-    min-height: @internalHeight;
+    height: @internalHeight;
     width: @internalWidth - (2 * @padding);
     
     &.menu{
@@ -201,7 +201,6 @@
         top: 0;
         left: 0;
 
-        min-height:@internalHeight;
         margin: 10px 20px;
 
         -webkit-transform: rotateX(0deg) rotateY(0deg);
@@ -220,7 +219,6 @@
     &.category{
         float: none;
         position: absolute;
-        height: @internalHeight;
         top: 0;
         left: 0;
         z-index: 800;

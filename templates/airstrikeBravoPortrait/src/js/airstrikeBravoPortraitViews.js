@@ -382,6 +382,9 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
             if (isMobile.iOS()) {
                 this.$(".item .description").css("line-height", "70px");
             }
+
+            // Initial iScroll refresh for menu
+            if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
         },
         // View event listeners
         buyItem : function (view) {
