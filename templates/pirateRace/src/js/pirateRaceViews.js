@@ -200,7 +200,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
             that.$(".balance-container label").html(model.get("balance"));
         },
         onClickBuyMore: function () {
-            this.showCurrencyPacks();
+            this.playSound().showCurrencyPacks();
         },
         changeViewToItem: function (itemId) {
             if (!itemId)
@@ -261,7 +261,6 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
             this.changeViewToItem(model.id);
         },
         showCurrencyPacks : function() {
-            this.playSound();
 
             // When this flag is raised, there is no connectivity,
             // thus don't show the currency store

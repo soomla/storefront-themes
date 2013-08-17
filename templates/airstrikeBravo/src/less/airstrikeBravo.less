@@ -18,7 +18,7 @@
 
 #main {
     .box(vertical,center, center);
-    .centralizedBackground;
+    .centralizedCoveringBackground;
 }
 
 // Sets the outer most dimensions in which
@@ -26,15 +26,16 @@
 #content-container {
     width: @externalWidth;
     height: @externalHeight;
-    .background-size(cover);
     .box(vertical,center, center);
+    .centralizedBackground;
 }
 
 #pages {
     width: @internalWidth;
     height: @internalHeight;
     overflow-y: scroll;
-    position:relative;
+    position: relative;
+    .centralizedBackground;
 }
 
 .header {
@@ -57,7 +58,7 @@
             top:0;
             color:#fff;
             margin:0;
-            
+            .hardware-accelerate;
             .transition(all .5s ease-in-out);
         }
         h1 {
@@ -191,6 +192,7 @@
     padding: 0;
     overflow: auto;
     height: @internalHeight;
+    .hardware-accelerate;
 
     &.menu {
         float: none;
@@ -236,12 +238,18 @@
     overflow: hidden;
     .background-size(cover);
     .transition(height 0.2s ease-out); // Visible on page load. Should be assigned only to 'explandable' items
+    .hardware-accelerate;
 
     &.expanded {
         height: 2 * @collapsedHeight;
 
         .expand-collapse {
             display: none;
+        }
+
+        .buy-container {
+            opacity: 1;
+            .scale(1);
         }
     }
 
@@ -294,8 +302,14 @@
     .item-price img {
 		.square(@priceHeight);
     }
-    .buy-container img {
-        .size(60px, 140px);
+    .buy-container {
+        .transition(all 0.4s ease-in-out);
+        opacity: 0;
+        .scale(0.8);
+
+        img {
+            .size(60px, 140px);
+        }
     }
 
     .expand-collapse, .toggle-equip {

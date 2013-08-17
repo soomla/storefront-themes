@@ -21,7 +21,7 @@
 
 #main {
     .box(horizontal, center, center);
-    .centralizedBackground;
+    .centralizedCoveringBackground;
 }
 
 // Holds all the content i.e. header, pages etc.
@@ -36,12 +36,14 @@
     height: @internalHeight;
     width: @internalWidth;
     overflow-y: scroll;
+    .centralizedBackground;
 }
 
 .header {
     @topBarHeight: 60px;
+    .box-sizing(border-box);
     width: @internalWidth;
-    height: @headerHeight - (2 * @padding);
+    height: @headerHeight;
     margin-bottom: 10px;
     padding: @padding;
     text-align: center;
@@ -64,7 +66,7 @@
             top:0;
             color:#fff;
             margin:0;
-            
+            .hardware-accelerate;
             .transition(all .5s ease-in-out);
         }
         h1 {
@@ -153,7 +155,7 @@
     width: (2 * (@itemPadding + @itemMargin) + @itemFace) * 2;
 
     li {
-        float: left;
+        display: inline-block;
         padding: @itemPadding;
         margin: @itemMargin;
         width: @itemFace;
@@ -192,8 +194,9 @@
     padding: 0;
     margin: 10px;
     overflow: auto;
-    min-height: @internalHeight;
+    height: @internalHeight;
     width: @internalWidth - (2 * @padding);
+    .hardware-accelerate;
     
     &.menu{
         float: none;
@@ -201,7 +204,6 @@
         top: 0;
         left: 0;
 
-        min-height:@internalHeight;
         margin: 10px 20px;
 
         -webkit-transform: rotateX(0deg) rotateY(0deg);
@@ -220,7 +222,6 @@
     &.category{
         float: none;
         position: absolute;
-        height: @internalHeight;
         top: 0;
         left: 0;
         z-index: 800;
@@ -271,12 +272,18 @@
     overflow: hidden;
     .background-size(100% 100%);
     .transition(height 0.2s ease-out);
+    .hardware-accelerate;
 
     &.expanded {
         height: 2 * @collapsedHeight;
 
         .expand-collapse {
             display: none;
+        }
+
+        .buy-container {
+            opacity: 1;
+            .scale(1);
         }
     }
 
@@ -335,6 +342,10 @@
         font-weight: bold;
         @width: 140px;
         width: @width;
+        .transition(all 0.4s ease-in-out);
+        opacity: 0;
+        .scale(0.8);
+
         img {
             .size(60px, @width);
         }

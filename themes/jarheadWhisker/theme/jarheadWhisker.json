@@ -174,7 +174,7 @@
             {
                 "purchasableItem": {
                     "pvi_itemId": "currency_coins",
-                    "pvi_amount": 15000,
+                    "pvi_amount": 9000,
                     "purchaseType": "virtualItem"
                 },
                 "name": "Rifle 4",

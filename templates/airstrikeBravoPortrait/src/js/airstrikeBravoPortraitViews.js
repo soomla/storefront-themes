@@ -378,10 +378,9 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
             _.each(this.nonConsumbaleLinks, function(view) {
                 menu.$el.append(view.render().el);
             });
-            // iPhone hack for problematic description line height
-            if (isMobile.iOS()) {
-                this.$(".item .description").css("line-height", "70px");
-            }
+
+            // Initial iScroll refresh for menu
+            if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
         },
         // View event listeners
         buyItem : function (view) {
@@ -403,7 +402,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
 
         appendCurrencyLinkView : function(link) {
             var menu = this.children.findByCustom("menu");
-            menu.$el.append(link.render().el);
+            menu.$itemViewContainer.append(link.render().el);
         },
 
         addCategoryView : function(category, options) {
@@ -449,7 +448,13 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
 
             // If the `render` flag is provided, i.e. a category
             // was externally added, render it!
-            if (options && options.render === true) this.appendCurrencyLinkView(view);
+            if (options && options.render === true) {
+                this.appendCurrencyLinkView(view);
+
+                // Refresh iscroll to support adding more currencies from dashboard
+                var menu = this.children.findByCustom("menu");
+                menu.refreshIScroll();
+            }
         },
 
         addCurrencyView : function(currency, options) {
