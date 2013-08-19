@@ -229,11 +229,11 @@
 
 @eqipImageWidth: 20px;
 @eqipImageHorizontalMargin: 10px;
+@collapsedHeight: 85px;
 
 .item {
     padding: 10px;
     @innerMargin: 15px;
-    @collapsedHeight: 85px;
     height: @collapsedHeight;
     overflow: hidden;
     .background-size(cover);
@@ -245,11 +245,6 @@
 
         .expand-collapse {
             display: none;
-        }
-
-        .buy-container {
-            opacity: 1;
-            .scale(1);
         }
     }
 
@@ -302,11 +297,8 @@
     .item-price img {
 		.square(@priceHeight);
     }
-    .buy-container {
-        .transition(all 0.4s ease-in-out);
-        opacity: 0;
-        .scale(0.8);
 
+    .buy-container {
         img {
             .size(60px, 140px);
         }
@@ -450,6 +442,23 @@
     }
 }
 
+
+.virtualGoods .item {
+
+    .buy-container {
+        .transition(all 0.4s ease-in-out);
+        opacity: 0;
+        .scale(0.8);
+    }
+
+    &.expanded {
+        .buy-container {
+            opacity: 1;
+            .scale(1);
+        }
+    }
+
+}
 
 // MODAL DIALOG
 // --------------------------------------------------
