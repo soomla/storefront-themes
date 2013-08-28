@@ -67,8 +67,11 @@ define("mindfulMuleViews", ["jquery", "backbone", "components", "helperViews", "
             this.goodsView.refreshIScroll();
         },
         changeActiveViewByModel : function() {},
-        changeViewTo : function() {},
-        changeViewToItem : function() {},
+        changeViewToItem: function (itemId) {
+            if (!itemId) return;
+            var good = this.model.goodsMap[itemId];
+            setTimeout(_.partial(this.goodsView.scrollToItemByModel, good, 500), 0);
+        },
         // View event listeners
         buyItem : function (view) {
             this.playSound().wantsToBuyItem(view.model.id);
@@ -90,92 +93,3 @@ define("mindfulMuleViews", ["jquery", "backbone", "components", "helperViews", "
         }
     };
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
- changeActiveViewByModel: function (model) {
- var view = this.children.findByCustom(model.id);
- this.changeViewTo(view);
- },
- changeViewTo: function (newview) {
- // Collapse open item in current category
- if (this.activeView.collapseExpandedChild)
- this.activeView.collapseExpandedChild({ noSound: true });
-
- if (this.activeView != newview) {
- var _activeMenu = this.activeView.$el.hasClass("menu");
- var _pages = this.activeView.$el.parents("div#pages");
-
- if (_activeMenu) {
- _pages.addClass("slide");
- // add class "on" to the relevant category only
- newview.$el.addClass("on");
- } else {
- if (newview.$el.hasClass("menu")) {
- // new view is menu
- _pages.removeClass("slide");
- } else {
- // switching between two views and NOT going thru menu...
- // add class "on" to the relevant category only
- newview.$el.addClass("on");
- }
- // remove class "on" from "old" category
- this.activeView.$el.removeClass("on");
- }
-
- newview.$el.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
- newview.$el.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
- $(_pages).animate({ scrollTop: 0 }, "slow");
- });
-
- this.activeView = newview;
- if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
- }
- },
- changeViewToItem: function (itemId) {
- if (!itemId) return;
-
- var currencyPacksItem = this.model.marketItemsMap[itemId];
- if (currencyPacksItem) {
- var currency = currencyPacksItem.getCurrencyId();
- this.showCurrencyPacks(currency);
- this.activeView.scrollToItemByModel(currencyPacksItem, 500);
- return;
- }
-
- var goodsItem = this.model.goodsMap[itemId];
- if (!goodsItem) {
- console.log('View was not changed. Could not find item: "' + itemId + '".');
- return;
- }
-
- var category = this.model.categoryMap[itemId],
- view     = this.children.findByCustom(category.id);
-
- // Change to view of given category
- this.changeViewTo(view);
- this.activeView.scrollToItemByModel(goodsItem, 500);
- },
-
-*/
