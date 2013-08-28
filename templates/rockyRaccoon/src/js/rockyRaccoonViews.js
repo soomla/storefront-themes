@@ -31,7 +31,7 @@ define("rockyRaccoonViews", ["jquery", "backbone", "components", "helperViews", 
                 }).addClass("changed");
             }
         }),
-        GoodsCollectionView         = Components.HorizontalIScrollCollectionView.extend({
+        GoodsCollectionView = Components.HorizontalIScrollCollectionView.extend({
             template: getTemplate("collection"),
             getItemView: function(item) {
 

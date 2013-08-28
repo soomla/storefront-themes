@@ -1,7 +1,7 @@
 @import "css/mixins/bootstrap/variables.less";
 @import "css/mixins/bootstrap/mixins.less";
 @import "css/mixins/layout.less";
-.mozScrollbar;
+.webkitScrollbar;
 
 // THEME VARIABLES
 // --------------------------------------------------
@@ -73,13 +73,13 @@
     &.lifetime {
 
         // State: not owned
-        .owned {
+        .item-owned {
             display: none;
         }
 
         // State: owned
         &.owned {
-            .owned {
+            .item-owned {
                 display: inherit;
             }
             .item-price {

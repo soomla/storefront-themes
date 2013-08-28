@@ -104,7 +104,7 @@
             "ownedLabelStyle" : {
                 "type" : "css",
                 "title" : "Item Owned Label Style",
-                "selector" : ".item .owned",
+                "selector" : ".item-owned",
                 "section" : "singleItems"
             },
             "balanceLabelStyle" : {
