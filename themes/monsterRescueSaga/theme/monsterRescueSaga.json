@@ -1,0 +1,80 @@
+{
+    "currencyPacks" : [],
+    "currencies" : [],
+    "goods" : {
+        "goodUpgrades" : [],
+        "lifetime" : [
+            {
+                "purchasableItem": {
+                    "marketItem": {
+                        "consumable": 1,
+                        "price": 0.99,
+                        "androidId": "android.test.purchased",
+                        "iosId": "water_feeling"
+                    },
+                    "purchaseType": "market"
+                },
+                "name"              : "Water Feeling",
+                "itemId"            : "water_feeling",
+                "description"       : "Float your monster over swamps and riverbeds"
+            },
+            {
+                "purchasableItem": {
+                    "marketItem": {
+                        "consumable": 1,
+                        "price": 1.99,
+                        "androidId": "android.test.purchased",
+                        "iosId": "fire_feeling"
+                    },
+                    "purchaseType": "market"
+                },
+                "name"              : "Fire Feeling",
+                "itemId"            : "fire_feeling",
+                "description"       : "Scorch your enemies with fire balls"
+            },
+            {
+                "purchasableItem": {
+                    "marketItem": {
+                        "consumable": 1,
+                        "price": 2.99,
+                        "androidId": "android.test.purchased",
+                        "iosId": "earth_feeling"
+                    },
+                    "purchaseType": "market"
+                },
+                "name"              : "Earth Feeling",
+                "itemId"            : "earth_feeling",
+                "description"       : "Dig tunnels to escape the sand storms"
+            }
+        ],
+        "equippable" : [],
+        "singleUse" : [
+            {
+                "purchasableItem": {
+                    "marketItem": {
+                        "consumable": 1,
+                        "price": 3.99,
+                        "androidId": "android.test.purchased",
+                        "iosId": "sky_feeling"
+                    },
+                    "purchaseType": "market"
+                },
+                "name"              : "Sky Feeling",
+                "itemId"            : "sky_feeling",
+                "description"       : "Fly above potholes and spike pits"
+            }
+        ],
+        "goodPacks" : []
+    },
+    "categories" : [
+        {
+            "goods_itemIds": [
+                "water_feeling",
+                "fire_feeling",
+                "earth_feeling",
+                "sky_feeling"
+            ],
+            "name" : "general"
+        }
+    ]
+}

@@ -1,0 +1,186 @@
+@import "css/mixins/bootstrap/variables.less";
+@import "css/mixins/bootstrap/mixins.less";
+@import "css/mixins/layout.less";
+.mozScrollbar;
+
+// THEME VARIABLES
+// --------------------------------------------------
+
+// Theme dimensions: 1536 x 2048
+@externalWidth:     1600px;
+@externalHeight:    960px;
+
+
+// GENERAL LAYOUT
+// --------------------------------------------------
+
+#main {
+    .centralizedCoveringBackground;
+    .box(vertical,center, center);
+}
+
+
+// Sets the outer most dimensions in which
+// all the content is held i.e. header, pages etc.
+#content-container {
+    position: relative;
+    .size(@externalHeight, @externalWidth);
+    .centralizedCoveringBackground;
+    .box(vertical,center);
+}
+
+#quit-button {
+    position: absolute;
+    z-index: 1;
+}
+
+.items {
+    .box-flex(1);
+    margin: 30px 50px;
+}
+
+
+// SINGLE LIST ITEMS - VIRTUAL GOODS
+// --------------------------------------------------
+
+.item {
+
+    @width: 480px;
+    @height: 900px;
+
+    .size(@height, @width);
+    position: relative;
+
+    margin: 0 10px;
+    float: left;
+    .box;
+    .centralizedCoveringBackground;
+
+    & > * {
+        .box-sizing(border-box);
+    }
+
+    .item-image {
+        .size(@height, @width);
+    }
+
+    .item-name, .item-description, .item-price, .item-owned, .item-balance-container {
+        .hyphens;
+        .box(vertical, center, center);
+    }
+
+    // Lifetime items have two states: not owned and owned, that are toggled by adding classes to the element
+    &.lifetime {
+
+        // State: not owned
+        .owned {
+            display: none;
+        }
+
+        // State: owned
+        &.owned {
+            .owned {
+                display: inherit;
+            }
+            .item-price {
+                display: none;
+            }
+        }
+    }
+
+    // Single use items
+    &.single-use {
+
+        // When an item's balance changes, animate it for emphasis
+        .item-balance {
+            display: inline-block;
+
+            &.changed {
+                .animate(pulse 1s);
+            }
+        }
+    }
+}
+
+
+// Balance label animation
+// --------------------------------------------------
+
+@-webkit-keyframes pulse {
+    20% { -webkit-transform: scale(2.5); }
+    40% { -webkit-transform: scale(1); }
+    50% { -webkit-transform: scale(2); }
+    70% { -webkit-transform: scale(1); }
+    80% { -webkit-transform: scale(1.4); }
+    90% { -webkit-transform: scale(1); }
+    94% { -webkit-transform: scale(1.2); }
+    100% { -webkit-transform: scale(1); }
+}
+@-moz-keyframes pulse {
+    20% { -moz-transform: scale(2.5); }
+    40% { -moz-transform: scale(1); }
+    50% { -moz-transform: scale(2); }
+    70% { -moz-transform: scale(1); }
+    80% { -moz-transform: scale(1.4); }
+    90% { -moz-transform: scale(1); }
+    94% { -moz-transform: scale(1.2); }
+    100% { -moz-transform: scale(1); }
+}
+@-o-keyframes pulse {
+    20% { -o-transform: scale(2.5); }
+    40% { -o-transform: scale(1); }
+    50% { -o-transform: scale(2); }
+    70% { -o-transform: scale(1); }
+    80% { -o-transform: scale(1.4); }
+    90% { -o-transform: scale(1); }
+    94% { -o-transform: scale(1.2); }
+    100% { -o-transform: scale(1); }
+}
+@keyframes pulse {
+    20% { transform: scale(2.5); }
+    40% { transform: scale(1); }
+    50% { transform: scale(2); }
+    70% { transform: scale(1); }
+    80% { transform: scale(1.4); }
+    90% { transform: scale(1); }
+    94% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+
+// MODAL DIALOG
+// --------------------------------------------------
+.modal {
+    .square(100%);
+    position: absolute;
+    .offset(0, 0);
+    .box(horizontal, center, center);
+    z-index: 2001;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.dialog {
+    .size(400px, 800px);
+    .box(vertical, center, center);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    h1 {
+        font-size: 60px;
+        text-align: center;
+        width: 480px;
+    }
+
+    .item-description {
+        .box-flex(1);
+        .box(vertical, center, center);
+    }
+
+    .actions {
+        margin-top: 10px;
+        img {
+            .maxSize(50px, 200px);
+            cursor: pointer;
+        }
+    }
+}
