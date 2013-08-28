@@ -35,7 +35,7 @@
             "descriptionStyle" : "position: absolute; top: 100px; width: 100%; padding: 0 50px; font-size: 26px; color: #fff; text-align: center;",
             "priceStyle" : "position: absolute; top: 720px; width: 100%; height: 180px; font-size: 50px; font-weight: bold; color: #fff; text-align: center;",
             "ownedLabelStyle" : "position: absolute; top: 720px; width: 100%; height: 180px; font-size: 50px; font-weight: bold; color: #fff; text-align: center;",
-            "balanceLabelStyle" : "position: absolute; top: 720px; width: 100%; height: 180px; font-size: 50px; font-weight: bold; color: #fff; text-align: center;"
+            "balanceLabelStyle" : "position: absolute; top: 650px; width: 100%; font-size: 40px; color: #fff; text-align: center; text-shadow: 0 0 15px black;"
         }
     }
 
