@@ -1,7 +1,7 @@
 {
     "template" : {
         "name" : "rockyRaccoon",
-		"orientation" : "portrait"
+		"orientation" : "landscape"
     },
     "modelAssets" : {
         "categories" : {},
