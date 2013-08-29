@@ -352,7 +352,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
             this.playSound().wantsToRestorePurchases();
         },
         zoomFunction : function() {
-            return Math.min(innerWidth / 560, 1);
+            return (innerHeight / innerWidth) > 1.5 ? (innerWidth / 640) : (innerHeight / 960);
         },
 
 
