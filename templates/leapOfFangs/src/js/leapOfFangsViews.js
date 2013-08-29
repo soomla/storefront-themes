@@ -52,7 +52,6 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
                 this.switchActive().trigger("previous");
             },
             switchActive        : function() {
-                console.log(this.direction);
                 var that = this;
                 that.activeChild.$el.removeClass("isOn");
                 var oldActiveChild = that.activeChild;
@@ -88,7 +87,6 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
                 if (this.activeChild) {
 
                     this.children.each(function(view, idx) {
-                        //console.log("view", view, idx)
                         view.$el.addClass("appearLeftTransition");
                     }, this);
                     this.activeChild.$el.removeClass("appearLeftTransition");
