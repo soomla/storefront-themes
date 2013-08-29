@@ -10,7 +10,7 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
 
     var getTemplate                 = Handlebars.getTemplate,
         SingleUseVirtualGoodView    = Components.ItemView.extend({template : getTemplate("singleUseItem"), triggers : { fastclick : "buy" } }),
-        LifetimeVirtualGoodView     = Components.LifetimeItemView.extend({ template : getTemplate("lifetimeItem"), triggers : {fastclick : "buy"} }),
+        LifetimeVirtualGoodView     = Components.NewLifetimeItemView.extend({ template : getTemplate("lifetimeItem") }),
         GoodsCollectionView         = Components.IScrollCollectionView.extend({
             template: getTemplate("collection"),
             getItemView: function(item) {
