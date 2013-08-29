@@ -10,7 +10,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
 
     var HeaderView                      = HelperViews.HeaderView,
         getTemplate                     = Handlebars.getTemplate,
-        ExpandableEquippableItemView    = Components.ExpandableEquipppableItemView,
+        ExpandableEquippableItemView    = Components.ExpandableEquippableItemView,
         ExpandableSingleUseItemView     = Components.ExpandableSingleUseItemView,
         EquippableVirtualGoodView       = ExpandableEquippableItemView.extend({ template : getTemplate("equippableItem") }),
         SingleUseVirtualGoodView        = ExpandableSingleUseItemView.extend({ template : getTemplate("singleUseItem")}),
