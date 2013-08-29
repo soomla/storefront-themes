@@ -50,14 +50,17 @@
 
     .size(@height, @width);
     position: relative;
-
-    margin: 0 10px;
     float: left;
     .box;
     .centralizedCoveringBackground;
 
+    // Allow developers to add padding and border without affecting the templates general layout
+    .box-sizing(border-box);
+    .background-origin(border-box);
+
     & > * {
         .box-sizing(border-box);
+        .background-origin(border-box);
     }
 
     .item-image {

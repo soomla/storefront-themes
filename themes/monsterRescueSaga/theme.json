@@ -30,7 +30,7 @@
             "fonts/verdana_0.ttf"
 	    ],
         "item" : {
-            "itemStyle" : "",
+            "itemStyle" : "margin: 0 10px;",
             "nameStyle" : "position: absolute; top: 0; left: 0; width: 100%; height: 130px; font-size: 60px; color: #fff; text-align: center;",
             "descriptionStyle" : "position: absolute; top: 100px; left: 0; width: 100%; padding: 0 50px; font-size: 26px; color: #fff; text-align: center;",
             "priceStyle" : "position: absolute; top: 720px; left: 0; width: 100%; height: 180px; font-size: 50px; font-weight: bold; color: #fff; text-align: center;",
