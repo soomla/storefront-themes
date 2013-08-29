@@ -12,7 +12,7 @@ define("rockyRaccoonViews", ["jquery", "backbone", "components", "helperViews", 
     // Define view types
 
     var getTemplate                 = Handlebars.getTemplate,
-        LifetimeVirtualGoodView     = Components.NewLifetimeItemView.extend({ template : getTemplate("lifetimeItem")}),
+        LifetimeVirtualGoodView     = Components.LifetimeItemView.extend({ template : getTemplate("lifetimeItem"), triggers : {fastclick : "buy"} }),
         SingleUseVirtualGoodView    = Components.ItemView.extend({
             className : "item single-use",
             template : getTemplate("singleUseItem"),
