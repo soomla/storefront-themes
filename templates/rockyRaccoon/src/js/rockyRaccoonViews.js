@@ -52,6 +52,11 @@ define("rockyRaccoonViews", ["jquery", "backbone", "components", "helperViews", 
                     }
                     return itemView;
                 }
+            },
+            calculateIscrollWidth : function(childCount, childWidth) {
+
+                // Add an extra 25px for each element because of width problems in the dashboard
+                return (childWidth + 25) * childCount;
             }
         });
 
