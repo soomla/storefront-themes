@@ -16,7 +16,7 @@
                 },
                 "name"              : "Water Feeling",
                 "itemId"            : "water_feeling",
-                "description"       : "Float your monster over swamps and riverbeds"
+                "description"       : "Float your monster over swamps"
             },
             {
                 "purchasableItem": {
@@ -30,7 +30,7 @@
                 },
                 "name"              : "Fire Feeling",
                 "itemId"            : "fire_feeling",
-                "description"       : "Scorch your enemies with fire balls"
+                "description"       : "Scorch enemies with fire balls"
             },
             {
                 "purchasableItem": {
@@ -44,7 +44,7 @@
                 },
                 "name"              : "Earth Feeling",
                 "itemId"            : "earth_feeling",
-                "description"       : "Dig tunnels to escape the sand storms"
+                "description"       : "Dig tunnels to escape sand storms"
             }
         ],
         "equippable" : [],
