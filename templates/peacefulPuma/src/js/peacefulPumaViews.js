@@ -20,7 +20,7 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
                 balance : ".item-balance"
             },
             addEvents : function() {
-                Components.ItemView.prototype.addEvents.apply(this);
+                Components.SingleUseItemView.prototype.addEvents.apply(this);
                 this.listenTo(this.model, "change:balance", this.animateBalance, this);
             },
             animateBalance : function() {

@@ -20,11 +20,8 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             // Local triggers not included, they are inherited from EquippableItemView
             template : getTemplate("equippableItem")
         }),
-        CurrencyPackView = Components.ItemView.extend({
-            triggers : { "fastclick .buy" : "buy" },
-            template : getTemplate("currencyPack")
-        }),
-        CategoryMenuItemView = Components.ItemView.extend({
+        CurrencyPackView = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack") }),
+        CategoryMenuItemView = Components.LinkView.extend({
             template : getTemplate("categoryMenuItem")
         }),
         CurrencyMenuItemView = CategoryMenuItemView.extend(),

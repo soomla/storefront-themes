@@ -43,7 +43,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
         }),
         EquippableVirtualGoodView   = Components.EquippableItemView.extend({ template : getTemplate("equippableItem")}),
         LifetimeVirtualGoodView     = Components.LifetimeItemView.extend({ template : getTemplate("equippableItem")}),
-        CurrencyPackView            = Components.ItemView.extend({ template : getTemplate("currencyPack") }),
+        CurrencyPackView            = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack"), triggers : {fastclick : "buy"} }),
         NonConsumableView           = Components.BuyOnceItemView.extend({template : getTemplate("nonConsumableItem") }),
         RestorePurchasesView        = Components.LinkView.extend({
             tagName: "div",
@@ -380,7 +380,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
                 className           : "items currencyPacks",
                 collection          : currency.get("packs"),
                 itemView            : CurrencyPackView
-            }).on("itemview:select", this.buyItem);
+            }).on("itemview:buy", this.buyItem);
 
             this.currencyPacksViews.add(view, currency.id);
 

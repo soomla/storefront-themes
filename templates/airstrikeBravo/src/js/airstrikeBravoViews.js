@@ -16,7 +16,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
         SingleUseVirtualGoodView        = ExpandableSingleUseItemView.extend({ template : getTemplate("singleUseItem")}),
         UpgradableItemView              = Components.ExpandableUpgradableItemView.extend({ template : getTemplate("upgradableItem")}),
         LifetimeVirtualGoodView         = Components.ExpandableLifetimeItemView.extend({ template : getTemplate("equippableItem")}),
-        CurrencyPackView                = Components.ItemView.extend({ template : getTemplate("currencyPack"), triggers : {"fastclick .buy" : "buy"} }),
+        CurrencyPackView                = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack") }),
         CategoryView                    = Components.LinkView.extend({ template : getTemplate("categoryMenuItem") }),
         NonConsumableView               = Components.BuyOnceItemView.extend({ template : getTemplate("nonConsumableItem")}),
         IScrollCollectionView           = Components.IScrollCollectionView.extend({ template: getTemplate("collection") }),
