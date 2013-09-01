@@ -9,7 +9,7 @@ define("mindfulMuleViews", ["jquery", "backbone", "components", "helperViews", "
     // Define view types
 
     var getTemplate         = Handlebars.getTemplate,
-        GoodView            = Components.ItemView.extend({ template : getTemplate("good"), triggers : {"fastclick .buy" : "buy"} }),
+        GoodView            = Components.LifetimeItemView.extend({ template : getTemplate("good") }),
         GoodsCollectionView = Components.IScrollCollectionView.extend({ template: getTemplate("collection") });
 
 

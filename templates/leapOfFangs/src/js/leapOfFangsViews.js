@@ -9,11 +9,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
     // Define view types
 
     var getTemplate = Handlebars.getTemplate,
-        triggers = { "fastclick .buy" : "buy" },
-        SingleUseVirtualGoodView = Components.ItemView.extend({
-            triggers : triggers,
-            template : getTemplate("item")
-        }),
+        SingleUseVirtualGoodView = Components.SingleUseItemView.extend({ template : getTemplate("item") }),
         EquippableItemView = Components.EquippableItemView.extend({
 
             // Local triggers not included, they are inherited from EquippableItemView
@@ -25,7 +21,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             template : getTemplate("equippableItem")
         }),
         CurrencyPackView = Components.ItemView.extend({
-            triggers : triggers,
+            triggers : { "fastclick .buy" : "buy" },
             template : getTemplate("currencyPack")
         }),
         CategoryMenuItemView = Components.ItemView.extend({

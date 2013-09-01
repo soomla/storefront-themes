@@ -9,10 +9,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
     // Define view types
 
     var getTemplate = Handlebars.getTemplate,
-        SingleUseVirtualGoodView = Components.ItemView.extend(_.extend({
-            template : getTemplate("item"),
-            triggers : { "fastclick .buy" : "buy" }
-        })),
+        SingleUseVirtualGoodView = Components.SingleUseItemView.extend({ template : getTemplate("item") }),
         SectionedListView = Components.BaseCompositeView.extend({
             className           : "items virtualGoods",
             template            : getTemplate("listContainer"),
