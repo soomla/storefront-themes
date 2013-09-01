@@ -140,13 +140,13 @@
             "oddOwnedLabelStyle" : {
                 "type" : "css",
                 "title" : "Odd Item Owned Label Style",
-                "selector" : ".item:nth-child(odd) .owned",
+                "selector" : ".item:nth-child(odd) .item-owned",
                 "section" : "singleItems"
             },
             "evenOwnedLabelStyle" : {
                 "type" : "css",
                 "title" : "Even Item Owned Label Style",
-                "selector" : ".item:nth-child(even) .owned",
+                "selector" : ".item:nth-child(even) .item-owned",
                 "section" : "singleItems"
             }
         }

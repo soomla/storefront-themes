@@ -88,7 +88,7 @@
         .box(vertical, center);
     }
 
-    .item-price, .owned {
+    .item-price, .item-owned {
         position: absolute;
         .box(vertical, center, center);
     }
@@ -101,13 +101,13 @@
     &.lifetime {
 
         // State: not owned
-        .owned {
+        .item-owned {
             display: none;
         }
 
         // State: owned
         &.owned {
-            .owned {
+            .item-owned {
                 display: inline-block;
                 .animate(pulse 1s);
             }
