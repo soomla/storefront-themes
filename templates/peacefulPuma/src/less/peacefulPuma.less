@@ -7,8 +7,8 @@
 // --------------------------------------------------
 
 // Theme dimensions: 1536 x 2048
-@externalWidth:     1420px;
-@externalHeight:    1080px;
+@externalWidth:     1400px;
+@externalHeight:    1800px;
 
 
 // GENERAL LAYOUT
@@ -45,8 +45,8 @@
 
 .item {
 
-    @width: 775px;
-    @height: 300px;
+    @width: 1033px;
+    @height: 400px;
     @edge: @height;
     .size(@height, @width);
     position: relative;
@@ -56,6 +56,7 @@
     .box;
     .centralizedCoveringBackground;
     clear: both;
+    cursor: pointer;
 
     &:first-child {
         margin-top: 0;
@@ -108,12 +109,71 @@
         &.owned {
             .owned {
                 display: inline-block;
+                .animate(pulse 1s);
             }
             .item-price {
                 display: none;
             }
         }
     }
+
+    // Single use items
+    &.single-use {
+
+    // When an item's balance changes, animate it for emphasis
+        .item-balance {
+            display: inline-block;
+
+            &.changed {
+                .animate(pulse 1s);
+            }
+        }
+    }
+}
+
+
+// Balance label animation
+// --------------------------------------------------
+
+@-webkit-keyframes pulse {
+    20% { -webkit-transform: scale(2.5); }
+    40% { -webkit-transform: scale(1); }
+    50% { -webkit-transform: scale(2); }
+    70% { -webkit-transform: scale(1); }
+    80% { -webkit-transform: scale(1.4); }
+    90% { -webkit-transform: scale(1); }
+    94% { -webkit-transform: scale(1.2); }
+    100% { -webkit-transform: scale(1); }
+}
+@-moz-keyframes pulse {
+    20% { -moz-transform: scale(2.5); }
+    40% { -moz-transform: scale(1); }
+    50% { -moz-transform: scale(2); }
+    70% { -moz-transform: scale(1); }
+    80% { -moz-transform: scale(1.4); }
+    90% { -moz-transform: scale(1); }
+    94% { -moz-transform: scale(1.2); }
+    100% { -moz-transform: scale(1); }
+}
+@-o-keyframes pulse {
+    20% { -o-transform: scale(2.5); }
+    40% { -o-transform: scale(1); }
+    50% { -o-transform: scale(2); }
+    70% { -o-transform: scale(1); }
+    80% { -o-transform: scale(1.4); }
+    90% { -o-transform: scale(1); }
+    94% { -o-transform: scale(1.2); }
+    100% { -o-transform: scale(1); }
+}
+@keyframes pulse {
+    20% { transform: scale(2.5); }
+    40% { transform: scale(1); }
+    50% { transform: scale(2); }
+    70% { transform: scale(1); }
+    80% { transform: scale(1.4); }
+    90% { transform: scale(1); }
+    94% { transform: scale(1.2); }
+    100% { transform: scale(1); }
 }
 
 

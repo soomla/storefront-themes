@@ -1,4 +1,4 @@
-define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", "handlebars", "templates"], function($, Backbone, Components, HelperViews, Handlebars) {
+define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", "handlebars", "cssUtils", "templates"], function($, Backbone, Components, HelperViews, Handlebars, CssUtils) {
 
     //
     // grunt-rigger directive - DO NOT DELETE
@@ -6,11 +6,31 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
     //
 
 
+    var animationend = CssUtils.getAnimationendEvent();
+
+
     // Define view types
 
     var getTemplate                 = Handlebars.getTemplate,
-        SingleUseVirtualGoodView    = Components.ItemView.extend({template : getTemplate("singleUseItem"), triggers : { fastclick : "buy" } }),
         LifetimeVirtualGoodView     = Components.LifetimeItemView.extend({ template : getTemplate("lifetimeItem"), triggers : {fastclick : "buy"}  }),
+        SingleUseVirtualGoodView    = Components.ItemView.extend({
+            className : "item single-use",
+            template : getTemplate("singleUseItem"),
+            triggers : { fastclick : "buy" },
+            ui : {
+                balance : ".item-balance"
+            },
+            addEvents : function() {
+                Components.ItemView.prototype.addEvents.apply(this);
+                this.listenTo(this.model, "change:balance", this.animateBalance, this);
+            },
+            animateBalance : function() {
+                var balance = this.ui.balance;
+                balance.one(animationend, function() {
+                    balance.removeClass("changed");
+                }).addClass("changed");
+            }
+        }),
         GoodsCollectionView         = Components.IScrollCollectionView.extend({
             template: getTemplate("collection"),
             getItemView: function(item) {

@@ -8,7 +8,8 @@
         "items" : {
             "harmony" : "img/doll_1.png",
             "dolly" : "img/doll_2.png",
-            "angel" : "img/doll_3.png"
+            "angel" : "img/doll_3.png",
+            "sunshine" : "img/doll_4.png"
 	    }
     },
     "theme" : {
@@ -31,16 +32,16 @@
         "item" : {
             "oddBackgroundImage" : "img/ItemBG_Right.png",
             "evenBackgroundImage" : "img/ItemBG_Left.png",
-            "oddNameStyle" : "font-size: 50px; font-weight: bold; margin: 70px 0 0 10px; color: #fff;",
-            "oddDescriptionStyle" : "font-size: 40px; margin: 0 0 0 10px; color: #fff;",
-            "evenNameStyle" : "font-size: 50px; font-weight: bold; margin: 70px 0 0 30px; color: #fff;",
-            "evenDescriptionStyle" : "font-size: 40px; margin: 0 0 0 30px; color: #fff;",
-            "oddPriceStyle" : "bottom: 25px; right: 30px; font-size: 50px; font-weight: bold; color: #fff;",
-            "evenPriceStyle" : "bottom: 25px; left: 30px; font-size: 50px; font-weight: bold; color: #fff;",
-            "oddBalanceLabelStyle" : "font-size: 30px; font-weight: bold; color: yellow;",
-            "evenBalanceLabelStyle" : "font-size: 30px; font-weight: bold; color: yellow;",
-            "oddOwnedLabelStyle" : "bottom: 32px; right: 20px; font-size: 40px; font-weight: bold; color: #fff;",
-            "evenOwnedLabelStyle" : "bottom: 32px; left: 20px; font-size: 40px; font-weight: bold; color: #fff;"
+            "oddNameStyle" : "font-size: 72px; font-weight: bold; margin: 100px 0 0 -50px; color: #fff;",
+            "oddDescriptionStyle" : "font-size: 60px; color: #fff; margin: 0 0 0 -50px",
+            "evenNameStyle" : "font-size: 72px; font-weight: bold; margin: 100px 0 0 30px; color: #fff;",
+            "evenDescriptionStyle" : "font-size: 60px; margin: 0 0 0 30px; color: #fff;",
+            "oddPriceStyle" : "bottom: 60px; right: 30px; font-size: 50px; font-weight: bold; color: #fff;",
+            "evenPriceStyle" : "bottom: 60px; left: 40px; font-size: 50px; font-weight: bold; color: #fff;",
+            "oddBalanceLabelStyle" : "position: absolute; top: 120px; right: 40px; font-size: 40px; font-weight: bold; color: yellow;",
+            "evenBalanceLabelStyle" : "position: absolute; top: 120px; left: 420px; font-size: 40px; font-weight: bold; color: yellow;",
+            "oddOwnedLabelStyle" : "bottom: 65px; right: 20px; font-size: 40px; font-weight: bold; color: #fff;",
+            "evenOwnedLabelStyle" : "bottom: 65px; left: 30px; font-size: 40px; font-weight: bold; color: #fff;"
         }
     }
 

@@ -22,7 +22,7 @@ define("rockyRaccoonViews", ["jquery", "backbone", "components", "helperViews", 
             },
             addEvents : function() {
                 Components.ItemView.prototype.addEvents.apply(this);
-                this.model.on("change:balance", this.animateBalance, this);
+                this.listenTo(this.model, "change:balance", this.animateBalance, this);
             },
             animateBalance : function() {
                 var balance = this.ui.balance;

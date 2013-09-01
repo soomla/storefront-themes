@@ -128,13 +128,13 @@
             "oddBalanceLabelStyle" : {
                 "type" : "css",
                 "title" : "Odd Item Balance Label Style",
-                "selector" : ".item:nth-child(odd) .balance-container",
+                "selector" : ".item:nth-child(odd) .item-balance-container",
                 "section" : "singleItems"
             },
             "evenBalanceLabelStyle" : {
                 "type" : "css",
                 "title" : "Even Item Balance Label Style",
-                "selector" : ".item:nth-child(even) .balance-container",
+                "selector" : ".item:nth-child(even) .item-balance-container",
                 "section" : "singleItems"
             },
             "oddOwnedLabelStyle" : {

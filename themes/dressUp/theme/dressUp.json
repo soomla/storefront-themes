@@ -45,6 +45,20 @@
                 "name"              : "Angel",
                 "itemId"            : "angel",
                 "description"       : "Simple is beautiful"
+            },
+            {
+                "purchasableItem": {
+                    "marketItem": {
+                        "consumable": 1,
+                        "price": 3.99,
+                        "androidId": "android.test.purchased",
+                        "iosId": "sunshine"
+                    },
+                    "purchaseType": "market"
+                },
+                "name"              : "Sunshine",
+                "itemId"            : "sunshine",
+                "description"       : "Enlightened charm"
             }
         ],
         "equippable" : [],
@@ -56,7 +70,8 @@
             "goods_itemIds": [
                 "harmony",
                 "dolly",
-                "angel"
+                "angel",
+                "sunshine"
             ],
             "name" : "general"
         }
