@@ -360,9 +360,10 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
 
         addCategoryView : function(category, options) {
 
+            var goods = category.get("goods");
             var view = new SectionedListView({
                 model 				: category,
-                collection          : category.get("goods"),
+                collection          : goods,
                 templateHelpers     : this.theme.categories
             }).on({
                 "itemview:buy" 		: this.buyItem,
@@ -374,11 +375,16 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
             // If the `render` flag is provided, i.e. a category
             // was externally added, render it!
             if (options && options.render === true) this.appendCategoryView(view);
+
+            this.listenTo(goods, "add remove", function() {
+                this.iscrolls.goods.refresh();
+            }, this);
         },
         addCurrencyView : function(currency, options) {
+            var packs = currency.get("packs");
             var view = new Components.CollectionView({
                 className           : "items currencyPacks",
-                collection          : currency.get("packs"),
+                collection          : packs,
                 itemView            : CurrencyPackView
             }).on("itemview:buy", this.buyItem);
 
@@ -387,6 +393,10 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
             // If the `render` flag is provided, i.e. a category
             // was externally added, render it!
             if (options && options.render === true) this.appendCurrencyView(view);
+
+            this.listenTo(packs, "add remove", function() {
+                this.iscrolls.packs.refresh();
+            }, this);
         },
         removeCategoryView : function(category) {
             var view = this.categoryViews.findByCustom(category.id);
