@@ -1,0 +1,41 @@
+{
+    "template" : {
+        "name" : "rockyRaccoon",
+		"orientation" : "landscape"
+    },
+    "modelAssets" : {
+        "categories" : {},
+        "items" : {
+            "water_feeling" : "img/Item1.png",
+            "fire_feeling" : "img/Item2.png",
+            "earth_feeling" : "img/Item3.png",
+            "sky_feeling" : "img/Item4.png"
+	    }
+    },
+    "theme" : {
+        "name" : "monsterRescueSaga",
+        "version" : 1,
+        "quitButtonStyle" : "top: -90px; right: -80px;",
+        "loadingModal" : {
+            "background" : "img/modalBG.png",
+            "textStyle" : "text-shadow: 1px 2px #808080"
+        },
+        "images" : {
+            "quitImage" : "img/Quit.png",
+            "itemAreaBackground": "img/Content_BG.png"
+        },
+	    "fonts" : [
+            "fonts/Folks-Bold.ttf",
+            "fonts/verdana_0.ttf"
+	    ],
+        "item" : {
+            "itemStyle" : "margin: 0 10px;",
+            "nameStyle" : "position: absolute; top: 30px; left: 0; width: 100%; height: 130px; font-size: 70px; color: #fff; text-align: center;",
+            "descriptionStyle" : "position: absolute; top: 180px; left: 0; width: 100%; padding: 0 50px; font-size: 36px; color: #fff; text-align: center; text-shadow: 0 0 15px black; display: none;",
+            "priceStyle" : "position: absolute; top: 720px; left: 0; width: 100%; height: 180px; font-size: 50px; font-weight: bold; color: #fff; text-align: center;",
+            "ownedLabelStyle" : "position: absolute; top: 720px; left: 0; width: 100%; height: 180px; font-size: 50px; font-weight: bold; color: #fff; text-align: center;",
+            "balanceLabelStyle" : "position: absolute; top: 650px; left: 0; width: 100%; font-size: 40px; color: #fff; text-align: center; text-shadow: 0 0 15px black;"
+        }
+    }
+
+}

@@ -9,11 +9,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
     // Define view types
 
     var getTemplate = Handlebars.getTemplate,
-        triggers = { "fastclick .buy" : "buy" },
-        SingleUseVirtualGoodView = Components.ItemView.extend({
-            triggers : triggers,
-            template : getTemplate("item")
-        }),
+        SingleUseVirtualGoodView = Components.SingleUseItemView.extend({ template : getTemplate("item") }),
         EquippableItemView = Components.EquippableItemView.extend({
 
             // Local triggers not included, they are inherited from EquippableItemView
@@ -24,11 +20,8 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             // Local triggers not included, they are inherited from EquippableItemView
             template : getTemplate("equippableItem")
         }),
-        CurrencyPackView = Components.ItemView.extend({
-            triggers : triggers,
-            template : getTemplate("currencyPack")
-        }),
-        CategoryMenuItemView = Components.ItemView.extend({
+        CurrencyPackView = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack") }),
+        CategoryMenuItemView = Components.LinkView.extend({
             template : getTemplate("categoryMenuItem")
         }),
         CurrencyMenuItemView = CategoryMenuItemView.extend(),
@@ -52,7 +45,6 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
                 this.switchActive().trigger("previous");
             },
             switchActive        : function() {
-                console.log(this.direction);
                 var that = this;
                 that.activeChild.$el.removeClass("isOn");
                 var oldActiveChild = that.activeChild;
@@ -88,7 +80,6 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
                 if (this.activeChild) {
 
                     this.children.each(function(view, idx) {
-                        //console.log("view", view, idx)
                         view.$el.addClass("appearLeftTransition");
                     }, this);
                     this.activeChild.$el.removeClass("appearLeftTransition");

@@ -9,10 +9,7 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handleb
     // Define view types
 
     var getTemplate = Handlebars.getTemplate,
-        VirtualGoodView = Components.ItemView.extend(_.extend({
-            template : getTemplate("item"),
-            triggers : { "fastclick .buy" : "buy" }
-        })),
+        VirtualGoodView = Components.SingleUseItemView.extend({ template : getTemplate("item") }),
         CategoryHeaderView = Components.LinkView.extend({
             tagName: "span",
             template: getTemplate("categoryHeader"),
@@ -24,10 +21,7 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handleb
             itemViewContainer   : ".container"
         }),
         EquippableVirtualGoodView   = Components.EquippableItemView.extend({ template : getTemplate("equippableItem")}),
-        CurrencyPackView = Components.ItemView.extend(_.extend({
-            template: getTemplate("currencyPack"),
-            triggers: { "fastclick .buy": "buy" }
-        }));
+        CurrencyPackView = Components.CurrencyPackView.extend({ template: getTemplate("currencyPack") });
 
 
     var extendViews = function(model) {

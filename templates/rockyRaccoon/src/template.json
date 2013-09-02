@@ -77,76 +77,40 @@
             }
         ],
         "item" : {
-            "oddBackgroundImage" : {
-                "type" : "backgroundImage",
-                "title" : "Odd Item Background Image",
-                "selector" : ".item:nth-child(odd)",
-                "section" : "singleItems"
-            },
-            "evenBackgroundImage" : {
-                "type" : "backgroundImage",
-                "title" : "Even Item Background Image",
-                "selector" : ".item:nth-child(even)",
-                "section" : "singleItems"
-            },
-            "oddNameStyle" : {
+            "itemStyle" : {
                 "type" : "css",
-                "title" : "Odd Item Name Style",
-                "selector" : ".item:nth-child(odd) .item-name",
+                "title" : "Item Style",
+                "selector" : ".item",
                 "section" : "singleItems"
             },
-            "evenNameStyle" : {
+            "nameStyle" : {
                 "type" : "css",
-                "title" : "Even Item Name Style",
-                "selector" : ".item:nth-child(even) .item-name",
+                "title" : "Item Name Style",
+                "selector" : ".item .item-name",
                 "section" : "singleItems"
             },
-            "oddDescriptionStyle" : {
+            "descriptionStyle" : {
                 "type" : "css",
-                "title" : "Odd Item Description Style",
-                "selector" : ".item:nth-child(odd) .item-description",
+                "title" : "Item Description Style",
+                "selector" : ".item .item-description",
                 "section" : "singleItems"
             },
-            "evenDescriptionStyle" : {
+            "priceStyle" : {
                 "type" : "css",
-                "title" : "Even Item Description Style",
-                "selector" : ".item:nth-child(even) .item-description",
+                "title" : "Item Price Style",
+                "selector" : ".item .item-price",
                 "section" : "singleItems"
             },
-            "oddPriceStyle" : {
+            "ownedLabelStyle" : {
                 "type" : "css",
-                "title" : "Odd Item Price Style",
-                "selector" : ".item:nth-child(odd) .item-price",
+                "title" : "Item Owned Label Style",
+                "selector" : ".item-owned",
                 "section" : "singleItems"
             },
-            "evenPriceStyle" : {
+            "balanceLabelStyle" : {
                 "type" : "css",
-                "title" : "Even Item Price Style",
-                "selector" : ".item:nth-child(even) .item-price",
-                "section" : "singleItems"
-            },
-            "oddBalanceLabelStyle" : {
-                "type" : "css",
-                "title" : "Odd Item Balance Label Style",
-                "selector" : ".item:nth-child(odd) .item-balance-container",
-                "section" : "singleItems"
-            },
-            "evenBalanceLabelStyle" : {
-                "type" : "css",
-                "title" : "Even Item Balance Label Style",
-                "selector" : ".item:nth-child(even) .item-balance-container",
-                "section" : "singleItems"
-            },
-            "oddOwnedLabelStyle" : {
-                "type" : "css",
-                "title" : "Odd Item Owned Label Style",
-                "selector" : ".item:nth-child(odd) .item-owned",
-                "section" : "singleItems"
-            },
-            "evenOwnedLabelStyle" : {
-                "type" : "css",
-                "title" : "Even Item Owned Label Style",
-                "selector" : ".item:nth-child(even) .item-owned",
+                "title" : "Item Balance Label Style",
+                "selector" : ".item .item-balance-container",
                 "section" : "singleItems"
             }
         }

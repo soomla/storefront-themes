@@ -1,4 +1,4 @@
-define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", "handlebars", "cssUtils", "templates"], function($, Backbone, Components, HelperViews, Handlebars, CssUtils) {
+define("rockyRaccoonViews", ["jquery", "backbone", "components", "helperViews", "handlebars", "cssUtils", "templates"], function($, Backbone, Components, HelperViews, Handlebars, CssUtils) {
 
     //
     // grunt-rigger directive - DO NOT DELETE
@@ -12,7 +12,7 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
     // Define view types
 
     var getTemplate                 = Handlebars.getTemplate,
-        LifetimeVirtualGoodView     = Components.LifetimeItemView.extend({ template : getTemplate("lifetimeItem"), triggers : {fastclick : "buy"}  }),
+        LifetimeVirtualGoodView     = Components.LifetimeItemView.extend({ template : getTemplate("lifetimeItem"), triggers : {fastclick : "buy"} }),
         SingleUseVirtualGoodView    = Components.SingleUseItemView.extend({
             template : getTemplate("singleUseItem"),
             triggers : { fastclick : "buy" },
@@ -30,12 +30,12 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
                 }).addClass("changed");
             }
         }),
-        GoodsCollectionView         = Components.IScrollCollectionView.extend({
+        GoodsCollectionView = Components.HorizontalIScrollCollectionView.extend({
             template: getTemplate("collection"),
             getItemView: function(item) {
 
                 if (!item) {
-                    return Components.IScrollCollectionView.prototype.getItemView.apply(this, arguments);
+                    return Components.HorizontalIScrollCollectionView.prototype.getItemView.apply(this, arguments);
                 } else {
 
                     var itemView;
@@ -51,6 +51,11 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
                     }
                     return itemView;
                 }
+            },
+            calculateIscrollWidth : function(childCount, childWidth) {
+
+                // Add an extra 25px for each element because of width problems in the dashboard
+                return (childWidth + 25) * childCount;
             }
         });
 
@@ -61,7 +66,6 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
         var commonTemplateHelpers = function() {
             var modelAssets = model.getModelAssets();
             return {
-                odd         : (this.model.collection.indexOf(this.model) + 1) % 2 == 1,
                 price 		: this.model.getPrice(),
                 imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder,
                 images      : theme.images
@@ -72,6 +76,7 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
         LifetimeVirtualGoodView.prototype.templateHelpers = commonTemplateHelpers;
         SingleUseVirtualGoodView.prototype.templateHelpers = commonTemplateHelpers;
     };
+
 
 
     var StoreView = Components.BaseStoreView.extend({
@@ -93,8 +98,7 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
 
             this.goodsView = new GoodsCollectionView({
                 className   : "items",
-                collection  : goods,
-                itemView    : LifetimeVirtualGoodView
+                collection  : goods
             });
 
             this.listenTo(this.goodsView, "itemview:buy", this.buyItem);
@@ -125,7 +129,7 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
             this.playSound().wantsToBuyItem(view.model.id);
         },
         zoomFunction : function() {
-            return (innerHeight / innerWidth) > (4/3) ? (innerWidth / 1536) : (innerHeight / 2048);
+            return (innerWidth / innerHeight) > (3/2) ? (innerHeight / 1280) : (innerWidth / 1920);
         }
     });
 

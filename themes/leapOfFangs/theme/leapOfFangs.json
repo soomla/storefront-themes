@@ -41,7 +41,7 @@
                 },
                 "purchaseType": "market"
             },
-            "name": "20 Liters of Blood",
+            "name": "25 Liters of Blood",
             "itemId": "25_blood",
             "currency_itemId": "currency_blood",
             "currency_amount": 25000

@@ -39,6 +39,18 @@
     overflow-y: scroll;
 }
 
+[data-role="page"] {
+    .square(100%);
+    .box(vertical);
+    position: absolute;
+
+    &>.background {
+        position: absolute;
+        z-index: -1;
+        .square(100%);
+    }
+}
+
 .header, .footer {
 	text-align: center;
 }

@@ -7,8 +7,8 @@
 // --------------------------------------------------
 
 // Theme dimensions: 1536 x 2048
-@externalWidth:     1400px;
-@externalHeight:    1800px;
+@externalWidth:     1600px;
+@externalHeight:    960px;
 
 
 // GENERAL LAYOUT
@@ -36,7 +36,7 @@
 
 .items {
     .box-flex(1);
-    margin: 60px 160px;
+    margin: 30px 50px;
 }
 
 
@@ -45,56 +45,32 @@
 
 .item {
 
-    @width: 1033px;
-    @height: 400px;
-    @edge: @height;
+    @width: 480px;
+    @height: 900px;
+
     .size(@height, @width);
     position: relative;
-
-
-    margin: 10px 0;
+    float: left;
     .box;
     .centralizedCoveringBackground;
-    clear: both;
     cursor: pointer;
 
-    &:first-child {
-        margin-top: 0;
-    }
+    // Allow developers to add padding and border without affecting the templates general layout
+    .box-sizing(border-box);
+    .background-origin(border-box);
 
-    &:last-child {
-        margin-bottom: 0;
-    }
-
-    &:nth-child(odd) {
-        float: left;
-    }
-
-    &:nth-child(even) {
-        float: right;
+    & > * {
+        .box-sizing(border-box);
+        .background-origin(border-box);
     }
 
     .item-image {
-        .square(@edge);
+        .size(@height, @width);
     }
 
-    .content {
-        .box-flex(1);
-        .box(vertical, start, stretch);
-    }
-
-    .item-name, .item-description {
+    .item-name, .item-description, .item-price, .item-owned, .item-balance-container {
         .hyphens;
-        .box(vertical, center);
-    }
-
-    .item-price, .item-owned {
-        position: absolute;
         .box(vertical, center, center);
-    }
-
-    .item-price {
-        display: inline-block;
     }
 
     // Lifetime items have two states: not owned and owned, that are toggled by adding classes to the element
@@ -108,7 +84,7 @@
         // State: owned
         &.owned {
             .item-owned {
-                display: inline-block;
+                display: inherit;
                 .animate(pulse 1s);
             }
             .item-price {
@@ -120,7 +96,7 @@
     // Single use items
     &.single-use {
 
-    // When an item's balance changes, animate it for emphasis
+        // When an item's balance changes, animate it for emphasis
         .item-balance {
             display: inline-block;
 

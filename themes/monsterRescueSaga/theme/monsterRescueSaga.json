@@ -10,13 +10,13 @@
                         "consumable": 1,
                         "price": 0.99,
                         "androidId": "android.test.purchased",
-                        "iosId": "harmony"
+                        "iosId": "water_feeling"
                     },
                     "purchaseType": "market"
                 },
-                "name"              : "Harmony",
-                "itemId"            : "harmony",
-                "description"       : "The prom-winning doll"
+                "name"              : "Water Feeling",
+                "itemId"            : "water_feeling",
+                "description"       : "Float your monster over swamps"
             },
             {
                 "purchasableItem": {
@@ -24,13 +24,13 @@
                         "consumable": 1,
                         "price": 1.99,
                         "androidId": "android.test.purchased",
-                        "iosId": "dolly"
+                        "iosId": "fire_feeling"
                     },
                     "purchaseType": "market"
                 },
-                "name"              : "Dolly",
-                "itemId"            : "dolly",
-                "description"       : "The doll house queen"
+                "name"              : "Fire Feeling",
+                "itemId"            : "fire_feeling",
+                "description"       : "Scorch enemies with fire balls"
             },
             {
                 "purchasableItem": {
@@ -38,40 +38,41 @@
                         "consumable": 1,
                         "price": 2.99,
                         "androidId": "android.test.purchased",
-                        "iosId": "angel"
+                        "iosId": "earth_feeling"
                     },
                     "purchaseType": "market"
                 },
-                "name"              : "Angel",
-                "itemId"            : "angel",
-                "description"       : "Simple is beautiful"
-            },
+                "name"              : "Earth Feeling",
+                "itemId"            : "earth_feeling",
+                "description"       : "Dig tunnels to escape sand storms"
+            }
+        ],
+        "equippable" : [],
+        "singleUse" : [
             {
                 "purchasableItem": {
                     "marketItem": {
                         "consumable": 1,
                         "price": 3.99,
                         "androidId": "android.test.purchased",
-                        "iosId": "sunshine"
+                        "iosId": "sky_feeling"
                     },
                     "purchaseType": "market"
                 },
-                "name"              : "Sunshine",
-                "itemId"            : "sunshine",
-                "description"       : "Enlightened charm"
+                "name"              : "Sky Feeling",
+                "itemId"            : "sky_feeling",
+                "description"       : "Fly above potholes and spike pits"
             }
         ],
-        "equippable" : [],
-        "singleUse" : [],
         "goodPacks" : []
     },
     "categories" : [
         {
             "goods_itemIds": [
-                "harmony",
-                "dolly",
-                "angel",
-                "sunshine"
+                "water_feeling",
+                "fire_feeling",
+                "earth_feeling",
+                "sky_feeling"
             ],
             "name" : "general"
         }
