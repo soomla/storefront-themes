@@ -39,7 +39,6 @@
         @height: 36px;
         .box(horizontal, center);
         font-size: @height;
-        line-height: @height;
 
 
         .label-container {
@@ -261,6 +260,7 @@
         height:100%;
         position:relative;
         display:block;
+
         >div.balance{
             float: none;
             position: absolute;
@@ -271,8 +271,7 @@
             background-position: center center;
             .transition(all .3s ease);
             >label{
-                display:block;
-                line-height:45px;
+                display: inline;
                 text-align:center;
                 height:100%;
             }
@@ -467,17 +466,15 @@
     @priceHeight: 30px;
     h1 {
         height: @nameHeight;
-        line-height: @nameHeight;
     }
     h2 {
         height: @priceHeight;
-        line-height: @priceHeight;
     }
     h1, h2 {
         margin: 0;
         text-align: right;
     }
-}
+    }
 
 .separator {
     width: 100%;
@@ -568,6 +565,11 @@
     .actions {
         .box-flex(1);
         margin-top: 10px;
+
+        a {
+            display: inline-block;
+        }
+
         img {
             .maxSize(60px, 260px);
             cursor: pointer;
