@@ -3,6 +3,25 @@
 @import "css/mixins/layout.less";
 .webkitScrollbar;
 
+
+
+// EFFECTS
+// --------------------------------------------------
+
+a {
+    display: block;
+}
+
+#quit-button {
+
+    .hardware-accelerate;
+
+    &:active, &.emulate-active {
+        .scale(1.5);
+    }
+}
+
+
 // THEME VARIABLES
 // --------------------------------------------------
 
@@ -51,7 +70,6 @@
     .size(@height, @width);
     position: relative;
     float: left;
-    .box;
     .centralizedCoveringBackground;
     cursor: pointer;
 
@@ -64,6 +82,14 @@
         .background-origin(border-box);
     }
 
+    a {
+        .box;
+
+        &:active, &.emulate-active {
+            opacity: 0.6;
+        }
+    }
+
     .item-image {
         .size(@height, @width);
     }
@@ -71,6 +97,10 @@
     .item-name, .item-description, .item-price, .item-owned, .item-balance-container {
         .hyphens;
         .box(vertical, center, center);
+    }
+
+    .item-owned {
+        .hardware-accelerate;
     }
 
     // Lifetime items have two states: not owned and owned, that are toggled by adding classes to the element
@@ -83,6 +113,12 @@
 
         // State: owned
         &.owned {
+
+            // cancel opacity change since the item is owned
+            a:active, a.emulate-active {
+                opacity: 1;
+            }
+
             .item-owned {
                 display: inherit;
                 .animate(pulse 1s);

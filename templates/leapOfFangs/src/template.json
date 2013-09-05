@@ -181,6 +181,12 @@
                 "title" : "Price Style",
                 "selector" : ".item .price",
                 "section" : "singleItems"
+            },
+            "balanceStyle" : {
+                "type" : "css",
+                "title" : "Balance Style",
+                "selector" : ".item .item-balance",
+                "section" : "singleItems"
             }
         }
     },

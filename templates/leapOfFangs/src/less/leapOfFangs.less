@@ -21,6 +21,26 @@
     background-repeat: no-repeat;
 }
 
+
+// EFFECTS
+// --------------------------------------------------
+//.buy, #back-button, #quit-button {
+a {
+    -webkit-transition: -webkit-transform ease-in-out;
+    -moz-transition: -moz-transform ease-in-out;
+    -o-transition: -o-transform ease-in-out;
+    transition: transform ease-in-out;
+}
+
+a {
+    display: inline-block;
+}
+
+a:active, a.emulate-active {
+    .scale(1.2);
+}
+
+
 // GENERAL LAYOUT
 // --------------------------------------------------
 
@@ -180,6 +200,10 @@
 	// Add specific styling for equippable items
     &.equippable {
 
+        .equip-container {
+            text-align: center;
+        }
+
     	// State: not owned
         .equip, .active {
             display: none;
@@ -248,6 +272,17 @@
     li {
         float: left;
         margin-right: 20px;
+
+        a {
+            // Prevent scaling of menu items
+            .scale(1);
+
+            // Add opacity on menu links when they're active
+            &:active, &.emulate-active {
+                opacity: 0.6;
+            }
+        }
+
         img {
             .square(100px);
         }

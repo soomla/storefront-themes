@@ -4,10 +4,27 @@
 @baseUrl: "../theme";
 .webkitScrollbar();
 
-@standardWidth: 460px;
+
+
+// EFFECTS
+// --------------------------------------------------
+
+a {
+    -webkit-transition: -webkit-transform ease-in-out;
+    -moz-transition: -moz-transform ease-in-out;
+    -o-transition: -o-transform ease-in-out;
+    transition: transform ease-in-out;
+}
+
+a:active, a.emulate-active {
+    .scale(1.2);
+}
+
 
 // GENERAL LAYOUT
 // --------------------------------------------------
+
+@standardWidth: 460px;
 
 [data-role="page"] {
     .square(100%);
@@ -474,7 +491,15 @@
         margin: 0;
         text-align: right;
     }
+
+    a {
+        display: block;
     }
+
+    a:active, a.emulate-active {
+        .scale(1.1);
+    }
+}
 
 .separator {
     width: 100%;

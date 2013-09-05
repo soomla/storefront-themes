@@ -62,6 +62,7 @@ define("mindfulMuleViews", ["jquery", "backbone", "components", "helperViews", "
         events : {
             "fastclick #quit-button" : "leaveStore"
         },
+        emulateActiveElements : "#quit-button", // valid jQuery selector
         onRender: function () {
             this.ui.contentContainer.append(this.goodsView.render().el);
             this.goodsView.refreshIScroll();
@@ -80,6 +81,7 @@ define("mindfulMuleViews", ["jquery", "backbone", "components", "helperViews", "
             return (innerHeight / innerWidth) > 1.5 ? (innerWidth / 720) : (innerHeight / 1080);
         }
     });
+    StoreView.mixinActiveTouchEmulation();
 
 
     return {
