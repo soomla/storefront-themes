@@ -26,11 +26,11 @@
             "banana" : "img/Utilities/objects-06.png",
             "coconut" : "img/Utilities/objects-08.png",
             "flower" : "img/Utilities/objects-09.png",
-            "coin_booster_pack" : "img/Coins/objects-08.png",
-            "coin_mega_pack" : "img/Coins/objects-08.png",
-            "coin_ultra_pack" : "img/Coins/objects-08.png",
-            "coin_ultimate_pack" : "img/Coins/objects-08.png",
-            "currency_coins" : "img/coin.png",
+            "nuts_booster_pack" : "img/Coins/objects-08.png",
+            "nuts_mega_pack" : "img/Coins/objects-08.png",
+            "nuts_ultra_pack" : "img/Coins/objects-08.png",
+            "nuts_ultimate_pack" : "img/Coins/objects-08.png",
+            "currency_nuts" : "img/coin.png",
             "remove_ads" : "img/no-ads.png",
             "tapjoy" : "img/tapjoy.png"
 	    }
