@@ -1,16 +1,18 @@
-{{#if odd}}
-    <img src="{{imgFilePath}}" class="item-image">
-    <div class="content">
-        <div class="item-name font-face-1">{{name}}</div>
-        <div class="item-description font-face-1">{{description}}</div>
-    </div>
-{{else}}
-    <div class="content">
-        <div class="item-name font-face-1">{{name}}</div>
-        <div class="item-description font-face-1">{{description}}</div>
-    </div>
-    <img src="{{imgFilePath}}" class="item-image">
-{{/if}}
+<a>
+	{{#if odd}}
+	    <img src="{{imgFilePath}}" class="item-image">
+	    <div class="content">
+	        <div class="item-name font-face-1">{{name}}</div>
+	        <div class="item-description font-face-1">{{description}}</div>
+	    </div>
+	{{else}}
+	    <div class="content">
+	        <div class="item-name font-face-1">{{name}}</div>
+	        <div class="item-description font-face-1">{{description}}</div>
+	    </div>
+	    <img src="{{imgFilePath}}" class="item-image">
+	{{/if}}
 
-<label class="item-price font-face-2">${{price}}</label>
-<label class="item-owned font-face-2">Owned</label>
+	<label class="item-price font-face-2">${{price}}</label>
+	<label class="item-owned font-face-2">Owned</label>
+</a>

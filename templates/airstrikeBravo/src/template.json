@@ -124,13 +124,13 @@
             "equip" : {
                 "type" : "image",
                 "title" : "Equip Image",
-                "selector" : ".item .equip",
+                "selector" : ".item .equip img",
                 "section" : "singleItems"
             },
             "equipped" : {
                 "type" : "image",
                 "title" : "Equipped Image",
-                "selector" : ".item .equip",
+                "selector" : ".item .equip img",
                 "section" : "singleItems"
             },
 			"backImage" : {

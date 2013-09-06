@@ -335,6 +335,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
         events : {
             "fastclick #quit" : "leaveStore"
         },
+        emulateActiveElements : "#quit", // valid jQuery selector
         onRender : function() {
 
             // Render regions
@@ -410,6 +411,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             this.ui.categoriesContainer.append(view.render().el);
         }
     });
+    StoreView.mixinActiveTouchEmulation();
 
     _.extend(StoreView.prototype, {
         appendCategoryView : StoreView.prototype._appendContainerView,

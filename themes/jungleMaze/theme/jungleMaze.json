@@ -6,14 +6,14 @@
                     "consumable": 1,
                     "price": 0.99,
                     "androidId": "android.test.canceled",
-                    "iosId": "coin_booster_pack"
+                    "iosId": "nuts_booster_pack"
                 },
                 "purchaseType": "market"
             },
-            "name"              : "COIN BOOSTER PACK",
-            "itemId"            : "coin_booster_pack",
+            "name"              : "NUTS BOOSTER PACK",
+            "itemId"            : "nuts_booster_pack",
             "description"       : "The most affordable pack",
-            "currency_itemId"   : "currency_coins",
+            "currency_itemId"   : "currency_nuts",
             "currency_amount"   : 20000
 
         },
@@ -23,14 +23,14 @@
                     "consumable": 1,
                     "price": 2.99,
                     "androidId": "android.test.refunded",
-                    "iosId": "coin_mega_pack"
+                    "iosId": "nuts_mega_pack"
                 },
                 "purchaseType": "market"
             },
-            "name"              : "COIN MEGA PACK",
-            "itemId"            : "coin_mega_pack",
+            "name"              : "NUTS MEGA PACK",
+            "itemId"            : "nuts_mega_pack",
             "description"       : "The most popular pack",
-            "currency_itemId"   : "currency_coins",
+            "currency_itemId"   : "currency_nuts",
             "currency_amount"   : 50000
         },
         {
@@ -39,14 +39,14 @@
                     "consumable": 1,
                     "price": 2.99,
                     "androidId": "android.test.purchased",
-                    "iosId": "coin_ultra_pack"
+                    "iosId": "nuts_ultra_pack"
                 },
                 "purchaseType": "market"
             },
-            "name"              : "COIN ULTRA PACK",
-            "itemId"            : "coin_ultra_pack",
-            "description"       : "A huge coin refill for your shopping spree",
-            "currency_itemId"   : "currency_coins",
+            "name"              : "NUTS ULTRA PACK",
+            "itemId"            : "nuts_ultra_pack",
+            "description"       : "A huge nuts refill for your shopping spree",
+            "currency_itemId"   : "currency_nuts",
             "currency_amount"   : 100000
         },
         {
@@ -55,22 +55,22 @@
                     "consumable": 1,
                     "price": 9.99,
                     "androidId": "android.test.purchased",
-                    "iosId": "coin_ultimate_pack"
+                    "iosId": "nuts_ultimate_pack"
                 },
                 "purchaseType": "market"
             },
-            "name"              : "COIN ULTIMATE PACK",
-            "itemId"            : "coin_ultimate_pack",
+            "name"              : "NUTS ULTIMATE PACK",
+            "itemId"            : "nuts_ultimate_pack",
             "description"       : "The ultimate purchase - buy anything you want",
-            "currency_itemId"   : "currency_coins",
+            "currency_itemId"   : "currency_nuts",
             "currency_amount"            : 600000
         }
     ],
     "currencies" : [
         {
-            "name"          : "COINS",
+            "name"          : "NUTS",
             "description"   : "",
-            "itemId"        : "currency_coins"
+            "itemId"        : "currency_nuts"
         }
     ],
     "goods" : {
@@ -78,7 +78,7 @@
         "lifetime" : [
             {
                 "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
+                    "pvi_itemId": "currency_nuts",
                     "pvi_amount": 250,
                     "purchaseType": "virtualItem"
                 },
@@ -88,7 +88,7 @@
             },
             {
                 "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
+                    "pvi_itemId": "currency_nuts",
                     "pvi_amount": 500,
                     "purchaseType": "virtualItem"
                 },
@@ -98,7 +98,7 @@
             },
             {
                 "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
+                    "pvi_itemId": "currency_nuts",
                     "pvi_amount": 1000,
                     "purchaseType": "virtualItem"
                 },
@@ -110,7 +110,7 @@
         "equippable" : [
             {
                 "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
+                    "pvi_itemId": "currency_nuts",
                     "pvi_amount": 250,
                     "purchaseType": "virtualItem"
                 },
@@ -121,7 +121,7 @@
             },
             {
                 "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
+                    "pvi_itemId": "currency_nuts",
                     "pvi_amount": 250,
                     "purchaseType": "virtualItem"
                 },
@@ -132,7 +132,7 @@
             },
             {
                 "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
+                    "pvi_itemId": "currency_nuts",
                     "pvi_amount": 250,
                     "purchaseType": "virtualItem"
                 },
@@ -143,7 +143,7 @@
             },
             {
                 "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
+                    "pvi_itemId": "currency_nuts",
                     "pvi_amount": 2500,
                     "purchaseType": "virtualItem"
                 },
@@ -156,7 +156,7 @@
         "singleUse" : [
             {
                 "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
+                    "pvi_itemId": "currency_nuts",
                     "pvi_amount": 5000,
                     "purchaseType": "virtualItem"
                 },
@@ -166,7 +166,7 @@
             },
             {
                 "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
+                    "pvi_itemId": "currency_nuts",
                     "pvi_amount": 5000,
                     "purchaseType": "virtualItem"
                 },
@@ -176,7 +176,7 @@
             },
             {
                 "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
+                    "pvi_itemId": "currency_nuts",
                     "pvi_amount": 5000,
                     "purchaseType": "virtualItem"
                 },
@@ -186,7 +186,7 @@
             },
             {
                 "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
+                    "pvi_itemId": "currency_nuts",
                     "pvi_amount": 5000,
                     "purchaseType": "virtualItem"
                 },
@@ -196,7 +196,7 @@
             },
             {
                 "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
+                    "pvi_itemId": "currency_nuts",
                     "pvi_amount": 2500,
                     "purchaseType": "virtualItem"
                 },
@@ -206,7 +206,7 @@
             },
             {
                 "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
+                    "pvi_itemId": "currency_nuts",
                     "pvi_amount": 2500,
                     "purchaseType": "virtualItem"
                 },
@@ -216,7 +216,7 @@
             },
             {
                 "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
+                    "pvi_itemId": "currency_nuts",
                     "pvi_amount": 2500,
                     "purchaseType": "virtualItem"
                 },
@@ -226,7 +226,7 @@
             },
             {
                 "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
+                    "pvi_itemId": "currency_nuts",
                     "pvi_amount": 10000,
                     "purchaseType": "virtualItem"
                 },

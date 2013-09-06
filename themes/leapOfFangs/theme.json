@@ -65,7 +65,8 @@
         "item": {
             "nameStyle": "color: #E2A0A2",
             "descriptionStyle": "color: #E2A0A2",
-            "priceStyle": "color: #ffffff"
+            "balanceStyle": "color: #fff",
+            "priceStyle": "color: #fff"
         }
     }
 }

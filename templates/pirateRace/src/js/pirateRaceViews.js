@@ -173,16 +173,17 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
 
         },
         events : {
-            "fastclick .leave-store" : "leaveStore",
-            "fastclick .buy-more"    : "onClickBuyMore",
-            "fastclick .back"        : "showGoodsStore"
+            "fastclick      .leave-store"   : "leaveStore",
+            "fastclick      .buy-more"      : "onClickBuyMore",
+            "fastclick      .back"          : "showGoodsStore"
         },
         ui : {
-            goodsStore : "#goods-store",
-            currencyStore : "#currency-store",
-            goodsIscrollContainer : "#goods-store .items-container [data-iscroll='true']",
-            currencyPacksContainer : "#currency-store .currency-packs"
+            goodsStore              : "#goods-store",
+            currencyStore           : "#currency-store",
+            goodsIscrollContainer   : "#goods-store .items-container [data-iscroll='true']",
+            currencyPacksContainer  : "#currency-store .currency-packs"
         },
+        emulateActiveElements : ".btn1,.btn2", // Valid jQuery selector
         updateBalance : function(model) {
             // TODO: Move to a header view
             
@@ -411,6 +412,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
             this.iscrolls.packs.refresh();
         }
     });
+    StoreView.mixinActiveTouchEmulation();
 
     return {
         createStoreView : function(options) {

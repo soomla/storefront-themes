@@ -13,6 +13,24 @@
 @headerInternalHeight: 60px;
 
 
+// EFFECTS
+// --------------------------------------------------
+.buy, #back-button, #quit-button {
+    -webkit-transition: -webkit-transform ease-in-out;
+    -moz-transition: -moz-transform ease-in-out;
+    -o-transition: -o-transform ease-in-out;
+    transition: transform ease-in-out;
+}
+
+a {
+    display: inline-block;
+}
+
+a:active, a.emulate-active {
+    .scale(1.2);
+}
+
+
 // GENERAL LAYOUT
 // --------------------------------------------------
 
@@ -107,9 +125,6 @@
             font-size: @height;
             font-weight: bold;
 
-            // TODO: Instead of line-height and max-height do something else
-			// line-height: @height;
-
             label {
                 position:relative;
                 vertical-align: middle;
@@ -154,6 +169,16 @@
         margin: @itemMargin;
         width: @itemFace;
         height: @itemFace;
+
+        a {
+            // Prevent scaling of menu items
+            .scale(1);
+
+            // Add opacity on menu links when they're active
+            &:active, &.emulate-active {
+                opacity: 0.6;
+            }
+        }
 
         img {
             max-width: @itemFace;
@@ -277,13 +302,13 @@
 
 
     // Action container variables
-    @actionsWidth: 160px;
+    @actionsWidth: 200px;
     @priceHeight: 40px;
     @secondaryFontSize: 16px;
 
     .actions, .complete-indicator {
         width: @actionsWidth;
-        .box(vertical, center);
+        .box(vertical, center, end);
         height: @collapsedHeight;
         text-align: right;
     }
@@ -302,6 +327,13 @@
         img {
             .size(60px, 140px);
         }
+    }
+
+    .complete-indicator, .buy-container, .toggle-equip {
+
+        // This margin enables the scaling transformation on buttons
+        // in the 'buy' area to be smooth and not cut-off by overflow:hidden
+        margin-right: 20px;
     }
 
     .expand-collapse, .toggle-equip {
@@ -491,6 +523,7 @@
 
     .actions {
         margin-top: 10px;
+
         img {
             .maxSize(50px, 200px);
             cursor: pointer;
@@ -510,6 +543,10 @@
     // to make up for the pixel slack of no equipping image.
         @horizontalMargin: (@eqipImageWidth + (2 * @eqipImageHorizontalMargin)) / 2;
         margin: 0 @horizontalMargin;
+    }
+
+    .buy-container {
+        width: 160px;
     }
 }
 

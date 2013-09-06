@@ -59,7 +59,6 @@
             "expandImage": "img/expand.png",
             "backImage": "img/back-button.png",
             "quitImage": "img/quit-button.png",
-            "purchasedIndicatorImage": "img/owned.png",
             "itemBackgroundImage": "img/BG_Product.png",
             "itemBackgroundImageExpanded": "img/BG_Product_Ext.png",
             "equip": "img/equip.png",

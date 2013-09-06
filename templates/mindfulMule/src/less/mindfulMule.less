@@ -10,6 +10,19 @@
 @externalHeight:    800px;
 
 
+// EFFECTS
+// --------------------------------------------------
+
+a {
+    display: block;
+
+    &:active, &.emulate-active {
+        .scale(1.5);
+    }
+}
+
+
+
 // GENERAL LAYOUT
 // --------------------------------------------------
 
@@ -82,6 +95,34 @@
             .maxSize(80px, 140px);
         }
     }
+
+
+    // Lifetime items have two states: not owned and owned, that are toggled by adding classes to the element
+    &.lifetime {
+
+        // State: not owned
+        .item-owned {
+            display: none;
+        }
+
+        // State: owned
+        &.owned {
+
+            // cancel opacity change since the item is owned
+            a:active, a.emulate-active {
+                .scale(1);
+            }
+
+            .item-owned {
+                display: inherit;
+                .animate(pulse 1s);
+            }
+            .item-price {
+                display: none;
+            }
+        }
+    }
+
 }
 
 

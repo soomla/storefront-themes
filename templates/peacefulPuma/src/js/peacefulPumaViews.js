@@ -110,6 +110,7 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
         events : {
             "fastclick #quit-button" : "leaveStore"
         },
+        emulateActiveElements : "#quit-button", // valid jQuery selector
         onRender: function () {
             this.ui.contentContainer.append(this.goodsView.render().el);
             this.goodsView.refreshIScroll();
@@ -128,6 +129,7 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
             return (innerHeight / innerWidth) > (4/3) ? (innerWidth / 1536) : (innerHeight / 2048);
         }
     });
+    StoreView.mixinActiveTouchEmulation();
 
 
     return {

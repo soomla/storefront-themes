@@ -80,13 +80,13 @@
             "oddBackgroundImage" : {
                 "type" : "backgroundImage",
                 "title" : "Odd Item Background Image",
-                "selector" : ".item:nth-child(odd)",
+                "selector" : ".item:nth-child(odd) a",
                 "section" : "singleItems"
             },
             "evenBackgroundImage" : {
                 "type" : "backgroundImage",
                 "title" : "Even Item Background Image",
-                "selector" : ".item:nth-child(even)",
+                "selector" : ".item:nth-child(even) a",
                 "section" : "singleItems"
             },
             "oddNameStyle" : {

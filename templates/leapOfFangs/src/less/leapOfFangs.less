@@ -21,6 +21,26 @@
     background-repeat: no-repeat;
 }
 
+
+// EFFECTS
+// --------------------------------------------------
+//.buy, #back-button, #quit-button {
+a {
+    -webkit-transition: -webkit-transform ease-in-out;
+    -moz-transition: -moz-transform ease-in-out;
+    -o-transition: -o-transform ease-in-out;
+    transition: transform ease-in-out;
+}
+
+a {
+    display: inline-block;
+}
+
+a:active, a.emulate-active {
+    .scale(1.2);
+}
+
+
 // GENERAL LAYOUT
 // --------------------------------------------------
 
@@ -52,7 +72,6 @@
             .box-flex(1);
             .box(vertical, center);
             font-size: 60px;
-            line-height: 70px;
             text-align: center;
         }
     }
@@ -74,7 +93,6 @@
         text-align: right;
         font-size: @height;
         font-weight: bold;
-        line-height: @height;
 
         label {
             vertical-align: middle;
@@ -133,7 +151,6 @@
         text-align: center;
         padding-top: @actionPaddingTop;
         font-size: 44px;
-        line-height: 50px;
 
         .info {
             .box(vertical);
@@ -149,11 +166,9 @@
         padding: @padding;
         .box(vertical, center);
         font-size: 24px;
-        line-height: 30px;
 
         h1 {
             font-size: 44px;
-            line-height: 50px;
         }
     }
 
@@ -184,6 +199,10 @@
     }
 	// Add specific styling for equippable items
     &.equippable {
+
+        .equip-container {
+            text-align: center;
+        }
 
     	// State: not owned
         .equip, .active {
@@ -253,6 +272,17 @@
     li {
         float: left;
         margin-right: 20px;
+
+        a {
+            // Prevent scaling of menu items
+            .scale(1);
+
+            // Add opacity on menu links when they're active
+            &:active, &.emulate-active {
+                opacity: 0.6;
+            }
+        }
+
         img {
             .square(100px);
         }

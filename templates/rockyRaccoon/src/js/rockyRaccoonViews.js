@@ -114,6 +114,7 @@ define("rockyRaccoonViews", ["jquery", "backbone", "components", "helperViews", 
         events : {
             "fastclick #quit-button" : "leaveStore"
         },
+        emulateActiveElements : "#quit-button", // valid jQuery selector
         onRender: function () {
             this.ui.contentContainer.append(this.goodsView.render().el);
             this.goodsView.refreshIScroll();
@@ -132,6 +133,7 @@ define("rockyRaccoonViews", ["jquery", "backbone", "components", "helperViews", 
             return (innerWidth / innerHeight) > (3/2) ? (innerHeight / 1280) : (innerWidth / 1920);
         }
     });
+    StoreView.mixinActiveTouchEmulation();
 
 
     return {
