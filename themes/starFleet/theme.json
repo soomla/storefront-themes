@@ -69,7 +69,8 @@
                 "item": {
                     "nameStyle": "color: #FFF;",
                     "priceStyle": "color: #FFF;",
-                    "descriptionStyle": "color: #FFF;"
+                    "descriptionStyle": "color: #FFF;",
+                    "balanceStyle" : "color: #f0f0ad"
                 }
             },
             "currencyPacks": {
