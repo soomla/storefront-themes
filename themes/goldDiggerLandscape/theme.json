@@ -46,7 +46,6 @@
             "inactiveCategoryTitleStyle": "",
             "categoriesTitleBackground": "img/BG-Level0.jpg",
             "backButton": "img/Back_BTN.png",
-            "purchasedIndicatorImage": "img/owned.png",
             "balanceLabelStyle": "color: #E9C861;"
         },
         "fonts": [
