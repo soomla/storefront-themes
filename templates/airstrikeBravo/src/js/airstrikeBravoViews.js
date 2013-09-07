@@ -1,9 +1,12 @@
-define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews", "handlebars", "templates"], function($, Backbone, Components, HelperViews, Handlebars) {
+define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews", "handlebars", "cssUtils", "templates"], function($, Backbone, Components, HelperViews, Handlebars, CssUtils) {
 
     //
     // grunt-rigger directive - DO NOT DELETE
     //= handlebars-templates
     //
+
+
+    var transitionend = CssUtils.getTransitionendEvent();
 
 
     // Define view types
@@ -304,8 +307,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
                     this.activeView.$el.removeClass("on");
                 }
 
-                newview.$el.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
-                    newview.$el.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+                newview.$el.one(transitionend, function(){
                     $(_pages).animate({ scrollTop: 0 }, "slow");
                 });
                 /*
