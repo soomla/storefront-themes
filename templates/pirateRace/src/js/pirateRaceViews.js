@@ -1,9 +1,12 @@
-define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "templates", "jquery.fastbutton"], function($, Backbone, Components, Handlebars) {
+define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cssUtils", "templates", "jquery.fastbutton"], function($, Backbone, Components, Handlebars, CssUtils) {
 
 	//
 	// grunt-rigger directive - DO NOT DELETE
 	//= handlebars-templates
     //
+
+
+    var transitionend = CssUtils.getTransitionendEvent();
 
 
     // Define view types
@@ -64,8 +67,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
                 setTimeout(function(){
                     that.$el.addClass("changed");
                     var balanceEl = that.$el.find(".balanceWrap > div");
-                    balanceEl.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
-                        balanceEl.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+                    balanceEl.one(transitionend, function(){
                         that.$el.removeClass("changed");
                     });
                 }, 200)
@@ -180,6 +182,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
         ui : {
             goodsStore              : "#goods-store",
             currencyStore           : "#currency-store",
+            backButton              : "#goods-store .btn1",
             goodsIscrollContainer   : "#goods-store .items-container [data-iscroll='true']",
             currencyPacksContainer  : "#currency-store .currency-packs"
         },
@@ -270,8 +273,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
                 that.ui.currencyStore.removeClass("showBtn");
                 that.ui.currencyStore.addClass("on");
                 
-                that.ui.currencyStore.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
-                    that.ui.currencyStore.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+                that.ui.currencyStore.one(transitionend, function(){
                     that.ui.goodsStore.removeClass("showBtn");
                     that.ui.currencyStore.addClass("showBtn");
                     that.iscrolls.packs.refresh();
@@ -288,8 +290,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
             that.playSound();
 
             that.ui.currencyStore.addClass("hide");
-            that.ui.currencyStore.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
-                that.ui.currencyStore.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+            that.ui.currencyStore.one(transitionend, function(){
                 that.ui.currencyStore.removeClass("on");
                 that.ui.goodsStore.addClass("showBtn");
                 that.iscrolls.goods.refresh();
@@ -324,9 +325,12 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
             }
             var that = this;
             setTimeout(function(){
-                    that.ui.goodsStore.addClass("showBtn");
-                }, 200);
+                that.ui.goodsStore.addClass("showBtn");
+            }, 200);
 
+            this.ui.backButton.one(transitionend, function() {
+                that.iscrolls.goods.refresh();
+            });
         },
         appendCategoryView : function(view) {
             this.ui.goodsIscrollContainer.append(view.render().el);
