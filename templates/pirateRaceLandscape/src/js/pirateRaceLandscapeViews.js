@@ -188,7 +188,7 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handleb
         },
         updateBalance : function(model) {
             // TODO: Move to a header view
-            this.$(".balance-container label[data-currency='" + model.id + "']").html(model.get("balance"));
+            this.$(".balance-container label[data-currency='" + model.id + "']").html(model.getBalance());
         },
         onClickBuyMore : function() {
             this.showCurrencyPacks();

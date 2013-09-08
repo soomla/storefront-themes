@@ -1,4 +1,4 @@
-define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cssUtils", "templates", "jquery.fastbutton"], function($, Backbone, Components, Handlebars, CssUtils) {
+define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cssUtils", "templates", "jquery.fastbutton", "jqueryUtils"], function($, Backbone, Components, Handlebars, CssUtils) {
 
 	//
 	// grunt-rigger directive - DO NOT DELETE
@@ -187,18 +187,8 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             currencyPacksContainer  : "#currency-store .currency-packs"
         },
         emulateActiveElements : ".btn1,.btn2", // Valid jQuery selector
-        updateBalance : function(model) {
-            // TODO: Move to a header view
-            
-            var that = this;
-            // make it happen only when you add to balance
-            if(model.previous("balance")<model.get("balance")){
-                that.$(".balance-container label").addClass("changed");
-                setTimeout(function(){
-                    that.$(".balance-container label").removeClass("changed");
-                }, 1000)
-            }
-            that.$(".balance-container label").html(model.get("balance"));
+        _getBalanceHolder : function(currency) {
+            return this.$(".balance-container label[data-currency='" + currency.id + "']");
         },
         onClickBuyMore: function () {
             this.playSound().showCurrencyPacks();
@@ -269,36 +259,24 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
                 alert("Buying more " + this.model.get("currency").get("name") + " is unavailable. Check your internet connectivity and try again.");
             } else {
                 var that = this;
-                that.ui.currencyStore.removeClass("hide");
-                that.ui.currencyStore.removeClass("showBtn");
-                that.ui.currencyStore.addClass("on");
-                
-                that.ui.currencyStore.one(transitionend, function(){
+                that.ui.currencyStore.removeClass("hide showBtn");
+
+                that.ui.currencyStore.transitionOnce({klass : "on", remove : false}).done(function(){
                     that.ui.goodsStore.removeClass("showBtn");
                     that.ui.currencyStore.addClass("showBtn");
                     that.iscrolls.packs.refresh();
                 });
-                /*
-                this.ui.goodsStore.hide();
-                this.ui.currencyStore.show();
-                this.iscrolls.packs.refresh();
-                */
             }
         },
         showGoodsStore : function() {
             var that = this;
             that.playSound();
 
-            that.ui.currencyStore.addClass("hide");
-            that.ui.currencyStore.one(transitionend, function(){
+            that.ui.currencyStore.transitionOnce({klass : "hide", remove : false}).done(function(){
                 that.ui.currencyStore.removeClass("on");
                 that.ui.goodsStore.addClass("showBtn");
                 that.iscrolls.goods.refresh();
             });
-
-            //this.ui.currencyStore.hide();
-            //this.ui.goodsStore.show();
-            //that.iscrolls.goods.refresh();
         },
         iscrollRegions : {
             goods : {

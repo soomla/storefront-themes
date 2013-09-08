@@ -9,7 +9,7 @@
 	            {{#each currencies}}
                 <div class="label-container">
                     <img class="currency" src="{{this.imgFilePath}}">
-                    <label>{{this.balance}}</label>
+                    <label data-currency="{{this.itemId}}">{{this.balance}}</label>
                 </div>
 	            {{/each}}
             </div>
@@ -33,7 +33,7 @@
 	            {{#each currencies}}
                     <div class="label-container">
                         <img class="currency" src="{{this.imgFilePath}}">
-                        <label>{{this.balance}}</label>
+                        <label data-currency="{{this.itemId}}">{{this.balance}}</label>
                     </div>
 	            {{/each}}
             </div>
