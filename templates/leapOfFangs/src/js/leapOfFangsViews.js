@@ -12,7 +12,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
     // Define view types
 
     var getTemplate = Handlebars.getTemplate,
-        SingleUseVirtualGoodView = Components.SingleUseItemView.extend({ template : getTemplate("item") }),
+        SingleUseVirtualGoodView = Components.SingleUseItemView.extend({ template : getTemplate("item"), animateBalanceClass : "balance-changed" }),
         EquippableItemView = Components.EquippableItemView.extend({
 
             // Local triggers not included, they are inherited from EquippableItemView
