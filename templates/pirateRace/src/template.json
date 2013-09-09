@@ -206,7 +206,7 @@
                     },
                     "priceStyle" : {
                         "type" : "css",
-                        "title" : "Currency Pack Name Style",
+                        "title" : "Currency Pack Price Style",
                         "selector" : ".currencyPacks .item .item-price",
                         "section" : "singleItems"
                     }
