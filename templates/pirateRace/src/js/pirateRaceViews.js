@@ -96,8 +96,6 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             var modelAssets = model.getModelAssets();
             return {
                 price           : this.model.getPrice(),
-                nameStyle       : theme.pages.currencyPacks.listItem.nameStyle,
-                priceStyle      : theme.pages.currencyPacks.listItem.priceStyle,
                 itemSeparator   : theme.itemSeparator,
                 imgFilePath     : modelAssets.items[this.model.id] || this._imagePlaceholder
             };
@@ -105,8 +103,6 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
         NonConsumableView.prototype.templateHelpers = function() {
             var modelAssets = model.getModelAssets();
             return {
-                nameStyle           : theme.pages.currencyPacks.listItem.nameStyle,
-                priceStyle          : theme.pages.currencyPacks.listItem.priceStyle,
                 itemSeparator       : theme.itemSeparator,
                 ownedIndicatorImage : theme.common.ownedIndicatorImage,
                 imgFilePath         : modelAssets.items[this.model.id] || this._imagePlaceholder
