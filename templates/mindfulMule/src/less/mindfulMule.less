@@ -37,7 +37,7 @@ a {
 #content-container {
     position: relative;
     .size(@externalHeight, @externalWidth);
-    .centralizedCoveringBackground;
+    .centralizedBackground;
     .box(vertical,center);
 }
 
@@ -63,7 +63,7 @@ a {
     padding: 25px;
     margin: 20px 0;
     .box;
-    .centralizedCoveringBackground;
+    .centralizedBackground;
     background-color: #d7ca92;
 
     & > * {
@@ -140,6 +140,7 @@ a {
 .dialog {
     .size(200px, 520px);
     .box(vertical, center, center);
+    .centralizedBackground;
 
     h1 {
         font-size: 28px;

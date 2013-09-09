@@ -15,13 +15,6 @@
 @maxCategories: 10;
 
 
-.centeredBackground {
-    .background-size(cover);
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-
 // EFFECTS
 // --------------------------------------------------
 //.buy, #back-button, #quit-button {
@@ -46,6 +39,7 @@ a:active, a.emulate-active {
 
 #main {
     .box(horizontal, center, center);
+    .centralizedCoveringBackground;
 }
 
 // Holds all the content i.e. header, categories, footer
@@ -114,11 +108,15 @@ a:active, a.emulate-active {
 
 #footer {
     padding: 20px;
+
+    // This is a hack to make our themes look better
+    // because the background actually needs to be in the original size
+    .background-size(cover);
 }
 
 // In case a background image is applied, center it and don't repeat it
-#main, #content-container, #header, #footer, #categories {
-    .centeredBackground;
+#content-container, #header, #footer, #categories {
+    .centralizedBackground;
 }
 
 
@@ -140,7 +138,7 @@ a:active, a.emulate-active {
     height: 100%;
     .box-sizing(border-box);
     overflow: hidden;
-    .centeredBackground;
+    .centralizedBackground;
     display: block;
     position: absolute;
     //border:1px solid red;
@@ -390,8 +388,11 @@ a:active, a.emulate-active {
     width: 540px;
     height: 300px;
     .box(vertical, center, center);
-    .background-size(100% 100%);
+    .centralizedBackground;
 
+    // This is a hack to support our themes' modal size
+    // TODO: Remove this and resize themes' modal background images to a proper size
+    .background-size(100% 100%);
 
     h1 {
         font-size: 28px;

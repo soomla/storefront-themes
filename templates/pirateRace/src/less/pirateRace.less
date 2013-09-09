@@ -107,21 +107,25 @@ a:active, a.emulate-active {
 }
 #goods-store, #currency-store {
 
-    // Make sure that level-0 backgrounds "contain" the viewport
-    .background-size(cover);
-
     .transition(all 0.4s ease-in);
 
     & > .content {
+
+        .centralizedBackground;
+
         width: 500px;
         height: 100%;
         .box(vertical);
         margin: 0 auto;
     }
 }
-#goods-store{
+#goods-store {
     z-index:10;
+
+	// Make sure that level-0 backgrounds "contain" the viewport
+    .centralizedCoveringBackground;
 }
+
 #currency-store {
     .items-container {
         >[data-iscroll='true']{
@@ -202,20 +206,18 @@ a:active, a.emulate-active {
     width: @standardWidth;
 	margin: 0 auto;
     padding: 0;
-	.background-size(cover);
 	.box-flex(1);
     overflow: auto;
-    
+    .centralizedBackground;
 }
+
 .soombot{
     z-index:2001;
-}
-.virtualGoods, .currencyPacks {
-	background-position: center;
 }
 
 .category {
     text-align: center;
+    .centralizedBackground;
 }
 
 
@@ -226,7 +228,8 @@ a:active, a.emulate-active {
 @itemTotalHeight: 100px;
 
 .item {
-    min-height:  @itemMinHeight;
+    min-height: @itemMinHeight;
+    .centralizedBackground;
 }
 
 .virtualGoods .item {
@@ -237,8 +240,6 @@ a:active, a.emulate-active {
     @balanceWidth: 50px;
     @balanceHeight: 50px;
 
-
-    background-position: center;
 
     // Item image
     .visual {
@@ -281,7 +282,7 @@ a:active, a.emulate-active {
             height:100%;
             top: 0;
             left: 0;
-            background-position: center center;
+            .centralizedBackground;
             .transition(all .3s ease);
             >label{
                 display: inline;
@@ -366,6 +367,7 @@ a:active, a.emulate-active {
 
     .balance {
         .box(vertical, center, center);
+        .centralizedBackground;
     }
 
     .description {
@@ -454,7 +456,6 @@ a:active, a.emulate-active {
 // --------------------------------------------------
 
 .currencyPacks .item, .nonConsumables .item, #restore-purchases .item {
-    background-position: center;
     width: 400px;
     margin: 0 auto;
 }
@@ -574,6 +575,7 @@ a:active, a.emulate-active {
     text-align: center;
     width: 540px;
     height: 300px;
+    .centralizedBackground;
 
     h1 {
         .box-flex(2);
