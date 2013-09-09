@@ -44,7 +44,7 @@ a {
 #content-container {
     position: relative;
     .size(@externalHeight, @externalWidth);
-    .centralizedCoveringBackground;
+    .centralizedBackground;
     .box(vertical,center);
 }
 
@@ -70,7 +70,7 @@ a {
     .size(@height, @width);
     position: relative;
     float: left;
-    .centralizedCoveringBackground;
+    .centralizedBackground;
     cursor: pointer;
 
     // Allow developers to add padding and border without affecting the templates general layout
@@ -143,8 +143,44 @@ a {
     }
 }
 
+// MODAL DIALOG
+// --------------------------------------------------
+.modal {
+    .square(100%);
+    position: absolute;
+    .offset(0, 0);
+    .box(horizontal, center, center);
+    z-index: 2001;
+    background: rgba(0, 0, 0, 0.6);
+}
 
-// Balance label animation
+.dialog {
+    .size(400px, 800px);
+    .box(vertical, center, center);
+    .centralizedBackground;
+
+    h1 {
+        font-size: 60px;
+        text-align: center;
+        width: 480px;
+    }
+
+    .item-description {
+        .box-flex(1);
+        .box(vertical, center, center);
+    }
+
+    .actions {
+        margin-top: 10px;
+        img {
+            .maxSize(50px, 200px);
+            cursor: pointer;
+        }
+    }
+}
+
+
+// ANIMATION SEQUENCES
 // --------------------------------------------------
 
 @-webkit-keyframes pulse {
@@ -186,42 +222,4 @@ a {
     90% { transform: scale(1); }
     94% { transform: scale(1.2); }
     100% { transform: scale(1); }
-}
-
-
-// MODAL DIALOG
-// --------------------------------------------------
-.modal {
-    .square(100%);
-    position: absolute;
-    .offset(0, 0);
-    .box(horizontal, center, center);
-    z-index: 2001;
-    background: rgba(0, 0, 0, 0.6);
-}
-
-.dialog {
-    .size(400px, 800px);
-    .box(vertical, center, center);
-    background-position: center;
-    background-repeat: no-repeat;
-
-    h1 {
-        font-size: 60px;
-        text-align: center;
-        width: 480px;
-    }
-
-    .item-description {
-        .box-flex(1);
-        .box(vertical, center, center);
-    }
-
-    .actions {
-        margin-top: 10px;
-        img {
-            .maxSize(50px, 200px);
-            cursor: pointer;
-        }
-    }
 }

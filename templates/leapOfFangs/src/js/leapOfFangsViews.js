@@ -1,4 +1,4 @@
-define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "marionette", "templates", "jquery.fastbutton"], function($, Backbone, Components, Handlebars, Marionette) {
+define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "marionette", "cssUtils", "templates", "jquery.fastbutton"], function($, Backbone, Components, Handlebars, Marionette, CssUtils) {
 
     //
     // grunt-rigger directive - DO NOT DELETE
@@ -6,10 +6,13 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
     //
 
 
+    var transitionend = CssUtils.getTransitionendEvent();
+
+
     // Define view types
 
     var getTemplate = Handlebars.getTemplate,
-        SingleUseVirtualGoodView = Components.SingleUseItemView.extend({ template : getTemplate("item") }),
+        SingleUseVirtualGoodView = Components.SingleUseItemView.extend({ template : getTemplate("item"), animateBalanceClass : "balance-changed" }),
         EquippableItemView = Components.EquippableItemView.extend({
 
             // Local triggers not included, they are inherited from EquippableItemView
@@ -51,8 +54,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
                 if(that.direction=="Left"){
                     that.activeChild.$el.addClass("appearLeftTransition");
                 }else{
-                    oldActiveChild.$el.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
-                        oldActiveChild.$el.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+                    oldActiveChild.$el.one(transitionend, function(){
                         oldActiveChild.$el.removeClass("appearRightTransition").addClass("appearLeftImmediately");
                         // just a minor pause and then handle classes (cannot use "unbind" since relevant animation is 0 seconds)
                         setTimeout(function(){

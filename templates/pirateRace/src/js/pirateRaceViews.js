@@ -1,9 +1,12 @@
-define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "templates", "jquery.fastbutton"], function($, Backbone, Components, Handlebars) {
+define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cssUtils", "templates", "jquery.fastbutton", "jqueryUtils"], function($, Backbone, Components, Handlebars, CssUtils) {
 
 	//
 	// grunt-rigger directive - DO NOT DELETE
 	//= handlebars-templates
     //
+
+
+    var transitionend = CssUtils.getTransitionendEvent();
 
 
     // Define view types
@@ -59,13 +62,13 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
 
         var templateHelpers = function() {
             // add the animation work only while adding virtual currencies or goods
+            // TODO: Clean up this shit! it should use the ItemView's balance animation mechanism with classes
             if(this.initialized){
                 var that = this;
                 setTimeout(function(){
                     that.$el.addClass("changed");
                     var balanceEl = that.$el.find(".balanceWrap > div");
-                    balanceEl.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
-                        balanceEl.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+                    balanceEl.one(transitionend, function(){
                         that.$el.removeClass("changed");
                     });
                 }, 200)
@@ -94,8 +97,6 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
             var modelAssets = model.getModelAssets();
             return {
                 price           : this.model.getPrice(),
-                nameStyle       : theme.pages.currencyPacks.listItem.nameStyle,
-                priceStyle      : theme.pages.currencyPacks.listItem.priceStyle,
                 itemSeparator   : theme.itemSeparator,
                 imgFilePath     : modelAssets.items[this.model.id] || this._imagePlaceholder
             };
@@ -103,8 +104,6 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
         NonConsumableView.prototype.templateHelpers = function() {
             var modelAssets = model.getModelAssets();
             return {
-                nameStyle           : theme.pages.currencyPacks.listItem.nameStyle,
-                priceStyle          : theme.pages.currencyPacks.listItem.priceStyle,
                 itemSeparator       : theme.itemSeparator,
                 ownedIndicatorImage : theme.common.ownedIndicatorImage,
                 imgFilePath         : modelAssets.items[this.model.id] || this._imagePlaceholder
@@ -180,22 +179,13 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
         ui : {
             goodsStore              : "#goods-store",
             currencyStore           : "#currency-store",
+            backButton              : "#goods-store .btn1",
             goodsIscrollContainer   : "#goods-store .items-container [data-iscroll='true']",
             currencyPacksContainer  : "#currency-store .currency-packs"
         },
         emulateActiveElements : ".btn1,.btn2", // Valid jQuery selector
-        updateBalance : function(model) {
-            // TODO: Move to a header view
-            
-            var that = this;
-            // make it happen only when you add to balance
-            if(model.previous("balance")<model.get("balance")){
-                that.$(".balance-container label").addClass("changed");
-                setTimeout(function(){
-                    that.$(".balance-container label").removeClass("changed");
-                }, 1000)
-            }
-            that.$(".balance-container label").html(model.get("balance"));
+        _getBalanceHolder : function(currency) {
+            return this.$(".balance-container label[data-currency='" + currency.id + "']");
         },
         onClickBuyMore: function () {
             this.playSound().showCurrencyPacks();
@@ -266,38 +256,24 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
                 alert("Buying more " + this.model.get("currency").get("name") + " is unavailable. Check your internet connectivity and try again.");
             } else {
                 var that = this;
-                that.ui.currencyStore.removeClass("hide");
-                that.ui.currencyStore.removeClass("showBtn");
-                that.ui.currencyStore.addClass("on");
-                
-                that.ui.currencyStore.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
-                    that.ui.currencyStore.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+                that.ui.currencyStore.removeClass("hide showBtn");
+
+                that.ui.currencyStore.transitionOnce({klass : "on", remove : false}).done(function(){
                     that.ui.goodsStore.removeClass("showBtn");
                     that.ui.currencyStore.addClass("showBtn");
                     that.iscrolls.packs.refresh();
                 });
-                /*
-                this.ui.goodsStore.hide();
-                this.ui.currencyStore.show();
-                this.iscrolls.packs.refresh();
-                */
             }
         },
         showGoodsStore : function() {
             var that = this;
             that.playSound();
 
-            that.ui.currencyStore.addClass("hide");
-            that.ui.currencyStore.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
-                that.ui.currencyStore.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+            that.ui.currencyStore.transitionOnce({klass : "hide", remove : false}).done(function(){
                 that.ui.currencyStore.removeClass("on");
                 that.ui.goodsStore.addClass("showBtn");
                 that.iscrolls.goods.refresh();
             });
-
-            //this.ui.currencyStore.hide();
-            //this.ui.goodsStore.show();
-            //that.iscrolls.goods.refresh();
         },
         iscrollRegions : {
             goods : {
@@ -324,9 +300,12 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "te
             }
             var that = this;
             setTimeout(function(){
-                    that.ui.goodsStore.addClass("showBtn");
-                }, 200);
+                that.ui.goodsStore.addClass("showBtn");
+            }, 200);
 
+            this.ui.backButton.one(transitionend, function() {
+                that.iscrolls.goods.refresh();
+            });
         },
         appendCategoryView : function(view) {
             this.ui.goodsIscrollContainer.append(view.render().el);

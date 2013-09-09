@@ -1,9 +1,12 @@
-define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews", "handlebars", "templates"], function($, Backbone, Components, HelperViews, Handlebars) {
+define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews", "handlebars", "cssUtils", "templates"], function($, Backbone, Components, HelperViews, Handlebars, CssUtils) {
 
     //
     // grunt-rigger directive - DO NOT DELETE
     //= handlebars-templates
     //
+
+
+    var transitionend = CssUtils.getTransitionendEvent();
 
 
     // Define view types
@@ -13,7 +16,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
         ExpandableEquippableItemView    = Components.ExpandableEquippableItemView,
         ExpandableSingleUseItemView     = Components.ExpandableSingleUseItemView,
         EquippableVirtualGoodView       = ExpandableEquippableItemView.extend({ template : getTemplate("equippableItem") }),
-        SingleUseVirtualGoodView        = ExpandableSingleUseItemView.extend({ template : getTemplate("singleUseItem")}),
+        SingleUseVirtualGoodView        = ExpandableSingleUseItemView.extend({ template : getTemplate("singleUseItem"), animateBalanceClass : "changed"}),
         UpgradableItemView              = Components.ExpandableUpgradableItemView.extend({ template : getTemplate("upgradableItem")}),
         LifetimeVirtualGoodView         = Components.ExpandableLifetimeItemView.extend({ template : getTemplate("equippableItem")}),
         CurrencyPackView                = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack") }),
@@ -304,8 +307,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
                     this.activeView.$el.removeClass("on");
                 }
 
-                newview.$el.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
-                    newview.$el.unbind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+                newview.$el.one(transitionend, function(){
                     $(_pages).animate({ scrollTop: 0 }, "slow");
                 });
                 /*

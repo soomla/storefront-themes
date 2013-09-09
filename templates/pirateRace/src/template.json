@@ -105,6 +105,18 @@
                     }
                 },
                 "listItem" : {
+                    "descriptionStyle" : {
+                        "type" : "css",
+                        "title" : "Virtual Good Description Style",
+                        "selector" : ".virtualGoods .item .description label",
+                        "section" : "singleItems"
+                    },
+                    "priceStyle" : {
+                        "type" : "css",
+                        "title" : "Virtual Good Price Style",
+                        "selector" : ".virtualGoods .item .price label",
+                        "section" : "singleItems"
+                    },
                     "background" : {
                         "type" : "backgroundImage",
                         "title" : "Item Background",
@@ -184,7 +196,21 @@
                         "selector" : "#currency-store .items-container",
                         "section" : "singleItems"
                     }
-				}
+				},
+                "listItem" : {
+                    "nameStyle" : {
+                        "type" : "css",
+                        "title" : "Currency Pack Name Style",
+                        "selector" : ".currencyPacks .item .item-name",
+                        "section" : "singleItems"
+                    },
+                    "priceStyle" : {
+                        "type" : "css",
+                        "title" : "Currency Pack Price Style",
+                        "selector" : ".currencyPacks .item .item-price",
+                        "section" : "singleItems"
+                    }
+                }
             }
         },
         "categories": {
