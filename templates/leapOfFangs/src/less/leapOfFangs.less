@@ -15,13 +15,6 @@
 @maxCategories: 10;
 
 
-.centeredBackground {
-    .background-size(cover);
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-
 // EFFECTS
 // --------------------------------------------------
 //.buy, #back-button, #quit-button {
@@ -46,6 +39,7 @@ a:active, a.emulate-active {
 
 #main {
     .box(horizontal, center, center);
+    .centralizedCoveringBackground;
 }
 
 // Holds all the content i.e. header, categories, footer
@@ -96,6 +90,12 @@ a:active, a.emulate-active {
 
         label {
             vertical-align: middle;
+            display: inline-block;
+
+            &.changed {
+                .animate(tada 1s);
+                .transform(rotate(-1deg) scale(1.1));
+            }
         }
     }
 
@@ -108,11 +108,15 @@ a:active, a.emulate-active {
 
 #footer {
     padding: 20px;
+
+    // This is a hack to make our themes look better
+    // because the background actually needs to be in the original size
+    .background-size(cover);
 }
 
 // In case a background image is applied, center it and don't repeat it
-#main, #content-container, #header, #footer, #categories {
-    .centeredBackground;
+#content-container, #header, #footer, #categories {
+    .centralizedBackground;
 }
 
 
@@ -134,7 +138,7 @@ a:active, a.emulate-active {
     height: 100%;
     .box-sizing(border-box);
     overflow: hidden;
-    .centeredBackground;
+    .centralizedBackground;
     display: block;
     position: absolute;
     //border:1px solid red;
@@ -197,6 +201,22 @@ a:active, a.emulate-active {
         .transition(all 0s ease);
         left:-100%;
     }
+
+    &.single-use {
+
+        .balance {
+            display: inline-block;
+        }
+
+        // Animate item balances
+        &.balance-changed {
+            .balance {
+                .animate(bounceInRight 1s);
+            }
+        }
+
+    }
+
 	// Add specific styling for equippable items
     &.equippable {
 
@@ -368,8 +388,11 @@ a:active, a.emulate-active {
     width: 540px;
     height: 300px;
     .box(vertical, center, center);
-    .background-size(100% 100%);
+    .centralizedBackground;
 
+    // This is a hack to support our themes' modal size
+    // TODO: Remove this and resize themes' modal background images to a proper size
+    .background-size(100% 100%);
 
     h1 {
         font-size: 28px;
@@ -382,5 +405,122 @@ a:active, a.emulate-active {
         img {
             .maxSize(80px, 260px);
         }
+    }
+}
+
+
+// ANIMATION SEQUENCES
+// --------------------------------------------------
+
+@-webkit-keyframes tada {
+    0% {-webkit-transform: scale(1);}
+    10%, 20% {-webkit-transform: scale(0.9) rotate(-3deg);}
+    30%, 50%, 70%, 90% {-webkit-transform: scale(1.1) rotate(3deg);}
+    40%, 60%, 80% {-webkit-transform: scale(1.1) rotate(-3deg);}
+    100% {-webkit-transform: scale(1) rotate(0);}
+}
+
+@-moz-keyframes tada {
+    0% {-moz-transform: scale(1);}
+    10%, 20% {-moz-transform: scale(0.9) rotate(-3deg);}
+    30%, 50%, 70%, 90% {-moz-transform: scale(1.1) rotate(3deg);}
+    40%, 60%, 80% {-moz-transform: scale(1.1) rotate(-3deg);}
+    100% {-moz-transform: scale(1) rotate(0);}
+}
+
+@-o-keyframes tada {
+    0% {-o-transform: scale(1);}
+    10%, 20% {-o-transform: scale(0.9) rotate(-3deg);}
+    30%, 50%, 70%, 90% {-o-transform: scale(1.1) rotate(3deg);}
+    40%, 60%, 80% {-o-transform: scale(1.1) rotate(-3deg);}
+    100% {-o-transform: scale(1) rotate(0);}
+}
+
+@keyframes tada {
+    0% {transform: scale(1);}
+    10%, 20% {transform: scale(0.9) rotate(-3deg);}
+    30%, 50%, 70%, 90% {transform: scale(1.1) rotate(3deg);}
+    40%, 60%, 80% {transform: scale(1.1) rotate(-3deg);}
+    100% {transform: scale(1) rotate(0);}
+}
+
+
+@-webkit-keyframes bounceInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(2000px);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translateX(-30px);
+    }
+
+    80% {
+        -webkit-transform: translateX(10px);
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+    }
+}
+
+@-moz-keyframes bounceInRight {
+    0% {
+        opacity: 0;
+        -moz-transform: translateX(2000px);
+    }
+
+    60% {
+        opacity: 1;
+        -moz-transform: translateX(-30px);
+    }
+
+    80% {
+        -moz-transform: translateX(10px);
+    }
+
+    100% {
+        -moz-transform: translateX(0);
+    }
+}
+
+@-o-keyframes bounceInRight {
+    0% {
+        opacity: 0;
+        -o-transform: translateX(2000px);
+    }
+
+    60% {
+        opacity: 1;
+        -o-transform: translateX(-30px);
+    }
+
+    80% {
+        -o-transform: translateX(10px);
+    }
+
+    100% {
+        -o-transform: translateX(0);
+    }
+}
+
+@keyframes bounceInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(2000px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateX(-30px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        transform: translateX(0);
     }
 }

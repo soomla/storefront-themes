@@ -54,13 +54,13 @@
                     "buyOnce" : "img/unlock.png",
                     "equip" : "img/equip.png",
                     "active" : "img/equipped.png",
-	                "descriptionStyle" : "color: #DEBE8D; font-size: 20px",
-	                "priceStyle" : "color: #E9C861; font-style: normal"
+	                "descriptionStyle" : "color: #DEBE8D; font-size: 20px;",
+	                "priceStyle" : "color: #E9C861; font-style: normal;"
                 },
                 "noFundsModal" : {
                     "background" : "img/Alert_BG.png",
                     "text" : "Insufficient funds.  Would you like to buy more?",
-                    "textStyle" : "color: #DEBE8D; text-shadow: 1px 2px #000",
+                    "textStyle" : "color: #DEBE8D; text-shadow: 1px 2px #000;",
                     "yesButton" : "img/Yes_BTN.png",
                     "noButton" : "img/No_BTN.png"
                 }
@@ -70,7 +70,6 @@
                     "background" : "img/Item_Area.jpg"
                 },
                 "listItem" : {
-                    "balanceBackground" : "",
                     "nameStyle" : "color: #E9C861; font-weight: normal;",
                     "priceStyle" : "font-style: normal; color: #F7EABE; font-weight: normal;"
                 }
@@ -78,7 +77,7 @@
         },
         "categories" : {
             "titleBackground" : "img/Category_Separator.png",
-            "titleStyle" : "color: #B89C6D; font-weight: normal"
+            "titleStyle" : "color: #B89C6D; font-weight: normal;"
         }
     }
 }

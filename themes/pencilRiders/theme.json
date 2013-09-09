@@ -71,7 +71,6 @@
                     "background": "img/Item_Area.png"
                 },
                 "listItem": {
-                    "balanceBackground": "",
                     "nameStyle": "",
                     "priceStyle": ""
                 }
