@@ -62,6 +62,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
 
         var templateHelpers = function() {
             // add the animation work only while adding virtual currencies or goods
+            // TODO: Clean up this shit! it should use the ItemView's balance animation mechanism with classes
             if(this.initialized){
                 var that = this;
                 setTimeout(function(){
