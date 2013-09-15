@@ -58,12 +58,6 @@
                 "title" : "Balance Label Style",
                 "selector" : ".item .balance label",
                 "section" : "global"
-            },
-            "restorePurchasesImage" : {
-                "type" : "image",
-                "title" : "Restore Purchases Image",
-                "selector" : "#restore-purchases img",
-                "section" : "global"
             }
         },
         "fonts" : [
@@ -225,6 +219,125 @@
                 "title" : "Category Title Style",
                 "selector" : ".items .category",
                 "section" : "global"
+            }
+        }
+    },
+    "assetMetadata" : {
+        "template" : {
+            "background" : {
+                "w" : 640,
+                "h" : 960
+            },
+            "contentBackground" : {
+                "w" : 500,
+                "h" : 960
+            },
+            "common" : {
+                "titleImage" : {
+                    "w" : 460,
+                    "h" : 100
+                },
+                "backButton" : {
+                    "w" : 500,
+                    "h" : 100
+                },
+                "moreCurrencyButton" : {
+                    "w" : 500,
+                    "h" : 100
+                }
+            },
+            "itemSeparator" : {
+                "w" : 460,
+                "h" : 10
+            },
+            "pages" : {
+                "goods" :{
+                    "list" : {
+                        "background" : {
+                            "w" : 460,
+                            "h" : 960
+                        }
+                    },
+                    "listItem" : {
+                        "background" : {
+                            "w" : 460,
+                            "h" : 122
+                        },
+                        "balanceBackground" : {
+                            "w" : 60,
+                            "h" : 60
+                        },
+                        "buy" : {
+                            "w" : 120,
+                            "h" : 40
+                        },
+                        "buyOnce" : {
+                            "w" : 120,
+                            "h" : 40
+                        },
+                        "equip" : {
+                            "w" : 120,
+                            "h" : 40
+                        },
+                        "active" : {
+                            "w" : 120,
+                            "h" : 40
+                        }
+
+                    },
+                    "noFundsModal" : {
+                        "background" : {
+                            "w" : 540,
+                            "h" : 300
+                        },
+                        "yesButton" : {
+                            "w" : 195,
+                            "h" : 60
+                        },
+                        "noButton" : {
+                            "w" : 195,
+                            "h" : 60
+                        }
+                    }
+                },
+                "currencyPacks" : {
+                    "list" : {
+                        "background" : {
+                            "w" : 460,
+                            "h" : 960
+                        }
+                    }
+                }
+            },
+            "categories": {
+                "titleBackground" : {
+                    "w" : 460,
+                    "h" : 60
+                }
+            }
+        },
+        "economy" : {
+            "currencies" : {
+                "w" : 50,
+                "h" : 50
+            },
+            "currencyPacks" : {
+                "w" : 180,
+                "h" : 100
+            },
+            "goods" : {
+                "equippable" : {
+                    "w" : 100,
+                    "h" : 100
+                },
+                "lifetime" : {
+                    "w" : 100,
+                    "h" : 100
+                },
+                "singleUse" : {
+                    "w" : 100,
+                    "h" : 100
+                }
             }
         }
     },

@@ -31,8 +31,7 @@
             "titleImage" : "img/Header_Title.png",
             "backButton" : "img/Back_BTN.png",
             "moreCurrencyButton" : "img/GetMore_BTN.png",
-            "balanceLabelStyle" : "color: #E9C861;",
-            "restorePurchasesImage" : "img/restore_purchases.png"
+            "balanceLabelStyle" : "color: #E9C861;"
         },
 	    "fonts" : [
             "fonts/MetalLord.otf",
