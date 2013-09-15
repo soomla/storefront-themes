@@ -117,6 +117,52 @@
             }
         }
     },
+    "assetMetadata" : {
+        "template" : {
+            "background" : {
+                "w" : 720,
+                "h" : 1080
+            },
+            "noFundsModal" : {
+                "background" : {
+                    "w" : 520,
+                    "h" : 200
+                }
+            },
+            "images" : {
+                "itemAreaBackground" : {
+                    "w" : 600,
+                    "h" : 800
+                },
+                "quitImage" : {
+                    "w" : 100,
+                    "h" : 60
+                }
+            },
+            "item" : {
+                "backgroundImage" : {
+                    "w" : 540,
+                    "h" : 150
+                },
+                "buyImage" : {
+                    "w" : 140,
+                    "h" : 60
+                }
+            }
+        },
+        "economy" : {
+            "goods" : {
+                "lifetime" : {
+                    "w" : 100,
+                    "h" : 100
+                },
+                "singleUse" : {
+                    "w" : 100,
+                    "h" : 100
+                }
+            }
+        }
+    },
 	"validations" : {
 		"currency" : {
 			"rules" : {

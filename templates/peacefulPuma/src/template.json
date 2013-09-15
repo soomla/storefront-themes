@@ -151,6 +151,52 @@
             }
         }
     },
+    "assetMetadata" : {
+        "template" : {
+            "background" : {
+                "w" : 1536,
+                "h" : 2048
+            },
+            "loadingModal" : {
+                "background" : {
+                    "w" : 800,
+                    "h" : 400
+                }
+            },
+            "images" : {
+                "itemAreaBackground" : {
+                    "w" : 1400,
+                    "h" : 1800
+                },
+                "quitImage" : {
+                    "w" : 200,
+                    "h" : 200
+                }
+            },
+            "item" : {
+                "oddBackgroundImage" : {
+                    "w" : 1033,
+                    "h" : 400
+                },
+                "evenBackgroundImage" : {
+                    "w" : 1033,
+                    "h" : 400
+                }
+            }
+        },
+        "economy" : {
+            "goods" : {
+                "lifetime" : {
+                    "w" : 400,
+                    "h" : 400
+                },
+                "singleUse" : {
+                    "w" : 400,
+                    "h" : 400
+                }
+            }
+        }
+    },
 	"validations" : {
 		"currency" : {
 			"rules" : {

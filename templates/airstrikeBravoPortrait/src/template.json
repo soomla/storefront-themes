@@ -238,6 +238,124 @@
             }
 		}
     },
+    "assetMetadata" : {
+        "template" : {
+            "background" : {
+                "w" : 750,
+                "h" : 1000
+            },
+            "headerBackground" : {
+                "w" : 490,
+                "h" : 200
+            },
+            "noFundsModal" : {
+                "background" : {
+                    "w" : 520,
+                    "h" : 200
+                },
+                "yesButton" : {
+                    "w" : 200,
+                    "h" : 50
+                },
+                "noButton" : {
+                    "w" : 200,
+                    "h" : 50
+                }
+            },
+            "currencyPacksCategoryImage" : {
+                "w" : 200,
+                "h" : 200
+            },
+            "images" : {
+                "contentBackground" : {
+                    "w" : 550,
+                    "h" : 850
+                },
+                "itemAreaBackground" : {
+                    "w" : 490,
+                    "h" : 550
+                },
+                "buyImage" : {
+                    "w" : 140,
+                    "h" : 60
+                },
+                "ownedIndicatorImage" : {
+                    "w" : 20,
+                    "h" : 100
+                },
+                "notOwnedIndicatorImage" : {
+                    "w" : 20,
+                    "h" : 100
+                },
+                "expandImage" : {
+                    "w" : 130,
+                    "h" : 60
+                },
+                "equip" : {
+                    "w" : 100,
+                    "h" : 40
+                },
+                "equipped" : {
+                    "w" : 100,
+                    "h" : 40
+                },
+                "backImage" : {
+                    "w" : 100,
+                    "h" : 60
+                },
+                "quitImage" : {
+                    "w" : 100,
+                    "h" : 60
+                },
+                "itemBackgroundImage" : {
+                    "w" : 470,
+                    "h" : 120
+                },
+                "itemBackgroundImageExpanded" : {
+                    "w" : 470,
+                    "h" : 220
+                }
+            }
+        },
+        "economy" : {
+            "currencies" : {
+                "w" : 50,
+                "h" : 50
+            },
+            "currencyPacks" : {
+                "w" : 100,
+                "h" : 100
+            },
+            "categories" : {
+                "w" : 200,
+                "h" : 200
+            },
+            "goods" : {
+                "equippable" : {
+                    "w" : 100,
+                    "h" : 100
+                },
+                "goodUpgrades" : {
+                    "upgradeImage" : {
+                        "w" : 100,
+                        "h" : 100
+                    },
+                    "upgradeBar" : {
+                        "w" : 200,
+                        "h" : 30
+                    }
+                },
+                "lifetime" : {
+                    "w" : 100,
+                    "h" : 100
+                },
+                "singleUse" : {
+                    "w" : 100,
+                    "h" : 100
+                }
+            }
+        }
+    },
 	"validations" : {
 		"currency" : {
 			"rules" : {

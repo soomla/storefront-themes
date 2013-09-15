@@ -115,6 +115,42 @@
             }
         }
     },
+    "assetMetadata" : {
+        "template" : {
+            "background" : {
+                "w" : 1920,
+                "h" : 1280
+            },
+            "loadingModal" : {
+                "background" : {
+                    "w" : 800,
+                    "h" : 400
+                }
+            },
+            "images" : {
+                "itemAreaBackground" : {
+                    "w" : 1600,
+                    "h" : 960
+                },
+                "quitImage" : {
+                    "w" : 200,
+                    "h" : 200
+                }
+            }
+        },
+        "economy" : {
+            "goods" : {
+                "lifetime" : {
+                    "w" : 480,
+                    "h" : 900
+                },
+                "singleUse" : {
+                    "w" : 480,
+                    "h" : 900
+                }
+            }
+        }
+    },
 	"validations" : {
 		"currency" : {
 			"rules" : {
