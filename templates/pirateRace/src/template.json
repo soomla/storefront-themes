@@ -58,12 +58,6 @@
                 "title" : "Balance Label Style",
                 "selector" : ".item .balance label",
                 "section" : "global"
-            },
-            "restorePurchasesImage" : {
-                "type" : "image",
-                "title" : "Restore Purchases Image",
-                "selector" : "#restore-purchases img",
-                "section" : "global"
             }
         },
         "fonts" : [
@@ -250,10 +244,6 @@
                 "moreCurrencyButton" : {
                     "w" : 500,
                     "h" : 100
-                },
-                "restorePurchasesImage" : {
-                    "w" : 0,
-                    "h" : 0
                 }
             },
             "itemSeparator" : {

@@ -47,11 +47,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
         EquippableVirtualGoodView   = Components.EquippableItemView.extend({ template : getTemplate("equippableItem")}),
         LifetimeVirtualGoodView     = Components.LifetimeItemView.extend({ template : getTemplate("equippableItem")}),
         CurrencyPackView            = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack"), triggers : {fastclick : "buy"} }),
-        NonConsumableView           = Components.BuyOnceItemView.extend({template : getTemplate("nonConsumableItem") }),
-        RestorePurchasesView        = Components.LinkView.extend({
-            tagName: "div",
-            template: getTemplate("restorePurchases")
-        });
+        NonConsumableView           = Components.BuyOnceItemView.extend({template : getTemplate("nonConsumableItem") });
 
 
     var extendViews = function(model) {
@@ -109,19 +105,12 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
                 imgFilePath         : modelAssets.items[this.model.id] || this._imagePlaceholder
             };
         };
-
-        RestorePurchasesView.prototype.templateHelpers = function() {
-            return {
-                itemSeparator   : theme.itemSeparator,
-                imgFilePath     : theme.common.restorePurchasesImage
-            };
-        }
     };
 
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
-            _.bindAll(this, "showCurrencyPacks", "showGoodsStore", "buyItem", "equipGoods", "restorePurchase");
+            _.bindAll(this, "showCurrencyPacks", "showGoodsStore", "buyItem", "equipGoods");
 
             // Initialize dialog metadata
             this.dialogModal = this.theme.pages.goods.noFundsModal;
@@ -163,12 +152,6 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
                 collection          : nonConsumables,
                 itemView            : NonConsumableView
             }).on("itemview:buy", this.buyItem);
-
-
-            // Add restore purchases view if necessary
-            if (!nonConsumables.isEmpty()) {
-                this.restorePurchasesView = new RestorePurchasesView().on("select", this.restorePurchase);
-            }
 
         },
         events : {
@@ -295,9 +278,6 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
 
             this.$("#currency-store .non-consumables").html(this.nonConsumablesView.render().el);
 
-            if (this.restorePurchasesView) {
-                this.$("#restore-purchases").html(this.restorePurchasesView.render().el);
-            }
             var that = this;
             setTimeout(function(){
                 that.ui.goodsStore.addClass("showBtn");
@@ -324,9 +304,6 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
         },
         equipGoods : function (view) {
             this.playSound().wantsToEquipGoods(view.model);
-        },
-        restorePurchase : function () {
-            this.playSound().wantsToRestorePurchases();
         },
         zoomFunction : function() {
             return (innerHeight / innerWidth) > 1.5 ? (innerWidth / 640) : (innerHeight / 960);
