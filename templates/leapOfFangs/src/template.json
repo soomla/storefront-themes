@@ -190,6 +190,106 @@
             }
         }
     },
+    "assetMetadata" : {
+        "template" : {
+            "currencyPacksCategoryImage" : {
+                "w" : 100,
+                "h" : 100
+            },
+            "currencyPacksCategoryImage2" : {
+                "w" : 100,
+                "h" : 100
+            },
+            "noFundsModal" : {
+                "background" : {
+                    "w" : 540,
+                    "h" : 300
+                },
+                "yesButton" : {
+                    "w" : 260,
+                    "h" : 80
+                },
+                "noButton" : {
+                    "w" : 260,
+                    "h" : 80
+                }
+            },
+            "images" : {
+                "globalBackground" : {
+                    "w" : 800,
+                    "h" : 1280
+                },
+                "contentBackground" : {
+                    "w" : 720,
+                    "h" : 1280
+                },
+                "headerBackground" : {
+                    "w" : 720,
+                    "h" : 220
+                },
+                "itemAreaBackground" : {
+                    "w" : 720,
+                    "h" : 860
+                },
+                "footerBackground" : {
+                    "w" : 720,
+                    "h" : 244
+                },
+                "previousImage" : {
+                    "w" : 100,
+                    "h" : 420
+                },
+                "nextImage" : {
+                    "w" : 100,
+                    "h" : 420
+                },
+                "buyImage" : {
+                    "w" : 240,
+                    "h" : 120
+                },
+                "quit" : {
+                    "w" : 150,
+                    "h" : 50
+                },
+                "equip" : {
+                    "w" : 240,
+                    "h" : 120
+                },
+                "equipped" : {
+                    "w" : 240,
+                    "h" : 120
+                }
+            }
+        },
+        "economy" : {
+            "currencies" : {
+                "w" : 100,
+                "h" : 100
+            },
+            "currencyPacks" : {
+                "w" : 400,
+                "h" : 420
+            },
+            "categories" : {
+                "w" : 100,
+                "h" : 100
+            },
+            "goods" : {
+                "equippable" : {
+                    "w" : 400,
+                    "h" : 420
+                },
+                "lifetime" : {
+                    "w" : 400,
+                    "h" : 420
+                },
+                "singleUse" : {
+                    "w" : 400,
+                    "h" : 420
+                }
+            }
+        }
+    },
 	"validations" : {
 		"currency" : {
 			"rules" : {
