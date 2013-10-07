@@ -11,7 +11,14 @@
 	    <span class="toggle-equip equipped"><img src="{{images.equipped}}"></span>
         <a class="toggle-equip equip"><img src="{{images.equip}}"></a>
 
-	    {{> price}}
+        <div class="item-price">
+		    {{#if isMarketPurchaseType}}
+                <label>${{price}}</label>
+		    {{else}}
+                <label>{{price}}</label>
+                <img src="{{currency.imgFilePath}}">
+		    {{/if}}
+        </div>
         <img src="{{images.expandImage}}" class="expand-collapse">
     </div>
 </div>

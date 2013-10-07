@@ -8,9 +8,6 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
 
     var transitionend = CssUtils.getTransitionendEvent();
 
-    // Preload partials
-    Handlebars.getPartial("price");
-
 
     // Define view types
 

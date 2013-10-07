@@ -10,7 +10,14 @@
         </div>
     </div>
     <div class="actions">
-	    {{> price}}
+        <div class="item-price">
+		    {{#if isMarketPurchaseType}}
+                <label>${{price}}</label>
+		    {{else}}
+                <label>{{price}}</label>
+                <img src="{{currency.imgFilePath}}">
+		    {{/if}}
+        </div>
         <img src="{{images.expandImage}}" class="expand-collapse">
 	</div>
 </div>
