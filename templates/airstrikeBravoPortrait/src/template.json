@@ -7,7 +7,8 @@
             "goodUpgrades" : true
         },
         "purchaseTypes" : {
-            "virtualItem" : true
+            "virtualItem" : true,
+            "market" : true
         },
         "categoryImages" : true,
 		"removeAds" : {}

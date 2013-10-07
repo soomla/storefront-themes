@@ -8,6 +8,9 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
 
     var transitionend = CssUtils.getTransitionendEvent();
 
+    // Preload partials
+    Handlebars.getPartial("price");
+
 
     // Define view types
 
@@ -78,6 +81,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
                     imgFilePath: modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
                 },
                 price: this.model.getPrice(),
+                isMarketPurchaseType : this.model.isMarketPurchaseType(),
 
                 // This is a hack, because Backofgen ignores empty objects in the theme
                 item: (theme.pages.goods && theme.pages.goods.item) ? theme.pages.goods.item : {}
