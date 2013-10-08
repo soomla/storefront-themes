@@ -5,7 +5,7 @@
                 "marketItem": {
                     "consumable": 1,
                     "price": 0.99,
-                    "androidId": "android.test.canceled",
+                    "androidId": "android.test.purchased",
                     "iosId" : "banana_pack"
                 },
                 "purchaseType": "market"
@@ -20,7 +20,7 @@
                 "marketItem": {
                     "consumable": 1,
                     "price": 1.99,
-                    "androidId": "android.test.refunded",
+                    "androidId": "banana_basket",
                     "iosId" : "banana_basket"
                 },
                 "purchaseType": "market"
@@ -35,7 +35,7 @@
                 "marketItem": {
                     "consumable": 1,
                     "price": 2.99,
-                    "androidId": "android.test.purchased",
+                    "androidId": "banana_tree",
                     "iosId" : "banana_tree"
                 },
                 "purchaseType": "market"

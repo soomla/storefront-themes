@@ -23,7 +23,7 @@
                     "marketItem": {
                         "consumable": 1,
                         "price": 1.99,
-                        "androidId": "android.test.purchased",
+                        "androidId": "dolly",
                         "iosId": "dolly"
                     },
                     "purchaseType": "market"
@@ -37,7 +37,7 @@
                     "marketItem": {
                         "consumable": 1,
                         "price": 2.99,
-                        "androidId": "android.test.purchased",
+                        "androidId": "angel",
                         "iosId": "angel"
                     },
                     "purchaseType": "market"
@@ -51,7 +51,7 @@
                     "marketItem": {
                         "consumable": 1,
                         "price": 3.99,
-                        "androidId": "android.test.purchased",
+                        "androidId": "sunshine",
                         "iosId": "sunshine"
                     },
                     "purchaseType": "market"
