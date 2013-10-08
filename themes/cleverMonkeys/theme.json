@@ -20,8 +20,7 @@
         },
         "categories": {
             "Characters": "img/-_Object_1.png",
-            "Utilities": "img/-_Object_4.png",
-            "Jetpacks": "img/-_Object_2.png"
+            "Utilities": "img/-_Object_4.png"
         }
     },
     "theme": {

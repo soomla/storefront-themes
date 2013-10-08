@@ -61,10 +61,6 @@
         {
             "goods_itemIds": ["fishing_rod", "extra_rope", "trampoline"],
             "name": "Utilities"
-        },
-        {
-            "goods_itemIds": [],
-            "name": "Jetpacks"
         }
     ],
     "goods": {
