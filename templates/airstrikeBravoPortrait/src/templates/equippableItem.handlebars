@@ -5,16 +5,20 @@
 
     <img src="{{imgFilePath}}" class="item-image">
     <div class="content">
-        <h1 class="item-name"">{{name}}</h1>
+        <h1 class="item-name">{{name}}</h1>
     </div>
     <div class="actions">
         <span class="toggle-equip equipped"><img src="{{images.equipped}}"></span>
         <a class="toggle-equip equip"><img src="{{images.equip}}"></a>
 
         <div class="item-price">
-	        <label>{{price}}</label>
-	        <img src="{{currency.imgFilePath}}">
-	    </div>
+		    {{#if isMarketPurchaseType}}
+                <label>${{price}}</label>
+		    {{else}}
+                <label>{{price}}</label>
+                <img src="{{currency.imgFilePath}}">
+		    {{/if}}
+        </div>
         <img src="{{images.expandImage}}" class="expand-collapse">
 	</div>
 </div>

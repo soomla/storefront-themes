@@ -152,7 +152,8 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
                     imgFilePath: modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
                 },
                 price: this.model.getPrice(),
-                item: theme.item
+                item: theme.item,
+                isMarketPurchaseType : this.model.isMarketPurchaseType()
             }, templateHelpers);
         };
         SingleUseVirtualGoodView.prototype.templateHelpers  = virtualGoodTemplateHelpers;

@@ -77,7 +77,8 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
                     imgFilePath : modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
                 },
                 price : this.model.getPrice(),
-                itemSeparator       : theme.itemSeparator
+                itemSeparator       : theme.itemSeparator,
+                isMarketPurchaseType : this.model.isMarketPurchaseType()
 
                 // TODO: Move all properties under pages.goods.item and pages.currencyPacks.item and migrate DB
 
