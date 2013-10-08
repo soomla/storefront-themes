@@ -7,8 +7,12 @@
 	</a>
 	<div class="info">
 		<div>
-            <img src="{{currency.imgFilePath}}">
-            <label class="price">{{price}}</label>
+			{{#if isMarketPurchaseType}}
+                <label class="price">${{price}}</label>
+			{{else}}
+                <img src="{{currency.imgFilePath}}">
+                <label class="price">{{price}}</label>
+			{{/if}}
 		</div>
 		<div class="item-balance">
             Balance: <label class="balance">{{balance}}</label>
