@@ -6,7 +6,8 @@
             "lifetime" : true
         },
         "purchaseTypes" : {
-            "virtualItem" : true
+            "virtualItem" : true,
+            "market" : true
         },
 		"removeAds" : {}
 	},

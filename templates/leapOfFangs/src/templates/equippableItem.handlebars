@@ -3,8 +3,12 @@
 </div>
 <div class="buy-container">
     <a><img src="{{images.buyImage}}" class="buy"></a>
-    <img src="{{currency.imgFilePath}}">
-    <label class="price">{{price}}</label>
+	{{#if isMarketPurchaseType}}
+        <label class="price">${{price}}</label>
+	{{else}}
+        <img src="{{currency.imgFilePath}}">
+        <label class="price">{{price}}</label>
+	{{/if}}
 </div>
 <div class="equip-container">
     <a><img src="{{images.equip}}" class="equip"></a>

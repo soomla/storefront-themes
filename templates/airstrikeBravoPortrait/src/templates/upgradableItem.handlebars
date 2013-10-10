@@ -6,9 +6,13 @@
     </div>
     <div class="actions">
         <div class="item-price">
-	        <label>{{price}}</label>
-	        <img src="{{currency.imgFilePath}}">
-	    </div>
+		    {{#if isMarketPurchaseType}}
+                <label>${{price}}</label>
+		    {{else}}
+                <label>{{price}}</label>
+                <img src="{{currency.imgFilePath}}">
+		    {{/if}}
+        </div>
         <img src="{{images.expandImage}}" class="expand-collapse">
     </div>
 	<div class="complete-indicator">

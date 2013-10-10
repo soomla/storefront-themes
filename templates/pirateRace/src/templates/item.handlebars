@@ -10,8 +10,12 @@
         </div>
     </div>
     <div class="row price">
-        <img src="{{currency.imgFilePath}}" class="currency">
-        <label>{{price}}</label>
+		{{#if isMarketPurchaseType}}
+            <label>${{price}}</label>
+		{{else}}
+            <img src="{{currency.imgFilePath}}" class="currency">
+            <label>{{price}}</label>
+		{{/if}}
         <a class="buy">
             <img src="{{buy}}">
         </a>

@@ -5,7 +5,7 @@
                 "marketItem": {
                     "consumable": 1,
                     "price": 0.99,
-                    "androidId": "android.test.canceled",
+                    "androidId": "android.test.purchased",
                     "iosId": "nuts_booster_pack"
                 },
                 "purchaseType": "market"
@@ -22,7 +22,7 @@
                 "marketItem": {
                     "consumable": 1,
                     "price": 2.99,
-                    "androidId": "android.test.refunded",
+                    "androidId": "nuts_mega_pack",
                     "iosId": "nuts_mega_pack"
                 },
                 "purchaseType": "market"
@@ -38,7 +38,7 @@
                 "marketItem": {
                     "consumable": 1,
                     "price": 2.99,
-                    "androidId": "android.test.purchased",
+                    "androidId": "nuts_ultra_pack",
                     "iosId": "nuts_ultra_pack"
                 },
                 "purchaseType": "market"
@@ -54,7 +54,7 @@
                 "marketItem": {
                     "consumable": 1,
                     "price": 9.99,
-                    "androidId": "android.test.purchased",
+                    "androidId": "nuts_ultimate_pack",
                     "iosId": "nuts_ultimate_pack"
                 },
                 "purchaseType": "market"

@@ -6,7 +6,7 @@
                 "marketItem": {
                     "consumable": 1,
                     "price": 0.99,
-                    "androidId": "blood_1",
+                    "androidId": "android.test.purchased",
                     "iosId": "blood_1"
                 },
                 "purchaseType": "market"
@@ -66,7 +66,7 @@
                 "marketItem": {
                     "consumable": 1,
                     "price": 1.99,
-                    "androidId": "android.test.purchased",
+                    "androidId": "500_coins",
                     "iosId": "500_coins"
                 },
                 "purchaseType": "market"
