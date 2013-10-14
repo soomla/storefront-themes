@@ -18,8 +18,7 @@
             "coin_mega_pack": "img/coins/objects-02.png",
             "coin_ultra_pack": "img/coins/objects-03.png",
             "currency_coins": "img/coin.png",
-            "remove_ads": "img/no-ads.png",
-            "tapjoy": "img/tapjoy.png"
+            "remove_ads": "img/no-ads.png"
         },
         "categories": {
             "FISHIES": "img/-_Object_2.png",

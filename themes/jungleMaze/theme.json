@@ -31,8 +31,7 @@
             "nuts_ultra_pack" : "img/Coins/objects-08.png",
             "nuts_ultimate_pack" : "img/Coins/objects-08.png",
             "currency_nuts" : "img/coin.png",
-            "remove_ads" : "img/no-ads.png",
-            "tapjoy" : "img/tapjoy.png"
+            "remove_ads" : "img/no-ads.png"
 	    }
     },
     "theme" : {

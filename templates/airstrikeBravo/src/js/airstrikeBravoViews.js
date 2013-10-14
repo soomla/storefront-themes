@@ -157,8 +157,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
 
             var currencies 		= this.model.getCurrencies(),
                 categories      = this.model.getCategories(),
-                nonConsumables  = this.model.get("nonConsumables"),
-                tapjoy          = this.theme.tapjoy;
+                nonConsumables  = this.model.get("nonConsumables");
 
             this.headerStates   = {};
 
@@ -204,19 +203,6 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
 
                 this.nonConsumbaleLinks.push(view);
             }, this);
-
-            // Create a view for a Tapjoy link from the category menu.
-            // We're using a CategoryView, because visually the button should look the same, even though
-            // it doesn't represent an actual category.  This view will be force-appended to the
-            // categories view when rendering
-            if (tapjoy) {
-                this.tapjoyView = new CategoryView({
-                    className : "item earned-currency",
-                    templateHelpers : { imgFilePath : this.model.getModelAssets().items.tapjoy || this._imagePlaceholder }
-                }).on("select", function() {
-                    this.playSound().requestEarnedCurrency("tapjoy");
-                }, this);
-            }
 
 
             // Mark this view as the active view,
@@ -367,14 +353,12 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
             // Append the link to the currency packs as a "category view"
             this.currencyPacksLinks.each(this.appendCurrencyLinkView, this);
 
-            // Append links to earned currencies as "category views"
-            if (this.tapjoyView) menu.append(this.tapjoyView.render().el);
-
             // Append non consumable items as "category views"
             _.each(this.nonConsumbaleLinks, function(view) {
                 menu.append(view.render().el);
             });
 
+            // Initial iScroll refresh for menu
             if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
         },
         // View event listeners

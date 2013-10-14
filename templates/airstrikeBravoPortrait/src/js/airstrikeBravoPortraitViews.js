@@ -204,25 +204,6 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
                 this.nonConsumbaleLinks.push(view);
             }, this);
 
-            // Create views for the earned currency links from the category menu.
-            // We're using a CategoryView, because visually the button should look the same, even though
-            // it doesn't represent an actual category.  This view will be force-appended to the
-            // categories view when rendering
-            this.earnedCurrencyLinks = [];
-
-            _.each(this.theme.earnedCurrencies, function(earnedCurrency) {
-
-                var earnedCurrency = new CategoryView({
-                    className : "item earned-currency",
-                    model : new categories.model(earnedCurrency),
-                    templateHelpers : { imgFilePath : earnedCurrency.imgFilePath }
-                }).on("select", function() {
-                    this.playSound().requestEarnedCurrency(this.model.get("provider"));
-                }, this);
-
-                this.earnedCurrencyLinks.push(earnedCurrency);
-            }, this);
-
 
             // Mark this view as the active view,
             // as it is the first one visible when the store opens
@@ -371,11 +352,6 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
 
             // Append the link to the currency packs as a "category view"
             this.currencyPacksLinks.each(this.appendCurrencyLinkView, this);
-
-            // Append links to earned currencies as "category views"
-            _.each(this.earnedCurrencyLinks, function(view) {
-                menu.$el.append(view.render().el);
-            });
 
             // Append non consumable items as "category views"
             _.each(this.nonConsumbaleLinks, function(view) {

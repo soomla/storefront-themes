@@ -11,8 +11,7 @@
             "market" : true
         },
         "categoryImages" : true,
-		"removeAds" : {},
-		"tapjoy" : {}
+		"removeAds" : {}
 	},
     "sections" : {
         "global" : {
