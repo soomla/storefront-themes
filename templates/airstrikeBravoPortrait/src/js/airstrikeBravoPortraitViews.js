@@ -66,7 +66,8 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
     var extendViews = function(model) {
 
         var theme           = model.get("theme"),
-            commonHelpers   = { images : theme.images };
+            commonHelpers   = { images : theme.images },
+            modelAssets     = model.getModelAssets();
 
 
         // Add template helpers to view prototypes
@@ -76,7 +77,6 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
         };
         var templateHelpers = function () {
 
-            var modelAssets = model.getModelAssets();
             return createTemplateHelpers({
                 imgFilePath: modelAssets.items[this.model.id] || this._imagePlaceholder,
                 currency: {
@@ -94,8 +94,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
         SingleUseVirtualGoodView.prototype.templateHelpers  = templateHelpers;
         LifetimeVirtualGoodView.prototype.templateHelpers   = templateHelpers;
         UpgradableItemView.prototype.templateHelpers        = function() {
-            var modelAssets     = model.getModelAssets(),
-                nextUpgrade     = this.model.getNextUpgrade(),
+            var nextUpgrade     = this.model.getNextUpgrade(),
                 upgradeBarImage = this.model.getCurrentUpgradeBarAssetId();
 
             return createTemplateHelpers({
@@ -118,7 +117,6 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
         };
 
         CurrencyPackView.prototype.templateHelpers = function() {
-            var modelAssets = model.getModelAssets();
             return createTemplateHelpers({
                 price: this.model.getPrice(),
                 imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder,
@@ -131,13 +129,11 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
             });
         };
         OfferWallView.prototype.templateHelpers = function() {
-            var modelAssets = model.getModelAssets();
             return {
                 imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder
             };
         };
         CategoryView.prototype.templateHelpers = function() {
-            var modelAssets = model.getModelAssets();
             return {
                 imgFilePath : modelAssets.categories[this.model.id] || this._imagePlaceholder
             };
@@ -148,7 +144,6 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
             };
         };
         NonConsumableView.prototype.templateHelpers = function() {
-            var modelAssets = model.getModelAssets();
             return createTemplateHelpers({
                 imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder
             });

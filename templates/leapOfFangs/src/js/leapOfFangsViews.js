@@ -144,13 +144,13 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
     var extendViews = function(model) {
 
         var theme           = model.get("theme"),
-            templateHelpers = { images : theme.images };
+            templateHelpers = { images : theme.images },
+            modelAssets     = model.getModelAssets();
 
 
         // Add template helpers to view prototypes
 
         var virtualGoodTemplateHelpers = function () {
-            var modelAssets = model.getModelAssets();
             return _.extend({
                 imgFilePath: modelAssets.items[this.model.id] || this._imagePlaceholder,
                 currency: {
@@ -166,7 +166,6 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
         LifetimeItemView.prototype.templateHelpers          = virtualGoodTemplateHelpers;
 
         CurrencyPackView.prototype.templateHelpers = function() {
-            var modelAssets = model.getModelAssets();
             return _.extend({
                 imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder,
                 currency : {
@@ -177,19 +176,16 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             }, templateHelpers);
         };
         CategoryMenuItemView.prototype.templateHelpers = function() {
-            var modelAssets = model.getModelAssets();
             return {
                 imgFilePath : modelAssets.categories[this.model.id] || this._imagePlaceholder
             };
         };
         OfferWallView.prototype.templateHelpers = function() {
-            var modelAssets = model.getModelAssets();
             return {
                 imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder
             };
         };
         CurrencyMenuItemView.prototype.templateHelpers = function() {
-            var modelAssets = model.getModelAssets();
             return {
                 imgFilePath: (this.model.id == 'currency_coins') ? theme.currencyPacksCategoryImage : theme.currencyPacksCategoryImage2 || this._imagePlaceholder
             };

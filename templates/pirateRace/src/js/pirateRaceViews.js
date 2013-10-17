@@ -54,7 +54,8 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
 
     var extendViews = function(model) {
 
-        var theme = model.get("theme");
+        var theme       = model.get("theme"),
+            modelAssets = model.getModelAssets();
 
         // Add template helpers to view prototypes
 
@@ -72,7 +73,6 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
                 }, 200)
             }
             this.initialized = true;
-            var modelAssets = model.getModelAssets();
             return _.extend({
                 imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder,
                 currency : {
@@ -93,7 +93,6 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
         LifetimeVirtualGoodView.prototype.templateHelpers   = templateHelpers;
 
         CurrencyPackView.prototype.templateHelpers = function() {
-            var modelAssets = model.getModelAssets();
             return {
                 price           : this.model.getPrice(),
                 itemSeparator   : theme.itemSeparator,
@@ -101,14 +100,12 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             };
         };
         OfferWallView.prototype.templateHelpers = function() {
-            var modelAssets = model.getModelAssets();
             return {
                 itemSeparator   : theme.itemSeparator,
                 imgFilePath     : modelAssets.items[this.model.id] || this._imagePlaceholder
             };
         };
         NonConsumableView.prototype.templateHelpers = function() {
-            var modelAssets = model.getModelAssets();
             return {
                 itemSeparator       : theme.itemSeparator,
                 ownedIndicatorImage : theme.common.ownedIndicatorImage,
