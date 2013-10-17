@@ -140,7 +140,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
         };
         MenuLinkView.prototype.templateHelpers = function() {
             return {
-            	imgFilePath : model.theme.getOfferWallsLinkAsset() || this._imagePlaceholder
+            	imgFilePath : model.assetManager.getOfferWallsLinkAsset() || this._imagePlaceholder
             };
         };
         NonConsumableView.prototype.templateHelpers = function() {
