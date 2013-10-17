@@ -59,11 +59,11 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
 
         var theme = model.get("theme");
         var commonTemplateHelpers = function() {
-            var modelAssets = model.getModelAssets();
+            var assets = model.assets;
             return {
                 odd         : (this.model.collection.indexOf(this.model) + 1) % 2 == 1,
                 price 		: this.model.getPrice(),
-                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder,
+                imgFilePath : assets.getItemAsset(this.model.id),
                 images      : theme.images
             };
         };

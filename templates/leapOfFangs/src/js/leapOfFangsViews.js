@@ -145,16 +145,16 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
 
         var theme           = model.get("theme"),
             templateHelpers = { images : theme.images },
-            modelAssets     = model.getModelAssets();
+            assets          = model.assets;
 
 
         // Add template helpers to view prototypes
 
         var virtualGoodTemplateHelpers = function () {
             return _.extend({
-                imgFilePath: modelAssets.items[this.model.id] || this._imagePlaceholder,
+                imgFilePath: assets.getItemAsset(this.model.id),
                 currency: {
-                    imgFilePath: modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
+                    imgFilePath: assets.getItemAsset(this.model.getCurrencyId())
                 },
                 price: this.model.getPrice(),
                 item: theme.item,
@@ -167,9 +167,9 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
 
         CurrencyPackView.prototype.templateHelpers = function() {
             return _.extend({
-                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder,
+                imgFilePath : assets.getItemAsset(this.model.id),
                 currency : {
-                    imgFilePath : modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
+                    imgFilePath : assets.getItemAsset(this.model.getCurrencyId())
                 },
                 price: this.model.getPrice(),
                 item : theme.item
@@ -177,12 +177,12 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
         };
         CategoryMenuItemView.prototype.templateHelpers = function() {
             return {
-                imgFilePath : modelAssets.categories[this.model.id] || this._imagePlaceholder
+                imgFilePath : assets.getCategoryAsset(this.model.id)
             };
         };
         OfferWallView.prototype.templateHelpers = function() {
             return {
-                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder
+                imgFilePath : assets.getItemAsset(this.model.id)
             };
         };
         CurrencyMenuItemView.prototype.templateHelpers = function() {
@@ -192,7 +192,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
         };
         MenuLinkView.prototype.templateHelpers = function() {
             return {
-                imgFilePath : model.assetManager.getOfferWallsLinkAsset() || this._imagePlaceholder
+                imgFilePath : assets.getOfferWallsLinkAsset() || this._imagePlaceholder
             };
         };
     };

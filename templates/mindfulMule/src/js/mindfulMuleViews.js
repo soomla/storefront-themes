@@ -20,11 +20,11 @@ define("mindfulMuleViews", ["jquery", "backbone", "components", "helperViews", "
 
         // Add template helpers to view prototypes
         GoodView.prototype.templateHelpers = function() {
-            var modelAssets = model.getModelAssets();
+            var assets = model.assets;
             return _.extend({
                 price 		: this.model.getPrice(),
                 buyImage    : theme.item.buyImage,
-                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder
+                imgFilePath : assets.getItemAsset(this.model.id)
             }, commonHelpers);
         };
     };

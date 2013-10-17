@@ -27,18 +27,18 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handleb
     var extendViews = function(model) {
 
         var theme = model.get("theme");
+        var assets = model.assets;
 
 
         // Add template helpers to view prototypes
 
         var templateHelpers = function() {
 
-            var modelAssets = model.getModelAssets();
             return _.extend({
-                imgFilePath: modelAssets["virtualGoods"][this.model.id],
-                backgroundImgFilePath: modelAssets["categories"][this.model.get('categoryId')],
+                imgFilePath: assets.getItemAsset(this.model.id),
+                backgroundImgFilePath: assets.getCategoryAsset(this.model.get("categoryId")),
                 currency : {
-                    imgFilePath : modelAssets["currencies"][this.model.getCurrencyId()]
+                    imgFilePath : assets.getItemAsset(this.model.getCurrencyId())
                 },
                 price : this.model.get("priceModel").values[this.model.getCurrencyId()]
 
@@ -50,12 +50,11 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handleb
         VirtualGoodView.prototype.templateHelpers = templateHelpers;
         EquippableVirtualGoodView.prototype.templateHelpers = templateHelpers;
         CurrencyPackView.prototype.templateHelpers = function() {
-            var modelAssets = model.getModelAssets();
             return {
                 nameStyle       : theme.pages.currencyPacks.listItem.nameStyle,
                 priceStyle      : theme.pages.currencyPacks.listItem.priceStyle,
                 buy             : theme.pages.currencyPacks.listItem.buy,
-                imgFilePath: modelAssets["currencyPacks"][this.model.id],
+                imgFilePath     : assets.getItemAsset(this.model.id),
                 backgroundImgFilePath: eval('theme.currencyPacksCategoryImage_' + this.model.get('currency_itemId'))
             };
         };

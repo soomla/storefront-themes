@@ -64,10 +64,10 @@ define("rockyRaccoonViews", ["jquery", "backbone", "components", "helperViews", 
 
         var theme = model.get("theme");
         var commonTemplateHelpers = function() {
-            var modelAssets = model.getModelAssets();
+            var assets = model.assets;
             return {
                 price 		: this.model.getPrice(),
-                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder,
+                imgFilePath : assets.getItemAsset(this.model.id),
                 images      : theme.images
             };
         };

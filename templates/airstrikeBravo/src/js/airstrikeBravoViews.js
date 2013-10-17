@@ -67,7 +67,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
 
         var theme           = model.get("theme"),
             commonHelpers   = { images : theme.images },
-            modelAssets     = model.getModelAssets();
+            assets          = model.assets;
 
 
         // Add template helpers to view prototypes
@@ -78,9 +78,9 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
         var templateHelpers = function () {
 
             return createTemplateHelpers({
-                imgFilePath: modelAssets.items[this.model.id] || this._imagePlaceholder,
+                imgFilePath: assets.getItemAsset(this.model.id),
                 currency: {
-                    imgFilePath: modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
+                    imgFilePath:assets.getItemAsset(this.model.getCurrencyId())
                 },
                 price: this.model.getPrice(),
                 isMarketPurchaseType : this.model.isMarketPurchaseType(),
@@ -100,15 +100,15 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
             return createTemplateHelpers({
 
                 // Assets
-                imgFilePath 	: modelAssets.items[nextUpgrade.id] || this._imagePlaceholder,
-                upgradeBarImage : modelAssets.items[upgradeBarImage] || this._progressBarPlaceholder,
+                imgFilePath 	: assets.getUpgradeAsset(nextUpgrade.id),
+                upgradeBarImage : assets.getUpgradeBarAsset(upgradeBarImage),
 
                 // Metadata
                 name 			: nextUpgrade.get("name"),
                 description 	: nextUpgrade.get("description"),
                 price 			: this.model.getPrice(),
                 currency 		: {
-                    imgFilePath : modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
+                    imgFilePath : assets.getItemAsset(this.model.getCurrencyId())
                 },
 
                 // This is a hack, because Backofgen ignores empty objects in the theme
@@ -119,9 +119,9 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
         CurrencyPackView.prototype.templateHelpers = function() {
             return createTemplateHelpers({
                 price: this.model.getPrice(),
-                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder,
+                imgFilePath : assets.getItemAsset(this.model.id),
                 currency: {
-                    imgFilePath: modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
+                    imgFilePath: assets.getItemAsset(this.model.getCurrencyId())
                 },
 
                 // This is a hack, because Backofgen ignores empty objects in the theme
@@ -130,22 +130,22 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
         };
         OfferWallView.prototype.templateHelpers = function() {
             return {
-                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder
+                imgFilePath : assets.getItemAsset(this.model.id)
             };
         };
         CategoryView.prototype.templateHelpers = function() {
             return {
-                imgFilePath : modelAssets.categories[this.model.id] || this._imagePlaceholder
+                imgFilePath : assets.getCategoryAsset(this.model.id)
             };
         };
         OfferWallsMenuLinkView.prototype.templateHelpers = function() {
             return {
-                imgFilePath : model.assetManager.getOfferWallsLinkAsset() || this._imagePlaceholder
+                imgFilePath : assets.getOfferWallsLinkAsset() || this._imagePlaceholder
             };
         };
         NonConsumableView.prototype.templateHelpers = function() {
             return createTemplateHelpers({
-                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder
+                imgFilePath : assets.getItemAsset(this.model.id)
             });
         };
 

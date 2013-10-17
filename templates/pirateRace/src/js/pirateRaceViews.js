@@ -55,7 +55,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
     var extendViews = function(model) {
 
         var theme       = model.get("theme"),
-            modelAssets = model.getModelAssets();
+            assets      = model.assets;
 
         // Add template helpers to view prototypes
 
@@ -74,9 +74,9 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             }
             this.initialized = true;
             return _.extend({
-                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder,
+                imgFilePath : assets.getItemAsset(this.model.id),
                 currency : {
-                    imgFilePath : modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
+                    imgFilePath : assets.getItemAsset(this.model.getCurrencyId())
                 },
                 price : this.model.getPrice(),
                 itemSeparator       : theme.itemSeparator,
@@ -96,20 +96,20 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             return {
                 price           : this.model.getPrice(),
                 itemSeparator   : theme.itemSeparator,
-                imgFilePath     : modelAssets.items[this.model.id] || this._imagePlaceholder
+                imgFilePath     : assets.getItemAsset(this.model.id)
             };
         };
         OfferWallView.prototype.templateHelpers = function() {
             return {
                 itemSeparator   : theme.itemSeparator,
-                imgFilePath     : modelAssets.items[this.model.id] || this._imagePlaceholder
+                imgFilePath     : assets.getItemAsset(this.model.id)
             };
         };
         NonConsumableView.prototype.templateHelpers = function() {
             return {
                 itemSeparator       : theme.itemSeparator,
                 ownedIndicatorImage : theme.common.ownedIndicatorImage,
-                imgFilePath         : modelAssets.items[this.model.id] || this._imagePlaceholder
+                imgFilePath         : assets.getItemAsset(this.model.id)
             };
         };
     };
