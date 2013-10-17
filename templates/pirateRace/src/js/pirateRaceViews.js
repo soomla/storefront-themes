@@ -47,6 +47,8 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
         EquippableVirtualGoodView   = Components.EquippableItemView.extend({ template : getTemplate("equippableItem")}),
         LifetimeVirtualGoodView     = Components.LifetimeItemView.extend({ template : getTemplate("equippableItem")}),
         CurrencyPackView            = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack"), triggers : {fastclick : "buy"} }),
+        OfferWallView               = Components.LinkView.extend({ template : getTemplate("offerWall"), className : "item offer-wall"}),
+        OfferWallsCollectionView    = Components.CollectionView.extend({ template : getTemplate("collection"), itemView : OfferWallView }),
         NonConsumableView           = Components.BuyOnceItemView.extend({template : getTemplate("nonConsumableItem") });
 
 
@@ -98,6 +100,13 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
                 imgFilePath     : modelAssets.items[this.model.id] || this._imagePlaceholder
             };
         };
+        OfferWallView.prototype.templateHelpers = function() {
+            var modelAssets = model.getModelAssets();
+            return {
+                itemSeparator   : theme.itemSeparator,
+                imgFilePath     : modelAssets.items[this.model.id] || this._imagePlaceholder
+            };
+        };
         NonConsumableView.prototype.templateHelpers = function() {
             var modelAssets = model.getModelAssets();
             return {
@@ -127,6 +136,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
 
             var currencies          = this.model.getCurrencies(),
                 categories          = this.model.getCategories(),
+                offerWalls          = this.model.getOfferWalls(),
                 nonConsumables      = this.model.get("nonConsumables");
 
 
@@ -148,6 +158,29 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
                 remove : this.removeCurrencyView
             }, this);
 
+
+            if (!offerWalls.isEmpty()) {
+
+                // Add offer wall items
+                this.addOfferWallsView(offerWalls);
+
+                // Listen to offer wall changes
+                this.listenTo(offerWalls, {
+                    add : function() {
+                        if (offerWalls.size() === 1) {
+                            this.addOfferWallsView(offerWalls, {render : true});
+                            this.iscrolls.packs.refresh();
+                        }
+                    },
+                    remove : function() {
+                        if (offerWalls.isEmpty()) this.removeOfferWallsView();
+                        this.iscrolls.packs.refresh();
+
+                    }
+                });
+            }
+
+
             this.nonConsumablesView = new Components.CollectionView({
                 className           : "items nonConsumables",
                 collection          : nonConsumables,
@@ -165,7 +198,8 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             currencyStore           : "#currency-store",
             backButton              : "#goods-store .btn1",
             goodsIscrollContainer   : "#goods-store .items-container [data-iscroll='true']",
-            currencyPacksContainer  : "#currency-store .currency-packs"
+            currencyPacksContainer  : "#currency-store .currency-packs",
+            offerWallsContainer     : "#offer-walls-container"
         },
         emulateActiveElements : ".btn1,.btn2", // Valid jQuery selector
         _getBalanceHolder : function(currency) {
@@ -277,6 +311,9 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             this.categoryViews.each(this.appendCategoryView, this);
             this.currencyPacksViews.each(this.appendCurrencyView, this);
 
+            // Append offer walls
+            if (this.offerWallsView) this.appendOfferWallsView(this.offerWallsView);
+
             this.$("#currency-store .non-consumables").html(this.nonConsumablesView.render().el);
 
             var that = this;
@@ -298,6 +335,10 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             this.ui.currencyPacksContainer.append(view.render().el);
 
             // The iscrolls exist only after initial rendering is complete
+            if (this.iscrolls) this.iscrolls.packs.refresh();
+        },
+        appendOfferWallsView : function(view) {
+            this.ui.offerWallsContainer.append(view.render().el);
             if (this.iscrolls) this.iscrolls.packs.refresh();
         },
         buyItem : function (view) {
@@ -356,6 +397,19 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
                 this.iscrolls.packs.refresh();
             }, this);
         },
+        addOfferWallsView : function(offerWalls, options) {
+            this.offerWallsView = new OfferWallsCollectionView({
+                className   : "items offerWalls",
+                collection  : offerWalls
+            }).on("itemview:select", function(view) {
+                this.wantsToOpenOfferWall(view.model.id);
+            }, this);
+
+
+            // If the `render` flag is provided, i.e. an offer wall
+            // was externally added, render it!
+            if (options && options.render === true) this.appendOfferWallsView(this.offerWallsView);
+        },
         removeCategoryView : function(category) {
             var view = this.categoryViews.findByCustom(category.id);
             view.close();
@@ -366,6 +420,10 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             var view = this.currencyPacksViews.findByCustom(currency.id);
             view.close();
             this.currencyPacksViews.remove(view);
+            this.iscrolls.packs.refresh();
+        },
+        removeOfferWallsView : function() {
+            this.offerWallsView.close();
             this.iscrolls.packs.refresh();
         }
     });

@@ -6,7 +6,9 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
     //
 
 
-    var transitionend = CssUtils.getTransitionendEvent();
+    var transitionend   = CssUtils.getTransitionendEvent(),
+        offerWallsId    = Components.BaseStoreView.Const.offerWallsId,
+        offerWallsTitle = Components.BaseStoreView.Const.offerWallsTitle;
 
 
     // Define view types
@@ -24,10 +26,12 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             template : getTemplate("equippableItem")
         }),
         CurrencyPackView = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack") }),
+        OfferWallView = Components.LinkView.extend({ template : getTemplate("offerWall"), className : "item offer-wall"}),
         CategoryMenuItemView = Components.LinkView.extend({
             template : getTemplate("categoryMenuItem")
         }),
         CurrencyMenuItemView = CategoryMenuItemView.extend(),
+        MenuLinkView = CategoryMenuItemView.extend(),
         CarouselView = Components.CarouselView.extend({
             className           : "category",
             itemViewContainer   : ".goods",
@@ -116,7 +120,8 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
                     return itemView;
                 }
             }
-        });
+        }),
+        OfferWallsCollectionView = CarouselView.extend({itemView : OfferWallView});
 
 
     var HeaderView = Marionette.ItemView.extend({
@@ -177,10 +182,21 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
                 imgFilePath : modelAssets.categories[this.model.id] || this._imagePlaceholder
             };
         };
+        OfferWallView.prototype.templateHelpers = function() {
+            var modelAssets = model.getModelAssets();
+            return {
+                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder
+            };
+        };
         CurrencyMenuItemView.prototype.templateHelpers = function() {
             var modelAssets = model.getModelAssets();
             return {
                 imgFilePath: (this.model.id == 'currency_coins') ? theme.currencyPacksCategoryImage : theme.currencyPacksCategoryImage2 || this._imagePlaceholder
+            };
+        };
+        MenuLinkView.prototype.templateHelpers = function() {
+            return {
+                imgFilePath : model.theme.getOfferWallsLinkAsset() || this._imagePlaceholder
             };
         };
     };
@@ -200,8 +216,9 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             this.loadingModal = _.extend({text : "Loading..."}, this.messageDialogOptions);
 
 
-            var categories              = this.model.getCategories(),
-                currencies              = this.model.getCurrencies();
+            var categories = this.model.getCategories(),
+                currencies = this.model.getCurrencies(),
+                offerWalls = this.model.getOfferWalls();
 
             this.entityTemplateHelpers  = { images : this.theme.images };
 
@@ -270,6 +287,25 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             }, this);
 
 
+            if (!offerWalls.isEmpty()) {
+
+                // Add a menu link and category view
+                this.addOfferWallsLinkView().addOfferWallsView(offerWalls);
+
+                // Listen to offer wall changes
+                this.listenTo(offerWalls, {
+                    add : function() {
+                        if (offerWalls.size() === 1) {
+                            this.addOfferWallsLinkView({render : true}).addOfferWallsView(offerWalls, {render : true});
+                        }
+                    },
+                    remove : function() {
+                        if (offerWalls.isEmpty()) this.removeOfferWallsView().removeOfferWallsLink();
+                    }
+                });
+            }
+
+
             // Set the active view to be the first category's view
             this.activeView = this.children.findByIndex(0);
 
@@ -327,6 +363,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
         regions: {
             categoryMenu : "#category-menu",
             currencyMenu : "#currency-menu",
+            offerWallsLink: "#offer-wall-menu",
             headerView   : "#header"
         },
         iscrollRegions : {
@@ -405,10 +442,67 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             // was externally added, render it!
             if (options && options.render === true) this.appendCurrencyView(view);
         },
+        addOfferWallsLinkView : function(options) {
+
+            this.offerWallsLink = new MenuLinkView({
+                className : "item offer-walls"
+            }).on("select", function() {
+                this.playSound().changeActiveView(offerWallsId, offerWallsTitle);
+            }, this);
+
+
+            // If the `render` flag is provided, i.e. an offer wall
+            // was externally added, render it!
+            if (options && options.render === true) {
+                this.appendOfferWallsLinkView(this.offerWallsLink);
+
+                // Refresh iscroll to support adding more currencies from dashboard
+                var menu = this.children.findByCustom("menu");
+                menu.refreshIScroll();
+            }
+
+            return this;
+        },
+
+        addOfferWallsView : function(offerWalls, options) {
+
+            var view = new OfferWallsCollectionView({
+                className       : "items offerWalls category",
+                collection      : offerWalls,
+                templateHelpers : this.entityTemplateHelpers
+            }).on({
+                // This is a special playSound function that resolves the playSound
+                // function defined on the store view object only when called.
+                // This is used so that the function from the nativeAPI stubs is called
+                "next previous" : _.bind(function() {
+                    return this.playSound();
+                }, this),
+                "itemview:select" : function(view) {
+                    this.wantsToOpenOfferWall(view.model.id);
+                }
+            });
+
+            this.children.add(view, offerWallsId);
+
+            // If the `render` flag is provided, i.e. an offer wall
+            // was externally added, render it!
+            if (options && options.render === true) this.appendOfferWallView(view);
+        },
+        removeOfferWallsView : function() {
+            return this._removeContainerView({id : offerWallsId});
+        },
+        removeOfferWallsLink : function() {
+            this.offerWallsLink.close();
+            delete this.offerWallsLink;
+        },
         _removeContainerView : function(container) {
             var view = this.children.findByCustom(container.id);
             view.close();
             this.children.remove(view);
+            return this;
+        },
+        appendOfferWallsLinkView : function(link) {
+            this._appendContainerView(link);
         },
         _appendContainerView : function(view) {
             this.ui.categoriesContainer.append(view.render().el);
@@ -419,6 +513,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
     _.extend(StoreView.prototype, {
         appendCategoryView : StoreView.prototype._appendContainerView,
         appendCurrencyView : StoreView.prototype._appendContainerView,
+        appendOfferWallView: StoreView.prototype._appendContainerView,
         removeCategoryView : StoreView.prototype._removeContainerView,
         removeCurrencyView : StoreView.prototype._removeContainerView
     });

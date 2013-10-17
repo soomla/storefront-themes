@@ -6,7 +6,9 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
     //
 
 
-    var transitionend = CssUtils.getTransitionendEvent();
+    var transitionend   = CssUtils.getTransitionendEvent(),
+        offerWallsId    = Components.BaseStoreView.Const.offerWallsId,
+        offerWallsTitle = Components.BaseStoreView.Const.offerWallsTitle;
 
 
     // Define view types
@@ -20,9 +22,12 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
         UpgradableItemView              = Components.ExpandableUpgradableItemView.extend({ template : getTemplate("upgradableItem")}),
         LifetimeVirtualGoodView         = Components.ExpandableLifetimeItemView.extend({ template : getTemplate("equippableItem")}),
         CurrencyPackView                = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack") }),
+        OfferWallView                   = Components.LinkView.extend({ template : getTemplate("offerWall"), className : "item offer-wall"}),
         CategoryView                    = Components.LinkView.extend({ template : getTemplate("categoryMenuItem") }),
+        MenuLinkView                    = Components.LinkView.extend({ template : getTemplate("categoryMenuItem") }),
         NonConsumableView               = Components.BuyOnceItemView.extend({ template : getTemplate("nonConsumableItem")}),
         IScrollCollectionView           = Components.IScrollCollectionView.extend({ template: getTemplate("collection") }),
+        OfferWallsCollectionView        = Components.ExpandableIScrollCollectionView.extend({ template : getTemplate("collection") }),
 		CurrencyPacksCollectionView     = Components.ExpandableIScrollCollectionView.extend({ template: getTemplate("collection") }),
 		GoodsCollectionView             = Components.ExpandableIScrollCollectionView.extend({
 			template: getTemplate("collection"),
@@ -125,10 +130,21 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
                 item: (theme.pages.currencyPacks && theme.pages.currencyPacks.item) ? theme.pages.currencyPacks.item : {}
             });
         };
+        OfferWallView.prototype.templateHelpers = function() {
+            var modelAssets = model.getModelAssets();
+            return {
+                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder
+            };
+        };
         CategoryView.prototype.templateHelpers = function() {
             var modelAssets = model.getModelAssets();
             return {
                 imgFilePath : modelAssets.categories[this.model.id] || this._imagePlaceholder
+            };
+        };
+        MenuLinkView.prototype.templateHelpers = function() {
+            return {
+            	imgFilePath : model.theme.getOfferWallsLinkAsset() || this._imagePlaceholder
             };
         };
         NonConsumableView.prototype.templateHelpers = function() {
@@ -157,7 +173,8 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
 
             var currencies 		= this.model.getCurrencies(),
                 categories      = this.model.getCategories(),
-                nonConsumables  = this.model.get("nonConsumables");
+                nonConsumables  = this.model.get("nonConsumables"),
+                offerWalls      = this.model.getOfferWalls();
 
             this.headerStates   = {};
 
@@ -203,6 +220,24 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
 
                 this.nonConsumbaleLinks.push(view);
             }, this);
+
+            if (!offerWalls.isEmpty()) {
+
+                // Add a menu link and category view
+                this.addOfferWallsLinkView().addOfferWallsView(offerWalls);
+
+                // Listen to offer wall changes
+                this.listenTo(offerWalls, {
+                    add : function() {
+                        if (offerWalls.size() === 1) {
+                            this.addOfferWallsLinkView({render : true}).addOfferWallsView(offerWalls, {render : true});
+                        }
+                    },
+                    remove : function() {
+                        if (offerWalls.isEmpty()) this.removeOfferWallsView().removeOfferWallsLink();
+                    }
+                });
+            }
 
 
             // Mark this view as the active view,
@@ -353,6 +388,9 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
             // Append the link to the currency packs as a "category view"
             this.currencyPacksLinks.each(this.appendCurrencyLinkView, this);
 
+            // Append link to offer walls
+            if (this.offerWallsLink) this.appendOfferWallsLinkView(this.offerWallsLink);
+
             // Append non consumable items as "category views"
             _.each(this.nonConsumbaleLinks, function(view) {
                 menu.$el.append(view.render().el);
@@ -382,6 +420,11 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
         appendCurrencyLinkView : function(link) {
             var menu = this.children.findByCustom("menu");
             menu.$itemViewContainer.append(link.render().el);
+        },
+
+        appendOfferWallsLinkView : function(link) {
+            var menu = this.children.findByCustom("menu").$el.children(":last-child");
+            menu.append(link.render().el);
         },
 
         addCategoryView : function(category, options) {
@@ -436,6 +479,46 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
             }
         },
 
+        addOfferWallsLinkView : function(options) {
+
+            this.offerWallsLink = new MenuLinkView({
+                className : "item offer-walls"
+            }).on("select", function() {
+                this.playSound().changeViewTo(this.children.findByCustom(offerWallsId));
+            }, this);
+
+
+            // If the `render` flag is provided, i.e. an offer wall
+            // was externally added, render it!
+            if (options && options.render === true) {
+                this.appendOfferWallsLinkView(this.offerWallsLink);
+
+                // Refresh iscroll to support adding more currencies from dashboard
+                var menu = this.children.findByCustom("menu");
+                menu.refreshIScroll();
+            }
+
+            return this;
+        },
+
+        addOfferWallsView : function(offerWalls, options) {
+            var view = new OfferWallsCollectionView({
+                className   : "items offerWalls category",
+                collection  : offerWalls,
+                itemView    : OfferWallView
+            }).on("itemview:select", function(view) {
+                this.wantsToOpenOfferWall(view.model.id);
+            }, this);
+
+
+            this.children.add(view, offerWallsId);
+            this.headerStates[view.cid] = offerWallsTitle;
+
+            // If the `render` flag is provided, i.e. an offer wall
+            // was externally added, render it!
+            if (options && options.render === true) this.appendOfferWallView(view);
+        },
+
         addCurrencyView : function(currency, options) {
             var view = new CurrencyPacksCollectionView({
                 className   : "items currencyPacks category",
@@ -460,12 +543,21 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
             view.close();
             this.children.remove(view);
             delete this.headerStates[view.cid];
+            return this;
+        },
+        removeOfferWallsView : function() {
+            return this._removeContainerView({id : offerWallsId});
+        },
+        removeOfferWallsLink : function() {
+            this.offerWallsLink.close();
+            delete this.offerWallsLink;
         }
     });
 
     _.extend(StoreView.prototype, {
         appendCategoryView : StoreView.prototype._appendContainerView,
         appendCurrencyView : StoreView.prototype._appendContainerView,
+        appendOfferWallView: StoreView.prototype._appendContainerView,
         removeCategoryView : StoreView.prototype._removeContainerView,
         removeCurrencyView : StoreView.prototype._removeContainerView
     });
