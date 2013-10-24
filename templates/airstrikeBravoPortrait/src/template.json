@@ -11,7 +11,10 @@
             "market" : true
         },
         "categoryImages" : true,
-		"removeAds" : {}
+        "removeAds" : {},
+        "hooks" : {
+            "sponsorpay" : true
+        }
 	},
     "sections" : {
         "global" : {

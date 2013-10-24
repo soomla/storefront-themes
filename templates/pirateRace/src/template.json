@@ -9,7 +9,10 @@
             "virtualItem" : true,
             "market" : true
         },
-		"removeAds" : {}
+        "removeAds" : {},
+        "hooks" : {
+            "sponsorpay" : true
+        }
 	},
     "sections" : {
         "global" : {
