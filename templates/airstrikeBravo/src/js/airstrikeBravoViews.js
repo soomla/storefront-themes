@@ -94,7 +94,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
         SingleUseVirtualGoodView.prototype.templateHelpers  = templateHelpers;
         LifetimeVirtualGoodView.prototype.templateHelpers   = templateHelpers;
         UpgradableItemView.prototype.templateHelpers        = function() {
-                nextUpgrade     = this.model.getNextUpgrade(),
+            var nextUpgrade     = this.model.getNextUpgrade(),
                 upgradeBarImage = this.model.getCurrentUpgradeBarAssetId();
 
             return createTemplateHelpers({
