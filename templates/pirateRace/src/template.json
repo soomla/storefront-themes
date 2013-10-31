@@ -155,7 +155,7 @@
 						"type" : "backgroundImage",
 						"title" : "No Funds Dialog Background Image",
 						"selector" : ".dialog",
-                        "section" : "globals"
+                        "section" : "global"
 					},
 					"text" : {
 						"type" : "text",
