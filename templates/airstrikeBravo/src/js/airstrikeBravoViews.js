@@ -140,7 +140,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
         };
         OfferWallsMenuLinkView.prototype.templateHelpers = function() {
             return {
-                imgFilePath : assets.getOfferWallsLinkAsset() || this._imagePlaceholder
+                imgFilePath : assets.getOffersMenuLinkAsset() || this._imagePlaceholder
             };
         };
         NonConsumableView.prototype.templateHelpers = function() {
@@ -169,7 +169,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
             var currencies 		= this.model.getCurrencies(),
                 categories      = this.model.getCategories(),
                 nonConsumables  = this.model.get("nonConsumables"),
-                offerWalls      = this.model.getOfferWalls();
+                offerWalls      = this.model.getOfferHooks();
 
             this.headerStates   = {};
 

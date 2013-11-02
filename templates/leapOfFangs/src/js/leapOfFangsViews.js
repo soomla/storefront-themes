@@ -192,7 +192,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
         };
         MenuLinkView.prototype.templateHelpers = function() {
             return {
-                imgFilePath : assets.getOfferWallsLinkAsset() || this._imagePlaceholder
+                imgFilePath : assets.getOffersMenuLinkAsset() || this._imagePlaceholder
             };
         };
     };
@@ -214,7 +214,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
 
             var categories = this.model.getCategories(),
                 currencies = this.model.getCurrencies(),
-                offerWalls = this.model.getOfferWalls();
+                offerWalls = this.model.getOfferHooks();
 
             this.entityTemplateHelpers  = { images : this.theme.images };
 

@@ -133,7 +133,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
 
             var currencies          = this.model.getCurrencies(),
                 categories          = this.model.getCategories(),
-                offerWalls          = this.model.getOfferWalls(),
+                offerWalls          = this.model.getOfferHooks(),
                 nonConsumables      = this.model.get("nonConsumables");
 
 
