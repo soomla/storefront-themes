@@ -22,7 +22,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
         UpgradableItemView              = Components.ExpandableUpgradableItemView.extend({ template : getTemplate("upgradableItem")}),
         LifetimeVirtualGoodView         = Components.ExpandableLifetimeItemView.extend({ template : getTemplate("equippableItem")}),
         CurrencyPackView                = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack") }),
-        OfferWallView                   = Components.OfferItemView.extend({ template : getTemplate("offerWall")}),
+        OfferWallView                   = Components.OfferItemView.extend({ template : getTemplate("offer")}),
         CategoryView                    = Components.LinkView.extend({ template : getTemplate("categoryMenuItem") }),
         OfferWallsMenuLinkView          = Components.LinkView.extend({ template : getTemplate("categoryMenuItem") }),
         NonConsumableView               = Components.BuyOnceItemView.extend({ template : getTemplate("nonConsumableItem")}),

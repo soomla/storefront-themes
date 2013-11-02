@@ -26,7 +26,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             template : getTemplate("equippableItem")
         }),
         CurrencyPackView = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack") }),
-        OfferWallView = Components.OfferItemView.extend({ template : getTemplate("offerWall")}),
+        OfferWallView = Components.OfferItemView.extend({ template : getTemplate("offer")}),
         CategoryMenuItemView = Components.LinkView.extend({
             template : getTemplate("categoryMenuItem")
         }),
