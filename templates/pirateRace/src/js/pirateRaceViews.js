@@ -47,7 +47,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
         EquippableVirtualGoodView   = Components.EquippableItemView.extend({ template : getTemplate("equippableItem")}),
         LifetimeVirtualGoodView     = Components.LifetimeItemView.extend({ template : getTemplate("equippableItem")}),
         CurrencyPackView            = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack"), triggers : {fastclick : "buy"} }),
-        OfferWallView               = Components.LinkView.extend({ template : getTemplate("offerWall"), className : "item offer-wall"}),
+        OfferWallView               = Components.OfferItemView.extend({ template : getTemplate("offerWall") }),
         OfferWallsCollectionView    = Components.CollectionView.extend({ template : getTemplate("collection"), itemView : OfferWallView }),
         NonConsumableView           = Components.BuyOnceItemView.extend({template : getTemplate("nonConsumableItem") });
 
