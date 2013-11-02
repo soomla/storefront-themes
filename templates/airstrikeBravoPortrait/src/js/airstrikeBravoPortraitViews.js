@@ -7,8 +7,8 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
 
 
     var transitionend   = CssUtils.getTransitionendEvent(),
-        offerWallsId    = Components.BaseStoreView.Const.offerWallsId,
-        offerWallsTitle = Components.BaseStoreView.Const.offerWallsTitle;
+        OFFERS_ID       = Components.BaseStoreView.Const.OFFERS_ID,
+        OFFERS_TITLE    = Components.BaseStoreView.Const.OFFERS_TITLE;
 
 
     // Define view types
@@ -22,12 +22,12 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
         UpgradableItemView              = Components.ExpandableUpgradableItemView.extend({ template : getTemplate("upgradableItem")}),
         LifetimeVirtualGoodView         = Components.ExpandableLifetimeItemView.extend({ template : getTemplate("equippableItem")}),
         CurrencyPackView                = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack") }),
-        OfferWallView                   = Components.OfferItemView.extend({ template : getTemplate("offer")}),
+        OfferItemView                   = Components.OfferItemView.extend({ template : getTemplate("offer")}),
         CategoryView                    = Components.LinkView.extend({ template : getTemplate("categoryMenuItem") }),
         MenuLinkView                    = Components.LinkView.extend({ template : getTemplate("categoryMenuItem") }),
         NonConsumableView               = Components.BuyOnceItemView.extend({ template : getTemplate("nonConsumableItem")}),
         IScrollCollectionView           = Components.IScrollCollectionView.extend({ template: getTemplate("collection") }),
-        OfferWallsCollectionView        = Components.ExpandableIScrollCollectionView.extend({ template : getTemplate("collection") }),
+        OffersCollectionView            = Components.ExpandableIScrollCollectionView.extend({ template : getTemplate("collection") }),
 		CurrencyPacksCollectionView     = Components.ExpandableIScrollCollectionView.extend({ template: getTemplate("collection") }),
 		GoodsCollectionView             = Components.ExpandableIScrollCollectionView.extend({
 			template: getTemplate("collection"),
@@ -128,7 +128,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
                 item: (theme.pages.currencyPacks && theme.pages.currencyPacks.item) ? theme.pages.currencyPacks.item : {}
             });
         };
-        OfferWallView.prototype.templateHelpers = function() {
+        OfferItemView.prototype.templateHelpers = function() {
             return {
                 imgFilePath : assets.getItemAsset(this.model.id)
             };
@@ -169,7 +169,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
             var currencies 		= this.model.getCurrencies(),
                 categories      = this.model.getCategories(),
                 nonConsumables  = this.model.get("nonConsumables"),
-                offerWalls      = this.model.getOfferHooks();
+                offers      = this.model.getOfferHooks();
 
             this.headerStates   = {};
 
@@ -216,20 +216,20 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
                 this.nonConsumbaleLinks.push(view);
             }, this);
 
-            if (!offerWalls.isEmpty()) {
+            if (!offers.isEmpty()) {
 
                 // Add a menu link and category view
-                this.addOfferWallsLinkView().addOfferWallsView(offerWalls);
+                this.addOffersLinkView().addOffersView(offers);
 
-                // Listen to offer wall changes
-                this.listenTo(offerWalls, {
+                // Listen to offer changes
+                this.listenTo(offers, {
                     add : function() {
-                        if (offerWalls.size() === 1) {
-                            this.addOfferWallsLinkView({render : true}).addOfferWallsView(offerWalls, {render : true});
+                        if (offers.size() === 1) {
+                            this.addOffersLinkView({render : true}).addOffersView(offers, {render : true});
                         }
                     },
                     remove : function() {
-                        if (offerWalls.isEmpty()) this.removeOfferWallsView().removeOfferWallsLink();
+                        if (offers.isEmpty()) this.removeOffersView().removeOffersLink();
                     }
                 });
             }
@@ -383,8 +383,8 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
             // Append the link to the currency packs as a "category view"
             this.currencyPacksLinks.each(this.appendCurrencyLinkView, this);
 
-            // Append link to offer walls
-            if (this.offerWallsLink) this.appendOfferWallsLinkView(this.offerWallsLink);
+            // Append link to offers
+            if (this.offersLink) this.appendOffersLinkView(this.offersLink);
 
             // Append non consumable items as "category views"
             _.each(this.nonConsumbaleLinks, function(view) {
@@ -417,7 +417,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
             menu.$itemViewContainer.append(link.render().el);
         },
 
-        appendOfferWallsLinkView : function(link) {
+        appendOffersLinkView : function(link) {
             var menu = this.children.findByCustom("menu").$el.children(":last-child");
             menu.append(link.render().el);
         },
@@ -474,19 +474,19 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
             }
         },
 
-        addOfferWallsLinkView : function(options) {
+        addOffersLinkView : function(options) {
 
-            this.offerWallsLink = new MenuLinkView({
-                className : "item offer-walls"
+            this.offersLink = new MenuLinkView({
+                className : "item category-offers"
             }).on("select", function() {
-                this.playSound().changeViewTo(this.children.findByCustom(offerWallsId));
+                this.playSound().changeViewTo(this.children.findByCustom(OFFERS_ID));
             }, this);
 
 
-            // If the `render` flag is provided, i.e. an offer wall
+            // If the `render` flag is provided, i.e. an offer
             // was externally added, render it!
             if (options && options.render === true) {
-                this.appendOfferWallsLinkView(this.offerWallsLink);
+                this.appendOffersLinkView(this.offersLink);
 
                 // Refresh iscroll to support adding more currencies from dashboard
                 var menu = this.children.findByCustom("menu");
@@ -496,22 +496,22 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
             return this;
         },
 
-        addOfferWallsView : function(offerWalls, options) {
-            var view = new OfferWallsCollectionView({
-                className   : "items offerWalls category",
-                collection  : offerWalls,
-                itemView    : OfferWallView
+        addOffersView : function(offers, options) {
+            var view = new OffersCollectionView({
+                className   : "items offers category",
+                collection  : offers,
+                itemView    : OfferItemView
             }).on("itemview:select", function(view) {
-                this.wantsToOpenOfferWall(view.model.id);
+                this.wantsToOpenOffer(view.model.id);
             }, this);
 
 
-            this.children.add(view, offerWallsId);
-            this.headerStates[view.cid] = offerWallsTitle;
+            this.children.add(view, OFFERS_ID);
+            this.headerStates[view.cid] = OFFERS_TITLE;
 
-            // If the `render` flag is provided, i.e. an offer wall
+            // If the `render` flag is provided, i.e. an offer
             // was externally added, render it!
-            if (options && options.render === true) this.appendOfferWallView(view);
+            if (options && options.render === true) this.appendOfferView(view);
         },
 
         addCurrencyView : function(currency, options) {
@@ -540,21 +540,21 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
             delete this.headerStates[view.cid];
             return this;
         },
-        removeOfferWallsView : function() {
-            return this._removeContainerView({id : offerWallsId});
+        removeOffersView : function() {
+            return this._removeContainerView({id : OFFERS_ID});
         },
-        removeOfferWallsLink : function() {
-            this.offerWallsLink.close();
-            delete this.offerWallsLink;
+        removeOffersLink : function() {
+            this.offersLink.close();
+            delete this.offersLink;
         }
     });
 
     _.extend(StoreView.prototype, {
-        appendCategoryView : StoreView.prototype._appendContainerView,
-        appendCurrencyView : StoreView.prototype._appendContainerView,
-        appendOfferWallView: StoreView.prototype._appendContainerView,
-        removeCategoryView : StoreView.prototype._removeContainerView,
-        removeCurrencyView : StoreView.prototype._removeContainerView
+        appendCategoryView  : StoreView.prototype._appendContainerView,
+        appendCurrencyView  : StoreView.prototype._appendContainerView,
+        appendOfferView     : StoreView.prototype._appendContainerView,
+        removeCategoryView  : StoreView.prototype._removeContainerView,
+        removeCurrencyView  : StoreView.prototype._removeContainerView
     });
 
 

@@ -7,8 +7,8 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
 
 
     var transitionend   = CssUtils.getTransitionendEvent(),
-        offerWallsId    = Components.BaseStoreView.Const.offerWallsId,
-        offerWallsTitle = Components.BaseStoreView.Const.offerWallsTitle;
+        OFFERS_ID       = Components.BaseStoreView.Const.OFFERS_ID,
+        OFFERS_TITLE    = Components.BaseStoreView.Const.OFFERS_TITLE;
 
 
     // Define view types
@@ -26,7 +26,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             template : getTemplate("equippableItem")
         }),
         CurrencyPackView = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack") }),
-        OfferWallView = Components.OfferItemView.extend({ template : getTemplate("offer")}),
+        OfferItemView = Components.OfferItemView.extend({ template : getTemplate("offer")}),
         CategoryMenuItemView = Components.LinkView.extend({
             template : getTemplate("categoryMenuItem")
         }),
@@ -121,7 +121,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
                 }
             }
         }),
-        OfferWallsCollectionView = CarouselView.extend({itemView : OfferWallView});
+        OffersCollectionView = CarouselView.extend({itemView : OfferItemView});
 
 
     var HeaderView = Marionette.ItemView.extend({
@@ -180,7 +180,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
                 imgFilePath : assets.getCategoryAsset(this.model.id)
             };
         };
-        OfferWallView.prototype.templateHelpers = function() {
+        OfferItemView.prototype.templateHelpers = function() {
             return {
                 imgFilePath : assets.getItemAsset(this.model.id)
             };
@@ -214,7 +214,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
 
             var categories = this.model.getCategories(),
                 currencies = this.model.getCurrencies(),
-                offerWalls = this.model.getOfferHooks();
+                offers = this.model.getOfferHooks();
 
             this.entityTemplateHelpers  = { images : this.theme.images };
 
@@ -283,20 +283,20 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             }, this);
 
 
-            if (!offerWalls.isEmpty()) {
+            if (!offers.isEmpty()) {
 
                 // Add a menu link and category view
-                this.addOfferWallsLinkView().addOfferWallsView(offerWalls);
+                this.addOffersLinkView().addOffersView(offers);
 
-                // Listen to offer wall changes
-                this.listenTo(offerWalls, {
+                // Listen to offer changes
+                this.listenTo(offers, {
                     add : function() {
-                        if (offerWalls.size() === 1) {
-                            this.addOfferWallsLinkView({render : true}).addOfferWallsView(offerWalls, {render : true});
+                        if (offers.size() === 1) {
+                            this.addOffersLinkView({render : true}).addOffersView(offers, {render : true});
                         }
                     },
                     remove : function() {
-                        if (offerWalls.isEmpty()) this.removeOfferWallsView().removeOfferWallsLink();
+                        if (offers.isEmpty()) this.removeOffersView().removeOffersLink();
                     }
                 });
             }
@@ -359,7 +359,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
         regions: {
             categoryMenu : "#category-menu",
             currencyMenu : "#currency-menu",
-            offerWallsLink: "#offer-wall-menu",
+            offersLink: "#offer-wall-menu",
             headerView   : "#header"
         },
         iscrollRegions : {
@@ -438,19 +438,19 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             // was externally added, render it!
             if (options && options.render === true) this.appendCurrencyView(view);
         },
-        addOfferWallsLinkView : function(options) {
+        addOffersLinkView : function(options) {
 
-            this.offerWallsLink = new MenuLinkView({
-                className : "item offer-walls"
+            this.offersLink = new MenuLinkView({
+                className : "item category-offers"
             }).on("select", function() {
-                this.playSound().changeActiveView(offerWallsId, offerWallsTitle);
+                this.playSound().changeActiveView(OFFERS_ID, OFFERS_TITLE);
             }, this);
 
 
-            // If the `render` flag is provided, i.e. an offer wall
+            // If the `render` flag is provided, i.e. an offer
             // was externally added, render it!
             if (options && options.render === true) {
-                this.appendOfferWallsLinkView(this.offerWallsLink);
+                this.appendOffersLinkView(this.offersLink);
 
                 // Refresh iscroll to support adding more currencies from dashboard
                 var menu = this.children.findByCustom("menu");
@@ -460,11 +460,11 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             return this;
         },
 
-        addOfferWallsView : function(offerWalls, options) {
+        addOffersView : function(offers, options) {
 
-            var view = new OfferWallsCollectionView({
-                className       : "items offerWalls category",
-                collection      : offerWalls,
+            var view = new OffersCollectionView({
+                className       : "items offers category",
+                collection      : offers,
                 templateHelpers : this.entityTemplateHelpers
             }).on({
                 // This is a special playSound function that resolves the playSound
@@ -474,22 +474,22 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
                     return this.playSound();
                 }, this),
                 "itemview:select" : function(view) {
-                    this.wantsToOpenOfferWall(view.model.id);
+                    this.wantsToOpenOffer(view.model.id);
                 }
             });
 
-            this.children.add(view, offerWallsId);
+            this.children.add(view, OFFERS_ID);
 
-            // If the `render` flag is provided, i.e. an offer wall
+            // If the `render` flag is provided, i.e. an offer
             // was externally added, render it!
-            if (options && options.render === true) this.appendOfferWallView(view);
+            if (options && options.render === true) this.appendOfferView(view);
         },
-        removeOfferWallsView : function() {
-            return this._removeContainerView({id : offerWallsId});
+        removeOffersView : function() {
+            return this._removeContainerView({id : OFFERS_ID});
         },
-        removeOfferWallsLink : function() {
-            this.offerWallsLink.close();
-            delete this.offerWallsLink;
+        removeOffersLink : function() {
+            this.offersLink.close();
+            delete this.offersLink;
         },
         _removeContainerView : function(container) {
             var view = this.children.findByCustom(container.id);
@@ -497,7 +497,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             this.children.remove(view);
             return this;
         },
-        appendOfferWallsLinkView : function(link) {
+        appendOffersLinkView : function(link) {
             this._appendContainerView(link);
         },
         _appendContainerView : function(view) {
@@ -507,11 +507,11 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
     StoreView.mixinActiveTouchEmulation();
 
     _.extend(StoreView.prototype, {
-        appendCategoryView : StoreView.prototype._appendContainerView,
-        appendCurrencyView : StoreView.prototype._appendContainerView,
-        appendOfferWallView: StoreView.prototype._appendContainerView,
-        removeCategoryView : StoreView.prototype._removeContainerView,
-        removeCurrencyView : StoreView.prototype._removeContainerView
+        appendCategoryView  : StoreView.prototype._appendContainerView,
+        appendCurrencyView  : StoreView.prototype._appendContainerView,
+        appendOfferView     : StoreView.prototype._appendContainerView,
+        removeCategoryView  : StoreView.prototype._removeContainerView,
+        removeCurrencyView  : StoreView.prototype._removeContainerView
     });
 
 

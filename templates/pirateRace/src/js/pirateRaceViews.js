@@ -47,8 +47,8 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
         EquippableVirtualGoodView   = Components.EquippableItemView.extend({ template : getTemplate("equippableItem")}),
         LifetimeVirtualGoodView     = Components.LifetimeItemView.extend({ template : getTemplate("equippableItem")}),
         CurrencyPackView            = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack"), triggers : {fastclick : "buy"} }),
-        OfferWallView               = Components.OfferItemView.extend({ template : getTemplate("offer") }),
-        OfferWallsCollectionView    = Components.CollectionView.extend({ template : getTemplate("collection"), itemView : OfferWallView }),
+        OfferItemView               = Components.OfferItemView.extend({ template : getTemplate("offer") }),
+        OffersCollectionView        = Components.CollectionView.extend({ template : getTemplate("collection"), itemView : OfferItemView }),
         NonConsumableView           = Components.BuyOnceItemView.extend({template : getTemplate("nonConsumableItem") });
 
 
@@ -99,7 +99,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
                 imgFilePath     : assets.getItemAsset(this.model.id)
             };
         };
-        OfferWallView.prototype.templateHelpers = function() {
+        OfferItemView.prototype.templateHelpers = function() {
             return {
                 itemSeparator   : theme.itemSeparator,
                 imgFilePath     : assets.getItemAsset(this.model.id)
@@ -133,7 +133,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
 
             var currencies          = this.model.getCurrencies(),
                 categories          = this.model.getCategories(),
-                offerWalls          = this.model.getOfferHooks(),
+                offers              = this.model.getOfferHooks(),
                 nonConsumables      = this.model.get("nonConsumables");
 
 
@@ -156,21 +156,21 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             }, this);
 
 
-            if (!offerWalls.isEmpty()) {
+            if (!offers.isEmpty()) {
 
-                // Add offer wall items
-                this.addOfferWallsView(offerWalls);
+                // Add offer items
+                this.addOffersView(offers);
 
-                // Listen to offer wall changes
-                this.listenTo(offerWalls, {
+                // Listen to offer changes
+                this.listenTo(offers, {
                     add : function() {
-                        if (offerWalls.size() === 1) {
-                            this.addOfferWallsView(offerWalls, {render : true});
+                        if (offers.size() === 1) {
+                            this.addOffersView(offers, {render : true});
                             this.iscrolls.packs.refresh();
                         }
                     },
                     remove : function() {
-                        if (offerWalls.isEmpty()) this.removeOfferWallsView();
+                        if (offers.isEmpty()) this.removeOffersView();
                         this.iscrolls.packs.refresh();
 
                     }
@@ -196,7 +196,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             backButton              : "#goods-store .btn1",
             goodsIscrollContainer   : "#goods-store .items-container [data-iscroll='true']",
             currencyPacksContainer  : "#currency-store .currency-packs",
-            offerWallsContainer     : "#offer-walls-container"
+            offersContainer         : "#offers-container"
         },
         emulateActiveElements : ".btn1,.btn2", // Valid jQuery selector
         _getBalanceHolder : function(currency) {
@@ -308,8 +308,8 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             this.categoryViews.each(this.appendCategoryView, this);
             this.currencyPacksViews.each(this.appendCurrencyView, this);
 
-            // Append offer walls
-            if (this.offerWallsView) this.appendOfferWallsView(this.offerWallsView);
+            // Append offers
+            if (this.offersView) this.appendOffersView(this.offersView);
 
             this.$("#currency-store .non-consumables").html(this.nonConsumablesView.render().el);
 
@@ -334,8 +334,8 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             // The iscrolls exist only after initial rendering is complete
             if (this.iscrolls) this.iscrolls.packs.refresh();
         },
-        appendOfferWallsView : function(view) {
-            this.ui.offerWallsContainer.append(view.render().el);
+        appendOffersView : function(view) {
+            this.ui.offersContainer.append(view.render().el);
             if (this.iscrolls) this.iscrolls.packs.refresh();
         },
         buyItem : function (view) {
@@ -394,18 +394,18 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
                 this.iscrolls.packs.refresh();
             }, this);
         },
-        addOfferWallsView : function(offerWalls, options) {
-            this.offerWallsView = new OfferWallsCollectionView({
-                className   : "items offerWalls",
-                collection  : offerWalls
+        addOffersView : function(offers, options) {
+            this.offersView = new OffersCollectionView({
+                className   : "items offers",
+                collection  : offers
             }).on("itemview:select", function(view) {
-                this.wantsToOpenOfferWall(view.model.id);
+                this.wantsToOpenOffer(view.model.id);
             }, this);
 
 
-            // If the `render` flag is provided, i.e. an offer wall
+            // If the `render` flag is provided, i.e. an offer
             // was externally added, render it!
-            if (options && options.render === true) this.appendOfferWallsView(this.offerWallsView);
+            if (options && options.render === true) this.appendOffersView(this.offersView);
         },
         removeCategoryView : function(category) {
             var view = this.categoryViews.findByCustom(category.id);
@@ -419,8 +419,8 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             this.currencyPacksViews.remove(view);
             this.iscrolls.packs.refresh();
         },
-        removeOfferWallsView : function() {
-            this.offerWallsView.close();
+        removeOffersView : function() {
+            this.offersView.close();
             this.iscrolls.packs.refresh();
         }
     });
