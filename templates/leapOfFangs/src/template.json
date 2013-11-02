@@ -11,6 +11,9 @@
         },
         "categoryImages" : true,
         "hooks" : {
+            "common" : {
+                "offersMenuLinkImage" : true
+            },
             "sponsorpay" : true
         }
 	},
@@ -23,6 +26,9 @@
         },
         "fonts" : {
             "title" : "Fonts"
+        },
+        "hooks" : {
+            "title" : "Hooks"
         }
     },
     "attributes" : {
@@ -192,6 +198,16 @@
                 "selector" : ".item .item-balance",
                 "section" : "singleItems"
             }
+        },
+        "hooks" : {
+            "common" : {
+                "menuLinkImage" : {
+                    "type" : "image",
+                    "title" : "Hooks Menu Link Image",
+                    "selector" : "#offer-wall-menu img",
+                    "section" : "hooks"
+                }
+            }
         }
     },
     "assetMetadata" : {
@@ -262,6 +278,18 @@
                 "equipped" : {
                     "w" : 240,
                     "h" : 120
+                }
+            },
+            "hooks" : {
+                "common" : {
+                    "offersMenuLinkImage" : {
+                        "w" : 100,
+                        "h" : 100
+                    }
+                },
+                "item" : {
+                    "w" : 400,
+                    "h" : 420
                 }
             }
         },
