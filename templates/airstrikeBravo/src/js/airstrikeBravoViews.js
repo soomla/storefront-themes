@@ -501,7 +501,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
                 className   : "items offers category",
                 collection  : offers
             }).on("itemview:select", function(view) {
-                this.wantsToOpenOffer(view.model.id);
+                this.wantsToOpenOffer(view.model);
             }, this);
 
 

@@ -399,7 +399,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
                 className   : "items offers",
                 collection  : offers
             }).on("itemview:select", function(view) {
-                this.wantsToOpenOffer(view.model.id);
+                this.wantsToOpenOffer(view.model);
             }, this);
 
 

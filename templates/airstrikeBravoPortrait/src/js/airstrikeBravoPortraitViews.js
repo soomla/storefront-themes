@@ -502,7 +502,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
                 collection  : offers,
                 itemView    : OfferItemView
             }).on("itemview:select", function(view) {
-                this.wantsToOpenOffer(view.model.id);
+                this.wantsToOpenOffer(view.model);
             }, this);
 
 
