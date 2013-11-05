@@ -38,12 +38,12 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
 
                     var itemView;
 
-                    if (item.get("upgrades")) {
+                    if (item.is("upgradable")) {
                         itemView = UpgradableItemView;
                     } else {
 
                         // some logic to calculate which view to return
-                        switch (item.get("type")) {
+                        switch (item.getType()) {
                             case "singleUse":
                                 itemView = SingleUseVirtualGoodView;
                                 break;

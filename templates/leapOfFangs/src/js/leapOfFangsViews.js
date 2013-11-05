@@ -106,7 +106,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
                     var itemView;
 
                     // some logic to calculate which view to return
-                    switch (item.get("type")) {
+                    switch (item.getType()) {
                         case "singleUse":
                             itemView = SingleUseVirtualGoodView;
                             break;
