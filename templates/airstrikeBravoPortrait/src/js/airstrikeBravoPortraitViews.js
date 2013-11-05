@@ -25,7 +25,6 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
         OfferItemView                   = Components.OfferItemView.extend({ template : getTemplate("offer")}),
         CategoryView                    = Components.LinkView.extend({ template : getTemplate("categoryMenuItem") }),
         MenuLinkView                    = Components.LinkView.extend({ template : getTemplate("categoryMenuItem") }),
-        NonConsumableView               = Components.BuyOnceItemView.extend({ template : getTemplate("nonConsumableItem")}),
         IScrollCollectionView           = Components.IScrollCollectionView.extend({ template: getTemplate("collection") }),
         OffersCollectionView            = Components.ExpandableIScrollCollectionView.extend({ template : getTemplate("collection") }),
 		CurrencyPacksCollectionView     = Components.ExpandableIScrollCollectionView.extend({ template: getTemplate("collection") }),
@@ -143,11 +142,6 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
             	imgFilePath : assets.getOffersMenuLinkAsset() || this._imagePlaceholder
             };
         };
-        NonConsumableView.prototype.templateHelpers = function() {
-            return createTemplateHelpers({
-                imgFilePath : assets.getItemAsset(this.model.id)
-            });
-        };
 
     };
 
@@ -166,9 +160,8 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
             this.loadingModal = _.extend({text : "Loading..."}, this.messageDialogOptions);
 
 
-            var currencies 		= this.model.getCurrencies(),
-                categories      = this.model.getCategories(),
-                nonConsumables  = this.model.get("nonConsumables"),
+            var currencies  = this.model.getCurrencies(),
+                categories  = this.model.getCategories(),
                 offers      = this.model.getOfferHooks();
 
             this.headerStates   = {};
@@ -204,17 +197,6 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
             // We're using a CategoryView, because visually the button should look the same, even though
             // it doesn't represent an actual category.  This view will be force-appended to the
             // categories view when rendering
-            this.nonConsumbaleLinks = [];
-
-            nonConsumables.each(function(nonConsumable) {
-
-                var view = new NonConsumableView({
-                    className : "item non-consumable",
-                    model : nonConsumable
-                }).on("buy", this.buyItem);
-
-                this.nonConsumbaleLinks.push(view);
-            }, this);
 
             if (!offers.isEmpty()) {
 
@@ -385,11 +367,6 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
 
             // Append link to offers
             if (this.offersLink) this.appendOffersLinkView(this.offersLink);
-
-            // Append non consumable items as "category views"
-            _.each(this.nonConsumbaleLinks, function(view) {
-                menu.$el.append(view.render().el);
-            });
 
             // Initial iScroll refresh for menu
             if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();

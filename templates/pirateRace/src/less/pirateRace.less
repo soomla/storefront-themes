@@ -455,12 +455,12 @@ a:active, a.emulate-active {
 // SINGLE LIST ITEMS - CURRENCY PACKS
 // --------------------------------------------------
 
-.currencyPacks .item, .nonConsumables .item, #restore-purchases .item {
+.currencyPacks .item, #restore-purchases .item {
     width: 400px;
     margin: 0 auto;
 }
 
-.currencyPacks .item, .nonConsumables .item {
+.currencyPacks .item {
     @visualWidth: 180px;
 
     // Currency pack image
@@ -501,41 +501,6 @@ a:active, a.emulate-active {
 .separator {
     width: 100%;
     height:  10px;
-}
-
-// SINGLE LIST ITEMS - NON CONSUMABLES
-// --------------------------------------------------
-
-.nonConsumables .item {
-
-    .visual-container {
-
-        // State: not owned
-        float: left;
-        position: relative;
-
-        .owned-indicator {
-            display: none;
-            position: absolute;
-            right: 0;
-            bottom: 0;
-        }
-    }
-
-    // State: owned
-    &.owned {
-        .owned-indicator {
-            display: block;
-        }
-
-        .visual {
-            opacity: 0.4;
-        }
-
-        .item-price {
-            display: none;
-        }
-    }
 }
 
 

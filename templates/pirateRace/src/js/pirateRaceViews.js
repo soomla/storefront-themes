@@ -48,8 +48,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
         LifetimeVirtualGoodView     = Components.LifetimeItemView.extend({ template : getTemplate("equippableItem")}),
         CurrencyPackView            = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack"), triggers : {fastclick : "buy"} }),
         OfferItemView               = Components.OfferItemView.extend({ template : getTemplate("offer") }),
-        OffersCollectionView        = Components.CollectionView.extend({ template : getTemplate("collection"), itemView : OfferItemView }),
-        NonConsumableView           = Components.BuyOnceItemView.extend({template : getTemplate("nonConsumableItem") });
+        OffersCollectionView        = Components.CollectionView.extend({ template : getTemplate("collection"), itemView : OfferItemView });
 
 
     var extendViews = function(model) {
@@ -105,13 +104,6 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
                 imgFilePath     : assets.getHookAsset(this.model.getProvider(),  {itemId : this.model.id})
             };
         };
-        NonConsumableView.prototype.templateHelpers = function() {
-            return {
-                itemSeparator       : theme.itemSeparator,
-                ownedIndicatorImage : theme.common.ownedIndicatorImage,
-                imgFilePath         : assets.getItemAsset(this.model.id)
-            };
-        };
     };
 
 
@@ -133,8 +125,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
 
             var currencies          = this.model.getCurrencies(),
                 categories          = this.model.getCategories(),
-                offers              = this.model.getOfferHooks(),
-                nonConsumables      = this.model.get("nonConsumables");
+                offers              = this.model.getOfferHooks();
 
 
             // Create category views
@@ -176,13 +167,6 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
                     }
                 });
             }
-
-
-            this.nonConsumablesView = new Components.CollectionView({
-                className           : "items nonConsumables",
-                collection          : nonConsumables,
-                itemView            : NonConsumableView
-            }).on("itemview:buy", this.buyItem);
 
         },
         events : {
@@ -227,17 +211,6 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
                 }, this);
                 return;
             }
-
-            var nonConsumableItem = this.model.get("nonConsumables").get(itemId);
-            if (nonConsumableItem) {
-                this.showCurrencyPacks();
-                var itemView = this.nonConsumablesView.children.findByModel(nonConsumableItem);
-                if (itemView) {
-                    this.iscrolls.packs.scrollToElement(itemView.el, 500);
-                }
-                return;
-            }
-
 
             var category = this.model.getCategory(itemId);
             if (category) {
@@ -310,8 +283,6 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
 
             // Append offers
             if (this.offersView) this.appendOffersView(this.offersView);
-
-            this.$("#currency-store .non-consumables").html(this.nonConsumablesView.render().el);
 
             var that = this;
             setTimeout(function(){
