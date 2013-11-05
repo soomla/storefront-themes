@@ -194,7 +194,19 @@
 					"title" : "Store Title",
 					"selector" : ".title-container h1",
                     "section" : "global"
-				}
+				},
+                "scrollContainerStyle" : {
+                    "type" : "css",
+                    "title" : "Menu Scroll Container Style",
+                    "selector" : "#pages .menu ul",
+                    "section" : "global"
+				},
+                "itemStyle" : {
+                    "type" : "css",
+                    "title" : "Menu Item Style",
+                    "selector" : "#pages .menu li",
+                    "section" : "global"
+                }
 			},
             "goods" : {
                 "item" : {
