@@ -237,31 +237,22 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             this.changeViewToItem(model.id);
         },
         showCurrencyPacks : function() {
+            this.ui.currencyStore.removeClass("hide showBtn");
 
-            // When this flag is raised, there is no connectivity,
-            // thus don't show the currency store
-            if (this.model.get("isCurrencyStoreDisabled")) {
-                alert("Buying more " + this.model.get("currency").getName() + " is unavailable. Check your internet connectivity and try again.");
-            } else {
-                var that = this;
-                that.ui.currencyStore.removeClass("hide showBtn");
-
-                that.ui.currencyStore.transitionOnce({klass : "on", remove : false}).done(function(){
-                    that.ui.goodsStore.removeClass("showBtn");
-                    that.ui.currencyStore.addClass("showBtn");
-                    that.iscrolls.packs.refresh();
-                });
-            }
+            this.ui.currencyStore.transitionOnce({klass : "on", remove : false}).done(_.bind(function(){
+                this.ui.goodsStore.removeClass("showBtn");
+                this.ui.currencyStore.addClass("showBtn");
+                this.iscrolls.packs.refresh();
+            }, this));
         },
         showGoodsStore : function() {
-            var that = this;
-            that.playSound();
+            this.playSound();
 
-            that.ui.currencyStore.transitionOnce({klass : "hide", remove : false}).done(function(){
-                that.ui.currencyStore.removeClass("on");
-                that.ui.goodsStore.addClass("showBtn");
-                that.iscrolls.goods.refresh();
-            });
+            this.ui.currencyStore.transitionOnce({klass : "hide", remove : false}).done(_.bind(function(){
+                this.ui.currencyStore.removeClass("on");
+                this.ui.goodsStore.addClass("showBtn");
+                this.iscrolls.goods.refresh();
+            }, this));
         },
         iscrollRegions : {
             goods : {
@@ -284,13 +275,13 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             // Append offers
             if (this.offersView) this.appendOffersView(this.offersView);
 
-            var that = this;
+            var _this = this;
             setTimeout(function(){
-                that.ui.goodsStore.addClass("showBtn");
+                _this.ui.goodsStore.addClass("showBtn");
             }, 200);
 
             this.ui.backButton.one(transitionend, function() {
-                that.iscrolls.goods.refresh();
+                _this.iscrolls.goods.refresh();
             });
         },
         appendCategoryView : function(view) {

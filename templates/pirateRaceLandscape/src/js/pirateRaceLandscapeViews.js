@@ -215,14 +215,7 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handleb
         },
         showCurrencyPacks: function () {
             this.playSound();
-
-            // When this flag is raised, there is no connectivity,
-            // thus don't show the currency store
-            if (this.model.get("isCurrencyStoreDisabled")) {
-                alert("Buying more " + this.model.get("currency").getName() + " is unavailable. Check your internet connectivity and try again.");
-            } else {
-                this.iscrolls.onlyOne.scrollToElement('.currencyPacks', 500);
-            }
+            this.iscrolls.onlyOne.scrollToElement('.currencyPacks', 500);
         },
         showGoodsStore : function() {
             this.playSound();
