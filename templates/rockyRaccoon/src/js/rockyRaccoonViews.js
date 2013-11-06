@@ -62,7 +62,7 @@ define("rockyRaccoonViews", ["jquery", "backbone", "components", "helperViews", 
 
     var extendViews = function(model) {
 
-        var theme = model.get("theme");
+        var theme = model.assets.theme;
         var commonTemplateHelpers = function() {
             var assets = model.assets;
             return {
@@ -94,7 +94,7 @@ define("rockyRaccoonViews", ["jquery", "backbone", "components", "helperViews", 
 
 
             var category    = this.model.getFirstCategory(),
-                goods       = category.get("goods");
+                goods       = category.getGoods();
 
             this.goodsView = new GoodsCollectionView({
                 className   : "items",

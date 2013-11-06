@@ -64,7 +64,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
 
     var extendViews = function(model) {
 
-        var theme           = model.get("theme"),
+        var theme           = model.assets.theme,
             commonHelpers   = { images : theme.images },
             assets          = model.assets;
 
@@ -103,8 +103,8 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
                 upgradeBarImage : assets.getUpgradeBarAsset(upgradeBarImage),
 
                 // Metadata
-                name 			: nextUpgrade.get("name"),
-                description 	: nextUpgrade.get("description"),
+                name 			: nextUpgrade.getName(),
+                description 	: nextUpgrade.getDescription(),
                 price 			: this.model.getPrice(),
                 currency 		: {
                     imgFilePath : assets.getItemAsset(this.model.getCurrencyId())
@@ -401,8 +401,8 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
 
         addCategoryView : function(category, options) {
 
-            var categoryName 	= category.get("name"),
-                goods           = category.get("goods"),
+            var categoryName 	= category.getName(),
+                goods           = category.getGoods(),
                 view;
 
             view = new GoodsCollectionView({
@@ -494,11 +494,11 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
         addCurrencyView : function(currency, options) {
             var view = new CurrencyPacksCollectionView({
                 className   : "items currencyPacks category",
-                collection  : currency.get("packs"),
+                collection  : currency.getPacks(),
                 itemView    : CurrencyPackView
             }).on("itemview:buy", this.buyItem);
             this.children.add(view, currency.id);
-            this.headerStates[view.cid] = currency.get("name");
+            this.headerStates[view.cid] = currency.getName();
 
             // If the `render` flag is provided, i.e. a category
             // was externally added, render it!

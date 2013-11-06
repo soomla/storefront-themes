@@ -53,7 +53,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
 
     var extendViews = function(model) {
 
-        var theme       = model.get("theme"),
+        var theme       = model.assets.theme,
             assets      = model.assets;
 
         // Add template helpers to view prototypes
@@ -241,7 +241,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             // When this flag is raised, there is no connectivity,
             // thus don't show the currency store
             if (this.model.get("isCurrencyStoreDisabled")) {
-                alert("Buying more " + this.model.get("currency").get("name") + " is unavailable. Check your internet connectivity and try again.");
+                alert("Buying more " + this.model.get("currency").getName() + " is unavailable. Check your internet connectivity and try again.");
             } else {
                 var that = this;
                 that.ui.currencyStore.removeClass("hide showBtn");
@@ -327,7 +327,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
 
         addCategoryView : function(category, options) {
 
-            var goods = category.get("goods");
+            var goods = category.getGoods();
             var view = new SectionedListView({
                 model 				: category,
                 collection          : goods,
@@ -348,7 +348,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             }, this);
         },
         addCurrencyView : function(currency, options) {
-            var packs = currency.get("packs");
+            var packs = currency.getPacks();
             var view = new Components.CollectionView({
                 className           : "items currencyPacks",
                 collection          : packs,

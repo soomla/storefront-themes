@@ -26,7 +26,7 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handleb
 
     var extendViews = function(model) {
 
-        var theme = model.get("theme");
+        var theme = model.assets.theme;
         var assets = model.assets;
 
 
@@ -55,7 +55,7 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handleb
                 priceStyle      : theme.pages.currencyPacks.listItem.priceStyle,
                 buy             : theme.pages.currencyPacks.listItem.buy,
                 imgFilePath     : assets.getItemAsset(this.model.id),
-                backgroundImgFilePath: eval('theme.currencyPacksCategoryImage_' + this.model.get('currency_itemId'))
+                backgroundImgFilePath: eval('theme.currencyPacksCategoryImage_' + this.model.getCurrencyId())
             };
         };
     };
@@ -88,7 +88,7 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handleb
                 this.playSound().wantsToBuyMarketItem(view.model);
             }, this);
             var chooseCurrencyCategory = _.bind(function (view) {
-                var currencyPacks = view.model.get('packs');
+                var currencyPacks = view.model.getPacks();
                 _.each(this.currencyPacksViews, function (currencyPacksView) {
                     if (currencyPacks == currencyPacksView.collection) {
                         this.iscrolls.onlyOne.scrollToElement(currencyPacksView.el, 500);
@@ -97,7 +97,7 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handleb
                 }, this);
             }, this);
             var chooseCategory = _.bind(function (view) {
-                var categroyGoods = view.model.get('goods');
+                var categroyGoods = view.model.getGoods();
                 _.each(this.categoryViews, function (categoryView) {
                     if (categroyGoods == categoryView.collection) {
                         this.iscrolls.onlyOne.scrollToElement(categoryView.el, 500);
@@ -115,12 +115,12 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handleb
                 var headerView = new CategoryHeaderView({
                     model: category,
                     className: "categoryHeader",
-                    templateHelpers: _.extend({ category: category.get("name"), id: category.get("id"), selected: (i++ == 0) ? "selected" : "" }, this.theme.categories)
+                    templateHelpers: _.extend({ category: category.getName(), id: category.id, selected: (i++ == 0) ? "selected" : "" }, this.theme.categories)
                 }).on("chooseCategory", chooseCategory);
 
                 this.categoryHeaderViews.push(headerView);
 
-                var categoryGoods   = category.get("goods"),
+                var categoryGoods   = category.getGoods(),
                     equipping       = category.get("equipping"),
                     view;
                 this.numOfItems += (!!categoryGoods) ? categoryGoods.length : 0;
@@ -129,7 +129,7 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handleb
                     view = new SectionedListView({
                         collection          : categoryGoods,
                         itemView            : EquippableVirtualGoodView,
-                        templateHelpers     : _.extend({category : category.get("name"), id: category.get("id")}, this.theme.categories)
+                        templateHelpers     : _.extend({category : category.getName(), id: category.id}, this.theme.categories)
                     }).on({
                         "itemview:buy" 		: wantsToBuyVirtualGoods,
                         "itemview:equip" 	: wantsToEquipGoods
@@ -138,7 +138,7 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handleb
                     view = new SectionedListView({
                         collection          : categoryGoods,
                         itemView            : VirtualGoodView,
-                        templateHelpers     : _.extend({category : category.get("name"), id: category.get("id")}, this.theme.categories)
+                        templateHelpers     : _.extend({category : category.getName(), id: category.id}, this.theme.categories)
                     }).on("itemview:buy", wantsToBuyVirtualGoods);
                 }
                 this.categoryViews.push(view);
@@ -150,12 +150,12 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handleb
                 var headerView = new CategoryHeaderView({
                     model: currency,
                     className: "currencyHeader",
-                    templateHelpers: _.extend({ category: currency.get("name"), id: currency.get("itemId"), selected: "" }, this.theme.categories)
+                    templateHelpers: _.extend({ category: currency.getName(), id: currency.id, selected: "" }, this.theme.categories)
                 }).on("chooseCategory", chooseCurrencyCategory);
 
                 this.categoryHeaderViews.push(headerView);
 
-                var packs = currency.get("packs");
+                var packs = currency.getPacks();
                 var numOfPacks = (!!packs) ? packs.length : 0;
                 if (currencyIndex == currencies.length && numOfPacks > 0 && numOfPacks < 3) {
                     numOfPacks = 5; // add padding to the last pack
@@ -166,7 +166,7 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handleb
                     className           : "items currencyPacks",
                     collection          : packs,
                     itemView            : CurrencyPackView,
-                    templateHelpers: _.extend({ category: currency.get("name"), id: currency.get("itemId"), selected: ""}, this.theme.categories)
+                    templateHelpers: _.extend({ category: currency.getName(), id: currency.id, selected: ""}, this.theme.categories)
                 }).on("itemview:buy", wantsToBuyMarketItem);
 
                 this.currencyPacksViews.push(view);
@@ -219,7 +219,7 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handleb
             // When this flag is raised, there is no connectivity,
             // thus don't show the currency store
             if (this.model.get("isCurrencyStoreDisabled")) {
-                alert("Buying more " + this.model.get("currency").get("name") + " is unavailable. Check your internet connectivity and try again.");
+                alert("Buying more " + this.model.get("currency").getName() + " is unavailable. Check your internet connectivity and try again.");
             } else {
                 this.iscrolls.onlyOne.scrollToElement('.currencyPacks', 500);
             }

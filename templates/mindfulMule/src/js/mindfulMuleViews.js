@@ -15,7 +15,7 @@ define("mindfulMuleViews", ["jquery", "backbone", "components", "helperViews", "
 
     var extendViews = function(model) {
 
-        var theme           = model.get("theme"),
+        var theme           = model.assets.theme,
             commonHelpers   = { images : theme.images };
 
         // Add template helpers to view prototypes
@@ -45,7 +45,7 @@ define("mindfulMuleViews", ["jquery", "backbone", "components", "helperViews", "
 
 
             var category    = this.model.getFirstCategory(),
-                goods 		= category.get("goods");
+                goods 		= category.getGoods();
 
             this.goodsView = new GoodsCollectionView({
                 className   : "items",

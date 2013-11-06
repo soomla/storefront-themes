@@ -143,7 +143,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
 
     var extendViews = function(model) {
 
-        var theme           = model.get("theme"),
+        var theme           = model.assets.theme,
             templateHelpers = { images : theme.images },
             assets          = model.assets;
 
@@ -307,7 +307,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
 
 
             // Create header
-            var title = categories.at(0).get("name");
+            var title = categories.first().getName();
             this.header = new Backbone.Model({title : title});
             this.headerView = new HeaderView({ model : this.header });
 
@@ -316,7 +316,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             this.header.set("title", text);
         },
         changeActiveViewByModel: function (model) {
-            this.changeActiveView(model.id, model.get('name'));
+            this.changeActiveView(model.id, model.getName());
         },
         changeActiveView : function(id, title) {
             this.activeView.$el.removeClass("active");
@@ -397,7 +397,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
         addCategoryView : function(category, options) {
 
             var view = new GoodsCollectionView({
-                collection          : category.get("goods"),
+                collection          : category.getGoods(),
                 templateHelpers     : this.entityTemplateHelpers
             }).on({
                 // This is a special playSound function that resolves the playSound
@@ -419,7 +419,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
         addCurrencyView : function(currency, options) {
 
             var view = new CurrencyPacksCollectionView({
-                collection          : currency.get("packs"),
+                collection          : currency.getPacks(),
                 itemView            : CurrencyPackView,
                 templateHelpers     : this.entityTemplateHelpers
             }).on({
