@@ -476,7 +476,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
                 "itemview:select" : function(view) {
                     this.wantsToOpenOffer(view.model);
                 }
-            });
+            }, this);
 
             this.children.add(view, OFFERS_ID);
 
