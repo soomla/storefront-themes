@@ -14,7 +14,11 @@
             "common" : {
                 "offersMenuLinkImage" : true
             },
-            "sponsorpay" : true
+            "sponsorpay" : {
+                "actions" : {
+                    "offerwall" : true
+                }
+            }
         }
 	},
     "sections" : {

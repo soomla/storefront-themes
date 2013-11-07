@@ -11,7 +11,11 @@
         },
         "removeAds" : {},
         "hooks" : {
-            "sponsorpay" : true
+            "sponsorpay" : {
+                "actions" : {
+                    "offerwall" : true
+                }
+            }
         }
 	},
     "sections" : {
