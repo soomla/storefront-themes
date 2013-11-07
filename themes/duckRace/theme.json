@@ -66,5 +66,13 @@
             "descriptionStyle": "",
             "priceStyle": ""
         }
+    },
+    "hooks" : {
+        "providers" : [
+            {
+                "id" : "sponsorpay",
+                "actions" : []
+            }
+        ]
     }
 }

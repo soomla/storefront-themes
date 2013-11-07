@@ -68,5 +68,13 @@
             "balanceStyle": "color: #fff",
             "priceStyle": "color: #fff"
         }
+    },
+    "hooks" : {
+        "providers" : [
+            {
+                "id" : "sponsorpay",
+                "actions" : []
+            }
+        ]
     }
 }

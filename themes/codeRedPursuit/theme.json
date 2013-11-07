@@ -81,5 +81,13 @@
             "titleBackground" : "img/Category_Separator.png",
             "titleStyle" : "color: #FFF;"
         }
+    },
+    "hooks" : {
+        "providers" : [
+            {
+                "id" : "sponsorpay",
+                "actions" : []
+            }
+        ]
     }
 }

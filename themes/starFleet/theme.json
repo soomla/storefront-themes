@@ -82,5 +82,13 @@
         },
         "titleStyle": "color: #FFF",
         "version": "1"
+    },
+    "hooks" : {
+        "providers" : [
+            {
+                "id" : "sponsorpay",
+                "actions" : []
+            }
+        ]
     }
 }

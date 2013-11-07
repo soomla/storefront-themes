@@ -32,7 +32,7 @@
             "nuts_ultimate_pack" : "img/Coins/objects-08.png",
             "currency_nuts" : "img/coin.png",
             "remove_ads" : "img/no-ads.png"
-	    }
+        }
     },
     "theme" : {
         "name" : "jungleMaze",
@@ -88,6 +88,13 @@
 		        }
             }
         }
+    },
+    "hooks" : {
+        "providers" : [
+            {
+                "id" : "sponsorpay",
+                "actions" : []
+            }
+        ]
     }
-
 }
