@@ -151,23 +151,22 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
 
                 // Add offer items
                 this.addOffersView(offers);
-
-                // Listen to offer changes
-                this.listenTo(offers, {
-                    add : function() {
-                        if (offers.size() === 1) {
-                            this.addOffersView(offers, {render : true});
-                            this.iscrolls.packs.refresh();
-                        }
-                    },
-                    remove : function() {
-                        if (offers.isEmpty()) this.removeOffersView();
-                        this.iscrolls.packs.refresh();
-
-                    }
-                });
             }
 
+            // Listen to offer changes
+            this.listenTo(offers, {
+                add : function() {
+                    if (offers.size() === 1) {
+                        this.addOffersView(offers, {render : true});
+                        this.iscrolls.packs.refresh();
+                    }
+                },
+                remove : function() {
+                    if (offers.isEmpty()) this.removeOffersView();
+                    this.iscrolls.packs.refresh();
+
+                }
+            });
         },
         events : {
             "fastclick      .leave-store"   : "leaveStore",

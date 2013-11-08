@@ -202,20 +202,19 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
 
                 // Add a menu link and category view
                 this.addOffersLinkView().addOffersView(offers);
-
-                // Listen to offer changes
-                this.listenTo(offers, {
-                    add : function() {
-                        if (offers.size() === 1) {
-                            this.addOffersLinkView({render : true}).addOffersView(offers, {render : true});
-                        }
-                    },
-                    remove : function() {
-                        if (offers.isEmpty()) this.removeOffersView().removeOffersLink();
-                    }
-                });
             }
 
+            // Listen to offer changes
+            this.listenTo(offers, {
+                add : function() {
+                    if (offers.size() === 1) {
+                        this.addOffersLinkView({render : true}).addOffersView(offers, {render : true});
+                    }
+                },
+                remove : function() {
+                    if (offers.isEmpty()) this.removeOffersView().removeOffersLink();
+                }
+            });
 
             // Mark this view as the active view,
             // as it is the first one visible when the store opens
