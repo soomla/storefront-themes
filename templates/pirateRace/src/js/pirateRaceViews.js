@@ -101,7 +101,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
         OfferItemView.prototype.templateHelpers = function() {
             return {
                 itemSeparator   : theme.itemSeparator,
-                imgFilePath     : assets.getHookAsset(this.model.getAssetId())
+                imgFilePath     : assets.getHookAsset(this.model.id)
             };
         };
     };

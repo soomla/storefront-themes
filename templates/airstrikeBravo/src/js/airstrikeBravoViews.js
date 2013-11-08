@@ -129,7 +129,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
         };
         OfferItemView.prototype.templateHelpers = function() {
             return {
-                imgFilePath : assets.getHookAsset(this.model.getAssetId())
+                imgFilePath : assets.getHookAsset(this.model.id)
             };
         };
         CategoryView.prototype.templateHelpers = function() {

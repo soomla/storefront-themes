@@ -129,7 +129,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
         };
         OfferItemView.prototype.templateHelpers = function() {
             return {
-                imgFilePath : assets.getHookAsset(this.model.getAssetId())
+                imgFilePath : assets.getHookAsset(this.model.id)
             };
         };
         CategoryView.prototype.templateHelpers = function() {

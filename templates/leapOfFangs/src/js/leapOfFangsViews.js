@@ -182,7 +182,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
         };
         OfferItemView.prototype.templateHelpers = function() {
             return {
-                imgFilePath : assets.getHookAsset(this.model.getAssetId())
+                imgFilePath : assets.getHookAsset(this.model.id)
             };
         };
         CurrencyMenuItemView.prototype.templateHelpers = function() {
