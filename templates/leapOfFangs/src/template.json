@@ -15,9 +15,7 @@
                 "offersMenuLinkImage" : true
             },
             "sponsorpay" : {
-                "actions" : {
-                    "offerwall" : true
-                }
+                "actions" : {}
             }
         }
 	},
