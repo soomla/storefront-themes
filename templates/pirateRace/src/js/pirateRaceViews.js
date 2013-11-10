@@ -198,13 +198,29 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
                 return;
             }
 
+            var view;
+
+            var hook = this.model.getHookById(itemId);
+            if (hook) {
+
+                this.showCurrencyPacks();
+
+                // Change to view of given currency ID
+                view = this.offersView.children.findByModel(hook);
+                if (view) {
+                    this.iscrolls.packs.scrollToElement(view.el, 500);
+                    return;
+                }
+                return;
+            }
+
             var currencyPacksItem = this.model.packsMap[itemId];
             if (currencyPacksItem) {
                 this.showCurrencyPacks();
                 this.currencyPacksViews.each(function (currencyPackView) {
-                    var itemView = currencyPackView.children.findByModel(currencyPacksItem);
-                    if (itemView) {
-                        this.iscrolls.packs.scrollToElement(itemView.el, 500);
+                    view = currencyPackView.children.findByModel(currencyPacksItem);
+                    if (view) {
+                        this.iscrolls.packs.scrollToElement(view.el, 500);
                         return;
                     }
                 }, this);
@@ -221,9 +237,9 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             if (goodsItem) {
                 this.showGoodsStore();
                 this.categoryViews.each(function (categoryView) {
-                    var itemView = categoryView.children.findByModel(goodsItem);
-                    if (itemView) {
-                        this.iscrolls.goods.scrollToElement(itemView.el, 500);
+                    view = categoryView.children.findByModel(goodsItem);
+                    if (view) {
+                        this.iscrolls.goods.scrollToElement(view.el, 500);
                         return;
                     }
                 }, this);

@@ -24,9 +24,9 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
         CurrencyPackView                = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack") }),
         OfferItemView                   = Components.OfferItemView.extend({ template : getTemplate("offer")}),
         CategoryView                    = Components.LinkView.extend({ template : getTemplate("categoryMenuItem") }),
-        MenuLinkView                    = Components.LinkView.extend({ template : getTemplate("categoryMenuItem") }),
+        OffersMenuLinkView              = Components.LinkView.extend({ template : getTemplate("categoryMenuItem") }),
         IScrollCollectionView           = Components.IScrollCollectionView.extend({ template: getTemplate("collection") }),
-        OffersCollectionView            = Components.ExpandableIScrollCollectionView.extend({ template : getTemplate("collection") }),
+        OffersCollectionView            = Components.ExpandableIScrollCollectionView.extend({ template : getTemplate("collection"), itemView : OfferItemView }),
 		CurrencyPacksCollectionView     = Components.ExpandableIScrollCollectionView.extend({ template: getTemplate("collection") }),
 		GoodsCollectionView             = Components.ExpandableIScrollCollectionView.extend({
 			template: getTemplate("collection"),
@@ -137,7 +137,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
                 imgFilePath : assets.getCategoryAsset(this.model.id)
             };
         };
-        MenuLinkView.prototype.templateHelpers = function() {
+        OffersMenuLinkView.prototype.templateHelpers = function() {
             return {
             	imgFilePath : assets.getOffersMenuLinkAsset() || this._imagePlaceholder
             };
@@ -330,6 +330,15 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
                 return;
             }
 
+            var hook = this.model.getHookById(itemId);
+            if (hook) {
+                // Change to view of given currency ID
+                var hookView = this.children.findByCustom(OFFERS_ID);
+                this.changeViewTo(hookView);
+                this.activeView.scrollToItemByModel(hook, 500);
+                return;
+            }
+
             var goodsItem = this.model.goodsMap[itemId];
             if (!goodsItem) {
                 console.log('View was not changed. Could not find item: "' + itemId + '".');
@@ -453,7 +462,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
 
         addOffersLinkView : function(options) {
 
-            this.offersLink = new MenuLinkView({
+            this.offersLink = new OffersMenuLinkView({
                 className : "item category-offers"
             }).on("select", function() {
                 this.playSound().changeViewTo(this.children.findByCustom(OFFERS_ID));
@@ -476,8 +485,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
         addOffersView : function(offers, options) {
             var view = new OffersCollectionView({
                 className   : "items offers category",
-                collection  : offers,
-                itemView    : OfferItemView
+                collection  : offers
             }).on("itemview:select", function(view) {
                 this.wantsToOpenOffer(view.model);
             }, this);

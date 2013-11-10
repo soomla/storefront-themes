@@ -329,6 +329,15 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
                 return;
             }
 
+            var hook = this.model.getHookById(itemId);
+            if (hook) {
+                // Change to view of given currency ID
+                var hookView = this.children.findByCustom(OFFERS_ID);
+                this.changeViewTo(hookView);
+                this.activeView.scrollToItemByModel(hook, 500);
+                return;
+            }
+
             var goodsItem = this.model.goodsMap[itemId];
             if (!goodsItem) {
                 console.log('View was not changed. Could not find item: "' + itemId + '".');
