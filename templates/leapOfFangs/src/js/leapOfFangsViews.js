@@ -287,20 +287,19 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
 
                 // Add a menu link and category view
                 this.addOffersLinkView().addOffersView(offers);
-
-                // Listen to offer changes
-                this.listenTo(offers, {
-                    add : function() {
-                        if (offers.size() === 1) {
-                            this.addOffersLinkView({render : true}).addOffersView(offers, {render : true});
-                        }
-                    },
-                    remove : function() {
-                        if (offers.isEmpty()) this.removeOffersView().removeOffersLink();
-                    }
-                });
             }
 
+            // Listen to offer changes
+            this.listenTo(offers, {
+                add : function() {
+                    if (offers.size() === 1) {
+                        this.addOffersLinkView({render : true}).addOffersView(offers, {render : true});
+                    }
+                },
+                remove : function() {
+                    if (offers.isEmpty()) this.removeOffersView().removeOffersLink();
+                }
+            });
 
             // Set the active view to be the first category's view
             this.activeView = this.children.findByIndex(0);
@@ -339,6 +338,12 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
                 return;
             }
 
+            var hook = this.model.getHookById(itemId);
+            if (hook) {
+                this.changeActiveView(OFFERS_ID, OFFERS_TITLE);
+                return;
+            }
+
             var goodsItem = this.model.goodsMap[itemId];
             if (goodsItem) {
                 var category = this.model.categoryMap[itemId];
@@ -359,7 +364,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
         regions: {
             categoryMenu : "#category-menu",
             currencyMenu : "#currency-menu",
-            offersLink: "#offer-wall-menu",
+            offersLink   : "#offer-wall-menu",
             headerView   : "#header"
         },
         iscrollRegions : {
@@ -376,7 +381,9 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
 
             // Render regions
             _.each(this.regions, function(selector, region) {
-                this[region].setElement(selector).render();
+
+                // TODO: Remove this `if` once we figure out why it was failing when no hooks were defined in theme.json
+                if (this[region]) this[region].setElement(selector).render();
             }, this);
 
 
