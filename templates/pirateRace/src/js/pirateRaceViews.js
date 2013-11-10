@@ -48,7 +48,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
         LifetimeVirtualGoodView     = Components.LifetimeItemView.extend({ template : getTemplate("equippableItem")}),
         CurrencyPackView            = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack"), triggers : {fastclick : "buy"} }),
         OfferItemView               = Components.OfferItemView.extend({ template : getTemplate("offer") }),
-        OffersCollectionView        = Components.CollectionView.extend({ template : getTemplate("collection"), itemView : OfferItemView });
+        OffersCollectionView        = Components.CollectionView.extend({ itemView : OfferItemView });
 
 
     var extendViews = function(model) {

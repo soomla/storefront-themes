@@ -452,49 +452,49 @@ a:active, a.emulate-active {
 }
 
 
-// SINGLE LIST ITEMS - CURRENCY PACKS
+// SINGLE LIST ITEMS - CURRENCY PACKS & OFFERS
 // --------------------------------------------------
 
-.currencyPacks .item, #restore-purchases .item {
-    width: 400px;
-    margin: 0 auto;
-}
+.currencyPacks, .offers {
+    .item {
+        width: 400px;
+        margin: 0 auto;
 
-.currencyPacks .item {
-    @visualWidth: 180px;
+        @visualWidth: 180px;
 
-    // Currency pack image
-    .visual {
-        float: left;
-        max-width: @visualWidth;
-        max-height: @itemTotalHeight;
-    }
+        // Currency pack image
+        .visual {
+            float: left;
+            max-width: @visualWidth;
+            max-height: @itemTotalHeight;
+        }
 
-    // Amount & Price
-    .price {
-        height: 100%;
-        margin-left: @visualWidth;
-        padding: 10px
-    }
-    @nameHeight: 50px;
-    @priceHeight: 30px;
-    .item-name {
-        height: @nameHeight;
-    }
-    .item-price {
-        height: @priceHeight;
-    }
-    .item-name, .item-price {
-        margin: 0;
-        text-align: right;
-    }
+        // Amount & Price
+        .price {
+            height: 100%;
+            margin-left: @visualWidth;
+            padding: 10px
+        }
+        @nameHeight: 50px;
+        @priceHeight: 30px;
+        .item-name {
+            height: @nameHeight;
+        }
+        .item-price, .item-description {
+            height: @priceHeight;
+        }
+        .item-name, .item-price, .item-description {
+            margin: 0;
+            text-align: right;
+        }
 
-    a {
-        display: block;
-    }
+        a {
+            display: block;
+        }
 
-    a:active, a.emulate-active {
-        .scale(1.1);
+        a:active, a.emulate-active {
+            .scale(1.1);
+        }
     }
 }
 
@@ -502,20 +502,6 @@ a:active, a.emulate-active {
     width: 100%;
     height:  10px;
 }
-
-
-
-// RESTORE PURCHASES
-// --------------------------------------------------
-
-#restore-purchases .item {
-    text-align: center;
-
-    .restore {
-        height: @itemTotalHeight;
-    }
-}
-
 
 
 
