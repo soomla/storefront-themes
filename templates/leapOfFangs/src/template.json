@@ -10,14 +10,7 @@
             "market" : true
         },
         "categoryImages" : true,
-        "hooks" : {
-            "common" : {
-                "offersMenuLinkImage" : true
-            },
-            "sponsorpay" : {
-                "actions" : {}
-            }
-        }
+        "hooks" : {}
 	},
     "sections" : {
         "global" : {
