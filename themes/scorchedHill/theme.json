@@ -23,8 +23,7 @@
             "coin_ultra_pack": "img/coins/objects-03.png",
             "coin_ultimate_pack": "img/coins/objects-04.png",
             "currency_coins": "img/coin.png",
-            "remove_ads": "img/no-ads.png",
-            "tapjoy": "img/tapjoy.png"
+            "remove_ads": "img/no-ads.png"
         },
         "categories": {
             "Tanks": "img/-_Object_1.png",
@@ -86,5 +85,13 @@
                 }
             }
         }
+    },
+    "hooks" : {
+        "providers" : [
+            {
+                "id" : "sponsorpay",
+                "actions" : []
+            }
+        ]
     }
 }

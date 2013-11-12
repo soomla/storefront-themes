@@ -29,7 +29,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
                     var itemView;
 
                     // some logic to calculate which view to return
-                    switch (item.get("type")) {
+                    switch (item.getType()) {
                         case "singleUse":
                             itemView = SingleUseVirtualGoodView;
                             break;
@@ -47,12 +47,14 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
         EquippableVirtualGoodView   = Components.EquippableItemView.extend({ template : getTemplate("equippableItem")}),
         LifetimeVirtualGoodView     = Components.LifetimeItemView.extend({ template : getTemplate("equippableItem")}),
         CurrencyPackView            = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack"), triggers : {fastclick : "buy"} }),
-        NonConsumableView           = Components.BuyOnceItemView.extend({template : getTemplate("nonConsumableItem") });
+        OfferItemView               = Components.OfferItemView.extend({ template : getTemplate("offer") }),
+        OffersCollectionView        = Components.CollectionView.extend({ itemView : OfferItemView });
 
 
     var extendViews = function(model) {
 
-        var theme = model.get("theme");
+        var theme       = model.assets.theme,
+            assets      = model.assets;
 
         // Add template helpers to view prototypes
 
@@ -70,11 +72,10 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
                 }, 200)
             }
             this.initialized = true;
-            var modelAssets = model.getModelAssets();
             return _.extend({
-                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder,
+                imgFilePath : assets.getItemAsset(this.model.id),
                 currency : {
-                    imgFilePath : modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
+                    imgFilePath : assets.getItemAsset(this.model.getCurrencyId())
                 },
                 price : this.model.getPrice(),
                 itemSeparator       : theme.itemSeparator,
@@ -91,19 +92,16 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
         LifetimeVirtualGoodView.prototype.templateHelpers   = templateHelpers;
 
         CurrencyPackView.prototype.templateHelpers = function() {
-            var modelAssets = model.getModelAssets();
             return {
                 price           : this.model.getPrice(),
                 itemSeparator   : theme.itemSeparator,
-                imgFilePath     : modelAssets.items[this.model.id] || this._imagePlaceholder
+                imgFilePath     : assets.getItemAsset(this.model.id)
             };
         };
-        NonConsumableView.prototype.templateHelpers = function() {
-            var modelAssets = model.getModelAssets();
+        OfferItemView.prototype.templateHelpers = function() {
             return {
-                itemSeparator       : theme.itemSeparator,
-                ownedIndicatorImage : theme.common.ownedIndicatorImage,
-                imgFilePath         : modelAssets.items[this.model.id] || this._imagePlaceholder
+                itemSeparator   : theme.itemSeparator,
+                imgFilePath     : assets.getHookAsset(this.model.id)
             };
         };
     };
@@ -127,7 +125,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
 
             var currencies          = this.model.getCurrencies(),
                 categories          = this.model.getCategories(),
-                nonConsumables      = this.model.get("nonConsumables");
+                offers              = this.model.getOfferHooks();
 
 
             // Create category views
@@ -148,12 +146,27 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
                 remove : this.removeCurrencyView
             }, this);
 
-            this.nonConsumablesView = new Components.CollectionView({
-                className           : "items nonConsumables",
-                collection          : nonConsumables,
-                itemView            : NonConsumableView
-            }).on("itemview:buy", this.buyItem);
 
+            if (!offers.isEmpty()) {
+
+                // Add offer items
+                this.addOffersView(offers);
+            }
+
+            // Listen to offer changes
+            this.listenTo(offers, {
+                add : function() {
+                    if (offers.size() === 1) {
+                        this.addOffersView(offers, {render : true});
+                        this.iscrolls.packs.refresh();
+                    }
+                },
+                remove : function() {
+                    if (offers.isEmpty()) this.removeOffersView();
+                    this.iscrolls.packs.refresh();
+
+                }
+            });
         },
         events : {
             "fastclick      .leave-store"   : "leaveStore",
@@ -165,7 +178,8 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             currencyStore           : "#currency-store",
             backButton              : "#goods-store .btn1",
             goodsIscrollContainer   : "#goods-store .items-container [data-iscroll='true']",
-            currencyPacksContainer  : "#currency-store .currency-packs"
+            currencyPacksContainer  : "#currency-store .currency-packs",
+            offersContainer         : "#offers-container"
         },
         emulateActiveElements : ".btn1,.btn2", // Valid jQuery selector
         _getBalanceHolder : function(currency) {
@@ -184,29 +198,34 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
                 return;
             }
 
+            var view;
+
+            var hook = this.model.getHookById(itemId);
+            if (hook) {
+
+                this.showCurrencyPacks();
+
+                // Change to view of given currency ID
+                view = this.offersView.children.findByModel(hook);
+                if (view) {
+                    this.iscrolls.packs.scrollToElement(view.el, 500);
+                    return;
+                }
+                return;
+            }
+
             var currencyPacksItem = this.model.packsMap[itemId];
             if (currencyPacksItem) {
                 this.showCurrencyPacks();
                 this.currencyPacksViews.each(function (currencyPackView) {
-                    var itemView = currencyPackView.children.findByModel(currencyPacksItem);
-                    if (itemView) {
-                        this.iscrolls.packs.scrollToElement(itemView.el, 500);
+                    view = currencyPackView.children.findByModel(currencyPacksItem);
+                    if (view) {
+                        this.iscrolls.packs.scrollToElement(view.el, 500);
                         return;
                     }
                 }, this);
                 return;
             }
-
-            var nonConsumableItem = this.model.get("nonConsumables").get(itemId);
-            if (nonConsumableItem) {
-                this.showCurrencyPacks();
-                var itemView = this.nonConsumablesView.children.findByModel(nonConsumableItem);
-                if (itemView) {
-                    this.iscrolls.packs.scrollToElement(itemView.el, 500);
-                }
-                return;
-            }
-
 
             var category = this.model.getCategory(itemId);
             if (category) {
@@ -218,9 +237,9 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             if (goodsItem) {
                 this.showGoodsStore();
                 this.categoryViews.each(function (categoryView) {
-                    var itemView = categoryView.children.findByModel(goodsItem);
-                    if (itemView) {
-                        this.iscrolls.goods.scrollToElement(itemView.el, 500);
+                    view = categoryView.children.findByModel(goodsItem);
+                    if (view) {
+                        this.iscrolls.goods.scrollToElement(view.el, 500);
                         return;
                     }
                 }, this);
@@ -233,31 +252,22 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             this.changeViewToItem(model.id);
         },
         showCurrencyPacks : function() {
+            this.ui.currencyStore.removeClass("hide showBtn");
 
-            // When this flag is raised, there is no connectivity,
-            // thus don't show the currency store
-            if (this.model.get("isCurrencyStoreDisabled")) {
-                alert("Buying more " + this.model.get("currency").get("name") + " is unavailable. Check your internet connectivity and try again.");
-            } else {
-                var that = this;
-                that.ui.currencyStore.removeClass("hide showBtn");
-
-                that.ui.currencyStore.transitionOnce({klass : "on", remove : false}).done(function(){
-                    that.ui.goodsStore.removeClass("showBtn");
-                    that.ui.currencyStore.addClass("showBtn");
-                    that.iscrolls.packs.refresh();
-                });
-            }
+            this.ui.currencyStore.transitionOnce({klass : "on", remove : false}).done(_.bind(function(){
+                this.ui.goodsStore.removeClass("showBtn");
+                this.ui.currencyStore.addClass("showBtn");
+                this.iscrolls.packs.refresh();
+            }, this));
         },
         showGoodsStore : function() {
-            var that = this;
-            that.playSound();
+            this.playSound();
 
-            that.ui.currencyStore.transitionOnce({klass : "hide", remove : false}).done(function(){
-                that.ui.currencyStore.removeClass("on");
-                that.ui.goodsStore.addClass("showBtn");
-                that.iscrolls.goods.refresh();
-            });
+            this.ui.currencyStore.transitionOnce({klass : "hide", remove : false}).done(_.bind(function(){
+                this.ui.currencyStore.removeClass("on");
+                this.ui.goodsStore.addClass("showBtn");
+                this.iscrolls.goods.refresh();
+            }, this));
         },
         iscrollRegions : {
             goods : {
@@ -277,15 +287,16 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             this.categoryViews.each(this.appendCategoryView, this);
             this.currencyPacksViews.each(this.appendCurrencyView, this);
 
-            this.$("#currency-store .non-consumables").html(this.nonConsumablesView.render().el);
+            // Append offers
+            if (this.offersView) this.appendOffersView(this.offersView);
 
-            var that = this;
+            var _this = this;
             setTimeout(function(){
-                that.ui.goodsStore.addClass("showBtn");
+                _this.ui.goodsStore.addClass("showBtn");
             }, 200);
 
             this.ui.backButton.one(transitionend, function() {
-                that.iscrolls.goods.refresh();
+                _this.iscrolls.goods.refresh();
             });
         },
         appendCategoryView : function(view) {
@@ -298,6 +309,10 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             this.ui.currencyPacksContainer.append(view.render().el);
 
             // The iscrolls exist only after initial rendering is complete
+            if (this.iscrolls) this.iscrolls.packs.refresh();
+        },
+        appendOffersView : function(view) {
+            this.ui.offersContainer.append(view.render().el);
             if (this.iscrolls) this.iscrolls.packs.refresh();
         },
         buyItem : function (view) {
@@ -318,7 +333,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
 
         addCategoryView : function(category, options) {
 
-            var goods = category.get("goods");
+            var goods = category.getGoods();
             var view = new SectionedListView({
                 model 				: category,
                 collection          : goods,
@@ -339,7 +354,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             }, this);
         },
         addCurrencyView : function(currency, options) {
-            var packs = currency.get("packs");
+            var packs = currency.getPacks();
             var view = new Components.CollectionView({
                 className           : "items currencyPacks",
                 collection          : packs,
@@ -356,6 +371,19 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
                 this.iscrolls.packs.refresh();
             }, this);
         },
+        addOffersView : function(offers, options) {
+            this.offersView = new OffersCollectionView({
+                className   : "items offers",
+                collection  : offers
+            }).on("itemview:select", function(view) {
+                this.wantsToOpenOffer(view.model);
+            }, this);
+
+
+            // If the `render` flag is provided, i.e. an offer
+            // was externally added, render it!
+            if (options && options.render === true) this.appendOffersView(this.offersView);
+        },
         removeCategoryView : function(category) {
             var view = this.categoryViews.findByCustom(category.id);
             view.close();
@@ -366,6 +394,10 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
             var view = this.currencyPacksViews.findByCustom(currency.id);
             view.close();
             this.currencyPacksViews.remove(view);
+            this.iscrolls.packs.refresh();
+        },
+        removeOffersView : function() {
+            this.offersView.close();
             this.iscrolls.packs.refresh();
         }
     });

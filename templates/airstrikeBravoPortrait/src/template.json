@@ -11,7 +11,17 @@
             "market" : true
         },
         "categoryImages" : true,
-		"removeAds" : {}
+        "removeAds" : {},
+        "hooks" : {
+            "common" : {
+                "offersMenuLinkImage" : true
+            },
+            "sponsorpay" : {
+                "actions" : {
+                    "offerwall" : true
+                }
+            }
+        }
 	},
     "sections" : {
         "global" : {
@@ -22,6 +32,9 @@
         },
         "fonts" : {
             "title" : "Fonts"
+        },
+        "hooks" : {
+            "title" : "Hooks"
         }
     },
     "attributes" : {
@@ -185,6 +198,18 @@
 					"title" : "Store Title",
 					"selector" : ".title-container h1",
                     "section" : "global"
+                },
+                "scrollContainerStyle" : {
+                    "type" : "css",
+                    "title" : "Menu Scroll Container Style",
+                    "selector" : "#pages .menu ul",
+                    "section" : "global"
+                },
+                "itemStyle" : {
+                    "type" : "css",
+                    "title" : "Menu Item Style",
+                    "selector" : "#pages .menu li",
+                    "section" : "global"
 				}
 			},
             "goods" : {
@@ -237,7 +262,17 @@
 					}
                 }
             }
-		}
+		},
+        "hooks" : {
+            "common" : {
+                "menuLinkImage" : {
+                    "type" : "image",
+                    "title" : "Hooks Menu Link Image",
+                    "selector" : ".item.category-offers img",
+                    "section" : "hooks"
+				}
+            }
+        }
     },
     "assetMetadata" : {
         "template" : {
@@ -316,6 +351,14 @@
                     "w" : 470,
                     "h" : 220
                 }
+            },
+            "hooks" : {
+                "common" : {
+                    "offersMenuLinkImage" : {
+                        "w" : 150,
+                        "h" : 150
+					}
+                }
             }
         },
         "economy" : {
@@ -351,6 +394,14 @@
                     "h" : 100
                 },
                 "singleUse" : {
+                    "w" : 100,
+                    "h" : 100
+                }
+            }
+        },
+        "hooks" : {
+            "offers" : {
+                "item" : {
                     "w" : 100,
                     "h" : 100
                 }

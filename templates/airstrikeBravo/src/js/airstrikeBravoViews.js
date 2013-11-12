@@ -6,7 +6,9 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
     //
 
 
-    var transitionend = CssUtils.getTransitionendEvent();
+    var transitionend   = CssUtils.getTransitionendEvent(),
+        OFFERS_ID       = Components.BaseStoreView.Const.OFFERS_ID,
+        OFFERS_TITLE    = Components.BaseStoreView.Const.OFFERS_TITLE;
 
 
     // Define view types
@@ -20,10 +22,12 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
         UpgradableItemView              = Components.ExpandableUpgradableItemView.extend({ template : getTemplate("upgradableItem")}),
         LifetimeVirtualGoodView         = Components.ExpandableLifetimeItemView.extend({ template : getTemplate("equippableItem")}),
         CurrencyPackView                = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack") }),
+        OfferItemView                   = Components.OfferItemView.extend({ template : getTemplate("offer")}),
         CategoryView                    = Components.LinkView.extend({ template : getTemplate("categoryMenuItem") }),
-        NonConsumableView               = Components.BuyOnceItemView.extend({ template : getTemplate("nonConsumableItem")}),
-        IScrollCollectionView           = Components.IScrollCollectionView.extend({ template: getTemplate("collection") }),
-        CurrencyPacksCollectionView     = Components.ExpandableIScrollCollectionView.extend({ template: getTemplate("collection") }),
+        OffersMenuLinkView              = Components.LinkView.extend({ template : getTemplate("categoryMenuItem") }),
+        IScrollCollectionView           = Components.IScrollCollectionView.extend({ template : getTemplate("collection") }),
+        OffersCollectionView            = Components.ExpandableIScrollCollectionView.extend({ template : getTemplate("collection"), itemView : OfferItemView }),
+        CurrencyPacksCollectionView     = Components.ExpandableIScrollCollectionView.extend({ template : getTemplate("collection") }),
         GoodsCollectionView             = Components.ExpandableIScrollCollectionView.extend({
             template: getTemplate("collection"),
             getItemView: function(item) {
@@ -34,12 +38,12 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
 
                     var itemView;
 
-                    if (item.get("upgrades")) {
+                    if (item.is("upgradable")) {
                         itemView = UpgradableItemView;
                     } else {
 
                         // some logic to calculate which view to return
-                        switch (item.get("type")) {
+                        switch (item.getType()) {
                             case "singleUse":
                                 itemView = SingleUseVirtualGoodView;
                                 break;
@@ -60,8 +64,9 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
 
     var extendViews = function(model) {
 
-        var theme           = model.get("theme"),
-            commonHelpers   = { images : theme.images };
+        var theme           = model.assets.theme,
+            commonHelpers   = { images : theme.images },
+            assets          = model.assets;
 
 
         // Add template helpers to view prototypes
@@ -71,11 +76,10 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
         };
         var templateHelpers = function () {
 
-            var modelAssets = model.getModelAssets();
             return createTemplateHelpers({
-                imgFilePath: modelAssets.items[this.model.id] || this._imagePlaceholder,
+                imgFilePath: assets.getItemAsset(this.model.id),
                 currency: {
-                    imgFilePath: modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
+                    imgFilePath:assets.getItemAsset(this.model.getCurrencyId())
                 },
                 price: this.model.getPrice(),
                 isMarketPurchaseType : this.model.isMarketPurchaseType(),
@@ -89,22 +93,21 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
         SingleUseVirtualGoodView.prototype.templateHelpers  = templateHelpers;
         LifetimeVirtualGoodView.prototype.templateHelpers   = templateHelpers;
         UpgradableItemView.prototype.templateHelpers        = function() {
-            var modelAssets     = model.getModelAssets(),
-                nextUpgrade     = this.model.getNextUpgrade(),
+            var nextUpgrade     = this.model.getNextUpgrade(),
                 upgradeBarImage = this.model.getCurrentUpgradeBarAssetId();
 
             return createTemplateHelpers({
 
                 // Assets
-                imgFilePath 	: modelAssets.items[nextUpgrade.id] || this._imagePlaceholder,
-                upgradeBarImage : modelAssets.items[upgradeBarImage] || this._progressBarPlaceholder,
+                imgFilePath 	: assets.getUpgradeAsset(nextUpgrade.id),
+                upgradeBarImage : assets.getUpgradeBarAsset(upgradeBarImage),
 
                 // Metadata
-                name 			: nextUpgrade.get("name"),
-                description 	: nextUpgrade.get("description"),
+                name 			: nextUpgrade.getName(),
+                description 	: nextUpgrade.getDescription(),
                 price 			: this.model.getPrice(),
                 currency 		: {
-                    imgFilePath : modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
+                    imgFilePath : assets.getItemAsset(this.model.getCurrencyId())
                 },
 
                 // This is a hack, because Backofgen ignores empty objects in the theme
@@ -113,29 +116,31 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
         };
 
         CurrencyPackView.prototype.templateHelpers = function() {
-            var modelAssets = model.getModelAssets();
             return createTemplateHelpers({
                 price: this.model.getPrice(),
-                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder,
+                imgFilePath : assets.getItemAsset(this.model.id),
                 currency: {
-                    imgFilePath: modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
+                    imgFilePath: assets.getItemAsset(this.model.getCurrencyId())
                 },
 
                 // This is a hack, because Backofgen ignores empty objects in the theme
                 item: (theme.pages.currencyPacks && theme.pages.currencyPacks.item) ? theme.pages.currencyPacks.item : {}
             });
         };
-        CategoryView.prototype.templateHelpers = function() {
-            var modelAssets = model.getModelAssets();
+        OfferItemView.prototype.templateHelpers = function() {
             return {
-                imgFilePath : modelAssets.categories[this.model.id] || this._imagePlaceholder
+                imgFilePath : assets.getHookAsset(this.model.id)
             };
         };
-        NonConsumableView.prototype.templateHelpers = function() {
-            var modelAssets = model.getModelAssets();
-            return createTemplateHelpers({
-                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder
-            });
+        CategoryView.prototype.templateHelpers = function() {
+            return {
+                imgFilePath : assets.getCategoryAsset(this.model.id)
+            };
+        };
+        OffersMenuLinkView.prototype.templateHelpers = function() {
+            return {
+                imgFilePath : assets.getOffersMenuLinkAsset() || this._imagePlaceholder
+            };
         };
 
     };
@@ -155,10 +160,9 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
             this.loadingModal = _.extend({text : "Loading..."}, this.messageDialogOptions);
 
 
-            var currencies 		= this.model.getCurrencies(),
-                categories      = this.model.getCategories(),
-                nonConsumables  = this.model.get("nonConsumables"),
-                tapjoy          = this.theme.tapjoy;
+            var currencies  = this.model.getCurrencies(),
+                categories  = this.model.getCategories(),
+                offers      = this.model.getOfferHooks();
 
             this.headerStates   = {};
 
@@ -193,31 +197,24 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
             // We're using a CategoryView, because visually the button should look the same, even though
             // it doesn't represent an actual category.  This view will be force-appended to the
             // categories view when rendering
-            this.nonConsumbaleLinks = [];
 
-            nonConsumables.each(function(nonConsumable) {
+            if (!offers.isEmpty()) {
 
-                var view = new NonConsumableView({
-                    className : "item non-consumable",
-                    model : nonConsumable
-                }).on("buy", this.buyItem);
-
-                this.nonConsumbaleLinks.push(view);
-            }, this);
-
-            // Create a view for a Tapjoy link from the category menu.
-            // We're using a CategoryView, because visually the button should look the same, even though
-            // it doesn't represent an actual category.  This view will be force-appended to the
-            // categories view when rendering
-            if (tapjoy) {
-                this.tapjoyView = new CategoryView({
-                    className : "item earned-currency",
-                    templateHelpers : { imgFilePath : this.model.getModelAssets().items.tapjoy || this._imagePlaceholder }
-                }).on("select", function() {
-                    this.playSound().requestEarnedCurrency("tapjoy");
-                }, this);
+                // Add a menu link and category view
+                this.addOffersLinkView().addOffersView(offers);
             }
 
+            // Listen to offer changes
+            this.listenTo(offers, {
+                add : function() {
+                    if (offers.size() === 1) {
+                        this.addOffersLinkView({render : true}).addOffersView(offers, {render : true});
+                    }
+                },
+                remove : function() {
+                    if (offers.isEmpty()) this.removeOffersView().removeOffersLink();
+                }
+            });
 
             // Mark this view as the active view,
             // as it is the first one visible when the store opens
@@ -332,6 +329,15 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
                 return;
             }
 
+            var hook = this.model.getHookById(itemId);
+            if (hook) {
+                // Change to view of given currency ID
+                var hookView = this.children.findByCustom(OFFERS_ID);
+                this.changeViewTo(hookView);
+                this.activeView.scrollToItemByModel(hook, 500);
+                return;
+            }
+
             var goodsItem = this.model.goodsMap[itemId];
             if (!goodsItem) {
                 console.log('View was not changed. Could not find item: "' + itemId + '".');
@@ -367,14 +373,10 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
             // Append the link to the currency packs as a "category view"
             this.currencyPacksLinks.each(this.appendCurrencyLinkView, this);
 
-            // Append links to earned currencies as "category views"
-            if (this.tapjoyView) menu.append(this.tapjoyView.render().el);
+            // Append link to offers
+            if (this.offersLink) this.appendOffersLinkView(this.offersLink);
 
-            // Append non consumable items as "category views"
-            _.each(this.nonConsumbaleLinks, function(view) {
-                menu.append(view.render().el);
-            });
-
+            // Initial iScroll refresh for menu
             if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
         },
         // View event listeners
@@ -400,10 +402,15 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
             menu.append(link.render().el);
         },
 
+        appendOffersLinkView : function(link) {
+            var menu = this.children.findByCustom("menu").$el.children(":last-child");
+            menu.append(link.render().el);
+        },
+
         addCategoryView : function(category, options) {
 
-            var categoryName 	= category.get("name"),
-                goods           = category.get("goods"),
+            var categoryName 	= category.getName(),
+                goods           = category.getGoods(),
                 view;
 
             view = new GoodsCollectionView({
@@ -452,14 +459,53 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
             }
         },
 
+        addOffersLinkView : function(options) {
+
+            this.offersLink = new OffersMenuLinkView({
+                className : "item category-offers"
+            }).on("select", function() {
+                this.playSound().changeViewTo(this.children.findByCustom(OFFERS_ID));
+            }, this);
+
+
+            // If the `render` flag is provided, i.e. an offer
+            // was externally added, render it!
+            if (options && options.render === true) {
+                this.appendOffersLinkView(this.offersLink);
+
+                // Refresh iscroll to support adding more currencies from dashboard
+                var menu = this.children.findByCustom("menu");
+                menu.refreshIScroll();
+            }
+
+            return this;
+        },
+
+        addOffersView : function(offers, options) {
+            var view = new OffersCollectionView({
+                className   : "items offers category",
+                collection  : offers
+            }).on("itemview:select", function(view) {
+                this.wantsToOpenOffer(view.model);
+            }, this);
+
+
+            this.children.add(view, OFFERS_ID);
+            this.headerStates[view.cid] = OFFERS_TITLE;
+
+            // If the `render` flag is provided, i.e. an offer
+            // was externally added, render it!
+            if (options && options.render === true) this.appendOfferView(view);
+        },
+
         addCurrencyView : function(currency, options) {
             var view = new CurrencyPacksCollectionView({
                 className   : "items currencyPacks category",
-                collection  : currency.get("packs"),
+                collection  : currency.getPacks(),
                 itemView    : CurrencyPackView
             }).on("itemview:buy", this.buyItem);
             this.children.add(view, currency.id);
-            this.headerStates[view.cid] = currency.get("name");
+            this.headerStates[view.cid] = currency.getName();
 
             // If the `render` flag is provided, i.e. a category
             // was externally added, render it!
@@ -476,14 +522,23 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
             view.close();
             this.children.remove(view);
             delete this.headerStates[view.cid];
+            return this;
+        },
+        removeOffersView : function() {
+            return this._removeContainerView({id : OFFERS_ID});
+        },
+        removeOffersLink : function() {
+            this.offersLink.close();
+            delete this.offersLink;
         }
     });
 
     _.extend(StoreView.prototype, {
-        appendCategoryView : StoreView.prototype._appendContainerView,
-        appendCurrencyView : StoreView.prototype._appendContainerView,
-        removeCategoryView : StoreView.prototype._removeContainerView,
-        removeCurrencyView : StoreView.prototype._removeContainerView
+        appendCategoryView  : StoreView.prototype._appendContainerView,
+        appendCurrencyView  : StoreView.prototype._appendContainerView,
+        appendOfferView     : StoreView.prototype._appendContainerView,
+        removeCategoryView  : StoreView.prototype._removeContainerView,
+        removeCurrencyView  : StoreView.prototype._removeContainerView
     });
 
 

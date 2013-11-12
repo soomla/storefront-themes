@@ -9,7 +9,14 @@
             "virtualItem" : true,
             "market" : true
         },
-		"removeAds" : {}
+        "removeAds" : {},
+        "hooks" : {
+            "sponsorpay" : {
+                "actions" : {
+                    "offerwall" : true
+                }
+            }
+        }
 	},
     "sections" : {
         "global" : {
@@ -196,13 +203,13 @@
                     "nameStyle" : {
                         "type" : "css",
                         "title" : "Currency Pack Name Style",
-                        "selector" : ".currencyPacks .item .item-name",
+                        "selector" : ".currencyPacks .item .item-name, .offers .item .item-name",
                         "section" : "singleItems"
                     },
                     "priceStyle" : {
                         "type" : "css",
                         "title" : "Currency Pack Price Style",
-                        "selector" : ".currencyPacks .item .item-price",
+                        "selector" : ".currencyPacks .item .item-price, .offers .item .item-description",
                         "section" : "singleItems"
                     }
                 }
@@ -337,6 +344,14 @@
                 },
                 "singleUse" : {
                     "w" : 100,
+                    "h" : 100
+                }
+            }
+        },
+        "hooks" : {
+            "offers" : {
+                "item" : {
+                    "w" : 180,
                     "h" : 100
                 }
             }

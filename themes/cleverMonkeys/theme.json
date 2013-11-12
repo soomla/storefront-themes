@@ -15,8 +15,7 @@
             "banana_basket": "img/coins/objects-02.png",
             "banana_tree": "img/coins/objects-03.png",
             "currency_coins": "img/coin.png",
-            "remove_ads": "img/no-ads.png",
-            "tapjoy": "img/tapjoy.png"
+            "remove_ads": "img/no-ads.png"
         },
         "categories": {
             "Characters": "img/-_Object_1.png",
@@ -77,5 +76,13 @@
                 }
             }
         }
+    },
+    "hooks" : {
+        "providers" : [
+            {
+                "id" : "sponsorpay",
+                "actions" : []
+            }
+        ]
     }
 }

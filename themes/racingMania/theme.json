@@ -25,8 +25,7 @@
             "euro_pack": "img/currency-02.png",
             "sterling_pack": "img/currency-03.png",
             "currency_coins": "img/nos.png",
-            "remove_ads": "img/no-ads.png",
-            "tapjoy": "img/tapjoy.png"
+            "remove_ads": "img/no-ads.png"
         },
         "categories": {
             "Cars": "img/cars-thumb.png",
@@ -90,5 +89,13 @@
                 }
             }
         }
+    },
+    "hooks" : {
+        "providers" : [
+            {
+                "id" : "sponsorpay",
+                "actions" : []
+            }
+        ]
     }
 }

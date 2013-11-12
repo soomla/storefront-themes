@@ -6,7 +6,9 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
     //
 
 
-    var transitionend = CssUtils.getTransitionendEvent();
+    var transitionend   = CssUtils.getTransitionendEvent(),
+        OFFERS_ID       = Components.BaseStoreView.Const.OFFERS_ID,
+        OFFERS_TITLE    = Components.BaseStoreView.Const.OFFERS_TITLE;
 
 
     // Define view types
@@ -24,10 +26,12 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             template : getTemplate("equippableItem")
         }),
         CurrencyPackView = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack") }),
+        OfferItemView = Components.OfferItemView.extend({ template : getTemplate("offer")}),
         CategoryMenuItemView = Components.LinkView.extend({
             template : getTemplate("categoryMenuItem")
         }),
         CurrencyMenuItemView = CategoryMenuItemView.extend(),
+        MenuLinkView = CategoryMenuItemView.extend(),
         CarouselView = Components.CarouselView.extend({
             className           : "category",
             itemViewContainer   : ".goods",
@@ -102,7 +106,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
                     var itemView;
 
                     // some logic to calculate which view to return
-                    switch (item.get("type")) {
+                    switch (item.getType()) {
                         case "singleUse":
                             itemView = SingleUseVirtualGoodView;
                             break;
@@ -116,7 +120,8 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
                     return itemView;
                 }
             }
-        });
+        }),
+        OffersCollectionView = CarouselView.extend({itemView : OfferItemView});
 
 
     var HeaderView = Marionette.ItemView.extend({
@@ -138,18 +143,18 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
 
     var extendViews = function(model) {
 
-        var theme           = model.get("theme"),
-            templateHelpers = { images : theme.images };
+        var theme           = model.assets.theme,
+            templateHelpers = { images : theme.images },
+            assets          = model.assets;
 
 
         // Add template helpers to view prototypes
 
         var virtualGoodTemplateHelpers = function () {
-            var modelAssets = model.getModelAssets();
             return _.extend({
-                imgFilePath: modelAssets.items[this.model.id] || this._imagePlaceholder,
+                imgFilePath: assets.getItemAsset(this.model.id),
                 currency: {
-                    imgFilePath: modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
+                    imgFilePath: assets.getItemAsset(this.model.getCurrencyId())
                 },
                 price: this.model.getPrice(),
                 item: theme.item,
@@ -161,26 +166,33 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
         LifetimeItemView.prototype.templateHelpers          = virtualGoodTemplateHelpers;
 
         CurrencyPackView.prototype.templateHelpers = function() {
-            var modelAssets = model.getModelAssets();
             return _.extend({
-                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder,
+                imgFilePath : assets.getItemAsset(this.model.id),
                 currency : {
-                    imgFilePath : modelAssets.items[this.model.getCurrencyId()] || this._imagePlaceholder
+                    imgFilePath : assets.getItemAsset(this.model.getCurrencyId())
                 },
                 price: this.model.getPrice(),
                 item : theme.item
             }, templateHelpers);
         };
         CategoryMenuItemView.prototype.templateHelpers = function() {
-            var modelAssets = model.getModelAssets();
             return {
-                imgFilePath : modelAssets.categories[this.model.id] || this._imagePlaceholder
+                imgFilePath : assets.getCategoryAsset(this.model.id)
+            };
+        };
+        OfferItemView.prototype.templateHelpers = function() {
+            return {
+                imgFilePath : assets.getHookAsset(this.model.id)
             };
         };
         CurrencyMenuItemView.prototype.templateHelpers = function() {
-            var modelAssets = model.getModelAssets();
             return {
                 imgFilePath: (this.model.id == 'currency_coins') ? theme.currencyPacksCategoryImage : theme.currencyPacksCategoryImage2 || this._imagePlaceholder
+            };
+        };
+        MenuLinkView.prototype.templateHelpers = function() {
+            return {
+                imgFilePath : assets.getOffersMenuLinkAsset() || this._imagePlaceholder
             };
         };
     };
@@ -200,8 +212,9 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             this.loadingModal = _.extend({text : "Loading..."}, this.messageDialogOptions);
 
 
-            var categories              = this.model.getCategories(),
-                currencies              = this.model.getCurrencies();
+            var categories = this.model.getCategories(),
+                currencies = this.model.getCurrencies(),
+                offers = this.model.getOfferHooks();
 
             this.entityTemplateHelpers  = { images : this.theme.images };
 
@@ -270,12 +283,30 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             }, this);
 
 
+            if (!offers.isEmpty()) {
+
+                // Add a menu link and category view
+                this.addOffersLinkView().addOffersView(offers);
+            }
+
+            // Listen to offer changes
+            this.listenTo(offers, {
+                add : function() {
+                    if (offers.size() === 1) {
+                        this.addOffersLinkView({render : true}).addOffersView(offers, {render : true});
+                    }
+                },
+                remove : function() {
+                    if (offers.isEmpty()) this.removeOffersView().removeOffersLink();
+                }
+            });
+
             // Set the active view to be the first category's view
             this.activeView = this.children.findByIndex(0);
 
 
             // Create header
-            var title = categories.at(0).get("name");
+            var title = categories.first().getName();
             this.header = new Backbone.Model({title : title});
             this.headerView = new HeaderView({ model : this.header });
 
@@ -284,7 +315,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             this.header.set("title", text);
         },
         changeActiveViewByModel: function (model) {
-            this.changeActiveView(model.id, model.get('name'));
+            this.changeActiveView(model.id, model.getName());
         },
         changeActiveView : function(id, title) {
             this.activeView.$el.removeClass("active");
@@ -304,6 +335,12 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
                 var currency = currencyPacksItem.getCurrencyId();
                 this.showCurrencyPacks(currency);
                 this.activeView.changeActiveByModel(currencyPacksItem);
+                return;
+            }
+
+            var hook = this.model.getHookById(itemId);
+            if (hook) {
+                this.changeActiveView(OFFERS_ID, OFFERS_TITLE);
                 return;
             }
 
@@ -327,6 +364,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
         regions: {
             categoryMenu : "#category-menu",
             currencyMenu : "#currency-menu",
+            offersLink   : "#offer-wall-menu",
             headerView   : "#header"
         },
         iscrollRegions : {
@@ -343,7 +381,9 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
 
             // Render regions
             _.each(this.regions, function(selector, region) {
-                this[region].setElement(selector).render();
+
+                // TODO: Remove this `if` once we figure out why it was failing when no hooks were defined in theme.json
+                if (this[region]) this[region].setElement(selector).render();
             }, this);
 
 
@@ -364,7 +404,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
         addCategoryView : function(category, options) {
 
             var view = new GoodsCollectionView({
-                collection          : category.get("goods"),
+                collection          : category.getGoods(),
                 templateHelpers     : this.entityTemplateHelpers
             }).on({
                 // This is a special playSound function that resolves the playSound
@@ -386,7 +426,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
         addCurrencyView : function(currency, options) {
 
             var view = new CurrencyPacksCollectionView({
-                collection          : currency.get("packs"),
+                collection          : currency.getPacks(),
                 itemView            : CurrencyPackView,
                 templateHelpers     : this.entityTemplateHelpers
             }).on({
@@ -405,10 +445,67 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             // was externally added, render it!
             if (options && options.render === true) this.appendCurrencyView(view);
         },
+        addOffersLinkView : function(options) {
+
+            this.offersLink = new MenuLinkView({
+                className : "item category-offers"
+            }).on("select", function() {
+                this.playSound().changeActiveView(OFFERS_ID, OFFERS_TITLE);
+            }, this);
+
+
+            // If the `render` flag is provided, i.e. an offer
+            // was externally added, render it!
+            if (options && options.render === true) {
+                this.appendOffersLinkView(this.offersLink);
+
+                // Refresh iscroll to support adding more currencies from dashboard
+                var menu = this.children.findByCustom("menu");
+                menu.refreshIScroll();
+            }
+
+            return this;
+        },
+
+        addOffersView : function(offers, options) {
+
+            var view = new OffersCollectionView({
+                className       : "items offers category",
+                collection      : offers,
+                templateHelpers : this.entityTemplateHelpers
+            }).on({
+                // This is a special playSound function that resolves the playSound
+                // function defined on the store view object only when called.
+                // This is used so that the function from the nativeAPI stubs is called
+                "next previous" : _.bind(function() {
+                    return this.playSound();
+                }, this),
+                "itemview:select" : function(view) {
+                    this.wantsToOpenOffer(view.model);
+                }
+            }, this);
+
+            this.children.add(view, OFFERS_ID);
+
+            // If the `render` flag is provided, i.e. an offer
+            // was externally added, render it!
+            if (options && options.render === true) this.appendOfferView(view);
+        },
+        removeOffersView : function() {
+            return this._removeContainerView({id : OFFERS_ID});
+        },
+        removeOffersLink : function() {
+            this.offersLink.close();
+            delete this.offersLink;
+        },
         _removeContainerView : function(container) {
             var view = this.children.findByCustom(container.id);
             view.close();
             this.children.remove(view);
+            return this;
+        },
+        appendOffersLinkView : function(link) {
+            this._appendContainerView(link);
         },
         _appendContainerView : function(view) {
             this.ui.categoriesContainer.append(view.render().el);
@@ -417,10 +514,11 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
     StoreView.mixinActiveTouchEmulation();
 
     _.extend(StoreView.prototype, {
-        appendCategoryView : StoreView.prototype._appendContainerView,
-        appendCurrencyView : StoreView.prototype._appendContainerView,
-        removeCategoryView : StoreView.prototype._removeContainerView,
-        removeCurrencyView : StoreView.prototype._removeContainerView
+        appendCategoryView  : StoreView.prototype._appendContainerView,
+        appendCurrencyView  : StoreView.prototype._appendContainerView,
+        appendOfferView     : StoreView.prototype._appendContainerView,
+        removeCategoryView  : StoreView.prototype._removeContainerView,
+        removeCurrencyView  : StoreView.prototype._removeContainerView
     });
 
 

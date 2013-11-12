@@ -41,7 +41,7 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
                     var itemView;
 
                     // some logic to calculate which view to return
-                    switch (item.get("type")) {
+                    switch (item.getType()) {
                         case "singleUse":
                             itemView = SingleUseVirtualGoodView;
                             break;
@@ -57,13 +57,13 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
 
     var extendViews = function(model) {
 
-        var theme = model.get("theme");
+        var theme = model.assets.theme;
         var commonTemplateHelpers = function() {
-            var modelAssets = model.getModelAssets();
+            var assets = model.assets;
             return {
                 odd         : (this.model.collection.indexOf(this.model) + 1) % 2 == 1,
                 price 		: this.model.getPrice(),
-                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder,
+                imgFilePath : assets.getItemAsset(this.model.id),
                 images      : theme.images
             };
         };
@@ -89,7 +89,7 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
 
 
             var category    = this.model.getFirstCategory(),
-                goods       = category.get("goods");
+                goods       = category.getGoods();
 
             this.goodsView = new GoodsCollectionView({
                 className   : "items",

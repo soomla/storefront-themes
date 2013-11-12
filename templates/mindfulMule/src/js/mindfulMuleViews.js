@@ -15,16 +15,16 @@ define("mindfulMuleViews", ["jquery", "backbone", "components", "helperViews", "
 
     var extendViews = function(model) {
 
-        var theme           = model.get("theme"),
+        var theme           = model.assets.theme,
             commonHelpers   = { images : theme.images };
 
         // Add template helpers to view prototypes
         GoodView.prototype.templateHelpers = function() {
-            var modelAssets = model.getModelAssets();
+            var assets = model.assets;
             return _.extend({
                 price 		: this.model.getPrice(),
                 buyImage    : theme.item.buyImage,
-                imgFilePath : modelAssets.items[this.model.id] || this._imagePlaceholder
+                imgFilePath : assets.getItemAsset(this.model.id)
             }, commonHelpers);
         };
     };
@@ -45,7 +45,7 @@ define("mindfulMuleViews", ["jquery", "backbone", "components", "helperViews", "
 
 
             var category    = this.model.getFirstCategory(),
-                goods 		= category.get("goods");
+                goods 		= category.getGoods();
 
             this.goodsView = new GoodsCollectionView({
                 className   : "items",
