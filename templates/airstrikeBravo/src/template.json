@@ -217,7 +217,7 @@
                     "nameStyle" : {
                         "type" : "css",
                         "title" : "Virtual Good Name Style",
-                        "selector" : "#pages .items.virtualGoods .item .item-name",
+                        "selector" : "#pages .items.virtualGoods .item .item-name, #pages .items.offers .item .item-name",
                         "section" : "singleItems"
                     },
                     "priceStyle" : {
@@ -235,7 +235,7 @@
                     "descriptionStyle" : {
                         "type" : "css",
                         "title" : "Virtual Good Description Style",
-                        "selector" : "#pages .items.virtualGoods .item .item-description",
+                        "selector" : "#pages .items.virtualGoods .item .item-description, #pages .items.offers .item .item-description",
                         "section" : "singleItems"
                     }
                 }
