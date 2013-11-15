@@ -1,0 +1,236 @@
+{
+    "currencyPacks" : [
+        {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 0.99,
+                    "androidId": "android.test.purchased",
+                    "iosId" : "coin_stack"
+                },
+                "purchaseType": "market"
+            },
+            "name"              : "Coin Stack",
+            "itemId"            : "coin_stack",
+            "currency_itemId"   : "currency_coins",
+            "currency_amount"   : 2500
+        },
+        {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 4.99,
+                    "androidId": "coin_pile",
+                    "iosId" : "coin_pile"
+                },
+                "purchaseType": "market"
+            },
+            "name"              : "Coin Pile",
+            "itemId"            : "coin_pile",
+            "currency_itemId"   : "currency_coins",
+            "currency_amount"   : 25000
+        },
+        {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 9.99,
+                    "androidId": "coin_chest",
+                    "iosId" : "coin_chest"
+                },
+                "purchaseType": "market"
+            },
+            "name"              : "Coin Chest",
+            "itemId"            : "coin_chest",
+            "currency_itemId"   : "currency_coins",
+            "currency_amount"   : 75000
+        },
+        {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 19.99,
+                    "androidId": "coin_vault",
+                    "iosId" : "coin_vault"
+                },
+                "purchaseType": "market"
+            },
+            "name"              : "Coin Vault",
+            "itemId"            : "coin_vault",
+            "currency_itemId"   : "currency_coins",
+            "currency_amount"   : 200000
+        }
+    ],
+    "currencies" : [
+        {
+            "name"          : "Coins",
+            "description"   : "",
+            "itemId"        : "currency_coins"
+        }
+    ],
+    "categories" : [
+        {
+            "goods_itemIds": [
+                "bomb",
+                "gold_pot",
+                "lucky_clover",
+                "rock_book",
+                "speed_boost"
+            ],
+            "name" : "POWERUPS"
+        },
+        {
+            "goods_itemIds": [
+                "kasey",
+                "robert_din",
+                "sir_james",
+                "tod"
+            ],
+            "name" : "CHARACTERS"
+        }
+    ],
+    "goods" : {
+        "goodUpgrades": [
+            {
+                "prev_itemId": "",
+                "next_itemId": "speed_boost_upgrade2",
+                "name": "Speed Boost",
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 250,
+                    "purchaseType": "virtualItem"
+                },
+                "itemId": "speed_boost_upgrade1",
+                "description": "Walk and run faster by 25%",
+                "good_itemId": "speed_boost"
+            },
+            {
+                "prev_itemId": "speed_boost_upgrade1",
+                "next_itemId": "speed_boost_upgrade3",
+                "name": "Speed Boost",
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 1000,
+                    "purchaseType": "virtualItem"
+                },
+                "itemId": "speed_boost_upgrade2",
+                "description": "Walk and run faster by 50%",
+                "good_itemId": "speed_boost"
+            },
+            {
+                "prev_itemId": "speed_boost_upgrade2",
+                "next_itemId": "",
+                "name": "Speed Boost",
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 5000,
+                    "purchaseType": "virtualItem"
+                },
+                "itemId": "speed_boost_upgrade3",
+                "description": "Walk and run TWICE as fast!",
+                "good_itemId": "speed_boost"
+            }
+        ],
+        "lifetime" : [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 750,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Lucky Clover",
+                "description"   : "Lorem Ipsum is not simply random text",
+                "itemId"        : "lucky_clover"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 750,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Rock Book",
+                "description"   : "Lorem Ipsum is not simply random text",
+                "itemId"        : "rock_book"
+            },
+            {
+                "itemId": "speed_boost",
+                "name": "Speed Boost",
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 100,
+                    "purchaseType": "virtualItem"
+                },
+                "description": "Walk and run faster by 25%"
+            }
+        ],
+        "equippable" : [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 10000,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Kasey",
+                "description"   : "Lorem Ipsum is not simply random text",
+                "equipping"     : "category",
+                "itemId"        : "kasey"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 10000,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Robert Din",
+                "description"   : "Lorem Ipsum is not simply random text",
+                "equipping"     : "category",
+                "itemId"        : "robert_din"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 25000,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Sir James",
+                "description"   : "Lorem Ipsum is not simply random text",
+                "equipping"     : "category",
+                "itemId"        : "sir_james"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 25000,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Tod",
+                "description"   : "Lorem Ipsum is not simply random text",
+                "equipping"     : "category",
+                "itemId"        : "tod"
+            }
+        ],
+        "singleUse" : [
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 500,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Bomb",
+                "description"   : "Lorem Ipsum is not simply random text",
+                "itemId"        : "bomb"
+            },
+            {
+                "purchasableItem": {
+                    "pvi_itemId": "currency_coins",
+                    "pvi_amount": 500,
+                    "purchaseType": "virtualItem"
+                },
+                "name"          : "Gold Pot",
+                "description"   : "Lorem Ipsum is not simply random text",
+                "itemId"        : "gold_pot"
+            }
+        ],
+        "goodPacks" : []
+    }
+}

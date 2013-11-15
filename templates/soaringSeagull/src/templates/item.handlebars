@@ -1,0 +1,30 @@
+<div class="expand-row">
+
+	<img src="{{imgFilePath}}" class="item-image">
+	<div class="item-title">
+        <div class="item-name">{{name}}</div>
+        <div class="item-balance">
+	        You have: {{balance}}
+        </div>
+	</div>
+    <div class="item-actions">
+        <div class="item-price">
+	        {{#if isMarketPurchaseType}}
+                <label>${{price}}</label>
+	        {{else}}
+                <label>{{price}}</label>
+                <img src="{{currency.imgFilePath}}">
+	        {{/if}}
+        </div>
+        <img src="{{expandImage}}" class="expand-collapse">
+    </div>
+</div>
+<div class="expand-row">
+    <div class="item-description">{{description}}</div>
+    <div class="buy-container">
+        <a class="buy">
+            <img src="{{buyImage}}">
+        </a>
+    </div>
+</div>
+

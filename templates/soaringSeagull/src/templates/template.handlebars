@@ -1,0 +1,51 @@
+{{fontFaceStylesheet fonts}}
+<div id="goods-store" data-role="page">
+
+
+    <div class="content">
+        <div class="header title-image">
+            <div class="balance-container font-face-2">
+	            {{#each currencies}}
+                <div class="label-container">
+                    <img class="currency" src="{{this.imgFilePath}}">
+                    <label data-currency="{{this.itemId}}">{{this.balance}}</label>
+                </div>
+	            {{/each}}
+            </div>
+        </div>
+        <div class="items-container">
+	        <div data-iscroll="true">
+	        </div>
+        </div>
+        <div class="footer animated">
+            <a class="btn1"><img src="{{common.backButton}}" class="leave-store"></a>
+            <a class="btn2"><img src="{{common.moreCurrencyButton}}" class="currency buy-more"></a>
+        </div>
+    </div>
+</div>
+<div id="currency-store" data-role="page">
+
+    <div class="content">
+        <div class="header title-image">
+            <div class="balance-container font-face-2">
+			    {{#each currencies}}
+                    <div class="label-container">
+                        <img class="currency" src="{{this.imgFilePath}}">
+                        <label data-currency="{{this.itemId}}">{{this.balance}}</label>
+                    </div>
+			    {{/each}}
+            </div>
+        </div>
+        <div class="items-container">
+            <div data-iscroll="true">
+                <div class="currency-packs">
+                </div>
+                <div id="offers-container">
+                </div>
+            </div>
+        </div>
+        <div class="footer animated">
+            <a class="btn1"><img src="{{common.backButton}}" class="back"></a>
+        </div>
+    </div>
+</div>

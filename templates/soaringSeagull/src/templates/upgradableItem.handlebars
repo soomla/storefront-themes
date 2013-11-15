@@ -1,0 +1,31 @@
+<div class="expand-row">
+    <img src="{{imgFilePath}}" class="item-image">
+    <div class="item-title">
+        <div class="item-name">{{name}}</div>
+        <img class="upgrade-bar" src="{{upgradeBarImage}}">
+    </div>
+    <div class="item-actions">
+
+        <div class="item-price">
+			{{#if isMarketPurchaseType}}
+                <label>${{price}}</label>
+			{{else}}
+                <label>{{price}}</label>
+                <img src="{{currency.imgFilePath}}">
+			{{/if}}
+        </div>
+        <img src="{{expandImage}}" class="expand-collapse">
+    </div>
+    <div class="complete-indicator">
+        <label>{{goodUpgrades.upgradeFullText}}</label>
+    </div>
+</div>
+<div class="expand-row">
+    <div class="item-description">{{description}}</div>
+    <div class="buy-container">
+        <a class="upgrade">
+            <img src="{{buyImage}}">
+        </a>
+    </div>
+</div>
+

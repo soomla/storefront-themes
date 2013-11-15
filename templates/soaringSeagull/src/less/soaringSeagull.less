@@ -1,0 +1,575 @@
+@import "css/mixins/bootstrap/variables.less";
+@import "css/mixins/bootstrap/mixins.less";
+@import "css/mixins/layout.less";
+@baseUrl: "../theme";
+.webkitScrollbar();
+
+
+
+// EFFECTS
+// --------------------------------------------------
+
+a {
+    -webkit-transition: -webkit-transform ease-in-out;
+    -moz-transition: -moz-transform ease-in-out;
+    -o-transition: -o-transform ease-in-out;
+    transition: transform ease-in-out;
+
+    display: inline-block;
+}
+
+a:active, a.emulate-active {
+    .scale(1.2);
+}
+
+
+// GENERAL LAYOUT
+// --------------------------------------------------
+@templateWidth: 1280px;
+@templateHeight: 1920px;
+@contentContainerWidth: 1080px;
+@contentContainerHeight: 1840px;
+@standardWidth: 1000px;
+@titleHeight: 300px;
+@footerHeight: 240px;
+@contentHeight: @templateHeight - @titleHeight - @footerHeight;
+body {
+    min-width: @templateWidth;
+
+}
+[data-role="page"] {
+    .square(100%);
+    .box(vertical, center);
+    position: absolute;
+
+    &>.background {
+        position: absolute;
+        z-index: -1;
+        .square(100%);
+    }
+}
+
+.header, .items-container {
+    width: @standardWidth;
+    margin: 0 auto;
+}
+
+.header, .footer {
+	text-align: center;
+}
+
+.title-image {
+    .size(@titleHeight, @standardWidth);
+    .centralizedBackground;
+}
+
+.header {
+    position: relative;
+
+    .balance-container {
+        position: absolute;
+
+        @height: 72px;
+
+
+        .label-container {
+
+            label {
+                vertical-align: middle;
+                display: inline-block;
+
+                &.changed {
+                    .animate(jiggle 0.2s 5);
+                    .transform(rotate(-1deg) scale(1.1));
+                }
+            }
+        }
+        .currency {
+            .square(@height);
+        }
+    }
+}
+
+.footer {
+
+    img {
+        .size(200px, 400px);
+    }
+    &.animated {
+        > .btn1, .btn2 {
+            .transition(all .3s ease-out);
+            opacity: 0;
+        }
+    }
+}
+
+.btn1, .btn2 {
+    .size(@footerHeight, (@standardWidth / 2));
+}
+
+#goods-store, #currency-store {
+
+    .transition(all 0.4s ease-in);
+
+    & > .content {
+
+        .centralizedBackground;
+
+        .size(@contentContainerHeight, @contentContainerWidth);
+        .box(vertical);
+        margin: 0 auto;
+    }
+}
+#goods-store {
+    z-index:10;
+
+	// Make sure that level-0 backgrounds "contain" the viewport
+    .centralizedCoveringBackground;
+}
+
+#currency-store {
+    .items-container {
+        >[data-iscroll='true']{
+            padding-bottom:240px;
+        }
+    }
+    z-index:20;
+    top:-100%;
+    &.on{
+        top:0;
+        &.showBtn{
+            .footer.animated{
+                height:240px;
+                .btn1, .btn2{
+                    .transition(all .2s ease);
+                    opacity: 1;
+                }
+            }
+        }
+        &.hide{
+            .transition(all 0.2s ease-in);
+            opacity: 0;
+        }
+    }
+    &.hide{
+        opacity: 0;
+    }
+
+    .footer {
+        text-align: left;
+
+        .btn1 {
+            margin-left: @contentContainerWidth - @standardWidth;
+        }
+    }
+}
+#goods-store{
+
+    .items-container {
+        >[data-iscroll='true']{
+            padding-bottom:240px;
+        }
+    }
+
+    .footer.animated{
+        height: 0;
+        opacity: 0;
+        >a{
+            &.btn1{
+                opacity: 0;
+            }
+            &.btn2{
+                opacity: 0;
+            }
+        }
+    }
+    &.showBtn{
+        .footer.animated{
+            opacity: 1;
+            height:240px;
+            .transition(all 0.2s ease);
+            >a{
+                &.btn1{
+                    .transition(all 0.4s ease);
+                    opacity: 1;
+                    bottom:0;
+                }
+                &.btn2{
+                    .transition(all 0.2s ease);
+                    opacity: 1;
+                    bottom:200px;
+                }
+            }
+        }
+    }
+}
+
+.items-container {
+    width: @standardWidth;
+    height: @contentHeight;
+	margin: 0 auto;
+    padding: 0;
+	.box-flex(1);
+    overflow: auto;
+}
+
+.soombot, .nobrand {
+    z-index:2001;
+}
+
+.category {
+    height: 120px;
+    font-size: 60px;
+    text-align: center;
+    .centralizedBackground;
+    .hardware-accelerate;
+}
+
+
+// SINGLE LIST ITEMS - VIRTUAL GOODS
+// --------------------------------------------------
+
+@itemTotalHeight: 200px;
+@itemContentPadding: 20px;
+
+.item {
+    .centralizedBackground;
+    .hardware-accelerate;
+}
+
+.virtualGoods .item {
+
+    // Local variables
+    @edge: @itemTotalHeight;
+    @buyImageWidth: 240px;
+    @buyImageHeight: 160px;
+    @rowHeight: 200px;
+    @internalHeight : @rowHeight - (2 * @itemContentPadding);
+
+    height: @rowHeight;
+    overflow: hidden;
+    .transition(height 0.2s ease-out); // Visible on page load. Should be assigned only to 'expandable' items
+
+
+    .expand-row {
+        height: @rowHeight;
+        overflow: hidden;
+        .box;
+    }
+
+
+
+    .item-title {
+        .box(vertical, center);
+        .box-flex(1);
+        padding: @itemContentPadding;
+    }
+
+    .item-name, .item-balance, .item-description, .item-owned {
+        .hyphens;
+    }
+
+    .item-description {
+        // Force some specific styling
+        padding: @itemContentPadding;
+        .box-flex(1);
+    }
+
+
+    @itemActionsWidth: 240px;
+    @priceHeight: 100px;
+
+    .item-actions, .complete-indicator {
+        width: @itemActionsWidth;
+        .box(vertical, center);
+        height: @internalHeight;
+        text-align: right;
+        padding: @itemContentPadding @itemContentPadding @itemContentPadding 0;
+    }
+
+    .item-price, .buy-container {
+        .box(horizontal, end, center);
+        width: @itemActionsWidth;
+    }
+
+    .item-price {
+        height: @priceHeight;
+
+        img {
+            .square(@priceHeight);
+        }
+    }
+
+    .buy-container {
+        .transition(all 0.4s ease-in-out);
+        opacity: 0;
+        .scale(0.8);
+
+        img {
+            .size(80px, 240px);
+        }
+    }
+
+    .complete-indicator, .buy-container, .toggle-equip {
+
+        // This margin enables the scaling transformation on buttons
+        // in the 'buy' area to be smooth and not cut-off by overflow:hidden
+        margin-right: 20px;
+    }
+
+    // Item image
+    .item-image {
+        width: @edge;
+        height: @itemTotalHeight;
+    }
+
+    .buy img {
+        .size(@buyImageHeight, @buyImageWidth);
+    }
+
+
+
+    // Lifetime items have two states: not owned and owned, that are toggled by adding classes to the element
+    &.lifetime {
+
+        // State: not owned
+        .item-owned {
+            display: none;
+        }
+
+        // Hide equipping related stuff
+        .equip, .equipped {
+            display: none;
+        }
+
+        // State: owned
+        &.owned {
+            .item-owned {
+                display: inline-block;
+            }
+            .buy-container, .item-price, .expand-collapse {
+                display: none;
+            }
+        }
+    }
+
+
+    // Upgradable items
+    &.upgradable {
+
+        .complete-indicator {
+            display: none;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .upgrade-bar {
+            .size(50px, 500px);
+        }
+
+        .upgrade img {
+            .size(160px, 240px);
+        }
+
+        // State: complete - no more upgrades can be purchased
+        &.complete {
+
+            .upgrade, .buy-container, .item-actions {
+                display: none;
+            }
+
+            .complete-indicator {
+                display: inherit;
+            }
+        }
+    }
+
+
+    // Equippable items have several states that are toggled by adding classes to the element
+    &.equippable {
+
+        // Hide lifetime related stuff
+        .item-owned {
+            display: none;
+        }
+
+        // State: not owned
+        .equip, .equipped {
+            display: none;
+
+            img {
+                .size(@buyImageHeight, @buyImageWidth);
+            }
+        }
+
+        // State: owned, not equipped
+        &.owned {
+            .equip {
+                display: block;
+            }
+            .buy-container, .item-price, .expand-collapse {
+                display: none;
+            }
+
+
+            // State: owned and equipped
+            &.equipped {
+                .equip {
+                    display: none;
+                }
+                .equipped {
+                    display: block;
+                }
+            }
+        }
+    }
+
+
+    // Action container variables
+    @actionsWidth: 400px;
+
+
+    &.expanded {
+        height: 2 * @rowHeight;
+
+        .expand-collapse {
+            display: none;
+        }
+
+        .buy-container {
+            opacity: 1;
+            .scale(1);
+        }
+
+    }
+
+
+    .expand-collapse, .toggle-equip {
+        display: block;
+        cursor: pointer;
+    }
+
+
+    .expand-collapse {
+        .size(@internalHeight - @priceHeight, 200px);
+    }
+
+}
+
+
+// SINGLE LIST ITEMS - CURRENCY PACKS & OFFERS
+// --------------------------------------------------
+
+.currencyPacks, .offers {
+    .item {
+        margin: 0 auto;
+        .box;
+
+        // Currency pack image
+        .item-image {
+            .size(@itemTotalHeight, 240px);
+        }
+
+        // Amount & Price
+        .price {
+            padding: @itemContentPadding;
+            .box-flex(1);
+        }
+        .item-name {
+            font-size: 60px;
+        }
+        .item-price, .item-amount {
+            font-size: 48px;
+
+            img {
+                .square(48px);
+            }
+        }
+        .item-name, .item-amount, .item-price, .item-description {
+            margin: 0;
+        }
+
+        .buy {
+            .box(vertical, center);
+            .size(@itemTotalHeight, 240px);
+            text-align: center;
+
+            .border-radius(20px);
+            background: #ffff00;
+            border: 5px solid #0088cc;
+            height: 120px;
+            margin-top: 20px;
+            font-weight: bold;
+
+            // This margin enables the scaling transformation on buttons
+            // in the 'buy' area to be smooth and not cut-off by overflow:hidden
+            margin-right: 20px;
+        }
+
+
+        a:active, a.emulate-active {
+            .scale(1.1);
+        }
+    }
+}
+
+
+
+
+// MODAL DIALOG
+// --------------------------------------------------
+.dialog {
+	.box(vertical, center);
+}
+
+.modal {
+    .square(100%);
+    position: absolute;
+    .offset(0,0);
+    .box(horizontal, center, center);
+    z-index: 2001;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.dialog {
+    text-align: center;
+    .size(720px, 1080px);
+    .centralizedBackground;
+
+    h1 {
+        .box-flex(1);
+        .box(vertical, center, center);
+        padding: 60px;
+        font-size: 56px;
+        font-weight: bold;
+    }
+
+    .actions {
+        height: 200px;
+
+        a {
+            display: inline-block;
+        }
+
+        img {
+            .maxSize(200px, 500px);
+            cursor: pointer;
+        }
+    }
+}
+
+
+// ANIMATION SEQUENCES
+// --------------------------------------------------
+
+@-moz-keyframes jiggle {
+    0% {-moz-transform: rotate(-1deg) scale(1);}
+    33% {-moz-transform: rotate(0deg) scale(1.1);}
+    66% {-moz-transform: rotate(1deg) scale(1);}
+}
+
+@-webkit-keyframes jiggle {
+    0% {-webkit-transform: rotate(-1deg) scale(1);}
+    33% {-webkit-transform: rotate(0deg) scale(1.1);}
+    66% {-webkit-transform: rotate(1deg) scale(1);}
+}

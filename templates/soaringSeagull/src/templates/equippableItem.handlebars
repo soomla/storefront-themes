@@ -1,0 +1,31 @@
+<div class="expand-row">
+    <img src="{{imgFilePath}}" class="item-image">
+    <div class="item-title">
+        <div class="item-name">{{name}}</div>
+        <div class="item-owned">{{lifetime.ownedText}}</div>
+    </div>
+    <div class="item-actions">
+
+        <span class="toggle-equip equipped"><img src="{{equippedImage}}"></span>
+        <a class="toggle-equip equip"><img src="{{equipImage}}"></a>
+
+        <div class="item-price">
+			{{#if isMarketPurchaseType}}
+                <label>${{price}}</label>
+			{{else}}
+                <label>{{price}}</label>
+                <img src="{{currency.imgFilePath}}">
+			{{/if}}
+        </div>
+        <img src="{{expandImage}}" class="expand-collapse">
+    </div>
+</div>
+<div class="expand-row">
+    <div class="item-description">{{description}}</div>
+    <div class="buy-container">
+        <a class="buy">
+            <img src="{{unlockImage}}">
+        </a>
+    </div>
+</div>
+
