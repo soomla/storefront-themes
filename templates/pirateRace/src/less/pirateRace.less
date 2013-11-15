@@ -73,7 +73,7 @@ a:active, a.emulate-active {
             }
         }
         .currency {
-            max-height: @height;
+            .square(@height);
         }
     }
 }
@@ -216,6 +216,7 @@ a:active, a.emulate-active {
 }
 
 .category {
+    font-size: 30px;
     text-align: center;
     .centralizedBackground;
 }
@@ -388,6 +389,9 @@ a:active, a.emulate-active {
     }
     .buy {
         float:right;
+        img {
+            .size(40px, 120px);
+        }
     }
 
     // Add specific styling for equippable items
@@ -479,6 +483,10 @@ a:active, a.emulate-active {
         @priceHeight: 30px;
         .item-name {
             height: @nameHeight;
+            font-size: 30px;
+        }
+        .item-price {
+            font-size: 24px;
         }
         .item-price, .item-description {
             height: @priceHeight;
