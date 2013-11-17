@@ -231,7 +231,7 @@
                     "amountStyle" : {
                         "type" : "css",
                         "title" : "Currency Pack Amount Style",
-                        "selector" : ".currencyPacks .item .item-amount, .offers .item .item-amount",
+                        "selector" : ".currencyPacks .item .item-amount, .offers .item .item-description",
                         "section" : "singleItems"
                     },
                     "priceStyle" : {
