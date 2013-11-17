@@ -40,7 +40,7 @@
         "contentBackground" : {
             "type" : "backgroundImage",
             "title" : "Content Background Image",
-            "selector" : "#main > div > .content",
+            "selector" : "#goods-store > .content, #currency-store > .content",
             "section" : "global"
         },
         "common" : {
@@ -112,7 +112,7 @@
                     },
                     "buyImage" : {
                         "type" : "image",
-                        "title" : "Unlock Image",
+                        "title" : "Buy Image",
                         "selector" : ".item.single-use .buy img, .item.upgradable .upgrade img",
                         "section" : "singleItems"
                     },

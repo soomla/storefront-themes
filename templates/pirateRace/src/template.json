@@ -39,7 +39,7 @@
         "contentBackground" : {
             "type" : "backgroundImage",
             "title" : "Content Background Image",
-            "selector" : "#main > div > .content",
+            "selector" : "#goods-store > .content, #currency-store > .content",
             "section" : "global"
         },
         "common" : {
