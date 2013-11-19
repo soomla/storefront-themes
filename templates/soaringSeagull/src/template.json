@@ -3,7 +3,8 @@
         "goods" : {
             "singleUse" : true,
             "equippable" : true,
-            "lifetime" : true
+            "lifetime" : true,
+            "goodUpgrades" : true
         },
         "purchaseTypes" : {
             "virtualItem" : true,
@@ -44,7 +45,7 @@
         },
         "common" : {
             "titleImage" : {
-                "type" : "image",
+                "type" : "backgroundImage",
                 "title" : "Title Image",
                 "selector" : ".title-image",
                 "section" : "global"
@@ -64,7 +65,7 @@
             "balanceLabelStyle" : {
                 "type" : "css",
                 "title" : "Balance Label Style",
-                "selector" : ".item .balance label",
+                "selector" : ".header .balance-container",
                 "section" : "global"
             }
         },
@@ -82,80 +83,103 @@
                 "section" : "fonts"
             }
         ],
-        "itemSeparator" : {
-            "type" : "image",
-            "title" : "Item Separator Image",
-            "selector" : ".separator",
-            "section" : "singleItems"
-        },
-        "balance" : {
-            "style" : {
-                "type" : "css",
-                "title" : "Balance Style",
-                "selector" : ".header .balance-container .label-container",
-                "section" : "global"
-            }
-        },
         "pages" : {
             "goods" :{
-                "list" : {
-                    "background" : {
-                        "type" : "backgroundImage",
-                        "title" : "Item Area Background",
-                        "selector" : "#goods-store .items-container",
-                        "section" : "singleItems"
-                    }
-                },
                 "listItem" : {
+                    "nameStyle" : {
+                        "type" : "css",
+                        "title" : "Virtual Good Name Style",
+                        "selector" : ".virtualGoods .item .item-name",
+                        "section" : "singleItems"
+                    },
                     "descriptionStyle" : {
                         "type" : "css",
                         "title" : "Virtual Good Description Style",
-                        "selector" : ".virtualGoods .item .description label",
+                        "selector" : ".virtualGoods .item .item-description",
+                        "section" : "singleItems"
+                    },
+                    "balanceStyle" : {
+                        "type" : "css",
+                        "title" : "Virtual Good Balance Style",
+                        "selector" : ".virtualGoods .item .item-balance",
                         "section" : "singleItems"
                     },
                     "priceStyle" : {
                         "type" : "css",
                         "title" : "Virtual Good Price Style",
-                        "selector" : ".virtualGoods .item .price label",
+                        "selector" : ".virtualGoods .item .item-price",
                         "section" : "singleItems"
                     },
-                    "background" : {
-                        "type" : "backgroundImage",
-                        "title" : "Item Background",
-                        "selector" : ".item",
+                    "buyImage" : {
+                        "type" : "image",
+                        "title" : "Buy Image",
+                        "selector" : ".item.single-use .buy img, .item.upgradable .upgrade img",
                         "section" : "singleItems"
                     },
-                    "balanceBackground" : {
-                        "type" : "backgroundImage",
-                        "title" : "Item Balance Background",
-                        "selector" : ".item .content .balance",
+                    "expandImage" : {
+                        "type" : "image",
+                        "title" : "Expand Image",
+                        "selector" : ".item .expand-collapse",
                         "section" : "singleItems"
                     },
-                    "buy" : {
+                    "unlockImage" : {
                         "type" : "image",
                         "title" : "Unlock Image",
-                        "selector" : ".item .buy",
+                        "selector" : ".item.equippable .buy img, .item.lifetime .buy img",
                         "section" : "singleItems"
                     },
-                    "buyOnce" : {
-                        "type" : "image",
-                        "title" : "Unlock Image",
-                        "selector" : ".item .buy",
-                        "section" : "singleItems"
-                    },
-                    "equip" : {
+                    "equipImage" : {
                         "type" : "image",
                         "title" : "Activate Image",
-                        "selector" : ".item .equip",
+                        "selector" : ".item.equippable .equip",
                         "section" : "singleItems"
                     },
-                    "active" : {
+                    "equippedImage" : {
                         "type" : "image",
                         "title" : "Active Image",
-                        "selector" : ".item .active",
+                        "selector" : ".item.equippable .active",
+                        "section" : "singleItems"
+                    },
+                    "backgroundImage" : {
+                        "type" : "backgroundImage",
+                        "title" : "Item Background Image",
+                        "selector" : ".virtualGoods .item",
+                        "section" : "singleItems"
+                    },
+                    "backgroundImageExpanded" : {
+                        "type" : "backgroundImage",
+                        "title" : "Expanded Item Background Image",
+                        "selector" : ".virtualGoods .item.expanded",
                         "section" : "singleItems"
                     }
-
+                },
+                "goodUpgrades" : {
+                    "upgradeFullText" : {
+                        "type" : "text",
+                        "title" : "Upgrade Full Text",
+                        "selector" : ".virtualGoods .item.upgradable .complete-indicator",
+                        "section" : "singleItems"
+                    },
+                    "upgradeFullStyle" : {
+                        "type" : "css",
+                        "title" : "Upgrade Full Text Style",
+                        "selector" : ".virtualGoods .item.upgradable .complete-indicator",
+                        "section" : "singleItems"
+                    }
+                },
+                "lifetime" : {
+                    "ownedText" : {
+                        "type" : "text",
+                        "title" : "Lifetime Good Owned Text",
+                        "selector" : ".item.lifetime .item-owned",
+                        "section" : "singleItems"
+                    },
+                    "ownedStyle" : {
+                        "type" : "css",
+                        "title" : "Lifetime Good Owned Text Style",
+                        "selector" : ".item.lifetime .item-owned",
+                        "section" : "singleItems"
+                    }
                 },
 				"noFundsModal" : {
 					"background" : {
@@ -191,14 +215,6 @@
 				}
             },
             "currencyPacks" : {
-                "list" : {
-                    "background" : {
-                        "type" : "backgroundImage",
-                        "title" : "Currency Pack Area Background",
-                        "selector" : "#currency-store .items-container",
-                        "section" : "singleItems"
-                    }
-				},
                 "listItem" : {
                     "nameStyle" : {
                         "type" : "css",
@@ -206,10 +222,28 @@
                         "selector" : ".currencyPacks .item .item-name, .offers .item .item-name",
                         "section" : "singleItems"
                     },
+                    "descriptionStyle" : {
+                        "type" : "css",
+                        "title" : "Currency Pack Description Style",
+                        "selector" : ".currencyPacks .item .item-description, .offers .item .item-description",
+                        "section" : "singleItems"
+                    },
+                    "amountStyle" : {
+                        "type" : "css",
+                        "title" : "Currency Pack Amount Style",
+                        "selector" : ".currencyPacks .item .item-amount, .offers .item .item-description",
+                        "section" : "singleItems"
+                    },
                     "priceStyle" : {
                         "type" : "css",
                         "title" : "Currency Pack Price Style",
-                        "selector" : ".currencyPacks .item .item-price, .offers .item .item-description",
+                        "selector" : ".currencyPacks .item .item-price",
+                        "section" : "singleItems"
+                    },
+                    "backgroundImage" : {
+                        "type" : "backgroundImage",
+                        "title" : "Currency Pack Background Image",
+                        "selector" : ".currencyPacks .item",
                         "section" : "singleItems"
                     }
                 }
@@ -233,126 +267,129 @@
     "assetMetadata" : {
         "template" : {
             "background" : {
-                "w" : 640,
-                "h" : 960
+                "w" : 1280,
+                "h" : 1920
             },
             "contentBackground" : {
-                "w" : 500,
-                "h" : 960
+                "w" : 1080,
+                "h" : 1840
             },
             "common" : {
                 "titleImage" : {
-                    "w" : 460,
-                    "h" : 100
+                    "w" : 1000,
+                    "h" : 300
                 },
                 "backButton" : {
                     "w" : 500,
-                    "h" : 100
+                    "h" : 240
                 },
                 "moreCurrencyButton" : {
                     "w" : 500,
-                    "h" : 100
+                    "h" : 240
                 }
-            },
-            "itemSeparator" : {
-                "w" : 460,
-                "h" : 10
             },
             "pages" : {
                 "goods" :{
-                    "list" : {
-                        "background" : {
-                            "w" : 460,
-                            "h" : 960
-                        }
-                    },
                     "listItem" : {
-                        "background" : {
-                            "w" : 460,
-                            "h" : 122
+                        "buyImage" : {
+                            "w" : 240,
+                            "h" : 160
                         },
-                        "balanceBackground" : {
-                            "w" : 60,
-                            "h" : 60
+                        "expandImage" : {
+                            "w" : 240,
+                            "h" : 160
                         },
-                        "buy" : {
-                            "w" : 120,
-                            "h" : 40
+                        "unlockImage" : {
+                            "w" : 240,
+                            "h" : 160
                         },
-                        "buyOnce" : {
-                            "w" : 120,
-                            "h" : 40
+                        "equipImage" : {
+                            "w" : 240,
+                            "h" : 80
                         },
-                        "equip" : {
-                            "w" : 120,
-                            "h" : 40
+                        "equippedImage" : {
+                            "w" : 240,
+                            "h" : 80
                         },
-                        "active" : {
-                            "w" : 120,
-                            "h" : 40
+                        "backgroundImage" : {
+                            "w" : 1000,
+                            "h" : 200
+                        },
+                        "backgroundImageExpanded" : {
+                            "w" : 1000,
+                            "h" : 400
                         }
-
                     },
                     "noFundsModal" : {
                         "background" : {
-                            "w" : 540,
-                            "h" : 300
+                            "w" : 1080,
+                            "h" : 720
                         },
                         "yesButton" : {
-                            "w" : 195,
-                            "h" : 60
+                            "w" : 500,
+                            "h" : 200
                         },
                         "noButton" : {
-                            "w" : 195,
-                            "h" : 60
+                            "w" : 500,
+                            "h" : 200
                         }
                     }
                 },
                 "currencyPacks" : {
-                    "list" : {
-                        "background" : {
-                            "w" : 460,
-                            "h" : 960
+                    "listItem" : {
+                        "backgroundImage" : {
+                            "w" : 1000,
+                            "h" : 200
                         }
                     }
                 }
             },
             "categories": {
                 "titleBackground" : {
-                    "w" : 460,
-                    "h" : 60
+                    "w" : 1000,
+                    "h" : 120
                 }
             }
         },
         "economy" : {
             "currencies" : {
-                "w" : 50,
-                "h" : 50
+                "w" : 100,
+                "h" : 100
             },
             "currencyPacks" : {
-                "w" : 180,
-                "h" : 100
+                "w" : 240,
+                "h" : 200
             },
             "goods" : {
                 "equippable" : {
-                    "w" : 100,
-                    "h" : 100
+                    "w" : 200,
+                    "h" : 200
+                },
+                "goodUpgrades" : {
+                    "upgradeImage" : {
+                        "w" : 200,
+                        "h" : 200
+                    },
+                    "upgradeBar" : {
+                        "w" : 500,
+                        "h" : 50
+                    }
                 },
                 "lifetime" : {
-                    "w" : 100,
-                    "h" : 100
+                    "w" : 200,
+                    "h" : 200
                 },
                 "singleUse" : {
-                    "w" : 100,
-                    "h" : 100
+                    "w" : 200,
+                    "h" : 200
                 }
             }
         },
         "hooks" : {
             "offers" : {
                 "item" : {
-                    "w" : 180,
-                    "h" : 100
+                    "w" : 240,
+                    "h" : 200
                 }
             }
         }

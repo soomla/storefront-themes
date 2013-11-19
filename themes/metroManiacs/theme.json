@@ -1,0 +1,100 @@
+ {
+    "template" : {
+        "name" : "soaringSeagull",
+		"orientation" : "portrait"
+    },
+    "modelAssets" : {
+        "categories" : {},
+        "items" : {
+            "bomb" : "img/Powerups/Bomb.png",
+            "gold_pot" : "img/Powerups/Gold_Pot.png",
+            "lucky_clover" : "img/Powerups/Lucky_Clover.png",
+            "rock_book" : "img/Powerups/Rock_Book.png",
+            "kasey" : "img/Characters/Kasey.png",
+		    "robert_din" : "img/Characters/Robert_Din.png",
+            "sir_james" : "img/Characters/Sir_James.png",
+            "tod" : "img/Characters/Tod.png",
+            "coin_stack" : "img/CurrencyPacks/GetCoins_1.png",
+            "coin_pile" : "img/CurrencyPacks/GetCoins_2.png",
+            "coin_chest" : "img/CurrencyPacks/GetCoins_3.png",
+            "coin_vault" : "img/CurrencyPacks/GetCoins_4.png",
+            "currency_coins" : "img/Item_Price.png",
+            "speed_boost_upgrade0_bar": "img/upgrades/Container0.png",
+            "speed_boost_upgrade1": "img/upgrades/Boost1.png",
+            "speed_boost_upgrade2": "img/upgrades/Boost2.png",
+            "speed_boost_upgrade3": "img/upgrades/Boost3.png",
+            "speed_boost_upgrade1_bar": "img/upgrades/Container1.png",
+            "speed_boost_upgrade2_bar": "img/upgrades/Container2.png",
+            "speed_boost_upgrade3_bar": "img/upgrades/Container3.png"
+        }
+    },
+    "theme" : {
+        "name" : "metroManiacs",
+        "version" : 1,
+        "background" : "img/BG-Level0.jpg",
+        "contentBackground" : "img/BG-Level1.jpg",
+        "common" : {
+            "titleImage" : "img/Header_Title.png",
+            "backButton" : "img/Back_BTN.png",
+            "moreCurrencyButton" : "img/GetMore_BTN.png",
+            "balanceLabelStyle" : "color: #FFF; text-shadow: 2px 2px black; top: 200px; left: 250px; font-size: 72px;"
+        },
+	    "fonts" : [
+            "fonts/Coda-Heavy.ttf",
+            "fonts/Coda-Regular.ttf"
+	    ],
+        "pages" : {
+            "goods" :{
+                "listItem" : {
+                    "buyImage" : "img/purchase.png",
+                    "unlockImage" : "img/unlock.png",
+                    "equipImage" : "img/equip.png",
+                    "equippedImage" : "img/equipped.png",
+	                "nameStyle" : "color: #333; font-size: 60px;",
+	                "descriptionStyle" : "color: #FFF; font-size: 40px; text-shadow: 2px 2px black; padding-left: 40px;",
+	                "balanceStyle" : "color: #FFF; font-size: 40px; text-shadow: 2px 2px black;",
+	                "priceStyle" : "color: #FFF; font-size: 40px; font-weight: bold; text-shadow: 2px 2px black;",
+                    "expandImage" : "img/expand.png",
+                    "backgroundImageExpanded": "img/BG_Product_Ext.png",
+                    "backgroundImage": "img/BG_Product.png"
+                },
+                "goodUpgrades" : {
+                    "upgradeFullText" : "FULL",
+                    "upgradeFullStyle" : "color: #FFF; font-size: 40px; font-weight: bold; text-shadow: 2px 2px black;"
+                },
+                "lifetime" : {
+                    "ownedText" : "OWNED",
+                    "ownedStyle" : "color: #FFF; font-size: 40px; margin-right: 50px; text-shadow: 2px 2px black;"
+                },
+                "noFundsModal" : {
+                    "background" : "img/Alert_BG.png",
+                    "text" : "Insufficient funds.  Would you like to buy more?",
+                    "textStyle" : "color: #DEBE8D; text-shadow: 2px 4px #000;",
+                    "yesButton" : "img/Yes_BTN.png",
+                    "noButton" : "img/No_BTN.png"
+                }
+            },
+            "currencyPacks" : {
+                "listItem" : {
+                    "nameStyle" : "color: #333; font-weight: normal;",
+                    "descriptionStyle" : "",
+                    "amountStyle" : "font-style: normal; color: #F7EABE; font-weight: normal; text-shadow: 2px 2px black;",
+                    "priceStyle" : "background-color: #ffff00; color: #0088cc; border: 5px solid #0088cc; height: 120px; margin-top: 20px; font-weight: bold; -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px;",
+                    "backgroundImage": ""
+                }
+            }
+        },
+        "categories" : {
+            "titleBackground" : "img/Category_Separator.png",
+            "titleStyle" : "color: #B89C6D; font-weight: normal;"
+        }
+    },
+     "hooks" : {
+         "providers" : [
+             {
+                 "id" : "sponsorpay",
+                 "actions" : []
+             }
+         ]
+     }
+}
