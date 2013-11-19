@@ -49,6 +49,7 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
                 }
             }
         }),
+        CategoriesView                  = Components.CollectionView.extend({ tagName : "div", itemView : SectionedListView }),
         ExpandableEquippableItemView    = Components.ExpandableEquippableItemView,
         ExpandableSingleUseItemView     = Components.ExpandableSingleUseItemView,
         EquippableVirtualGoodView       = ExpandableEquippableItemView.extend({ template : getTemplate("equippableItem") }),
@@ -124,7 +125,7 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
-            _.bindAll(this, "showCurrencyPacks", "showGoodsStore", "buyItem", "equipGoods");
+            _.bindAll(this, "showCurrencyPacks", "showGoodsStore", "buyItem", "equipGoods", "refreshGoodsIScroll", "refreshPacksIScroll");
 
             // Initialize dialog metadata
             this.dialogModal = this.theme.pages.goods.noFundsModal;
@@ -135,22 +136,15 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
             this.loadingModal = _.extend({text : "Loading..."}, this.messageDialogOptions);
 
 
-            this.categoryViews      = new Backbone.ChildViewContainer();
             this.currencyPacksViews = new Backbone.ChildViewContainer();
-
             var currencies          = this.model.getCurrencies(),
                 categories          = this.model.getCategories(),
                 offers              = this.model.getOfferHooks();
 
 
             // Create category views
-            categories.each(this.addCategoryView, this);
-            categories.on({
-                add : function(category) {
-                    this.addCategoryView(category, {render : true});
-                },
-                remove : this.removeCategoryView
-            }, this);
+            this.createCategoriesView(categories);
+
 
             // Create currency views
             currencies.each(this.addCurrencyView, this);
@@ -171,15 +165,10 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
             // Listen to offer changes
             this.listenTo(offers, {
                 add : function() {
-                    if (offers.size() === 1) {
-                        this.addOffersView(offers, {render : true});
-                        this.iscrolls.packs.refresh();
-                    }
+                    if (offers.size() === 1) this.addOffersView(offers, {render : true}).refreshPacksIScroll();
                 },
                 remove : function() {
-                    if (offers.isEmpty()) this.removeOffersView();
-                    this.iscrolls.packs.refresh();
-
+                    if (offers.isEmpty()) this.removeOffersView().refreshPacksIScroll();
                 }
             });
         },
@@ -272,7 +261,7 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
             this.ui.currencyStore.transitionOnce({klass : "on", remove : false}).done(_.bind(function(){
                 this.ui.goodsStore.removeClass("showBtn");
                 this.ui.currencyStore.addClass("showBtn");
-                this.iscrolls.packs.refresh();
+                this.refreshPacksIScroll();
             }, this));
         },
         showGoodsStore : function() {
@@ -281,7 +270,7 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
             this.ui.currencyStore.transitionOnce({klass : "hide", remove : false}).done(_.bind(function(){
                 this.ui.currencyStore.removeClass("on");
                 this.ui.goodsStore.addClass("showBtn");
-                this.iscrolls.goods.refresh();
+                this.refreshGoodsIScroll();
             }, this));
         },
         iscrollRegions : {
@@ -299,7 +288,7 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
             //this.ui.goodsStore.addClass("showBtn");
 
             // Render subviews (items in goods store and currency store)
-            this.categoryViews.each(this.appendCategoryView, this);
+            this.appendCategoriesView();
             this.currencyPacksViews.each(this.appendCurrencyView, this);
 
             // Append offers
@@ -310,31 +299,28 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
                 _this.ui.goodsStore.addClass("showBtn");
             }, 200);
 
-            this.ui.backButton.one(transitionend, function() {
-                _this.iscrolls.goods.refresh();
-            });
-        },
-        appendCategoryView : function(view) {
-            this.ui.goodsIscrollContainer.append(view.render().el);
+            this.ui.backButton.one(transitionend, this.refreshGoodsIScroll);
 
-            // The iscrolls exist only after initial rendering is complete
-            if (this.iscrolls) this.iscrolls.goods.refresh();
+            this.bindEventsToIScroll();
+        },
+        appendCategoriesView : function() {
+            this.ui.goodsIscrollContainer.append(this.categoriesView.render().el);
         },
         appendCurrencyView : function(view) {
             this.ui.currencyPacksContainer.append(view.render().el);
 
             // The iscrolls exist only after initial rendering is complete
-            if (this.iscrolls) this.iscrolls.packs.refresh();
+            if (this.iscrolls) this.refreshPacksIScroll();
         },
         appendOffersView : function(view) {
             this.ui.offersContainer.append(view.render().el);
-            if (this.iscrolls) this.iscrolls.packs.refresh();
+            if (this.iscrolls) this.refreshPacksIScroll();
         },
-        buyItem : function (view) {
-            this.playSound().wantsToBuyItem(view.model.id);
+        buyItem : function (categoryView, itemView) {
+            this.playSound().wantsToBuyItem(itemView.model.id);
         },
-        equipGoods : function (view) {
-            this.playSound().wantsToEquipGoods(view.model);
+        equipGoods : function (categoryView, itemView) {
+            this.playSound().wantsToEquipGoods(itemView.model);
         },
         upgradeGood : function(view) {
             this.playSound().wantsToUpgradeVirtualGood(view.model);
@@ -349,39 +335,47 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
         // categories and currencies.  Use by dashboard.
         //
 
-        addCategoryView : function(category, options) {
+        createCategoriesView : function(categories) {
 
-            var goods = category.getGoods();
-            var view = new SectionedListView({
-                model 				: category,
-                collection          : goods,
-                templateHelpers     : this.theme.categories
-            }).on({
-                "itemview:buy" 		: this.buyItem,
-                "itemview:equip" 	: this.equipGoods,
-                "itemview:expand"   : function() {
-                    this.iscrolls.goods.refresh();
-                },
-                "itemview:collapse" : function() {
+            var templateHelpers = this.theme.categories;
+
+            this.categoriesView = new CategoriesView({
+                collection 		: categories,
+                itemViewOptions : function(item) {
+                    return {
+                        model           : item,
+                        collection      : item.getGoods(),
+                        templateHelpers : templateHelpers
+                    }
+                }
+            });
+
+            // Listen to logical events
+            this.listenTo(this.categoriesView, {
+                "itemview:itemview:buy"     : this.buyItem,
+                "itemview:itemview:equip" 	: this.equipGoods,
+                "itemview:itemview:expand"  : this.refreshGoodsIScroll,
+                "itemview:itemview:collapse": function() {
 
                     // Need to surround with `if` since the upgradable goods
                     // trigger a collapse event before the iscrolls were created
-                    if (this.iscrolls) this.iscrolls.goods.refresh();
+                    if (this.iscrolls) this.refreshGoodsIScroll();
                 },
-                "itemview:upgrade"  : this.upgradeGood
-            }, this);
+                "itemview:itemview:upgrade"  : this.upgradeGood
+            });
+        },
+        bindEventsToIScroll : function() {
 
-
-
-            this.categoryViews.add(view, category.id);
-
-            // If the `render` flag is provided, i.e. a category
-            // was externally added, render it!
-            if (options && options.render === true) this.appendCategoryView(view);
-
-            this.listenTo(goods, "add remove", function() {
-                this.iscrolls.goods.refresh();
-            }, this);
+            //
+            // Listen to view change events
+            // Event legend:
+            //
+            // "after:item:added"           - Category added
+            // "item:removed"               - Category removed
+            // "itemview:after:item:added"  - Good added
+            // "itemview:after:item:added"  - Good removed
+            //
+            this.listenTo(this.categoriesView, "after:item:added item:removed itemview:after:item:added itemview:item:removed", this.refreshGoodsIScroll);
         },
         addCurrencyView : function(currency, options) {
             var packs = currency.getPacks();
@@ -397,9 +391,7 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
             // was externally added, render it!
             if (options && options.render === true) this.appendCurrencyView(view);
 
-            this.listenTo(packs, "add remove", function() {
-                this.iscrolls.packs.refresh();
-            }, this);
+            this.listenTo(packs, "add remove", this.refreshPacksIScroll);
         },
         addOffersView : function(offers, options) {
             this.offersView = new OffersCollectionView({
@@ -413,21 +405,25 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
             // If the `render` flag is provided, i.e. an offer
             // was externally added, render it!
             if (options && options.render === true) this.appendOffersView(this.offersView);
-        },
-        removeCategoryView : function(category) {
-            var view = this.categoryViews.findByCustom(category.id);
-            view.close();
-            this.categoryViews.remove(view);
-            this.iscrolls.goods.refresh();
+            return this;
         },
         removeCurrencyView : function(currency) {
             var view = this.currencyPacksViews.findByCustom(currency.id);
             view.close();
             this.currencyPacksViews.remove(view);
-            this.iscrolls.packs.refresh();
+            this.refreshPacksIScroll();
         },
         removeOffersView : function() {
             this.offersView.close();
+            this.refreshPacksIScroll();
+            return this;
+        },
+        refreshGoodsIScroll : function() {
+            console.log("refresh goods");
+            this.iscrolls.goods.refresh();
+        },
+        refreshPacksIScroll : function() {
+            console.log("refresh packs");
             this.iscrolls.packs.refresh();
         }
     });

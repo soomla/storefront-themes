@@ -239,6 +239,13 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
                         this.children.remove(view);
                         this.children.add(view, changedAttributes.name)
                     }
+                },
+                "reset" : function() {
+
+                    // A "reset" event will likely occur when one of the elements has changed place in the collection
+                    // In that case the rendering of the collection is handled properly, but this is to correct
+                    // the position of all menu links following the categories
+                    this.addCurrencyLinks().addOfferLinks().refreshActiveViewIScroll();
                 }
 			}, this);
 
@@ -315,7 +322,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
                  this.activeView.$el.show();
                  */
                 this.activeView = newview;
-                if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
+                this.refreshActiveViewIScroll();
                 this.header.changeStateTo(newview.cid);
             }
         },
@@ -371,14 +378,13 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
 
             var menu = this.children.findByCustom("menu");
 
-            // Append the link to the currency packs as a "category view"
-            this.currencyPacksLinks.each(this.appendCurrencyLinkView, this);
-
-            // Append link to offers
-            if (this.offersLink) this.appendOffersLinkView(this.offersLink);
-
-            // Initial iScroll refresh for menu
+            // Append menu links to currencies and offers
+            // Then do an initial iScroll refresh for menu
+            this.addCurrencyLinks().addOfferLinks().refreshActiveViewIScroll();
+        },
+        refreshActiveViewIScroll : function() {
             if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
+            return this;
         },
         // View event listeners
         buyItem : function (view) {
@@ -438,7 +444,12 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
             // was externally added, render it!
             if (options && options.render === true) this.appendCategoryView(view);
         },
+        addCurrencyLinks : function() {
 
+            // Append the link to the currency packs as a "category view"
+            this.currencyPacksLinks.each(this.appendCurrencyLinkView, this);
+            return this;
+        },
         addCurrencyLinkView : function(currency, options) {
             var view = new CategoryView({
                 className : "item currency-packs",
@@ -459,7 +470,10 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
                 menu.refreshIScroll();
             }
         },
-
+        addOfferLinks : function() {
+            if (this.offersLink) this.appendOffersLinkView(this.offersLink);
+            return this;
+        },
         addOffersLinkView : function(options) {
 
             this.offersLink = new OffersMenuLinkView({

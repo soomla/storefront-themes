@@ -216,6 +216,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
                 }
             });
 
+
             // Mark this view as the active view,
             // as it is the first one visible when the store opens
             this.activeView = this.categoryMenuView;
@@ -238,6 +239,13 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
                         this.children.remove(view);
                         this.children.add(view, changedAttributes.name)
                     }
+                },
+                "reset" : function() {
+
+                    // A "reset" event will likely occur when one of the elements has changed place in the collection
+                    // In that case the rendering of the collection is handled properly, but this is to correct
+                    // the position of all menu links following the categories
+                    this.addCurrencyLinks().addOfferLinks().refreshActiveViewIScroll();
                 }
             }, this);
 
@@ -314,7 +322,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
                  this.activeView.$el.show();
                  */
                 this.activeView = newview;
-                if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
+                this.refreshActiveViewIScroll();
                 this.header.changeStateTo(newview.cid);
             }
         },
@@ -370,14 +378,13 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
 
             var menu = this.children.findByCustom("menu").$el.children(":first-child");
 
-            // Append the link to the currency packs as a "category view"
-            this.currencyPacksLinks.each(this.appendCurrencyLinkView, this);
-
-            // Append link to offers
-            if (this.offersLink) this.appendOffersLinkView(this.offersLink);
-
-            // Initial iScroll refresh for menu
+            // Append menu links to currencies and offers
+            // Then do an initial iScroll refresh for menu
+            this.addCurrencyLinks().addOfferLinks().refreshActiveViewIScroll();
+        },
+        refreshActiveViewIScroll : function() {
             if (this.activeView.refreshIScroll) this.activeView.refreshIScroll();
+            return this;
         },
         // View event listeners
         buyItem : function (view) {
@@ -437,7 +444,12 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
             // was externally added, render it!
             if (options && options.render === true) this.appendCategoryView(view);
         },
+        addCurrencyLinks : function() {
 
+            // Append the link to the currency packs as a "category view"
+            this.currencyPacksLinks.each(this.appendCurrencyLinkView, this);
+            return this;
+        },
         addCurrencyLinkView : function(currency, options) {
             var view = new CategoryView({
                 className : "item currency-packs",
@@ -458,7 +470,10 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
                 menu.refreshIScroll();
             }
         },
-
+        addOfferLinks : function() {
+            if (this.offersLink) this.appendOffersLinkView(this.offersLink);
+            return this;
+        },
         addOffersLinkView : function(options) {
 
             this.offersLink = new OffersMenuLinkView({
