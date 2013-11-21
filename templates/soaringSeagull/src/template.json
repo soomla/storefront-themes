@@ -67,6 +67,12 @@
                 "title" : "Balance Label Style",
                 "selector" : ".header .balance-container",
                 "section" : "global"
+            },
+            "balanceImageStyle" : {
+                "type" : "css",
+                "title" : "Balance Currency Image Style",
+                "selector" : ".header .balance-container .currency",
+                "section" : "global"
             }
         },
         "fonts" : [
