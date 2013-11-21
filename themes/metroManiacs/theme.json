@@ -37,7 +37,8 @@
             "titleImage" : "img/Header_Title.png",
             "backButton" : "img/Back_BTN.png",
             "moreCurrencyButton" : "img/GetMore_BTN.png",
-            "balanceLabelStyle" : "color: #FFF; text-shadow: 2px 2px black; top: 200px; left: 250px; font-size: 72px;"
+            "balanceLabelStyle" : "color: #FFF; text-shadow: 2px 2px black; top: 200px; left: 250px; font-size: 72px;",
+            "balanceImageStyle" : ""
         },
 	    "fonts" : [
             "fonts/Coda-Heavy.ttf",
