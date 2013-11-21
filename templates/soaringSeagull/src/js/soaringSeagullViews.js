@@ -322,8 +322,8 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
         equipGoods : function (categoryView, itemView) {
             this.playSound().wantsToEquipGoods(itemView.model);
         },
-        upgradeGood : function(view) {
-            this.playSound().wantsToUpgradeVirtualGood(view.model);
+        upgradeGood : function(categoryView, itemView) {
+            this.playSound().wantsToUpgradeVirtualGood(itemView.model);
         },
         zoomFunction : function() {
             return (innerHeight / innerWidth) > 1.5 ? (innerWidth / 1280) : (innerHeight / 1920);
