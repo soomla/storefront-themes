@@ -49,7 +49,16 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
                 }
             }
         }),
-        CategoriesView                  = Components.CollectionView.extend({ tagName : "div", itemView : SectionedListView }),
+        CategoriesView = Components.CollectionView.extend({
+            tagName : "div",
+            itemView : SectionedListView,
+            onItemviewItemviewExpand : function(sectionView, itemView) {
+
+                // Make sure only one item view is expanded across all sections
+                if (this.expandedView) this.expandedView.collapse();
+                this.expandedView = itemView;
+            }
+        }),
         ExpandableEquippableItemView    = Components.ExpandableEquippableItemView,
         ExpandableSingleUseItemView     = Components.ExpandableSingleUseItemView,
         EquippableVirtualGoodView       = ExpandableEquippableItemView.extend({ template : getTemplate("equippableItem") }),
@@ -419,11 +428,9 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
             return this;
         },
         refreshGoodsIScroll : function() {
-            console.log("refresh goods");
             this.iscrolls.goods.refresh();
         },
         refreshPacksIScroll : function() {
-            console.log("refresh packs");
             this.iscrolls.packs.refresh();
         }
     });
