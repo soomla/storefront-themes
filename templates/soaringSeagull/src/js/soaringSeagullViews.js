@@ -259,7 +259,7 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
             this.ui.currencyStore.removeClass("hide showBtn");
 
             this.ui.currencyStore.transitionOnce({klass : "on", remove : false}).done(_.bind(function(){
-                this.ui.goodsStore.removeClass("showBtn");
+                this.ui.goodsStore.removeClass("on showBtn");
                 this.ui.currencyStore.addClass("showBtn");
                 this.refreshPacksIScroll();
             }, this));
@@ -267,9 +267,9 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
         showGoodsStore : function() {
             this.playSound();
 
+            this.ui.goodsStore.addClass("on showBtn");
             this.ui.currencyStore.transitionOnce({klass : "hide", remove : false}).done(_.bind(function(){
                 this.ui.currencyStore.removeClass("on");
-                this.ui.goodsStore.addClass("showBtn");
                 this.refreshGoodsIScroll();
             }, this));
         },

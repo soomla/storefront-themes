@@ -118,8 +118,16 @@ body {
         .size(@contentContainerHeight, @contentContainerWidth);
         .box(vertical);
         margin: 0 auto;
+
+        opacity: 0;
+    }
+
+
+    &.on  > .content {
+        opacity: 1;
     }
 }
+
 #goods-store {
     z-index:10;
 
