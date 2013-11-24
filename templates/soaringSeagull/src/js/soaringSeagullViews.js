@@ -55,7 +55,7 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
             onItemviewItemviewExpand : function(sectionView, itemView) {
 
                 // Make sure only one item view is expanded across all sections
-                if (this.expandedView) this.expandedView.collapse();
+                if ((this.expandedView) && (this.expandedView !== itemView)) this.expandedView.collapse();
                 this.expandedView = itemView;
             }
         }),
