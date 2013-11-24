@@ -196,7 +196,7 @@
         },
         "hooks" : {
             "common" : {
-                "menuLinkImage" : {
+                "offersMenuLinkImage" : {
                     "type" : "image",
                     "title" : "Hooks Menu Link Image",
                     "selector" : "#offer-wall-menu img",

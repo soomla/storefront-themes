@@ -265,7 +265,7 @@
 		},
         "hooks" : {
             "common" : {
-                "menuLinkImage" : {
+                "offersMenuLinkImage" : {
                     "type" : "image",
                     "title" : "Hooks Menu Link Image",
                     "selector" : ".item.category-offers img",
