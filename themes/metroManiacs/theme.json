@@ -81,7 +81,9 @@
                     "descriptionStyle" : "",
                     "amountStyle" : "font-style: normal; color: #F7EABE; font-weight: normal; text-shadow: 2px 2px black;",
                     "priceStyle" : "background-color: #ffff00; color: #0088cc; border: 5px solid #0088cc; height: 120px; margin-top: 20px; font-weight: bold; -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px;",
-                    "backgroundImage": ""
+                    "priceBackgroundImage" : "",
+                    "backgroundImage": "",
+                    "currencyImageStyle" : ""
                 }
             }
         },

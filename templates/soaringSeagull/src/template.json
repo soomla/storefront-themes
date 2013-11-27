@@ -246,10 +246,22 @@
                         "selector" : ".currencyPacks .item .item-price",
                         "section" : "singleItems"
                     },
+                    "priceBackgroundImage" : {
+                        "type" : "backgroundImage",
+                        "title" : "Currency Pack Price Background Image",
+                        "selector" : ".currencyPacks .item .item-price",
+                        "section" : "singleItems"
+                    },
                     "backgroundImage" : {
                         "type" : "backgroundImage",
                         "title" : "Currency Pack Background Image",
                         "selector" : ".currencyPacks .item",
+                        "section" : "singleItems"
+                    },
+                    "currencyImageStyle" : {
+                        "type" : "css",
+                        "title" : "Currency Pack Amount Icon Style",
+                        "selector" : ".currencyPacks .item .item-amount img",
                         "section" : "singleItems"
                     }
                 }
