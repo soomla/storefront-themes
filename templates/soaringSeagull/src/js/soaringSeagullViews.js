@@ -49,7 +49,16 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
                 }
             }
         }),
-        CategoriesView                  = Components.CollectionView.extend({ tagName : "div", itemView : SectionedListView }),
+        CategoriesView = Components.CollectionView.extend({
+            tagName : "div",
+            itemView : SectionedListView,
+            onItemviewItemviewExpand : function(sectionView, itemView) {
+
+                // Make sure only one item view is expanded across all sections
+                if ((this.expandedView) && (this.expandedView !== itemView)) this.expandedView.collapse();
+                this.expandedView = itemView;
+            }
+        }),
         ExpandableEquippableItemView    = Components.ExpandableEquippableItemView,
         ExpandableSingleUseItemView     = Components.ExpandableSingleUseItemView,
         EquippableVirtualGoodView       = ExpandableEquippableItemView.extend({ template : getTemplate("equippableItem") }),
@@ -259,7 +268,7 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
             this.ui.currencyStore.removeClass("hide showBtn");
 
             this.ui.currencyStore.transitionOnce({klass : "on", remove : false}).done(_.bind(function(){
-                this.ui.goodsStore.removeClass("showBtn");
+                this.ui.goodsStore.removeClass("on showBtn");
                 this.ui.currencyStore.addClass("showBtn");
                 this.refreshPacksIScroll();
             }, this));
@@ -267,9 +276,9 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
         showGoodsStore : function() {
             this.playSound();
 
+            this.ui.goodsStore.addClass("on showBtn");
             this.ui.currencyStore.transitionOnce({klass : "hide", remove : false}).done(_.bind(function(){
                 this.ui.currencyStore.removeClass("on");
-                this.ui.goodsStore.addClass("showBtn");
                 this.refreshGoodsIScroll();
             }, this));
         },
@@ -419,11 +428,9 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
             return this;
         },
         refreshGoodsIScroll : function() {
-            console.log("refresh goods");
             this.iscrolls.goods.refresh();
         },
         refreshPacksIScroll : function() {
-            console.log("refresh packs");
             this.iscrolls.packs.refresh();
         }
     });
