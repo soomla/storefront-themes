@@ -188,34 +188,34 @@
                     }
                 },
 				"noFundsModal" : {
-					"background" : {
+					"backgroundImage" : {
 						"type" : "backgroundImage",
 						"title" : "No Funds Dialog Background Image",
-						"selector" : ".dialog",
+						"selector" : ".modal-container.modal-insufficient-funds .dialog",
                         "section" : "global"
 					},
 					"text" : {
 						"type" : "text",
 						"title" : "No Funds Dialog Text",
-						"selector" : ".dialog h1",
+						"selector" : ".modal-container.modal-insufficient-funds .dialog h1",
                         "section" : "global"
 					},
 					"textStyle" : {
 						"type" : "css",
 						"title" : "No Funds Dialog Text Style",
-						"selector" : ".dialog h1",
+						"selector" : ".modal-container.modal-insufficient-funds .dialog h1",
                         "section" : "global"
 					},
 					"yesButton" : {
 						"type" : "image",
 						"title" : "No Funds Dialog 'Yes' Image",
-						"selector" : ".dialog .buy-more",
+						"selector" : ".modal-container.modal-insufficient-funds .dialog .buy-more",
                         "section" : "global"
 					},
 					"noButton" : {
 						"type" : "image",
 						"title" : "No Funds Dialog 'No' Image",
-						"selector" : ".dialog .cancel",
+						"selector" : ".modal-container.modal-insufficient-funds .dialog .cancel",
                         "section" : "global"
 					}
 				}
@@ -253,6 +253,26 @@
                         "section" : "singleItems"
                     }
                 }
+            }
+        },
+        "loadingModal" : {
+            "backgroundImage" : {
+                "type" : "backgroundImage",
+                "title" : "Loading Dialog Background Image",
+                "selector" : ".modal-container.modal-loading .dialog",
+                "section" : "global"
+            },
+            "text" : {
+                "type" : "text",
+                "title" : "Loading Dialog Text",
+                "selector" : ".modal-container.modal-loading .dialog h1",
+                "section" : "global"
+            },
+            "textStyle" : {
+                "type" : "css",
+                "title" : "Loading Dialog Text Style",
+                "selector" : ".modal-container.modal-loading .dialog h1",
+                "section" : "global"
             }
         },
         "categories": {
