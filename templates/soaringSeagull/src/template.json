@@ -359,7 +359,7 @@
                         }
                     },
                     "noFundsModal" : {
-                        "background" : {
+                        "backgroundImage" : {
                             "w" : 1080,
                             "h" : 720
                         },
@@ -378,8 +378,18 @@
                         "backgroundImage" : {
                             "w" : 1000,
                             "h" : 200
+                        },
+                        "priceBackgroundImage" : {
+                            "w" : 240,
+                            "h" : 200
                         }
                     }
+                }
+            },
+            "loadingModal" : {
+                "backgroundImage" : {
+                    "w" : 1080,
+                    "h" : 720
                 }
             },
             "categories": {
