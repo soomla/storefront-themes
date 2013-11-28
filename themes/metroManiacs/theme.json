@@ -68,7 +68,7 @@
                     "ownedStyle" : "color: #FFF; font-size: 40px; margin-right: 50px; text-shadow: 2px 2px black;"
                 },
                 "noFundsModal" : {
-                    "background" : "img/Alert_BG.png",
+                    "backgroundImage" : "img/Alert_BG.png",
                     "text" : "Insufficient funds.  Would you like to buy more?",
                     "textStyle" : "color: #DEBE8D; text-shadow: 2px 4px #000;",
                     "yesButton" : "img/Yes_BTN.png",
@@ -80,10 +80,17 @@
                     "nameStyle" : "color: #333; font-weight: normal;",
                     "descriptionStyle" : "",
                     "amountStyle" : "font-style: normal; color: #F7EABE; font-weight: normal; text-shadow: 2px 2px black;",
-                    "priceStyle" : "background-color: #ffff00; color: #0088cc; border: 5px solid #0088cc; height: 120px; margin-top: 20px; font-weight: bold; -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px;",
-                    "backgroundImage": ""
+                    "priceStyle" : "background-color: #ffff00; color: #0088cc; border: 5px solid #0088cc; margin-top: 20px; font-weight: bold; -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px;",
+                    "priceBackgroundImage" : "",
+                    "backgroundImage": "",
+                    "currencyImageStyle" : ""
                 }
             }
+        },
+        "loadingModal" : {
+            "backgroundImage" : "img/Alert_BG.png",
+            "text" : "Loading...",
+            "textStyle" : "color: red; text-shadow: 2px 4px #000;"
         },
         "categories" : {
             "titleBackground" : "img/Category_Separator.png",

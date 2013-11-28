@@ -89,21 +89,20 @@ a:active, a.emulate-active {
         }
         h1 {
             opacity: 1;
-            left:0;
         }
         h2 {
             opacity: 0;
-            left:100%;
+            .translate(100%, 0);
         }
     }
     .title-container.secondView{
         h1 {
             opacity: 0;
-            left:-100%;
+            .translate(-100%, 0);
         }
         h2 {
             opacity: 1;
-            left:0;
+            .translate(0, 0);
         }
     }
 

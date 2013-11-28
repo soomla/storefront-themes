@@ -81,20 +81,19 @@ a:active, a.emulate-active {
         }
         h1 {
             opacity: 1;
-            left:0;
         }
         h2 {
             opacity: 0;
-            left:100%;
+            .translate(100%, 0);
         }
 	    &.secondView{
 	        h1 {
 	            opacity: 0;
-	            left:-100%;
+                .translate(-100%, 0);
 	        }
 	        h2 {
 	            opacity: 1;
-	            left:0;
+                .translate(0, 0);
 	        }
 	    }
     }
@@ -199,18 +198,17 @@ a:active, a.emulate-active {
     .hardware-accelerate;
 
     &.menu {
-        float: none;
         position: absolute;
         top: 0;
         left: 0;
         z-index: 900;
-        .transition(left .5s ease-in-out);
+        .transition(all .5s ease-in-out);
     }
 
     &.category {
         position: absolute;
         top: 0;
-        left: 100%;
+        .translate(100%, 0);
         opacity: 0;
         min-width: 100%;
         max-width: 100%;
@@ -219,10 +217,10 @@ a:active, a.emulate-active {
 }
 #pages.slide .items{
 	&.menu {
-	     left: -100%;
+	     .translate(-100%, 0);
 	}
 	&.category.on{
-	    left:0;
+        .translate(0, 0);
 	    opacity: 1;
 	}
 }

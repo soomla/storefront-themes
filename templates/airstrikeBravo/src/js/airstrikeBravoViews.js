@@ -369,6 +369,15 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
             pages   : "#pages",
             header  : ".header"
         },
+        events : {
+
+            // Prevent touchmove events from scrolling the menu away
+            // See: https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Events/Touch_events#Handling_clicks
+            "touchmove .menu" : function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+        },
         onRender: function () {
             // Set header element to bind event delegation
             this.header.setElement(this.ui.header).render().bindUIElements();

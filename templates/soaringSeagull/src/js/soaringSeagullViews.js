@@ -139,16 +139,20 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
             // Initialize dialog metadata
             this.dialogModal = this.theme.pages.goods.noFundsModal;
             this.messageDialogOptions = {
-                background 	: this.dialogModal.background,
-                textStyle 	: this.dialogModal.textStyle
+                background 	    : this.dialogModal.background,
+                textStyle 	    : this.dialogModal.textStyle
             };
-            this.loadingModal = _.extend({text : "Loading..."}, this.messageDialogOptions);
+            this.loadingModal = {
+                text            : this.theme.loadingModal.text,
+                textStyle       : this.theme.loadingModal.textStyle,
+                backgroundImage : this.theme.loadingModal.backgroundImage
+            };
 
 
             this.currencyPacksViews = new Backbone.ChildViewContainer();
-            var currencies          = this.model.getCurrencies(),
-                categories          = this.model.getCategories(),
-                offers              = this.model.getOfferHooks();
+            var currencies      = this.model.getCurrencies(),
+                categories      = this.model.getCategories(),
+                offers          = this.model.getOfferHooks();
 
 
             // Create category views
