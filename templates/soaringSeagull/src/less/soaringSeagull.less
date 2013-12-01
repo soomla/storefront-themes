@@ -95,23 +95,18 @@ body {
     img {
         .size(200px, 400px);
     }
-    &.animated {
-        > .btn1, .btn2 {
-            opacity: 0;
-        }
-    }
 }
 
-.btn1, .btn2 {
+.btn1, showBtn {
     .size(@footerHeight, (@standardWidth / 2));
 }
 
 #goods-store, #currency-store {
 
-    .transition(all 0.4s ease-in);
 
     & > .content {
 
+        .transition(opacity 0.4s ease-in);
         .centralizedBackground;
 
         .size(@contentContainerHeight, @contentContainerWidth);
@@ -122,8 +117,11 @@ body {
     }
 
 
-    &.on  > .content {
-        opacity: 1;
+    &.on  {
+
+        > .content {
+            opacity: 1;
+        }
     }
 }
 
@@ -141,24 +139,9 @@ body {
         }
     }
     z-index:20;
-    .translate(0, -100%);
+
     &.on{
         .translate(0, 0);
-        &.showBtn{
-            .footer.animated{
-                .btn1, .btn2{
-                    .transition(opacity .2s ease);
-                    opacity: 1;
-                }
-            }
-        }
-        &.hide{
-            .transition(all 0.2s ease-in);
-            opacity: 0;
-        }
-    }
-    &.hide{
-        opacity: 0;
     }
 
     .footer {
@@ -167,6 +150,10 @@ body {
         .btn1 {
             margin-left: @contentContainerWidth - @standardWidth;
         }
+    }
+
+    &.blastoff {
+        .translate(-10000px, -10000px);
     }
 }
 #goods-store{
@@ -180,23 +167,12 @@ body {
     .footer.animated{
         .translate(0, 240px);
         opacity: 0;
-        >a{
-            &.btn1{
-                opacity: 0;
-            }
-            &.btn2{
-                opacity: 0;
-            }
-        }
     }
     &.showBtn{
         .footer.animated{
             opacity: 1;
             .translate(0, 0);
             .transition(all 0.4s ease);
-            > a {
-                opacity: 1;
-            }
         }
     }
 }
@@ -491,8 +467,8 @@ body {
         .buy {
             .box(vertical, center);
             .size(@itemTotalHeight, 240px);
-            .centralizedBackground;
             text-align: center;
+            height: 120px;
 
             // This margin enables the scaling transformation on buttons
             // in the 'buy' area to be smooth and not cut-off by overflow:hidden
