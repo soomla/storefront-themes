@@ -243,7 +243,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
         showCurrencyPacks : function() {
             this.ui.currencyStore.removeClass("hide showBtn");
 
-            this.ui.currencyStore.transitionOnce({klass : "on", remove : false}).done(_.bind(function(){
+            this.ui.currencyStore.transitionOnce("on").done(_.bind(function(){
                 this.ui.goodsStore.removeClass("showBtn");
                 this.ui.currencyStore.addClass("showBtn");
                 this.refreshPacksIScroll();
@@ -252,7 +252,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
         showGoodsStore : function() {
             this.playSound();
 
-            this.ui.currencyStore.transitionOnce({klass : "hide", remove : false}).done(_.bind(function(){
+            this.ui.currencyStore.transitionOnce("hide").done(_.bind(function(){
                 this.ui.currencyStore.removeClass("on");
                 this.ui.goodsStore.addClass("showBtn");
                 this.refreshGoodsIScroll();
