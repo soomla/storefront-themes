@@ -269,22 +269,17 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
             this.changeViewToItem(model.id);
         },
         showCurrencyPacks : function() {
-            this.ui.currencyStore.removeClass("hide showBtn");
-
-            this.ui.currencyStore.transitionOnce({klass : "on", remove : false}).done(_.bind(function(){
-                this.ui.goodsStore.removeClass("on showBtn");
-                this.ui.currencyStore.addClass("showBtn");
-                this.refreshPacksIScroll();
-            }, this));
+            this.ui.goodsStore.removeClass("on");
+            this.ui.currencyStore.removeClass("blastoff").transitionOnce("on").done(this.refreshPacksIScroll);
         },
         showGoodsStore : function() {
             this.playSound();
 
-            this.ui.goodsStore.addClass("on showBtn");
-            this.ui.currencyStore.transitionOnce({klass : "hide", remove : false}).done(_.bind(function(){
-                this.ui.currencyStore.removeClass("on");
+            this.ui.currencyStore.transitionOnce({klass : "on", method : "removeClass"}).done(_.bind(function(){
+                this.ui.currencyStore.removeClass("on").addClass("blastoff");
                 this.refreshGoodsIScroll();
             }, this));
+            this.ui.goodsStore.addClass("on");
         },
         iscrollRegions : {
             goods : {
