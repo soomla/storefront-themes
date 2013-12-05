@@ -48,6 +48,17 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "marionette", "compone
                 this.categoriesView = new MenuSectionView({collection : this.categories}).forwardEvent("itemview:select", this, "select:category");
                 this.currenciesView = new MenuSectionView({collection : this.currencies}).forwardEvent("itemview:select", this, "select:currency");
 
+                var updateActiveView = function () {
+
+                    // When changes occur to the categories \ currencies
+                    // default to activating the first view in the menu
+                    var view = this.categoriesView.children.first() || this.currenciesView.children.first();
+                    this._replaceActiveView(view);
+                };
+
+                this.listenTo(this.categories, "add remove reset", updateActiveView);
+                this.listenTo(this.currencies, "add remove reset", updateActiveView);
+
                 // TODO: Mark selected category \ currency
                 // TODO: Add offers
             },
@@ -74,6 +85,9 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "marionette", "compone
 
 
                 var view = this.categoriesView.children.findByModelCid(cid) || this.currenciesView.children.findByModelCid(cid);
+                this._replaceActiveView(view);
+            },
+            _replaceActiveView : function(view) {
                 this.activeView.deselect();
                 this.activeView = view;
                 this.activeView.select();
