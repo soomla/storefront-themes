@@ -286,16 +286,8 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "marionette", "compone
             }
         },
         onRender : function() {
-
             this.appendHeaderView().appendCategoriesView().appendCurrenciesView();
-
-
-            var count = this.ui.goodsIscrollContainer.find("li").length,
-                width = this.ui.goodsIscrollContainer.find("li:first").outerWidth(true);
-//                outerRight = this.
-            this.ui.goodsIscrollContainer.width(count * width);
-
-            this.bindEventsToIScroll();
+            this.calculateIScrollWidth().bindEventsToIScroll();
         },
 
         appendHeaderView : function() {
@@ -387,8 +379,18 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "marionette", "compone
             // "itemview:after:item:added"  - Good \ Pack added
             // "itemview:after:item:added"  - Good \ Pack removed
             //
-            this.listenTo(this.categoriesView, "after:item:added item:removed itemview:after:item:added itemview:item:removed", this.refreshGoodsIScroll);
-            this.listenTo(this.currenciesView, "after:item:added item:removed itemview:after:item:added itemview:item:removed", this.refreshGoodsIScroll);
+            this.listenTo(this.categoriesView, "after:item:added item:removed itemview:after:item:added itemview:item:removed", this.refreshIScroll);
+            this.listenTo(this.currenciesView, "after:item:added item:removed itemview:after:item:added itemview:item:removed", this.refreshIScroll);
+        },
+        refreshIScroll : function() {
+            this.calculateIScrollWidth();
+            this.iscrolls.onlyOne.refresh();
+        },
+        calculateIScrollWidth : function() {
+            var count = this.ui.goodsIscrollContainer.find("li").length,
+            	width = this.ui.goodsIscrollContainer.find("li:first").outerWidth(true);
+            this.ui.goodsIscrollContainer.width(count * width);
+            return this;
         },
 
 
