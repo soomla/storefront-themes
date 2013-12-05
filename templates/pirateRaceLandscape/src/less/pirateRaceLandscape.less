@@ -7,80 +7,71 @@
 // THEME VARIABLES
 // --------------------------------------------------
 
-@internalWidth:     1018px;
-@internalHeight:    504px;
+@internalWidth:     1600px;
+@internalHeight:    1080px;
+
+@headerHeight:      180px;
+@footerHeight:      180px;
+@contentHeight: @internalHeight - @headerHeight - @footerHeight;
+
+
+//@internalWidth:     1018px;
+//@internalHeight:    504px;
+
+
+// EFFECTS
+// --------------------------------------------------
+
+a {
+    display: inline-block;
+    -webkit-transition: -webkit-transform ease-in-out;
+    -moz-transition: -moz-transform ease-in-out;
+    -o-transition: -o-transform ease-in-out;
+    transition: transform ease-in-out;
+}
+
+a:active, a.emulate-active {
+    .scale(1.2);
+}
+
+
 
 // GENERAL LAYOUT
 // --------------------------------------------------
 
+
+#main {
+    .centralizedCoveringBackground;
+    .box(vertical,center, center);
+}
+
+
 // Sets the outer most dimensions in which
 // all the content is held i.e. header, pages etc.
 #content-container {
-    width: 100%;
-    height: 100%;
-    .background-size(cover);
-    .box(vertical,center, center);
-    background-color: red;
-    background-image: none;
+    position: relative;
 
-    & > .content {
-        width: @internalWidth;
-        height: @internalHeight;
-        .background-size(cover);
-        .box(vertical, center, center);
-        margin: 0 auto;
-        padding: 0 20px;
-    }
+    .centralizedBackground;
+
+    // TODO: Templatize (???)
+    .size(@internalHeight, @internalWidth);
+    padding: 0 20px;
 }
 
-#pages {
-    width: @internalWidth;
-    height: @internalHeight;
-    overflow-y: scroll;
-}
 
-[data-role="page"] {
-    .square(100%);
-    .box(vertical);
-    position: absolute;
-
-    &>.background {
-        position: absolute;
-        z-index: -1;
-        .square(100%);
-    }
-}
-
-.header, .footer {
+.header {
 	text-align: center;
 }
 
 .header {
-    width: @internalWidth;
-    text-align: center;
+    height: @headerHeight;
     position: relative;
 
-    .categories-container {
-        .box(horizontal, center);
+    // TODO: Delete
+    background: white;
 
-        .categories {
-            .background-size(100% 100%);
-            padding: 0 15px;
-            .box;
-
-            .category {
-                .box-flex(1);
-                width: 145px;
-            }
-        }
-    }
-
-    .title-image {
-        display: block;
-        width: @internalWidth;
-        height: 100px;
-        margin: 0 auto;
-    }
+    // Up the z-index so that tapped buttons will scale above the items
+    z-index: 1;
 
     a img {
         position: absolute;
@@ -93,62 +84,63 @@
     }
 }
 
-.footer {
-    width: @internalWidth;
+#menu-categories-region, #menu-currencies-region {
+    display: inline-block;
     text-align: center;
+
+    .menu-section {
+        display: inline-block;
+    }
+
+    .menu-item {
+        .background-size(100%);
+    }
+}
+
+.leave-store {
+
+    // default styles
+    position: absolute;
+    .box(vertical, center);
+
+    // These are default, but are overridden in the theme
+    // to showcase the ability to change them
+    .offset(0, 0);
+    .size(100px, 200px);
+}
+
+.balances {
+
+    // Defaults
+    position: absolute;
 
     .balance-container {
-        @height: 36px;
-        .box(horizontal, center,center);
-        font-size: @height;
-        line-height: @height;
-
-        .balance-contained {
-            .background-size(100% 100%);
-            .box(horizontal, center, center);
-
-            .label-container, .label-title {
-                text-align: center;
-                padding: 0 30px;
-
-                label {
-                    vertical-align: middle;
-                }
-            }
-
-            .currency {
-                height: @height;
-            }
-        }
+        display: inline-block;
+        vertical-align: middle;
     }
 }
+
+
+@itemsContainerVerticalMargin: 30px;
+@itemsContainerHorizontalMargin: 50px;
 
 .items-container {
-    width: @internalWidth - 30;
-    height: @itemHeight;
-    margin: 0 auto;
-    padding: 0;
-    .background-size(cover);
-    overflow: auto;
 
-    div[data-iscroll='true'] {
-        height: @itemHeight;
-        //width: Set In JS!!
+    // TODO: Templatize + support in iscroll dimension changes in JS
 
-        .items {
-            background-position: center;
-            display: inline-block;
-        }
+    margin: @itemsContainerVerticalMargin @itemsContainerHorizontalMargin;
+    .size(@contentHeight - (2 * @itemsContainerVerticalMargin), @internalWidth - (2 * @itemsContainerHorizontalMargin));
+
+    // TODO: Remove
+    background-color: saddlebrown;
+
+    .item-container, .categories, .currencies, .offers, .category, .currency {
+        background-position: center;
+        display: inline-block;
     }
 }
 
-.category {
-    font-size: 1.5em;
-    float: left;
-    text-align: center;
-    padding: 0 10px 0 10px;
-    .background-size(cover);
-}
+
 
 // SINGLE LIST ITEMS - VIRTUAL GOODS
 // --------------------------------------------------
@@ -157,93 +149,53 @@
 @itemWidth: 204px; // Should be the same as in the JS.
 
 .item {
-    height:  @itemHeight;
-    width: @itemWidth;
     display: inline-block;
+    position: relative;
 
     // Local variables
-    @visualHeight: 100px;
-    @visualWidth: @visualHeight;
-    @secondRowHeight: 30px;
-    @balanceWidth: 50px;
-    @balanceHeight: 50px;
-    @buyImgWidth: 180px;
+    @buyImgWidth: 270px;
 
     background-position: center;
 
     // Item content (container of description, price, balance, buy button)
     .content {
-        @padding: 10px;
-        padding: @padding;
+        position: relative;
         text-align: center;
-        height:  @itemHeight - 2 * @padding;
+        width: 360px;
+        height:  @contentHeight - (2 * @itemsContainerVerticalMargin);
         .background-size(100% 100%);
     }
 
-    // The content is layed out in three rows
-    .row:first-child {
-        height: @balanceHeight;
-    }
-    .row:last-child {
-        height: @secondRowHeight;
-    }
+    .item-name, .item-description, .item-price, .item-balance, .item-amount {
 
-    // 1st row contents
-    .description {
-        font-size: 16px;
-        overflow:hidden;
-
-        label {
-            .hyphens();
-        }
-    }
-    .balance, .description {
+        // Default styles.  Can be overridden in theme
+        position: absolute;
+        width: 100%;
+        .hyphens;
         .box(vertical, center, center);
-        height: 100%;
     }
 
-    // 2nd row contents
-    .balanceRow {
-        position: relative;
-        padding-top: 7px;
+    .item-image {
 
-        .balance {
-            position: absolute;
-            top: -7px;
-            right: 0;
-            font-size: 18px;
-            font-weight: bold;
-            height: @balanceHeight;
-            width: @balanceWidth;
-            background-size: 100%;
-        }
-    }
-    // Item image
-    .visual {
-        width: @visualWidth;
-        height: @visualHeight;
+        // TODO: Templatize
+        position: absolute;
+        .offset(0,0);
+        .square(100%);
+        z-index: -1;
     }
 
-    // 3nd row contents
-    .price {
-        font-size: 20px;
-        font-weight: bold;
-        font-style: italic;
-        color: #FFF;
-        text-shadow: 2px 2px 2px #000;
-        padding-top: 7px;
-    }
-    .currency {
-        width: @secondRowHeight;
-        height: @secondRowHeight;
+    .item-currency-image {
+        display: inline-block;
         vertical-align: middle;
-        display: inline;
     }
+
     .buy {
+        position: absolute;
+        width: 100%;
+        .offset(500px, 0);
         img {
             width: @buyImgWidth;
         }
-        display: block;
     }
 
     // Add specific styling for equippable items
