@@ -220,25 +220,30 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "marionette", "compone
             this.showCurrencyPacks();
         },
         changeViewToItem: function (itemId) {
-            if (!itemId)
-                return;
+            if (!itemId) return;
 
-            var goodsItem = this.model.goodsMap[itemId];
-            var currencyPacksItem = this.model.packsMap[itemId];
-            var item = goodsItem || currencyPacksItem;
-            if (!item) {
-                console.log('View was not changed. Could not find item: "' + itemId + '".');
-                return;
+            var category = this.model.categoryMap[itemId];
+            var item, view;
+
+            if (category) {
+                item = category.getGoods().get(itemId);
+                view = this.categoriesView.children.findByModel(category).children.findByModel(item);
+            } else {
+                if (item = this.model.packsMap[itemId]) {
+                    var currency = this.model.getCurrency(item.getCurrencyId());
+                    view = this.currenciesView.children.findByModel(currency).children.findByModel(item);
+                }
             }
 
-            var catCurrViews = this.categoryViews.concat(this.currencyPacksViews);
-            _.each(catCurrViews, function (catCurrView) {
-                var itemView = catCurrView.children.findByModel(item);
-                if (itemView) {
-                    this.iscrolls.onlyOne.scrollToElement(itemView.el, 500);
-                    return;
-                }
-            }, this);
+            if (view) {
+                this.iscrolls.onlyOne.scrollToElement(view.el, 500);
+            } else {
+                console.log('View was not changed. Could not find item: "' + itemId + '".');
+            }
+        },
+        changeActiveViewByModel : function(model) {
+            var view = this.categoriesView.children.findByModel(model) || this.currenciesView.children.findByModel(model);
+            if (view) this.iscrolls.onlyOne.scrollToElement(view.el, 500);
         },
         showCurrencyPacks: function () {
             var view = this.currenciesView.children.first();
@@ -260,8 +265,6 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "marionette", "compone
                         var itemIndex = Math.ceil(xPos / itemWidth);
                         var liElement = $('ul li', iScroll.scroller).eq(itemIndex);
                         var categoryId = liElement.data('cid');
-
-                        console.log(liElement);
 
                         $this.headerView.setActiveViewByCid(categoryId);
                     }
