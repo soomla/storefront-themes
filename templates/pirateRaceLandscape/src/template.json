@@ -25,7 +25,8 @@
             "background" : {
                 "type" : "backgroundImage",
                 "title" : "Background Image",
-                "selector" : "#main"
+                "selector" : "#main",
+                "section" : "global"
             },
             "contentBackground" : {
                 "type" : "backgroundImage",
