@@ -69,7 +69,14 @@ a:active, a.emulate-active {
     }
 
     .menu-item {
-        .background-size(100%);
+        // Defaults
+
+        .menu-item-label {
+            .background-size(100%);
+            .size(90px, 270px);
+            display: inline-block;
+            .box(vertical, center);
+        }
     }
 }
 
@@ -83,7 +90,7 @@ a:active, a.emulate-active {
     // These are default, but are overridden in the theme
     // to showcase the ability to change them
     .offset(0, 0);
-    .size(100px, 200px);
+    .size(90px, 270px);
 }
 
 .balances {
@@ -246,7 +253,7 @@ a:active, a.emulate-active {
         .box-flex(1);
         margin-top: 10px;
         img {
-            .size(120px, 360px);
+            .size(200px, 500px);
             cursor: pointer;
         }
     }

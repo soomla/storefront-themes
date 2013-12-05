@@ -38,21 +38,21 @@
             "background": "img/BG-Level0.jpg",
             "contentBackground": "img/BG-Level1.jpg",
             "menu" : {
-                "menuStyle" : "position: absolute; width: 100%; top: 100px;",
+                "menuStyle" : "position: absolute; width: 100%; top: 90px;",
                 "activeMenuItemBackgroundImage": "img/BG-Level0.jpg",
                 "activeMenuItemStyle": "color: yellow;",
                 "menuItemBackgroundImage": "img/BG-Level1.jpg",
-                "menuItemStyle": "width: 250px; font-size: 40px; padding: 0 10px;"
+                "menuItemStyle": "width: 270px; height: 90px; font-size: 40px; padding: 0 10px;"
             },
             "balance": {
-                "balanceContainerStyle" : "position: absolute; font-size: 60px; color: white; text-align: center; width: 100%;",
+                "balanceContainerStyle" : "position: absolute; top: 900px; font-size: 60px; color: white; text-align: center; width: 100%;",
                 "labelStyle": "color: #E9C861;",
                 "currencyImageStyle" : "width: 70px; height: 70px; margin-right: 20px;"
             },
             "backButton" : {
                 "backButtonBackgroundImage": "img/Back_BTN.png",
                 "backButtonText" : "Back",
-                "backButtonStyle": "left: 0; top: 0; width: 200px; height: 100px; font-size: 50px;"
+                "backButtonStyle": "left: 0; top: 0; width: 270px; height: 90px; font-size: 50px;"
             }
         },
         "fonts": [

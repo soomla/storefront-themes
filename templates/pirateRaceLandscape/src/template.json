@@ -43,25 +43,25 @@
                 "activeMenuItemBackgroundImage" : {
                     "type" : "backgroundImage",
                     "title" : "Active Menu Item Background Image",
-                    "selector" : ".menu-item.selected",
+                    "selector" : ".menu-item.selected .menu-item-label",
                     "section" : "global"
                 },
                 "activeMenuItemStyle" : {
                     "type" : "css",
                     "title" : "Active Menu Item Style",
-                    "selector" : ".menu-item.selected",
+                    "selector" : ".menu-item.selected .menu-item-label",
                     "section" : "global"
                 },
                 "menuItemBackgroundImage" : {
                     "type" : "backgroundImage",
                     "title" : "Menu Item Background Image",
-                    "selector" : ".menu-item",
+                    "selector" : ".menu-item .menu-item-label",
                     "section" : "global"
                 },
                 "menuItemStyle" : {
                     "type" : "css",
                     "title" : "Menu Item Style",
-                    "selector" : ".menu-item",
+                    "selector" : ".menu-item .menu-item-label",
                     "section" : "global"
                 }
             },
@@ -270,7 +270,116 @@
             }
         }
     },
-	"validations" : {
+    "assetMetadata" : {
+        "template" : {
+            "global" : {
+                "background" : {
+                    "w" : 1280,
+                    "h" : 1920
+                },
+                "contentBackground" : {
+                    "w" : 1600,
+                    "h" : 1080
+                },
+                "menu" : {
+                    "activeMenuItemBackgroundImage" : {
+                        "w" : 270,
+                        "h" : 90
+                    },
+                    "menuItemBackgroundImage" : {
+                        "w" : 270,
+                        "h" : 90
+                    }
+                },
+                "backButton" : {
+                    "backButtonBackgroundImage" : {
+                        "w" : 270,
+                        "h" : 90
+                    }
+                }
+            },
+            "noFundsModal" : {
+                "background" : {
+                    "w" : 1080,
+                    "h" : 720
+                },
+                "yesButton" : {
+                    "w" : 500,
+                    "h" : 200
+                },
+                "noButton" : {
+                    "w" : 500,
+                    "h" : 200
+                }
+            },
+            "goods" :{
+                "listItem" : {
+                    "backgroundImage" : {
+                        "w" : 660,
+                        "h" : 360
+                    },
+                    "buyImage" : {
+                        "w" : 320,
+                        "h" : 160
+                    }
+                }
+            },
+            "currencyPacks" : {
+                "listItem" : {
+                    "backgroundImage" : {
+                        "w" : 660,
+                        "h" : 360
+                    },
+                    "buyImage" : {
+                        "w" : 320,
+                        "h" : 160
+                    }
+                }
+            },
+            "categories": {
+                "titleBackground" : {
+                    "w" : 1000,
+                    "h" : 120
+                }
+            }
+        },
+        "economy" : {
+            "currencies" : {
+                "w" : 100,
+                "h" : 100
+            },
+            "currencyPacks" : {
+                "w" : 360,
+                "h" : 660
+            },
+            "goods" : {
+                "singleUse" : {
+                    "w" : 360,
+                    "h" : 660
+                },
+                "equippable" : {
+                    "w" : 360,
+                    "h" : 660
+                },
+                "goodUpgrades" : {
+                    "upgradeImage" : {
+                        "w" : 360,
+                        "h" : 660
+                    },
+                    "upgradeBar" : {
+                        "w" : 320,
+                        "h" : 90
+                    }
+                },
+                "lifetime" : {
+                    "w" : 360,
+                    "h" : 660
+                }
+            }
+        },
+        "hooks" : {}
+    },
+    "validations" : {
 		"currency" : {
 			"rules" : {
 				"name" : {
