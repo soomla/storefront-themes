@@ -34,62 +34,57 @@
     "theme": {
         "name": "goldDiggerLandscape",
         "version": 1,
-        "background": "img/BG-Level0.jpg",
-        "contentBackground": "img/BG-Level1.jpg",
-        "menu" : {
-            "menuStyle" : "position: absolute; width: 100%; top: 100px;"
-        },
-        "common": {
-            "activeCategoryTitleBackground": "img/BG-Level0.jpg",
-            "activeCategoryTitleStyle": "color: yellow;",
-            "inactiveCategoryTitleBackground": "img/BG-Level1.jpg",
-            "inactiveCategoryTitleStyle": "width: 250px; font-size: 40px; padding: 0 10px;",
-            "categoriesTitleBackground": "img/BG-Level0.jpg",
-            "backButton": "img/Back_BTN.png",
-            "backButtonStyle": "left: 0; top: 0; width: 200px; height: 100px;",
-            "balanceLabelStyle": "color: #E9C861;"
+        "global" : {
+            "background": "img/BG-Level0.jpg",
+            "contentBackground": "img/BG-Level1.jpg",
+            "menu" : {
+                "menuStyle" : "position: absolute; width: 100%; top: 100px;",
+                "activeMenuItemBackgroundImage": "img/BG-Level0.jpg",
+                "activeMenuItemStyle": "color: yellow;",
+                "menuItemBackgroundImage": "img/BG-Level1.jpg",
+                "menuItemStyle": "width: 250px; font-size: 40px; padding: 0 10px;"
+            },
+            "balance": {
+                "balanceContainerStyle" : "position: absolute; font-size: 60px; color: white; text-align: center; width: 100%;",
+                "labelStyle": "color: #E9C861;",
+                "currencyImageStyle" : "width: 70px; height: 70px; margin-right: 20px;"
+            },
+            "backButton" : {
+                "backButtonBackgroundImage": "img/Back_BTN.png",
+                "backButtonText" : "Back",
+                "backButtonStyle": "left: 0; top: 0; width: 200px; height: 100px; font-size: 50px;"
+            }
         },
         "fonts": [
             "fonts/MetalLord.otf",
             "fonts/Lobster_1.3.otf"
         ],
-        "balance": {
-            "balanceContainerStyle" : "position: absolute; font-size: 60px; color: white; text-align: center; width: 100%;",
-            "labelStyle": "color: #E9C861;",
-            "currencyImageStyle" : "width: 70px; height: 70px; margin-right: 20px;"
+        "noFundsModal": {
+            "background": "img/Alert_BG.png",
+            "text": "Insufficient funds.  Would you like to buy more?",
+            "textStyle": "font-size: 60px; color: #DEBE8D; text-shadow: 1px 2px #000",
+            "yesButton": "img/Yes_BTN.png",
+            "noButton": "img/No_BTN.png"
         },
         "goods": {
             "item": {
-                "buy": "img/purchase.png",
-                "buyOnce": "img/unlock.png",
-                "equip": "img/equip.png",
-                "active": "img/equipped.png",
+                "buyImage": "img/purchase.png",
                 "nameStyle" : "position: absolute; top: 20px; left: 0; font-size: 60px; color: #FFF; text-shadow: 2px 2px 2px #000;",
                 "descriptionStyle": "position: absolute; top: 100px; color: #DEBE8D; font-size: 40px;",
                 "priceStyle": "top: 350px; font-size: 70px; font-weight: bold; font-style: italic; color: #FFF; text-shadow: 2px 2px 2px #000;",
                 "currencyImageStyle": "width: 70px; height: 70px;",
                 "balanceStyle": "position: absolute; top: 450px; left: 0; color: #E9C861; text-shadow: 2px 2px 2px #000; font-size: 40px; font-weight: bold;"
-            },
-            "noFundsModal": {
-                "background": "img/Alert_BG.png",
-                "text": "Insufficient funds.  Would you like to buy more?",
-                "textStyle": "color: #DEBE8D; text-shadow: 1px 2px #000",
-                "yesButton": "img/Yes_BTN.png",
-                "noButton": "img/No_BTN.png"
             }
         },
         "currencyPacks": {
             "item": {
-                "buy": "img/purchase.png",
+                "buyImage": "img/purchase.png",
                 "nameStyle": "position: absolute; top: 20px; left: 0; font-size: 60px; color: #FFF; text-shadow: 2px 2px 2px #000;",
                 "descriptionStyle": "position: absolute; top: 100px; color: #DEBE8D; font-size: 40px; display: none;",
                 "priceStyle": "top: 350px; font-size: 70px; font-weight: bold; font-style: italic; color: #FFF; text-shadow: 2px 2px 2px #000;",
                 "amountStyle": "position: absolute; top: 100px; left: 0; color: #E9C861; text-shadow: 2px 2px 2px #000; font-size: 40px; font-weight: bold;",
                 "currencyImageStyle": "width: 70px; height: 70px;"
             }
-        },
-        "categories": {
-            "style": "color: #B89C6D; font-weight: normal"
         }
     }
 }

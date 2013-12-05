@@ -1,9 +1,14 @@
 {
-	"supportedFeatures" : {
+    "supportedFeatures" : {
+        "goods" : {
+            "singleUse" : true
+        },
         "purchaseTypes" : {
             "virtualItem" : true
-        }
-	},
+        },
+        "removeAds" : {},
+        "hooks" : {}
+    },
     "sections" : {
         "global" : {
             "title" : "Global"
@@ -13,73 +18,92 @@
         },
         "fonts" : {
             "title" : "Fonts"
-        },
-        "categories" : {
-            "title" : "Categories"
         }
     },
     "attributes" : {
-        "background" : {
-            "type" : "backgroundImage",
-            "title" : "Background Image",
-            "selector" : "#main"
-        },
-        "contentBackground" : {
-            "type" : "backgroundImage",
-            "title" : "Content Background Image",
-            "selector" : "#content-container",
-            "section" : "global"
-        },
-        "menu" : {
-            "menuStyle" : {
-                "type" : "css",
-                "title" : "Menu Style",
-                "selector" : "#menu-region",
+        "global" : {
+            "background" : {
+                "type" : "backgroundImage",
+                "title" : "Background Image",
+                "selector" : "#main"
+            },
+            "contentBackground" : {
+                "type" : "backgroundImage",
+                "title" : "Content Background Image",
+                "selector" : "#content-container",
                 "section" : "global"
-            }
-        },
-        "common" : {
-			"activeCategoryTitleBackground" : {
-                "type" : "backgroundImage",
-                "title" : "Active Category Title Background",
-                "selector" : ".menu-item.selected",
-                "section" : "categories"
-			},
-			"activeCategoryTitleStyle" : {
-                "type" : "css",
-                "title" : "Active Category Title Style",
-                "selector" : ".menu-item.selected",
-                "section" : "categories"
-			},
-			"inactiveCategoryTitleBackground" : {
-                "type" : "backgroundImage",
-                "title" : "Inactive Category Title Background",
-                "selector" : ".menu-item",
-                "section" : "categories"
-			},
-			"inactiveCategoryTitleStyle" : {
-                "type" : "css",
-                "title" : "Inactive Category Title Style",
-                "selector" : ".menu-item",
-                "section" : "categories"
-			},
+            },
+            "menu" : {
+                "menuStyle" : {
+                    "type" : "css",
+                    "title" : "Menu Style",
+                    "selector" : "#menu-region",
+                    "section" : "global"
+                },
+                "activeMenuItemBackgroundImage" : {
+                    "type" : "backgroundImage",
+                    "title" : "Active Menu Item Background Image",
+                    "selector" : ".menu-item.selected",
+                    "section" : "global"
+                },
+                "activeMenuItemStyle" : {
+                    "type" : "css",
+                    "title" : "Active Menu Item Style",
+                    "selector" : ".menu-item.selected",
+                    "section" : "global"
+                },
+                "menuItemBackgroundImage" : {
+                    "type" : "backgroundImage",
+                    "title" : "Menu Item Background Image",
+                    "selector" : ".menu-item",
+                    "section" : "global"
+                },
+                "menuItemStyle" : {
+                    "type" : "css",
+                    "title" : "Menu Item Style",
+                    "selector" : ".menu-item",
+                    "section" : "global"
+                }
+            },
+            "balance" : {
+                "balanceContainerStyle" : {
+                    "type" : "css",
+                    "title" : "Balance Container Style",
+                    "selector" : ".balances",
+                    "section" : "global"
+                },
+                "labelStyle" : {
+                    "type" : "css",
+                    "title" : "Balance Label Style",
+                    "selector" : ".balances .balance-container .balance-label",
+                    "section" : "global"
+                },
+                "currencyImageStyle" : {
+                    "type" : "css",
+                    "title" : "Balance Currency Image Style",
+                    "selector" : ".balances .balance-container .balance-currency-image",
+                    "section" : "global"
+                }
+            },
             "backButton" : {
-                "type" : "backgroundImage",
-                "title" : "Back Button",
-                "selector" : ".leave-store",
-                "section" : "global"
-            },
-            "backButtonStyle" : {
-                "type" : "css",
-                "title" : "Back Button Style",
-                "selector" : ".leave-store",
-                "section" : "global"
-            },
-            "balanceLabelStyle" : {
-                "type" : "css",
-                "title" : "Balance Label Style",
-                "selector" : ".item-balance",
-                "section" : "singleItems"
+                "backButtonBackgroundImage" : {
+                    "type" : "backgroundImage",
+                    "title" : "Back Button Background Image",
+                    "selector" : "#leave-store",
+                    "section" : "global"
+                },
+                "backButtonText" : {
+                    "type" : "text",
+                    "title" : "Back Button Text",
+                    "selector" : "#leave-store",
+                    "section" : "global"
+                },
+                "backButtonStyle" : {
+                    "type" : "css",
+                    "title" : "Back Button Style",
+                    "selector" : "#leave-store",
+                    "section" : "global"
+                }
             }
         },
         "fonts" : [
@@ -96,50 +120,44 @@
                 "section" : "fonts"
             }
         ],
-        "balance" : {
-            "balanceContainerStyle" : {
-                "type" : "css",
-                "title" : "Balance Container Style",
-                "selector" : ".balances",
+        "noFundsModal" : {
+            "background" : {
+                "type" : "backgroundImage",
+                "title" : "Dialog Background Image",
+                "selector" : ".dialog",
                 "section" : "global"
             },
-            "labelStyle" : {
-                "type" : "css",
-                "title" : "Balance Label Style",
-                "selector" : ".balances .balance-container .balance-label",
+            "text" : {
+                "type" : "text",
+                "title" : "Dialog Text",
+                "selector" : ".dialog h1",
                 "section" : "global"
             },
-            "currencyImageStyle" : {
+            "textStyle" : {
                 "type" : "css",
-                "title" : "Balance Currency Image Style",
-                "selector" : ".balances .balance-container .balance-currency-image",
+                "title" : "Dialog Text Style",
+                "selector" : ".dialog h1",
+                "section" : "global"
+            },
+            "yesButton" : {
+                "type" : "image",
+                "title" : "Dialog 'Yes' Button",
+                "selector" : ".dialog .buy-more",
+                "section" : "global"
+            },
+            "noButton" : {
+                "type" : "image",
+                "title" : "Dialog 'No' Button",
+                "selector" : ".dialog .cancel",
                 "section" : "global"
             }
         },
         "goods" :{
             "item" : {
-                "buy" : {
+                "buyImage" : {
                     "type" : "image",
-                    "title" : "Unlock Image",
+                    "title" : "Virtual Good Buy Image",
                     "selector" : ".categories .item .buy",
-                    "section" : "singleItems"
-                },
-                "buyOnce" : {
-                    "type" : "image",
-                    "title" : "Unlock Image",
-                    "selector" : ".categories .item .buy",
-                    "section" : "singleItems"
-                },
-                "equip" : {
-                    "type" : "image",
-                    "title" : "Activate Image",
-                    "selector" : ".categories .item .equip",
-                    "section" : "singleItems"
-                },
-                "active" : {
-                    "type" : "image",
-                    "title" : "Active Image",
-                    "selector" : ".categories .item .active",
                     "section" : "singleItems"
                 },
                 "nameStyle" : {
@@ -173,45 +191,13 @@
                     "section" : "singleItems"
                 }
 
-            },
-            "noFundsModal" : {
-                "background" : {
-                    "type" : "backgroundImage",
-                    "title" : "Dialog Background Image",
-                    "selector" : ".dialog",
-                    "section" : "global"
-                },
-                "text" : {
-                    "type" : "text",
-                    "title" : "Dialog Text",
-                    "selector" : ".dialog h1",
-                    "section" : "global"
-                },
-                "textStyle" : {
-                    "type" : "css",
-                    "title" : "Dialog Text Style",
-                    "selector" : ".dialog h1",
-                    "section" : "global"
-                },
-                "yesButton" : {
-                    "type" : "image",
-                    "title" : "'Yes' Button",
-                    "selector" : ".dialog .buy-more",
-                    "section" : "global"
-                },
-                "noButton" : {
-                    "type" : "image",
-                    "title" : "'No' Button",
-                    "selector" : ".dialog .cancel",
-                    "section" : "global"
-                }
             }
         },
         "currencyPacks" :{
             "item" : {
-                "buy" : {
+                "buyImage" : {
                     "type" : "image",
-                    "title" : "Unlock Image",
+                    "title" : "Currency Pack Buy Image",
                     "selector" : ".currencies .item .buy",
                     "section" : "singleItems"
                 },

@@ -174,7 +174,7 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "marionette", "compone
 
 
 
-            this.dialogModal = this.theme.goods.noFundsModal;
+            this.dialogModal = this.theme.noFundsModal;
             this.loadingModal = {
                 "text": "Loading...",
                 "background": this.dialogModal.background,
@@ -205,7 +205,7 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "marionette", "compone
             this.createCurrenciesView(currencies);
         },
         events : {
-            "fastclick .leave-store" : "leaveStore",
+            "fastclick #leave-store" : "leaveStore",
             "fastclick .buy-more"    : "onClickBuyMore"
         },
         ui : {

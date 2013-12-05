@@ -51,7 +51,7 @@ a:active, a.emulate-active {
 #content-container {
     position: relative;
 
-    .centralizedBackground;
+    .centralizedCoveringBackground;
 
     // TODO: Templatize (???)
     .size(@internalHeight, @internalWidth);
@@ -97,7 +97,7 @@ a:active, a.emulate-active {
     }
 }
 
-.leave-store {
+#leave-store {
 
     // default styles
     position: absolute;
@@ -251,8 +251,10 @@ a:active, a.emulate-active {
 
 .dialog {
     text-align: center;
-    width: 540px;
-    height: 300px;
+    width: 1080px;
+    height: 720px;
+
+    .centralizedCoveringBackground;
 
     h1 {
         .box-flex(2);
@@ -266,7 +268,7 @@ a:active, a.emulate-active {
         .box-flex(1);
         margin-top: 10px;
         img {
-            .maxSize(60px, 260px);
+            .size(120px, 360px);
             cursor: pointer;
         }
     }
