@@ -12,11 +12,7 @@
 
 @headerHeight:      180px;
 @footerHeight:      180px;
-@contentHeight: @internalHeight - @headerHeight - @footerHeight;
-
-
-//@internalWidth:     1018px;
-//@internalHeight:    504px;
+@contentHeight:     @internalHeight - @headerHeight - @footerHeight;
 
 
 // EFFECTS
@@ -50,38 +46,18 @@ a:active, a.emulate-active {
 // all the content is held i.e. header, pages etc.
 #content-container {
     position: relative;
-
     .centralizedCoveringBackground;
-
-    // TODO: Templatize (???)
     .size(@internalHeight, @internalWidth);
-    padding: 0 20px;
-}
-
-
-.header {
-	text-align: center;
 }
 
 .header {
+    // TODO: Consider removing the header altogether
     height: @headerHeight;
     position: relative;
-
-    // TODO: Delete
-    background: white;
+    text-align: center;
 
     // Up the z-index so that tapped buttons will scale above the items
     z-index: 1;
-
-    a img {
-        position: absolute;
-        height: 60px;
-        width: 20%;
-        padding-right: 20px;
-        margin: 15px;
-        top:0;
-        left:0;
-    }
 }
 
 #menu-categories-region, #menu-currencies-region {
@@ -102,6 +78,7 @@ a:active, a.emulate-active {
     // default styles
     position: absolute;
     .box(vertical, center);
+    .centralizedBackground;
 
     // These are default, but are overridden in the theme
     // to showcase the ability to change them
@@ -131,9 +108,6 @@ a:active, a.emulate-active {
     margin: @itemsContainerVerticalMargin @itemsContainerHorizontalMargin;
     .size(@contentHeight - (2 * @itemsContainerVerticalMargin), @internalWidth - (2 * @itemsContainerHorizontalMargin));
 
-    // TODO: Remove
-    background-color: saddlebrown;
-
     .item-container, .categories, .currencies, .offers, .category, .currency {
         background-position: center;
         display: inline-block;
@@ -146,7 +120,7 @@ a:active, a.emulate-active {
 // --------------------------------------------------
 
 @itemHeight: 270px;
-@itemWidth: 204px; // Should be the same as in the JS.
+@itemWidth: 360px; // Should be the same as in the JS.
 
 .item {
     display: inline-block;
@@ -156,12 +130,13 @@ a:active, a.emulate-active {
     @buyImgWidth: 270px;
 
     background-position: center;
+    .background-size(@itemWidth @contentHeight);
 
     // Item content (container of description, price, balance, buy button)
     .content {
         position: relative;
         text-align: center;
-        width: 360px;
+        width: @itemWidth;
         height:  @contentHeight - (2 * @itemsContainerVerticalMargin);
         .background-size(100% 100%);
     }
@@ -173,15 +148,17 @@ a:active, a.emulate-active {
         width: 100%;
         .hyphens;
         .box(vertical, center, center);
+
+        // So that it'll be above the item image and the background image
+        z-index: 1;
     }
 
     .item-image {
 
-        // TODO: Templatize
+        // Defaults
         position: absolute;
         .offset(0,0);
         .square(100%);
-        z-index: -1;
     }
 
     .item-currency-image {
@@ -190,9 +167,12 @@ a:active, a.emulate-active {
     }
 
     .buy {
+
+        // Defaults
         position: absolute;
         width: 100%;
         .offset(500px, 0);
+
         img {
             width: @buyImgWidth;
         }
@@ -234,9 +214,6 @@ a:active, a.emulate-active {
 
 // MODAL DIALOG
 // --------------------------------------------------
-.dialog {
-	.box(vertical, center);
-}
 
 .modal {
     height: 100%;
@@ -250,6 +227,7 @@ a:active, a.emulate-active {
 }
 
 .dialog {
+    .box(vertical, center);
     text-align: center;
     width: 1080px;
     height: 720px;

@@ -68,22 +68,28 @@
         },
         "goods": {
             "item": {
-                "buyImage": "img/purchase.png",
+                "backgroundImage" : "",
+                "itemImageStyle" : "",
                 "nameStyle" : "position: absolute; top: 20px; left: 0; font-size: 60px; color: #FFF; text-shadow: 2px 2px 2px #000;",
                 "descriptionStyle": "position: absolute; top: 100px; color: #DEBE8D; font-size: 40px;",
                 "priceStyle": "top: 350px; font-size: 70px; font-weight: bold; font-style: italic; color: #FFF; text-shadow: 2px 2px 2px #000;",
                 "currencyImageStyle": "width: 70px; height: 70px;",
-                "balanceStyle": "position: absolute; top: 450px; left: 0; color: #E9C861; text-shadow: 2px 2px 2px #000; font-size: 40px; font-weight: bold;"
+                "balanceStyle": "position: absolute; top: 450px; left: 0; color: #E9C861; text-shadow: 2px 2px 2px #000; font-size: 40px; font-weight: bold;",
+                "buyImage": "img/purchase.png",
+                "buyImageStyle" : "position: absolute; width: 100%; top: 500px; left: 0;"
             }
         },
         "currencyPacks": {
             "item": {
-                "buyImage": "img/purchase.png",
+                "backgroundImage" : "",
+                "itemImageStyle" : "",
                 "nameStyle": "position: absolute; top: 20px; left: 0; font-size: 60px; color: #FFF; text-shadow: 2px 2px 2px #000;",
                 "descriptionStyle": "position: absolute; top: 100px; color: #DEBE8D; font-size: 40px; display: none;",
                 "priceStyle": "top: 350px; font-size: 70px; font-weight: bold; font-style: italic; color: #FFF; text-shadow: 2px 2px 2px #000;",
                 "amountStyle": "position: absolute; top: 100px; left: 0; color: #E9C861; text-shadow: 2px 2px 2px #000; font-size: 40px; font-weight: bold;",
-                "currencyImageStyle": "width: 70px; height: 70px;"
+                "currencyImageStyle": "width: 70px; height: 70px;",
+                "buyImage": "img/purchase.png",
+                "buyImageStyle" : "position: absolute; width: 100%; top: 500px; left: 0;"
             }
         }
     }

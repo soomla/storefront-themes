@@ -154,10 +154,16 @@
         },
         "goods" :{
             "item" : {
-                "buyImage" : {
-                    "type" : "image",
-                    "title" : "Virtual Good Buy Image",
-                    "selector" : ".categories .item .buy",
+                "backgroundImage" : {
+                    "type" : "backgroundImage",
+                    "title" : "Virtual Good Background Image",
+                    "selector" : ".categories .item",
+                    "section" : "singleItems"
+                },
+                "itemImageStyle" : {
+                    "type" : "css",
+                    "title" : "Virtual Good Image Style",
+                    "selector" : ".categories .item .item-image",
                     "section" : "singleItems"
                 },
                 "nameStyle" : {
@@ -189,16 +195,34 @@
                     "title" : "Virtual Good Balance Style",
                     "selector" : ".categories .item .item-balance",
                     "section" : "singleItems"
+                },
+                "buyImage" : {
+                    "type" : "image",
+                    "title" : "Virtual Good Buy Image",
+                    "selector" : ".categories .item .buy",
+                    "section" : "singleItems"
+                },
+                "buyImageStyle" : {
+                    "type" : "css",
+                    "title" : "Virtual Good Buy Image Style",
+                    "selector" : ".categories .item .buy",
+                    "section" : "singleItems"
                 }
 
             }
         },
         "currencyPacks" :{
             "item" : {
-                "buyImage" : {
-                    "type" : "image",
-                    "title" : "Currency Pack Buy Image",
-                    "selector" : ".currencies .item .buy",
+                "backgroundImage" : {
+                    "type" : "backgroundImage",
+                    "title" : "Currency Pack Background Image",
+                    "selector" : ".currencies .item",
+                    "section" : "singleItems"
+                },
+                "itemImageStyle" : {
+                    "type" : "css",
+                    "title" : "Currency Pack Image Style",
+                    "selector" : ".currencies .item .item-image",
                     "section" : "singleItems"
                 },
                 "nameStyle" : {
@@ -229,6 +253,18 @@
                     "type" : "css",
                     "title" : "Currency Pack Currency Image Style",
                     "selector" : ".currencies .item .item-currency-image",
+                    "section" : "singleItems"
+                },
+                "buyImage" : {
+                    "type" : "image",
+                    "title" : "Currency Pack Buy Image",
+                    "selector" : ".currencies .item .buy",
+                    "section" : "singleItems"
+                },
+                "buyImageStyle" : {
+                    "type" : "css",
+                    "title" : "Currency Pack Buy Image Style",
+                    "selector" : ".currencies .item .buy",
                     "section" : "singleItems"
                 }
             }
