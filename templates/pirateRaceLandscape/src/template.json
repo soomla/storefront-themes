@@ -109,7 +109,7 @@
             "items" : {
                 "scrollContainerStyle" : {
                     "type" : "css",
-                    "title" : "Single Item Style",
+                    "title" : "Scroll Container Style",
                     "selector" : "#items-container",
                     "section" : "global"
                 },

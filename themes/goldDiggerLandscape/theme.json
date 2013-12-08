@@ -49,7 +49,7 @@
             },
             "items" : {
                 "itemStyle" : "width: 400px; height: 750px;",
-                "scrollContainerStyle" : "position: absolute; top: 180px; width: 1500px; margin: 30px 50px;"
+                "scrollContainerStyle" : "position: absolute; top: 180px; width: 1500px; margin: 30px 50px; overflow: hidden;"
             }
         },
         "fonts": [
