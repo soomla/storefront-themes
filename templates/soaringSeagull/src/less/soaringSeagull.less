@@ -133,11 +133,6 @@ body {
 }
 
 #currency-store {
-    .items-container {
-        >[data-iscroll='true']{
-            padding-bottom:240px;
-        }
-    }
     z-index:20;
 
     &.on{
@@ -158,12 +153,6 @@ body {
 }
 #goods-store{
 
-    .items-container {
-        >[data-iscroll='true']{
-            padding-bottom: 20px;
-        }
-    }
-
     .footer.animated{
         .translate(0, 240px);
         opacity: 0;
@@ -173,6 +162,15 @@ body {
             opacity: 1;
             .translate(0, 0);
             .transition(all 0.4s ease);
+        }
+    }
+}
+
+#goods-store, #currency-store {
+
+    .items-container {
+        >[data-iscroll='true']{
+            padding-bottom: 20px;
         }
     }
 }
