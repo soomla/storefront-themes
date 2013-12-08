@@ -167,6 +167,26 @@
                 "section" : "global"
             }
         },
+        "loadingModal" : {
+            "backgroundImage" : {
+                "type" : "backgroundImage",
+                "title" : "Loading Dialog Background Image",
+                "selector" : ".modal-container.modal-loading .dialog",
+                "section" : "global"
+            },
+            "text" : {
+                "type" : "text",
+                "title" : "Loading Dialog Text",
+                "selector" : ".modal-container.modal-loading .dialog h1",
+                "section" : "global"
+            },
+            "textStyle" : {
+                "type" : "css",
+                "title" : "Loading Dialog Text Style",
+                "selector" : ".modal-container.modal-loading .dialog h1",
+                "section" : "global"
+            }
+        },
         "goods" :{
             "item" : {
                 "backgroundImage" : {
