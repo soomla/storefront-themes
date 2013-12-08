@@ -1,20 +1,18 @@
-<div class="content" data-categoryid="{{categoryId}}" style="background-image: url({{backgroundImgFilePath}})">
-  <div class="row">
-    <div class="description">
-      <label style="{{descriptionStyle}}">{{description}}</label>
+<div class="content font-face-2" data-cid="{{cid}}">
+    <img class="item-image" src="{{imgFilePath}}" />
+	<div class="item-name">{{name}}</div>
+	<div class="item-description">{{description}}</div>
+	<div class="item-price">
+		<label>{{price}}</label>
+		<img src="{{currency.imgFilePath}}" class="item-currency-image" />
+	</div>
+    <div class="item-balance">
+        <span class="item-balance-label">
+            You have:
+        </span>
+        <span class="item-balance-number">{{balance}}</span>
     </div>
-  </div>
-  <div class="row balanceRow">
-    <div class="balance">
-      <label>{{balance}}</label>
-    </div>
-    <img class="visual" src="{{imgFilePath}}" />
-  </div>
-  <div class="row price">
-    <label style="{{priceStyle}}">{{price}}</label>
-    <img src="{{currency.imgFilePath}}" class="currency" />
     <a class="buy">
-      <img src="{{buy}}" />
+        <img src="{{buyImage}}" />
     </a>
-  </div>
 </div>

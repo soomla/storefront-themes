@@ -7,243 +7,183 @@
 // THEME VARIABLES
 // --------------------------------------------------
 
-@internalWidth:     1018px;
-@internalHeight:    504px;
+@internalWidth:     1600px;
+@internalHeight:    1080px;
+
+
+
+// EFFECTS
+// --------------------------------------------------
+
+a {
+    display: inline-block;
+    -webkit-transition: -webkit-transform ease-in-out;
+    -moz-transition: -moz-transform ease-in-out;
+    -o-transition: -o-transform ease-in-out;
+    transition: transform ease-in-out;
+}
+
+a:active, a.emulate-active {
+    .scale(1.2);
+}
+
+
 
 // GENERAL LAYOUT
 // --------------------------------------------------
 
+
+#main {
+    .centralizedCoveringBackground;
+    .box(vertical,center, center);
+}
+
+
 // Sets the outer most dimensions in which
 // all the content is held i.e. header, pages etc.
 #content-container {
-    width: 100%;
-    height: 100%;
-    .background-size(cover);
-    .box(vertical,center, center);
-    background-color: red;
-    background-image: none;
+    position: relative;
+    .centralizedCoveringBackground;
+    .size(@internalHeight, @internalWidth);
+}
 
-    & > .content {
-        width: @internalWidth;
-        height: @internalHeight;
-        .background-size(cover);
-        .box(vertical, center, center);
-        margin: 0 auto;
-        padding: 0 20px;
+#menu-region {
+
+    // Up the z-index so that tapped buttons will scale above the items
+    z-index: 1;
+}
+
+#menu-categories-region, #menu-currencies-region {
+    display: inline-block;
+    text-align: center;
+
+    .menu-section {
+        display: inline-block;
+    }
+
+    .menu-item {
+        // Defaults
+
+        .menu-item-label {
+            .background-size(100%);
+            .size(90px, 270px);
+            display: inline-block;
+            .box(vertical, center);
+        }
     }
 }
 
-#pages {
-    width: @internalWidth;
-    height: @internalHeight;
-    overflow-y: scroll;
+#leave-store {
+
+    // default styles
+    position: absolute;
+    .box(vertical, center, center);
+    .centralizedBackground;
+
+    // These are default, but are overridden in the theme
+    // to showcase the ability to change them
+    .offset(0, 0);
+    .size(90px, 270px);
 }
 
-[data-role="page"] {
-    .square(100%);
-    .box(vertical);
+.balances {
+
+    // Defaults
     position: absolute;
 
-    &>.background {
-        position: absolute;
-        z-index: -1;
-        .square(100%);
-    }
-}
-
-.header, .footer {
-	text-align: center;
-}
-
-.header {
-    width: @internalWidth;
-    text-align: center;
-    position: relative;
-
-    .categories-container {
-        .box(horizontal, center);
-
-        .categories {
-            .background-size(100% 100%);
-            padding: 0 15px;
-            .box;
-
-            .category {
-                .box-flex(1);
-                width: 145px;
-            }
-        }
-    }
-
-    .title-image {
-        display: block;
-        width: @internalWidth;
-        height: 100px;
-        margin: 0 auto;
-    }
-
-    a img {
-        position: absolute;
-        height: 60px;
-        width: 20%;
-        padding-right: 20px;
-        margin: 15px;
-        top:0;
-        left:0;
-    }
-}
-
-.footer {
-    width: @internalWidth;
-    text-align: center;
-
     .balance-container {
-        @height: 36px;
-        .box(horizontal, center,center);
-        font-size: @height;
-        line-height: @height;
-
-        .balance-contained {
-            .background-size(100% 100%);
-            .box(horizontal, center, center);
-
-            .label-container, .label-title {
-                text-align: center;
-                padding: 0 30px;
-
-                label {
-                    vertical-align: middle;
-                }
-            }
-
-            .currency {
-                height: @height;
-            }
-        }
+        display: inline-block;
+        vertical-align: middle;
     }
 }
 
-.items-container {
-    width: @internalWidth - 30;
-    height: @itemHeight;
-    margin: 0 auto;
-    padding: 0;
-    .background-size(cover);
-    overflow: auto;
 
-    div[data-iscroll='true'] {
-        height: @itemHeight;
-        //width: Set In JS!!
+@itemsContainerVerticalMargin: 30px;
+@itemsContainerHorizontalMargin: 50px;
 
-        .items {
-            background-position: center;
-            display: inline-block;
-        }
+#items-container {
+
+    // Defaults
+    position: absolute;
+    top: 180px;
+    width: @internalWidth - (2 * @itemsContainerHorizontalMargin);
+    margin: @itemsContainerVerticalMargin @itemsContainerHorizontalMargin;
+    overflow: hidden;
+
+    .item-container, .categories, .currencies, .offers, .category, .currency {
+        background-position: center;
+        display: inline-block;
     }
 }
 
-.category {
-    font-size: 1.5em;
-    float: left;
-    text-align: center;
-    padding: 0 10px 0 10px;
-    .background-size(cover);
-}
+
 
 // SINGLE LIST ITEMS - VIRTUAL GOODS
 // --------------------------------------------------
 
 @itemHeight: 270px;
-@itemWidth: 204px; // Should be the same as in the JS.
+@itemWidth: 360px; // Should be the same as in the JS.
 
 .item {
-    height:  @itemHeight;
-    width: @itemWidth;
+
+    // Mandatory
     display: inline-block;
 
-    // Local variables
-    @visualHeight: 100px;
-    @visualWidth: @visualHeight;
-    @secondRowHeight: 30px;
-    @balanceWidth: 50px;
-    @balanceHeight: 50px;
-    @buyImgWidth: 180px;
+    // Defaults
+    .size(750px, 400px);
+    .background-size(100%);
+    .centralizedBackground;
 
-    background-position: center;
+    // Local variables
+    @buyImgWidth: 270px;
+
 
     // Item content (container of description, price, balance, buy button)
     .content {
-        @padding: 10px;
-        padding: @padding;
-        text-align: center;
-        height:  @itemHeight - 2 * @padding;
-        .background-size(100% 100%);
-    }
-
-    // The content is layed out in three rows
-    .row:first-child {
-        height: @balanceHeight;
-    }
-    .row:last-child {
-        height: @secondRowHeight;
-    }
-
-    // 1st row contents
-    .description {
-        font-size: 16px;
-        overflow:hidden;
-
-        label {
-            .hyphens();
-        }
-    }
-    .balance, .description {
-        .box(vertical, center, center);
-        height: 100%;
-    }
-
-    // 2nd row contents
-    .balanceRow {
         position: relative;
-        padding-top: 7px;
+        text-align: center;
 
-        .balance {
-            position: absolute;
-            top: -7px;
-            right: 0;
-            font-size: 18px;
-            font-weight: bold;
-            height: @balanceHeight;
-            width: @balanceWidth;
-            background-size: 100%;
-        }
-    }
-    // Item image
-    .visual {
-        width: @visualWidth;
-        height: @visualHeight;
+        // Fill the parent completely by default
+        // This makes adding padding difficult
+        .square(100%);
+        .background-size(100%);
     }
 
-    // 3nd row contents
-    .price {
-        font-size: 20px;
-        font-weight: bold;
-        font-style: italic;
-        color: #FFF;
-        text-shadow: 2px 2px 2px #000;
-        padding-top: 7px;
+    .item-name, .item-description, .item-price, .item-balance, .item-amount {
+
+        // Default styles.  Can be overridden in theme
+        position: absolute;
+        width: 100%;
+        .hyphens;
+        .box(vertical, center, center);
+
+        // So that it'll be above the item image and the background image
+        z-index: 1;
     }
-    .currency {
-        width: @secondRowHeight;
-        height: @secondRowHeight;
+
+    .item-image {
+
+        // Defaults
+        position: absolute;
+        .offset(0,0);
+        .square(100%);
+    }
+
+    .item-currency-image {
+        display: inline-block;
         vertical-align: middle;
-        display: inline;
     }
+
     .buy {
+
+        // Defaults
+        position: absolute;
+        width: 100%;
+        .offset(500px, 0);
+
         img {
             width: @buyImgWidth;
         }
-        display: block;
     }
 
     // Add specific styling for equippable items
@@ -282,9 +222,6 @@
 
 // MODAL DIALOG
 // --------------------------------------------------
-.dialog {
-	.box(vertical, center);
-}
 
 .modal {
     height: 100%;
@@ -297,10 +234,17 @@
     background: rgba(0, 0, 0, 0.6);
 }
 
+.modal-container.modal-loading .actions {
+    display: none;
+}
+
 .dialog {
+    .box(vertical, center);
     text-align: center;
-    width: 540px;
-    height: 300px;
+    width: 1080px;
+    height: 720px;
+
+    .centralizedCoveringBackground;
 
     h1 {
         .box-flex(2);
@@ -314,7 +258,7 @@
         .box-flex(1);
         margin-top: 10px;
         img {
-            .maxSize(60px, 260px);
+            .size(200px, 500px);
             cursor: pointer;
         }
     }

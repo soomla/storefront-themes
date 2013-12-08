@@ -1,41 +1,17 @@
 {{fontFaceStylesheet fonts}}
-<style>
-.category {
-	{{common.inactiveCategoryTitleStyle}}
-	background-image: url({{common.inactiveCategoryTitleBackground}});
-}
-.category.selected {
-	{{common.activeCategoryTitleStyle}}
-	background-image: url({{common.activeCategoryTitleBackground}});
-}
-</style>
-<div id="content-container" data-role="page">
-	<div class="content">
-		<div class="header">
-			<img class="title-image" src="{{common.titleImage}}">
-			<a><img src="{{common.backButton}}" class="leave-store"></a>
-			<div class="categories-container">
-				<div class="categories" style="background-image: url({{common.categoriesTitleBackground}})"></div>
-			</div>
-		</div>
-		<div class="items-container">
-			<div data-iscroll="true">
-				<div class="currency-packs">
-				</div>
-			</div>
-		</div>
-		<div class="footer">
-			<div class="balance-container font-face-2">
-				<div class="balance-contained" style="background-image: url({{balance.title.background}})">
-					<label class="label-title" style="{{balance.title.style}}">{{balance.title.text}}</label>
-					{{#each currencies}}
-						<div class="label-container">
-							<label data-currency="{{this.itemId}}">{{this.balance}}</label>
-							<img class="currency" src="{{this.imgFilePath}}">
-						</div>
-					{{/each}}
-				</div>
-			</div>
+<div id="content-container">
+    <a id="leave-store" class="font-face-1">{{global.backButton.backButtonText}}</a>
+    <div id="menu-region" class="font-face-1"></div>
+	<div id="items-container">
+		<div data-iscroll="true">
 		</div>
 	</div>
+    <div class="balances font-face-2">
+		{{#each currencies}}
+            <div class="balance-container">
+                <label class="balance-label">{{this.balance}}</label>
+                <img class="balance-currency-image" src="{{this.imgFilePath}}">
+            </div>
+		{{/each}}
+    </div>
 </div>

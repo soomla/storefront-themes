@@ -1,4 +1,4 @@
-define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handlebars", "templates", "jquery.fastbutton"], function($, Backbone, Components, Handlebars) {
+define("pirateRaceLandscapeViews", ["jquery", "backbone", "marionette", "components", "handlebars", "templates", "jquery.fastbutton"], function($, Backbone, Marionette, Components, Handlebars) {
 
     //
     // grunt-rigger directive - DO NOT DELETE
@@ -9,19 +9,141 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handleb
     // Define view types
 
     var getTemplate = Handlebars.getTemplate,
-        VirtualGoodView = Components.SingleUseItemView.extend({ template : getTemplate("item") }),
-        CategoryHeaderView = Components.LinkView.extend({
-            tagName: "span",
-            template: getTemplate("categoryHeader"),
-            triggers: { "fastclick .category": "chooseCategory" }
+
+    // TODO: Expand to single use, equippable, lifetime, upgradable
+        VirtualGoodView = Components.SingleUseItemView.extend({
+            template : getTemplate("item"),
+            onRender : function() {
+
+                // Save the model cid for the iscroll to identify it
+                this.$el.data("cid", this.model.cid);
+            }
         }),
-        SectionedListView = Components.BaseCompositeView.extend({
-            className           : "items", // clearfix
-            template            : getTemplate("listContainer"),
-            itemViewContainer   : ".container"
+        MenuItemView = Components.LinkView.extend({
+            tagName: "a",
+            className : "menu-item",
+            template: getTemplate("menuItem"),
+            triggers: { fastclick: "select" },
+            select : function() {
+                this.$el.addClass("selected");
+            },
+            deselect : function() {
+                this.$el.removeClass("selected");
+            }
         }),
-        EquippableVirtualGoodView   = Components.EquippableItemView.extend({ template : getTemplate("equippableItem")}),
-        CurrencyPackView = Components.CurrencyPackView.extend({ template: getTemplate("currencyPack") });
+
+        MenuSectionView = Components.CollectionView.extend({
+            "className" : "menu-section",
+            tagName : "div",
+            itemView : MenuItemView
+        }),
+
+    // TODO: Add template helpers
+        MenuView = Marionette.Layout.extend({
+            id : "menu",
+            initialize : function(options) {
+
+                _.extend(this, options.collections);
+
+                this.categoriesView = new MenuSectionView({collection : this.categories}).forwardEvent("itemview:select", this, "select:category");
+                this.currenciesView = new MenuSectionView({collection : this.currencies}).forwardEvent("itemview:select", this, "select:currency");
+
+                var updateActiveView = function () {
+
+                    // When changes occur to the categories \ currencies
+                    // default to activating the first view in the menu
+                    var view = this.categoriesView.children.first() || this.currenciesView.children.first();
+                    this._replaceActiveView(view);
+                };
+
+                this.listenTo(this.categories, "add remove reset", updateActiveView);
+                this.listenTo(this.currencies, "add remove reset", updateActiveView);
+
+                // TODO: Mark selected category \ currency
+                // TODO: Add offers
+            },
+            template : getTemplate("menu"),
+            regions : {
+                categoriesRegion : "#menu-categories-region",
+                currenciesRegion : "#menu-currencies-region"
+            },
+            onRender : function() {
+                this.categoriesRegion.show(this.categoriesView);
+                this.currenciesRegion.show(this.currenciesView);
+                this.activeView = this.categoriesView.children.first() || this.currenciesView.children.first();
+                this.activeView.select();
+            },
+            setActiveViewByCid : function(modelCid) {
+
+                var cid;
+                this.categories.each(function(category) {
+                    if (category.getGoods().get(modelCid)) cid = category.cid;
+                });
+                this.currencies.each(function(currency) {
+                    if (currency.getPacks().get(modelCid)) cid = currency.cid;
+                });
+
+
+                var view = this.categoriesView.children.findByModelCid(cid) || this.currenciesView.children.findByModelCid(cid);
+                this._replaceActiveView(view);
+            },
+            _replaceActiveView : function(view) {
+                this.activeView.deselect();
+                this.activeView = view;
+                this.activeView.select();
+            }
+        }),
+
+
+
+        CurrencyPackView = Components.CurrencyPackView.extend({
+            template: getTemplate("currencyPack"),
+            onRender : function() {
+
+                // Save the model cid for the iscroll to identify it
+                this.$el.data("cid", this.model.cid);
+            }
+        }),
+        CurrencyView = Components.CollectionView.extend({
+            className   : "currency", // clearfix
+            itemView    : CurrencyPackView
+        }),
+        CategoryView = Components.CollectionView.extend({
+            className   : "category", // clearfix
+            getItemView: function(item) {
+
+                if (!item) {
+                    return Components.BaseCompositeView.prototype.getItemView.apply(this, arguments);
+                } else {
+
+                    var itemView;
+
+                    if (item.is("upgradable")) {
+                        itemView = VirtualGoodView;
+                    } else {
+
+                        // some logic to calculate which view to return
+                        switch (item.getType()) {
+                            case "singleUse":
+                                itemView = VirtualGoodView;
+                                break;
+                            case "equippable":
+                                itemView = VirtualGoodView;
+                                break;
+                            case "lifetime":
+                                itemView = VirtualGoodView;
+                                break;
+                        }
+                    }
+                    return itemView;
+                }
+            }
+        }),
+
+        // TODO: Change class name and allow float left
+        CurrenciesView              = Components.CollectionView.extend({ tagName : "div", className: "currencies", itemView : CurrencyView }),
+        CategoriesView              = Components.CollectionView.extend({ tagName : "div", className: "categories", itemView : CategoryView }),
+        EquippableVirtualGoodView   = Components.EquippableItemView.extend({ template : getTemplate("equippableItem")});
 
 
     var extendViews = function(model) {
@@ -36,240 +158,245 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "components", "handleb
 
             return _.extend({
                 imgFilePath: assets.getItemAsset(this.model.id),
-                backgroundImgFilePath: assets.getCategoryAsset(this.model.get("categoryId")),
                 currency : {
                     imgFilePath : assets.getItemAsset(this.model.getCurrencyId())
                 },
-                price : this.model.get("priceModel").values[this.model.getCurrencyId()]
+                price : this.model.getPrice()
 
-                // TODO: Move all properties under pages.goods.item and pages.currencyPacks.item and migrate DB
-            }, theme.pages.goods.listItem);
+            }, theme.goods.item);
         };
 
-        CategoryHeaderView.prototype.templateHelpers = templateHelpers;
         VirtualGoodView.prototype.templateHelpers = templateHelpers;
         EquippableVirtualGoodView.prototype.templateHelpers = templateHelpers;
         CurrencyPackView.prototype.templateHelpers = function() {
-            return {
-                nameStyle       : theme.pages.currencyPacks.listItem.nameStyle,
-                priceStyle      : theme.pages.currencyPacks.listItem.priceStyle,
-                buy             : theme.pages.currencyPacks.listItem.buy,
+            return _.extend({
+                price : this.model.getPrice(),
                 imgFilePath     : assets.getItemAsset(this.model.id),
-                backgroundImgFilePath: eval('theme.currencyPacksCategoryImage_' + this.model.getCurrencyId())
-            };
+                currency : {
+                    imgFilePath : assets.getItemAsset(this.model.getCurrencyId())
+                }
+            }, theme.currencyPacks.item);
         };
     };
 
 
     var StoreView = Components.BaseStoreView.extend({
         initialize : function() {
-            _.bindAll(this, "showGoodsStore");
-            this.dialogModal = this.theme.pages.goods.noFundsModal;
+
+
+            _.bindAll(this, "chooseCategory", "chooseCurrencyCategory", "buyItem", "equipGoods");
+
+
+
+            this.dialogModal = this.theme.noFundsModal;
             this.loadingModal = {
                 "text": "Loading...",
                 "background": this.dialogModal.background,
                 "textStyle": this.dialogModal.textStyle
             };
 
-            this.categoryHeaderViews = [];
-            this.categoryViews  = [];
 
             var currencies      = this.model.getCurrencies(),
                 categories      = this.model.getCategories();
 
-            // View event listeners
-            var wantsToBuyVirtualGoods = _.bind(function (view) {
-                this.playSound().wantsToBuyVirtualGoods(view.model);
-            }, this);
-            var wantsToEquipGoods = _.bind(function (view) {
-                this.playSound().wantsToEquipGoods(view.model);
-            }, this);
-            var wantsToBuyMarketItem = _.bind(function (view) {
-                this.playSound().wantsToBuyMarketItem(view.model);
-            }, this);
-            var chooseCurrencyCategory = _.bind(function (view) {
-                var currencyPacks = view.model.getPacks();
-                _.each(this.currencyPacksViews, function (currencyPacksView) {
-                    if (currencyPacks == currencyPacksView.collection) {
-                        this.iscrolls.onlyOne.scrollToElement(currencyPacksView.el, 500);
-                        return;
-                    }
-                }, this);
-            }, this);
-            var chooseCategory = _.bind(function (view) {
-                var categroyGoods = view.model.getGoods();
-                _.each(this.categoryViews, function (categoryView) {
-                    if (categroyGoods == categoryView.collection) {
-                        this.iscrolls.onlyOne.scrollToElement(categoryView.el, 500);
-                        return;
-                    }
-                }, this);
-            }, this);
+            // Create header view
+            this.headerView = new MenuView({
+                collections : {
+                    categories : categories,
+                    currencies : currencies
+                    // TODO: Add offers
+                }
+            });
+            this.listenTo(this.headerView, {
+                "select:category" : this.chooseCategory,
+                "select:currency" : this.chooseCurrencyCategory
+            });
 
             // Create category views
-            var i = 0;
-            this.numOfItems = 0;
+            this.createCategoriesView(categories);
 
-            categories.each(function (category) {
-
-                var headerView = new CategoryHeaderView({
-                    model: category,
-                    className: "categoryHeader",
-                    templateHelpers: _.extend({ category: category.getName(), id: category.id, selected: (i++ == 0) ? "selected" : "" }, this.theme.categories)
-                }).on("chooseCategory", chooseCategory);
-
-                this.categoryHeaderViews.push(headerView);
-
-                var categoryGoods   = category.getGoods(),
-                    equipping       = category.get("equipping"),
-                    view;
-                this.numOfItems += (!!categoryGoods) ? categoryGoods.length : 0;
-
-                if (equipping === "single") {
-                    view = new SectionedListView({
-                        collection          : categoryGoods,
-                        itemView            : EquippableVirtualGoodView,
-                        templateHelpers     : _.extend({category : category.getName(), id: category.id}, this.theme.categories)
-                    }).on({
-                        "itemview:buy" 		: wantsToBuyVirtualGoods,
-                        "itemview:equip" 	: wantsToEquipGoods
-                    });
-                } else {
-                    view = new SectionedListView({
-                        collection          : categoryGoods,
-                        itemView            : VirtualGoodView,
-                        templateHelpers     : _.extend({category : category.getName(), id: category.id}, this.theme.categories)
-                    }).on("itemview:buy", wantsToBuyVirtualGoods);
-                }
-                this.categoryViews.push(view);
-            }, this);
-
-            var currencyIndex = 1;
-            this.currencyPacksViews = [];
-            currencies.each(function (currency) {
-                var headerView = new CategoryHeaderView({
-                    model: currency,
-                    className: "currencyHeader",
-                    templateHelpers: _.extend({ category: currency.getName(), id: currency.id, selected: "" }, this.theme.categories)
-                }).on("chooseCategory", chooseCurrencyCategory);
-
-                this.categoryHeaderViews.push(headerView);
-
-                var packs = currency.getPacks();
-                var numOfPacks = (!!packs) ? packs.length : 0;
-                if (currencyIndex == currencies.length && numOfPacks > 0 && numOfPacks < 3) {
-                    numOfPacks = 5; // add padding to the last pack
-                }
-                this.numOfItems += numOfPacks;
-
-                var view = new SectionedListView({
-                    className           : "items currencyPacks",
-                    collection          : packs,
-                    itemView            : CurrencyPackView,
-                    templateHelpers: _.extend({ category: currency.getName(), id: currency.id, selected: ""}, this.theme.categories)
-                }).on("itemview:buy", wantsToBuyMarketItem);
-
-                this.currencyPacksViews.push(view);
-                currencyIndex++;
-            }, this);
+            // Create currency views
+            this.createCurrenciesView(currencies);
         },
         events : {
-            "fastclick .leave-store" : "leaveStore",
-            "fastclick .buy-more"    : "onClickBuyMore",
-            "fastclick .back"        : "showGoodsStore"
+            "fastclick #leave-store" : "leaveStore",
+            "fastclick .buy-more"    : "onClickBuyMore"
         },
         ui : {
-            goodsStore: "#content-container",
-            goodsHeader: "#content-container .header",
-            goodsCategoriesHeader: "#content-container .header .categories",
-            goodsIscrollContainer: "#content-container .items-container [data-iscroll='true']",
-            currencyPacksContainer : ".currency-packs"
+            goodsIscrollContainer   : "#items-container [data-iscroll='true']",
+            menuRegion              : "#menu-region"
         },
         updateBalance : function(model) {
             // TODO: Move to a header view
-            this.$(".balance-container label[data-currency='" + model.id + "']").html(model.getBalance());
+            this.$(".balances label[data-currency='" + model.id + "']").html(model.getBalance());
         },
         onClickBuyMore : function() {
             this.showCurrencyPacks();
         },
         changeViewToItem: function (itemId) {
-            if (!itemId)
-                return;
+            if (!itemId) return;
 
-            var goodsItem = this.model.goodsMap[itemId];
-            var currencyPacksItem = this.model.packsMap[itemId];
-            var item = goodsItem || currencyPacksItem;
-            if (!item) {
-                console.log('View was not changed. Could not find item: "' + itemId + '".');
-                return;
+            var category = this.model.categoryMap[itemId];
+            var item, view;
+
+            if (category) {
+                item = category.getGoods().get(itemId);
+                view = this.categoriesView.children.findByModel(category).children.findByModel(item);
+            } else {
+                if (item = this.model.packsMap[itemId]) {
+                    var currency = this.model.getCurrency(item.getCurrencyId());
+                    view = this.currenciesView.children.findByModel(currency).children.findByModel(item);
+                }
             }
 
-            var catCurrViews = this.categoryViews.concat(this.currencyPacksViews);
-            _.each(catCurrViews, function (catCurrView) {
-                var itemView = catCurrView.children.findByModel(item);
-                if (itemView) {
-                    this.iscrolls.onlyOne.scrollToElement(itemView.el, 500);
-                    return;
-                }
-            }, this);
+            if (view) {
+                this.iscrolls.onlyOne.scrollToElement(view.el, 500);
+            } else {
+                console.log('View was not changed. Could not find item: "' + itemId + '".');
+            }
+        },
+        changeActiveViewByModel : function(model) {
+            var view = this.categoriesView.children.findByModel(model) || this.currenciesView.children.findByModel(model);
+            if (view) this.iscrolls.onlyOne.scrollToElement(view.el, 500);
         },
         showCurrencyPacks: function () {
-            this.playSound();
-            this.iscrolls.onlyOne.scrollToElement('.currencyPacks', 500);
-        },
-        showGoodsStore : function() {
-            this.playSound();
-            this.ui.goodsStore.show();
-            this.iscrolls.onlyOne.refresh();
+            var view = this.currenciesView.children.first();
+            this.iscrolls.onlyOne.scrollToElement(view.el, 500);
         },
         iscrollRegions : {
             onlyOne : {
-                el : "#content-container .items-container",
+                el : "#items-container",
                 options: {
                     snap: 'li',
                     hScroll: true, vScroll: false, hScrollbar: false, vScrollbar: false,
                     onScrollEnd: function ($this, iScroll) {
-                        var itemWidth = 204; //TODO: Change "204" to @itemWidth.
-                        var xPos = Math.max(0, (Math.abs(iScroll.x) + 3));
-                        if (Math.abs(iScroll.x) > Math.abs(iScroll.maxScrollX) - 1) {
-                            // Handle the edge case of getting to the end of the scroller.
-                            xPos = iScroll.scroller.clientWidth - 1; 
-                        }
-                        var itemIndex = Math.floor(xPos / itemWidth);
-                        var liElement = $('ul li', iScroll.scroller)[itemIndex];
-                        var categoryId = $('> div', liElement).data('categoryid');
-                        $('div .categories .selected').toggleClass('selected', false);
+                         var itemWidth = $this.$(".item:first").outerWidth(true);
+                        var xPos = Math.max(0, (Math.abs(iScroll.x)));
+//                        if (Math.abs(iScroll.x) > Math.abs(iScroll.maxScrollX) - 1) {
+//                            // Handle the edge case of getting to the end of the scroller.
+//                            xPos = iScroll.scroller.clientWidth - 1;
+//                        }
+                        var itemIndex = Math.ceil(xPos / itemWidth);
+                        var liElement = $('ul li', iScroll.scroller).eq(itemIndex);
+                        var categoryId = liElement.data('cid');
 
-                        _.each($this.categoryHeaderViews, function (categoryHeaderView) {
-                            if (categoryHeaderView.model.id == categoryId) {
-                                $(categoryHeaderView.el.firstChild).toggleClass('selected', true);
-                                return;
-                            }
-                        });
+                        $this.headerView.setActiveViewByCid(categoryId);
                     }
                 }
             }
         },
         onRender : function() {
-            // Render subviews (categories, items in goods store and currency store)
-            _.each(this.categoryHeaderViews, function (view) {
-                this.ui.goodsCategoriesHeader.append(view.render().el);
-            }, this);
-
-            //TODO: Change "204" to @itemWidth.
-            var itemWidth = 204;
-            this.ui.goodsIscrollContainer[0].style.width = this.numOfItems * itemWidth + 'px';
-
-            _.each(this.categoryViews, function(view) {
-                this.ui.goodsIscrollContainer.append(view.render().el);
-            }, this);
-
-            _.each(this.currencyPacksViews, function(view) {
-                this.ui.goodsIscrollContainer.append(view.render().el);
-            }, this);
+            this.appendHeaderView().appendCategoriesView().appendCurrenciesView();
+            this.calculateIScrollWidth().bindEventsToIScroll();
         },
-        zoomFunction: function () {
-            return (innerWidth / innerHeight) > (1120/570) ? (innerHeight / 570) : (innerWidth / 1120);
+
+        appendHeaderView : function() {
+            this.ui.menuRegion.append(this.headerView.render().el);
+            return this;
+        },
+
+        appendCategoriesView : function() {
+            this.ui.goodsIscrollContainer.append(this.categoriesView.render().el);
+            return this;
+        },
+
+        appendCurrenciesView : function() {
+            this.ui.goodsIscrollContainer.append(this.currenciesView.render().el);
+            return this;
+        },
+
+
+
+
+
+        createCategoriesView : function(categories) {
+
+            this.categoriesView = new CategoriesView({
+                collection 		: categories,
+                itemViewOptions : function(item) {
+                    return {
+                        model       : item,
+                        collection  : item.getGoods()
+                    };
+                }
+            });
+
+            // Listen to logical events
+            this.listenTo(this.categoriesView, {
+                "itemview:itemview:buy"     : this.buyItem,
+                "itemview:itemview:equip" 	: this.equipGoods,
+                "itemview:itemview:upgrade" : this.upgradeGood
+            });
+        },
+
+
+        createCurrenciesView : function(currencies) {
+
+            this.currenciesView = new CurrenciesView({
+                collection 		: currencies,
+                itemViewOptions : function(item) {
+                    return {
+                        model       : item,
+                        collection  : item.getPacks()
+                    };
+                }
+            });
+
+            // Listen to logical events
+            this.listenTo(this.currenciesView, {
+                "itemview:itemview:buy"     : this.buyItem
+            });
+        },
+        buyItem : function (categoryView, itemView) {
+            this.playSound().wantsToBuyItem(itemView.model.id);
+        },
+        equipGoods : function (categoryView, itemView) {
+            this.playSound().wantsToEquipGoods(itemView.model);
+        },
+        chooseCurrencyCategory : function (view) {
+            var currencyView = this.currenciesView.children.findByModel(view.model);
+            this.iscrolls.onlyOne.scrollToElement(currencyView.el, 500);
+        },
+        chooseCategory : function (view) {
+            var categoryView = this.categoriesView.children.findByModel(view.model);
+            this.iscrolls.onlyOne.scrollToElement(categoryView.el, 500);
+        },
+
+
+
+
+
+
+
+        bindEventsToIScroll : function() {
+
+            //
+            // Listen to view change events
+            // Event legend:
+            //
+            // "after:item:added"           - Category \ Currency added
+            // "item:removed"               - Category \ Currency removed
+            // "itemview:after:item:added"  - Good \ Pack added
+            // "itemview:after:item:added"  - Good \ Pack removed
+            //
+            this.listenTo(this.categoriesView, "after:item:added item:removed itemview:after:item:added itemview:item:removed", this.refreshIScroll);
+            this.listenTo(this.currenciesView, "after:item:added item:removed itemview:after:item:added itemview:item:removed", this.refreshIScroll);
+        },
+        refreshIScroll : function() {
+            this.calculateIScrollWidth();
+            this.iscrolls.onlyOne.refresh();
+        },
+        calculateIScrollWidth : function() {
+            var count = this.ui.goodsIscrollContainer.find("li").length,
+            	width = this.ui.goodsIscrollContainer.find("li:first").outerWidth(true);
+            this.ui.goodsIscrollContainer.width(count * width);
+            return this;
+        },
+
+
+
+        zoomFunction : function () {
+            return (innerWidth / innerHeight) > (3/2) ? (innerHeight / 1280) : (innerWidth / 1920);
         }
     });
 

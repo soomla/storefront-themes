@@ -7,15 +7,8 @@
         "items": {
             "bomb": "img/Powerups/Bomb.png",
             "gold_pot": "img/Powerups/Gold_Pot.png",
-            "gold_pot_2": "img/Powerups/Gold_Pot.png",
             "lucky_clover": "img/Powerups/Lucky_Clover.png",
-            "lucky_clover_2": "img/Powerups/Lucky_Clover.png",
             "rock_book": "img/Powerups/Rock_Book.png",
-            "rock_book_gems": "img/Powerups/Rock_Book.png",
-            "kasey": "img/Characters/Kasey.png",
-            "robert_din": "img/Characters/Robert_Din.png",
-            "sir_james": "img/Characters/Sir_James.png",
-            "tod": "img/Characters/Tod.png",
             "coins_2500": "img/CurrencyPacks/GetCoins_1.png",
             "coins_25000": "img/CurrencyPacks/GetCoins_2.png",
             "coins_75000": "img/CurrencyPacks/GetCoins_3.png",
@@ -34,63 +27,72 @@
     "theme": {
         "name": "goldDiggerLandscape",
         "version": 1,
-        "background": "img/BG-Level0.jpg",
-        "contentBackground": "img/BG-Level1.jpg",
-        "currencyPacksCategoryImage_currency_coins": "img/BG-Coins.png",
-        "currencyPacksCategoryImage_currency_gems": "img/BG-Gems.png",
-        "common": {
-            "titleImage": "img/Header_Title.png",
-            "activeCategoryTitleBackground": "img/BG-Level0.jpg",
-            "activeCategoryTitleStyle": "color: yellow !important;",
-            "inactiveCategoryTitleBackground": "img/BG-Level1.jpg",
-            "inactiveCategoryTitleStyle": "",
-            "categoriesTitleBackground": "img/BG-Level0.jpg",
-            "backButton": "img/Back_BTN.png",
-            "balanceLabelStyle": "color: #E9C861;"
+        "global" : {
+            "background": "img/BG-Level0.jpg",
+            "contentBackground": "img/BG-Level1.jpg",
+            "menu" : {
+                "menuStyle" : "position: absolute; width: 100%; top: 90px; text-align: center;",
+                "activeMenuItemBackgroundImage": "img/BG-Level0.jpg",
+                "activeMenuItemStyle": "color: yellow;",
+                "menuItemBackgroundImage": "img/BG-Level1.jpg",
+                "menuItemStyle": "width: 270px; height: 90px; font-size: 40px; padding: 0 10px;"
+            },
+            "balance": {
+                "balanceContainerStyle" : "position: absolute; top: 1000px; font-size: 60px; color: white; text-align: center; width: 100%;",
+                "labelStyle": "color: #E9C861;",
+                "currencyImageStyle" : "width: 70px; height: 70px; margin-right: 20px;"
+            },
+            "backButton" : {
+                "backButtonBackgroundImage": "img/Back_BTN.png",
+                "backButtonText" : "Back",
+                "backButtonStyle": "left: 0; top: 0; width: 270px; height: 90px; font-size: 50px;"
+            },
+            "items" : {
+                "itemStyle" : "width: 400px; height: 750px;",
+                "scrollContainerStyle" : "position: absolute; top: 180px; width: 1500px; margin: 30px 50px; overflow: hidden;"
+            }
         },
         "fonts": [
             "fonts/MetalLord.otf",
             "fonts/Lobster_1.3.otf"
         ],
-        "balance": {
-            "title": {
-                "text": "Treasure:",
-                "style": "color: #E9C861;",
-                "background": "img/BG-Level0.jpg"
-            },
-            "style": "color: #E9C861;"
+        "noFundsModal": {
+            "backgroundImage": "img/Alert_BG.png",
+            "text": "Insufficient funds.  Would you like to buy more?",
+            "textStyle": "font-size: 60px; color: #DEBE8D; text-shadow: 1px 2px #000",
+            "yesButton": "img/Yes_BTN.png",
+            "noButton": "img/No_BTN.png"
         },
-        "pages": {
-            "goods": {
-                "list": {
-                    "background": "img/Item_Area.jpg"
-                },
-                "listItem": {
-                    "buy": "img/purchase.png",
-                    "buyOnce": "img/unlock.png",
-                    "equip": "img/equip.png",
-                    "active": "img/equipped.png",
-                    "descriptionStyle": "color: #DEBE8D; font-size: 20px",
-                    "priceStyle": "color: #E9C861; font-style: normal"
-                },
-                "noFundsModal": {
-                    "background": "img/Alert_BG.png",
-                    "text": "Insufficient funds.  Would you like to buy more?",
-                    "textStyle": "color: #DEBE8D; text-shadow: 1px 2px #000",
-                    "yesButton": "img/Yes_BTN.png",
-                    "noButton": "img/No_BTN.png"
-                }
-            },
-            "currencyPacks": {
-                "listItem": {
-                    "nameStyle": "color: #E9C861; font-size: 28px;",
-                    "priceStyle": "font-style: normal; color: #F7EABE; font-weight: normal;",
-                    "buy": "img/purchase.png"
-                }
+        "loadingModal" : {
+            "backgroundImage" : "img/Alert_BG.png",
+            "text" : "Loading...",
+            "textStyle" : "font-size: 80px; color: #DEBE8D; text-shadow: 1px 2px #000"
+        },
+        "goods": {
+            "item": {
+                "backgroundImage" : "",
+                "itemImageStyle" : "",
+                "nameStyle" : "position: absolute; top: 20px; left: 0; font-size: 60px; color: #FFF; text-shadow: 2px 2px 2px #000;",
+                "descriptionStyle": "position: absolute; top: 100px; color: #DEBE8D; font-size: 40px;",
+                "priceStyle": "top: 450px; font-size: 70px; font-weight: bold; font-style: italic; color: #FFF; text-shadow: 2px 2px 2px #000;",
+                "currencyImageStyle": "width: 70px; height: 70px;",
+                "balanceStyle": "position: absolute; top: 550px; left: 0; color: #E9C861; text-shadow: 2px 2px 2px #000; font-size: 40px; font-weight: bold;",
+                "buyImage": "img/purchase.png",
+                "buyImageStyle" : "position: absolute; width: 100%; top: 600px; left: 0;"
             }
         },
-        "categories": {
-            "style": "color: #B89C6D; font-weight: normal"
+        "currencyPacks": {
+            "item": {
+                "backgroundImage" : "",
+                "itemImageStyle" : "",
+                "nameStyle": "position: absolute; top: 20px; left: 0; font-size: 60px; color: #FFF; text-shadow: 2px 2px 2px #000;",
+                "descriptionStyle": "position: absolute; top: 100px; color: #DEBE8D; font-size: 40px; display: none;",
+                "priceStyle": "top: 450px; font-size: 70px; font-weight: bold; font-style: italic; color: #FFF; text-shadow: 2px 2px 2px #000;",
+                "amountStyle": "position: absolute; top: 100px; left: 0; color: #E9C861; text-shadow: 2px 2px 2px #000; font-size: 40px; font-weight: bold;",
+                "currencyImageStyle": "width: 70px; height: 70px;",
+                "buyImage": "img/purchase.png",
+                "buyImageStyle" : "position: absolute; width: 100%; top: 600px; left: 0;"
+            }
         }
     }
 }

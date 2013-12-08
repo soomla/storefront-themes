@@ -1,9 +1,14 @@
 {
-	"supportedFeatures" : {
+    "supportedFeatures" : {
+        "goods" : {
+            "singleUse" : true
+        },
         "purchaseTypes" : {
             "virtualItem" : true
-        }
-	},
+        },
+        "removeAds" : {},
+        "hooks" : {}
+    },
     "sections" : {
         "global" : {
             "title" : "Global"
@@ -13,83 +18,107 @@
         },
         "fonts" : {
             "title" : "Fonts"
-        },
-        "categories" : {
-            "title" : "Categories"
         }
     },
     "attributes" : {
-        "background" : {
-            "type" : "backgroundImage",
-            "title" : "Background Image",
-            "selector" : "#content-container"
-        },
-        "contentBackground" : {
-            "type" : "backgroundImage",
-            "title" : "Content Background Image",
-            "selector" : "#content-container > .content",
-            "section" : "global"
-        },
-		"currencyPacksCategoryImage_currency_coins" : {
-			"type" : "backgroundImage",
-			"title" : "Soft Currency Packs Category Image",
-			"selector" : ".item.currency-packs img",
-            "section" : "global"
-		},
-		"currencyPacksCategoryImage_currency_gems" : {
-			"type" : "backgroundImage",
-			"title" : "Hard Currency Packs Category Image",
-			"selector" : ".item.currency-packs img",
-            "section" : "global"
-		},
-        "common" : {
-            "titleImage" : {
-                "type" : "image",
-                "title" : "Title Image",
-                "selector" : ".title-image",
+        "global" : {
+            "background" : {
+                "type" : "backgroundImage",
+                "title" : "Background Image",
+                "selector" : "#main",
                 "section" : "global"
             },
-			"activeCategoryTitleBackground" : {
-                "type" : "image",
-                "title" : "Active Category Title Background",
-                "selector" : ".header .categories .category .selected",
-                "section" : "categories"
-			},
-			"activeCategoryTitleStyle" : {
-                "type" : "css",
-                "title" : "Active Category Title Style",
-                "selector" : ".header .categories .category .selected",
-                "section" : "categories"
-			},
-			"inactiveCategoryTitleBackground" : {
-                "type" : "image",
-                "title" : "Inactive Category Title Background",
-                "selector" : ".header .categories .category",
-                "section" : "categories"
-			},
-			"inactiveCategoryTitleStyle" : {
-                "type" : "css",
-                "title" : "Inactive Category Title Style",
-                "selector" : ".header .categories .category",
-                "section" : "categories"
-			},
-			"categoriesTitleBackground" : {
-                "type" : "image",
-                "title" : "Categories Title Background",
-                "selector" : ".header .categories",
-                "section" : "categories"
-			},
+            "contentBackground" : {
+                "type" : "backgroundImage",
+                "title" : "Content Background Image",
+                "selector" : "#content-container",
+                "section" : "global"
+            },
+            "menu" : {
+                "menuStyle" : {
+                    "type" : "css",
+                    "title" : "Menu Style",
+                    "selector" : "#menu-region",
+                    "section" : "global"
+                },
+                "activeMenuItemBackgroundImage" : {
+                    "type" : "backgroundImage",
+                    "title" : "Active Menu Item Background Image",
+                    "selector" : ".menu-item.selected .menu-item-label",
+                    "section" : "global"
+                },
+                "activeMenuItemStyle" : {
+                    "type" : "css",
+                    "title" : "Active Menu Item Style",
+                    "selector" : ".menu-item.selected .menu-item-label",
+                    "section" : "global"
+                },
+                "menuItemBackgroundImage" : {
+                    "type" : "backgroundImage",
+                    "title" : "Menu Item Background Image",
+                    "selector" : ".menu-item .menu-item-label",
+                    "section" : "global"
+                },
+                "menuItemStyle" : {
+                    "type" : "css",
+                    "title" : "Menu Item Style",
+                    "selector" : ".menu-item .menu-item-label",
+                    "section" : "global"
+                }
+            },
+            "balance" : {
+                "balanceContainerStyle" : {
+                    "type" : "css",
+                    "title" : "Balance Container Style",
+                    "selector" : ".balances",
+                    "section" : "global"
+                },
+                "labelStyle" : {
+                    "type" : "css",
+                    "title" : "Balance Label Style",
+                    "selector" : ".balances .balance-container .balance-label",
+                    "section" : "global"
+                },
+                "currencyImageStyle" : {
+                    "type" : "css",
+                    "title" : "Balance Currency Image Style",
+                    "selector" : ".balances .balance-container .balance-currency-image",
+                    "section" : "global"
+                }
+            },
             "backButton" : {
-                "type" : "image",
-                "title" : "Back Button",
-                "selector" : ".header .leave-store",
-                "section" : "global"
+                "backButtonBackgroundImage" : {
+                    "type" : "backgroundImage",
+                    "title" : "Back Button Background Image",
+                    "selector" : "#leave-store",
+                    "section" : "global"
+                },
+                "backButtonText" : {
+                    "type" : "text",
+                    "title" : "Back Button Text",
+                    "selector" : "#leave-store",
+                    "section" : "global"
+                },
+                "backButtonStyle" : {
+                    "type" : "css",
+                    "title" : "Back Button Style",
+                    "selector" : "#leave-store",
+                    "section" : "global"
+                }
             },
-            "balanceLabelStyle" : {
-                "type" : "css",
-                "title" : "Balance Label Style",
-                "selector" : ".item .balance label",
-                "section" : "singleItems"
+            "items" : {
+                "scrollContainerStyle" : {
+                    "type" : "css",
+                    "title" : "Scroll Container Style",
+                    "selector" : "#items-container",
+                    "section" : "global"
+                },
+                "itemStyle" : {
+                    "type" : "css",
+                    "title" : "Single Item Style",
+                    "selector" : ".categories .item, .currencies .item",
+                    "section" : "singleItems"
+                }
             }
         },
         "fonts" : [
@@ -106,107 +135,286 @@
                 "section" : "fonts"
             }
         ],
-        "balance" : {
-			"title" : {
-				"text": {
-					"type" : "text",
-					"title" : "Balance Title Text",
-					"selector" : ".footer .balance-container .label-title",
-                    "section" : "global"
-				},
-				"style" : {
-					"type" : "css",
-					"title" : "Balance Title Style",
-					"selector" : ".footer .balance-container .label-title",
-                    "section" : "global"
-				},
-				"background" : {
-					"type" : "image",
-					"title" : "Balance Title Background",
-					"selector" : ".footer .balance-container .balance-contained",
-                    "section" : "global"
-				}
-			},
-            "style" : {
+        "noFundsModal" : {
+            "backgroundImage" : {
+                "type" : "backgroundImage",
+                "title" : "No Funds Dialog Background Image",
+                "selector" : ".modal-container.modal-insufficient-funds .dialog",
+                "section" : "global"
+            },
+            "text" : {
+                "type" : "text",
+                "title" : "No Funds Dialog Text",
+                "selector" : ".modal-container.modal-insufficient-funds .dialog h1",
+                "section" : "global"
+            },
+            "textStyle" : {
                 "type" : "css",
-                "title" : "Balance Style",
-                "selector" : ".footer .balance-container .label-container",
+                "title" : "No Funds Dialog Text Style",
+                "selector" : ".modal-container.modal-insufficient-funds .dialog h1",
+                "section" : "global"
+            },
+            "yesButton" : {
+                "type" : "image",
+                "title" : "No Funds Dialog 'Yes' Image",
+                "selector" : ".modal-container.modal-insufficient-funds .dialog .buy-more",
+                "section" : "global"
+            },
+            "noButton" : {
+                "type" : "image",
+                "title" : "No Funds Dialog 'No' Image",
+                "selector" : ".modal-container.modal-insufficient-funds .dialog .cancel",
                 "section" : "global"
             }
         },
-        "pages" : {
-            "goods" :{
-                "list" : {
-                    "background" : {
-                        "type" : "backgroundImage",
-                        "title" : "Item Area Background",
-                        "selector" : ".items-container",
-                        "section" : "global"
-                    }
+        "loadingModal" : {
+            "backgroundImage" : {
+                "type" : "backgroundImage",
+                "title" : "Loading Dialog Background Image",
+                "selector" : ".modal-container.modal-loading .dialog",
+                "section" : "global"
+            },
+            "text" : {
+                "type" : "text",
+                "title" : "Loading Dialog Text",
+                "selector" : ".modal-container.modal-loading .dialog h1",
+                "section" : "global"
+            },
+            "textStyle" : {
+                "type" : "css",
+                "title" : "Loading Dialog Text Style",
+                "selector" : ".modal-container.modal-loading .dialog h1",
+                "section" : "global"
+            }
+        },
+        "goods" :{
+            "item" : {
+                "backgroundImage" : {
+                    "type" : "backgroundImage",
+                    "title" : "Virtual Good Background Image",
+                    "selector" : ".categories .item",
+                    "section" : "singleItems"
                 },
-                "listItem" : {
-                    "buy" : {
-                        "type" : "image",
-                        "title" : "Unlock Image",
-                        "selector" : ".item .buy",
-                        "section" : "singleItems"
-                    },
-                    "buyOnce" : {
-                        "type" : "image",
-                        "title" : "Unlock Image",
-                        "selector" : ".item .buy",
-                        "section" : "singleItems"
-                    },
-                    "equip" : {
-                        "type" : "image",
-                        "title" : "Activate Image",
-                        "selector" : ".item .equip",
-                        "section" : "singleItems"
-                    },
-                    "active" : {
-                        "type" : "image",
-                        "title" : "Active Image",
-                        "selector" : ".item .active",
-                        "section" : "singleItems"
-                    }
+                "itemImageStyle" : {
+                    "type" : "css",
+                    "title" : "Virtual Good Image Style",
+                    "selector" : ".categories .item .item-image",
+                    "section" : "singleItems"
+                },
+                "nameStyle" : {
+                    "type" : "css",
+                    "title" : "Virtual Good Name Style",
+                    "selector" : ".categories .item .item-name",
+                    "section" : "singleItems"
+                },
+                "descriptionStyle" : {
+                    "type" : "css",
+                    "title" : "Virtual Good Description Style",
+                    "selector" : ".categories .item .item-description",
+                    "section" : "singleItems"
+                },
+                "priceStyle" : {
+                    "type" : "css",
+                    "title" : "Virtual Good Price Style",
+                    "selector" : ".categories .item .item-price",
+                    "section" : "singleItems"
+                },
+                "currencyImageStyle" : {
+                    "type" : "css",
+                    "title" : "Virtual Good Currency Image Style",
+                    "selector" : ".categories .item .item-currency-image",
+                    "section" : "singleItems"
+                },
+                "balanceStyle" : {
+                    "type" : "css",
+                    "title" : "Virtual Good Balance Style",
+                    "selector" : ".categories .item .item-balance",
+                    "section" : "singleItems"
+                },
+                "buyImage" : {
+                    "type" : "image",
+                    "title" : "Virtual Good Buy Image",
+                    "selector" : ".categories .item .buy",
+                    "section" : "singleItems"
+                },
+                "buyImageStyle" : {
+                    "type" : "css",
+                    "title" : "Virtual Good Buy Image Style",
+                    "selector" : ".categories .item .buy",
+                    "section" : "singleItems"
+                }
 
+            }
+        },
+        "currencyPacks" :{
+            "item" : {
+                "backgroundImage" : {
+                    "type" : "backgroundImage",
+                    "title" : "Currency Pack Background Image",
+                    "selector" : ".currencies .item",
+                    "section" : "singleItems"
                 },
-                "noFundsModal" : {
-                    "background" : {
-                        "type" : "backgroundImage",
-                        "title" : "Dialog Background Image",
-                        "selector" : ".dialog",
-                        "section" : "global"
-                    },
-                    "text" : {
-                        "type" : "text",
-                        "title" : "Dialog Text",
-                        "selector" : ".dialog h1",
-                        "section" : "global"
-                    },
-                    "textStyle" : {
-                        "type" : "css",
-                        "title" : "Dialog Text Style",
-                        "selector" : ".dialog h1",
-                        "section" : "global"
-                    },
-                    "yesButton" : {
-                        "type" : "image",
-                        "title" : "'Yes' Button",
-                        "selector" : ".dialog .buy-more",
-                        "section" : "global"
-                    },
-                    "noButton" : {
-                        "type" : "image",
-                        "title" : "'No' Button",
-                        "selector" : ".dialog .cancel",
-                        "section" : "global"
-                    }
+                "itemImageStyle" : {
+                    "type" : "css",
+                    "title" : "Currency Pack Image Style",
+                    "selector" : ".currencies .item .item-image",
+                    "section" : "singleItems"
+                },
+                "nameStyle" : {
+                    "type" : "css",
+                    "title" : "Currency Pack Name Style",
+                    "selector" : ".currencies .item .item-name",
+                    "section" : "singleItems"
+                },
+                "descriptionStyle" : {
+                    "type" : "css",
+                    "title" : "Currency Pack Description Style",
+                    "selector" : ".currencies .item .item-description",
+                    "section" : "singleItems"
+                },
+                "priceStyle" : {
+                    "type" : "css",
+                    "title" : "Currency Pack Price Style",
+                    "selector" : ".currencies .item .item-price",
+                    "section" : "singleItems"
+                },
+                "amountStyle" : {
+                    "type" : "css",
+                    "title" : "Currency Pack Amount Style",
+                    "selector" : ".currencies .item .item-amount",
+                    "section" : "singleItems"
+                },
+                "currencyImageStyle" : {
+                    "type" : "css",
+                    "title" : "Currency Pack Currency Image Style",
+                    "selector" : ".currencies .item .item-currency-image",
+                    "section" : "singleItems"
+                },
+                "buyImage" : {
+                    "type" : "image",
+                    "title" : "Currency Pack Buy Image",
+                    "selector" : ".currencies .item .buy",
+                    "section" : "singleItems"
+                },
+                "buyImageStyle" : {
+                    "type" : "css",
+                    "title" : "Currency Pack Buy Image Style",
+                    "selector" : ".currencies .item .buy",
+                    "section" : "singleItems"
                 }
             }
         }
     },
-	"validations" : {
+    "assetMetadata" : {
+        "template" : {
+            "global" : {
+                "background" : {
+                    "w" : 1280,
+                    "h" : 1920
+                },
+                "contentBackground" : {
+                    "w" : 1600,
+                    "h" : 1080
+                },
+                "menu" : {
+                    "activeMenuItemBackgroundImage" : {
+                        "w" : 270,
+                        "h" : 90
+                    },
+                    "menuItemBackgroundImage" : {
+                        "w" : 270,
+                        "h" : 90
+                    }
+                },
+                "backButton" : {
+                    "backButtonBackgroundImage" : {
+                        "w" : 270,
+                        "h" : 90
+                    }
+                }
+            },
+            "noFundsModal" : {
+                "background" : {
+                    "w" : 1080,
+                    "h" : 720
+                },
+                "yesButton" : {
+                    "w" : 500,
+                    "h" : 200
+                },
+                "noButton" : {
+                    "w" : 500,
+                    "h" : 200
+                }
+            },
+            "goods" :{
+                "listItem" : {
+                    "backgroundImage" : {
+                        "w" : 750,
+                        "h" : 400
+                    },
+                    "buyImage" : {
+                        "w" : 320,
+                        "h" : 160
+                    }
+                }
+            },
+            "currencyPacks" : {
+                "listItem" : {
+                    "backgroundImage" : {
+                        "w" : 750,
+                        "h" : 400
+                    },
+                    "buyImage" : {
+                        "w" : 320,
+                        "h" : 160
+                    }
+                }
+            },
+            "categories": {
+                "titleBackground" : {
+                    "w" : 1000,
+                    "h" : 120
+                }
+            }
+        },
+        "economy" : {
+            "currencies" : {
+                "w" : 100,
+                "h" : 100
+            },
+            "currencyPacks" : {
+                "w" : 400,
+                "h" : 750
+            },
+            "goods" : {
+                "singleUse" : {
+                    "w" : 400,
+                    "h" : 750
+                },
+                "equippable" : {
+                    "w" : 400,
+                    "h" : 750
+                },
+                "goodUpgrades" : {
+                    "upgradeImage" : {
+                        "w" : 400,
+                        "h" : 750
+                    },
+                    "upgradeBar" : {
+                        "w" : 320,
+                        "h" : 90
+                    }
+                },
+                "lifetime" : {
+                    "w" : 400,
+                    "h" : 750
+                }
+            }
+        },
+        "hooks" : {}
+    },
+    "validations" : {
 		"currency" : {
 			"rules" : {
 				"name" : {
