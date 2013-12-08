@@ -223,7 +223,7 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "marionette", "compone
             "fastclick .buy-more"    : "onClickBuyMore"
         },
         ui : {
-            goodsIscrollContainer   : ".items-container [data-iscroll='true']",
+            goodsIscrollContainer   : "#items-container [data-iscroll='true']",
             menuRegion              : "#menu-region"
         },
         updateBalance : function(model) {
@@ -265,7 +265,7 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "marionette", "compone
         },
         iscrollRegions : {
             onlyOne : {
-                el : ".items-container",
+                el : "#items-container",
                 options: {
                     snap: 'li',
                     hScroll: true, vScroll: false, hScrollbar: false, vScrollbar: false,

@@ -10,9 +10,6 @@
 @internalWidth:     1600px;
 @internalHeight:    1080px;
 
-@headerHeight:      180px;
-@footerHeight:      180px;
-@contentHeight:     @internalHeight - @headerHeight - @footerHeight;
 
 
 // EFFECTS
@@ -50,11 +47,7 @@ a:active, a.emulate-active {
     .size(@internalHeight, @internalWidth);
 }
 
-.header {
-    // TODO: Consider removing the header altogether
-    height: @headerHeight;
-    position: relative;
-    text-align: center;
+#menu-region {
 
     // Up the z-index so that tapped buttons will scale above the items
     z-index: 1;
@@ -84,7 +77,7 @@ a:active, a.emulate-active {
 
     // default styles
     position: absolute;
-    .box(vertical, center);
+    .box(vertical, center, center);
     .centralizedBackground;
 
     // These are default, but are overridden in the theme
@@ -108,12 +101,13 @@ a:active, a.emulate-active {
 @itemsContainerVerticalMargin: 30px;
 @itemsContainerHorizontalMargin: 50px;
 
-.items-container {
+#items-container {
 
-    // TODO: Templatize + support in iscroll dimension changes in JS
-
+    // Defaults
+    position: absolute;
+    top: 180px;
+    width: @internalWidth - (2 * @itemsContainerHorizontalMargin);
     margin: @itemsContainerVerticalMargin @itemsContainerHorizontalMargin;
-    .size(@contentHeight - (2 * @itemsContainerVerticalMargin), @internalWidth - (2 * @itemsContainerHorizontalMargin));
 
     .item-container, .categories, .currencies, .offers, .category, .currency {
         background-position: center;
@@ -130,22 +124,28 @@ a:active, a.emulate-active {
 @itemWidth: 360px; // Should be the same as in the JS.
 
 .item {
+
+    // Mandatory
     display: inline-block;
-    position: relative;
+
+    // Defaults
+    .size(750px, 400px);
+    .background-size(100%);
+    .centralizedBackground;
 
     // Local variables
     @buyImgWidth: 270px;
 
-    background-position: center;
-    .background-size(@itemWidth @contentHeight);
 
     // Item content (container of description, price, balance, buy button)
     .content {
         position: relative;
         text-align: center;
-        width: @itemWidth;
-        height:  @contentHeight - (2 * @itemsContainerVerticalMargin);
-        .background-size(100% 100%);
+
+        // Fill the parent completely by default
+        // This makes adding padding difficult
+        .square(100%);
+        .background-size(100%);
     }
 
     .item-name, .item-description, .item-price, .item-balance, .item-amount {

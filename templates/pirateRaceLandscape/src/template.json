@@ -105,6 +105,20 @@
                     "selector" : "#leave-store",
                     "section" : "global"
                 }
+            },
+            "items" : {
+                "scrollContainerStyle" : {
+                    "type" : "css",
+                    "title" : "Single Item Style",
+                    "selector" : "#items-container",
+                    "section" : "global"
+                },
+                "itemStyle" : {
+                    "type" : "css",
+                    "title" : "Single Item Style",
+                    "selector" : ".categories .item, .currencies .item",
+                    "section" : "singleItems"
+                }
             }
         },
         "fonts" : [
@@ -316,8 +330,8 @@
             "goods" :{
                 "listItem" : {
                     "backgroundImage" : {
-                        "w" : 660,
-                        "h" : 360
+                        "w" : 750,
+                        "h" : 400
                     },
                     "buyImage" : {
                         "w" : 320,
@@ -328,8 +342,8 @@
             "currencyPacks" : {
                 "listItem" : {
                     "backgroundImage" : {
-                        "w" : 660,
-                        "h" : 360
+                        "w" : 750,
+                        "h" : 400
                     },
                     "buyImage" : {
                         "w" : 320,
@@ -350,22 +364,22 @@
                 "h" : 100
             },
             "currencyPacks" : {
-                "w" : 360,
-                "h" : 660
+                "w" : 400,
+                "h" : 750
             },
             "goods" : {
                 "singleUse" : {
-                    "w" : 360,
-                    "h" : 660
+                    "w" : 400,
+                    "h" : 750
                 },
                 "equippable" : {
-                    "w" : 360,
-                    "h" : 660
+                    "w" : 400,
+                    "h" : 750
                 },
                 "goodUpgrades" : {
                     "upgradeImage" : {
-                        "w" : 360,
-                        "h" : 660
+                        "w" : 400,
+                        "h" : 750
                     },
                     "upgradeBar" : {
                         "w" : 320,
@@ -373,8 +387,8 @@
                     }
                 },
                 "lifetime" : {
-                    "w" : 360,
-                    "h" : 660
+                    "w" : 400,
+                    "h" : 750
                 }
             }
         },
