@@ -171,6 +171,12 @@
                         "title" : "Upgrade Full Text Style",
                         "selector" : ".virtualGoods .item.upgradable .complete-indicator",
                         "section" : "singleItems"
+                    },
+                    "upgradeBarImageStyle" : {
+                        "type" : "css",
+                        "title" : "Upgrade Bar Image Style",
+                        "selector" : ".virtualGoods .item.upgradable .upgrade-bar",
+                        "section" : "singleItems"
                     }
                 },
                 "lifetime" : {
