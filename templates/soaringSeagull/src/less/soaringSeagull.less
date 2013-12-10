@@ -97,7 +97,7 @@ body {
     }
 }
 
-.btn1, showBtn {
+.btn1 {
     .size(@footerHeight, (@standardWidth / 2));
 }
 
@@ -188,12 +188,17 @@ body {
     z-index:2001;
 }
 
-.category {
+.category-title-container {
+    position: relative;
     height: 120px;
-    font-size: 60px;
-    text-align: center;
-    .centralizedBackground;
     .hardware-accelerate;
+
+    .category {
+        height: 100%;
+        font-size: 60px;
+        text-align: center;
+        .centralizedBackground;
+    }
 }
 
 

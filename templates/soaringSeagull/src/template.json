@@ -291,7 +291,7 @@
             "titleBackground" : {
                 "type" : "backgroundImage",
                 "title" : "Category Background Image",
-                "selector" : ".items .category",
+                "selector" : ".items .category-title-container",
                 "section" : "global"
             },
             "titleStyle" : {
