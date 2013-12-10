@@ -293,7 +293,6 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
         },
         onRender : function() {
             //this.ui.currencyStore.hide();
-            //this.ui.goodsStore.addClass("showBtn");
 
             // Render subviews (items in goods store and currency store)
             this.appendCategoriesView();
@@ -362,8 +361,7 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
             this.listenTo(this.categoriesView, {
                 "itemview:itemview:buy"     : this.buyItem,
                 "itemview:itemview:equip" 	: this.equipGoods,
-                "itemview:itemview:expand"  : this.refreshGoodsIScroll,
-                "itemview:itemview:collapse": function() {
+                "itemview:itemview:expandCollapseTransitionend": function() {
 
                     // Need to surround with `if` since the upgradable goods
                     // trigger a collapse event before the iscrolls were created
