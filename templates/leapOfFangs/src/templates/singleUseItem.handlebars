@@ -14,9 +14,11 @@
                 <label class="price">{{price}}</label>
 			{{/if}}
 		</div>
+		{{#check type "singleUse"}}
 		<div class="item-balance">
             Balance: <label class="balance">{{balance}}</label>
 		</div>
+		{{/check}}
 	</div>
 </div>
 <div class="description-container">

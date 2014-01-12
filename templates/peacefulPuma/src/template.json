@@ -2,6 +2,7 @@
 	"supportedFeatures" : {
         "goods" : {
             "singleUse" : true,
+            "goodPacks" : true,
             "lifetime" : true
         },
         "purchaseTypes" : {
@@ -190,6 +191,10 @@
                     "h" : 400
                 },
                 "singleUse" : {
+                    "w" : 400,
+                    "h" : 400
+                },
+                "goodPacks" : {
                     "w" : 400,
                     "h" : 400
                 }

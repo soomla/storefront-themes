@@ -37,6 +37,9 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
                             case "singleUse":
                                 itemView = SingleUseVirtualGoodView;
                                 break;
+                            case "goodPacks":
+                                itemView = SingleUsePackView;
+                                break;
                             case "equippable":
                                 itemView = EquippableVirtualGoodView;
                                 break;
@@ -62,7 +65,8 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
         ExpandableEquippableItemView    = Components.ExpandableEquippableItemView,
         ExpandableSingleUseItemView     = Components.ExpandableSingleUseItemView,
         EquippableVirtualGoodView       = ExpandableEquippableItemView.extend({ template : getTemplate("equippableItem") }),
-        SingleUseVirtualGoodView        = ExpandableSingleUseItemView.extend({ template : getTemplate("item"), animateBalanceClass : "changed"}),
+        SingleUseVirtualGoodView        = ExpandableSingleUseItemView.extend({ template : getTemplate("singleUseItem"), animateBalanceClass : "changed"}),
+        SingleUsePackView               = Components.ExpandableSingleUsePackView.extend({ template : getTemplate("singleUseItem")}),
         LifetimeVirtualGoodView         = Components.ExpandableLifetimeItemView.extend({ template : getTemplate("equippableItem")}),
         UpgradableItemView              = Components.ExpandableUpgradableItemView.extend({ template : getTemplate("upgradableItem")}),
         CurrencyPackView                = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack")}),
@@ -89,6 +93,7 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
         };
 
         SingleUseVirtualGoodView.prototype.templateHelpers  = templateHelpers;
+        SingleUsePackView.prototype.templateHelpers         = templateHelpers;
         EquippableVirtualGoodView.prototype.templateHelpers = templateHelpers;
         LifetimeVirtualGoodView.prototype.templateHelpers   = function() {
             return _.extend({

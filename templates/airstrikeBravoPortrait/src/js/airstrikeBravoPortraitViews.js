@@ -19,6 +19,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
         ExpandableSingleUseItemView     = Components.ExpandableSingleUseItemView,
         EquippableVirtualGoodView       = ExpandableEquippableItemView.extend({ template : getTemplate("equippableItem") }),
         SingleUseVirtualGoodView        = ExpandableSingleUseItemView.extend({ template : getTemplate("singleUseItem"), animateBalanceClass : "changed"}),
+        SingleUsePackView               = Components.ExpandableSingleUsePackView.extend({ template : getTemplate("singleUseItem") }),
         UpgradableItemView              = Components.ExpandableUpgradableItemView.extend({ template : getTemplate("upgradableItem")}),
         LifetimeVirtualGoodView         = Components.ExpandableLifetimeItemView.extend({ template : getTemplate("equippableItem")}),
         CurrencyPackView                = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack") }),
@@ -47,6 +48,9 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
 							case "singleUse":
 								itemView = SingleUseVirtualGoodView;
 								break;
+                            case "goodPacks":
+                                itemView = SingleUsePackView;
+                                break;
 							case "equippable":
 								itemView = EquippableVirtualGoodView;
 								break;
@@ -91,6 +95,7 @@ define("airstrikeBravoPortraitViews", ["jquery", "backbone", "components", "help
 
         EquippableVirtualGoodView.prototype.templateHelpers = templateHelpers;
         SingleUseVirtualGoodView.prototype.templateHelpers  = templateHelpers;
+        SingleUsePackView.prototype.templateHelpers         = templateHelpers;
         LifetimeVirtualGoodView.prototype.templateHelpers   = templateHelpers;
         UpgradableItemView.prototype.templateHelpers        = function() {
             var nextUpgrade     = this.model.getNextUpgrade(),

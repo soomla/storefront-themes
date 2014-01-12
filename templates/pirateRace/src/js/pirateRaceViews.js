@@ -12,7 +12,8 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
     // Define view types
 
     var getTemplate = Handlebars.getTemplate,
-        SingleUseVirtualGoodView = Components.SingleUseItemView.extend({ template : getTemplate("item") }),
+        SingleUseVirtualGoodView = Components.SingleUseItemView.extend({ template : getTemplate("singleUseItem") }),
+        SingleUsePackView 		 = Components.SingleUsePackView.extend({ template : getTemplate("singleUseItem") }),
         SectionedListView = Components.BaseCompositeView.extend({
             className           : "items virtualGoods",
             template            : getTemplate("listContainer"),
@@ -32,6 +33,9 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
                     switch (item.getType()) {
                         case "singleUse":
                             itemView = SingleUseVirtualGoodView;
+                            break;
+                        case "goodPacks":
+                            itemView = SingleUsePackView;
                             break;
                         case "equippable":
                             itemView = EquippableVirtualGoodView;
@@ -89,6 +93,7 @@ define("pirateRaceViews", ["jquery", "backbone", "components", "handlebars", "cs
 
 
         SingleUseVirtualGoodView.prototype.templateHelpers  = templateHelpers;
+        SingleUsePackView.prototype.templateHelpers         = templateHelpers;
         EquippableVirtualGoodView.prototype.templateHelpers = templateHelpers;
         LifetimeVirtualGoodView.prototype.templateHelpers   = templateHelpers;
 

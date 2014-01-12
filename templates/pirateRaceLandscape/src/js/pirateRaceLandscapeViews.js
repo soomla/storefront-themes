@@ -11,8 +11,16 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "marionette", "compone
     var getTemplate = Handlebars.getTemplate,
 
     // TODO: Expand to single use, equippable, lifetime, upgradable
-        VirtualGoodView = Components.SingleUseItemView.extend({
-            template : getTemplate("item"),
+        SingleUseVirtualGoodView = Components.SingleUseItemView.extend({
+            template : getTemplate("singleUseItem"),
+            onRender : function() {
+
+                // Save the model cid for the iscroll to identify it
+                this.$el.data("cid", this.model.cid);
+            }
+        }),
+        SingleUsePackView = Components.SingleUsePackView.extend({
+            template : getTemplate("singleUseItem"),
             onRender : function() {
 
                 // Save the model cid for the iscroll to identify it
@@ -119,19 +127,22 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "marionette", "compone
                     var itemView;
 
                     if (item.is("upgradable")) {
-                        itemView = VirtualGoodView;
+                        itemView = SingleUseVirtualGoodView;
                     } else {
 
                         // some logic to calculate which view to return
                         switch (item.getType()) {
                             case "singleUse":
-                                itemView = VirtualGoodView;
+                                itemView = SingleUseVirtualGoodView;
+                                break;
+                            case "goodPacks":
+                                itemView = SingleUsePackView;
                                 break;
                             case "equippable":
-                                itemView = VirtualGoodView;
+                                itemView = SingleUseVirtualGoodView;
                                 break;
                             case "lifetime":
-                                itemView = VirtualGoodView;
+                                itemView = SingleUseVirtualGoodView;
                                 break;
                         }
                     }
@@ -166,7 +177,8 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "marionette", "compone
             }, theme.goods.item);
         };
 
-        VirtualGoodView.prototype.templateHelpers = templateHelpers;
+        SingleUseVirtualGoodView.prototype.templateHelpers = templateHelpers;
+        SingleUsePackView.prototype.templateHelpers = templateHelpers;
         EquippableVirtualGoodView.prototype.templateHelpers = templateHelpers;
         CurrencyPackView.prototype.templateHelpers = function() {
             return _.extend({

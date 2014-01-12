@@ -1,0 +1,16 @@
+<img src="{{imgFilePath}}" class="item-image">
+<div class="content">
+    <h1 class="item-description font-face-1">{{name}}</h1>
+	{{#check type "singleUse"}}
+        <div class="item-balance-container font-face-1">
+            <span class="item-balance-label">You have: </span>
+            <span class="item-balance">{{balance}}</span>
+        </div>
+	{{/check}}
+</div>
+<div class="buy-container">
+    <label class="item-price font-face-2">${{price}}</label>
+    <a class="buy">
+        <img src="{{buyImage}}">
+    </a>
+</div>
