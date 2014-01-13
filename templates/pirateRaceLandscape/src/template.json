@@ -1,7 +1,8 @@
 {
     "supportedFeatures" : {
         "goods" : {
-            "singleUse" : true
+            "singleUse" : true,
+            "goodPacks" : true
         },
         "purchaseTypes" : {
             "virtualItem" : true
@@ -389,6 +390,10 @@
             },
             "goods" : {
                 "singleUse" : {
+                    "w" : 400,
+                    "h" : 750
+                },
+                "goodPacks" : {
                     "w" : 400,
                     "h" : 750
                 },

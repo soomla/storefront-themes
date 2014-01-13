@@ -19,6 +19,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
         ExpandableSingleUseItemView     = Components.ExpandableSingleUseItemView,
         EquippableVirtualGoodView       = ExpandableEquippableItemView.extend({ template : getTemplate("equippableItem") }),
         SingleUseVirtualGoodView        = ExpandableSingleUseItemView.extend({ template : getTemplate("singleUseItem"), animateBalanceClass : "changed"}),
+        SingleUsePackView               = Components.ExpandableSingleUsePackView.extend({ template : getTemplate("singleUseItem") }),
         UpgradableItemView              = Components.ExpandableUpgradableItemView.extend({ template : getTemplate("upgradableItem")}),
         LifetimeVirtualGoodView         = Components.ExpandableLifetimeItemView.extend({ template : getTemplate("equippableItem")}),
         CurrencyPackView                = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack") }),
@@ -46,6 +47,9 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
                         switch (item.getType()) {
                             case "singleUse":
                                 itemView = SingleUseVirtualGoodView;
+                                break;
+                            case "goodPacks":
+                                itemView = SingleUsePackView;
                                 break;
                             case "equippable":
                                 itemView = EquippableVirtualGoodView;
@@ -91,6 +95,7 @@ define("airstrikeBravoViews", ["jquery", "backbone", "components", "helperViews"
 
         EquippableVirtualGoodView.prototype.templateHelpers = templateHelpers;
         SingleUseVirtualGoodView.prototype.templateHelpers  = templateHelpers;
+        SingleUsePackView.prototype.templateHelpers         = templateHelpers;
         LifetimeVirtualGoodView.prototype.templateHelpers   = templateHelpers;
         UpgradableItemView.prototype.templateHelpers        = function() {
             var nextUpgrade     = this.model.getNextUpgrade(),

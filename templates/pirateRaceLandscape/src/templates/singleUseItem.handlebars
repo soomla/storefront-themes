@@ -1,17 +1,19 @@
 <div class="content font-face-2" data-cid="{{cid}}">
     <img class="item-image" src="{{imgFilePath}}" />
-	<div class="item-name">{{name}}</div>
-	<div class="item-description">{{description}}</div>
-	<div class="item-price">
-		<label>{{price}}</label>
-		<img src="{{currency.imgFilePath}}" class="item-currency-image" />
-	</div>
+    <div class="item-name">{{name}}</div>
+    <div class="item-description">{{description}}</div>
+    <div class="item-price">
+        <label>{{price}}</label>
+        <img src="{{currency.imgFilePath}}" class="item-currency-image" />
+    </div>
+	{{#check type "singleUse"}}
     <div class="item-balance">
         <span class="item-balance-label">
             You have:
         </span>
         <span class="item-balance-number">{{balance}}</span>
     </div>
+	{{/check}}
     <a class="buy">
         <img src="{{buyImage}}" />
     </a>

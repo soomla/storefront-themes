@@ -1,10 +1,12 @@
 <img src="{{imgFilePath}}" class="visual">
 <div class="content">
     <div class="row">
+		{{#check type "singleUse"}}
         <div class="balanceWrap">
             <div class="balance"><label>{{balance}}</label></div>
             <div class="balance"><label>{{balance}}</label></div>
         </div>
+		{{/check}}
         <div class="description">
             <label>{{description}}</label>
         </div>

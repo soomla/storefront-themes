@@ -1,20 +1,22 @@
 <div class="expand-row">
 
-	<img src="{{imgFilePath}}" class="item-image">
-	<div class="item-title">
+    <img src="{{imgFilePath}}" class="item-image">
+    <div class="item-title">
         <div class="item-name">{{name}}</div>
-        <div class="item-balance">
-	        You have: {{balance}}
-        </div>
-	</div>
+		{{#check type "singleUse"}}
+            <div class="item-balance">
+                You have: {{balance}}
+            </div>
+		{{/check}}
+    </div>
     <div class="item-actions">
         <div class="item-price">
-	        {{#if isMarketPurchaseType}}
+			{{#if isMarketPurchaseType}}
                 <label>${{price}}</label>
-	        {{else}}
+			{{else}}
                 <img src="{{currency.imgFilePath}}">
                 <label>{{price}}</label>
-	        {{/if}}
+			{{/if}}
         </div>
         <img src="{{expandImage}}" class="expand-collapse">
     </div>
@@ -27,4 +29,3 @@
         </a>
     </div>
 </div>
-
