@@ -37,6 +37,9 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
                             case "singleUse":
                                 itemView = SingleUseVirtualGoodView;
                                 break;
+                            case "goodPacks":
+                                itemView = SingleUsePackView;
+                                break;
                             case "equippable":
                                 itemView = EquippableVirtualGoodView;
                                 break;
@@ -62,7 +65,8 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
         ExpandableEquippableItemView    = Components.ExpandableEquippableItemView,
         ExpandableSingleUseItemView     = Components.ExpandableSingleUseItemView,
         EquippableVirtualGoodView       = ExpandableEquippableItemView.extend({ template : getTemplate("equippableItem") }),
-        SingleUseVirtualGoodView        = ExpandableSingleUseItemView.extend({ template : getTemplate("item"), animateBalanceClass : "changed"}),
+        SingleUseVirtualGoodView        = ExpandableSingleUseItemView.extend({ template : getTemplate("singleUseItem"), animateBalanceClass : "changed"}),
+        SingleUsePackView               = Components.ExpandableSingleUsePackView.extend({ template : getTemplate("singleUseItem")}),
         LifetimeVirtualGoodView         = Components.ExpandableLifetimeItemView.extend({ template : getTemplate("equippableItem")}),
         UpgradableItemView              = Components.ExpandableUpgradableItemView.extend({ template : getTemplate("upgradableItem")}),
         CurrencyPackView                = Components.CurrencyPackView.extend({ template : getTemplate("currencyPack")}),
@@ -89,6 +93,7 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
         };
 
         SingleUseVirtualGoodView.prototype.templateHelpers  = templateHelpers;
+        SingleUsePackView.prototype.templateHelpers         = templateHelpers;
         EquippableVirtualGoodView.prototype.templateHelpers = templateHelpers;
         LifetimeVirtualGoodView.prototype.templateHelpers   = function() {
             return _.extend({
@@ -293,7 +298,6 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
         },
         onRender : function() {
             //this.ui.currencyStore.hide();
-            //this.ui.goodsStore.addClass("showBtn");
 
             // Render subviews (items in goods store and currency store)
             this.appendCategoriesView();
@@ -362,8 +366,7 @@ define("soaringSeagullViews", ["jquery", "backbone", "components", "handlebars",
             this.listenTo(this.categoriesView, {
                 "itemview:itemview:buy"     : this.buyItem,
                 "itemview:itemview:equip" 	: this.equipGoods,
-                "itemview:itemview:expand"  : this.refreshGoodsIScroll,
-                "itemview:itemview:collapse": function() {
+                "itemview:itemview:expandCollapseTransitionend": function() {
 
                     // Need to surround with `if` since the upgradable goods
                     // trigger a collapse event before the iscrolls were created

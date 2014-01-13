@@ -61,7 +61,8 @@
                 },
                 "goodUpgrades" : {
                     "upgradeFullText" : "FULL",
-                    "upgradeFullStyle" : "color: #FFF; font-size: 40px; font-weight: bold; text-shadow: 2px 2px black;"
+                    "upgradeFullStyle" : "color: #FFF; font-size: 40px; font-weight: bold; text-shadow: 2px 2px black;",
+                    "upgradeBarImageStyle" : ""
                 },
                 "lifetime" : {
                     "ownedText" : "OWNED",

@@ -14,7 +14,8 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
     // Define view types
 
     var getTemplate = Handlebars.getTemplate,
-        SingleUseVirtualGoodView = Components.SingleUseItemView.extend({ template : getTemplate("item"), animateBalanceClass : "balance-changed" }),
+        SingleUseVirtualGoodView = Components.SingleUseItemView.extend({ template : getTemplate("singleUseItem"), animateBalanceClass : "balance-changed" }),
+        SingleUsePackView = Components.SingleUseItemView.extend({ template : getTemplate("singleUseItem") }),
         EquippableItemView = Components.EquippableItemView.extend({
 
             // Local triggers not included, they are inherited from EquippableItemView
@@ -110,6 +111,9 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
                         case "singleUse":
                             itemView = SingleUseVirtualGoodView;
                             break;
+                        case "goodPacks":
+                            itemView = SingleUsePackView;
+                            break;
                         case "equippable":
                             itemView = EquippableItemView;
                             break;
@@ -162,6 +166,7 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
             }, templateHelpers);
         };
         SingleUseVirtualGoodView.prototype.templateHelpers  = virtualGoodTemplateHelpers;
+        SingleUsePackView.prototype.templateHelpers         = virtualGoodTemplateHelpers;
         EquippableItemView.prototype.templateHelpers        = virtualGoodTemplateHelpers;
         LifetimeItemView.prototype.templateHelpers          = virtualGoodTemplateHelpers;
 

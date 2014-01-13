@@ -30,6 +30,10 @@ define("rockyRaccoonViews", ["jquery", "backbone", "components", "helperViews", 
                 }).addClass("changed");
             }
         }),
+        SingleUsePackView    = Components.SingleUsePackView.extend({
+            template : getTemplate("singleUseItem"),
+            triggers : { fastclick : "buy" }
+        }),
         GoodsCollectionView = Components.HorizontalIScrollCollectionView.extend({
             template: getTemplate("collection"),
             getItemView: function(item) {
@@ -44,6 +48,9 @@ define("rockyRaccoonViews", ["jquery", "backbone", "components", "helperViews", 
                     switch (item.getType()) {
                         case "singleUse":
                             itemView = SingleUseVirtualGoodView;
+                            break;
+                        case "goodPacks":
+                            itemView = SingleUsePackView;
                             break;
                         case "lifetime":
                             itemView = LifetimeVirtualGoodView;
@@ -73,8 +80,9 @@ define("rockyRaccoonViews", ["jquery", "backbone", "components", "helperViews", 
         };
 
         // Add template helpers to view prototypes
-        LifetimeVirtualGoodView.prototype.templateHelpers = commonTemplateHelpers;
-        SingleUseVirtualGoodView.prototype.templateHelpers = commonTemplateHelpers;
+        LifetimeVirtualGoodView.prototype.templateHelpers   = commonTemplateHelpers;
+        SingleUseVirtualGoodView.prototype.templateHelpers  = commonTemplateHelpers;
+        SingleUsePackView.prototype.templateHelpers         = commonTemplateHelpers;
     };
 
 

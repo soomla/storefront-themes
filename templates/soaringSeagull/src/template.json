@@ -2,6 +2,7 @@
 	"supportedFeatures" : {
         "goods" : {
             "singleUse" : true,
+            "goodPacks" : true,
             "equippable" : true,
             "lifetime" : true,
             "goodUpgrades" : true
@@ -171,6 +172,12 @@
                         "title" : "Upgrade Full Text Style",
                         "selector" : ".virtualGoods .item.upgradable .complete-indicator",
                         "section" : "singleItems"
+                    },
+                    "upgradeBarImageStyle" : {
+                        "type" : "css",
+                        "title" : "Upgrade Bar Image Style",
+                        "selector" : ".virtualGoods .item.upgradable .upgrade-bar",
+                        "section" : "singleItems"
                     }
                 },
                 "lifetime" : {
@@ -291,7 +298,7 @@
             "titleBackground" : {
                 "type" : "backgroundImage",
                 "title" : "Category Background Image",
-                "selector" : ".items .category",
+                "selector" : ".items .category-title-container",
                 "section" : "global"
             },
             "titleStyle" : {
@@ -428,6 +435,10 @@
                     "h" : 200
                 },
                 "singleUse" : {
+                    "w" : 200,
+                    "h" : 200
+                },
+                "goodPacks" : {
                     "w" : 200,
                     "h" : 200
                 }
