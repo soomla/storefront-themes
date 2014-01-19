@@ -6,38 +6,69 @@
     "modelAssets" : {
         "categories" : {},
         "items" : {
-            "bomb" : "img/Powerups/Bomb.png",
-            "gold_pot" : "img/Powerups/Gold_Pot.png",
-            "lucky_clover" : "img/Powerups/Lucky_Clover.png",
-            "rock_book" : "img/Powerups/Rock_Book.png",
-            "kasey" : "img/Characters/Kasey.png",
-		    "robert_din" : "img/Characters/Robert_Din.png",
-            "sir_james" : "img/Characters/Sir_James.png",
-            "tod" : "img/Characters/Tod.png",
-            "coin_stack" : "img/CurrencyPacks/GetCoins_1.png",
-            "coin_pile" : "img/CurrencyPacks/GetCoins_2.png",
-            "coin_chest" : "img/CurrencyPacks/GetCoins_3.png",
-            "coin_vault" : "img/CurrencyPacks/GetCoins_4.png",
-            "currency_coins" : "img/Item_Price.png",
-            "speed_boost_upgrade0_bar": "img/upgrades/Container0.png",
-            "speed_boost_upgrade1": "img/upgrades/Boost1.png",
-            "speed_boost_upgrade2": "img/upgrades/Boost2.png",
-            "speed_boost_upgrade3": "img/upgrades/Boost3.png",
-            "speed_boost_upgrade1_bar": "img/upgrades/Container1.png",
-            "speed_boost_upgrade2_bar": "img/upgrades/Container2.png",
-            "speed_boost_upgrade3_bar": "img/upgrades/Container3.png"
+            "rail_rocket" : "img/single_use/rail_rocket.png",
+            "nitro_pack" : "img/single_use/nitro_pack.png",
+            "surprise_box" : "img/single_use/surprise_box.png",
+            "double_coins" : "img/boosters/double_coins.png",
+            "double_score" : "img/boosters/double_score.png",
+            "steam_suit" : "img/suits/suit_1.png",
+            "subway_suit" : "img/suits/suit_2.png",
+            "tgv_suit" : "img/suits/suit_3.png",
+            "item_157" : "img/upgrades/invinciblity.png",
+            "item_157_bar" : "img/ProgressBar_1.png",
+            "item_166" : "img/upgrades/nitro_speed.png",
+            "item_166_bar" : "img/ProgressBar_1.png",
+            "item_175" : "img/upgrades/coin_magnet.png",
+            "item_175_bar" : "img/ProgressBar_1.png",
+            "coin_magnet_upgrade0_bar" : "img/ProgressBar_0.png",
+            "nitro_speed_upgrade0_bar" : "img/ProgressBar_0.png",
+            "invincibility_time_upgrade0_bar" : "img/ProgressBar_0.png",
+            "item_180" : "img/upgrades/coin_magnet.png",
+            "item_180_bar" : "img/ProgressBar_2.png",
+            "item_183" : "img/upgrades/coin_magnet.png",
+            "item_183_bar" : "img/ProgressBar_3.png",
+            "item_186" : "img/upgrades/coin_magnet.png",
+            "item_186_bar" : "img/ProgressBar_4.png",
+            "item_189" : "img/upgrades/coin_magnet.png",
+            "item_189_bar" : "img/ProgressBar_5.png",
+            "item_192" : "img/upgrades/nitro_speed.png",
+            "item_192_bar" : "img/ProgressBar_2.png",
+            "item_195" : "img/upgrades/nitro_speed.png",
+            "item_195_bar" : "img/ProgressBar_3.png",
+            "item_198" : "img/upgrades/nitro_speed.png",
+            "item_198_bar" : "img/ProgressBar_4.png",
+            "item_201" : "img/upgrades/nitro_speed.png",
+            "item_201_bar" : "img/ProgressBar_5.png",
+            "item_204" : "img/upgrades/invinciblity.png",
+            "item_204_bar" : "img/ProgressBar_2.png",
+            "item_207" : "img/upgrades/invinciblity.png",
+            "item_207_bar" : "img/ProgressBar_3.png",
+            "item_210" : "img/upgrades/invinciblity.png",
+            "item_210_bar" : "img/ProgressBar_4.png",
+            "item_213" : "img/upgrades/invinciblity.png",
+            "item_213_bar" : "img/ProgressBar_5.png",
+            "bag_of_coins" : "img/coins/BagOfCoins.png",
+            "pile_of_coins" : "img/coins/PileOfCoins.png",
+            "chest_of_coins" : "img/coins/ChestOfCoins.png",
+            "stack_of_coins" : "img/coins/StackOfCoins.png",
+            "vault_of_coins" : "img/coins/VaultOfCoins.png",
+            "gem_sack" : "img/gems/gem_sack.png",
+            "gem_container" : "img/gems/gem_container.png",
+            "gem_mine" : "img/gems/gem_mine.png",
+            "currency_coins" : "img/CoinCurrency.png",
+            "currency_gems" : "img/CoinCurrency.png"
         }
     },
     "theme" : {
         "name" : "metroManiacs",
         "version" : 1,
-        "background" : "img/BG-Level0.jpg",
-        "contentBackground" : "img/BG-Level1.jpg",
+        "background" : "img/background.png",
+        "contentBackground" : "img/Content_Background.png",
         "common" : {
-            "titleImage" : "img/Header_Title.png",
-            "backButton" : "img/Back_BTN.png",
-            "moreCurrencyButton" : "img/GetMore_BTN.png",
-            "balanceLabelStyle" : "color: #FFF; text-shadow: 2px 2px black; top: 200px; left: 250px; font-size: 72px;",
+            "titleImage" : "",
+            "backButton" : "img/backButton.png",
+            "moreCurrencyButton" : "img/MoreCurrencyButton.png",
+            "balanceLabelStyle" : "font-size: 80px; color: #40413c; top: 50px; left: 570px; font-weight: bold;",
             "balanceImageStyle" : ""
         },
 	    "fonts" : [
@@ -47,17 +78,18 @@
         "pages" : {
             "goods" :{
                 "listItem" : {
-                    "buyImage" : "img/purchase.png",
-                    "unlockImage" : "img/unlock.png",
+                    "buyImage" : "img/BuyImage.png",
+                    "unlockImage" : "img/BuyImage.png",
                     "equipImage" : "img/equip.png",
                     "equippedImage" : "img/equipped.png",
-	                "nameStyle" : "color: #333; font-size: 60px;",
-	                "descriptionStyle" : "color: #FFF; font-size: 40px; text-shadow: 2px 2px black; padding-left: 40px;",
-	                "balanceStyle" : "color: #FFF; font-size: 40px; text-shadow: 2px 2px black;",
-	                "priceStyle" : "color: #FFF; font-size: 40px; font-weight: bold; text-shadow: 2px 2px black;",
-                    "expandImage" : "img/expand.png",
-                    "backgroundImageExpanded": "img/BG_Product_Ext.png",
-                    "backgroundImage": "img/BG_Product.png"
+	                "nameStyle" : "color: #22707d; font-size: 60px; text-shadow: 2px 2px #FFF;",
+	                "descriptionStyle" : "color: #40413c; font-size: 40px; padding-left: 40px;",
+	                "balanceStyle" : "font-size: 44px; font-weight: bold; color: #40413c;",
+	                "priceStyle" : "color: #FFF; font-size: 40px; font-weight: bold; text-shadow: 2px 2px black; background-position: center; background-size: contain",
+	                "priceBackgroundImage" : "img/smal_btn.png",
+                    "expandImage" : "img/ExpandImage.png",
+                    "backgroundImageExpanded": "img/ExpandedItemBackgroundImage.png",
+                    "backgroundImage": "img/currencyPackBackgroundImage.png"
                 },
                 "goodUpgrades" : {
                     "upgradeFullText" : "FULL",
@@ -69,33 +101,33 @@
                     "ownedStyle" : "color: #FFF; font-size: 40px; margin-right: 50px; text-shadow: 2px 2px black;"
                 },
                 "noFundsModal" : {
-                    "backgroundImage" : "img/Alert_BG.png",
+                    "backgroundImage" : "img/LoadingDialogBackgroundImage.png",
                     "text" : "Insufficient funds.  Would you like to buy more?",
-                    "textStyle" : "color: #DEBE8D; text-shadow: 2px 4px #000;",
-                    "yesButton" : "img/Yes_BTN.png",
-                    "noButton" : "img/No_BTN.png"
+                    "textStyle" : "color: #FFF; -webkit-text-stroke: 3px #000; font-size: 80px;",
+                    "yesButton" : "img/NoFundsDialogYesImage.png",
+                    "noButton" : "img/NoFundsDialogNoImage.png"
                 }
             },
             "currencyPacks" : {
                 "listItem" : {
-                    "nameStyle" : "color: #333; font-weight: normal;",
+                    "nameStyle" : "color: #22707d; font-weight: normal; text-shadow: 2px 2px #FFF;",
                     "descriptionStyle" : "",
-                    "amountStyle" : "font-style: normal; color: #F7EABE; font-weight: normal; text-shadow: 2px 2px black;",
-                    "priceStyle" : "background-color: #ffff00; color: #0088cc; border: 5px solid #0088cc; margin-top: 20px; font-weight: bold; -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px;",
-                    "priceBackgroundImage" : "",
-                    "backgroundImage": "",
+                    "amountStyle" : "font-size: 44px; font-weight: bold; color: #40413c;",
+                    "priceStyle" : "background-position: center; color: #fff; margin-top: 20px; font-weight: bold; font-size: 60px; height: 160px;",
+                    "priceBackgroundImage" : "img/CurrencyPackPriceBackgroundImage.png",
+                    "backgroundImage": "img/currencyPackBackgroundImage.png",
                     "currencyImageStyle" : ""
                 }
             }
         },
         "loadingModal" : {
-            "backgroundImage" : "img/Alert_BG.png",
+            "backgroundImage" : "img/LoadingDialogBackgroundImage.png",
             "text" : "Loading...",
-            "textStyle" : "color: red; text-shadow: 2px 4px #000;"
+            "textStyle" : "color: #FFF; -webkit-text-stroke: 3px #000; font-size: 80px;"
         },
         "categories" : {
-            "titleBackground" : "img/Category_Separator.png",
-            "titleStyle" : "color: #B89C6D; font-weight: normal;"
+            "titleBackground" : "img/CategoryBackgroundImage.png",
+            "titleStyle" : "color: #40413c; font-weight: normal; font-size: 50px; text-align: left; padding-left: 50px; padding-top: 20px;"
         }
     },
      "hooks" : {

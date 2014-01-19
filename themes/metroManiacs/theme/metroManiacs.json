@@ -1,64 +1,127 @@
 {
-    "currencyPacks" : [
+    "currencyPacks": [
         {
             "purchasableItem": {
                 "marketItem": {
                     "consumable": 1,
                     "price": 0.99,
-                    "androidId": "android.test.purchased",
-                    "iosId" : "coin_stack"
+                    "androidId": "stack_of_coins",
+                    "iosId": "stack_of_coins"
                 },
                 "purchaseType": "market"
             },
-            "name"              : "Coin Stack",
-            "itemId"            : "coin_stack",
-            "currency_itemId"   : "currency_coins",
-            "currency_amount"   : 2500
+            "name": "Stack of Coins",
+            "itemId": "stack_of_coins",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 1000,
+            "description": "Stack of coins"
+        },
+        {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 1.99,
+                    "androidId": "pile_of_coins",
+                    "iosId": "pile_of_coins"
+                },
+                "purchaseType": "market"
+            },
+            "name": "Pile of Coins",
+            "itemId": "pile_of_coins",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 2500,
+            "description": "Pile of Coins"
         },
         {
             "purchasableItem": {
                 "marketItem": {
                     "consumable": 1,
                     "price": 4.99,
-                    "androidId": "coin_pile",
-                    "iosId" : "coin_pile"
+                    "androidId": "bag_of_coins",
+                    "iosId": "bag_of_coins"
                 },
                 "purchaseType": "market"
             },
-            "name"              : "Coin Pile",
-            "itemId"            : "coin_pile",
-            "currency_itemId"   : "currency_coins",
-            "currency_amount"   : 25000
+            "name": "Bag of Coins",
+            "itemId": "bag_of_coins",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 10000,
+            "description": "Bag of coins"
         },
         {
             "purchasableItem": {
                 "marketItem": {
                     "consumable": 1,
                     "price": 9.99,
-                    "androidId": "coin_chest",
-                    "iosId" : "coin_chest"
+                    "iosId": "chest_of_coins",
+                    "androidId": "chest_of_coins"
                 },
                 "purchaseType": "market"
             },
-            "name"              : "Coin Chest",
-            "itemId"            : "coin_chest",
-            "currency_itemId"   : "currency_coins",
-            "currency_amount"   : 75000
+            "name": "Chest of Coins",
+            "itemId": "chest_of_coins",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 25000
         },
         {
             "purchasableItem": {
                 "marketItem": {
                     "consumable": 1,
-                    "price": 19.99,
-                    "androidId": "coin_vault",
-                    "iosId" : "coin_vault"
+                    "price": 15.99,
+                    "iosId": "vault_of_coins",
+                    "androidId": "vault_of_coins"
                 },
                 "purchaseType": "market"
             },
-            "name"              : "Coin Vault",
-            "itemId"            : "coin_vault",
-            "currency_itemId"   : "currency_coins",
-            "currency_amount"   : 200000
+            "name": "Vault of Coins",
+            "itemId": "vault_of_coins",
+            "currency_itemId": "currency_coins",
+            "currency_amount": 50000
+        },
+        {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 4.99,
+                    "iosId": "gem_sack",
+                    "androidId": "gem_sack"
+                },
+                "purchaseType": "market"
+            },
+            "name": "Gem Sack",
+            "itemId": "gem_sack",
+            "currency_itemId": "currency_gems",
+            "currency_amount": 1000
+        },
+        {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 6.99,
+                    "iosId": "gem_container",
+                    "androidId": "gem_container"
+                },
+                "purchaseType": "market"
+            },
+            "name": "Gem Container",
+            "itemId": "gem_container",
+            "currency_itemId": "currency_gems",
+            "currency_amount": 2500
+        },
+        {
+            "purchasableItem": {
+                "marketItem": {
+                    "consumable": 1,
+                    "price": 9.99,
+                    "iosId": "gem_mine",
+                    "androidId": "gem_mine"
+                },
+                "purchaseType": "market"
+            },
+            "name": "Gem Mine",
+            "itemId": "gem_mine",
+            "currency_itemId": "currency_gems",
+            "currency_amount": 5000
         }
     ],
     "currencies" : [
@@ -66,169 +129,358 @@
             "name"          : "Coins",
             "description"   : "",
             "itemId"        : "currency_coins"
+        },
+        {
+            "name"          : "Gems",
+            "description"   : "",
+            "itemId"        : "currency_gems"
         }
     ],
     "categories" : [
         {
             "goods_itemIds": [
-                "bomb",
-                "gold_pot",
-                "lucky_clover",
-                "rock_book",
-                "speed_boost"
+                "rail_rocket",
+                "nitro_pack",
+                "surprise_box"
             ],
-            "name" : "POWERUPS"
+            "name" : "Single Use"
         },
         {
             "goods_itemIds": [
-                "kasey",
-                "robert_din",
-                "sir_james",
-                "tod"
+                "coin_magnet",
+                "nitro_speed",
+                "invincibility_time"
             ],
-            "name" : "CHARACTERS"
+            "name" : "Upgrades"
+        },
+        {
+            "goods_itemIds": [
+                "double_coins",
+                "double_scores"
+            ],
+            "name" : "Boosters"
+        },
+        {
+            "goods_itemIds": [
+                "steam_suit",
+                "subway_suit",
+                "tgv_suit"
+            ],
+            "name" : "Suits"
         }
     ],
     "goods" : {
-        "goodUpgrades": [
+        "goodUpgrades" : [
             {
-                "prev_itemId": "",
-                "next_itemId": "speed_boost_upgrade2",
-                "name": "Speed Boost",
-                "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
-                    "pvi_amount": 250,
-                    "purchaseType": "virtualItem"
+                "prev_itemId" : "",
+                "next_itemId" : "item_180",
+                "name" : "Coin Magnet",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_coins",
+                    "pvi_amount" : 500,
+                    "purchaseType" : "virtualItem"
                 },
-                "itemId": "speed_boost_upgrade1",
-                "description": "Walk and run faster by 25%",
-                "good_itemId": "speed_boost"
+                "itemId" : "item_175",
+                "description" : "Increase the magnet power to pull in more coins",
+                "good_itemId" : "coin_magnet"
             },
             {
-                "prev_itemId": "speed_boost_upgrade1",
-                "next_itemId": "speed_boost_upgrade3",
-                "name": "Speed Boost",
-                "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
-                    "pvi_amount": 1000,
-                    "purchaseType": "virtualItem"
+                "prev_itemId" : "item_175",
+                "next_itemId" : "item_183",
+                "name" : "Coin Magnet",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_coins",
+                    "pvi_amount" : 1000,
+                    "purchaseType" : "virtualItem"
                 },
-                "itemId": "speed_boost_upgrade2",
-                "description": "Walk and run faster by 50%",
-                "good_itemId": "speed_boost"
+                "itemId" : "item_180",
+                "description" : "Increase the magnet power to pull in more coins",
+                "good_itemId" : "coin_magnet"
             },
             {
-                "prev_itemId": "speed_boost_upgrade2",
-                "next_itemId": "",
-                "name": "Speed Boost",
-                "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
-                    "pvi_amount": 5000,
-                    "purchaseType": "virtualItem"
+                "prev_itemId" : "item_180",
+                "next_itemId" : "item_186",
+                "name" : "Coin Magnet",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_coins",
+                    "pvi_amount" : 2500,
+                    "purchaseType" : "virtualItem"
                 },
-                "itemId": "speed_boost_upgrade3",
-                "description": "Walk and run TWICE as fast!",
-                "good_itemId": "speed_boost"
+                "itemId" : "item_183",
+                "description" : "Increase the magnet power to pull in more coins",
+                "good_itemId" : "coin_magnet"
+            },
+            {
+                "prev_itemId" : "item_183",
+                "next_itemId" : "item_189",
+                "name" : "Coin Magnet",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_coins",
+                    "pvi_amount" : 5000,
+                    "purchaseType" : "virtualItem"
+                },
+                "itemId" : "item_186",
+                "description" : "Increase the magnet power to pull in more coins",
+                "good_itemId" : "coin_magnet"
+            },
+            {
+                "prev_itemId" : "item_186",
+                "next_itemId" : "",
+                "name" : "Coin Magnet",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_coins",
+                    "pvi_amount" : 10000,
+                    "purchaseType" : "virtualItem"
+                },
+                "itemId" : "item_189",
+                "description" : "Increase the magnet power to pull in more coins",
+                "good_itemId" : "coin_magnet"
+            },
+            {
+                "prev_itemId" : "",
+                "next_itemId" : "item_192",
+                "name" : "Nitro Speed",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_coins",
+                    "pvi_amount" : 500,
+                    "purchaseType" : "virtualItem"
+                },
+                "itemId" : "item_166",
+                "description" : "Increase the speed of nitro packs",
+                "good_itemId" : "nitro_speed"
+            },
+            {
+                "prev_itemId" : "item_166",
+                "next_itemId" : "item_195",
+                "name" : "Nitro Speed",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_coins",
+                    "pvi_amount" : 1000,
+                    "purchaseType" : "virtualItem"
+                },
+                "itemId" : "item_192",
+                "description" : "Increase the speed of nitro packs",
+                "good_itemId" : "nitro_speed"
+            },
+            {
+                "prev_itemId" : "item_192",
+                "next_itemId" : "item_198",
+                "name" : "Nitro Speed",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_coins",
+                    "pvi_amount" : 2500,
+                    "purchaseType" : "virtualItem"
+                },
+                "itemId" : "item_195",
+                "description" : "Increase the speed of nitro packs",
+                "good_itemId" : "nitro_speed"
+            },
+            {
+                "prev_itemId" : "item_195",
+                "next_itemId" : "item_201",
+                "name" : "Nitro Speed",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_coins",
+                    "pvi_amount" : 5000,
+                    "purchaseType" : "virtualItem"
+                },
+                "itemId" : "item_198",
+                "description" : "Increase the speed of nitro packs",
+                "good_itemId" : "nitro_speed"
+            },
+            {
+                "prev_itemId" : "item_198",
+                "next_itemId" : "",
+                "name" : "Nitro Speed",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_coins",
+                    "pvi_amount" : 10000,
+                    "purchaseType" : "virtualItem"
+                },
+                "itemId" : "item_201",
+                "description" : "Increase the speed of nitro packs",
+                "good_itemId" : "nitro_speed"
+            },
+            {
+                "prev_itemId" : "",
+                "next_itemId" : "item_204",
+                "name" : "Invincibility Time",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_coins",
+                    "pvi_amount" : 500,
+                    "purchaseType" : "virtualItem"
+                },
+                "itemId" : "item_157",
+                "description" : "Increase the fly time of rail rockets",
+                "good_itemId" : "invincibility_time"
+            },
+            {
+                "prev_itemId" : "item_157",
+                "next_itemId" : "item_207",
+                "name" : "Invincibility Time",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_coins",
+                    "pvi_amount" : 1000,
+                    "purchaseType" : "virtualItem"
+                },
+                "itemId" : "item_204",
+                "description" : "Increase the fly time of rail rockets",
+                "good_itemId" : "invincibility_time"
+            },
+            {
+                "prev_itemId" : "item_204",
+                "next_itemId" : "item_210",
+                "name" : "Invincibility Time",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_coins",
+                    "pvi_amount" : 2500,
+                    "purchaseType" : "virtualItem"
+                },
+                "itemId" : "item_207",
+                "description" : "Increase the fly time of rail rockets",
+                "good_itemId" : "invincibility_time"
+            },
+            {
+                "prev_itemId" : "item_207",
+                "next_itemId" : "item_213",
+                "name" : "Invincibility Time",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_coins",
+                    "pvi_amount" : 5000,
+                    "purchaseType" : "virtualItem"
+                },
+                "itemId" : "item_210",
+                "description" : "Increase the fly time of rail rockets",
+                "good_itemId" : "invincibility_time"
+            },
+            {
+                "prev_itemId" : "item_210",
+                "next_itemId" : "",
+                "name" : "Invincibility Time",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_coins",
+                    "pvi_amount" : 10000,
+                    "purchaseType" : "virtualItem"
+                },
+                "itemId" : "item_213",
+                "description" : "Increase the fly time of rail rockets",
+                "good_itemId" : "invincibility_time"
             }
         ],
         "lifetime" : [
             {
-                "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
-                    "pvi_amount": 750,
-                    "purchaseType": "virtualItem"
+                "itemId" : "double_coins",
+                "name" : "Double Coins",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_gems",
+                    "pvi_amount" : 10000,
+                    "purchaseType" : "virtualItem"
                 },
-                "name"          : "Lucky Clover",
-                "description"   : "Lorem Ipsum is not simply random text",
-                "itemId"        : "lucky_clover"
+                "description" : "Double all coin pickups"
             },
             {
-                "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
-                    "pvi_amount": 750,
-                    "purchaseType": "virtualItem"
+                "itemId" : "double_score",
+                "name" : "Double Score",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_gems",
+                    "pvi_amount" : 10000,
+                    "purchaseType" : "virtualItem"
                 },
-                "name"          : "Rock Book",
-                "description"   : "Lorem Ipsum is not simply random text",
-                "itemId"        : "rock_book"
+                "description" : "Double all earned scores"
             },
             {
-                "itemId": "speed_boost",
-                "name": "Speed Boost",
-                "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
-                    "pvi_amount": 100,
-                    "purchaseType": "virtualItem"
-                },
-                "description": "Walk and run faster by 25%"
+                "itemId" : "coin_magnet",
+                "name" : "Coin Magnet",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_coins",
+                    "pvi_amount" : 100,
+                    "purchaseType" : "virtualItem"
+                }
+            },
+            {
+                "itemId" : "nitro_speed",
+                "name" : "Nitro Speed",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_coins",
+                    "pvi_amount" : 100,
+                    "purchaseType" : "virtualItem"
+                }
+            },
+            {
+                "itemId" : "invincibility_time",
+                "name" : "Invincibility Time",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_coins",
+                    "pvi_amount" : 100,
+                    "purchaseType" : "virtualItem"
+                }
             }
         ],
         "equippable" : [
             {
-                "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
-                    "pvi_amount": 10000,
-                    "purchaseType": "virtualItem"
+                "itemId" : "steam_suit",
+                "equipping" : "category",
+                "name" : "Steam Suit",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_gems",
+                    "pvi_amount" : 2000,
+                    "purchaseType" : "virtualItem"
                 },
-                "name"          : "Kasey",
-                "description"   : "Lorem Ipsum is not simply random text",
-                "equipping"     : "category",
-                "itemId"        : "kasey"
+                "description" : "Cling to stream trains"
             },
             {
-                "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
-                    "pvi_amount": 10000,
-                    "purchaseType": "virtualItem"
+                "itemId" : "subway_suit",
+                "equipping" : "category",
+                "name" : "Subway Suit",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_gems",
+                    "pvi_amount" : 2000,
+                    "purchaseType" : "virtualItem"
                 },
-                "name"          : "Robert Din",
-                "description"   : "Lorem Ipsum is not simply random text",
-                "equipping"     : "category",
-                "itemId"        : "robert_din"
+                "description" : "Ride the subways"
             },
             {
-                "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
-                    "pvi_amount": 25000,
-                    "purchaseType": "virtualItem"
+                "itemId" : "tgv_suit",
+                "equipping" : "category",
+                "name" : "TGV Suit",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_gems",
+                    "pvi_amount" : 2000,
+                    "purchaseType" : "virtualItem"
                 },
-                "name"          : "Sir James",
-                "description"   : "Lorem Ipsum is not simply random text",
-                "equipping"     : "category",
-                "itemId"        : "sir_james"
-            },
-            {
-                "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
-                    "pvi_amount": 25000,
-                    "purchaseType": "virtualItem"
-                },
-                "name"          : "Tod",
-                "description"   : "Lorem Ipsum is not simply random text",
-                "equipping"     : "category",
-                "itemId"        : "tod"
+                "description" : "Ride the fastest train in the world"
             }
         ],
         "singleUse" : [
             {
-                "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
-                    "pvi_amount": 500,
-                    "purchaseType": "virtualItem"
+                "itemId" : "rail_rocket",
+                "name" : "Rail Rocket",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_coins",
+                    "pvi_amount" : 100,
+                    "purchaseType" : "virtualItem"
                 },
-                "name"          : "Bomb",
-                "description"   : "Lorem Ipsum is not simply random text",
-                "itemId"        : "bomb"
+                "description" : "Gain invincibility by flying above metro trains"
             },
             {
-                "purchasableItem": {
-                    "pvi_itemId": "currency_coins",
-                    "pvi_amount": 500,
-                    "purchaseType": "virtualItem"
+                "itemId" : "nitro_pack",
+                "name" : "Nitro Pack",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_coins",
+                    "pvi_amount" : 200,
+                    "purchaseType" : "virtualItem"
                 },
-                "name"          : "Gold Pot",
-                "description"   : "Lorem Ipsum is not simply random text",
-                "itemId"        : "gold_pot"
+                "description" : "Boost your running speed"
+            },
+            {
+                "itemId" : "surprise_box",
+                "name" : "Surprise box",
+                "purchasableItem" : {
+                    "pvi_itemId" : "currency_coins",
+                    "pvi_amount" : 500,
+                    "purchaseType" : "virtualItem"
+                },
+                "description" : "open the box to gain your prize"
             }
         ],
         "goodPacks" : []

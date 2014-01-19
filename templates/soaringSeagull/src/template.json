@@ -117,6 +117,12 @@
                         "selector" : ".virtualGoods .item .item-price",
                         "section" : "singleItems"
                     },
+                    "priceBackgroundImage" : {
+                        "type" : "backgroundImage",
+                        "title" : "Currency Pack Price Background Image",
+                        "selector" : ".virtualGoods .item .item-price",
+                        "section" : "singleItems"
+                    },
                     "buyImage" : {
                         "type" : "image",
                         "title" : "Buy Image",
