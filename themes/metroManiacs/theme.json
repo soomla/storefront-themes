@@ -56,7 +56,7 @@
             "gem_container" : "img/gems/gem_container.png",
             "gem_mine" : "img/gems/gem_mine.png",
             "currency_coins" : "img/CoinCurrency.png",
-            "currency_gems" : "img/CoinCurrency.png"
+            "currency_gems" : "img/gem.png"
         }
     },
     "theme" : {
@@ -72,8 +72,8 @@
             "balanceImageStyle" : ""
         },
 	    "fonts" : [
-            "fonts/Coda-Heavy.ttf",
-            "fonts/Coda-Regular.ttf"
+            "fonts/KhmerUIb.ttf",
+            "fonts/KhmerUI.ttf"
 	    ],
         "pages" : {
             "goods" :{
