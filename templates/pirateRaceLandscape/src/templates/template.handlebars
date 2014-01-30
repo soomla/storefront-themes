@@ -9,7 +9,7 @@
     <div class="balances font-face-2">
 		{{#each currencies}}
             <div class="balance-container">
-                <label class="balance-label">{{this.balance}}</label>
+                <label class="balance-label" data-currency="{{this.itemId}}">{{this.balance}}</label>
                 <img class="balance-currency-image" src="{{this.imgFilePath}}">
             </div>
 		{{/each}}

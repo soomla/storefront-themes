@@ -240,7 +240,7 @@ define("pirateRaceLandscapeViews", ["jquery", "backbone", "marionette", "compone
         },
         updateBalance : function(model) {
             // TODO: Move to a header view
-            this.$(".balances label[data-currency='" + model.id + "']").html(model.getBalance());
+            this.$(".balances .balance-label[data-currency='" + model.id + "']").html(model.getBalance());
         },
         onClickBuyMore : function() {
             this.showCurrencyPacks();
