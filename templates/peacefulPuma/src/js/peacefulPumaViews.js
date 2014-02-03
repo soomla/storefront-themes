@@ -58,7 +58,12 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
                     }
                     return itemView;
                 }
-            }
+            },
+
+            // Override the initial events, because we're binding the `render` function to them
+            // later.  This originates from the odd \ even UI. Every item that gets added \ removed
+            // triggers a complete render
+            _initialEvents : function() {}
         });
 
 
@@ -110,7 +115,7 @@ define("peacefulPumaViews", ["jquery", "backbone", "components", "helperViews", 
 
             // Re-render the entire list when goods are added \ removed  to prevent
             // a UI artifact of text mis-alignment due to flipping sides of even \ odd items
-            this.listenTo(goods, "add remove", this.goodsView.render);
+            this.listenTo(goods, "add remove reset", this.goodsView.render);
         },
         ui : {
             contentContainer   : "#content-container"
