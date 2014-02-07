@@ -311,7 +311,10 @@ define("leapOfFangsViews", ["jquery", "backbone", "components", "handlebars", "m
 
 
             // Create header
-            var title = categories.first().getName();
+            var title = !categories.isEmpty() ?
+                        categories.first().getName() :
+                        !currencies.isEmpty() ?
+                        currencies.first().getName() : "";
             this.header = new Backbone.Model({title : title});
             this.headerView = new HeaderView({ model : this.header });
 
